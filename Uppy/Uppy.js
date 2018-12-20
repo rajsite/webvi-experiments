@@ -29,7 +29,6 @@
             const Uppy = window.Uppy;
             const Dashboard = Uppy.Dashboard;
             const Webcam = Uppy.Webcam;
-            let currentTimeout = undefined;
 
             // For more options to use with Core: https://uppy.io/docs/uppy/#Options
             const uppy = Uppy.Core({
@@ -37,18 +36,14 @@
                     maxNumberOfFiles: 1
                 },
                 onBeforeUpload: function (uppyFiles) {
-                    // Configured for single file so pick that
+                    // Get the user selected file / blob
                     const files = Object.keys(uppyFiles).map((key) => uppyFiles[key].data);
                     const file = files[0];
+                    resolve(file);
 
                     // Clean-up the dialog and uppy state
                     uppy.getPlugin('Dashboard').closeModal();
-                    clearTimeout(currentTimeout);
-                    currentTimeout = undefined;
                     uppy.close();
-
-                    // Return the selected file / blob
-                    resolve(file);
                     return false;
                 }
             });
@@ -61,26 +56,17 @@
             // For more options to use with Dashboard: https://uppy.io/docs/dashboard/#Options
             uppy.use(Dashboard, {
                 plugins: ['Webcam'],
-                trigger: null
+                trigger: null,
+                proudlyDisplayPoweredByUppy: true,
+                onRequestCloseModal: () => {
+                    reject(new Error('No file selected'));
+                    uppy.getPlugin('Dashboard').closeModal();
+                    uppy.close();
+                }
             });
 
             // Open the dashboard and wait for selection or cancel
             uppy.getPlugin('Dashboard').openModal();
-
-            // Poll and check if the dashboard is still open
-            // Does not appear to be an event to notify if the dashboard is closed
-            // See issue: https://github.com/transloadit/uppy/issues/1208
-            // Actually switch to onRequestCloseModal: () => this.closeModal()
-            (function checkDialog () {
-                if (uppy.getPlugin('Dashboard').isModalOpen()) {
-                    currentTimeout = setTimeout(checkDialog, 0);
-                } else {
-                    // If modal closed and timeout undefined then must have closed successfully last tick
-                    if (currentTimeout !== undefined) {
-                        reject(new Error('No file selected'));
-                    }
-                }
-            }());
         });
     };
 
