@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Instructions found at https://uppy.io/docs/#With-a-script-tag -->
+
+<link href="https://transloadit.edgly.net/releases/uppy/v0.29.0/dist/uppy.min.css" rel="stylesheet">
+<script src="https://transloadit.edgly.net/releases/uppy/v0.29.0/dist/uppy.min.js"></script>
+
+<!-- JavaScript wrappers for this project -->
+<script src="Uppy.js"></script>
+
+
+</head>
+<body>
+
+<button id="dothething"></button>
+
+<script>
+dothething.onclick = async function () {
+    var result = await window.getUserFile();
+    console.log(result);
+};
+</script>
+</body>
+
+</html>
