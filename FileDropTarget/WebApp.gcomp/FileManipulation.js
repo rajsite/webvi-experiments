@@ -25,10 +25,11 @@
             dropTarget.addEventListener('dragover', ignoreDefaultBehavior);
             dropTarget.addEventListener('drop', dropHandler);
         });
-    }
+    };
 
     const readFile = async function (file) {
         return new Promise(function (resolve, reject) {
+            const fileReader = new FileReader();
             const loadendHandler = function () {
                 fileReader.removeEventListener('loadend', loadendHandler);
                 if (fileReader.error) {
@@ -37,13 +38,12 @@
                     const result = new Uint8Array(fileReader.result);
                     resolve(result);
                 }
-            }
+            };
 
-            const fileReader = new FileReader();
             fileReader.addEventListener('loadend', loadendHandler);
             fileReader.readAsArrayBuffer(file);
         });
-    }
+    };
 
     const loadFileFromDropTarget = function (selector, jsapi) {
         makeAsync(jsapi, async function () {
@@ -62,7 +62,9 @@
 
     const createObjectUrlFromArray = function (uint8Array, contentTypeIn) {
         const contentType = contentTypeIn || 'text/plain';
-        const blob = new Blob([uint8Array.buffer], {type: contentType});
+        const blob = new Blob([uint8Array.buffer], {
+            type: contentType
+        });
         const objectUrl = URL.createObjectURL(blob);
         return objectUrl;
     };
