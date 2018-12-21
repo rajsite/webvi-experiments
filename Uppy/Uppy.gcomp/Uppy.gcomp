@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="2A5F12CC90B55F3BADA9F0F72BA78C786621F6CBA35FAA09163611F813D496062E29B8667D7EC9342722570F7A10898DE8274BD168A346B9909092AFA88146EE" Timestamp="1D498BDB5B18D7F" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D760C445CD4C0BDAC594FF930BFE91F8276CADBEE663E3ADBFCE2670CA6DD85A6BA53A0668EBCEB4F9E092AC12A7C1056244C8588CA657EE7BAA9CD7023D602F" Timestamp="1D498C61C9E0914" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.3.0.49624" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.3.0.49624" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" Version="6.0.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.3.0.49624" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
 		<ApplicationVersionInfo Build="6.3.0.49624" Name="LabVIEW NXG" Version="3.1.0" />
 	</SourceModelFeatureSet>
@@ -14,13 +15,44 @@
 		<CompilerSymbolTable Id="fcef48f2c38847a0aa3294922e4a33e6" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="6089a06448bb49ec9729dab61510d665" Name="Configuration1">
 			<CompilerSymbolTable Id="26b30dbc8d9a4df69c354906d5f6156a" xmlns="http://www.ni.com/PlatformFramework" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="963155db3dc64fcaa4e52cd138c71d38" Id="23c123547f3446f48d80c6d3ca4c0e1e" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="552f8bd998e24c80bf0f5746067ca596" Id="23a4e753a8a2432888622fc75a19adc9" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="478bcee0b0de4d87b381b934b568fd82" Id="d9b7221a43d47edb755362382133a49" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="30da9473e7e441c286652dccac161a59" Id="c092261c655c4beaa051d2f0277cb1c4" />
+			<ComponentItemProperties AssociatedEnvoyId="e7a75b731712436bb8dcdac106a42c0a" Exported="True" Id="3bce81fc214a4e17be80d917218199cd" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="4155c149e5214470a05c2b91bbd747a8" xmlns="http://www.ni.com/PlatformFramework">
 		<ProjectSettings Id="7e56913cd5774c5a9b33bf067aa4ea67" ModelDefinitionType="ProjectSettings" Name="ZProjectSettings" />
 		<EmbeddedDefinitionReference Id="9792639a037249a0b88e8a5f421cc3fb" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
 			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
-			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="72584179dddf44a3b431f307fbc07fd5" Name="Uppy" />
+			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="72584179dddf44a3b431f307fbc07fd5" Name="Uppy">
+				<EmbeddedDefinitionReference Id="963155db3dc64fcaa4e52cd138c71d38" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="README.md">
+					<ExternalFile>
+						<p.StoragePath>README.md</p.StoragePath>
+					</ExternalFile>
+				</EmbeddedDefinitionReference>
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="ba21f261292448c6bb64b0379ba61dc7" Name="lib">
+					<EmbeddedDefinitionReference Id="552f8bd998e24c80bf0f5746067ca596" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="uppy.min.css">
+						<ExternalFile>
+							<p.StoragePath>"lib\\uppy.min.css"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
+					<EmbeddedDefinitionReference Id="478bcee0b0de4d87b381b934b568fd82" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="uppy.min.js">
+						<ExternalFile>
+							<p.StoragePath>"lib\\uppy.min.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
+				</NameScopingEnvoy>
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="eb95cc6e896d4d72b43754a95fcf3602" Name="wrapper">
+					<EmbeddedDefinitionReference Id="30da9473e7e441c286652dccac161a59" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Uppy.js">
+						<ExternalFile>
+							<p.StoragePath>"wrapper\\Uppy.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
+				</NameScopingEnvoy>
+				<SourceFileReference Bindings="EnvoyManager" Id="e7a75b731712436bb8dcdac106a42c0a" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Uppy.jsli" StoragePath="Uppy.jsli" />
+			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="b9920bf8df57421497ad6c6675e594fe" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="Uppy.gcomp" NameTracksFileName="True">
 			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />

@@ -70,11 +70,22 @@
         });
     };
 
+    const base64EncodeByteArray = function (uint8Array) {
+        let stringBuffer = '';
+        for (let i = 0; i < uint8Array.length; i++) {
+            stringBuffer += String.fromCharCode(uint8Array[i]);
+        }
+        return window.btoa(stringBuffer);
+    };
+
+    window.WebVIUppy = {};
     // Asks the user for a file, loads the contents in memory, and returns it as a Uint8Array
     // Relies on NXG 3.1 Promise support for async JavaScript
-    window.getUserFile = async function () {
+    window.WebVIUppy.getUserFile = async function () {
         const file = await userFileSelection();
         const uint8Array = await fileRead(file);
         return uint8Array;
     };
+
+    window.WebVIUppy.base64EncodeByteArray = base64EncodeByteArray;
 }());
