@@ -133,7 +133,7 @@ module.exports = {
         'no-tabs': 'error',
         'no-ternary': 'off',
         'no-trailing-spaces': 'error',
-        'no-underscore-dangle': 'error',
+        'no-underscore-dangle': ["error", { "allowAfterThis": true }],
         'no-unneeded-ternary': 'error',
         'no-whitespace-before-property': 'error',
         'object-curly-newline': ['error', { 'minProperties': 1 }],
