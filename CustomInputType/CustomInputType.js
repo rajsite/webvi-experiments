@@ -83,20 +83,55 @@
     }
     const refnumManager = new RefnumManager();
 
-    const createCustomInputType = function (selector, attributesJSON) {
+    const create = function (selector, attributesJSON) {
         const elements = document.querySelectorAll(selector);
         if (elements.length !== 1) {
             throw new Error(`Expected to find exactly one element with selector: ${selector}, but instead found: ${elements.length}`);
         }
 
-        const element = elements[0];
-        const refnum = refnumManager.createRefnum({
-            element,
-            handler
-        });
+        const containerElement = elements[0];
+        const attributes = JSON.parse(attributesJSON);
+
+        const input = document.createElement('input');
+        attributes.forEach(({name, value}) => input.setAttribute(name, value));
+
+        containerElement.innerHTML = '';
+        containerElement.append(input);
+
+        const queue = new DataQueue();
+        const handler = () => queue.enqueue(input.value);
+        const stopEvents = () => input.removeEventListener('change', handler);
+        input.addEventListener('change', handler);
+
+        const inputConfig = {
+            stopEvents,
+            queue
+        };
+
+        const refnum = refnumManager.createRefnum(inputConfig);
+        return refnum;
+    };
+
+    const waitForValueChangeEvent = async function (refnum) {
+        const inputConfig = refnumManager.getObject(refnum);
+        if (inputConfig === undefined) {
+            throw new Error('Invalid refnum, create a valid input refnum first');
+        }
+        return await inputConfig.queue.dequeue();
+    };
+
+    const stopEvents = async function (refnum) {
+        const inputConfig = refnumManager.getObject(refnum);
+        if (inputConfig === undefined) {
+            throw new Error('Invalid refnum, create a valid input refnum first');
+        }
+        inputConfig.stopEvents();
+        inputConfig.queue.destroy();
     };
 
     window.customInputType = {
-        createCustomInputType
+        create,
+        waitForValueChangeEvent,
+        stopEvents
     };
 }());
