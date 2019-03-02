@@ -1,14 +1,14 @@
 (function () {
     'use strict';
-    const refnum = window.customInputType.create('#mycontainer', JSON.stringify([
+    const refnum = window.customInputControl.createAndListenForChange('#mycontainer', JSON.stringify([
         {
             name: 'type',
             value: 'date'
         }
     ]));
-    document.getElementById('destroy').addEventListener('click', () => window.customInputType.stopEvents(refnum));
+    document.getElementById('destroy').addEventListener('click', () => window.customInputControl.stopListeningForChange(refnum));
     (async function getEvent () {
-        const val = await window.customInputType.waitForValueChangeEvent(refnum);
+        const val = await window.customInputControl.waitForChange(refnum);
         console.log(val);
         await getEvent();
     }());

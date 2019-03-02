@@ -83,7 +83,15 @@
     }
     const refnumManager = new RefnumManager();
 
-    const create = function (selector, attributesJSON) {
+    const getInputConfig = function (refnum) {
+        const inputConfig = refnumManager.getObject(refnum);
+        if (inputConfig === undefined) {
+            throw new Error('Invalid refnum, create a valid input refnum first');
+        }
+        return inputConfig;
+    };
+
+    const createAndListenForChange = function (selector, attributesJSON) {
         const elements = document.querySelectorAll(selector);
         if (elements.length !== 1) {
             throw new Error(`Expected to find exactly one element with selector: ${selector}, but instead found: ${elements.length}`);
@@ -105,33 +113,44 @@
 
         const inputConfig = {
             stopEvents,
-            queue
+            queue,
+            input
         };
 
         const refnum = refnumManager.createRefnum(inputConfig);
         return refnum;
     };
 
-    const waitForValueChangeEvent = async function (refnum) {
-        const inputConfig = refnumManager.getObject(refnum);
-        if (inputConfig === undefined) {
-            throw new Error('Invalid refnum, create a valid input refnum first');
-        }
+    const waitForChange = async function (refnum) {
+        const inputConfig = getInputConfig(refnum);
         return await inputConfig.queue.dequeue();
     };
 
-    const stopEvents = async function (refnum) {
-        const inputConfig = refnumManager.getObject(refnum);
-        if (inputConfig === undefined) {
-            throw new Error('Invalid refnum, create a valid input refnum first');
-        }
+    const stopListeningForChange = async function (refnum) {
+        const inputConfig = getInputConfig(refnum);
         inputConfig.stopEvents();
         inputConfig.queue.destroy();
     };
 
-    window.customInputType = {
-        create,
-        waitForValueChangeEvent,
-        stopEvents
+    const getAttribute = function (refnum, name) {
+        const inputConfig = getInputConfig(refnum);
+        const value = inputConfig.input.getAttribute(name);
+        if (value === null) {
+            throw new Error(`Attribute (${name}) does not exist`);
+        }
+        return value;
+    };
+
+    const setAttribute = function (refnum, name, value) {
+        const inputConfig = getInputConfig(refnum);
+        inputConfig.input.setAttribute(name, value);
+    };
+
+    window.customInputControl = {
+        createAndListenForChange,
+        waitForChange,
+        stopListeningForChange,
+        getAttribute,
+        setAttribute
     };
 }());
