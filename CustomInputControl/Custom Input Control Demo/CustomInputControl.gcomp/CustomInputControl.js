@@ -104,7 +104,7 @@
         attributes.forEach(({name, value}) => input.setAttribute(name, value));
 
         containerElement.innerHTML = '';
-        containerElement.append(input);
+        containerElement.appendChild(input);
 
         const queue = new DataQueue();
         const handler = () => queue.enqueue(input.value);
