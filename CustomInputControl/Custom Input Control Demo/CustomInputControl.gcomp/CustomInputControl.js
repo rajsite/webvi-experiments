@@ -132,25 +132,22 @@
         inputConfig.queue.destroy();
     };
 
-    const getAttribute = function (refnum, name) {
+    const getProperty = function (refnum, name) {
         const inputConfig = getInputConfig(refnum);
-        const value = inputConfig.input.getAttribute(name);
-        if (value === null) {
-            throw new Error(`Attribute (${name}) does not exist`);
-        }
-        return value;
+        const value = inputConfig.input[name];
+        return String(value);
     };
 
-    const setAttribute = function (refnum, name, value) {
+    const setProperty = function (refnum, name, value) {
         const inputConfig = getInputConfig(refnum);
-        inputConfig.input.setAttribute(name, value);
+        inputConfig.input[name] = value;
     };
 
     window.customInputControl = {
         createAndListenForChange,
         waitForChange,
         stopListeningForChange,
-        getAttribute,
-        setAttribute
+        getProperty,
+        setProperty
     };
 }());
