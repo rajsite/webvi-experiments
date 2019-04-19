@@ -1,0 +1,19 @@
+<!doctype HTML>
+<html>
+  <style>
+  .a-enter-vr {
+    display: none;
+  }
+  </style>
+<!-- ar system properties: https://github.com/jeromeetienne/AR.js/blob/master/aframe/src/system-arjs.js -->
+<script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs="debugUIEnabled: false;">
+      <a-marker preset="hiro">
+        <a-gltf-model src="scene.gltf" position='0 0.5 0'></a-gltf-model>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
