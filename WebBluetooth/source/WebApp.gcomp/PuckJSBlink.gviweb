@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="CB9B36014E198AC118D18A8F580677C009E932A82C344490EA3E98069F024660762D94C36AF7F542BDF42EE18BF78F5DD19FB674152305816804A308AA405CCD" Timestamp="1D490E1160A06AE" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="6.2.2.49804" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.2.2.49804" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.2.2.49804" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
+		<ParsableNamespace AssemblyFileVersion="6.2.2.49804" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="6.2.0.0" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.2.2.49804" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.2.2.49804" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
+		<ApplicationVersionInfo Build="6.2.2.49804" Name="LabVIEW NXG" Version="3.0.0" />
+	</SourceModelFeatureSet>
+	<VirtualInstrument Id="1" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" xmlns="http://www.ni.com/LabVIEW.VI">
+		<Icon Id="2" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="3" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="4" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+					<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="5" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+					<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="6" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+					<FileNameText Attached="[bool]True" Height="[float]36" Id="7" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]PuckJSBlink" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+						<FontSetting FontFamily="Verdana" FontSize="6" Id="8" />
+					</FileNameText>
+				</IconTemplate>
+			</IconPanel>
+		</Icon>
+		<ConnectorPane Height="40" Id="9" ListViewHeight="40" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+			<ConnectorPaneTerminal />
+			<ConnectorPaneTerminal Hotspot="0 15" />
+			<ConnectorPaneTerminal Hotspot="0 25" />
+			<ConnectorPaneTerminal Hotspot="0 35" />
+			<ConnectorPaneTerminal Hotspot="15 0" />
+			<ConnectorPaneTerminal Hotspot="25 0" />
+			<ConnectorPaneTerminal Hotspot="40 5" />
+			<ConnectorPaneTerminal Hotspot="40 15" />
+			<ConnectorPaneTerminal Hotspot="40 25" />
+			<ConnectorPaneTerminal Hotspot="40 35" />
+			<ConnectorPaneTerminal Hotspot="15 40" />
+			<ConnectorPaneTerminal Hotspot="25 40" />
+		</ConnectorPane>
+		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="0 0 40 15" DataItem="73" Id="74" Label="77">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="74" Bounds="-35 0 30 15" Id="77" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Button</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="0 0 40 15" DataItem="78" Id="79" Label="82">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="79" Bounds="-35 0 30 15" Id="82" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Toggle LED</p.Text>
+			</NodeLabel>
+		</DiagramUnplacedItems>
+		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
+		<BlockDiagram Id="12">
+			<DataAccessor Bounds="1250 340 40 15" DataItem="60" Id="17" Label="54" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<MethodCall Bounds="360 300 40 60" Id="18" ResolveFailedHint="Request Device" Signature="@71dee22f59b64e568ef8eacedceae740" Target="WebBluetooth::WebBluetooth.jsli::Request Device" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L1" Desc="options" />
+						<Parameter Id="L2" Desc="selector" />
+						<Parameter Id="L3" Desc="event" />
+						<Parameter Id="L5" Desc="error in" />
+						<Parameter Id="R0" Desc="device refnum" />
+						<Parameter Id="R5" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 55" Id="L5" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 55" Id="R5" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<ClusterLiteral Bounds="-185 155 415 115" DataType="@36d3a423421d4ddba187cdf253a66cdb" Id="19" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Cluster>
+						<Field1>
+							<Array Lengths="1" IsBinary="True" Compression="GZip">
+								<BinaryElements>H4sIAAAAAAAEAM1TTWvbQBCVKlmWYrsht9JLfejRFvKHnOjgQ3FpG1JCwWkuwrjr9bgsWUlhdxVQoH+gf7qdkR3iQlJyCLQjdiTNvJ2ZN8NYtmVZv1DoTdJ+gSo9Z0YUOZOnuTaqzCA3OpwVCnrdS1AaXdNJGNHT685KaUoF0xxKo5jsdb+UKyn4GVQXxRXk0yEwFrNNdDIaw3A4WDcoU/xQgvfMsEsmS8BcstQG1AcBcj0rpAROcBdvehuy6UbOMtAH9c9FdQ36kG+vzNg148JUjudYP+15hbYsvA+hw4+QgxI8/Cy0+TZI0wcgp+TrdTPNCyXF6p70+KmkV8fHLObxZJAg6+gkWSx+PL0U4vPM2X2aauCQoiYGDVQ0B5dM/1ObqB5vKTCVbiy1uAV/ebONip7XjxWRLnw/8Hac6By5uw+vicrXoG4EB+0S7387ib8S7OzlrTn5e5yaRHA7NTzOq8eaEQTo7jhN/w94ay90cLBFENC+C+8FLcKS680O+zXHRZpjY5gUt/XCfirkGhRxcGlbgxpBIdvvtIZsJatz3Evbsn2vjaDDXaC5USL/ni7qBe6gOnvGnh617hi8RPV2AuMIZdBfxWzU34ySUR8ilvQhjmA4XnPOEmj9Bgt7oyr3BAAA</BinaryElements>
+							</Array>
+						</Field1>
+					</Cluster>
+				</p.Data>
+				<ClusterBehavior />
+				<ArrayLiteral Bounds="6 25 380 68" DataType="@1d3dd74b74f6450c838c8107c849ee71" Id="20" Label="21">
+					<p.Data>
+						<Array Lengths="1" IsBinary="True" Compression="GZip">
+							<BinaryElements>H4sIAAAAAAAEAM1TTWvbQBCVKlmWYrsht9JLfejRFvKHnOjgQ3FpG1JCwWkuwrjr9bgsWUlhdxVQoH+gf7qdkR3iQlJyCLQjdiTNvJ2ZN8NYtmVZv1DoTdJ+gSo9Z0YUOZOnuTaqzCA3OpwVCnrdS1AaXdNJGNHT685KaUoF0xxKo5jsdb+UKyn4GVQXxRXk0yEwFrNNdDIaw3A4WDcoU/xQgvfMsEsmS8BcstQG1AcBcj0rpAROcBdvehuy6UbOMtAH9c9FdQ36kG+vzNg148JUjudYP+15hbYsvA+hw4+QgxI8/Cy0+TZI0wcgp+TrdTPNCyXF6p70+KmkV8fHLObxZJAg6+gkWSx+PL0U4vPM2X2aauCQoiYGDVQ0B5dM/1ObqB5vKTCVbiy1uAV/ebONip7XjxWRLnw/8Hac6By5uw+vicrXoG4EB+0S7387ib8S7OzlrTn5e5yaRHA7NTzOq8eaEQTo7jhN/w94ay90cLBFENC+C+8FLcKS680O+zXHRZpjY5gUt/XCfirkGhRxcGlbgxpBIdvvtIZsJatz3Evbsn2vjaDDXaC5USL/ni7qBe6gOnvGnh617hi8RPV2AuMIZdBfxWzU34ySUR8ilvQhjmA4XnPOEmj9Bgt7oyr3BAAA</BinaryElements>
+						</Array>
+					</p.Data>
+					<ArrayBehavior ElementType="@fc1afb95fa6340a193ed1b551bcf89db" IndexEditorWidth="42" IndexVisibility="Collapsed" VerticalScrollBarVisibility="True">
+						<p.DefaultElementValue>
+							<Cluster>
+								<Field1>
+									<Array Lengths="1" IsBinary="True" Compression="GZip">
+										<BinaryElements>H4sIAAAAAAAEAGNgZGBg+A8EIBoEBEAMEGZjAhL8SYklJalFlfHFqUVlmcmp3ABCTNaCMAAAAA==</BinaryElements>
+									</Array>
+								</Field1>
+							</Cluster>
+						</p.DefaultElementValue>
+					</ArrayBehavior>
+					<ClusterLiteral Bounds="5 4 352 60" DataType="@fc1afb95fa6340a193ed1b551bcf89db" Id="22">
+						<ClusterBehavior />
+						<ArrayLiteral Bounds="5 20 321 23" DataType="String[]" Id="23" Label="24">
+							<ArrayBehavior ElementType="String" IndexEditorWidth="42" IndexVisibility="Collapsed" VerticalScrollBarVisibility="True">
+								<p.DefaultElementValue>""</p.DefaultElementValue>
+							</ArrayBehavior>
+							<Literal Bounds="7 4 291 15" DataType="String" Id="25">
+								<StringBehavior TextDisplayMode="Default" />
+							</Literal>
+						</ArrayLiteral>
+						<NodeLabel AttachedTo="23" Bounds="5 2 45 15" Id="24" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>services</p.Text>
+						</NodeLabel>
+					</ClusterLiteral>
+				</ArrayLiteral>
+				<NodeLabel AttachedTo="20" Bounds="6 8 32 14" Id="21" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>filters</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<FlattenToJSON Bounds="275 320 40 40" Id="26" />
+			<Literal Bounds="95 410 230 15" DataType="String" Id="27" Label="55" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>jqx-toggle-button[ni-control-id='75']</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Literal Bounds="290 440 50 15" DataType="String" Id="28" Label="56" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>click</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="29" Joints="N(26:error out)|(315,355) N(18:L5)|(360,355)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="31" Joints="N(19:Out)|(230,160) h(20) v(165) N(26:anything)|(275,325)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="32" Joints="N(26:JSON string)|(315,325) h(10) v(-10) N(18:L1)|(360,315)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="33" Joints="N(27:Out)|(325,415) h(10) v(-90) N(18:L2)|(360,325)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="34" Joints="N(28:Out)|(340,445) h(5) v(-110) N(18:L3)|(360,335)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="480 320 40 40" Id="35" ResolveFailedHint="GATT Server Connect" Signature="@7a8e0b70c799495ba547d613951def6d" Target="WebBluetooth::WebBluetooth.jsli::GATT Server Connect" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L1" Desc="device refnum" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="gatt server refnum" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="36" Joints="N(18:R5)|(400,355) N(35:L3)|(480,355)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="37" Joints="N(18:R0)|(400,305) h(35) v(30) N(35:L1)|(480,335)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="585 320 40 40" Id="38" ResolveFailedHint="Get Primary Service" Signature="@a6f1aee5f3b849b691bff4634738f1bd" Target="WebBluetooth::WebBluetooth.jsli::Get Primary Service" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L1" Desc="gatt server refnum" />
+						<Parameter Id="L2" Desc="service" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="service refnum" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="39" Joints="N(35:R3)|(520,355) N(38:L3)|(585,355)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="210 530 260 15" DataType="String" Id="40" Label="57" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>6e400001-b5a3-f393-e0a9-e50e24dcca9e</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="41" Joints="N(40:Out)|(470,535) h(70) v(-190) N(38:L2)|(585,345)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="42" Joints="N(35:R0)|(520,325) h(59) v(10) N(38:L1)|(585,335)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="695 320 40 40" Id="43" ResolveFailedHint="Get Characteristic" Signature="@1044738c630b4ff7b4349475197eb011" Target="WebBluetooth::WebBluetooth.jsli::Get Characteristic" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L1" Desc="service refnum" />
+						<Parameter Id="L2" Desc="characteristic" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="characteristic refnum" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="44" Joints="N(38:R3)|(625,355) N(43:L3)|(695,355)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="45" Joints="N(38:R0)|(625,325) h(6) v(10) N(43:L1)|(695,335)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="375 625 260 15" DataType="String" Id="46" Label="58" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>6e400002-b5a3-f393-e0a9-e50e24dcca9e</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="47" Joints="N(46:Out)|(635,630) h(40) v(-285) N(43:L2)|(695,345)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="49" Joints="N(43:R3)|(735,355) N(1340:o0)|(766,355)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="50" Joints="N(43:R0)|(735,325) N(1345:o0)|(766,325)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="17" Bounds="1295 340 39 14" Id="54" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Output</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="27" Bounds="95 392 30 15" Id="55" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>selector</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="28" Bounds="290 422 30 15" Id="56" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>event</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="40" Bounds="210 512 30 15" Id="57" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>service</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="46" Bounds="375 607 30 15" Id="58" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>characteristic</p.Text>
+			</NodeLabel>
+			<Wire Id="88" Joints="N(1350:o0)|(1169,345) N(17:Value)|(1253,345)" xmlns="http://www.ni.com/PlatformFramework" />
+			<WhileLoop Bounds="770 150 395 275" DiagramId="93" Id="92">
+				<LoopIteration Bounds="5 245 15 15" Id="94" />
+				<LoopCondition Bounds="365 245 15 15" Id="95" />
+				<EventStructure Bounds="20 10 353 225" Id="96" Selected="97" UserSelectorBounds="20 0 313 17">
+					<EventStructure.EventCase Bounds="21 18 311 199" Id="97">
+						<EventStructure.EventData Bounds="0 82 92 50" HasErrorTerminals="False" Id="98" InstanceDataType="@045cbf855cdb4a2ab131ce278ccd0aaf" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
+							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+							</p.TypeDefinitionTargets>
+							<EventPropertyItemTerminal DataType="Boolean" Hotspot="92 15" Id="c0t0v" Path="Old Value" PathElementMemberKinds="Field" Usage="Optional" />
+							<EventPropertyItemTerminal DataType="Boolean" Hotspot="92 30" Id="c1t0v" Path="New Value" PathElementMemberKinds="Field" Usage="Optional" />
+						</EventStructure.EventData>
+						<MethodCall Bounds="235 137 40 40" Id="83" ResolveFailedHint="Write Value" Signature="@ea63cc2f12da4a87932a8e075f7572bd" Target="WebBluetooth::WebBluetooth.jsli::Write Value" xmlns="http://www.ni.com/MocCommon">
+							<p.MethodDeclaration>
+								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+									<Parameter Id="L0" Desc="characteristic refnum" />
+									<Parameter Id="L1" Desc="value" />
+									<Parameter Id="L3" Desc="error in" />
+									<Parameter Id="R3" Desc="error out" />
+								</MethodDeclaration>
+							</p.MethodDeclaration>
+							<Terminal DataType="Int32" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="UInt8[]" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+						</MethodCall>
+						<StringToByteArray Bounds="165 47 40 20" Id="86" />
+						<Literal Bounds="10 47 125 15" DataType="String" Id="89" Label="90" xmlns="http://www.ni.com/MocCommon">
+							<p.Data>"LED1.write(1)\n"</p.Data>
+							<StringBehavior SizeToContent="False" TextDisplayMode="Escaped" />
+						</Literal>
+						<NodeLabel AttachedTo="89" Bounds="10 29 30 15" Id="90" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>string</p.Text>
+						</NodeLabel>
+						<Wire Id="1339" Joints="N(1342:97)|(2,172) N(83:L3)|(235,172)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="1344" Joints="N(1347:97)|(2,142) N(83:L0)|(235,142)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="1349" Joints="N(83:R3)|(275,172) h(29) v(-10) N(1352:97)|(309,162)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="87" Joints="N(86:unsigned byte array)|(205,52) h(20) v(100) N(83:L1)|(235,152)" xmlns="http://www.ni.com/PlatformFramework" />
+						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventName="Value changed" EventSourceType="Content" EventType="@b227f3ede95d4c37b40ac3d30b9ca6d4" SourceContent="80" SourceName="Toggle LED" />
+						<Select Bounds="114 92 40 40" Id="1355" />
+						<Wire Id="1356" Joints="N(98:c1t0v)|(92,112) N(1355:s)|(114,112)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="1357" Joints="N(89:Out)|(135,52) h(6) v(35) h(-38) v(10) N(1355:t)|(114,97)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Literal Bounds="9 152 125 15" DataType="String" Id="1358" Label="1359" xmlns="http://www.ni.com/MocCommon">
+							<p.Data>"LED1.write(0)\n"</p.Data>
+							<StringBehavior SizeToContent="False" TextDisplayMode="Escaped" />
+						</Literal>
+						<NodeLabel AttachedTo="1358" Bounds="9 134 30 15" Id="1359" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>string</p.Text>
+						</NodeLabel>
+						<Wire Id="1360" Joints="N(1358:Out)|(134,157) h(5) v(-20) h(-31) v(-10) N(1355:f)|(114,127)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="1361" Joints="N(1355:s? t:f)|(154,112) h(6) v(-40) h(-6) v(-20) N(86:string)|(165,52)" xmlns="http://www.ni.com/PlatformFramework" />
+					</EventStructure.EventCase>
+					<EventStructure.Tunnel Bounds="-2 185 25 10" Docking="Left" Id="1342" Terminals="96=1341, 97=1339" />
+					<EventStructure.Tunnel Bounds="-2 155 25 10" Docking="Left" Id="1347" Terminals="96=1346, 97=1344" />
+					<EventStructure.Tunnel Bounds="330 175 25 10" Docking="Right" Id="1352" Terminals="96=1351, 97=1349" />
+				</EventStructure>
+				<Wire Id="1341" Joints="N(1340:i0)|(4,200) h(6) B(1) N(1342:96)|(18,200) B(1) v(40) h(345) v(10) N(95:Input)|(365,250)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="1346" Joints="N(1345:i0)|(4,170) N(1347:96)|(18,170)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="1351" Joints="N(1352:96)|(375,190) N(1350:i0)|(381,190)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopTunnel Bounds="-4 200 13 10" Docking="Left" Id="1340" Terminals="o0=49, i0=1341" />
+				<LoopTunnel Bounds="-4 170 13 10" Docking="Left" Id="1345" Terminals="o0=50, i0=1346" />
+				<LoopTunnel Bounds="386 190 13 10" Docking="Right" Id="1350" Terminals="o0=88, i0=1351" />
+			</WhileLoop>
+		</BlockDiagram>
+		<HtmlFrontPanel Height="[float]480" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" UpdatedRootPage="[string]&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&#xA;    &lt;head&gt;&#xA;        &lt;script src=&quot;WebBluetooth/WebBluetooth.js&quot;&gt;&lt;/script&gt;&#xA;        &lt;meta charset=&quot;utf-8&quot;&gt;&#xA;        &lt;!---Read only section. Source panel edits to these document properties will not be persisted--&gt;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xA;        &lt;title&gt;PuckJSBlink&lt;/title&gt;&#xA;        &lt;!---End read only section. Additional scripts or document properties can be added outside this section--&gt;&#xA;        &lt;style ni-autogenerated-style-id=&quot;&quot;&gt;&#xA;            /* Read only section. Source panel edits to the content of this style tag will not be persisted */&#xA;            &#xA;            ni-front-panel[ni-control-id='FrontPanelCanvas'] {&#xA;                width: 320px;&#xA;                height: 480px;&#xA;            }&#xA;            &#xA;            .ni-front-panel-wrapper {&#xA;                min-width: 320px;&#xA;            }&#xA;            &#xA;            ni-cluster[ni-control-id='62'] {&#xA;                left: 68px;&#xA;                top: 292px;&#xA;                width: 176px;&#xA;                height: 176px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-led[ni-control-id='63'] {&#xA;                left: 8px;&#xA;                top: 24px;&#xA;                width: 24px;&#xA;                height: 24px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                --ni-content-display: none;&#xA;                --ni-true-background: rgba(255, 0, 0, 1);&#xA;                --ni-true-foreground-color: rgba(255, 255, 255, 1);&#xA;                --ni-false-foreground-color: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='64'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 8px;&#xA;                top: 4px;&#xA;                width: 38px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-numeric-text-box[ni-control-id='65'] {&#xA;                left: 64px;&#xA;                top: 24px;&#xA;                width: 104px;&#xA;                height: 24px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                --ni-text-align-as-flex: flex-end;&#xA;                --ni-text-align: right;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='66'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 64px;&#xA;                top: 4px;&#xA;                width: 33px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-multiline-text-box[ni-control-id='67'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 96px;&#xA;                left: 8px;&#xA;                --ni-text-align: left;&#xA;                top: 72px;&#xA;                width: 160px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='68'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 8px;&#xA;                top: 52px;&#xA;                width: 42px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='69'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 68px;&#xA;                top: 272px;&#xA;                width: 45px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-toggle-button[ni-control-id='75'] {&#xA;                left: 80px;&#xA;                top: 20px;&#xA;                width: 152px;&#xA;                height: 28px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                --ni-true-foreground-color: rgba(255, 255, 255, 1);&#xA;                --ni-false-foreground-color: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='76'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 80px;&#xA;                top: 0px;&#xA;                width: 43px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-toggle-button[ni-control-id='80'] {&#xA;                left: 112px;&#xA;                top: 132px;&#xA;                width: 88px;&#xA;                height: 88px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                --ni-true-foreground-color: rgba(255, 255, 255, 1);&#xA;                --ni-false-foreground-color: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='81'] {&#xA;                --ni-foreground-color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 112px;&#xA;                top: 112px;&#xA;                width: 66px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            /* End read only section. To add additional styles, add a new style tag after this one. */&#xA;        &lt;/style&gt;&#xA;&#xA;    &lt;/head&gt;&#xA;&#xA;    &lt;body&gt;&#xA;        &lt;div id=&quot;ni-outdated-browser-message&quot; style=&quot;display:none&quot;&gt;This browser is reporting compatibility with older browser technologies that may perform poorly if it all.&lt;/div&gt;&#xA;        &lt;div id=&quot;ni-failed-to-load-vireo-source&quot; style=&quot;display:none&quot;&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-title&quot;&gt;&#xA;                Unable to load resource file&#xA;            &lt;/div&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-body&quot;&gt;&#xA;                Verify all WebVI files are available and served using an HTTP server or use a browser that can load files directly from the file system. See &lt;a href=&quot;http://digital.ni.com/express.nsf/bycode/HOSTWEBAPP&quot;&gt;Hosting a Web Application on a Server&lt;/a&gt;                for more information.&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;ni-front-panel-wrapper&quot; vi-ref=&quot;&quot; ni-control-id=&quot;FrontPanelWrapper&quot;&gt;&#xA;            &lt;ni-front-panel ni-control-id=&quot;FrontPanelCanvas&quot;&gt;&#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;            &lt;/ni-front-panel&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/body&gt;&#xA;&#xA;&lt;/html&gt;" Width="[float]320" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Extras="[Dictionary&lt;string, string&gt;]" Height="[float]176" Id="62" Label="[UIModel]69" Left="[float]68" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]0" Top="[float]292" Value="{DataItemBinding Id=60}" Width="[float]176" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlBooleanLED ContentVisibility="[Visibility]Collapsed" Extras="[Dictionary&lt;string, string&gt;]" Height="[float]24" Id="63" IsReadOnly="[bool]True" Label="[UIModel]64" Left="[float]8" MinHeight="[float]16" MinWidth="[float]16" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" />
+				<HtmlLabel Extras="[Dictionary&lt;string, string&gt;]&quot;text&quot;=&quot;status&quot;" Height="[float]16" Id="64" LabelOwner="[UIModel]63" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]38" />
+				<HtmlNumericText Extras="[Dictionary&lt;string, string&gt;]&quot;drop-down-enabled&quot;=&quot;true&quot;,&quot;word-length&quot;=&quot;int32&quot;" Height="[float]24" Id="65" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]66" Left="[float]64" MinHeight="[float]16" MinWidth="[float]36" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" />
+				<HtmlLabel Extras="[Dictionary&lt;string, string&gt;]&quot;text&quot;=&quot;code&quot;" Height="[float]16" Id="66" LabelOwner="[UIModel]65" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]33" />
+				<HtmlStringControl AcceptsReturn="[bool]True" Extras="[Dictionary&lt;string, string&gt;]" Height="[float]96" Id="67" IsReadOnly="[bool]True" Label="[UIModel]68" Left="[float]8" MinHeight="[float]20" MinWidth="[float]20" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" />
+				<HtmlLabel Extras="[Dictionary&lt;string, string&gt;]&quot;text&quot;=&quot;source&quot;" Height="[float]16" Id="68" LabelOwner="[UIModel]67" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]42" />
+			</HtmlCluster>
+			<HtmlLabel Extras="[Dictionary&lt;string, string&gt;]&quot;class&quot;=&quot;ni-hidden&quot;,&quot;text&quot;=&quot;Output&quot;" Height="[float]16" Id="69" LabelOwner="[UIModel]62" Left="[float]68" Text="[string]Output" Top="[float]272" Visible="[bool]False" Width="[float]45" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<HtmlButton BaseName="[string]Button" Content="[string]Connect to Puck.js" ContentVisibility="[Visibility]Visible" Extras="[Dictionary&lt;string, string&gt;]" Height="[float]28" Id="75" Label="[UIModel]76" Left="[float]80" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]1" Top="[float]20" Value="{DataItemBinding Id=73}" Width="[float]152" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<HtmlLabel Extras="[Dictionary&lt;string, string&gt;]&quot;class&quot;=&quot;ni-hidden&quot;,&quot;text&quot;=&quot;Button&quot;" Height="[float]16" Id="76" LabelOwner="[UIModel]75" Left="[float]80" Text="[string]Button" Top="[float]0" Visible="[bool]False" Width="[float]43" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<HtmlButton BaseName="[string]Button" Content="[string]Toggle LED" Extras="[Dictionary&lt;string, string&gt;]" Height="[float]88" Id="80" Label="[UIModel]81" Left="[float]112" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]2" Top="[float]132" Value="{DataItemBinding Id=78}" Width="[float]88" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<HtmlLabel Extras="[Dictionary&lt;string, string&gt;]&quot;class&quot;=&quot;ni-hidden&quot;,&quot;text&quot;=&quot;Button_2&quot;" Height="[float]16" Id="81" LabelOwner="[UIModel]80" Left="[float]112" Text="[string]Toggle LED" Top="[float]112" Visible="[bool]False" Width="[float]66" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		</HtmlFrontPanel>
+		<DataItem DataType="Error" Id="60" Name="Output" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>False</Field1>
+					<Field2>0</Field2>
+					<Field3>""</Field3>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
+			</p.TypeDefinitionTargets>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="73" IsLatched="True" Name="Button" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="78" IsLatched="True" Name="Toggle LED" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
+		</DataItem>
+	</VirtualInstrument>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="71dee22f59b64e568ef8eacedceae740">
+			<Attributed AttributedType="@ce47ab33c0514e6bb959473153860fb9">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|3|0|1" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]60" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="36d3a423421d4ddba187cdf253a66cdb">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="filters" DataType="@1d3dd74b74f6450c838c8107c849ee71" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1d3dd74b74f6450c838c8107c849ee71">
+			<VariableArray DereferenceType="@fc1afb95fa6340a193ed1b551bcf89db" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="fc1afb95fa6340a193ed1b551bcf89db">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="services" DataType="String[]" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7a8e0b70c799495ba547d613951def6d">
+			<Attributed AttributedType="@e1e33eaca6ad4f9f908dead0dd263922">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0|1" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a6f1aee5f3b849b691bff4634738f1bd">
+			<Attributed AttributedType="@feb2ff4bbc6c450b88ca039a8c134676">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1044738c630b4ff7b4349475197eb011">
+			<Attributed AttributedType="@e0a1b0fbf88c43888e485155765f0565">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="045cbf855cdb4a2ab131ce278ccd0aaf">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="Source" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Type" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Time" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Index" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Ref Id" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Control Reference" DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Old Value" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="New Value" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="ea63cc2f12da4a87932a8e075f7572bd">
+			<Attributed AttributedType="@719f740b6eb54e4e8d6dc9cfe85a572a">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b227f3ede95d4c37b40ac3d30b9ca6d4">
+			<Attributed AttributedType="@cf4800332f2b4fdbbf8529ba38ca6200">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="ce47ab33c0514e6bb959473153860fb9">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Request Device" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@66e8261d484a4f25a75f90c45114f4cb">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]options" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8143f2e09fc14393ad9b7ae29c9e31f8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@bbd495875f6b419bb10b648a960f5e16">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@3aa7bd0053f04907b6f1696b57d51259">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6cc4f8cb06154c5599c70d7743ec5a02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]device refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a9de1e4722db41dfb8e4dfa8a5b5c480">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="e1e33eaca6ad4f9f908dead0dd263922">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GATT Server Connect" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@652e95ee6f4540678c8842c462e956f1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]device refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@e644d82de5364f9caf3924d31d60d8ce">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6cc4f8cb06154c5599c70d7743ec5a02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]gatt server refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@17bff48168cc4e78885944fac1c367fa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="feb2ff4bbc6c450b88ca039a8c134676">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Primary Service" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@652e95ee6f4540678c8842c462e956f1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]gatt server refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8143f2e09fc14393ad9b7ae29c9e31f8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]service" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@e644d82de5364f9caf3924d31d60d8ce">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6cc4f8cb06154c5599c70d7743ec5a02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]service refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@17bff48168cc4e78885944fac1c367fa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="e0a1b0fbf88c43888e485155765f0565">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Characteristic" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@652e95ee6f4540678c8842c462e956f1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]service refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8143f2e09fc14393ad9b7ae29c9e31f8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristic" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@e644d82de5364f9caf3924d31d60d8ce">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6cc4f8cb06154c5599c70d7743ec5a02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristic refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@17bff48168cc4e78885944fac1c367fa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="719f740b6eb54e4e8d6dc9cfe85a572a">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Write Value" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@14c54e4960a64a63aae0617a204025a5">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristic refnum" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a30ee33bdbd64d0bb3f05cbd663bc3dc">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]value" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@e644d82de5364f9caf3924d31d60d8ce">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@17bff48168cc4e78885944fac1c367fa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="cf4800332f2b4fdbbf8529ba38ca6200">
+			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
+				<Parameters>
+					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@b5cd97f44f674724875de86d4d5ae7a1" />
+				</Parameters>
+			</Event>
+		</p.TypeReference>
+		<p.TypeReference TypeId="66e8261d484a4f25a75f90c45114f4cb">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="8143f2e09fc14393ad9b7ae29c9e31f8">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="bbd495875f6b419bb10b648a960f5e16">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="3aa7bd0053f04907b6f1696b57d51259">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L5" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6cc4f8cb06154c5599c70d7743ec5a02">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a9de1e4722db41dfb8e4dfa8a5b5c480">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R5" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="652e95ee6f4540678c8842c462e956f1">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="e644d82de5364f9caf3924d31d60d8ce">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="17bff48168cc4e78885944fac1c367fa">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="14c54e4960a64a63aae0617a204025a5">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a30ee33bdbd64d0bb3f05cbd663bc3dc">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="UInt8[]" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b5cd97f44f674724875de86d4d5ae7a1">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="Ref Id" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Control Reference" DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Old Value" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="New Value" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+	<IconTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.IconModel Target="WebBluetooth::WebBluetooth.jsli::Request Device">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 60">
+						<IconPanel Height="[float]60" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]60" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]56" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Request Device" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]60" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebBluetooth.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebBluetooth::WebBluetooth.jsli::GATT Server Connect">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]GATT Server Connect" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebBluetooth.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebBluetooth::WebBluetooth.jsli::Get Primary Service">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Primary Service" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebBluetooth.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebBluetooth::WebBluetooth.jsli::Get Characteristic">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Characteristic" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebBluetooth.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebBluetooth::WebBluetooth.jsli::Write Value">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Write Value" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="9.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebBluetooth.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+	</IconTable>
+</SourceFile>
