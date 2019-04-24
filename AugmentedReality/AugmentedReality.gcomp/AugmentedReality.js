@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var arModel;
+    const arModel;
 
     window.replaceUI = function (textSelector, jsAPI) {
         var cb = jsAPI.getCompletionCallback();
