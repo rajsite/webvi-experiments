@@ -27,7 +27,7 @@
         busyElement.remove();
     };
 
-    window.busyStateAPI = {
+    window.busyState = {
         setBusy,
         unsetBusy
     };
