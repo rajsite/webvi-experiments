@@ -4,7 +4,7 @@
     const busyElement = document.createElement('dialog');
     // Prevent the dialog from being cancelled by pressing the escape key
     busyElement.addEventListener('cancel', (evt) => evt.preventDefault());
-    busyElement.classList.add('busy-state-dialog');
+    busyElement.classList.add('busy-state');
 
     if (window.dialogPolyfill !== undefined) {
         window.dialogPolyfill.registerDialog(busyElement);
