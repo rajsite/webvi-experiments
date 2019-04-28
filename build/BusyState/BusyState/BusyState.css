@@ -1,0 +1,59 @@
+:root {
+    --busy-state-n: 0em 2.5em 0em 0em;
+    --busy-state-ne: 1.75em 1.75em 0em 0em;
+    --busy-state-e: 2.5em 0em 0em 0em;
+    --busy-state-se: 1.8em -1.8em 0em 0em;
+    --busy-state-s: 0em -2.6em 0em 0em;
+    --busy-state-sw: -1.8em -1.8em 0em 0em;
+    --busy-state-w: -2.6em 0em 0em 0em;
+    --busy-state-nw: -1.8em 1.8em 0 0em;
+
+    --busy-state-color-inactive: rgba(255, 255, 255, 0.2);
+    --busy-state-color-level1: rgba(255, 255, 255, 0.5);
+    --busy-state-color-level2: rgba(255, 255, 255, 0.7);
+    --busy-state-color-level3: rgba(255, 255, 255, 1);
+}
+
+/* Modified from the pattern available here: https://github.com/lukehaas/css-loaders */
+.busy-state {
+    font-size: 25px;
+    border-radius: 50%;
+    padding: 0em;
+    animation: busy-state-animation 1.1s infinite ease;
+    transform: translateZ(0);
+    width: 1em;
+    height: 1em;
+    border: none;
+    background: none;
+    position: fixed;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+@keyframes busy-state-animation {
+    0%,
+    100% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-level3), var(--busy-state-se) var(--busy-state-color-inactive), var(--busy-state-e) var(--busy-state-color-inactive), var(--busy-state-ne) var(--busy-state-color-inactive), var(--busy-state-n) var(--busy-state-color-inactive), var(--busy-state-nw) var(--busy-state-color-inactive), var(--busy-state-w) var(--busy-state-color-level1), var(--busy-state-sw) var(--busy-state-color-level2);
+    }
+    12.5% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-level2), var(--busy-state-se) var(--busy-state-color-level3), var(--busy-state-e) var(--busy-state-color-inactive), var(--busy-state-ne) var(--busy-state-color-inactive), var(--busy-state-n) var(--busy-state-color-inactive), var(--busy-state-nw) var(--busy-state-color-inactive), var(--busy-state-w) var(--busy-state-color-inactive), var(--busy-state-sw) var(--busy-state-color-level1);
+    }
+    25% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-level1), var(--busy-state-se) var(--busy-state-color-level2), var(--busy-state-e) var(--busy-state-color-level3), var(--busy-state-ne) var(--busy-state-color-inactive), var(--busy-state-n) var(--busy-state-color-inactive), var(--busy-state-nw) var(--busy-state-color-inactive), var(--busy-state-w) var(--busy-state-color-inactive), var(--busy-state-sw) var(--busy-state-color-inactive);
+    }
+    37.5% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-inactive), var(--busy-state-se) var(--busy-state-color-level1), var(--busy-state-e) var(--busy-state-color-level2), var(--busy-state-ne) var(--busy-state-color-level3), var(--busy-state-n) var(--busy-state-color-inactive), var(--busy-state-nw) var(--busy-state-color-inactive), var(--busy-state-w) var(--busy-state-color-inactive), var(--busy-state-sw) var(--busy-state-color-inactive);
+    }
+    50% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-inactive), var(--busy-state-se) var(--busy-state-color-inactive), var(--busy-state-e) var(--busy-state-color-level1), var(--busy-state-ne) var(--busy-state-color-level2), var(--busy-state-n) var(--busy-state-color-level3), var(--busy-state-nw) var(--busy-state-color-inactive), var(--busy-state-w) var(--busy-state-color-inactive), var(--busy-state-sw) var(--busy-state-color-inactive);
+    }
+    62.5% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-inactive), var(--busy-state-se) var(--busy-state-color-inactive), var(--busy-state-e) var(--busy-state-color-inactive), var(--busy-state-ne) var(--busy-state-color-level1), var(--busy-state-n) var(--busy-state-color-level2), var(--busy-state-nw) var(--busy-state-color-level3), var(--busy-state-w) var(--busy-state-color-inactive), var(--busy-state-sw) var(--busy-state-color-inactive);
+    }
+    75% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-inactive), var(--busy-state-se) var(--busy-state-color-inactive), var(--busy-state-e) var(--busy-state-color-inactive), var(--busy-state-ne) var(--busy-state-color-inactive), var(--busy-state-n) var(--busy-state-color-level1), var(--busy-state-nw) var(--busy-state-color-level2), var(--busy-state-w) var(--busy-state-color-level3), var(--busy-state-sw) var(--busy-state-color-inactive);
+    }
+    87.5% {
+        box-shadow: var(--busy-state-s) var(--busy-state-color-inactive), var(--busy-state-se) var(--busy-state-color-inactive), var(--busy-state-e) var(--busy-state-color-inactive), var(--busy-state-ne) var(--busy-state-color-inactive), var(--busy-state-n) var(--busy-state-color-inactive), var(--busy-state-nw) var(--busy-state-color-level1), var(--busy-state-w) var(--busy-state-color-level2), var(--busy-state-sw) var(--busy-state-color-level3);
+    }
+}
