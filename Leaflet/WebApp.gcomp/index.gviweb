@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="071608C2D458EADB0C2F6A0654CC9828326245F1667F8F6B148A1B779C6BA9AD88D0CB2E03F870A651BF0AAAB60958CBCD37FD53F4EFF8FEAEFB0B8FD2536329" Timestamp="1D4DF1DDFB96CD1" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="91A6E061D9DAF733FA8A8E6F201360FEA102C6C0FD98C75BADA0215EB9D55F26453A63A2A5E8A6517932BAEB3966FD330B83498FDCD33450DCBE961DE58E8880" Timestamp="1D4FEE9EDF21933" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="6.3.0.49152" Version="6.3.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
 		<ApplicationVersionInfo Build="6.4.0.49504" Name="LabVIEW NXG" Version="3.1.0" />
 	</SourceModelFeatureSet>
@@ -37,26 +38,26 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<WhileLoop Bounds="285 110 541 355" DiagramId="17" Id="16">
+			<WhileLoop Bounds="670 110 156 355" DiagramId="17" Id="16">
 				<LoopIteration Bounds="5 325 15 15" Id="18" />
-				<LoopCondition Bounds="475 320 15 15" Id="19" />
-				<Literal Bounds="420 320 25 15" DataType="Boolean" Id="20" Label="21" xmlns="http://www.ni.com/MocCommon">
+				<LoopCondition Bounds="90 320 15 15" Id="19" />
+				<Literal Bounds="35 320 25 15" DataType="Boolean" Id="20" Label="21" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>False</p.Data>
 					<BooleanBehavior />
 				</Literal>
-				<NodeLabel AttachedTo="20" Bounds="385 320 30 15" Id="21" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="20" Bounds="0 320 30 15" Id="21" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>stop</p.Text>
 				</NodeLabel>
-				<Wire Id="22" Joints="N(20:Out)|(445,325) N(19:Input)|(475,325)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wait Bounds="450 265 40 40" Id="23" />
-				<Literal Bounds="400 280 40 15" DataType="UInt32" Id="24" Label="25" xmlns="http://www.ni.com/MocCommon">
+				<Wire Id="22" Joints="N(20:Out)|(60,325) N(19:Input)|(90,325)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wait Bounds="65 265 40 40" Id="23" />
+				<Literal Bounds="15 280 40 15" DataType="UInt32" Id="24" Label="25" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>50</p.Data>
 					<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
 				</Literal>
-				<NodeLabel AttachedTo="24" Bounds="365 280 30 15" Id="25" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="24" Bounds="-20 280 30 15" Id="25" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
-				<Wire Id="26" Joints="N(24:Out)|(440,285) N(23:time to wait)|(450,285)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="26" Joints="N(24:Out)|(55,285) N(23:time to wait)|(65,285)" xmlns="http://www.ni.com/PlatformFramework" />
 			</WhileLoop>
 			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Top-Level WebVIs usually contain a While Loop that never stops so that they can continue running as long as the web page is open in the user's web browser.</p.Text>
@@ -64,9 +65,135 @@
 			<Comment Bounds="80 230 170 90" Id="29" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Place setup code before the loop. For example, perform initial data communication and wire the results into the loop.</p.Text>
 			</Comment>
+			<FlatSequence Bounds="310 150 305 225" Id="6d9d8af6b95645ad98a936a476c5b4ea">
+				<FlatSequence.Frame Bounds="5 10 295 205" Id="f08af2e0f4924b28a92e7fd91e3e15aa">
+					<MethodCall Bounds="125 90 40 40" Id="25576533c8b3432faa34370410d2fcee" ResolveFailedHint="CreateMap" Signature="@a0c1e8b57d3d4e818f526adc0f981c90" Target="Leaflet::Leaflet.jsli::CreateMap" xmlns="http://www.ni.com/MocCommon">
+						<p.MethodDeclaration>
+							<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+								<Parameter Id="L0" Desc="selector" />
+								<Parameter Id="L3" Desc="error in" />
+								<Parameter Id="R3" Desc="error out" />
+							</MethodDeclaration>
+						</p.MethodDeclaration>
+						<Terminal DataType="String" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+						<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+						<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+					</MethodCall>
+					<Literal Bounds="15 90 95 15" DataType="String" Id="efcc50aba0794199b2f5c9d0165739cf" Label="c3e13a5b08d641b9aec77ccd8404964b" xmlns="http://www.ni.com/MocCommon">
+						<p.Data>.leaflet-map</p.Data>
+						<StringBehavior TextDisplayMode="Default" />
+					</Literal>
+					<NodeLabel AttachedTo="efcc50aba0794199b2f5c9d0165739cf" Bounds="15 72 30 15" Id="c3e13a5b08d641b9aec77ccd8404964b" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>selector</p.Text>
+					</NodeLabel>
+					<Wire Id="1e7e7308f0d54da399e5f0c2c1cbf33d" Joints="N(efcc50aba0794199b2f5c9d0165739cf:Out)|(110,95) N(25576533c8b3432faa34370410d2fcee:L0)|(125,95)" xmlns="http://www.ni.com/PlatformFramework" />
+					<DataAccessor Bounds="195 120 40 15" DataItem="17ece20568a948aba14f857558d90d9f" Id="3e454d702d244d03a1f8881a82085476" Label="fb9e4d131f1544cdbe3c9993053cf28d" xmlns="http://www.ni.com/MocCommon">
+						<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+					</DataAccessor>
+					<NodeLabel AttachedTo="3e454d702d244d03a1f8881a82085476" Bounds="240 120 50 14" Id="fb9e4d131f1544cdbe3c9993053cf28d" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>error out</p.Text>
+					</NodeLabel>
+					<Wire Id="1a42361d906b4427b571d84480d9cf3f" Joints="N(25576533c8b3432faa34370410d2fcee:R3)|(165,125) N(3e454d702d244d03a1f8881a82085476:Value)|(198,125)" xmlns="http://www.ni.com/PlatformFramework" />
+				</FlatSequence.Frame>
+			</FlatSequence>
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<HtmlText BaseName="[string]Text" Height="[float]32" Id="36" Left="[float]180" MinHeight="[float]11" MinWidth="[float]11" Text="[string]On the WebVI Panel, place controls and indicators to respond to user input and display data.&#xD;&#xA;These controls will appear on the web page that is created when you build this Web Application." TextWrapping="[TextWrapping]Wrap" Top="[float]132" Width="[float]516" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlFlexibleLayoutGroup Height="[float]324" Id="e1ca29722bc84dd3bcef2001262841a3" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]324" Id="ddc99502a9c3487593034905201ede0d" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Height="[float]308" Id="c89625bd1f6d4060853692f3676e9240" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]296" Id="bc2f0511fd6f44268ef60d78f5dbee20" Left="[float]14" Top="[float]6" Width="[float]440">
+							<HtmlText BaseName="[string]Text" Height="[float]296" Id="d663d0fd6da9444d93fe82a52c37d60f" Left="[float]0" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Leaflet map placeholder" TextWrapping="[TextWrapping]Wrap" Top="[float]0" Width="[float]440">
+								<HtmlBehavior ClassAttributes="leaflet-map" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlText>
+						</HtmlFlexibleLayoutComponent>
+						<HtmlFlexibleLayoutComponent Height="[float]196" Id="c651c83a5a2b4d09b856ba7e48052060" Left="[float]462" Top="[float]6" Width="[float]176">
+							<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="84c51079a23444b4968e0e67c7e0827c" Label="[UIModel]9c3571c1dd774838869e51ea0c56fe6d" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=17ece20568a948aba14f857558d90d9f}" Width="[float]176">
+								<HtmlBooleanLED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="a329df08d6114b4ba161fc9d26e2f291" IsReadOnly="[bool]True" Label="[UIModel]acb1fd94feeb4fefa61a510f5c81f492" Left="[float]8" MinHeight="[float]16" MinWidth="[float]16" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" />
+								<HtmlLabel Height="[float]16" Id="acb1fd94feeb4fefa61a510f5c81f492" LabelOwner="[UIModel]a329df08d6114b4ba161fc9d26e2f291" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]38" />
+								<HtmlNumericText Height="[float]24" Id="f189f3257ef64a04bdc0758267068ee9" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]524f9f68147c40b5afbaa2f9bec5f520" Left="[float]64" MinHeight="[float]16" MinWidth="[float]36" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" />
+								<HtmlLabel Height="[float]16" Id="524f9f68147c40b5afbaa2f9bec5f520" LabelOwner="[UIModel]f189f3257ef64a04bdc0758267068ee9" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]33" />
+								<HtmlStringControl AcceptsReturn="[bool]True" Height="[float]96" Id="573a1f53898f4c3ab0ba7fd91778fe82" IsReadOnly="[bool]True" Label="[UIModel]3c2028c1b2284e14be4737f08de8b790" Left="[float]8" MinHeight="[float]20" MinWidth="[float]20" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" />
+								<HtmlLabel Height="[float]16" Id="3c2028c1b2284e14be4737f08de8b790" LabelOwner="[UIModel]573a1f53898f4c3ab0ba7fd91778fe82" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]42" />
+							</HtmlCluster>
+							<HtmlLabel Height="[float]16" Id="9c3571c1dd774838869e51ea0c56fe6d" LabelOwner="[UIModel]84c51079a23444b4968e0e67c7e0827c" Left="[float]0" Text="[string]error out" Top="[float]0" Width="[float]54" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
 		</HtmlFrontPanel>
+		<DataItem DataType="Error" Id="17ece20568a948aba14f857558d90d9f" Name="error out" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>False</Field1>
+					<Field2>0</Field2>
+					<Field3>""</Field3>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
+			</p.TypeDefinitionTargets>
+		</DataItem>
 	</VirtualInstrument>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="a0c1e8b57d3d4e818f526adc0f981c90">
+			<Attributed AttributedType="@7988edba8e7c4e968ffe26bcfbaf8bc3">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7988edba8e7c4e968ffe26bcfbaf8bc3">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="CreateMap" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@31eafb3c9dfc4d53aef35878141fa993">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@e644d82de5364f9caf3924d31d60d8ce">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@17bff48168cc4e78885944fac1c367fa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="31eafb3c9dfc4d53aef35878141fa993">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="e644d82de5364f9caf3924d31d60d8ce">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="17bff48168cc4e78885944fac1c367fa">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+	<IconTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.IconModel Target="Leaflet::Leaflet.jsli::CreateMap">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateMap" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;Leaflet.jsli&gt;" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+	</IconTable>
 </SourceFile>
