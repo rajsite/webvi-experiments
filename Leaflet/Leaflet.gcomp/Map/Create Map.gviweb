@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="5AC8396F53F3871B1701DFDDB9CBCE3DAB1037C0F94BEFC2FE96F3CA2AA721B1DA4FF9A296B039ACB486469D200D97CF8A5873EF96F5CE0518FB6A2F318B6BAC" Timestamp="1D4FF8AC83D9C02" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="03C305E2E78EB204D3DBB8C907484B0998D6E1C50E579E54E1838E6224278ED68E3847B30EC02C2E40E06115610A189F4AE84346FDFC140A3E24E77256F090E5" Timestamp="1D4FF8CED0ADB0A" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -39,7 +39,7 @@
 		<DiagramUnplacedItems Id="af4089dd7c124fba90a46833f85e7f2a" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="19d9df871db4e8c8dea719517099cbe" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="badd2e6780594be6b3911065d132c4dc">
-			<MethodCall Bounds="480 245 40 60" Id="3df246bfc08d483bbbe33b987c5cfe3f" ResolveFailedHint="MapCreate" Signature="@afa140c9a4ef467fbee1077b6aa21813" Target="Leaflet::Leaflet.jsli::MapCreate" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="480 245 40 60" Id="3df246bfc08d483bbbe33b987c5cfe3f" ResolveFailedHint="MapCreate" Signature="@afa140c9a4ef467fbee1077b6aa21813" Target="Leaflet::Support::Leaflet.jsli::MapCreate" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L1" Desc="selector" />
@@ -103,7 +103,7 @@
 			<Wire Id="10e28554eab040b8834e4802318aacb6" Joints="N(3df246bfc08d483bbbe33b987c5cfe3f:R5)|(520,300) N(7614767e7c9447e88ea835b3275cd6c5:Value)|(543,300)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="3bfad07fae2b4725bc18dc397040d91a" Joints="N(3df246bfc08d483bbbe33b987c5cfe3f:R0)|(520,250) N(ab1f782bed7349dda0b90c02d276a455:Value)|(578,250)" xmlns="http://www.ni.com/PlatformFramework" />
 			<DataAccessor Bounds="575 245 40 15" DataItem="e664c1ef0aeb4e0fb4191c4199f06db3" Id="ab1f782bed7349dda0b90c02d276a455" Label="69f9f651fe434e7f85d08e9a6df68593" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@55a5d063920148f9bf3cf4f21539491f" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@8190394b84b5405c9e84a4297ec66bb1" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="ab1f782bed7349dda0b90c02d276a455" Bounds="575 228 68 14" Id="69f9f651fe434e7f85d08e9a6df68593" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>map refnum</p.Text>
@@ -174,10 +174,10 @@
 				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
-		<DataItem CallDirection="Output" CallIndex="1" DataType="@55a5d063920148f9bf3cf4f21539491f" Id="e664c1ef0aeb4e0fb4191c4199f06db3" Name="map refnum" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Output" CallIndex="1" DataType="@8190394b84b5405c9e84a4297ec66bb1" Id="e664c1ef0aeb4e0fb4191c4199f06db3" Name="map refnum" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="Leaflet::map refnum.gtype" />
+				<TypeDefinitionTarget TargetName="Leaflet::Map::map refnum.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 	</VirtualInstrument>
@@ -191,10 +191,10 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="55a5d063920148f9bf3cf4f21539491f">
+		<p.TypeReference TypeId="8190394b84b5405c9e84a4297ec66bb1">
 			<Attributed AttributedType="@324e6ef421e540daad4ae49929324429">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Leaflet" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Leaflet::Map" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -265,7 +265,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Leaflet::Leaflet.jsli::MapCreate">
+		<p.IconModel Target="Leaflet::Support::Leaflet.jsli::MapCreate">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 60">
