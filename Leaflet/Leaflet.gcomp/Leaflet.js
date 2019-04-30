@@ -3,6 +3,29 @@
 (function () {
     'use strict';
 
+    let nextRefnum = 1;
+    class RefnumManager {
+        constructor () {
+            this.refnums = new Map();
+        }
+
+        createRefnum (obj) {
+            const refnum = nextRefnum;
+            nextRefnum += 1;
+            this.refnums.set(refnum, obj);
+            return refnum;
+        }
+
+        getObject (refnum) {
+            return this.refnums.get(refnum);
+        }
+
+        closeRefnum (refnum) {
+            this.refnums.delete(refnum);
+        }
+    }
+    const refnumManager = new RefnumManager();
+
     const createMap = function (selector) {
         return new Promise(function (resolve) {
             const parents = document.querySelectorAll(selector);
@@ -24,13 +47,24 @@
             });
 
             map.addLayer(tileLayer);
+            const refnum = refnumManager.createRefnum(map);
             map.whenReady(function () {
-                resolve();
+                resolve(refnum);
             });
         });
     };
 
+    const destroyMap = function (refnum) {
+        const map = refnumManager.getObject(refnum);
+        if (map === undefined) {
+            throw new Error('Invalid Leaflet map refnum');
+        }
+        refnumManager.closeRefnum(refnum);
+        map.remove();
+    };
+
     window.WebVILeaflet = {
-        createMap
+        createMap,
+        destroyMap
     };
 }());
