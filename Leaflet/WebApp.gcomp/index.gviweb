@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="91A6E061D9DAF733FA8A8E6F201360FEA102C6C0FD98C75BADA0215EB9D55F26453A63A2A5E8A6517932BAEB3966FD330B83498FDCD33450DCBE961DE58E8880" Timestamp="1D4FEE9EDF21933" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="BBFB07FBFFE90FDAF84A7625BB0B11A76258BC5236757D4CBEB015DCB5DDB679030D04C0DDDF2A0E2721E6B8B9AF048A824A374156B608D7A15FD0FBB2047EC5" Timestamp="1D4FEEC7EB83B99" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -38,7 +38,7 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<WhileLoop Bounds="670 110 156 355" DiagramId="17" Id="16">
+			<WhileLoop Bounds="695 110 199 375" DiagramId="17" Id="16">
 				<LoopIteration Bounds="5 325 15 15" Id="18" />
 				<LoopCondition Bounds="90 320 15 15" Id="19" />
 				<Literal Bounds="35 320 25 15" DataType="Boolean" Id="20" Label="21" xmlns="http://www.ni.com/MocCommon">
@@ -58,15 +58,39 @@
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
 				<Wire Id="26" Joints="N(24:Out)|(55,285) N(23:time to wait)|(65,285)" xmlns="http://www.ni.com/PlatformFramework" />
+				<DataAccessor Bounds="60 340 40 15" DataItem="78444bbffff84116925e174c7ec56b7b" Id="2bbbb0bf6a6b47ac8b760d31e03031ef" Label="e696e50f89184d6690d6fe65e8d1dfd7" xmlns="http://www.ni.com/MocCommon">
+					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				</DataAccessor>
+				<NodeLabel AttachedTo="2bbbb0bf6a6b47ac8b760d31e03031ef" Bounds="105 340 74 14" Id="e696e50f89184d6690d6fe65e8d1dfd7" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>loop iteration</p.Text>
+				</NodeLabel>
+				<Wire Id="7ea6477ff6ae43bbb218ffc801d450d8" Joints="N(18:Output)|(20,330) h(35) v(15) N(2bbbb0bf6a6b47ac8b760d31e03031ef:Value)|(63,345)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopTunnel Bounds="-4 195 13 10" Docking="Left" Id="2635eb9a3ca344e8b7e9064cde4e9879" Terminals="o0=6b5733f45c214409b0766649ef1711f2, i0" />
 			</WhileLoop>
-			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
+			<Comment Bounds="295 495 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Top-Level WebVIs usually contain a While Loop that never stops so that they can continue running as long as the web page is open in the user's web browser.</p.Text>
 			</Comment>
-			<Comment Bounds="80 230 170 90" Id="29" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
+			<Comment Bounds="-15 230 170 90" Id="29" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Place setup code before the loop. For example, perform initial data communication and wire the results into the loop.</p.Text>
 			</Comment>
-			<FlatSequence Bounds="310 150 305 225" Id="6d9d8af6b95645ad98a936a476c5b4ea">
-				<FlatSequence.Frame Bounds="5 10 295 205" Id="f08af2e0f4924b28a92e7fd91e3e15aa">
+			<FlatSequence Bounds="168 150 516 225" Id="6d9d8af6b95645ad98a936a476c5b4ea">
+				<FlatSequence.Frame Bounds="5 10 206 205" Id="6c28e083747347118542f8030915f1d0">
+					<DataAccessor Bounds="77 145 40 15" DataItem="78444bbffff84116925e174c7ec56b7b" Id="fedd4a206dbe4731b21833f498043229" Label="7bb0d4a13d0e46e2b68a20a840995ffd" xmlns="http://www.ni.com/MocCommon">
+						<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+					</DataAccessor>
+					<NodeLabel AttachedTo="fedd4a206dbe4731b21833f498043229" Bounds="122 145 74 14" Id="7bb0d4a13d0e46e2b68a20a840995ffd" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>loop iteration</p.Text>
+					</NodeLabel>
+					<Literal Bounds="10 145 40 15" DataType="Int32" Id="131dab4e94fd4f7ca4813ac600ef39db" Label="ee4caaceb40346deb13031478ecbc7fa" xmlns="http://www.ni.com/MocCommon">
+						<p.Data>-1</p.Data>
+						<NumericBehavior Interpretation="Exact" Radix="Decimal" ValueFormatter="LV:0" />
+					</Literal>
+					<NodeLabel AttachedTo="131dab4e94fd4f7ca4813ac600ef39db" Bounds="10 127 30 15" Id="ee4caaceb40346deb13031478ecbc7fa" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>loop iteration</p.Text>
+					</NodeLabel>
+					<Wire Id="441b6c291bab4bf2b471ffab46e44966" Joints="N(131dab4e94fd4f7ca4813ac600ef39db:Out)|(50,150) N(fedd4a206dbe4731b21833f498043229:Value)|(80,150)" xmlns="http://www.ni.com/PlatformFramework" />
+				</FlatSequence.Frame>
+				<FlatSequence.Frame Bounds="216 10 295 205" Id="f08af2e0f4924b28a92e7fd91e3e15aa">
 					<MethodCall Bounds="125 90 40 40" Id="25576533c8b3432faa34370410d2fcee" ResolveFailedHint="CreateMap" Signature="@a0c1e8b57d3d4e818f526adc0f981c90" Target="Leaflet::Leaflet.jsli::CreateMap" xmlns="http://www.ni.com/MocCommon">
 						<p.MethodDeclaration>
 							<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
@@ -93,9 +117,11 @@
 					<NodeLabel AttachedTo="3e454d702d244d03a1f8881a82085476" Bounds="240 120 50 14" Id="fb9e4d131f1544cdbe3c9993053cf28d" xmlns="http://www.ni.com/PlatformFramework">
 						<p.Text>error out</p.Text>
 					</NodeLabel>
-					<Wire Id="1a42361d906b4427b571d84480d9cf3f" Joints="N(25576533c8b3432faa34370410d2fcee:R3)|(165,125) N(3e454d702d244d03a1f8881a82085476:Value)|(198,125)" xmlns="http://www.ni.com/PlatformFramework" />
+					<Wire Id="1a42361d906b4427b571d84480d9cf3f" Joints="N(25576533c8b3432faa34370410d2fcee:R3)|(165,125) h(15) B(1) N(3e454d702d244d03a1f8881a82085476:Value)|(198,125) B(1) v(25) N(cc3e6f0438fb4fd7a6224d39d5f249ad:f08af2e0f4924b28a92e7fd91e3e15aa)|(291,150)" xmlns="http://www.ni.com/PlatformFramework" />
 				</FlatSequence.Frame>
+				<FlatSequence.Tunnel Bounds="507 155 13 10" Docking="Right" Id="cc3e6f0438fb4fd7a6224d39d5f249ad" Terminals="6d9d8af6b95645ad98a936a476c5b4ea=6b5733f45c214409b0766649ef1711f2, f08af2e0f4924b28a92e7fd91e3e15aa=1a42361d906b4427b571d84480d9cf3f" />
 			</FlatSequence>
+			<Wire Id="6b5733f45c214409b0766649ef1711f2" Joints="N(cc3e6f0438fb4fd7a6224d39d5f249ad:6d9d8af6b95645ad98a936a476c5b4ea)|(688,310) N(2635eb9a3ca344e8b7e9064cde4e9879:o0)|(691,310)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlFlexibleLayoutGroup Height="[float]324" Id="e1ca29722bc84dd3bcef2001262841a3" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -117,6 +143,10 @@
 							</HtmlCluster>
 							<HtmlLabel Height="[float]16" Id="9c3571c1dd774838869e51ea0c56fe6d" LabelOwner="[UIModel]84c51079a23444b4968e0e67c7e0827c" Left="[float]0" Text="[string]error out" Top="[float]0" Width="[float]54" />
 						</HtmlFlexibleLayoutComponent>
+						<HtmlFlexibleLayoutComponent Height="[float]44" Id="e87be9a9d564430ea7f6d5f2b0ad1248" Left="[float]646" Top="[float]6" Width="[float]79">
+							<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="54d5600599764c7597eff50d13b52ebc" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]388ac1443bb141868e169282353a256d" Left="[float]0" MinHeight="[float]24" RadixBase="[RadixBase]Decimal" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=78444bbffff84116925e174c7ec56b7b}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]72" />
+							<HtmlLabel Height="[float]16" Id="388ac1443bb141868e169282353a256d" LabelOwner="[UIModel]54d5600599764c7597eff50d13b52ebc" Left="[float]0" Text="[string]loop iteration" Top="[float]0" Width="[float]79" />
+						</HtmlFlexibleLayoutComponent>
 					</HtmlFlexibleLayoutContainer>
 				</HtmlFlexibleLayoutWrapper>
 			</HtmlFlexibleLayoutGroup>
@@ -132,6 +162,9 @@
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
 			</p.TypeDefinitionTargets>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="Int32" Id="78444bbffff84116925e174c7ec56b7b" Name="loop iteration" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>0</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
