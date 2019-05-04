@@ -54,6 +54,29 @@
         }
     };
 
+    const createGLTFModel = function (sceneRefnum, src, attributesJSON) {
+        return new Promise(function (resolve) {
+            const scene = refnumManager.getObject(sceneRefnum);
+            if (scene === undefined) {
+                throw new Error('Scene refnum is invalid');
+            }
+
+            const attributes = JSON.parse(attributesJSON);
+
+            const model = scene.contentDocument.createElement('a-gltf-model');
+            model.setAttribute('src', src);
+            attributes.forEach(attribute => {
+                model.setAttribute(attribute.name, attribute.value);
+            });
+            model.addEventListener('model-loaded', function () {
+                const modelRefnum = refnumManager.createRefnum(model);
+                resolve(modelRefnum);
+            });
+            const marker = scene.contentDocument.querySelector('a-marker');
+            marker.appendChild(model);
+        });
+    };
+
     // window.setModelHeight = function (newHeight) {
     //     if (arModel !== undefined) {
     //         arModel.object3D.position.y = newHeight;
@@ -61,7 +84,7 @@
     // };
     window.WebVIAugmentedReality = {
         createScene,
-        destroyScene
+        destroyScene,
+        createGLTFModel
     };
 }());
-//         <a-gltf-model src="../../Resources/scene.gltf" position='0 0.5 0'></a-gltf-model>
