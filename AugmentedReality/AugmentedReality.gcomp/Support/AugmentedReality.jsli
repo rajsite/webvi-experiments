@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="4A0D3AD2E0E1390133A788BA92075E0E4BEAB47B80D7557046C3919EC1CAE9406A44155EBBC8D46AD48C7B8C8124032217FA26027263622B3616BB9BE8B9ED13" Timestamp="1D50212E8C467F8" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D64DC796A9A968AA85B09793F6F6F785842AFA35D23B10ED2AB4BE51F7702EF2E6A202FD7DB35C34404A4727BC6E27644B5D9A1C242C3C5DB7419A42044D54C1" Timestamp="1D5021780B3AC37" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
@@ -35,14 +35,14 @@
 							</IconTemplate>
 						</IconPanel>
 					</Icon>
-					<ConnectorPane Height="40" Id="21" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="29" />
-						<ConnectorPaneTerminal Hotspot="0 15" />
+					<ConnectorPane Height="40" Id="21" ListViewHeight="115" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal />
+						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="29" />
 						<ConnectorPaneTerminal Hotspot="0 25" />
 						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="22" />
 						<ConnectorPaneTerminal Hotspot="15 0" />
 						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="26" />
 						<ConnectorPaneTerminal Hotspot="40 15" />
 						<ConnectorPaneTerminal Hotspot="40 25" />
 						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="23" />
@@ -51,9 +51,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="22" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="23" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="24" IsReturnParameter="True" Name="return">
-						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="25" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="26" Name="return out" Visible="False" />
+					<JavaScriptLibraryParameter Id="24" IsReturnParameter="True" Name="scene refnum">
+						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="58ebf65875e54b9d97bf4c7391d00246" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="26" Name="scene refnum" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="27" Name="selector">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="30" />
@@ -61,11 +61,50 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="a5dfd725f6024334bcb0ce419e6505d4" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DestroyScene">
+				<JavaScriptLibraryEntryPoint Id="9f0c682dc10e44f1adc93ee8ff32bf93" Symbol="WebVIAugmentedReality.destroyScene" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="94799632b95a4b96b051c127aee82ea0" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="4a90da9959104c6882fd00ab989d206b" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="63333884358d45b08efd370754e4cb4e" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="9c748e98942243b48338f37359a857e5" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="274adf043da646c6ab441f3bcbd5dac5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="ab9b90af179c4a1a90a7026626b56ead" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DestroyScene" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" Id="cdef095314bc4ddfb9ad225594ea75c7" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="b6188091dbf24f15883dd02f816da4af" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="7ce2bd2478044b249bf7c10d3fc2d7cc" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="4b2d770ed873493cb6d8d69259aecaa8" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="41dc4431fa14fe396621ddfb6d261a2" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="4b2d770ed873493cb6d8d69259aecaa8" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="41dc4431fa14fe396621ddfb6d261a2" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="cbe8d5141dae41b69ad0f8006bc23d0d" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="238aed88f664d32842602e1d7ce12c2" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="390a4b64637a40d596f6b7e879f1637b" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="26f425ed236849449bf3b2a086643e83" Name="scene refnum">
+						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="64826b8de08e4f0bbd192de503d63e3d" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="7ce2bd2478044b249bf7c10d3fc2d7cc" Name="scene refnum" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="761c1e6d42c140fea62c015adb1483c9">
-			<Attributed AttributedType="Void">
+		<p.TypeReference TypeId="dd3fd85a6fdd451c9c068b1446f04dd8">
+			<Attributed AttributedType="Int32">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 				</AttributeValues>
@@ -73,6 +112,13 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="7a0d745212ea43e8a195a3e0a8f4fb9a">
 			<Attributed AttributedType="String">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="761c1e6d42c140fea62c015adb1483c9">
+			<Attributed AttributedType="Void">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 				</AttributeValues>

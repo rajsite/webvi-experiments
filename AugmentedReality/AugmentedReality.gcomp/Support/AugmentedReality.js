@@ -1,28 +1,28 @@
 (function () {
     'use strict';
 
-    // let nextRefnum = 1;
-    // class RefnumManager {
-    //     constructor () {
-    //         this.refnums = new Map();
-    //     }
+    let nextRefnum = 1;
+    class RefnumManager {
+        constructor () {
+            this.refnums = new Map();
+        }
 
-    //     createRefnum (obj) {
-    //         const refnum = nextRefnum;
-    //         nextRefnum += 1;
-    //         this.refnums.set(refnum, obj);
-    //         return refnum;
-    //     }
+        createRefnum (obj) {
+            const refnum = nextRefnum;
+            nextRefnum += 1;
+            this.refnums.set(refnum, obj);
+            return refnum;
+        }
 
-    //     getObject (refnum) {
-    //         return this.refnums.get(refnum);
-    //     }
+        getObject (refnum) {
+            return this.refnums.get(refnum);
+        }
 
-    //     closeRefnum (refnum) {
-    //         this.refnums.delete(refnum);
-    //     }
-    // }
-    // const refnumManager = new RefnumManager();
+        closeRefnum (refnum) {
+            this.refnums.delete(refnum);
+        }
+    }
+    const refnumManager = new RefnumManager();
 
     const createScene = function (selector) {
         return new Promise(function (resolve) {
@@ -33,17 +33,25 @@
             const element = elements[0];
             element.innerHTML = '';
 
-            const frame = document.createElement('iframe');
-            frame.style = 'width: 100%; height: 100%';
+            const scene = document.createElement('iframe');
+            scene.style = 'width: 100%; height: 100%';
 
             // This will only work when a WebVI is executed in a Web Browser, it will not work if run in the editor
-            frame.src = 'AugmentedReality/Support/AugmentedReality.html';
-            frame.addEventListener('load', function () {
-                // arModel = frame.contentDocument.querySelector('a-gltf-model');
-                resolve();
+            scene.src = 'AugmentedReality/Support/AugmentedReality.html';
+            scene.addEventListener('load', function () {
+                const sceneRefnum = refnumManager.createRefnum(scene);
+                resolve(sceneRefnum);
             });
-            element.appendChild(frame);
+            element.appendChild(scene);
         });
+    };
+
+    const destroyScene = function (sceneRefnum) {
+        const scene = refnumManager.getObject(sceneRefnum);
+        if (scene !== undefined) {
+            refnumManager.closeRefnum(sceneRefnum);
+            scene.parentNode.removeChild(scene);
+        }
     };
 
     // window.setModelHeight = function (newHeight) {
@@ -52,7 +60,8 @@
     //     }
     // };
     window.WebVIAugmentedReality = {
-        createScene
+        createScene,
+        destroyScene
     };
 }());
 //         <a-gltf-model src="../../Resources/scene.gltf" position='0 0.5 0'></a-gltf-model>
