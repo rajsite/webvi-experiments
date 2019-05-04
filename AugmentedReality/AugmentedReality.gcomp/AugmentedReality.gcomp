@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="5CFD5ADC3EA47F413D5AB2ABB13E344BC4EB97162F4943B600F64E61686936FEB6329E73546E20F7393537C9A5757C036AD93D25271EB8C1AE3088FCB96DAFBE" Timestamp="1D5020EE68F6926" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="674FDF2A34583BA1D4F2B538BA38E781791D4B9AEA8CB698AE41D001057FC75A01F814FDD42ADAE85419896ACC30A84170E07A58075B2F7FFEC7D8A61DBE0E1A" Timestamp="1D50212E8B598A0" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="6.3.0.49152" Version="6.3.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
 		<ApplicationVersionInfo Build="6.4.0.49504" Name="LabVIEW NXG" Version="3.1.0" />
 	</SourceModelFeatureSet>
@@ -15,7 +16,6 @@
 		<CompilerSymbolTable Id="a8145b08bb9d432080ed33e3b98db5c4" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="8d4ad95999b46acbf05401e05303153" Name="Configuration1">
 			<CompilerSymbolTable Id="2a10626d588046c4a6791bfd3744c8d1" xmlns="http://www.ni.com/PlatformFramework" />
-			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="cd1df51b3fde403c9049165cd3c1c0d7" Id="59f495da58fb466ebff1832330f9e31b" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="1c5cbfd6897b454aab66b35849582c24" Id="35ff9071db2e4134bd5a7a5fa0964df3" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="31b9ea15fede4044ae249aa68f172290" Id="d114f4445b7548db8565caa3165b530f" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="5f3b9741e1bc4217ad616823fe22d1ad" Id="c230fb94f4df44fe8decc99e886d6c39" />
@@ -42,6 +42,7 @@
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="4737ecf62eae4f6d985244edf1c14a56" Id="a474fb843d164d46994e6ea2733be285" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="419f38154c5d42ed9caf06e10f5ea8af" Id="e1f2a362c15c4a6a92bbdd0189d139b3" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="8063b6b241e740b9943397e7cfed9a71" Id="de5de45691d343f08b6d9abb8a51aa1a" />
+			<ComponentItemProperties AssociatedEnvoyId="937bb92391fc40699356e11854258073" Exported="True" Id="d261404b6cb84c3a8666cf156116d5b9" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="a83bab56d3ea4e6ea27ac9d745ad93e8" xmlns="http://www.ni.com/PlatformFramework">
@@ -50,11 +51,6 @@
 			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="a1e33d36b04f4f9880a1bac0c6df7c12" Name="AugmentedReality">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="81d32dbf3f154fd995701812296cf53a" Name="Support">
-					<EmbeddedDefinitionReference Id="cd1df51b3fde403c9049165cd3c1c0d7" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="AugmentedReality.css">
-						<ExternalFile>
-							<p.StoragePath>"Support\\AugmentedReality.css"</p.StoragePath>
-						</ExternalFile>
-					</EmbeddedDefinitionReference>
 					<EmbeddedDefinitionReference Id="1c5cbfd6897b454aab66b35849582c24" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="AugmentedReality.html">
 						<ExternalFile>
 							<p.StoragePath>"Support\\AugmentedReality.html"</p.StoragePath>
@@ -205,6 +201,7 @@
 						</ExternalFile>
 					</EmbeddedDefinitionReference>
 				</NameScopingEnvoy>
+				<SourceFileReference Id="937bb92391fc40699356e11854258073" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Scene.gviweb" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" StoragePath="Create Scene.gviweb" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="ad34636c9f6a469f9b868f74a125cf90" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="AugmentedReality.gcomp" NameTracksFileName="True">
