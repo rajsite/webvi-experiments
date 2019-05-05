@@ -63,28 +63,45 @@
 
             const attributes = JSON.parse(attributesJSON);
 
-            const model = scene.contentDocument.createElement('a-gltf-model');
-            model.setAttribute('src', src);
+            const gltfModel = scene.contentDocument.createElement('a-gltf-model');
+            gltfModel.setAttribute('src', src);
             attributes.forEach(attribute => {
-                model.setAttribute(attribute.name, attribute.value);
+                gltfModel.setAttribute(attribute.name, attribute.value);
             });
-            model.addEventListener('model-loaded', function () {
-                const modelRefnum = refnumManager.createRefnum(model);
-                resolve(modelRefnum);
+            gltfModel.addEventListener('model-loaded', function () {
+                const gltfModelRefnum = refnumManager.createRefnum(gltfModel);
+                resolve(gltfModelRefnum);
             });
             const marker = scene.contentDocument.querySelector('a-marker');
-            marker.appendChild(model);
+            marker.appendChild(gltfModel);
         });
     };
 
-    // window.setModelHeight = function (newHeight) {
-    //     if (arModel !== undefined) {
-    //         arModel.object3D.position.y = newHeight;
-    //     }
-    // };
+    const destroyGLTFModel = function (gltfModelRefnum) {
+        const gltfModel = refnumManager.getObject(gltfModelRefnum);
+        if (gltfModel !== undefined) {
+            refnumManager.closeRefnum(gltfModelRefnum);
+            gltfModel.parentNode.removeChild(gltfModel);
+        }
+    };
+
+    const updateGLTFModel = function (gltfModelRefnum, attributesJSON) {
+        const gltfModel = refnumManager.getObject(gltfModelRefnum);
+        if (gltfModel === undefined) {
+            throw new Error('Invalid gltf refnum');
+        }
+
+        const attributes = JSON.parse(attributesJSON);
+        attributes.forEach(attribute => {
+            gltfModel.setAttribute(attribute.name, attribute.value);
+        });
+    };
+
     window.WebVIAugmentedReality = {
         createScene,
         destroyScene,
-        createGLTFModel
+        createGLTFModel,
+        destroyGLTFModel,
+        updateGLTFModel
     };
 }());

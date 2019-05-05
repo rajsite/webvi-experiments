@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="C5F02C338B26EF04DA52FF954E5A0BE18EE3B5269DE3CFE59560E214689772FB7E7025114F8D0FC5C92BD13B6DA93A66636268C32E87014CB6637ACC28D21A3C" Timestamp="1D5021C083E5788" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="93E859E955C2D1AD6FC25314FA515962544DF15DDE1D7CF25038BF81AE3D69E1123C8BD52BC9A523CC2C1BCE34ED9D9CDBD95A14C603D47280204AF1470F9C07" Timestamp="1D5038B803696E1" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
@@ -131,9 +131,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="c6e4a1555fa429ca3b9e37d16e845d7" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="c615778a63b84e4e86fb86fd8dac7f5c" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="2e46d193d03a48b78100871eeb52fe46" IsReturnParameter="True" Name="model refnum">
+					<JavaScriptLibraryParameter Id="2e46d193d03a48b78100871eeb52fe46" IsReturnParameter="True" Name="gltf model refnum">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="1fdcbe5046bd410f90c3c72f5c874b73" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5875997b453a4e50a41cdc958f699b59" Name="model refnum" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5875997b453a4e50a41cdc958f699b59" Name="gltf model refnum" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="1715088d5e94003a1937c0e2d1b966e" Name="scene refnum">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="549e25314da4bc8a7e9b82c78ca2c30" />
@@ -146,6 +146,88 @@
 					<JavaScriptLibraryParameter Id="b2c2f75d09fe444e8ce7d8c0dab72656" Name="attributesJSON">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="41c9773ab17442e6b07dc98ece8fce84" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f9cd13fdd43848fab319c73a8b93945c" Name="attributesJSON" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="2f36edeed1f046e79eca3fd35b16c130" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DestroyGLTFModel">
+				<JavaScriptLibraryEntryPoint Id="f4277ef580fb4850ae95f6a8b22945f1" Symbol="WebVIAugmentedReality.destroyGLTFModel" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="6167d84ed6294b478dec4fd1f9369a54" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="13423c37cfd4430b963e15b160257e0a" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="93863cabfa634b68b9eea731a1d88bd2" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="18c282a2f0e8495792378b012e04f6c2" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="a1865285c734d08b1742a695ccad475" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="8658cb70d79a4e7c9c192d02d28fb05d" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DestroyGLTFModel" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" Id="7a13161d0b2f45d6a862af245ab39e89" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="4607c86e8f46476696d686e22ddd11e0" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="f650123df7b2416faa3a86d5473b6da1" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="4931baf9c06e447ea7a6d51288764c9b" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="fd936d9272d04b109be3d1136a24368a" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="4931baf9c06e447ea7a6d51288764c9b" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="fd936d9272d04b109be3d1136a24368a" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="44473d2759774e61ac6c54cb38c93cb7" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="afe4d32973934778b7f53610393f2287" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="ea641e040f0f478fa54625bb615c7adc" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="bdff46bbac3c496a9a6efdab2e85964c" Name="gltf model refnum">
+						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="4b24bc99c1ef401690b71b2b8b1600b9" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f650123df7b2416faa3a86d5473b6da1" Name="gltf model refnum" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="23cad494c194505a17a2cf4ce1384a6" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="UpdateGLTFModel">
+				<JavaScriptLibraryEntryPoint Id="7480f76622014ea1b04084046ff94394" Symbol="WebVIAugmentedReality.updateGLTFModel" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="d4ff878e10764a7a895d5decf3dbb84c" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="6dcd8bc1562245b9927f3f02de685e30" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="50f03e1a85474e358b41328b49404035" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="c2c4aa4142ea4dbcbfb98ae6b9f21d3d" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="3b8d6b0c72f54a0bab2fe843e552fb7d" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="2f0a6191f577426eb711180a1f2ca123" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]UpdateGLTFModel" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" Id="68e5ddd64632464cbe4a23a486c21696" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="fa0900c9177f4d80952e44a3fdaa400d" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="202210b5393345ef9dd48d5cd96ca83b" />
+						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="f1036f7d01234c4985e6b0e08958608a" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="3af010629ba34192a17cda12d6ae98e3" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="4791d36aabe7459bb8f0beab8776511c" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="3af010629ba34192a17cda12d6ae98e3" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="4791d36aabe7459bb8f0beab8776511c" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="8ab53780f61a445fa4361e03339bae55" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="ed15690112b54dd2ac21d17b08f77c3e" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="600a62a4cad646e6b6c0da0d0522a9dd" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="bf39f5982577497095201349a81b6581" Name="gltf model refnum">
+						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="96ff60461a6a4893bb6fc0475cbf64bb" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="202210b5393345ef9dd48d5cd96ca83b" Name="gltf model refnum" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="e3fc7ff15b814fb99888cfeac9180222" Name="attributesJSON">
+						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="48efba64208549a897a7c52918df956c" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f1036f7d01234c4985e6b0e08958608a" Name="attributesJSON" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
