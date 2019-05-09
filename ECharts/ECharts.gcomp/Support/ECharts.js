@@ -62,7 +62,15 @@
         const optionsArray = JSON.parse(optionsArrayJSON);
         const options = {};
         optionsArray.forEach(function (option) {
-            options[option.name] = JSON.parse(option.propertiesJSON);
+            const properties = JSON.parse(option.propertiesJSON);
+            if (option.name === 'series') {
+                if (options.series === undefined) {
+                    options.series = [];
+                }
+                options.series.push(properties);
+            } else {
+                options[option.name] = properties;
+            }
         });
         echart.setOption(options);
     };
