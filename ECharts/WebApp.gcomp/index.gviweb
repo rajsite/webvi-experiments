@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="026204839E0A44E0DA4F937DD6E371DE9A4C0EF4D1EE85CB5CDAA7C22B1EF73D154055E1523EE8BB84533337B31662457D7C10E20084F010CF966A8CB7D58017" Timestamp="1D5061A6EB9F2E8" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C8B75F3794363AD4DAE136050316EE8EC16190AE68CBAFA473EE320A350DC49565CA5B7AA93765101D42D0ED64E4932331998957F05646C72B9CC0C866BD2AD4" Timestamp="1D506DB4D97EB9A" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -36,7 +36,17 @@
 			<ConnectorPaneTerminal Hotspot="25 40" />
 		</ConnectorPane>
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
-		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
+		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0">
+			<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="b2b11e2e9f8d4aed883d39d6cfc5dfc2" Label="[UIModel]c0c9999a2364e8995cfa7da299649e6" Left="[float]772" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]0" Top="[float]436" Value="{DataItemBinding Id=952841a964fb481b8b4555fd97767adb}" Width="[float]176" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlBooleanLED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="5b2d1ad0055e4b49aeed75a8d6d421e7" IsReadOnly="[bool]True" Label="[UIModel]50c6ba303bb846fab7835331b06e8483" Left="[float]8" MinHeight="[float]16" MinWidth="[float]16" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" />
+				<HtmlLabel Height="[float]16" Id="50c6ba303bb846fab7835331b06e8483" LabelOwner="[UIModel]5b2d1ad0055e4b49aeed75a8d6d421e7" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]38" />
+				<HtmlNumericText Height="[float]24" Id="490918d85f7b44c8a749947b964b5a9f" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]5780fd47db5e4dfe9153c62c401ce1d8" Left="[float]64" MinHeight="[float]16" MinWidth="[float]36" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" />
+				<HtmlLabel Height="[float]16" Id="5780fd47db5e4dfe9153c62c401ce1d8" LabelOwner="[UIModel]490918d85f7b44c8a749947b964b5a9f" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]33" />
+				<HtmlStringControl AcceptsReturn="[bool]True" Height="[float]96" Id="891a78d0dbb44335bc8929481594cde2" IsReadOnly="[bool]True" Label="[UIModel]16c6849b7d1e49d1869a39cc05a546f3" Left="[float]8" MinHeight="[float]20" MinWidth="[float]20" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" />
+				<HtmlLabel Height="[float]16" Id="16c6849b7d1e49d1869a39cc05a546f3" LabelOwner="[UIModel]891a78d0dbb44335bc8929481594cde2" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]42" />
+				<HtmlLabel Height="[float]16" Id="c0c9999a2364e8995cfa7da299649e6" IsVisualChild="[bool]False" LabelOwner="[UIModel]b2b11e2e9f8d4aed883d39d6cfc5dfc2" Left="[float]772" Text="[string]Output" Top="[float]416" Width="[float]45" />
+			</HtmlCluster>
+		</FrontPanelUnplacedItems>
 		<BlockDiagram Id="12">
 			<WhileLoop Bounds="285 -5 541 710" DiagramId="17" Id="16">
 				<LoopIteration Bounds="5 680 15 15" Id="18" />
@@ -143,19 +153,29 @@
 			<Wire Id="f106122f1de2481f8bdebaa9526d683a" Joints="N(ea958707984644b3b01ee88de63fb446:R3)|(910,60) N(c93b97f012ef44f983ccfb351742a116:Value)|(953,60)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="819bafc03d70403daec5c25f08462154" Joints="N(29a990a4d0734135b533f8fcc444a7a1:o0)|(830,30) N(ea958707984644b3b01ee88de63fb446:L0)|(870,30)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<HtmlText BaseName="[string]Text" Height="[float]232" Id="b70d5d556ef14c85bef90485998410b7" Left="[float]164" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Pie chart placeholder" TextWrapping="[TextWrapping]Wrap" Top="[float]84" Width="[float]440" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="my-pie-chart" xmlns="http://www.ni.com/PlatformFramework" />
-			</HtmlText>
-			<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="b2b11e2e9f8d4aed883d39d6cfc5dfc2" Label="[UIModel]c0c9999a2364e8995cfa7da299649e6" Left="[float]772" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]0" Top="[float]436" Value="{DataItemBinding Id=952841a964fb481b8b4555fd97767adb}" Width="[float]176" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBooleanLED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="5b2d1ad0055e4b49aeed75a8d6d421e7" IsReadOnly="[bool]True" Label="[UIModel]50c6ba303bb846fab7835331b06e8483" Left="[float]8" MinHeight="[float]16" MinWidth="[float]16" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" />
-				<HtmlLabel Height="[float]16" Id="50c6ba303bb846fab7835331b06e8483" LabelOwner="[UIModel]5b2d1ad0055e4b49aeed75a8d6d421e7" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]38" />
-				<HtmlNumericText Height="[float]24" Id="490918d85f7b44c8a749947b964b5a9f" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]5780fd47db5e4dfe9153c62c401ce1d8" Left="[float]64" MinHeight="[float]16" MinWidth="[float]36" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" />
-				<HtmlLabel Height="[float]16" Id="5780fd47db5e4dfe9153c62c401ce1d8" LabelOwner="[UIModel]490918d85f7b44c8a749947b964b5a9f" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]33" />
-				<HtmlStringControl AcceptsReturn="[bool]True" Height="[float]96" Id="891a78d0dbb44335bc8929481594cde2" IsReadOnly="[bool]True" Label="[UIModel]16c6849b7d1e49d1869a39cc05a546f3" Left="[float]8" MinHeight="[float]20" MinWidth="[float]20" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" />
-				<HtmlLabel Height="[float]16" Id="16c6849b7d1e49d1869a39cc05a546f3" LabelOwner="[UIModel]891a78d0dbb44335bc8929481594cde2" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]42" />
-			</HtmlCluster>
-			<HtmlLabel Height="[float]16" Id="c0c9999a2364e8995cfa7da299649e6" LabelOwner="[UIModel]b2b11e2e9f8d4aed883d39d6cfc5dfc2" Left="[float]772" Text="[string]Output" Top="[float]416" Width="[float]45" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlFlexibleLayoutGroup Height="[float]276" Id="417a01ca35d242cf9e72b77df3fb6f64" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]276" Id="4c7a1078ba384747b11b5708a416b9ef" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Height="[float]260" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Center" Id="ae6b453605fb464d8f3bc6794c799b6c" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]248" Id="322da30ea6ee45a89d8907e8e710b929" Left="[float]222" Top="[float]6" Width="[float]504">
+							<HtmlText BaseName="[string]Text" Height="[float]248" Id="b70d5d556ef14c85bef90485998410b7" Left="[float]0" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Pie chart placeholder" TextWrapping="[TextWrapping]Wrap" Top="[float]0" Width="[float]504">
+								<HtmlBehavior ClassAttributes="my-pie-chart" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlText>
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
+			<HtmlFlexibleLayoutGroup Height="[float]276" Id="e3221db9dfbd4a29a5720156b7a8cb7f" Left="[float]30" Top="[float]306" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]276" Id="61ad6df91634d9796d1ec2dc161038f" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Height="[float]260" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Center" Id="1b1934d0c4714e559620fb46dcc10402" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]248" Id="a54c773744e444acac714aafb13685cf" Left="[float]222" Top="[float]6" Width="[float]504">
+							<HtmlText BaseName="[string]Text" Height="[float]248" Id="1041a39cf081484e92326f5c2212e419" Left="[float]0" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Pie chart placeholder" TextWrapping="[TextWrapping]Wrap" Top="[float]0" Width="[float]504">
+								<HtmlBehavior ClassAttributes="my-pie-chart" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlText>
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
 		</HtmlFrontPanel>
 		<DataItem DataType="Error" Id="952841a964fb481b8b4555fd97767adb" Name="Output" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>
