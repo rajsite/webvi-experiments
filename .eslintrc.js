@@ -111,7 +111,7 @@ module.exports = {
         'max-params': 'off',
         'max-statements-per-line': 'off',
         'max-statements': 'off',
-        'multiline-ternary': 'error',
+        'multiline-ternary': ["error", "always-multiline"],
         'new-cap': ["error", { "properties": false }],
         'new-parens': 'error',
         'newline-after-var': 'off',
