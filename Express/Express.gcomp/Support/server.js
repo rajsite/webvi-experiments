@@ -117,7 +117,8 @@
         const rawDependencyPaths = [];
         $$('script[webvi-express-require]').each(function (index, element) {
             const src = $$(element).attr('src');
-            const normalized = path.normalize(src);
+            // Seems to be formatted with windows path format
+            const normalized = src.replace(/\\/g, '/');
             rawDependencyPaths.push(normalized);
         });
         const dependencyPaths = rawDependencyPaths.map((rawDependencyPath) => path.resolve(resolvedHtmlDir, rawDependencyPath));
