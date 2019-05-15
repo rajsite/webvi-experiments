@@ -116,7 +116,9 @@
         const $$ = cheerio.load(endpointHTML);
         const rawDependencyPaths = [];
         $$('script[webvi-express-require]').each(function (index, element) {
-            rawDependencyPaths.push($$(element).attr('src'));
+            const src = $$(element).attr('src');
+            const normalized = path.normalize(src);
+            rawDependencyPaths.push(normalized);
         });
         const dependencyPaths = rawDependencyPaths.map((rawDependencyPath) => path.resolve(resolvedHtmlDir, rawDependencyPath));
         dependencyPaths.forEach((dependencyPath) => dependencyPathSet.add(dependencyPath));
@@ -175,7 +177,8 @@
         app[method](route, createVireoMiddleware(endpointConfig));
     });
 
-    const port = 3000;
+    const defaultPort = 3000;
+    const port = process.env.PORT || defaultPort;
     app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 }()).catch(function (ex) {
     'use strict';
