@@ -18,8 +18,6 @@
     const genericPool = require('generic-pool');
     const cheerio = require('cheerio');
 
-    express.mime.type.wasm = 'application/wasm';
-
     const cwd = process.cwd();
     console.log(`Current Working Directory: ${cwd}`);
 
