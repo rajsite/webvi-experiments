@@ -1,15 +1,6 @@
 (function () {
     'use strict';
 
-    const eventOccurence = function (element, eventName) {
-        return new Promise(function (resolve) {
-            const handler = element.addEventListener(eventName, () => {
-                element.removeEventListener(eventName, handler);
-                resolve();
-            });
-        });
-    };
-
     class ReferenceManager {
         constructor () {
             this._nextReference = 1;
@@ -33,15 +24,7 @@
     }
     const referenceManager = new ReferenceManager();
 
-    const requestDevice = async function (selector, eventName, filtersJSON, acceptAllDevices, optionalServiceUUIDsJSON) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Exactly one element must match the provided selector: ${selector}. Instead found the following number: ${elements.length}.`);
-        }
-        const element = elements[0];
-
-        await eventOccurence(element, eventName);
-
+    const requestDevice = async function (filtersJSON, acceptAllDevices, optionalServiceUUIDsJSON) {
         const filters = JSON.parse(filtersJSON).map(filter => {
             return filter.filterSettings.map(function ({name, settingJSON}) {
                 const settingRaw = JSON.parse(settingJSON);
