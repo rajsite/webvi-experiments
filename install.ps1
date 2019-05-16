@@ -101,9 +101,9 @@ if ($install_nxg)
     Assert-FileDoesNotExist($nxg)
     
     Write-Output "Adding LabVIEW NXG feeds to NI Package Manager"
-    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-3.0.0/6.4/released'
-    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-3.0.0-rte/6.4/released'
-    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-3.0.0-web-module/6.4/released'
+    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-3.0.0/6.4/released'
+    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-3.0.0-rte/6.4/released'
+    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-3.0.0-web-module/6.4/released'
     Run $nipm 'update'
     
     Write-Output "Installing NI Certificates..."
