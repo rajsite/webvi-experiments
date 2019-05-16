@@ -2,47 +2,28 @@
 (function () {
     'use strict';
 
-    // const base64EncodeByteArray = function (uint8Array) {
-    //     let stringBuffer = '';
-    //     for (let i = 0; i < uint8Array.length; i++) {
-    //         stringBuffer += String.fromCharCode(uint8Array[i]);
-    //     }
-    //     return window.btoa(stringBuffer);
-    // };
-
-    // window.WebVIUppy = {};
-    // // Asks the user for a file, loads the contents in memory, and returns it as a Uint8Array
-    // // Relies on NXG 3.1 Promise support for async JavaScript
-    // window.WebVIUppy.getUserFile = async function () {
-    //     const file = await userFileSelection();
-    //     const uint8Array = await fileRead(file);
-    //     return uint8Array;
-    // };
-
-    // window.WebVIUppy.base64EncodeByteArray = base64EncodeByteArray;
-
-    class RefnumManager {
+    class ReferenceManager {
         constructor () {
-            this._nextRefnum = 1;
-            this.refnums = new Map();
+            this._nextReference = 1;
+            this.references = new Map();
         }
 
-        createRefnum (obj) {
-            const refnum = this._nextRefnum;
-            this._nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
+        createReference (obj) {
+            const reference = this._nextReference;
+            this._nextReference += 1;
+            this.references.set(reference, obj);
+            return reference;
         }
 
-        getObject (refnum) {
-            return this.refnums.get(refnum);
+        getObject (reference) {
+            return this.references.get(reference);
         }
 
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
+        closeReference (reference) {
+            this.references.delete(reference);
         }
     }
-    const refnumManager = new RefnumManager();
+    const referenceManager = new ReferenceManager();
 
     const createUppy = function () {
         const uppyConfig = {
@@ -60,31 +41,31 @@
             webcam: JSON.stringify({})
         };
 
-        const refnum = refnumManager.createRefnum(uppyConfig);
-        return refnum;
+        const reference = referenceManager.createReference(uppyConfig);
+        return reference;
     };
 
-    const destroyUppy = function (refnum) {
-        const options = refnumManager.getObject(refnum);
+    const destroyUppy = function (reference) {
+        const options = referenceManager.getObject(reference);
         if (options !== undefined) {
-            refnumManager.closeRefnum(refnum);
+            referenceManager.closeReference(reference);
         }
     };
 
-    const setUppyOptions = function (refnum, name, optionsJSON) {
-        const uppyConfig = refnumManager.getObject(refnum);
+    const setUppyOptions = function (reference, name, optionsJSON) {
+        const uppyConfig = referenceManager.getObject(reference);
         if (uppyConfig === undefined) {
-            throw new Error('Invalid Uppy refnum.');
+            throw new Error('Invalid Uppy reference.');
         }
 
         uppyConfig[name] = optionsJSON;
     };
 
-    const requestUppyFiles = function (refnum) {
+    const requestUppyFiles = function (reference) {
         return new Promise(function (resolve, reject) {
-            const uppyConfig = refnumManager.getObject(refnum);
+            const uppyConfig = referenceManager.getObject(reference);
             if (uppyConfig === undefined) {
-                throw new Error('Invalid Uppy refnum.');
+                throw new Error('Invalid Uppy reference.');
             }
 
             let cleanup;
@@ -103,8 +84,8 @@
             }
             core.onBeforeUpload = function (uppyFiles) {
                 // Get the user selected file / blob
-                const uppyFileRefnums = new Int32Array(Object.keys(uppyFiles).map((key) => refnumManager.createRefnum(uppyFiles[key].data)));
-                resolve(uppyFileRefnums);
+                const uppyFileReferences = new Int32Array(Object.keys(uppyFiles).map((key) => referenceManager.createReference(uppyFiles[key].data)));
+                resolve(uppyFileReferences);
 
                 // Clean-up the dialog and uppy state
                 cleanup();
@@ -141,20 +122,20 @@
         });
     };
 
-    const destroyUppyFiles = function (uppyFileRefnums) {
-        uppyFileRefnums.forEach(function (uppyFileRefnum) {
-            const uppyFile = refnumManager.getObject(uppyFileRefnum);
+    const destroyUppyFiles = function (uppyFileReferences) {
+        uppyFileReferences.forEach(function (uppyFileReference) {
+            const uppyFile = referenceManager.getObject(uppyFileReference);
             if (uppyFile !== undefined) {
-                refnumManager.closeRefnum(uppyFileRefnum);
+                referenceManager.closeReference(uppyFileReference);
             }
         });
     };
 
-    const readUppyFile = function (uppyFileRefnum) {
+    const readUppyFile = function (uppyFileReference) {
         return new Promise(function (resolve, reject) {
-            const uppyFile = refnumManager.getObject(uppyFileRefnum);
+            const uppyFile = referenceManager.getObject(uppyFileReference);
             if (uppyFile === undefined) {
-                throw new Error('Invalid Uppy File refnum.');
+                throw new Error('Invalid Uppy File reference.');
             }
 
             const fileReader = new FileReader();
