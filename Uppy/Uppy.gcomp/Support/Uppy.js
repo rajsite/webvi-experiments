@@ -47,7 +47,16 @@
     const createUppy = function () {
         const uppyConfig = {
             core: JSON.stringify({}),
-            dashboard: JSON.stringify({}),
+            dashboard: JSON.stringify({
+                locale: {
+                    strings: {
+                        uploadXFiles: {
+                            0: 'Open %{smart_count} file',
+                            1: 'Open %{smart_count} files'
+                        }
+                    }
+                }
+            }),
             webcam: JSON.stringify({})
         };
 
