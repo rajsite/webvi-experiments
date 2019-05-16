@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="85DBAD1DE4685AC9949D558DC47E14BE23A895624EFCD4F58D427BD33AD04B5458A9D7EA8CAEF06343F745862A5EE6F1921F0168EF7BD84825879A2340F98894" Timestamp="1D5054445AA9FFE" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="B430253D3B9983961953E783ABD682C6E6194C16455D3F8DC3200C94DD187A23291E006FD81705FCC92431588D8707C102215E95C46B04988EDF44DABFE90F9A" Timestamp="1D50B91E062DDBB" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -35,18 +35,6 @@
 		<DiagramUnplacedItems Id="72cd2196faa14285a1b67533df8044c7" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="e380872039ec4bc89dcd35e69e0e155c" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="25318f2eb0a04fa2809c1333a507b643">
-			<MethodCall Bounds="420 285 40 40" Id="a6c9af09be284d2494c8556f2be6ea5c" ResolveFailedHint="DestroyEChart" Signature="@9200bea45845424a9a27e0f1d42ba338" Target="ECharts::Support::ECharts.jsli::DestroyEChart" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="echart refnum" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="Int32" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
 			<DataAccessor Bounds="370 250 40 15" DataItem="d428af2fad6a4f94ae2ddd13f8e8fbbb" Id="c91f05061ab540a887db15275a218e7e" Label="34620b57dfdb49dfb4b9143550279926" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
@@ -60,25 +48,37 @@
 				<p.Text>error out</p.Text>
 			</NodeLabel>
 			<DataAccessor Bounds="370 285 40 15" DataItem="84e264e2635143f2af98d249264b6bca" Id="ce2fa5c71d074ff087b3e3cefd19e0cb" Label="650e93640deb4c4baa0eded3a6af72d0" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@9f25d003a3064ed285965063d6688ff9" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@f52b2d4b77d54ad2a77786e3dc886ebf" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="ce2fa5c71d074ff087b3e3cefd19e0cb" Bounds="286 285 79 14" Id="650e93640deb4c4baa0eded3a6af72d0" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>echart refnum</p.Text>
+			<NodeLabel AttachedTo="ce2fa5c71d074ff087b3e3cefd19e0cb" Bounds="274 285 91 14" Id="650e93640deb4c4baa0eded3a6af72d0" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>echart reference</p.Text>
 			</NodeLabel>
-			<Wire Id="d910d346243844ad8b4f6674132f848b" Joints="N(ce2fa5c71d074ff087b3e3cefd19e0cb:Value)|(410,290) N(a6c9af09be284d2494c8556f2be6ea5c:L0)|(420,290)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d910d346243844ad8b4f6674132f848b" Joints="N(ce2fa5c71d074ff087b3e3cefd19e0cb:Value)|(410,290) N(44396be1129644eea0f04b7b3c90087f:L0)|(420,290)" xmlns="http://www.ni.com/PlatformFramework" />
 			<MergeErrors Bounds="480 250 30 20" Id="1b62c682a4d64d6e859653172b0be498" Terminals="error out=6f3b9783c2a14581b7bf213ebb721d2e, c0t0v=36fe6112ff974997a0ffa83f784ce051, c1t0v=e3926f0d3c3347a1a2b8855337132c8f" />
 			<Wire Id="36fe6112ff974997a0ffa83f784ce051" Joints="N(c91f05061ab540a887db15275a218e7e:Value)|(410,255) N(1b62c682a4d64d6e859653172b0be498:c0t0v)|(480,255)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="6f3b9783c2a14581b7bf213ebb721d2e" Joints="N(1b62c682a4d64d6e859653172b0be498:error out)|(510,255) N(84f4b504fd234b1c8578771ea2659204:Value)|(553,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="e3926f0d3c3347a1a2b8855337132c8f" Joints="N(a6c9af09be284d2494c8556f2be6ea5c:R3)|(460,320) h(14) v(-55) N(1b62c682a4d64d6e859653172b0be498:c1t0v)|(480,265)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="e3926f0d3c3347a1a2b8855337132c8f" Joints="N(44396be1129644eea0f04b7b3c90087f:R3)|(460,320) h(14) v(-55) N(1b62c682a4d64d6e859653172b0be498:c1t0v)|(480,265)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="420 285 40 40" Id="44396be1129644eea0f04b7b3c90087f" ResolveFailedHint="DestroyEChart" Signature="@af767aa7f671400788f163f6adadb946" Target="ECharts::Support::ECharts.jsli::DestroyEChart" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="echart reference" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Int32" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="1f48ae8a863342ff9651af87221a376a" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="7853127e2019404f8d98e7b0423be6ad" />
-			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="953ba46309b54d98add4578fc7184086" Interval="[int]1" IsTabStop="[bool]True" Label="[UIModel]38134ecd5f9d42cd8e43805127551e54" Left="[float]244" MinHeight="[float]24" TabIndex="[int]0" Top="[float]228" Value="{DataItemBinding Id=84e264e2635143f2af98d249264b6bca}" ValueFormatter="[string]LV:0" ValueType="[Type]@9f25d003a3064ed285965063d6688ff9" Width="[float]72" p4:ControlDefinitionChecksum="6W2TzQq26w/lKoZyxqg2InfV7OPDGrdVrEPD5lQ5dRQ=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="953ba46309b54d98add4578fc7184086" Interval="[int]1" IsTabStop="[bool]True" Label="[UIModel]38134ecd5f9d42cd8e43805127551e54" Left="[float]244" MinHeight="[float]24" TabIndex="[int]0" Top="[float]228" Value="{DataItemBinding Id=84e264e2635143f2af98d249264b6bca}" ValueFormatter="[string]LV:0" ValueType="[Type]@f52b2d4b77d54ad2a77786e3dc886ebf" Width="[float]72" p4:ControlDefinitionChecksum="L8wGFfn5yTHpcUicgwwhjOSY5FVJyerYNecU4NwsEdk=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
-					<p4:TypeDefinitionTarget TargetName="ECharts::Support::echart refnum.gtype::ControlDefinition" />
+					<p4:TypeDefinitionTarget TargetName="ECharts::Support::echart reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</NumericText>
-			<Label Height="[float]16" Id="38134ecd5f9d42cd8e43805127551e54" LabelOwner="[UIModel]953ba46309b54d98add4578fc7184086" Left="[float]244" Text="[string]echart refnum" Top="[float]208" Width="[float]75" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="38134ecd5f9d42cd8e43805127551e54" LabelOwner="[UIModel]953ba46309b54d98add4578fc7184086" Left="[float]244" Text="[string]echart reference" Top="[float]208" Width="[float]86" xmlns="http://www.ni.com/PanelCommon" />
 			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="9e97b4d62d3f41889c65f3facd9ef519" Label="[UIModel]cf597328fc2f488fa6c7b7a3c5fcff54" Left="[float]148" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]1" Top="[float]308" Value="{DataItemBinding Id=d428af2fad6a4f94ae2ddd13f8e8fbbb}" Width="[float]176" p4:ControlDefinitionChecksum="e3nj023iwYRzhBkV8z61WFGSCt7pzzv3hwIJFanixR4=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype::ControlDefinition" />
@@ -128,16 +128,23 @@
 				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
-		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@9f25d003a3064ed285965063d6688ff9" Id="84e264e2635143f2af98d249264b6bca" Name="echart refnum" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@f52b2d4b77d54ad2a77786e3dc886ebf" Id="84e264e2635143f2af98d249264b6bca" Name="echart reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="ECharts::Support::echart refnum.gtype" />
+				<TypeDefinitionTarget TargetName="ECharts::Support::echart reference.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="9200bea45845424a9a27e0f1d42ba338">
-			<Attributed AttributedType="@513aa42401434df8a1465fb4256b306d">
+		<p.TypeReference TypeId="f52b2d4b77d54ad2a77786e3dc886ebf">
+			<Attributed AttributedType="@2fa2a650621745c5bd8e1f295a53eeb6">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]ECharts::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="af767aa7f671400788f163f6adadb946">
+			<Attributed AttributedType="@d63affc20abc4d9fa2240899e6b0f27e">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -145,19 +152,15 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9f25d003a3064ed285965063d6688ff9">
-			<Attributed AttributedType="@6f134bff33164518a30b5aa506a3ab01">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]ECharts::Support" />
-				</AttributeValues>
-			</Attributed>
+		<p.TypeReference TypeId="2fa2a650621745c5bd8e1f295a53eeb6">
+			<Typedef TypedefName="echart reference.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="513aa42401434df8a1465fb4256b306d">
+		<p.TypeReference TypeId="d63affc20abc4d9fa2240899e6b0f27e">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="DestroyEChart" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@fd0a27fc224449e2ac062435708c4ab0">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]echart refnum" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]echart reference" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -172,9 +175,6 @@
 					</Attributed>
 				</Parameters>
 			</Function>
-		</p.TypeReference>
-		<p.TypeReference TypeId="6f134bff33164518a30b5aa506a3ab01">
-			<Typedef TypedefName="echart refnum.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="fd0a27fc224449e2ac062435708c4ab0">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Int32" />

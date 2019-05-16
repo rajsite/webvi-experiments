@@ -2,28 +2,28 @@
 (function () {
     'use strict';
 
-    let nextRefnum = 1;
-    class RefnumManager {
+    class ReferenceManager {
         constructor () {
-            this.refnums = new Map();
+            this._nextReference = 1;
+            this.references = new Map();
         }
 
-        createRefnum (obj) {
-            const refnum = nextRefnum;
-            nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
+        createReference (obj) {
+            const reference = this._nextReference;
+            this._nextReference += 1;
+            this.references.set(reference, obj);
+            return reference;
         }
 
-        getObject (refnum) {
-            return this.refnums.get(refnum);
+        getObject (reference) {
+            return this.references.get(reference);
         }
 
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
+        closeReference (reference) {
+            this.references.delete(reference);
         }
     }
-    const refnumManager = new RefnumManager();
+    const referenceManager = new ReferenceManager();
 
     const createEChart = function (selector) {
         const parents = document.querySelectorAll(selector);
@@ -39,22 +39,22 @@
 
         parent.appendChild(element);
         const echart = echarts.init(element);
-        const echartRefnum = refnumManager.createRefnum(echart);
-        return echartRefnum;
+        const echartReference = referenceManager.createReference(echart);
+        return echartReference;
     };
 
-    const destroyEChart = function (echartRefnum) {
-        const echart = refnumManager.getObject(echartRefnum);
+    const destroyEChart = function (echartReference) {
+        const echart = referenceManager.getObject(echartReference);
         if (echart !== undefined) {
-            refnumManager.closeRefnum(echartRefnum);
+            referenceManager.closeReference(echartReference);
             echarts.dispose(echart);
         }
     };
 
-    const updateEChart = function (echartRefnum, optionsArrayJSON) {
-        const echart = refnumManager.getObject(echartRefnum);
+    const updateEChart = function (echartReference, optionsArrayJSON) {
+        const echart = referenceManager.getObject(echartReference);
         if (echart === undefined) {
-            throw new Error('Invalid echarts refnum');
+            throw new Error('Invalid echarts reference.');
         }
 
         // The optionsArrayJSON is a string that represents a JSON array of JSON objects of structure: [{"name": string, "propertiesJSON": string}, ...]
