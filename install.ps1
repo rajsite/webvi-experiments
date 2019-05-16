@@ -73,7 +73,7 @@ $nipm = 'C:\Program Files\National Instruments\NI Package Manager\nipkg.exe'
 $install_NIPM = $true
 if ($install_NIPM)
 {
-    $nipmDownloadPath = 'http://download.ni.com/support/softlib/AST/NIPM/NIPackageManager18.5.1.exe'
+    $nipmDownloadPath = 'http://download.ni.com/support/softlib/AST/NIPM/NIPackageManager19.0.exe'
     $nipmInstaller = Join-Path -Path $rootDirectory -ChildPath 'install-nipm.exe'
     Assert-FileDoesNotExist($nipm)
     $time = (Get-Date).ToUniversalTime()
@@ -97,13 +97,13 @@ Assert-FileExists($nipm)
 $install_nxg = $true
 if ($install_nxg)
 {
-    $nxg = 'C:\Program Files\National Instruments\LabVIEW NXG 2.0\LabVIEW NXG.exe'
+    $nxg = 'C:\Program Files\National Instruments\LabVIEW NXG 3.0\LabVIEW NXG.exe'
     Assert-FileDoesNotExist($nxg)
     
     Write-Output "Adding LabVIEW NXG feeds to NI Package Manager"
-    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-2.0.0/2.1/released'
-    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-2.0.0-rte/2.1/released'
-    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-2.0.0-web-module/2.1/released'
+    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-3.0.0/6.4/released'
+    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-3.0.0-rte/6.4/released'
+    Run $nipm 'feed-add http://download.ni.com/support/nipkg/products/ni-labview-nxg-3.0.0-web-module/6.4/released'
     Run $nipm 'update'
     
     Write-Output "Installing NI Certificates..."
@@ -112,12 +112,12 @@ if ($install_nxg)
     Write-Output "...done at UTC $time"
     
     Write-Output "Installing LabVIEW NXG..."
-    Run $nipm 'install ni-labview-nxg-2.0.0 --accept-eulas --assume-yes --verbose'
+    Run $nipm 'install ni-labview-nxg-3.0.0 --accept-eulas --assume-yes --verbose'
     $time = (Get-Date).ToUniversalTime()
     Write-Output "...done at UTC $time"
     
     Write-Output "Installing LabVIEW NXG Web Module..."
-    Run $nipm 'install ni-labview-nxg-2.0.0-web-module --accept-eulas --assume-yes --verbose'
+    Run $nipm 'install ni-labview-nxg-3.0.0-web-module --accept-eulas --assume-yes --verbose'
     $time = (Get-Date).ToUniversalTime()
     Write-Output "...done at UTC $time"
     Assert-FileExists($nxg)
