@@ -1,3 +1,4 @@
+/* globals BluetoothDevice:true, BluetoothRemoteGATTService: true, BluetoothRemoteGATTCharacteristic: true */
 (function () {
     'use strict';
 
@@ -24,7 +25,93 @@
     }
     const referenceManager = new ReferenceManager();
 
+    const validateWebBluetooth = function () {
+        if (navigator.bluetooth === undefined) {
+            throw new Error('Web Bluetooth not supported on this platform.');
+        }
+    };
+
+    const validateWebBluetoothAndReference = function (reference, expectedType) {
+        validateWebBluetooth();
+        const result = referenceManager.getObject(reference);
+        if (result === undefined) {
+            throw new Error('Invalid reference.');
+        }
+        if (result instanceof expectedType === false) {
+            throw new Error(`Expected reference to be an instance of ${expectedType.name}.`);
+        }
+        return result;
+    };
+
+    const gattServerMonitorInstances = new Map();
+    class GATTServerMonitor {
+        static lookupDeviceGattServerMonitor (device) {
+            const gattServerMonitor = gattServerMonitorInstances.get(device);
+            if (gattServerMonitor === undefined) {
+                throw new Error('Unable to find GATT Server Monitor for device. Make sure to call Gatt Server connect.');
+            }
+            return gattServerMonitor;
+        }
+
+        static registerDeviceResource (device, reference) {
+            const gattServerMonitor = GATTServerMonitor.lookupDeviceGattServerMonitor(device);
+            gattServerMonitor.registerResource(reference);
+        }
+
+        constructor (device) {
+            if (gattServerMonitorInstances.has(device)) {
+                throw new Error('Device gatt server is already being monitored.');
+            }
+            this._device = device;
+            this._deviceResources = [];
+            this._setDisconnected = undefined;
+            this._disconnected = new Promise((resolve, reject) => {
+                this._setDisconnected = () => {
+                    reject(new Error('GATT Server disconnected.'));
+                };
+            });
+            // Without having a default handler for the promise rejection Chrome seems to have intermittancy on future gatt.connect calls
+            this._disconnected.catch(() => {
+                // create a default noop handler for the disconnected rejection to prevent unhandled promise rejection console errors
+            });
+            this._disconnectedHandler = () => {
+                this.disconnect();
+            };
+            this._device.addEventListener('gattserverdisconnected', this._disconnectedHandler);
+            gattServerMonitorInstances.set(this._device, this);
+        }
+
+        // Track services, characteristics, and descriptors because become invalid on disconnect: https://webbluetoothcg.github.io/web-bluetooth/#persistence
+        registerResource (reference) {
+            this._deviceResources.push(reference);
+        }
+
+        connect () {
+            return this._device.gatt.connect();
+        }
+
+        disconnect () {
+            gattServerMonitorInstances.delete(this._device);
+            this._device.removeEventListener('gattserverdisconnected', this._disconnectedHandler);
+            this._disconnectedHandler = undefined;
+            this._setDisconnected();
+            this._deviceResources.forEach(refererence => referenceManager.closeReference(refererence));
+            this._deviceResources = undefined;
+            try {
+                this._device.gatt.disconnect();
+            } catch (ex) {
+                console.error(ex);
+            }
+            this._device = undefined;
+        }
+
+        disconnected () {
+            return this._disconnected;
+        }
+    }
+
     const requestDevice = async function (filtersJSON, acceptAllDevices, optionalServiceUUIDsJSON) {
+        validateWebBluetooth();
         const filters = JSON.parse(filtersJSON).map(filter => {
             return filter.filterSettings.map(function ({name, settingJSON}) {
                 const settingRaw = JSON.parse(settingJSON);
@@ -56,68 +143,54 @@
         return JSON.stringify(deviceInformation);
     };
 
-    // TODO maybe should have gattServer and gattServerConnect / gattServerDisconnect? Seems strange to ask device to disconnect gatt server instead of server itself
-    const gattServerConnect = async function (deviceRefnum) {
-        const device = referenceManager.getObject(deviceRefnum);
-        if (device instanceof window.BluetoothDevice === false) {
-            throw new Error(`Expected gattServerConnect to be invoked with a deviceRefnum, instead got: ${device}`);
-        }
-        const gattServer = await device.gatt.connect();
-        const gattServerRefnum = referenceManager.createReference(gattServer);
-        return gattServerRefnum;
+    const gattServerConnect = async function (deviceReference) {
+        console.log('connect');
+        const device = validateWebBluetoothAndReference(deviceReference, BluetoothDevice);
+        const gattServerMonitor = new GATTServerMonitor(device);
+        await gattServerMonitor.connect();
+        console.log('connect end');
     };
 
-    const gattServerDisconnect = function (deviceRefnum) {
-        const device = referenceManager.getObject(deviceRefnum);
-        if (device instanceof window.BluetoothDevice === false) {
-            throw new Error(`Expected gattServerDisconnect to be invoked with a deviceRefnum, instead got: ${device}`);
-        }
-
-        // TODO services, characteristics, and descriptors become invalid on disconnect: https://webbluetoothcg.github.io/web-bluetooth/#persistence
-        // Maybe we should track and auto clean-up those references?
-        device.gatt.disconnect();
+    const gattServerDisconnect = function (deviceReference) {
+        console.log('disconnect');
+        const device = validateWebBluetoothAndReference(deviceReference, BluetoothDevice);
+        const gattServerMonitor = GATTServerMonitor.lookupDeviceGattServerMonitor(device);
+        gattServerMonitor.disconnect();
+        console.log('disconnect end');
     };
 
     // For information about primary vs included services: https://webbluetoothcg.github.io/web-bluetooth/#information-model
-    const getPrimaryService = async function (gattServerRefnum, serviceName) {
-        const gattServer = referenceManager.getObject(gattServerRefnum);
-        if (gattServer instanceof window.BluetoothRemoteGATTServer === false) {
-            throw new Error(`Expected getPrimaryService to be invoked with a gattServerRefnum, instead got: ${gattServer}`);
-        }
-
-        const service = await gattServer.getPrimaryService(serviceName);
-        const serviceRefnum = referenceManager.createReference(service);
-        return serviceRefnum;
+    const getPrimaryService = async function (deviceReference, serviceName) {
+        console.log('primary service');
+        const device = validateWebBluetoothAndReference(deviceReference, BluetoothDevice);
+        const service = await device.gatt.getPrimaryService(serviceName);
+        const serviceReference = referenceManager.createReference(service);
+        GATTServerMonitor.registerDeviceResource(device, serviceReference);
+        console.log('primary service end');
+        return serviceReference;
     };
 
-    const getCharacteristic = async function (serviceRefnum, characteristicName) {
-        const service = referenceManager.getObject(serviceRefnum);
-        if (service instanceof window.BluetoothRemoteGATTService === false) {
-            throw new Error(`Expected getCharacteristic to be invoked with a serviceRefnum, instead got: ${service}`);
-        }
-
+    const getCharacteristic = async function (serviceReference, characteristicName) {
+        console.log('get characteristic');
+        const service = validateWebBluetoothAndReference(serviceReference, BluetoothRemoteGATTService);
         const characteristic = await service.getCharacteristic(characteristicName);
-        const characteristicRefnum = referenceManager.createReference(characteristic);
-        return characteristicRefnum;
+        const characteristicReference = referenceManager.createReference(characteristic);
+        GATTServerMonitor.registerDeviceResource(service.device, characteristicReference);
+        console.log('get characteristic end');
+        return characteristicReference;
     };
 
-    const readValue = async function (characteristicRefnum) {
-        const characteristic = referenceManager.getObject(characteristicRefnum);
-        if (characteristic instanceof window.BluetoothRemoteGATTCharacteristic === false) {
-            throw new Error(`Expected readValue to be invoked with a characteristicRefnum, instead got: ${characteristic}`);
-        }
-
+    const readValue = async function (characteristicReference) {
+        console.log('read value');
+        const characteristic = validateWebBluetoothAndReference(characteristicReference, BluetoothRemoteGATTCharacteristic);
         const valueDataView = await characteristic.readValue();
         // DataView documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
+        console.log('read value end');
         return new Uint8Array(valueDataView.buffer);
     };
 
-    const writeValue = async function (characteristicRefnum, value) {
-        const characteristic = referenceManager.getObject(characteristicRefnum);
-        if (characteristic instanceof window.BluetoothRemoteGATTCharacteristic === false) {
-            throw new Error(`Expected readValue to be invoked with a characteristicRefnum, instead got: ${characteristic}`);
-        }
-
+    const writeValue = async function (characteristicReference, value) {
+        const characteristic = validateWebBluetoothAndReference(characteristicReference, BluetoothRemoteGATTCharacteristic);
         await characteristic.writeValue(value);
     };
 
@@ -177,77 +250,67 @@
 
     class CharacteristicMonitor {
         constructor (characteristic) {
-            this.characteristic = characteristic;
-            this.queue = new DataQueue();
-
-            this.handler = (evt) => {
-                this.queue.enqueue(new Uint8Array(evt.target.value.buffer));
+            this._characteristic = characteristic;
+            this._queue = new DataQueue();
+            // According to spec:
+            // After notifications are enabled, the resulting value-change events won’t be delivered until after the current microtask checkpoint.
+            // This allows a developer to set up handlers in the .then handler of the result promise.
+            this._handler = (evt) => {
+                this._queue.enqueue(new Uint8Array(evt.target.value.buffer));
             };
-            this.stopHandler = () => {
-                this.stop();
-            };
+            this._characteristic.addEventListener('characteristicvaluechanged', this.handler);
+        }
 
-            this.characteristic.addEventListener('characteristicvaluechanged', this.handler);
-            this.characteristic.service.device.addEventListener('gattserverdisconnected', this.stopHandler);
+        get characteristic () {
+            return this._characteristic;
         }
 
         read () {
-            return this.queue.dequeue();
+            return this._queue.dequeue();
+        }
+
+        async start () {
+            await this._characteristic.startNotifications();
         }
 
         async stop () {
-            this.characteristic.removeEventListener('characteristicvaluechanged', this.handler);
-            this.characteristic.service.device.removeEventListener('gattserverdisconnected', this.stopHandler);
+            this._characteristic.removeEventListener('characteristicvaluechanged', this.handler);
+            this._handler = undefined;
 
-            this.handler = undefined;
-            this.stopHandler = undefined;
-
-            // TODO need to move start and stop notifications out of per chracteristic read
             try {
-                await this.characteristic.stopNotifications();
+                await this._characteristic.stopNotifications();
             } catch (ex) {
                 console.error(ex);
             }
-            this.characteristic = undefined;
+            this._characteristic = undefined;
 
             // TODO mraj should we do anything with queue data if there are leftovers when stopping?
-            this.queue.destroy();
-            this.queue = undefined;
+            this._queue.destroy();
+            this._queue = undefined;
         }
     }
 
-    const startCharacteristicNotification = async function (characteristicRefnum) {
-        const characteristic = referenceManager.getObject(characteristicRefnum);
-        if (characteristic instanceof window.BluetoothRemoteGATTCharacteristic === false) {
-            throw new Error(`Expected readValue to be invoked with a characteristicRefnum, instead got: ${characteristic}`);
-        }
-
-        // According to spec:
-        // After notifications are enabled, the resulting value-change events won’t be delivered until after the current microtask checkpoint.
-        // This allows a developer to set up handlers in the .then handler of the result promise.
-
-        // TODO need to move start and stop notifications out of per chracteristic read
-        await characteristic.startNotifications();
+    const startCharacteristicNotification = async function (characteristicReference) {
+        const characteristic = validateWebBluetoothAndReference(characteristicReference, BluetoothRemoteGATTCharacteristic);
         const characteristicMonitor = new CharacteristicMonitor(characteristic);
-        const characteristicMonitorRefnum = referenceManager.createReference(characteristicMonitor);
-        return characteristicMonitorRefnum;
+        const characteristicMonitorReference = referenceManager.createReference(characteristicMonitor);
+        GATTServerMonitor.registerResource(characteristic.service.device, characteristicMonitorReference);
+        await characteristicMonitor.start();
+        return characteristicMonitorReference;
     };
 
-    const readCharacteristicNotification = async function (characteristicMonitorRefnum) {
-        const characteristicMonitor = referenceManager.getObject(characteristicMonitorRefnum);
-        if (characteristicMonitor instanceof CharacteristicMonitor === false) {
-            throw new Error(`Expected readCharacteristicNotification to be invoked with a characteristicMonitorRefnum, instead got: ${characteristicMonitor}`);
-        }
-
-        const data = await characteristicMonitor.read();
+    const readCharacteristicNotification = async function (characteristicMonitorReference) {
+        const characteristicMonitor = validateWebBluetoothAndReference(characteristicMonitorReference, CharacteristicMonitor);
+        const gattServerMonitor = GATTServerMonitor.lookupDeviceGattServerMonitor(characteristicMonitor.characteristic.service.device);
+        const data = await Promise.race([
+            gattServerMonitor.disconnected(),
+            characteristicMonitor.read()
+        ]);
         return data;
     };
 
-    const stopCharacteristicNotification = async function (characteristicMonitorRefnum) {
-        const characteristicMonitor = referenceManager.getObject(characteristicMonitorRefnum);
-        if (characteristicMonitor instanceof CharacteristicMonitor === false) {
-            throw new Error(`Expected readCharacteristicNotification to be invoked with a characteristicMonitorRefnum, instead got: ${characteristicMonitor}`);
-        }
+    const stopCharacteristicNotification = async function (characteristicMonitorReference) {
+        const characteristicMonitor = validateWebBluetoothAndReference(characteristicMonitorReference, CharacteristicMonitor);
         await characteristicMonitor.stop();
     };
 

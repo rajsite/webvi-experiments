@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="E1F74AB1C1AB1BE0C10912F3C70511C0D1E9E1E00C065B2171AE6FF33974FE019BBA537349998F32663E53BF33E20AB54616930C9E8E9E2247B54747515345FA" Timestamp="1D50C3E2F261AB3" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="14C34CE70965EF336EE08F661825C2F7C62224B0B93DFB6BA58DB964890D9E80AC13E5E5035B4D0640CB47D35FAE102CF4C26F11C63AA6296EA8A5FD23AB82BF" Timestamp="1D50D2EF2324CD5" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
@@ -89,13 +89,13 @@
 						</IconPanel>
 					</Icon>
 					<ConnectorPane Height="40" Id="49" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal />
-						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="77" />
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="77" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
 						<ConnectorPaneTerminal Hotspot="0 25" />
 						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="50" />
 						<ConnectorPaneTerminal Hotspot="15 0" />
 						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="54" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
 						<ConnectorPaneTerminal Hotspot="40 15" />
 						<ConnectorPaneTerminal Hotspot="40 25" />
 						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="51" />
@@ -104,9 +104,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="50" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="51" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="52" IsReturnParameter="True" Name="gatt server reference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="55" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="54" Name="gatt server reference" />
+					<JavaScriptLibraryParameter Id="52" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="f716c627f28742d0a09bde4cb78f3cc0" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="54" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="75" Name="device reference">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="76" />
@@ -147,13 +147,13 @@
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="71" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="70" Name="service reference" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="72" Name="gatt server reference">
+					<JavaScriptLibraryParameter Id="72" Name="device reference">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="73" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="74" Name="gatt server reference" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="74" Name="device reference" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="78" Name="service">
+					<JavaScriptLibraryParameter Id="78" Name="service uuid">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="81" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="80" Name="service" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="80" Name="service uuid" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
@@ -194,9 +194,9 @@
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="102" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="103" Name="service reference" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="104" Name="characteristic">
+					<JavaScriptLibraryParameter Id="104" Name="characteristic uuid">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="107" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="106" Name="characteristic" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="106" Name="characteristic uuid" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
@@ -438,6 +438,45 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="25b63347fa994b90a1e03fd0e0249b64" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="GattServerDisconnect">
+				<JavaScriptLibraryEntryPoint Id="557df9dbde9244fcbfaa46b7c8a5439d" Symbol="WebVIWebBluetooth.gattServerDisconnect" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="84c5e912daf64168b0abb2ee6866e70c" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="abc66932e041462ba050fc9f9141c4e2" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="51a29167d53f41cfb8af620febac79bb" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="137be6479f55465192a52cad2df373c0" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="a1ec40308a44eb8a0c2d296fa4abf7a" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="5c7c220c1bb9476b814bfeae2a414c7f" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]GattServerDisconnect" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" Id="9c60c67a3d084ed29842a5e3b658399e" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="7bb9964d08ed4550ac2f01df5f90257a" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="7f0c4fbd433f4e74ba4aad1eba06e1d3" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="b5e17ed45dd84b649a6f9ce2899404aa" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="5542c93e54b544d2996a1a9257979835" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="b5e17ed45dd84b649a6f9ce2899404aa" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5542c93e54b544d2996a1a9257979835" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="a89210dc82904a9897621c89d364146f" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="a2c0e9383e6046e6bdf695126193dd33" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="8030a6a9aaff436196e60611a7c9799c" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="6e3f84a35bd144f9bac6c4fe92274fe7" Name="device reference">
+						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="a230eab2e5ba42548de4e7f7a71956e8" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="7f0c4fbd433f4e74ba4aad1eba06e1d3" Name="device reference" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
@@ -455,6 +494,13 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
+		<p.TypeReference TypeId="761c1e6d42c140fea62c015adb1483c9">
+			<Attributed AttributedType="Void">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="dd3fd85a6fdd451c9c068b1446f04dd8">
 			<Attributed AttributedType="Int32">
 				<AttributeValues>
@@ -464,13 +510,6 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="f21e5a75cf5d49d4a187370f29d6b881">
 			<Attributed AttributedType="UInt8[]">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="761c1e6d42c140fea62c015adb1483c9">
-			<Attributed AttributedType="Void">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 				</AttributeValues>
