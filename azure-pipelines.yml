@@ -27,9 +27,9 @@ steps:
   inputs:
     versionSpec: '>=2.4'
 - task: PowerShell@2
+  displayName: Deploy to gh-pages
+  env: # configuring secrets https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
+    GHPAGESTOKEN: $(ghpagestoken)
   inputs:
-    displayName: Deploy to gh-pages
     targetType: filePath
     filePath: .\AzurePipelines\ghpages.ps1
-    env: # configuring secrets https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
-      GHPAGESTOKEN: $(ghpagestoken)
