@@ -1,5 +1,1 @@
-gem install dpl
-
-Write-Host "This works: $env:GHPAGESTOKEN"
-
-
+dpl --provider=pages --skip_cleanup --verbose --github-token=$env:GHPAGESTOKEN --local-dir=ghpagesbuild/
