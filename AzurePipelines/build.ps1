@@ -52,29 +52,29 @@ function Run {
     Unregister-Event -SourceIdentifier $outEvent.Name
 }
 
-$rootDirectory = (Get-Location).Path
-Write-Output "Current directory $rootDirectory"
+Write-Output "Current directory $((Get-Location).Path)"
 
+Write-Output "Checking if LabVIEW NXG CLI is available"
 $labviewnxgcli = 'C:\Program Files\National Instruments\LabVIEW NXG 3.0\labviewnxgcli.exe'
 Assert-FileExists($labviewnxgcli)
 
-Run $labviewnxgcli 'build-application -n Application.gcomp -t "Web Server" -p ".\Fire\LabVIEW PSX Doom Fire.lvproject"'
-
+Write-Output "Setting up ghpages output folder"
 $ghpagesbuilddir = ".\ghpagesbuild"
 Remove-Item $ghpagesbuilddir -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
 Write-Output $err
 New-Item -Name $ghpagesbuilddir -ItemType directory | Out-Null
 
-# The Fire project
-Write-Output "Building Fire project"
+Write-Output "Start building projects"
+
+Write-Output "Build Fire project"
+Run $labviewnxgcli 'build-application -n Application.gcomp -t "Web Server" -p ".\Fire\LabVIEW PSX Doom Fire.lvproject"'
+Write-Output "Copy Fire project build to ghpages output folder"
 New-Item -Name "$ghpagesbuilddir\Fire" -ItemType directory | Out-Null
 Get-ChildItem ".\Fire\Builds\Application_Web Server\*" | ForEach-Object {
     Move-Item $_.FullName "$ghpagesbuilddir\Fire"
 }
 
-# Create zip of all contents
 Write-Output "Creating archive of all build output"
 Compress-Archive -Path $ghpagesbuilddir\* -DestinationPath "$ghpagesbuilddir\ghpages"
 
-# All done
 Write-Output "Done! :D"
