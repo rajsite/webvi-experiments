@@ -66,10 +66,15 @@ Write-Output $err
 New-Item -Name $ghpagesbuilddir -ItemType directory | Out-Null
 
 # The Fire project
+Write-Output "Building Fire project"
 New-Item -Name "$ghpagesbuilddir\Fire" -ItemType directory | Out-Null
 Get-ChildItem ".\Fire\Builds\Application_Web Server\*" | ForEach-Object {
     Move-Item $_.FullName "$ghpagesbuilddir\Fire"
 }
+
+# Create zip of all contents
+Write-Output "Creating archive of all build output"
+Compress-Archive -Path $ghpagesbuilddir\* -DestinationPath "$ghpagesbuilddir\ghpages"
 
 # All done
 Write-Output "Done! :D"

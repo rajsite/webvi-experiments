@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -11,25 +6,31 @@ pool:
 
 # Task list https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/index?view=azure-devops
 steps:
-# - task: PowerShell@2
-#   inputs:
-#     displayName: Install LabVIEW NXG
-#     targetType: 'filePath' # Optional. Options: filePath, inline
-#     filePath: '.\AzurePipelines\install.ps1' # Required when targetType == FilePath
-#     #arguments: # Optional
-#     #script: '# Write your powershell commands here.' # Required when targetType == Inline
-#     #errorActionPreference: 'stop' # Optional. Options: stop, continue, silentlyContinue
-#     #failOnStderr: false # Optional
-#     #ignoreLASTEXITCODE: false # Optional
-#     #pwsh: false # Optional
-#     #workingDirectory: # Optional
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>=2.4'
 - task: PowerShell@2
-  displayName: Deploy to gh-pages
-  env: # configuring secrets https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
-    GHPAGESTOKEN: $(ghpagestoken)
+  displayName: Install LabVIEW NXG
   inputs:
-    targetType: filePath
-    filePath: .\AzurePipelines\ghpagesdeps.ps1
+    targetType: 'filePath'
+    filePath: '.\AzurePipelines\install.ps1'
+# - task: UseRubyVersion@0
+#   inputs:
+#     versionSpec: '>=2.4'
+# - task: PowerShell@2
+#   displayName: Deploy to gh-pages
+#   env: # configuring secrets https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
+#     GHPAGESTOKEN: $(ghpagestoken)
+#   inputs:
+#     targetType: filePath
+#     filePath: .\AzurePipelines\ghpagesdeps.ps1
+- task: PowerShell@2
+  displayName: Build LabVIEW Projects
+  inputs:
+    targetType: 'filePath'
+    filePath: '.\AzurePipelines\build.ps1'
+- task: CopyFiles@2
+  inputs:
+    contents: 'ghpagesbuild\ghpages.zip'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: ghpages
