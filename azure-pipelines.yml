@@ -28,7 +28,7 @@ steps:
     filePath: '.\AzurePipelines\ghpages.ps1'
 - task: CopyFiles@2
   inputs:
-    contents: 'ghpages.zip'
+    contents: 'ghpagesbuild\ghpages.zip'
     targetFolder: $(Build.ArtifactStagingDirectory)
 - task: PublishBuildArtifacts@1
   inputs:
