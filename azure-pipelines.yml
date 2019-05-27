@@ -6,21 +6,16 @@ pool:
 
 # Task list https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/index?view=azure-devops
 steps:
-# - task: PowerShell@2
-#   displayName: Install LabVIEW NXG
-#   inputs:
-#     targetType: 'filePath'
-#     filePath: '.\AzurePipelines\install.ps1'
-# - task: PowerShell@2
-#   displayName: Install Trial Window Dependencies
-#   inputs:
-#     targetType: 'filePath'
-#     filePath: '.\AzurePipelines\trialdeps.ps1'
-# - task: PowerShell@2
-#   displayName: Build LabVIEW Projects
-#   inputs:
-#     targetType: 'filePath'
-#     filePath: '.\AzurePipelines\build.ps1'
+- task: PowerShell@2
+  displayName: Install LabVIEW NXG
+  inputs:
+    targetType: 'filePath'
+    filePath: '.\AzurePipelines\install.ps1'
+- task: PowerShell@2
+  displayName: Build LabVIEW Projects
+  inputs:
+    targetType: 'filePath'
+    filePath: '.\AzurePipelines\build.ps1'
 - task: PowerShell@2
   displayName: Create GitHub Pages Output
   inputs:
