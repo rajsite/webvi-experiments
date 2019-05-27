@@ -6,34 +6,29 @@ pool:
 
 # Task list https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/index?view=azure-devops
 steps:
-- task: PowerShell@2
-  displayName: Install LabVIEW NXG
-  inputs:
-    targetType: 'filePath'
-    filePath: '.\AzurePipelines\install.ps1'
-- task: PowerShell@2
-  displayName: Install dependencies for trial window watcher
-  inputs:
-    targetType: 'filePath'
-    filePath: '.\AzurePipelines\trialdeps.ps1'
-# - task: UseRubyVersion@0
-#   inputs:
-#     versionSpec: '>=2.4'
 # - task: PowerShell@2
-#   displayName: Deploy to gh-pages
-#   env: # configuring secrets https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
-#     GHPAGESTOKEN: $(ghpagestoken)
+#   displayName: Install LabVIEW NXG
 #   inputs:
-#     targetType: filePath
-#     filePath: .\AzurePipelines\ghpagesdeps.ps1
+#     targetType: 'filePath'
+#     filePath: '.\AzurePipelines\install.ps1'
+# - task: PowerShell@2
+#   displayName: Install Trial Window Dependencies
+#   inputs:
+#     targetType: 'filePath'
+#     filePath: '.\AzurePipelines\trialdeps.ps1'
+# - task: PowerShell@2
+#   displayName: Build LabVIEW Projects
+#   inputs:
+#     targetType: 'filePath'
+#     filePath: '.\AzurePipelines\build.ps1'
 - task: PowerShell@2
-  displayName: Build LabVIEW Projects
+  displayName: Create GitHub Pages Output
   inputs:
     targetType: 'filePath'
-    filePath: '.\AzurePipelines\build.ps1'
+    filePath: '.\AzurePipelines\ghpages.ps1'
 - task: CopyFiles@2
   inputs:
-    contents: 'ghpagesbuild\ghpages.zip'
+    contents: 'ghpages.zip'
     targetFolder: $(Build.ArtifactStagingDirectory)
 - task: PublishBuildArtifacts@1
   inputs:

@@ -23,7 +23,7 @@ function Assert-FileDoesNotExist {
 }
 
 function Run {
-    Param ([string]$fileName, [string]$arguments)
+    Param ([string]$fileName, [string]$arguments, [string]$workingdirectory)
     
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
     $pinfo.FileName = $fileName
@@ -31,6 +31,9 @@ function Run {
     $pinfo.RedirectStandardOutput = $true
     $pinfo.UseShellExecute = $false
     $pinfo.Arguments = $arguments
+    if ($workingdirectory) {
+        $pinfo.WorkingDirectory = $workingdirectory
+    }
     $p = New-Object System.Diagnostics.Process
     $p.StartInfo = $pinfo
     
@@ -62,9 +65,4 @@ function Run {
         $out.RemoveAt(0)
     }
     Unregister-Event -SourceIdentifier $outEvent.Name
-}
-
-function Watch-TrialWindow {
-    Write-Output "Starting AutoHotKey"
-    Start-Process -FilePath "C:\Program Files\AutoHotkey\AutoHotkey.exe" -Args ".\AzurePipelines\trial.ahk"
 }
