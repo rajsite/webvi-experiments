@@ -4,7 +4,7 @@ $rootDirectory = (Get-Location).Path
 Write-Output "Current directory $rootDirectory"
 
 $nipm = 'C:\Program Files\National Instruments\NI Package Manager\nipkg.exe'
-$install_NIPM = $false
+$install_NIPM = $true
 if ($install_NIPM)
 {
     $nipmDownloadPath = 'http://download.ni.com/support/softlib/AST/NIPM/NIPackageManager19.0.exe'
