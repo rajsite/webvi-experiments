@@ -1,56 +1,4 @@
-function Assert-FileExists {
-    Param ([string]$path)
-    if (![System.IO.File]::Exists($path))
-    {
-        throw "Could not find file at $path"
-    }
-    else 
-    {
-        Write-Output "Found file at $path"
-    }
-}
-
-function Run {
-    Param ([string]$fileName, [string]$arguments)
-    
-    $pinfo = New-Object System.Diagnostics.ProcessStartInfo
-    $pinfo.FileName = $fileName
-    $pinfo.RedirectStandardError = $true
-    $pinfo.RedirectStandardOutput = $true
-    $pinfo.UseShellExecute = $false
-    $pinfo.Arguments = $arguments
-    $p = New-Object System.Diagnostics.Process
-    $p.StartInfo = $pinfo
-    
-    $out = New-Object System.Collections.ArrayList
-    $handler = 
-    {
-        if (! [String]::IsNullOrEmpty($EventArgs.Data)) 
-        {
-            $Event.MessageData.Add($EventArgs.Data)
-        }
-    }
-    
-    $outEvent = Register-ObjectEvent -InputObject $p -Action $handler -EventName 'OutputDataReceived' -MessageData $out
-        
-    $p.Start() | Out-Null
-    $p.BeginOutputReadLine()	
-    while (!$p.HasExited)
-    {
-        Wait-Event -Timeout 1
-        while($out.Length -gt 0)
-        {
-            $out[0].ToString()
-            $out.RemoveAt(0)
-        }
-    }
-    while($out.Length -gt 0)
-    {
-        $out[0].ToString()
-        $out.RemoveAt(0)
-    }
-    Unregister-Event -SourceIdentifier $outEvent.Name
-}
+. .\AzurePipelines\shared.ps1
 
 Write-Output "Current directory $((Get-Location).Path)"
 
@@ -67,6 +15,7 @@ New-Item -Name $ghpagesbuilddir -ItemType directory | Out-Null
 Write-Output "Start building projects"
 
 Write-Output "Build Fire project"
+Watch-TrialWindow
 Run $labviewnxgcli 'build-application -n Application.gcomp -t "Web Server" -p ".\Fire\LabVIEW PSX Doom Fire.lvproject"'
 Write-Output "Copy Fire project build to ghpages output folder"
 New-Item -Name "$ghpagesbuilddir\Fire" -ItemType directory | Out-Null

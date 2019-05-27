@@ -11,6 +11,11 @@ steps:
   inputs:
     targetType: 'filePath'
     filePath: '.\AzurePipelines\install.ps1'
+- task: PowerShell@2
+  displayName: Install dependencies for trial window watcher
+  inputs:
+    targetType: 'filePath'
+    filePath: '.\AzurePipelines\trialdeps.ps1'
 # - task: UseRubyVersion@0
 #   inputs:
 #     versionSpec: '>=2.4'
