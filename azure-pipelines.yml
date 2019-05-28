@@ -40,14 +40,14 @@ jobs:
     inputs:
         downloadType: 'single' # Options: single, specific
         artifactName: ghpages
-        #downloadPath: '$(System.ArtifactsDirectory)' 
+        downloadPath: '$(Agent.BuildDirectory)'
   - task: UseRubyVersion@0
     inputs:
         versionSpec: '>=2.4'
   - task: ExtractFiles@1
     displayName: 'Extract files'
     inputs:
-      archiveFilePatterns: '_rajsite.ghpages/ghpages/ghpagesbuild/ghpages.zip'
+      archiveFilePatterns: 'ghpages/ghpagesbuild/ghpages.zip'
       destinationFolder: '$(Agent.BuildDirectory)/ghpagesout'
   - task: Bash@3
     env:
