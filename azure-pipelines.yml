@@ -52,6 +52,7 @@ jobs:
   - task: Bash@3
     env:
       TRAVIS_REPO_SLUG: rajsite/webvi-experiments
+      GHPAGESTOKEN: $(ghpagestokensecret)
     inputs:
       targetType: 'filePath'
       filePath: './AzurePipelines/deploy.sh'
