@@ -25,6 +25,10 @@ Write-Output "Checking if LabVIEW NXG CLI is available"
 $labviewnxgcli = 'C:\Program Files\National Instruments\LabVIEW NXG 3.0\labviewnxgcli.exe'
 Assert-FileExists($labviewnxgcli)
 
+Write-Output "Build Augmented Reality project"
+Watch-TrialWindow
+Run $labviewnxgcli 'build-application -n WebApp.gcomp -t "Web Server" -p ".\AugmentedReality\AugmentedReality.lvproject"'
+
 Write-Output "Build Fire project"
 Watch-TrialWindow
 Run $labviewnxgcli 'build-application -n Application.gcomp -t "Web Server" -p ".\Fire\LabVIEW PSX Doom Fire.lvproject"'
