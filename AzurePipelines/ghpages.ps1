@@ -25,7 +25,7 @@ Copy-Item .\README.ghpages.md "$ghpagesbuilddir\README.md"
 
 Write-Output "Copy AugmentedReality build to ghpages output folder"
 New-Item -Name "$ghpagesbuilddir\AugmentedReality" -ItemType directory | Out-Null
-Get-ChildItem ".\AugmentedReality\Builds\Application_Web Server\*" | ForEach-Object {
+Get-ChildItem ".\AugmentedReality\Builds\WebApp_Web Server\*" | ForEach-Object {
     Copy-Item $_.FullName "$ghpagesbuilddir\AugmentedReality" -Recurse
 }
 
