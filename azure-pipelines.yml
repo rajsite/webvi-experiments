@@ -1,31 +1,58 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'vs2017-win2016'
-
 # Task list https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/index?view=azure-devops
-steps:
-- task: PowerShell@2
-  displayName: Install LabVIEW NXG
-  inputs:
-    targetType: 'filePath'
-    filePath: '.\AzurePipelines\install.ps1'
-- task: PowerShell@2
-  displayName: Build LabVIEW Projects
-  inputs:
-    targetType: 'filePath'
-    filePath: '.\AzurePipelines\build.ps1'
-- task: PowerShell@2
-  displayName: Create GitHub Pages Output
-  inputs:
-    targetType: 'filePath'
-    filePath: '.\AzurePipelines\ghpages.ps1'
-- task: CopyFiles@2
-  inputs:
-    contents: 'ghpagesbuild\ghpages.zip'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: ghpages
+
+jobs:
+- job: build
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - task: PowerShell@2
+    displayName: Install LabVIEW NXG
+    inputs:
+        targetType: 'filePath'
+        filePath: '.\AzurePipelines\install.ps1'
+  - task: PowerShell@2
+    displayName: Build LabVIEW Projects
+    inputs:
+        targetType: 'filePath'
+        filePath: '.\AzurePipelines\build.ps1'
+  - task: PowerShell@2
+    displayName: Create GitHub Pages Output
+    inputs:
+        targetType: 'filePath'
+        filePath: '.\AzurePipelines\ghpages.ps1'
+  - task: CopyFiles@2
+    inputs:
+        contents: 'ghpagesbuild\ghpages.zip'
+        targetFolder: $(Build.ArtifactStagingDirectory)
+  - task: PublishBuildArtifacts@1
+    inputs:
+        pathtoPublish: $(Build.ArtifactStagingDirectory)
+        artifactName: ghpages
+- job: deploy
+  dependsOn: build
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+  - task: DownloadBuildArtifacts@0
+    inputs:
+        downloadType: 'single' # Options: single, specific
+        artifactName: _rajsite.ghpages
+        #downloadPath: '$(System.ArtifactsDirectory)' 
+  - task: UseRubyVersion@0
+    inputs:
+        versionSpec: '>=2.4'
+  - task: ExtractFiles@1
+    displayName: 'Extract files'
+    inputs:
+      archiveFilePatterns: '_rajsite.ghpages/ghpages/ghpagesbuild/ghpages.zip'
+      destinationFolder: '$(Agent.BuildDirectory)/ghpagesout'
+  - task: Bash@3
+    env:
+      TRAVIS_REPO_SLUG: rajsite/webvi-experiments
+    inputs:
+      targetType: 'filePath'
+      filePath: './AzurePipelines/deploy.sh'
+      workingDirectory: '$(Agent.BuildDirectory)/ghpagesout'
