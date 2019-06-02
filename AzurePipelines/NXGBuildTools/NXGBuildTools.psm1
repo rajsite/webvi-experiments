@@ -90,7 +90,7 @@ function Watch-TrialWindow
     else
     {
         Write-Host "Installing AutoHotKey"
-        choco install -y autohotkey
+        choco install -y autohotkey | Out-Host
         Write-Host "AutoHotKey installed"
     }
 
