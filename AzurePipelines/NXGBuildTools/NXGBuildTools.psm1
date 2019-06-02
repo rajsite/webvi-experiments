@@ -109,7 +109,8 @@ function Invoke-NXGBuildApplication {
     Write-Host "Running build command: $buildapplicationcommand"
     $process = Watch-TrialWindow
     Run $labviewnxgcli $buildapplicationcommand
-    Stop-Process -InputObject $process
+    Stop-Process -InputObject $process -ErrorAction SilentlyContinue -ErrorVariable err
+    Write-Host $err
 }
 
 function Invoke-CopyBuildOutput {
