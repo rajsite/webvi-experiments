@@ -3,28 +3,28 @@
 (function () {
     'use strict';
 
-    let nextRefnum = 1;
-    class RefnumManager {
+    class ReferenceManager {
         constructor () {
-            this.refnums = new Map();
+            this._nextReference = 1;
+            this.references = new Map();
         }
 
-        createRefnum (obj) {
-            const refnum = nextRefnum;
-            nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
+        createReference (obj) {
+            const reference = this._nextReference;
+            this._nextReference += 1;
+            this.references.set(reference, obj);
+            return reference;
         }
 
-        getObject (refnum) {
-            return this.refnums.get(refnum);
+        getObject (reference) {
+            return this.references.get(reference);
         }
 
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
+        closeReference (reference) {
+            this.references.delete(reference);
         }
     }
-    const refnumManager = new RefnumManager();
+    const referenceManager = new ReferenceManager();
 
     const mapCreate = function (selector, latitude, longitude, zoomLevel) {
         return new Promise(function (resolve) {
@@ -47,50 +47,50 @@
             });
 
             map.addLayer(tileLayer);
-            const mapRefnum = refnumManager.createRefnum(map);
+            const mapReference = referenceManager.createReference(map);
             map.whenReady(function () {
-                resolve(mapRefnum);
+                resolve(mapReference);
             });
         });
     };
 
-    const mapDestroy = function (mapRefnum) {
-        const map = refnumManager.getObject(mapRefnum);
+    const mapDestroy = function (mapReference) {
+        const map = referenceManager.getObject(mapReference);
         if (map === undefined) {
-            throw new Error('Invalid Leaflet map refnum');
+            throw new Error('Invalid Leaflet map reference');
         }
-        refnumManager.closeRefnum(mapRefnum);
+        referenceManager.closeReference(mapReference);
         map.remove();
     };
 
-    const markerCreate = function (mapRefnum, latitude, longitude, text) {
-        const map = refnumManager.getObject(mapRefnum);
+    const markerCreate = function (mapReference, latitude, longitude, text) {
+        const map = referenceManager.getObject(mapReference);
         if (map === undefined) {
-            throw new Error('Invalid Leaflet map refnum');
+            throw new Error('Invalid Leaflet map reference');
         }
         const marker = L.marker([latitude, longitude]);
         if (text.length !== 0) {
             marker.bindPopup(text);
         }
         map.addLayer(marker);
-        const markerRefnum = refnumManager.createRefnum(marker);
-        return markerRefnum;
+        const markerReference = referenceManager.createReference(marker);
+        return markerReference;
     };
 
-    const markerPopupShow = function (markerRefnum) {
-        const marker = refnumManager.getObject(markerRefnum);
+    const markerPopupShow = function (markerReference) {
+        const marker = referenceManager.getObject(markerReference);
         if (marker === undefined) {
-            throw new Error('Invalid Leaflet marker refnum');
+            throw new Error('Invalid Leaflet marker reference');
         }
         marker.openPopup();
     };
 
-    const markerDestroy = function (markerRefnum) {
-        const marker = refnumManager.getObject(markerRefnum);
+    const markerDestroy = function (markerReference) {
+        const marker = referenceManager.getObject(markerReference);
         if (marker === undefined) {
-            throw new Error('Invalid Leaflet marker refnum');
+            throw new Error('Invalid Leaflet marker reference');
         }
-        refnumManager.closeRefnum(markerRefnum);
+        referenceManager.closeReference(markerReference);
         marker.remove();
     };
 
