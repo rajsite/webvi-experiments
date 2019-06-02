@@ -1,28 +1,28 @@
 (function () {
     'use strict';
 
-    let nextRefnum = 1;
-    class RefnumManager {
+    class ReferenceManager {
         constructor () {
-            this.refnums = new Map();
+            this._nextReference = 1;
+            this.references = new Map();
         }
 
-        createRefnum (obj) {
-            const refnum = nextRefnum;
-            nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
+        createReference (obj) {
+            const reference = this._nextReference;
+            this._nextReference += 1;
+            this.references.set(reference, obj);
+            return reference;
         }
 
-        getObject (refnum) {
-            return this.refnums.get(refnum);
+        getObject (reference) {
+            return this.references.get(reference);
         }
 
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
+        closeReference (reference) {
+            this.references.delete(reference);
         }
     }
-    const refnumManager = new RefnumManager();
+    const referenceManager = new ReferenceManager();
 
     const createScene = function (selector) {
         return new Promise(function (resolve) {
@@ -39,26 +39,26 @@
             // This will only work when a WebVI is executed in a Web Browser, it will not work if run in the editor
             scene.src = 'AugmentedReality/Support/AugmentedReality.html';
             scene.addEventListener('load', function () {
-                const sceneRefnum = refnumManager.createRefnum(scene);
-                resolve(sceneRefnum);
+                const sceneReference = referenceManager.createReference(scene);
+                resolve(sceneReference);
             });
             element.appendChild(scene);
         });
     };
 
-    const destroyScene = function (sceneRefnum) {
-        const scene = refnumManager.getObject(sceneRefnum);
+    const destroyScene = function (sceneReference) {
+        const scene = referenceManager.getObject(sceneReference);
         if (scene !== undefined) {
-            refnumManager.closeRefnum(sceneRefnum);
+            referenceManager.closeReference(sceneReference);
             scene.parentNode.removeChild(scene);
         }
     };
 
-    const createGLTFModel = function (sceneRefnum, src, attributesJSON) {
+    const createGLTFModel = function (sceneReference, src, attributesJSON) {
         return new Promise(function (resolve) {
-            const scene = refnumManager.getObject(sceneRefnum);
+            const scene = referenceManager.getObject(sceneReference);
             if (scene === undefined) {
-                throw new Error('Scene refnum is invalid');
+                throw new Error('Scene reference is invalid');
             }
 
             const attributes = JSON.parse(attributesJSON);
@@ -69,26 +69,26 @@
                 gltfModel.setAttribute(attribute.name, attribute.value);
             });
             gltfModel.addEventListener('model-loaded', function () {
-                const gltfModelRefnum = refnumManager.createRefnum(gltfModel);
-                resolve(gltfModelRefnum);
+                const gltfModelReference = referenceManager.createReference(gltfModel);
+                resolve(gltfModelReference);
             });
             const marker = scene.contentDocument.querySelector('a-marker');
             marker.appendChild(gltfModel);
         });
     };
 
-    const destroyGLTFModel = function (gltfModelRefnum) {
-        const gltfModel = refnumManager.getObject(gltfModelRefnum);
+    const destroyGLTFModel = function (gltfModelReference) {
+        const gltfModel = referenceManager.getObject(gltfModelReference);
         if (gltfModel !== undefined) {
-            refnumManager.closeRefnum(gltfModelRefnum);
+            referenceManager.closeReference(gltfModelReference);
             gltfModel.parentNode.removeChild(gltfModel);
         }
     };
 
-    const updateGLTFModel = function (gltfModelRefnum, attributesJSON) {
-        const gltfModel = refnumManager.getObject(gltfModelRefnum);
+    const updateGLTFModel = function (gltfModelReference, attributesJSON) {
+        const gltfModel = referenceManager.getObject(gltfModelReference);
         if (gltfModel === undefined) {
-            throw new Error('Invalid gltf refnum');
+            throw new Error('Invalid gltf reference');
         }
 
         const attributes = JSON.parse(attributesJSON);
