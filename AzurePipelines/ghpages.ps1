@@ -1,4 +1,4 @@
-. .\AzurePipelines\shared.ps1
+Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 
 $ghpagesbuilddir = ".\ghpagesbuild"
 
@@ -26,22 +26,14 @@ Get-ChildItem ".\AzurePipelines\GitHubPagesRoot\*" | ForEach-Object {
 }
 
 Write-Host "Copy AugmentedReality build to ghpages output folder"
-New-Item -Name "$ghpagesbuilddir\AugmentedReality" -ItemType directory | Out-Null
-Get-ChildItem ".\AugmentedReality\Builds\WebApp_Web Server\*" | ForEach-Object {
-    Copy-Item $_.FullName "$ghpagesbuilddir\AugmentedReality" -Recurse
-}
+Invoke-CopyBuildOutput -ProjectDirectory ".\AugmentedReality" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
 
-Write-Host "Copy Fire project build to ghpages output folder"
-New-Item -Name "$ghpagesbuilddir\Fire" -ItemType directory | Out-Null
-Get-ChildItem ".\Fire\Builds\Application_Web Server\*" | ForEach-Object {
-    Copy-Item $_.FullName "$ghpagesbuilddir\Fire" -Recurse
-}
+Write-Host "Copy Fire build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Fire" -TargetName "Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\Fire"
 
 Write-Host "Copy Express build to ghpages output folder"
-New-Item -Name "$ghpagesbuilddir\Express" -ItemType directory | Out-Null
-Get-ChildItem ".\Express\Builds\WebApp_Web Server\*" | ForEach-Object {
-    Copy-Item $_.FullName "$ghpagesbuilddir\Express" -Recurse
-}
+Invoke-CopyBuildOutput -ProjectDirectory ".\Express" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Express"
+
 
 Write-Host "Creating archive of all build output"
 Run $7zip "a ghpages.zip ." .\ghpagesbuild

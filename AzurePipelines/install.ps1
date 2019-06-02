@@ -1,4 +1,4 @@
-. .\AzurePipelines\shared.ps1
+Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 
 $rootDirectory = (Get-Location).Path
 Write-Host "Current directory $rootDirectory"
