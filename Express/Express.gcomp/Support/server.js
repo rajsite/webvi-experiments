@@ -26,31 +26,31 @@
 
     const vireoHelpers = require(path.resolve(root, 'ni-webvi-resource-v0/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.min.js'));
 
-    class RefnumManager {
+    class ReferenceManager {
         constructor () {
-            this._nextRefnum = 1;
-            this.refnums = new Map();
+            this._nextReference = 1;
+            this.references = new Map();
         }
 
-        createRefnum (obj) {
-            const refnum = this._nextRefnum;
-            this._nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
+        createReference (obj) {
+            const reference = this._nextReference;
+            this._nextReference += 1;
+            this.references.set(reference, obj);
+            return reference;
         }
 
-        getObject (refnum) {
-            return this.refnums.get(refnum);
+        getObject (reference) {
+            return this.references.get(reference);
         }
 
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
+        closeReference (reference) {
+            this.references.delete(reference);
         }
     }
-    const refnumManager = new RefnumManager();
+    const referenceManager = new ReferenceManager();
 
-    const writeJSONResponse = function (refnum, jsonResponse) {
-        const {res} = refnumManager.getObject(refnum);
+    const writeJSONResponse = function (server, jsonResponse) {
+        const {res} = referenceManager.getObject(server);
         res.json(JSON.parse(jsonResponse));
     };
 
@@ -150,20 +150,20 @@
             // TODO listen for req.on('close') to cancel the current vireo execution. Need to figure out a cleanup strategy in that case.
             const start = performance.now();
             const vireoConfigPromise = await pool.acquire();
-            const refnum = refnumManager.createRefnum({req, res});
+            const server = referenceManager.createReference({req, res});
             const vireoConfig = await vireoConfigPromise;
             const {vireo, serverValueRef, enqueue} = vireoConfig;
             try {
                 // enqueue needs to be called before writing to memory? seems to reset values if after..
                 enqueue();
-                vireo.eggShell.writeDouble(serverValueRef, refnum);
+                vireo.eggShell.writeDouble(serverValueRef, server);
                 await vireo.eggShell.executeSlicesUntilClumpsFinished();
             } catch (ex) {
                 console.error(ex);
             } finally {
-                refnumManager.closeRefnum(refnum);
+                referenceManager.closeReference(server);
                 await pool.release(vireoConfigPromise);
-                console.log(`Request ${refnum} took ${performance.now() - start}ms`);
+                console.log(`Request ${server} took ${performance.now() - start}ms`);
             }
         };
         return runWebVI;
