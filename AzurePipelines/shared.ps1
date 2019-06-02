@@ -6,7 +6,7 @@ function Assert-FileExists {
     }
     else 
     {
-        Write-Output "Found file at $path"
+        Write-Host "Found file at $path"
     }
 }
 
@@ -18,7 +18,7 @@ function Assert-FileDoesNotExist {
     }
     else 
     {
-        Write-Output "$path not installed."
+        Write-Host "$path not installed."
     }
 }
 
