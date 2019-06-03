@@ -82,19 +82,19 @@ function Run {
 function Watch-TrialWindow
 {
     $autohotkey = "C:\Program Files\AutoHotkey\AutoHotkey.exe"
-    Write-Host "Checking if AutoHotKey is already installed"
+    Write-Host "AutoHotKey installation check"
     if ([System.IO.File]::Exists($autohotkey))
     {
         Write-Host "AutoHotKey already installed"
     }
     else
     {
-        Write-Host "Installing AutoHotKey"
+        Write-Host "AutoHotKey installing"
         choco install --no-progress -y autohotkey | Out-Host
         Write-Host "AutoHotKey installed"
     }
 
-    Write-Host "Starting AutoHotKey"
+    Write-Host "AutoHotKey starting"
     return Start-Process -FilePath $autohotkey -Args "$PSScriptRoot\trial.ahk" -PassThru
 }
 function Invoke-NXGBuildApplication {
@@ -106,10 +106,17 @@ function Invoke-NXGBuildApplication {
     $projectpath = Join-Path $ProjectDirectory $ProjectFileName
     $buildapplicationcommand = 'build-application -n "{0}" -t "{1}" -p "{2}"' -f $ComponentFileName, $TargetName, $projectpath
 
-    Write-Host "Running build command: $buildapplicationcommand"
     $process = Watch-TrialWindow
+    Write-Host "Running build command: $buildapplicationcommand"
     Run $labviewnxgcli $buildapplicationcommand
-    try { Stop-Process -InputObject $process } catch {}
+    try {
+        Write-Host "AutoHotKey stopping"
+        Stop-Process -InputObject $process
+        Write-Host "AutoHotKey stopped"
+    }
+    catch {
+        Write-Host "AutoHotKey already stopped"
+    }
 }
 
 function Invoke-CopyBuildOutput {
