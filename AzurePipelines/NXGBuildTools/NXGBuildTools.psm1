@@ -90,7 +90,7 @@ function Watch-TrialWindow
     else
     {
         Write-Host "Installing AutoHotKey"
-        choco install -y autohotkey | Out-Host
+        choco install --no-progress -y autohotkey | Out-Host
         Write-Host "AutoHotKey installed"
     }
 
@@ -109,8 +109,7 @@ function Invoke-NXGBuildApplication {
     Write-Host "Running build command: $buildapplicationcommand"
     $process = Watch-TrialWindow
     Run $labviewnxgcli $buildapplicationcommand
-    Stop-Process -InputObject $process -ErrorAction SilentlyContinue -ErrorVariable err
-    Write-Host $err
+    Stop-Process -InputObject $process -ErrorAction SilentlyContinue
 }
 
 function Invoke-CopyBuildOutput {
