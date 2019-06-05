@@ -54,54 +54,69 @@
         }
     };
 
-    const createGLTFModel = function (sceneReference, src, attributesJSON) {
+    const setAttributesOnEntity = function (entity, attributesJSON) {
+        const attributes = JSON.parse(attributesJSON);
+        attributes.forEach(function (attribute) {
+            const value = JSON.parse(attribute.valueJSON);
+            entity.setAttribute(attribute.name, value.data);
+        });
+    };
+
+    const createGLTFModelEntity = function (sceneReference, attributesJSON) {
         return new Promise(function (resolve) {
             const scene = referenceManager.getObject(sceneReference);
             if (scene === undefined) {
                 throw new Error('Scene reference is invalid');
             }
 
-            const attributes = JSON.parse(attributesJSON);
-
-            const gltfModel = scene.contentDocument.createElement('a-gltf-model');
-            gltfModel.setAttribute('src', src);
-            attributes.forEach(attribute => {
-                gltfModel.setAttribute(attribute.name, attribute.value);
-            });
-            gltfModel.addEventListener('model-loaded', function () {
-                const gltfModelReference = referenceManager.createReference(gltfModel);
-                resolve(gltfModelReference);
+            const entity = scene.contentDocument.createElement('a-gltf-model');
+            setAttributesOnEntity(entity, attributesJSON);
+            entity.addEventListener('model-loaded', function () {
+                const entityReference = referenceManager.createReference(entity);
+                resolve(entityReference);
             });
             const marker = scene.contentDocument.querySelector('a-marker');
-            marker.appendChild(gltfModel);
+            marker.appendChild(entity);
         });
     };
 
-    const destroyGLTFModel = function (gltfModelReference) {
-        const gltfModel = referenceManager.getObject(gltfModelReference);
-        if (gltfModel !== undefined) {
-            referenceManager.closeReference(gltfModelReference);
-            gltfModel.parentNode.removeChild(gltfModel);
+    const createEntity = function (sceneReference, attributesJSON) {
+        const scene = referenceManager.getObject(sceneReference);
+        if (scene === undefined) {
+            throw new Error('Scene reference is invalid');
+        }
+
+        const entity = scene.contentDocument.createElement('a-entity');
+        setAttributesOnEntity(entity, attributesJSON);
+        const marker = scene.contentDocument.querySelector('a-marker');
+        marker.appendChild(entity);
+        const entityReference = referenceManager.createReference(entity);
+        return entityReference;
+    };
+
+    const destroyEntity = function (entityReference) {
+        const entity = referenceManager.getObject(entityReference);
+        if (entity !== undefined) {
+            referenceManager.closeReference(entityReference);
+            entity.parentNode.removeChild(entity);
         }
     };
 
-    const updateGLTFModel = function (gltfModelReference, attributesJSON) {
-        const gltfModel = referenceManager.getObject(gltfModelReference);
-        if (gltfModel === undefined) {
+    const updateEntity = function (entityReference, attributesJSON) {
+        const entity = referenceManager.getObject(entityReference);
+        if (entity === undefined) {
             throw new Error('Invalid gltf reference');
         }
 
-        const attributes = JSON.parse(attributesJSON);
-        attributes.forEach(attribute => {
-            gltfModel.setAttribute(attribute.name, attribute.value);
-        });
+        setAttributesOnEntity(entity, attributesJSON);
     };
 
     window.WebVIAugmentedReality = {
         createScene,
         destroyScene,
-        createGLTFModel,
-        destroyGLTFModel,
-        updateGLTFModel
+        createGLTFModelEntity,
+        createEntity,
+        destroyEntity,
+        updateEntity
     };
 }());
