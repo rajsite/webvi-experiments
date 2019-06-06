@@ -28,6 +28,9 @@ Get-ChildItem ".\AzurePipelines\GitHubPagesRoot\*" | ForEach-Object {
 Write-Host "Copy AugmentedReality build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\AugmentedReality" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
 
+Write-Host "Copy AugmentedReality SecretBox build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\AugmentedReality" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
+
 Write-Host "Copy BusyState build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\BusyState" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\BusyState"
 
