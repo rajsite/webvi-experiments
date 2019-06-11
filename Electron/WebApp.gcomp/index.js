@@ -12,7 +12,7 @@
         });
 
         // and load the index.html of the app.
-        win.loadFile('Builds/WebApp_Web Server/index.html');
+        win.loadFile('index.html');
     };
 
     app.on('ready', createWindow);
