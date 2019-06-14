@@ -33,12 +33,22 @@
         }
     };
 
-    const appendChild = function (parentElementReference, elementOrDocumentFragmentReference) {
-        const parentElement = referenceManager.getObject(parentElementReference);
-        validateObject(parentElement, HTMLElement);
-        const elementOrDocumentFragment = referenceManager.getObject(elementOrDocumentFragmentReference);
-        validateObject(elementOrDocumentFragment, HTMLElement, DocumentFragment);
-        parentElement.appendChild(elementOrDocumentFragment);
+    const querySelectorAll = function (selector, documentTargetReference) {
+        const documentTargetInitial = referenceManager.getObject(documentTargetReference);
+        const documentTarget = documentTargetInitial === undefined ? document : documentTargetInitial;
+        validateObject(documentTarget, Document, DocumentFragment);
+        const elements = documentTarget.querySelectorAll(selector);
+        const elementReferences = elements.map(element => referenceManager.createReference(element));
+        const elementReferencesJSON = JSON.stringify(elementReferences);
+        return elementReferencesJSON;
+    };
+
+    const appendChild = function (parentReference, childReference) {
+        const parent = referenceManager.getObject(parentReference);
+        validateObject(parent, HTMLElement, DocumentFragment);
+        const child = referenceManager.getObject(childReference);
+        validateObject(child, HTMLElement, DocumentFragment);
+        parent.appendChild(child);
     };
 
     // selectorsJSON: [selector]
@@ -57,17 +67,17 @@
             })
             .map(element => referenceManager.createReference(element));
         const documentFragmentReference = referenceManager.createReference(documentFragment);
-
-        return JSON.stringify({
+        const fragmentAndElementsJSON = JSON.stringify({
             documentFragmentReference,
             elementReferences
         });
+        return fragmentAndElementsJSON;
     };
 
     const createElement = function (tagName) {
-        var template = document.createElement('template');
+        const template = document.createElement('template');
         template.content.appendChild(document.createElement(tagName));
-        var element = template.content.firstElementChild;
+        const element = template.content.firstElementChild;
         const elementReference = referenceManager.createReference(element);
         return elementReference;
     };
@@ -96,30 +106,192 @@
         const attributeResults = attributeConfigs.map(function (attributeConfig) {
             const valueInitial = element.getAttribute(attributeConfig.name);
             const value = valueInitial === null ? attributeConfig.default : valueInitial;
-            const found = valueInitial === null ? false : true;
+            const found = valueInitial !== null;
             return {
                 name,
                 value,
                 found
-            }
+            };
         });
         const attributeResultsJSON = JSON.stringify(attributeResults);
         return attributeResultsJSON;
     };
 
-    // TODO:
-    // getProperties
-    // setProperties
-    // querySelectorAll
-    // addEventListener
-    // removeEventListener
-    // classListAdd
-    // classListRemove
+    // Returns either the invalid JSON string 'WEBVI_UNDEFINED' if the property value is null or undefined
+    // otherwise returns a valid JSON representation of the property value
+    const getProperty = function (elementReference, propertyName) {
+        const element = referenceManager.getObject(elementReference);
+        validateObject(element, HTMLElement);
+        const value = element[propertyName];
+        const undefinedOrValueJSON = (value === undefined || value === null) ? 'WEBVI_UNDEFINED' : JSON.stringify(value);
+        return undefinedOrValueJSON;
+    };
+
+    const setProperty = function (elementReference, propertyName, valueJSON) {
+        const element = referenceManager.getObject(elementReference);
+        validateObject(element, HTMLElement);
+        const value = JSON.parse(valueJSON);
+        element[propertyName] = value;
+    };
+
+    // parametersConfigJSON: [parameterJSON]
+    const invokeMethod = function (elementReference, methodName, parameterConfigsJSON) {
+        const element = referenceManager.getObject(elementReference);
+        validateObject(element, HTMLElement);
+        const parameterConfigs = JSON.parse(parameterConfigsJSON);
+        const parameters = parameterConfigs.map(parameterConfig => JSON.parse(parameterConfig));
+        const response = elementReference[methodName].apply(elementReference, parameters);
+        const undefinedOrResponseJSON = (response === undefined || response === null) ? 'WEBVI_UNDEFINED' : JSON.stringify(response);
+        return undefinedOrResponseJSON;
+    };
+
+    const classListAdd = function (elementReference, className) {
+        const element = referenceManager.getObject(elementReference);
+        validateObject(element, HTMLElement);
+        element.classList.add(className);
+    };
+
+    const classListRemove = function (elementReference, className) {
+        const element = referenceManager.getObject(elementReference);
+        validateObject(element, HTMLElement);
+        element.classList.remove(className);
+    };
+
+    class DataQueue {
+        constructor () {
+            this.queue = [];
+            this.pendingResolve = undefined;
+            this.pendingReject = undefined;
+        }
+
+        enqueue (data) {
+            if (this.queue === undefined) {
+                throw new Error(`The queue has already been destroyed, cannot enqueue new data: ${data}`);
+            }
+
+            this.queue.push(data);
+
+            if (this.pendingResolve !== undefined) {
+                this.pendingResolve(this.queue.shift());
+                this.pendingResolve = undefined;
+                this.pendingReject = undefined;
+            }
+        }
+
+        dequeue () {
+            if (this.queue === undefined) {
+                throw new Error('The queue has already been destroyed, cannot dequeue any data.');
+            }
+
+            if (this.pendingResolve !== undefined) {
+                throw new Error('A pending dequeue operation already exists. Only one pending dequeue operation allowed at a time.');
+            }
+
+            if (this.queue.length === 0) {
+                return new Promise((resolve, reject) => {
+                    this.pendingResolve = resolve;
+                    this.pendingReject = reject;
+                });
+            }
+
+            return this.queue.shift();
+        }
+
+        destroy () {
+            if (this.pendingResolve !== undefined) {
+                this.pendingReject(new Error('Pending dequeue operation failed due to queue destruction.'));
+                this.pendingResolve = undefined;
+                this.pendingReject = undefined;
+            }
+            this.pendingResolve = undefined;
+
+            const remaining = this.queue;
+            this.queue = undefined;
+            return remaining;
+        }
+    }
+
+    const convertEventtoJSON = function (event, eventConfigJSON) {
+        const eventConfig = JSON.parse(eventConfigJSON);
+        const result = Object.keys(eventConfig)
+            .map(function (eventKey) {
+                const eventValue = event[eventKey];
+                const eventValueOrDefault = (eventValue === null || eventValue === undefined) ? eventConfig[eventKey] : eventValue;
+                const eventResultSingle = {
+                    eventKey,
+                    eventValueOrDefault
+                };
+                return eventResultSingle;
+            })
+            .reduce(function (result, eventResultSingle) {
+                result[eventResultSingle.eventKey] = eventResultSingle.eventValueOrDefault;
+                return result;
+            }, {});
+        const resultJSON = JSON.stringify(result);
+        return resultJSON;
+    };
+
+    class EventManager {
+        constructor (element, eventName, eventConfigJSON) {
+            this._element = element;
+            this._eventName = eventName;
+            this._queue = new DataQueue();
+            this._handler = function (event) {
+                const resultJSON = convertEventtoJSON(event, eventConfigJSON);
+                this._queue.enqueue(resultJSON);
+            };
+            this._element.addEventListener(this._eventName, this._handler);
+        }
+
+        read () {
+            return this._queue.dequeue();
+        }
+
+        stop () {
+            this._element.removeEventListener(this._eventName, this._handler);
+            this._handler = undefined;
+            this._queue.destroy();
+            this._queue = undefined;
+            this._eventName = undefined;
+            this._element = undefined;
+        }
+    }
+
+    const addEventListener = function (elementReference, eventName, eventConfigJSON) {
+        const element = referenceManager.getObject(elementReference);
+        validateObject(element, HTMLElement);
+        const eventManager = new EventManager(element, eventName, eventConfigJSON);
+        const eventManagerReference = referenceManager.createReference(eventManager);
+        return eventManagerReference;
+    };
+
+    const removeEventListener = function (eventManagerReference) {
+        const eventManager = referenceManager.getObject(eventManagerReference);
+        validateObject(eventManager, EventManager);
+        eventManager.stop();
+    };
+
+    const waitForEvent = async function (eventManagerReference) {
+        const eventManager = referenceManager.getObject(eventManagerReference);
+        validateObject(eventManager, EventManager);
+        const resultJSON = await eventManager.read();
+        return resultJSON;
+    };
+
     window.WebVIDOM = {
+        querySelectorAll,
         appendChild,
         createDocumentFragment,
         createElement,
         setAttributes,
-        getAttributes
+        getAttributes,
+        getProperty,
+        setProperty,
+        invokeMethod,
+        classListAdd,
+        classListRemove,
+        addEventListener,
+        removeEventListener,
+        waitForEvent
     };
 }());
