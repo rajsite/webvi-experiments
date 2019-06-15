@@ -37,21 +37,25 @@
         const documentTargetInitial = referenceManager.getObject(documentTargetReference);
         const documentTarget = documentTargetInitial === undefined ? document : documentTargetInitial;
         validateObject(documentTarget, Document, DocumentFragment);
-        const elements = documentTarget.querySelectorAll(selector);
+        const elements = Array.from(documentTarget.querySelectorAll(selector));
         const elementReferences = elements.map(element => referenceManager.createReference(element));
         const elementReferencesJSON = JSON.stringify(elementReferences);
         return elementReferencesJSON;
     };
 
-    const appendChild = function (parentReference, childReference) {
+    const appendChild = function (parentReference, childReference, clearParentContent) {
         const parent = referenceManager.getObject(parentReference);
         validateObject(parent, HTMLElement, DocumentFragment);
         const child = referenceManager.getObject(childReference);
         validateObject(child, HTMLElement, DocumentFragment);
+        if (clearParentContent) {
+            parent.innerHTML = '';
+        }
         parent.appendChild(child);
     };
 
     // selectorsJSON: [selector]
+    // fragmentAndElementsJSON {documentFragmentReference, elementReferences: [elementReference]}
     const createDocumentFragment = function (fragmentContent, selectorsJSON) {
         const template = document.createElement('template');
         template.innerHTML = fragmentContent;
@@ -59,7 +63,7 @@
         const selectors = JSON.parse(selectorsJSON);
         const elementReferences = selectors
             .map(selector => {
-                const elements = documentFragment.querySelectorAll(selector);
+                const elements = Array.from(documentFragment.querySelectorAll(selector));
                 if (elements.length !== 1) {
                     throw new Error(`Expected fragment content to contain 1 element with selector ${selector} but found ${elements.length}. Fragment content: ${fragmentContent}`);
                 }
