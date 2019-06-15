@@ -100,16 +100,16 @@
         });
     };
 
-    // attributeConfigsJSON: [{name, default}]
+    // namesJSON: [name]
     // attributeResultsJSON: [{name, value, found}]
-    const getAttributes = function (elementReference, attributeConfigsJSON) {
+    const getAttributes = function (elementReference, namesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateObject(element, HTMLElement);
-        const attributeConfigsInitial = JSON.parse(attributeConfigsJSON);
-        const attributeConfigs = attributeConfigsInitial.length === 0 ? element.getAttributes().map(name => ({name, default: ''})) : attributeConfigsInitial;
-        const attributeResults = attributeConfigs.map(function (attributeConfig) {
-            const valueInitial = element.getAttribute(attributeConfig.name);
-            const value = valueInitial === null ? attributeConfig.default : valueInitial;
+        const namesInitial = JSON.parse(namesJSON);
+        const names = namesInitial.length === 0 ? element.getAttributeNames() : namesInitial;
+        const attributeResults = names.map(function (name) {
+            const valueInitial = element.getAttribute(name);
+            const value = valueInitial === null ? '' : valueInitial;
             const found = valueInitial !== null;
             return {
                 name,
@@ -123,6 +123,7 @@
 
     // Returns either the invalid JSON string 'WEBVI_UNDEFINED' if the property value is null or undefined
     // otherwise returns a valid JSON representation of the property value
+    // TODO support nested properties, ie el.position.x
     const getProperty = function (elementReference, propertyName) {
         const element = referenceManager.getObject(elementReference);
         validateObject(element, HTMLElement);
