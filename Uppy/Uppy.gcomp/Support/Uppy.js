@@ -84,7 +84,11 @@
             }
             core.onBeforeUpload = function (uppyFiles) {
                 // Get the user selected file / blob
-                const uppyFileReferences = new Int32Array(Object.keys(uppyFiles).map((key) => referenceManager.createReference(uppyFiles[key].data)));
+                const uppyFileReferences = new Int32Array(Object.keys(uppyFiles)
+                    .map(key => uppyFiles[key].data)
+                    .map(blobOrFile => URL.createObjectURL(blobOrFile))
+                    .map(uppyFile => referenceManager.createReference(uppyFile))
+                );
                 resolve(uppyFileReferences);
 
                 // Clean-up the dialog and uppy state
@@ -126,33 +130,38 @@
         uppyFileReferences.forEach(function (uppyFileReference) {
             const uppyFile = referenceManager.getObject(uppyFileReference);
             if (uppyFile !== undefined) {
+                URL.revokeObjectURL(uppyFile);
                 referenceManager.closeReference(uppyFileReference);
             }
         });
     };
 
-    const readUppyFile = function (uppyFileReference) {
-        return new Promise(function (resolve, reject) {
-            const uppyFile = referenceManager.getObject(uppyFileReference);
-            if (uppyFile === undefined) {
-                throw new Error('Invalid Uppy File reference.');
-            }
-
-            const fileReader = new FileReader();
-            const loadendHandler = function () {
-                fileReader.removeEventListener('loadend', loadendHandler);
-                if (fileReader.error) {
-                    reject(fileReader.error);
-                } else {
-                    const result = new Uint8Array(fileReader.result);
-                    resolve(result);
-                }
-            };
-
-            fileReader.addEventListener('loadend', loadendHandler);
-            fileReader.readAsArrayBuffer(uppyFile);
-        });
+    const readUppyFile = async function (uppyFileReference) {
+        const uppyFile = referenceManager.getObject(uppyFileReference);
+        if (uppyFile === undefined) {
+            throw new Error('Invalid Uppy File reference.');
+        }
+        const response = await fetch(uppyFile);
+        const arrayBuffer = await response.arrayBuffer();
+        return new Uint8Array(arrayBuffer);
     };
+
+    const createUppyFile = function (uint8Array, contentType) {
+        const blob = new Blob(uint8Array, {type: contentType});
+        const uppyFile = URL.createObjectURL(blob);
+        const uppyFileReference = referenceManager.createReference(uppyFile);
+        return uppyFileReference;
+    };
+
+    const getUppyFileUrl = function (uppyFileReference) {
+        const uppyFile = referenceManager.getObject(uppyFileReference);
+        if (uppyFile === undefined) {
+            throw new Error('Invalid Uppy File reference.');
+        }
+        return uppyFile;
+    };
+
+    // support for the download attribute is coming in iOS 13: https://bugs.webkit.org/show_bug.cgi?id=167341
 
     window.WebVIUppy = {
         createUppy,
@@ -160,6 +169,8 @@
         destroyUppy,
         requestUppyFiles,
         destroyUppyFiles,
-        readUppyFile
+        readUppyFile,
+        createUppyFile,
+        getUppyFileUrl
     };
 }());
