@@ -161,7 +161,35 @@
         return uppyFile;
     };
 
-    // support for the download attribute is coming in iOS 13: https://bugs.webkit.org/show_bug.cgi?id=167341
+    const downloadUppyFile = function (uppyFileReference, fileName) {
+        const uppyFile = referenceManager.getObject(uppyFileReference);
+        if (uppyFile === undefined) {
+            throw new Error('Invalid Uppy File reference.');
+        }
+
+        // support for the download attribute is coming in iOS 13: https://bugs.webkit.org/show_bug.cgi?id=167341
+        if ('download' in HTMLAnchorElement.prototype === false) {
+            throw new Error('Browser does not support anchor download attribute, unable to trigger download');
+        }
+
+        const downloadElement = document.createElement('a');
+        downloadElement.download = fileName;
+        downloadElement.href = uppyFile;
+        downloadElement.rel = 'noopener';
+
+        // Had to append the element to the DOM first for Firefox (not needed for Chrome, Edge, and Safari untested)
+        // See https://stackoverflow.com/a/27116581
+        // looks like appending to the dom prevents the issue with revoking too quickly from below in firefox (issue continues in Edge, safari untested)
+        document.body.appendChild(downloadElement);
+        downloadElement.click();
+        document.body.removeChild(downloadElement);
+
+        // If the uppyFile is revoked too quickly this fails in Firefox and Edge (Safari untested)
+        // See https://github.com/eligrey/FileSaver.js/issues/205#issuecomment-503370302
+        // URL.revokeObjectURL(uppyFile); // test fast revoke, TODO remove
+        // putting it in a setTimeout(fn,0) doesn't help Firefox or Edge either
+        // TODO consider making a copy that gets revoked later. might not be useful since bad behavior is only in Edge (not a problem in Edgium, safari untested)
+    };
 
     window.WebVIUppy = {
         createUppy,
@@ -171,6 +199,7 @@
         destroyUppyFiles,
         readUppyFile,
         createUppyFile,
-        getUppyFileUrl
+        getUppyFileUrl,
+        downloadUppyFile
     };
 }());
