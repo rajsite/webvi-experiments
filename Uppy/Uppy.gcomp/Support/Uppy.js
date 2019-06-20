@@ -147,7 +147,7 @@
     };
 
     const createUppyFile = function (uint8Array, contentType) {
-        const blob = new Blob(uint8Array, {type: contentType});
+        const blob = new Blob([uint8Array], {type: contentType});
         const uppyFile = URL.createObjectURL(blob);
         const uppyFileReference = referenceManager.createReference(uppyFile);
         return uppyFileReference;
