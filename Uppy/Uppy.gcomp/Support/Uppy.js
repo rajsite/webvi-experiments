@@ -202,6 +202,21 @@
         // TODO consider making a copy that gets revoked later. might not be useful since bad behavior is only in Edge (not a problem in Edgium, safari untested)
     };
 
+    const encodeAsBase64 = function (byteArray) {
+        const binaryString = String.fromCharCode.apply(undefined, byteArray);
+        const base64EncodedString = btoa(binaryString);
+        return base64EncodedString;
+    };
+
+    const decodeFromBase64 = function (base64EncodedString) {
+        const binaryString = atob(base64EncodedString);
+        const byteArray = new Uint8Array(binaryString.length);
+        for (let i = 0; i < byteArray.length; i++) {
+            byteArray[i] = binaryString.charCodeAt(i);
+        }
+        return byteArray;
+    };
+
     window.WebVIUppy = {
         createUppy,
         setUppyOptions,
@@ -211,6 +226,8 @@
         readUppyFile,
         createUppyFile,
         getUppyFileUrl,
-        downloadUppyFile
+        downloadUppyFile,
+        encodeAsBase64,
+        decodeFromBase64
     };
 }());
