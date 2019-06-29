@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="35A7E0EFFBAB6F7680DE0CB2BDD2F0A990796A9B2BECA38670665545693C31CFF2710C264BF53FF0C792CB1374B11EEF024AC5515DD624797B10669A5F9606DE" Timestamp="1D52721ADC20BFE" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="AA83400AE48222673F0A2338C40CBBE8F6C02880D4316C845B6A2DEA4FD39A9B91C4C6679E2C93349C6BE7119D520F5D9B7767202442F70FD26397C8B472A0EC" Timestamp="1D52E24E683AD99" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
@@ -11,7 +11,7 @@
 				<IconTemplate Height="[float]40" Id="b2053f1fcea94b1c983b07fbf3002108" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="ebd394ae2a624058989daa4c38c00b89" ScriptAndLinkDependencies="&quot;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;node_modules/uppy/dist/uppy.min.css&amp;quot;&amp;gt;\r\n&amp;lt;script src=&amp;quot;node_modules/uppy/dist/uppy.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;Uppy.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
+		<DependenciesTextBox Id="ebd394ae2a624058989daa4c38c00b89" ScriptAndLinkDependencies="&quot;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;node_modules/uppy/dist/uppy.min.css&amp;quot;&amp;gt;\r\n&amp;lt;script src=&amp;quot;node_modules/uppy/dist/uppy.min.js&amp;quot; defer&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;Uppy.js&amp;quot; defer&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="c088ca29971f4a2c8aec24a459debd98" xmlns="http://www.ni.com/PlatformFramework">
 		<ProjectSettings Id="6d34e23e41d04b9a961b3e9a05de4c02" ModelDefinitionType="ProjectSettings" Name="ZProjectSettings" />
@@ -45,9 +45,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="d3e7476f7e6f4e1095fe41369b3197a0" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="fa842272a36e43ce9fdf99a817c5196e" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="125f88eb9e3410ab2d43c9e59bc7d96" IsReturnParameter="True" Name="return">
+					<JavaScriptLibraryParameter Id="125f88eb9e3410ab2d43c9e59bc7d96" IsReturnParameter="True" Name="uppyReference">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="135ec069a31e4836a120cdb75bce778c" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="7b9f2675db0544d18df3e3de1c258917" Name="return" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="7b9f2675db0544d18df3e3de1c258917" Name="uppyReference" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
@@ -84,9 +84,9 @@
 						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="a66f5412d5804f468f523d4db6110234" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="cad29f114dec46f0ae99fd6665f2ec35" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="2644dda004854b058e7d9f59e51c57a8" Name="uppy reference">
+					<JavaScriptLibraryParameter Id="2644dda004854b058e7d9f59e51c57a8" Name="uppyReference">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="332e50c9ed5c4a88a7f61a328d889932" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="70652efbea6c4aff822ebea33c31f591" Name="uppy reference" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="70652efbea6c4aff822ebea33c31f591" Name="uppyReference" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="973f464bb4e4e09a8e508058495f5e5" Name="optionsJSON">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="f6f3c59d6b674ee6b6d22c3f02bc8322" />
@@ -127,20 +127,20 @@
 						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="fc5a4213bb4740f998d0fa91ef56c683" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="b150504b3a00465a896853825a3cea81" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="8702b0c9189d44cd93220fa14c68bd36" Name="uppy reference">
+					<JavaScriptLibraryParameter Id="8702b0c9189d44cd93220fa14c68bd36" Name="uppyReference">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="5f711efc80a5493c8ba5cdef98f779c7" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="197c1bca9e7d4a10a5aae65dc42f223c" Name="uppy reference" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="197c1bca9e7d4a10a5aae65dc42f223c" Name="uppyReference" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="fc96bd84ccfb4af09b0d8352949347fc" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="RequestUppyFiles">
-				<JavaScriptLibraryEntryPoint Id="f57b0563373441bbf9265deab8058f4" Symbol="WebVIUppy.requestUppyFiles" xmlns="http://www.ni.com/JavaScriptLibrary">
+			<EmbeddedDefinitionReference Id="fc96bd84ccfb4af09b0d8352949347fc" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="RequestFiles">
+				<JavaScriptLibraryEntryPoint Id="f57b0563373441bbf9265deab8058f4" Symbol="WebVIUppy.requestFiles" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="c8d0869cac2e4c349ad651dfd1473d94" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="9ca914af414b4c6e98a3772eeab1107d" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="379f73f89d654bb99edbea1f3b7d388a" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="f6da6f70543741088971d62c3d811f68" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="1160f342da784e089abb99db38005421" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Id="6567ae0125bb4daabdbc9f432135c35a" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]RequestUppyFiles" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="6567ae0125bb4daabdbc9f432135c35a" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]RequestFiles" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6" Id="ad35f4f0a25544bb96c4e5b6f1731235" />
 								</FileNameText>
 							</IconTemplate>
@@ -162,216 +162,13 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="400b6965ed6a4c0fa57b569bc1ca4130" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="d613a36e98544e969aa1d3e3f66370c2" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="9c92f2bd33294a2cb116511ae5039322" IsReturnParameter="True" Name="uppy file references">
-						<JavaScriptType ActualDataType="@c8330de66e06460fa18939359da6c9b9" Id="b1b1b162facf4de7b1fac771f918214d" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2f0770ed8f0b41e4bf7376ac9723f7e8" Name="uppy file references" />
+					<JavaScriptLibraryParameter Id="9c92f2bd33294a2cb116511ae5039322" IsReturnParameter="True" Name="fileObjectUrlsJSON">
+						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="ce452f91ab0b464bb3c8f9169599d29b" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2f0770ed8f0b41e4bf7376ac9723f7e8" Name="fileObjectUrlsJSON" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="5a8cc9451cb34377a1b6ea20321ee9d9" Name="uppy reference">
+					<JavaScriptLibraryParameter Id="5a8cc9451cb34377a1b6ea20321ee9d9" Name="uppyReference">
 						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="c04aa02e82c243fd8e977db79e7ea1be" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="24b1b116b8be4c74881055d98499fea0" Name="uppy reference" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="3f3ced7e165043478411bf70a6791fa2" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DestroyUppyFiles">
-				<JavaScriptLibraryEntryPoint Id="7f555c8479f3411dbcf6641f7325f136" Symbol="WebVIUppy.destroyUppyFiles" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="c478736ee0ae47a7a9f5a0d82139e344" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="46f75677104b402aa38b747bbf7fc115" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="60142e660eec446aa2268e39ca80cc6f" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="4132d880a63a4db880c27dd3b454764b" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="769d683cdfa468ca4b9ef0fcb5e01bf" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Id="e72323d323ef409991685f0d1f6c26ab" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DestroyUppyFiles" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" Id="7f60dfce91004fff9d0e227124969ba7" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="8ec668868a04483fbaed11d22a0e39cc" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="f44104d82af14fb08c7900b301d896eb" />
-						<ConnectorPaneTerminal Hotspot="0 15" />
-						<ConnectorPaneTerminal Hotspot="0 25" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="a96eb7151bc44b9dae9a4aa93e809666" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="b4f336a04c014c05b94a9da2851b56f3" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="a96eb7151bc44b9dae9a4aa93e809666" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="b4f336a04c014c05b94a9da2851b56f3" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="c9da0926b8224e539e3fe3b4772da9af" IsReturnParameter="True" Name="return">
-						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="6bd196c8a34a4f1aaacec7ff20354017" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="e51fed1cad4a40dab3e0fd4416a4438c" Name="return out" Visible="False" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="bdc40e179b50455e839fb48885c590e6" Name="uppy file references">
-						<JavaScriptType ActualDataType="@c8330de66e06460fa18939359da6c9b9" Id="b9f5c65ccaa6415e8c7acf0558b3027d" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f44104d82af14fb08c7900b301d896eb" Name="uppy file references" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="793c3fd8a254d5685a3ab04d680f83e" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="ReadUppyFile">
-				<JavaScriptLibraryEntryPoint Id="f3c49ea3f7bc4934a21fe6b37bb2217e" Symbol="WebVIUppy.readUppyFile" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="2fec68f06f834ef5a2d1fa03dc780672" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="1795de2dfb67427f82702cdda4796eaa" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="84e0e2cd62754b10a56af89e1601419d" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="c046de216df94bbdb3e218963fe48b54" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="93cc2b9015aa46448ac3f0f0dff4e5e8" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Id="346690cd1665446ba373854c2e1a6932" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]ReadUppyFile" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" Id="452bd6acfb154cd4b78dda3aa2428e16" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="3258dbdec27c4f7cb1774fef016ca5e2" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal />
-						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="41f42b02a43a4dd0ab447c77b6709411" />
-						<ConnectorPaneTerminal Hotspot="0 25" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="3321bc815d2f4cea918a6b5e4a2a99c2" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="3fbfdf599f8548ea95173d1816d19603" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="2be12d460acb4b9b8c3375fb350b4e40" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="3321bc815d2f4cea918a6b5e4a2a99c2" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2be12d460acb4b9b8c3375fb350b4e40" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="21e8de5c80a4078bf6e66f6675a673c" IsReturnParameter="True" Name="file contents">
-						<JavaScriptType ActualDataType="@f21e5a75cf5d49d4a187370f29d6b881" Id="53e2bf966b0c4f1e80f60d8f9ed59cd8" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="3fbfdf599f8548ea95173d1816d19603" Name="file contents" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="aa110d1dc5054c8cadd83dee375f401c" Name="uppy file reference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="4f35684c36a14c56a3fe6db4abf2b4ab" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="41f42b02a43a4dd0ab447c77b6709411" Name="uppy file reference" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="db18804a632b40a8ac1e25aad8e73825" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CreateUppyFile">
-				<JavaScriptLibraryEntryPoint Id="41f0cd2c5dcc496caa240f2862b5e4fb" Symbol="WebVIUppy.createUppyFile" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="866a89e144bf42ecb071cc18388cb360" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="dd48e9a80e374e13b6eed37be482f3ba" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="ec2324d000864c3895a263466d66b93d" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="d231750e747849eda2905fff7e6d5d6f" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="b7b2295316754bc18f822d6708e67d9d" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Id="d37110c0d0334125934e55180cc040e8" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateUppyFile" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" Id="41b59c4c4a534f0db8852725a6cbc91a" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="c3b57d28a15c48b0a5dd20d45f9fbadc" ListViewHeight="115" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal />
-						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="5e1e48be69654f1eb4de05543b7c9871" />
-						<ConnectorPaneTerminal Hotspot="0 25" ListViewHotspot="0 95" Parameter="14bed5e890bd4d0699921be86a859345" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="a34782ef77a840f4a72bcd87ddd11116" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="e806599b338347c2bdf1642c1f7dd2c8" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="3582cf153aed4336a6fb982b464cfbdc" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="a34782ef77a840f4a72bcd87ddd11116" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="3582cf153aed4336a6fb982b464cfbdc" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="bf2b4ee3567349f090adb1b3cc27cc13" IsReturnParameter="True" Name="uppy file reference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="8468d8226d8f4a0f9a7d437bbfb41695" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="e806599b338347c2bdf1642c1f7dd2c8" Name="uppy file reference" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="2df432d6148d4d32b4860ac7c965087c" Name="file contents">
-						<JavaScriptType ActualDataType="@f21e5a75cf5d49d4a187370f29d6b881" Id="66a6aaa61307443db63359f9e99efc1b" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="5e1e48be69654f1eb4de05543b7c9871" Name="file contents" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="c5c006b7850f4d7789d8ed4ae30a4e4c" Name="content type">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="2766b36e1f1d4808a85757ca0a187e8f" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="14bed5e890bd4d0699921be86a859345" Name="content type" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="5055f96844cb4023b61b3e81c15a57e1" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="GetUppyFileUrl">
-				<JavaScriptLibraryEntryPoint Id="48ab80d3a92d4dc68bad59b5341f5134" Symbol="WebVIUppy.getUppyFileUrl" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="57fa5964430041b2a230037c555ce844" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="b982b51f1c144cbbed3bacc9dc89608" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="bbc06c58462b42fe93796b349d755fa8" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="d10a45f6de41434aa6b605c5c8dfc174" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="8d252c05ab524be3b53810719e5c402d" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Id="71b2b284d5054a8eb32b746b027d1ea8" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]GetUppyFileUrl" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" Id="2965403d0e2447de954819d0a004a833" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="21df79c648bf4d09a0d85a52121e06f5" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal />
-						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="ca8e5b5a307644118684c8fdfbbc25a1" />
-						<ConnectorPaneTerminal Hotspot="0 25" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="de1a022e8f574d35bec713e20eb5e624" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="235deb8fa38b458da803554208486c6b" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="bddf6fc176ab458a911b8bf0f2c8fe5e" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="de1a022e8f574d35bec713e20eb5e624" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="bddf6fc176ab458a911b8bf0f2c8fe5e" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="8dae0e69c9fb4bdd8d02db222617f639" IsReturnParameter="True" Name="uppy file url">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="f7d200b2cd694f95ac390f63dd524050" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="235deb8fa38b458da803554208486c6b" Name="uppy file url" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="3180b6307fd24962a89c7edb1c7103a0" Name="uppy file reference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="16554332f32747379e4c7bdd5430666c" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="ca8e5b5a307644118684c8fdfbbc25a1" Name="uppy file reference" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="20372f1ee75c4624a55312d41ebcda60" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DownloadUppyFile">
-				<JavaScriptLibraryEntryPoint Id="6979bf780a434da0a172377c92c77a70" Symbol="WebVIUppy.downloadUppyFile" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="1fd1a64a00774a9ab83b76e70dc1cbe1" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="9310a5a685694b06bab7ebad8b859510" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="7742417d07264f658e0cfdacf8df0f05" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="ecb10b73ac9b451f8bf4d312580ddc20" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="7e68ba8555f149e396bbbc7cfc0a9a33" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Id="42c2319166d246448c2b7bcf0f84e88a" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DownloadUppyFile" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" Id="ae3ddae0a20a42899ebe315247c87672" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="835af1b3b61549beb03845fd292eff01" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="7d74a17f6f2d45e7814a651e18804e09" />
-						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="f8f6c7bebb0846adbd3d7a4a1b310543" />
-						<ConnectorPaneTerminal Hotspot="0 25" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="22233467f3f642c5b21f6c19425fc1ce" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="f709ce6d1acf4fc3bf97bdfed11426cc" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="22233467f3f642c5b21f6c19425fc1ce" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="f709ce6d1acf4fc3bf97bdfed11426cc" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="c41f496f91654507ba682ab779073861" IsReturnParameter="True" Name="return">
-						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="3c854e33dcfa47089f07cbb09191a507" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="a3c802b780ac4143bcb97b194cc9ea8f" Name="return out" Visible="False" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="e9e44b5c634f549e856ff3c3f8e9a1" Name="uppy file reference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="1defd9b618c346628738c412a5a3afaa" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="7d74a17f6f2d45e7814a651e18804e09" Name="uppy file reference" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="6b018207f186433881cb6eef80f79f18" Name="file name">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="fc71dd7f2a29487c8794b029f4e673c2" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f8f6c7bebb0846adbd3d7a4a1b310543" Name="file name" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="24b1b116b8be4c74881055d98499fea0" Name="uppyReference" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
@@ -394,20 +191,6 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="7a0d745212ea43e8a195a3e0a8f4fb9a">
 			<Attributed AttributedType="String">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="c8330de66e06460fa18939359da6c9b9">
-			<Attributed AttributedType="Int32[]">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="f21e5a75cf5d49d4a187370f29d6b881">
-			<Attributed AttributedType="UInt8[]">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 				</AttributeValues>

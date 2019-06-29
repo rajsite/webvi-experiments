@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="C30BA9EBBAC2EF602105F1AB52D987304C3D56E98CF7895C3793F9FF3A85376AC791CF7A43D613FB2486D8861B1F8B86D43290B144A074B7D0AE136A5E86CE90" Timestamp="1D52D56FE937540" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="49667BE034D5F61F879797B939148F1546C7AC12829E3A0190FEC90EC518B868E8AD84BFD1BDFED2C369CBB05465262C097BD1CA645FBBED59DA92428AC287FE" Timestamp="1D52E23E886FDCF" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -37,7 +37,7 @@
 		<DiagramUnplacedItems Id="730ad3f3874149a2a2ef2f9df62689af" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="2c334f463ed94f199b336a5a68b732f9" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="8c0b9a58a1e14a11b691415cdbd94e5d">
-			<MethodCall Bounds="310 200 40 40" Id="5db9cc6860a242b9895da90f96ef56b2" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\Uppy.gcomp\\Uppy Advanced File\\Create Uppy File.gvi&quot;" Signature="@90747380e7b840d59e07fecb8dafda92" Target="Uppy::Uppy Advanced File::Create Uppy File.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="310 200 40 40" Id="5db9cc6860a242b9895da90f96ef56b2" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\FileApi.gcomp\\Create File.gvi&quot;" Signature="@aa911b6c763e45d68d630257e548e9c1" Target="FileApi::Create File.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="file contents" />
@@ -50,14 +50,14 @@
 				<Terminal DataType="UInt8[]" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@f36d4b3e777c4000b6c895207b670440" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="a2b1ca3db903418fa93559c57d8919c1" Joints="N(61cddaf3e87841259ef31225d1d468a6:Value)|(200,235) N(5db9cc6860a242b9895da90f96ef56b2:L3)|(310,235)" xmlns="http://www.ni.com/PlatformFramework" />
 			<DataAccessor Bounds="160 260 40 15" DataItem="dce7f44469514b48941f346dbbc3bc1c" Id="1c8fa81ce12848e693e3ccdde4f63ba9" Label="5d7ed202d06444f9aef13d3e32393e01" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<MethodCall Bounds="400 200 40 40" Id="f9928368878a4ec7bb99bda121a83f80" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\Uppy.gcomp\\Uppy Advanced File\\Download Uppy File.gvi&quot;" Signature="@ff7c624dfb424bc2b149a39ecf3418af" Target="Uppy::Uppy Advanced File::Download Uppy File.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="400 200 40 40" Id="f9928368878a4ec7bb99bda121a83f80" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\FileApi.gcomp\\Download File.gvi&quot;" Signature="@58ffa720f86a492a911e9c1c19f3c7bc" Target="FileApi::Download File.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="uppy file reference in" />
@@ -67,10 +67,10 @@
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="@f36d4b3e777c4000b6c895207b670440" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@f36d4b3e777c4000b6c895207b670440" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="2a7378963323437c87e025246e961372" Joints="N(5db9cc6860a242b9895da90f96ef56b2:R3)|(350,235) N(f9928368878a4ec7bb99bda121a83f80:L3)|(400,235)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -85,22 +85,20 @@
 			<DataAccessor Bounds="160 230 40 15" DataItem="84b15b7f93e3406386238a9b5a7fbbaf" Id="61cddaf3e87841259ef31225d1d468a6" Label="e01695233227430286a93772a6f2f063" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<MethodCall Bounds="520 200 40 40" Id="6176fafa4c6440dc858d0dbbc177ba2a" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\Uppy.gcomp\\Uppy Advanced File\\Destroy Uppy Files.gvi&quot;" Signature="@26716a31d23248c7aa631eba181f3ecc" Target="Uppy::Uppy Advanced File::Destroy Uppy Files.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="520 200 40 40" Id="6176fafa4c6440dc858d0dbbc177ba2a" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\FileApi.gcomp\\Close File.gvi&quot;" Signature="@ea37b3194b5f4361baa2aed4578b8f61" Target="FileApi::Close File.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="uppy file references" />
+						<Parameter Id="L0" Desc="uppy file reference" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="@3d0d13889c364fa5bdf05cb7f2633d5e" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="bd5715ca0a47406c983c46d4f2e5a41a" Joints="N(f9928368878a4ec7bb99bda121a83f80:R3)|(440,235) N(6176fafa4c6440dc858d0dbbc177ba2a:L3)|(520,235)" xmlns="http://www.ni.com/PlatformFramework" />
-			<BuildArray Bounds="465 200 40 20" Id="678024aea4b24a72ab3dd1df851a6f17" Terminals="outArray=b36014ed37194305b571997cef6d9985, c0t0v=b0539641152e4114a6a937f14e2e136f, c1t0v" />
-			<Wire Id="b0539641152e4114a6a937f14e2e136f" Joints="N(f9928368878a4ec7bb99bda121a83f80:R0)|(440,205) N(678024aea4b24a72ab3dd1df851a6f17:c0t0v)|(465,205)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="b36014ed37194305b571997cef6d9985" Joints="N(678024aea4b24a72ab3dd1df851a6f17:outArray)|(505,205) N(6176fafa4c6440dc858d0dbbc177ba2a:L0)|(520,205)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="b0539641152e4114a6a937f14e2e136f" Joints="N(f9928368878a4ec7bb99bda121a83f80:R0)|(440,205) N(6176fafa4c6440dc858d0dbbc177ba2a:L0)|(520,205)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="fd97f9189bed427da76be5927aaa5696" Joints="N(6176fafa4c6440dc858d0dbbc177ba2a:R3)|(560,235) N(6c14286efcb548d59e2e4d88c582bb50:Value)|(578,235)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="7e578c54399945ff8a8f66fcf70d221d" Joints="N(1c8fa81ce12848e693e3ccdde4f63ba9:Value)|(200,265) h(100) v(-40) N(5db9cc6860a242b9895da90f96ef56b2:L2)|(310,225)" xmlns="http://www.ni.com/PlatformFramework" />
 			<NodeLabel AttachedTo="1c8fa81ce12848e693e3ccdde4f63ba9" Bounds="85 260 70 14" Id="5d7ed202d06444f9aef13d3e32393e01" xmlns="http://www.ni.com/PlatformFramework">
@@ -194,42 +192,39 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="90747380e7b840d59e07fecb8dafda92">
-			<Attributed AttributedType="@4fb348b27b7f48719dbd2c436868a23f">
+		<p.TypeReference TypeId="aa911b6c763e45d68d630257e548e9c1">
+			<Attributed AttributedType="@2aa198af8fd74f5cba74a059438ee7a1">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="f36d4b3e777c4000b6c895207b670440">
-			<Attributed AttributedType="@47438fd752b24662b1a41b91be7ce862">
+		<p.TypeReference TypeId="5ef5d0c5dd1d40e9b4b8ea57d7544494">
+			<Attributed AttributedType="@910ff235325941d283446852bbadb11d">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Uppy::Uppy Advanced File" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]FileApi::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="ff7c624dfb424bc2b149a39ecf3418af">
-			<Attributed AttributedType="@82b0111dfa9645fea2934e8509c6d50e">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="26716a31d23248c7aa631eba181f3ecc">
-			<Attributed AttributedType="@fccd9518329c4065b834c8ab2dd858ba">
+		<p.TypeReference TypeId="58ffa720f86a492a911e9c1c19f3c7bc">
+			<Attributed AttributedType="@110f69dbc0bc4361ad45c0197ade9da7">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="3d0d13889c364fa5bdf05cb7f2633d5e">
-			<VariableArray DereferenceType="@f36d4b3e777c4000b6c895207b670440" />
+		<p.TypeReference TypeId="ea37b3194b5f4361baa2aed4578b8f61">
+			<Attributed AttributedType="@a2fadc8ced774eb4ad207284b8e42b79">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="4fb348b27b7f48719dbd2c436868a23f">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Uppy File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="2aa198af8fd74f5cba74a059438ee7a1">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@92479046c3ee403aae931c3f87ddc7ed">
 						<AttributeValues>
@@ -246,7 +241,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@bb6cdce1e33144c6be92e46500251dd0">
+					<Attributed AttributedType="@da139781e6f744009d13ef60f66560c0">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppy file reference" />
 						</AttributeValues>
@@ -259,13 +254,13 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="47438fd752b24662b1a41b91be7ce862">
-			<Typedef TypedefName="uppy file reference.gtype" UnderlyingType="Int32" />
+		<p.TypeReference TypeId="910ff235325941d283446852bbadb11d">
+			<Typedef TypedefName="file reference.gtype" UnderlyingType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="82b0111dfa9645fea2934e8509c6d50e">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Download Uppy File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="110f69dbc0bc4361ad45c0197ade9da7">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Download File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@0f437a8572394cd7a4c2838a4e155381">
+					<Attributed AttributedType="@a821ec792a054098b3afa538381f0462">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppy file reference in" />
 						</AttributeValues>
@@ -280,7 +275,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@bb6cdce1e33144c6be92e46500251dd0">
+					<Attributed AttributedType="@da139781e6f744009d13ef60f66560c0">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppy file reference out" />
 						</AttributeValues>
@@ -293,12 +288,12 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="fccd9518329c4065b834c8ab2dd858ba">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Destroy Uppy Files.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="a2fadc8ced774eb4ad207284b8e42b79">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Close File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@efe705196dde41cabba125bcc344cb91">
+					<Attributed AttributedType="@a821ec792a054098b3afa538381f0462">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppy file references" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppy file reference" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -323,24 +318,21 @@
 		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="bb6cdce1e33144c6be92e46500251dd0">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@f36d4b3e777c4000b6c895207b670440" />
+		<p.TypeReference TypeId="da139781e6f744009d13ef60f66560c0">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="0f437a8572394cd7a4c2838a4e155381">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@f36d4b3e777c4000b6c895207b670440" />
+		<p.TypeReference TypeId="a821ec792a054098b3afa538381f0462">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="61146b29ccf4441ca7e8995dcda7cef3">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="efe705196dde41cabba125bcc344cb91">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@3d0d13889c364fa5bdf05cb7f2633d5e" />
-		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Uppy::Uppy Advanced File::Create Uppy File.gvi">
+		<p.IconModel Target="FileApi::Create File.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -354,20 +346,13 @@
 							</IconTemplate>
 							<Image BaseName="[string]Image" Height="[float]17" Left="[float]4" MinHeight="[float]17" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]17" Width="[float]14" />
 							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]19" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]19" Width="[float]17.984" />
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Uppy.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
-								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Text Foreground="[SMColor]#ffffffff" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]9" Text="[string]Uppy" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]2" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]21">
-									<FontSetting FontFamily="Verdana" FontSize="6" />
-								</Text>
-							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]FileApi.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="Uppy::Uppy Advanced File::Download Uppy File.gvi">
+		<p.IconModel Target="FileApi::Download File.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -382,20 +367,13 @@
 							<Image BaseName="[string]Image" Height="[float]17" Left="[float]4" MinHeight="[float]17" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]17" Width="[float]14" />
 							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#ff000000" Height="[float]11" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]18" Width="[float]4" />
 							<Path Data="[PathGeometry]M 6,3.49999952 L 4,7 L 2,3.49999952 L 0,0 L 4,0 L 8,0 L 6,3.49999952 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#ff000000" Height="[float]7" Left="[float]25" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]8" />
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Uppy.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
-								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Text Foreground="[SMColor]#ffffffff" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]9" Text="[string]Uppy" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]2" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]21">
-									<FontSetting FontFamily="Verdana" FontSize="6" />
-								</Text>
-							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]FileApi.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="Uppy::Uppy Advanced File::Destroy Uppy Files.gvi">
+		<p.IconModel Target="FileApi::Close File.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -409,14 +387,7 @@
 							</IconTemplate>
 							<Image BaseName="[string]Image" Height="[float]17" Left="[float]4" MinHeight="[float]17" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]17" Width="[float]14" />
 							<Path Data="[PathGeometry]M 11.3140001,2 L 7.65799999,5.65600014 L 11.3140001,9 L 9.19299984,11 L 5.65799999,7.77799988 L 2.12299991,11 L 0,9 L 3.65700006,5.65600014 L 0,2 L 2.12299991,0 L 5.65799999,3.53500009 L 9.19299984,0 L 11.3140001,2 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]23" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]23" Width="[float]11.314" />
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Uppy.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
-								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ffff3377" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Text Foreground="[SMColor]#ffffffff" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]9" Text="[string]Uppy" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]2" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]21">
-									<FontSetting FontFamily="Verdana" FontSize="6" />
-								</Text>
-							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]FileApi.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
