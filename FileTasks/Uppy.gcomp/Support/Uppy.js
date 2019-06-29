@@ -2,29 +2,6 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
-        }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
-
     const isObject = function (obj) {
         return typeof obj === 'object' && obj !== null;
     };
@@ -58,45 +35,25 @@
         });
     };
 
-    const createUppy = function () {
-        const uppyConfig = {
-            core: {
-                // Only one upload makes sense since the node blocks until upload finishes
-                allowMultipleUploads: false
-            },
-            dashboard: {
-                // don't want any element to trigger the dashboard
-                trigger: null
-            }
-        };
-
-        const reference = referenceManager.createReference(uppyConfig);
-        return reference;
-    };
-
-    const destroyUppy = function (reference) {
-        const options = referenceManager.getObject(reference);
-        if (options !== undefined) {
-            referenceManager.closeReference(reference);
-        }
-    };
-
-    const setUppyOptions = function (reference, optionsJSON) {
-        const uppyConfig = referenceManager.getObject(reference);
-        if (uppyConfig === undefined) {
-            throw new Error('Invalid Uppy reference.');
-        }
-
-        const options = JSON.parse(optionsJSON);
-        deepMerge(uppyConfig, options);
-    };
-
-    const requestFiles = function (reference) {
+    const requestFiles = function (optionsArrayJSON) {
         return new Promise(function (resolve, reject) {
-            const uppyConfig = referenceManager.getObject(reference);
-            if (uppyConfig === undefined) {
-                throw new Error('Invalid Uppy reference.');
-            }
+            const uppyConfig = {
+                core: {
+                    // Only one upload makes sense since the node blocks until upload finishes
+                    allowMultipleUploads: false
+                },
+                dashboard: {
+                    // don't want any element to trigger the dashboard
+                    trigger: null
+                }
+            };
+
+            const optionsArray = JSON.parse(optionsArrayJSON);
+            optionsArray
+                .map(option => JSON.parse(option.propertiesJSON))
+                .forEach(function (properties) {
+                    deepMerge(uppyConfig, properties);
+                });
 
             let cleanup;
             uppyConfig.core.onBeforeUpload = function (uppyFiles) {
@@ -136,10 +93,5 @@
         });
     };
 
-    window.WebVIUppy = {
-        createUppy,
-        setUppyOptions,
-        destroyUppy,
-        requestFiles
-    };
+    window.WebVIUppy = {requestFiles};
 }());
