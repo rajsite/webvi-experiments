@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="2AFCD82211DB8527E096713E52CA36359F8FAD6F52D33B0EC6E7E737E584B995E39EA7B1DFFC43B90979D433199992FF368BE6065AC4E9940214724ED0277A87" Timestamp="1D52E127713D16B" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="A460F1B2D0531D199142B6E1BE0E8085A480F6105851BC673D7DBCFCF5F2A7A1484E83FA40163B5ED882B7C3465998FE67665C7A70A07212C895D38D89A474A8" Timestamp="1D52E2DD6FBC389" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -52,7 +52,7 @@
 				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<Wire Id="a1e507724b6c4bca9bd73ca73e183c96" Joints="N(8278646fe8874b26b4e333a12178fb0d:R3)|(835,75) h(10) v(25) N(4761caf2efbd4911bb289ec13a610d23:Value)|(853,100)" xmlns="http://www.ni.com/PlatformFramework" />
-			<PropertyNode Bounds="350 80 159 50" HasErrorTerminals="False" Id="d0d3c8c7f2e846e9bcfdb4f1600b0734" InstanceDataType="@d11807ffc8454c7593e0d43bbedc51a3" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+			<PropertyNode Bounds="350 80 159 50" HasErrorTerminals="False" Id="d0d3c8c7f2e846e9bcfdb4f1600b0734" InstanceDataType="@dee67d0905d747118d3fd0eeefc27874" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
 				<PropertyItemTerminal Action="Write" DataType="Boolean" Hotspot="0 15" Id="c0t0v" Path="webcam:countdown" PathElementMemberKinds="Field:Field" Usage="Required" />
 				<PropertyItemTerminal Action="Write" DataType="Boolean" Hotspot="0 30" Id="c1t0v" Path="webcam:mirror" PathElementMemberKinds="Field:Field" Usage="Required" />
 			</PropertyNode>
@@ -90,10 +90,10 @@
 			<Comment Bounds="-65 45 305 15" Id="1edec737b47d4fc2abbd77551dc7c4d8" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Find more options at https://uppy.io/docs/webcam/</p.Text>
 			</Comment>
-			<MethodCall Bounds="795 40 40 40" Id="8278646fe8874b26b4e333a12178fb0d" ResolveFailedHint="SetUppyOptions" Signature="@a7086e6a152a4dbebf5a10af23e48be4" Target="Uppy::Support::Uppy.jsli::SetUppyOptions" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="795 40 40 40" Id="8278646fe8874b26b4e333a12178fb0d" ResolveFailedHint="SetUppyOptions" Signature="@bd80160c7aed4022bf4aec2df893fb70" Target="Uppy::Support::Uppy.jsli::SetUppyOptions" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="uppy reference" />
+						<Parameter Id="L0" Desc="uppyReference" />
 						<Parameter Id="L1" Desc="optionsJSON" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
@@ -105,11 +105,35 @@
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="adfea7b6262a4416b573b5432c331e38" Joints="N(b4025902921d4c4ba45cf2e93b9c5986:JSON string)|(660,85) h(80) v(-30) N(8278646fe8874b26b4e333a12178fb0d:L1)|(795,55)" xmlns="http://www.ni.com/PlatformFramework" />
-			<ClusterLiteral Bounds="-105 80 280 365" DataType="@d11807ffc8454c7593e0d43bbedc51a3" Id="f13e4b4419bf46f591ec9be542ab31dd" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>False_True_</p.Data>
+			<ClusterLiteral Bounds="-105 80 280 365" DataType="@dee67d0905d747118d3fd0eeefc27874" Id="f13e4b4419bf46f591ec9be542ab31dd" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Cluster>
+						<Field1>
+							<Cluster>
+								<Field1>False</Field1>
+								<Field2>True</Field2>
+								<Field3>
+									<Array Lengths="1" IsBinary="True" Compression="GZip">
+										<BinaryElements>H4sIAAAAAAAEAGNgZGBg+A8EIBoEBEAMEGZjAhLsBZnJJaVFqdwA/7jy7igAAAA=</BinaryElements>
+									</Array>
+								</Field3>
+							</Cluster>
+						</Field1>
+					</Cluster>
+				</p.Data>
 				<ClusterBehavior />
-				<ClusterLiteral Bounds="5 20 255 330" DataType="@bd9b8f70d42144b3b203b86b5fe10d8a" Id="702e52c4a0d64aa29f435f5ecef50b9b" Label="cbe3f76bf6544652a3311ac759220d6d">
-					<p.Data>False_True_</p.Data>
+				<ClusterLiteral Bounds="5 20 255 330" DataType="@5cc4dc583c2b4bf685bfea827089ddf1" Id="702e52c4a0d64aa29f435f5ecef50b9b" Label="cbe3f76bf6544652a3311ac759220d6d">
+					<p.Data>
+						<Cluster>
+							<Field1>False</Field1>
+							<Field2>True</Field2>
+							<Field3>
+								<Array Lengths="1" IsBinary="True" Compression="GZip">
+									<BinaryElements>H4sIAAAAAAAEAGNgZGBg+A8EIBoEBEAMEGZjAhLsBZnJJaVFqdwA/7jy7igAAAA=</BinaryElements>
+								</Array>
+							</Field3>
+						</Cluster>
+					</p.Data>
 					<ClusterBehavior />
 					<Literal Bounds="20 30 15 15" DataType="Boolean" Id="88331680d5b74e3982c6c4c5f7c0c802" Label="25fa6e6689b645c6ab35ab4e39f74f64">
 						<p.Data>False</p.Data>
@@ -124,6 +148,22 @@
 					</Literal>
 					<NodeLabel AttachedTo="7526429c555d4705bc2c11842a7ef5ef" Bounds="20 53 35 14" Id="771c909c748a4c429ac416ef508b4263" xmlns="http://www.ni.com/PlatformFramework">
 						<p.Text>mirror</p.Text>
+					</NodeLabel>
+					<ArrayLiteral Bounds="25 110 174 44" DataType="String[]" Id="240d9c7bfaf241c6b741b2fad3981e1a" Label="a38eb222475f4779929b8ea9f468010f">
+						<p.Data>
+							<Array Lengths="1" IsBinary="True" Compression="GZip">
+								<BinaryElements>H4sIAAAAAAAEAGNgZGBg+A8EIBoEBEAMEGZjAhLsBZnJJaVFqdwA/7jy7igAAAA=</BinaryElements>
+							</Array>
+						</p.Data>
+						<ArrayBehavior ElementType="String" IndexEditorWidth="42" VisibleRows="2">
+							<p.DefaultElementValue>""</p.DefaultElementValue>
+						</ArrayBehavior>
+						<Literal Bounds="49 23 121 17" DataType="String" Id="ccbb42781ae543de970a623044927c24">
+							<StringBehavior TextDisplayMode="Default" />
+						</Literal>
+					</ArrayLiteral>
+					<NodeLabel AttachedTo="240d9c7bfaf241c6b741b2fad3981e1a" Bounds="25 93 37 14" Id="a38eb222475f4779929b8ea9f468010f" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>modes</p.Text>
 					</NodeLabel>
 				</ClusterLiteral>
 				<NodeLabel AttachedTo="702e52c4a0d64aa29f435f5ecef50b9b" Bounds="5 3 46 14" Id="cbe3f76bf6544652a3311ac759220d6d" xmlns="http://www.ni.com/PlatformFramework">
@@ -167,13 +207,13 @@
 					<p4:TypeDefinitionTarget TargetName="Uppy::Support::uppy reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</NumericText>
-			<Label Height="[float]16" Id="f047516ddc554fa48036198cf6551a31" LabelOwner="[UIModel]c9940de51fe740ddabfcd24a73f39d3d" Left="[float]308" Text="[string]uppy reference in" Top="[float]144" Width="[float]80" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="f047516ddc554fa48036198cf6551a31" LabelOwner="[UIModel]c9940de51fe740ddabfcd24a73f39d3d" Left="[float]308" Text="[string]uppy reference in" Top="[float]144" Width="[float]93" xmlns="http://www.ni.com/PanelCommon" />
 			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="ebe214a17dfd4e11a2a127e78da94395" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" IsTabStop="[bool]True" Label="[UIModel]d17e2f6a321e48c8b9829aa7e340a070" Left="[float]580" MinHeight="[float]24" TabIndex="[int]5" Top="[float]164" Value="{DataItemBinding Id=78753671d124d8faba2f6381d8d1b91}" ValueFormatter="[string]LV:0" ValueType="[Type]@98810941d9f7479aa02e308c96638c71" Width="[float]72" p4:ControlDefinitionChecksum="ZBk4VTW0h/3dkdzrdLqAhFqSQMyle9fN4ShvnPM1Rw0=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="Uppy::Support::uppy reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</NumericText>
-			<Label Height="[float]16" Id="d17e2f6a321e48c8b9829aa7e340a070" LabelOwner="[UIModel]ebe214a17dfd4e11a2a127e78da94395" Left="[float]580" Text="[string]uppy reference out" Top="[float]144" Width="[float]80" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="d17e2f6a321e48c8b9829aa7e340a070" LabelOwner="[UIModel]ebe214a17dfd4e11a2a127e78da94395" Left="[float]580" Text="[string]uppy reference out" Top="[float]144" Width="[float]101" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@98810941d9f7479aa02e308c96638c71" Id="635e0b088a7c4552b46374694d5b9b80" Name="uppy reference in" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
@@ -226,15 +266,15 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d11807ffc8454c7593e0d43bbedc51a3">
+		<p.TypeReference TypeId="dee67d0905d747118d3fd0eeefc27874">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="webcam" DataType="@bd9b8f70d42144b3b203b86b5fe10d8a" />
+					<Field FieldAccessPolicy="ReadWrite" Name="webcam" DataType="@5cc4dc583c2b4bf685bfea827089ddf1" />
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="a7086e6a152a4dbebf5a10af23e48be4">
-			<Attributed AttributedType="@9c34f8a40167455f8d42e2a59bfefb21">
+		<p.TypeReference TypeId="bd80160c7aed4022bf4aec2df893fb70">
+			<Attributed AttributedType="@2ee30c9f6f2743d39eca4d7ce0274b9c">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -242,23 +282,24 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="bd9b8f70d42144b3b203b86b5fe10d8a">
+		<p.TypeReference TypeId="5cc4dc583c2b4bf685bfea827089ddf1">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
 					<Field FieldAccessPolicy="ReadWrite" Name="countdown" DataType="Boolean" />
 					<Field FieldAccessPolicy="ReadWrite" Name="mirror" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="modes" DataType="String[]" />
 				</Members>
 			</Composite>
 		</p.TypeReference>
 		<p.TypeReference TypeId="5700e42b6b8f4768862aad2cd6b6b2cb">
 			<Typedef TypedefName="uppy reference.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="9c34f8a40167455f8d42e2a59bfefb21">
+		<p.TypeReference TypeId="2ee30c9f6f2743d39eca4d7ce0274b9c">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="SetUppyOptions" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@14c54e4960a64a63aae0617a204025a5">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppy reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]uppyReference" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@069cf77559a645a087566635e390a7da">
