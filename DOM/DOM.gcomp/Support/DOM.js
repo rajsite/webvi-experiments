@@ -121,22 +121,42 @@
         return attributeResultsJSON;
     };
 
-    // Returns either the invalid JSON string 'WEBVI_UNDEFINED' if the property value is null or undefined
-    // otherwise returns a valid JSON representation of the property value
-    // TODO support nested properties, ie el.position.x
+    const lookupTarget = function (base, propertyNameParts) {
+        const target = propertyNameParts.reduce(function (currentTarget, namePart) {
+            const nextTarget = currentTarget[namePart];
+            if (nextTarget === undefined || nextTarget === null) {
+                throw new Error(`Cannot find sub-property with name ${namePart}`);
+            }
+            return nextTarget;
+        }, base);
+        return target;
+    };
+
+    // valueContainerJSON: {value: <propertyValue>}
     const getProperty = function (elementReference, propertyName) {
         const element = referenceManager.getObject(elementReference);
         validateObject(element, HTMLElement);
-        const value = element[propertyName];
-        const undefinedOrValueJSON = (value === undefined || value === null) ? 'WEBVI_UNDEFINED' : JSON.stringify(value);
-        return undefinedOrValueJSON;
+        const propertyNameParts = propertyName.split('.');
+        // Removes the last name part from the array
+        const lastNamePart = propertyNameParts.pop();
+        const target = lookupTarget(element, propertyNameParts);
+        const value = target[lastNamePart];
+        const valueContainer = {value};
+        const valueContainerJSON = JSON.stringify(valueContainer);
+        return valueContainerJSON;
     };
 
-    const setProperty = function (elementReference, propertyName, valueJSON) {
+    // valueContainerJSON: {value: <propertyValue>}
+    const setProperty = function (elementReference, propertyName, valueContainerJSON) {
         const element = referenceManager.getObject(elementReference);
         validateObject(element, HTMLElement);
-        const value = JSON.parse(valueJSON);
-        element[propertyName] = value;
+        const valueContainer = JSON.parse(valueContainerJSON);
+        const value = valueContainer.value;
+        const propertyNameParts = propertyName.split('.');
+        // Removes the last name part from the array
+        const lastNamePart = propertyNameParts.pop();
+        const target = lookupTarget(element, propertyNameParts);
+        target[lastNamePart] = value;
     };
 
     // parametersConfigJSON: [parameterJSON]
@@ -284,19 +304,28 @@
     };
 
     window.WebVIDOM = {
-        querySelectorAll,
+        // Build
         appendChild,
         createDocumentFragment,
         createElement,
+
+        // Configure
+        classListAdd,
+        classListRemove,
         setAttributes,
         getAttributes,
         getProperty,
         setProperty,
-        invokeMethod,
-        classListAdd,
-        classListRemove,
+
+        // Monitor
         addEventListener,
         removeEventListener,
-        waitForEvent
+        waitForEvent,
+
+        // Operate
+        invokeMethod,
+
+        // Search
+        querySelectorAll
     };
 }());
