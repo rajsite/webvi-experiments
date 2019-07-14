@@ -38,7 +38,7 @@
         if (typeof obj !== 'object' || obj === null) {
             throw new Error('Invalid object. Expected a DOM Object.');
         }
-
+        // TODO any better way to check if dom object across contexts?
         const nodeTypeName = nodeTypeNames.find(nodeTypeName => obj.nodeType === NODE_TYPE_NAMES[nodeTypeName]);
         if (nodeTypeName === undefined) {
             throw new Error(`Invalid object. Expected an instance of one of the following: ${nodeTypeNames.join(',')}`);
@@ -47,8 +47,7 @@
 
     const getDocumentTarget = function (documentTargetReference) {
         const documentTargetInitial = referenceManager.getObject(documentTargetReference);
-        // eslint-disable-next-line no-undef
-        const globalDocument = document;
+        const globalDocument = window.document;
         const documentTarget = documentTargetInitial === undefined ? globalDocument : documentTargetInitial;
         validateDOMObject(documentTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         return documentTarget;
@@ -62,6 +61,12 @@
         return elementReferencesJSON;
     };
 
+    // TODO check element.ownerDocument.defaultView to see if inserted into a document with a browsing context
+    // error if in document, require removeChild before appendChild (?)
+    // checking defaultView might not work with elements inside documentfragments
+    // maybe we should not allow appending an element that is in a documentfragment, must append the whole fragment
+    //  avoid because it will be automatically removed from the fragment, would that be confuring? (maybe not)
+    //  --> nah, should encourage as a better way to parse html chunks, pick some parts, and just use those (maybe)
     const appendChild = function (parentReference, childReference, clearParentContent) {
         const parent = referenceManager.getObject(parentReference);
         validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
@@ -73,6 +78,7 @@
         parent.appendChild(child);
     };
 
+    // TODO remove selectorsJSON input
     // selectorsJSON: [selector]
     // fragmentAndElementsJSON {documentFragmentReference, elementReferences: [elementReference]}
     const createDocumentFragment = function (documentTargetReference, fragmentContent, selectorsJSON) {
@@ -101,9 +107,12 @@
 
     const createElement = function (documentTargetReference, tagName) {
         const documentTarget = getDocumentTarget(documentTargetReference);
-        const template = documentTarget.createElement('template');
         // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
-        // TODO figure out how to do this without using innerHTML. Using createElement doesn't work because the instance is live.
+        const template = documentTarget.createElement('template');
+        // TODO figure out how to do this without using innerHTML.
+        // Using createElement and appendChild doesn't work because the instance is live, ie the following prints to the console:
+        // customElements.define('my-elem', class extends HTMLElement {constructor () {super(); console.log('hello')}});
+        // document.createElement('template').content.appendChild(document.createElement('my-elem'));
         template.innerHTML = `<${tagName}>`;
         const element = template.content.firstElementChild;
         if (element === null) {
@@ -113,39 +122,50 @@
         return elementReference;
     };
 
-    // attributesJSON: [{name, value, remove}]
-    const setAttributes = function (elementReference, attributesJSON) {
+    // attributeValueConfigsJSON: [{attributeValue, exists}]
+    const setAttributes = function (elementReference, attributeNamesJSON, attributeValueConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        const attributes = JSON.parse(attributesJSON);
-        attributes.forEach(function ({name, value, remove}) {
-            if (remove) {
-                element.removeAttribute(name);
+        const attributeNames = JSON.parse(attributeNamesJSON);
+        const attributeValueConfigs = JSON.parse(attributeValueConfigsJSON);
+
+        if (attributeNames.length !== attributeValueConfigs.length) {
+            throw new Error('Must provide an equal number of attribute names and attribute values to set');
+        }
+
+        attributeNames.forEach(function (attributeName, index) {
+            const attributeValueConfig = attributeValueConfigs[index];
+            const {attributeValue, exists} = attributeValueConfig;
+            if (exists) {
+                element.setAttribute(attributeName, attributeValue);
             } else {
-                element.setAttribute(name, value);
+                element.removeAttribute(attributeName);
             }
         });
     };
 
-    // namesJSON: [name]
-    // attributeResultsJSON: [{name, value, found}]
-    const getAttributes = function (elementReference, namesJSON) {
+    // attributeValueResultsJSON : {attributeNames: [attributeName], attributeValueConfigs: [{attributeValue, exists}]}
+    const getAttributes = function (elementReference, attributeNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        const namesInitial = JSON.parse(namesJSON);
-        const names = namesInitial.length === 0 ? element.getAttributeNames() : namesInitial;
-        const attributeResults = names.map(function (name) {
-            const valueInitial = element.getAttribute(name);
-            const value = valueInitial === null ? '' : valueInitial;
-            const found = valueInitial !== null;
-            return {
-                name,
-                value,
-                found
+        const attributeNamesInitial = JSON.parse(attributeNamesJSON);
+        const attributeNames = attributeNamesInitial.length === 0 ? element.getAttributeNames() : attributeNamesInitial;
+        const attributeValueConfigs = attributeNames.map(function (attributeName) {
+            const valueInitial = element.getAttribute(attributeName);
+            const attributeValue = valueInitial === null ? '' : valueInitial;
+            const exists = valueInitial !== null;
+            const attributeValueConfig = {
+                attributeValue,
+                exists
             };
+            return attributeValueConfig;
         });
-        const attributeResultsJSON = JSON.stringify(attributeResults);
-        return attributeResultsJSON;
+        const attributeValueResults = {
+            attributeNames,
+            attributeValueConfigs
+        };
+        const attributeValueResultsJSON = JSON.stringify(attributeValueResults);
+        return attributeValueResultsJSON;
     };
 
     const lookupTarget = function (base, propertyNameParts) {
@@ -159,33 +179,94 @@
         return target;
     };
 
-    // TODO pluralize
-    // valueContainerJSON: {value: <propertyValue>}
-    const getProperty = function (elementReference, propertyName) {
-        const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
-        const propertyNameParts = propertyName.split('.');
-        // Mutates array by removing the last name part
-        const lastNamePart = propertyNameParts.pop();
-        const target = lookupTarget(element, propertyNameParts);
-        const value = target[lastNamePart];
-        const valueContainer = {value};
-        const valueContainerJSON = JSON.stringify(valueContainer);
-        return valueContainerJSON;
+    const createPropertyValueConfig = function (propertyValue) {
+        const propertyValueConfig = {
+            type: '',
+            propertyValueJSON: ''
+        };
+        if (typeof propertyValue === 'number' || typeof propertyValue === 'string' || typeof propertyValue === 'boolean') {
+            propertyValueConfig.type = typeof propertyValue;
+            propertyValueConfig.propertyValueJSON = JSON.stringify({data: propertyValue});
+        } else if (typeof propertyValue === 'object' && propertyValue !== null) {
+            // TODO any better way to check if dom object across contexts?
+            if (Object.values(NODE_TYPE_NAMES).includes(propertyValue.nodeType)) {
+                const reference = referenceManager.createReference(propertyValue);
+                propertyValueConfig.type = 'reference';
+                propertyValueConfig.propertyValueJSON = JSON.stringify({data: reference});
+            } else {
+                throw new Error('Property value is unsupported object type.');
+            }
+            // TODO Not sure if I want to enable arbitrary JSON yet. It has a lot of cons (won't have object references, edge cases with numberics).
+            // Also don't think many custom element properties will have an array data type. If they do TypedArrays may be preferable anyway.
+            // It's part of the custom-elements-everywhere suite so may be worth it:
+            // https://github.com/webcomponents/custom-elements-everywhere/blob/master/libraries/preact/src/basic-tests.js#L151
+            // else {
+            //     propertyValueConfig.type = 'json';
+            //     propertyValueConfig.propertyValueJSON = JSON.stringify(propertyValue);
+            // }
+        } else {
+            throw new Error('Property value is unsupported primitive type.');
+        }
+        return propertyValueConfig;
     };
 
-    // TODO pluralize
-    // valueContainerJSON: {value: <propertyValue>}
-    const setProperty = function (elementReference, propertyName, valueContainerJSON) {
+    const evaluatePropertyValueConfig = function (propertyValueConfig) {
+        const {type, propertyValueJSON} = propertyValueConfig;
+        const propertyValueParsed = JSON.parse(propertyValueJSON);
+        if (type === 'number' || type === 'string' || type === 'boolean') {
+            const propertyValue = propertyValueParsed.data;
+            return propertyValue;
+        } else if (type === 'reference') {
+            const reference = propertyValueParsed.data;
+            const propertyValue = referenceManager.getObject(reference);
+            return propertyValue;
+        }
+        // else if (type === 'json') {
+        //     const propertyValue = propertyValueParsed;
+        //     return propertyValue;
+        // }
+        throw new Error('Unexpected property value type ${type}');
+    };
+
+    // propertyValueConfigsJSON: [{type, propertyValueJSON}]
+    const getProperties = function (elementReference, propertyNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        const valueContainer = JSON.parse(valueContainerJSON);
-        const value = valueContainer.value;
-        const propertyNameParts = propertyName.split('.');
-        // Mutates array by removing the last name part
-        const lastNamePart = propertyNameParts.pop();
-        const target = lookupTarget(element, propertyNameParts);
-        target[lastNamePart] = value;
+        const propertyNames = JSON.parse(propertyNamesJSON);
+        const propertyValueConfigs = propertyNames.map(function (propertyName) {
+            const propertyNameParts = propertyName.split('.');
+            // Mutates array by removing the last name part
+            const lastNamePart = propertyNameParts.pop();
+            const target = lookupTarget(element, propertyNameParts);
+            const value = target[lastNamePart];
+            const propertyValueConfig = createPropertyValueConfig(value);
+            return propertyValueConfig;
+        });
+        const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
+        return propertyValueConfigsJSON;
+    };
+
+    // propertyValueConfigsJSON: [{type, propertyValueJSON}]
+    const setProperties = function (elementReference, propertyNamesJSON, propertyValueConfigsJSON) {
+        const element = referenceManager.getObject(elementReference);
+        validateDOMObject(element, ELEMENT_NODE);
+
+        const propertyNames = JSON.parse(propertyNamesJSON);
+        const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
+
+        if (propertyNames.length !== propertyValueConfigs.length) {
+            throw new Error('Must provide an equal number of property names and property values to set');
+        }
+
+        propertyNames.forEach(function (propertyName, index) {
+            const propertyNameParts = propertyName.split('.');
+            // Mutates array by removing the last name part
+            const lastNamePart = propertyNameParts.pop();
+            const target = lookupTarget(element, propertyNameParts);
+            const propertValueConfig = propertyValueConfigs[index];
+            const propertyValue = evaluatePropertyValueConfig(propertValueConfig);
+            target[lastNamePart] = propertyValue;
+        });
     };
 
     // parametersConfigJSON: [parameterJSON]
@@ -199,18 +280,18 @@
         return undefinedOrResponseJSON;
     };
 
-    // TODO pluralize
-    const classListAdd = function (elementReference, className) {
+    const classesToAdd = function (elementReference, classNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        element.classList.add(className);
+        const classNames = JSON.parse(classNamesJSON);
+        element.classList.add.apply(element.classList, classNames);
     };
 
-    // TODO pluralize
-    const classListRemove = function (elementReference, className) {
+    const classesToRemove = function (elementReference, classNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        element.classList.remove(className);
+        const classNames = JSON.parse(classNamesJSON);
+        element.classList.add.apply(element.classList, classNames);
     };
 
     class DataQueue {
@@ -351,12 +432,13 @@
         // removeChild?
 
         // Configure
-        classListAdd,
-        classListRemove,
-        setAttributes,
+        // TODO auto batch sets and gets like a mini fastdom? would be nice to be on raf...
+        classesToAdd,
+        classesToRemove,
         getAttributes,
-        getProperty,
-        setProperty,
+        setAttributes,
+        getProperties,
+        setProperties,
 
         // Monitor
         addEventListener,
@@ -367,6 +449,7 @@
         invokeMethod,
 
         // Search
+        // TODO support querySelector and enforce a single selected element
         querySelectorAll
 
         // TODO how do we handle close?
