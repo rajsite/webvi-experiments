@@ -24,19 +24,38 @@
     }
     const referenceManager = new ReferenceManager();
 
-    const validateObject = function (obj, ...args) {
-        const constructorFunction = args.find(constructorFunction => obj instanceof constructorFunction);
-        if (constructorFunction === undefined) {
-            const names = args.map(constructorFunction => constructorFunction.name === '' ? 'UNKNOWN_NAME' : constructorFunction.name).join(',');
-            const expectedNameMessage = names === '' ? '' : ` Expected an instance of one of the following: ${names}.`;
-            throw new Error('Invalid object.' + expectedNameMessage);
+    // We use el.nodeType instead of instanceof checks to handle iframe and document fragments
+    const DOCUMENT_NODE = 'DOCUMENT_NODE';
+    const DOCUMENT_FRAGMENT_NODE = 'DOCUMENT_FRAGMENT_NODE';
+    const ELEMENT_NODE = 'ELEMENT_NODE';
+    const NODE_TYPE_NAMES = {
+        [DOCUMENT_NODE]: window.Node.DOCUMENT_NODE,
+        [DOCUMENT_FRAGMENT_NODE]: window.Node.DOCUMENT_FRAGMENT_NODE,
+        [ELEMENT_NODE]: window.Node.ELEMENT_NODE
+    };
+
+    const validateDOMObject = function (obj, ...nodeTypeNames) {
+        if (typeof obj !== 'object' || obj === null) {
+            throw new Error('Invalid object. Expected a DOM Object.');
+        }
+
+        const nodeTypeName = nodeTypeNames.find(nodeTypeName => obj.nodeType === NODE_TYPE_NAMES[nodeTypeName]);
+        if (nodeTypeName === undefined) {
+            throw new Error(`Invalid object. Expected an instance of one of the following: ${nodeTypeNames.join(',')}`);
         }
     };
 
-    const querySelectorAll = function (selector, documentTargetReference) {
+    const getDocumentTarget = function (documentTargetReference) {
         const documentTargetInitial = referenceManager.getObject(documentTargetReference);
-        const documentTarget = documentTargetInitial === undefined ? document : documentTargetInitial;
-        validateObject(documentTarget, Document, DocumentFragment);
+        // eslint-disable-next-line no-undef
+        const globalDocument = document;
+        const documentTarget = documentTargetInitial === undefined ? globalDocument : documentTargetInitial;
+        validateDOMObject(documentTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        return documentTarget;
+    };
+
+    const querySelectorAll = function (documentTargetReference, selector) {
+        const documentTarget = getDocumentTarget(documentTargetReference);
         const elements = Array.from(documentTarget.querySelectorAll(selector));
         const elementReferences = elements.map(element => referenceManager.createReference(element));
         const elementReferencesJSON = JSON.stringify(elementReferences);
@@ -45,9 +64,9 @@
 
     const appendChild = function (parentReference, childReference, clearParentContent) {
         const parent = referenceManager.getObject(parentReference);
-        validateObject(parent, HTMLElement, DocumentFragment);
+        validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const child = referenceManager.getObject(childReference);
-        validateObject(child, HTMLElement, DocumentFragment);
+        validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         if (clearParentContent) {
             parent.innerHTML = '';
         }
@@ -56,8 +75,10 @@
 
     // selectorsJSON: [selector]
     // fragmentAndElementsJSON {documentFragmentReference, elementReferences: [elementReference]}
-    const createDocumentFragment = function (fragmentContent, selectorsJSON) {
-        const template = document.createElement('template');
+    const createDocumentFragment = function (documentTargetReference, fragmentContent, selectorsJSON) {
+        const documentTarget = getDocumentTarget(documentTargetReference);
+        // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
+        const template = documentTarget.createElement('template');
         template.innerHTML = fragmentContent;
         const documentFragment = template.content;
         const selectors = JSON.parse(selectorsJSON);
@@ -78,10 +99,16 @@
         return fragmentAndElementsJSON;
     };
 
-    const createElement = function (tagName) {
-        const template = document.createElement('template');
-        template.content.appendChild(document.createElement(tagName));
+    const createElement = function (documentTargetReference, tagName) {
+        const documentTarget = getDocumentTarget(documentTargetReference);
+        const template = documentTarget.createElement('template');
+        // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
+        // TODO figure out how to do this without using innerHTML. Using createElement doesn't work because the instance is live.
+        template.innerHTML = `<${tagName}>`;
         const element = template.content.firstElementChild;
+        if (element === null) {
+            throw new Error(`Could not create element from tag name: ${tagName}`);
+        }
         const elementReference = referenceManager.createReference(element);
         return elementReference;
     };
@@ -89,7 +116,7 @@
     // attributesJSON: [{name, value, remove}]
     const setAttributes = function (elementReference, attributesJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         const attributes = JSON.parse(attributesJSON);
         attributes.forEach(function ({name, value, remove}) {
             if (remove) {
@@ -104,7 +131,7 @@
     // attributeResultsJSON: [{name, value, found}]
     const getAttributes = function (elementReference, namesJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         const namesInitial = JSON.parse(namesJSON);
         const names = namesInitial.length === 0 ? element.getAttributeNames() : namesInitial;
         const attributeResults = names.map(function (name) {
@@ -132,12 +159,13 @@
         return target;
     };
 
+    // TODO pluralize
     // valueContainerJSON: {value: <propertyValue>}
     const getProperty = function (elementReference, propertyName) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         const propertyNameParts = propertyName.split('.');
-        // Removes the last name part from the array
+        // Mutates array by removing the last name part
         const lastNamePart = propertyNameParts.pop();
         const target = lookupTarget(element, propertyNameParts);
         const value = target[lastNamePart];
@@ -146,14 +174,15 @@
         return valueContainerJSON;
     };
 
+    // TODO pluralize
     // valueContainerJSON: {value: <propertyValue>}
     const setProperty = function (elementReference, propertyName, valueContainerJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         const valueContainer = JSON.parse(valueContainerJSON);
         const value = valueContainer.value;
         const propertyNameParts = propertyName.split('.');
-        // Removes the last name part from the array
+        // Mutates array by removing the last name part
         const lastNamePart = propertyNameParts.pop();
         const target = lookupTarget(element, propertyNameParts);
         target[lastNamePart] = value;
@@ -162,7 +191,7 @@
     // parametersConfigJSON: [parameterJSON]
     const invokeMethod = function (elementReference, methodName, parameterConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         const parameterConfigs = JSON.parse(parameterConfigsJSON);
         const parameters = parameterConfigs.map(parameterConfig => JSON.parse(parameterConfig));
         const response = elementReference[methodName].apply(elementReference, parameters);
@@ -170,15 +199,17 @@
         return undefinedOrResponseJSON;
     };
 
+    // TODO pluralize
     const classListAdd = function (elementReference, className) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         element.classList.add(className);
     };
 
+    // TODO pluralize
     const classListRemove = function (elementReference, className) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         element.classList.remove(className);
     };
 
@@ -282,9 +313,18 @@
         }
     }
 
+    const validateObject = function (obj, ...constructorFunctions) {
+        const constructorFunction = constructorFunctions.find(constructorFunction => obj instanceof constructorFunction);
+        if (constructorFunction === undefined) {
+            const names = constructorFunctions.map(constructorFunction => constructorFunction.name === '' ? 'UNKNOWN_NAME' : constructorFunction.name).join(',');
+            const expectedNameMessage = names === '' ? '' : ` Expected an instance of one of the following: ${names}.`;
+            throw new Error('Invalid object.' + expectedNameMessage);
+        }
+    };
+
     const addEventListener = function (elementReference, eventName, eventConfigJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateObject(element, HTMLElement);
+        validateDOMObject(element, ELEMENT_NODE);
         const eventManager = new EventManager(element, eventName, eventConfigJSON);
         const eventManagerReference = referenceManager.createReference(eventManager);
         return eventManagerReference;
@@ -304,10 +344,11 @@
     };
 
     window.WebVIDOM = {
-        // Build
+        // Build (TODO rename to Structure? Or Assemble?)
         appendChild,
         createDocumentFragment,
         createElement,
+        // removeChild?
 
         // Configure
         classListAdd,
@@ -327,5 +368,11 @@
 
         // Search
         querySelectorAll
+
+        // TODO how do we handle close?
+        // Should we be somewhat magical? Calling appendChild on a DocumentFragment closes the reference?
+        // I don't think element references should be closed automatically if removed from DOM, just document fragments (also because they can't be reused)
+        // Should we handle property references seperately? Maybe not.. might want an element reference to a property.
+        // Maybe we should only allow property references that are DOM objects? Or should this be a generic JavaScript Reflection api...
     };
 }());
