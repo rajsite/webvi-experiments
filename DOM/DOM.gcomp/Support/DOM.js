@@ -53,6 +53,21 @@
         return documentTarget;
     };
 
+    const querySelectors = function (documentTargetReference, selectorsJSON) {
+        const documentTarget = getDocumentTarget(documentTargetReference);
+        const selectors = JSON.parse(selectorsJSON);
+        const elementReferences = selectors.map(function (selector) {
+            const elements = documentTarget.querySelectorAll(selector);
+            if (elements.length !== 1) {
+                throw new Error(`Expected 1 element with selector ${selector} but found ${elements.length}`);
+            }
+            const element = elements[0];
+            return element;
+        }).map(element => referenceManager.createReference(element));
+        const elementReferencesJSON = JSON.stringify(elementReferences);
+        return elementReferencesJSON;
+    };
+
     const querySelectorAll = function (documentTargetReference, selector) {
         const documentTarget = getDocumentTarget(documentTargetReference);
         const elements = Array.from(documentTarget.querySelectorAll(selector));
@@ -61,65 +76,55 @@
         return elementReferencesJSON;
     };
 
-    // TODO check element.ownerDocument.defaultView to see if inserted into a document with a browsing context
-    // error if in document, require removeChild before appendChild (?)
-    // checking defaultView might not work with elements inside documentfragments
-    // maybe we should not allow appending an element that is in a documentfragment, must append the whole fragment
-    //  avoid because it will be automatically removed from the fragment, would that be confuring? (maybe not)
-    //  --> nah, should encourage as a better way to parse html chunks, pick some parts, and just use those (maybe)
-    const appendChild = function (parentReference, childReference, clearParentContent) {
+    const appendChildren = function (parentReference, childReferencesJSON, clearParentContent) {
         const parent = referenceManager.getObject(parentReference);
         validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-        const child = referenceManager.getObject(childReference);
-        validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        const childReferences = JSON.parse(childReferencesJSON);
+        const children = childReferences.map(function (childReference) {
+            const child = referenceManager.getObject(childReference);
+            validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+            return child;
+        });
+
         if (clearParentContent) {
             parent.innerHTML = '';
         }
-        parent.appendChild(child);
+        children.forEach(child => parent.appendChild(child));
     };
 
-    // TODO remove selectorsJSON input
-    // selectorsJSON: [selector]
-    // fragmentAndElementsJSON {documentFragmentReference, elementReferences: [elementReference]}
-    const createDocumentFragment = function (documentTargetReference, fragmentContent, selectorsJSON) {
+    const createDocumentFragment = function (documentTargetReference, fragmentContent) {
         const documentTarget = getDocumentTarget(documentTargetReference);
         // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
         const template = documentTarget.createElement('template');
         template.innerHTML = fragmentContent;
         const documentFragment = template.content;
-        const selectors = JSON.parse(selectorsJSON);
-        const elementReferences = selectors
-            .map(selector => {
-                const elements = Array.from(documentFragment.querySelectorAll(selector));
-                if (elements.length !== 1) {
-                    throw new Error(`Expected fragment content to contain 1 element with selector ${selector} but found ${elements.length}. Fragment content: ${fragmentContent}`);
-                }
-                return elements[0];
-            })
-            .map(element => referenceManager.createReference(element));
         const documentFragmentReference = referenceManager.createReference(documentFragment);
-        const fragmentAndElementsJSON = JSON.stringify({
-            documentFragmentReference,
-            elementReferences
-        });
-        return fragmentAndElementsJSON;
+        return documentFragmentReference;
     };
 
-    const createElement = function (documentTargetReference, tagName) {
+    const createElements = function (documentTargetReference, tagNamesJSON) {
         const documentTarget = getDocumentTarget(documentTargetReference);
         // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
-        const template = documentTarget.createElement('template');
-        // TODO figure out how to do this without using innerHTML.
-        // Using createElement and appendChild doesn't work because the instance is live, ie the following prints to the console:
-        // customElements.define('my-elem', class extends HTMLElement {constructor () {super(); console.log('hello')}});
-        // document.createElement('template').content.appendChild(document.createElement('my-elem'));
-        template.innerHTML = `<${tagName}>`;
-        const element = template.content.firstElementChild;
-        if (element === null) {
-            throw new Error(`Could not create element from tag name: ${tagName}`);
-        }
-        const elementReference = referenceManager.createReference(element);
-        return elementReference;
+        const tagNames = JSON.parse(tagNamesJSON);
+        const elementReferences = tagNames.map(function (tagName) {
+            // TODO do each of these elements need a new documentfragment context or can it be shared?
+            // MAybe build up the string '<tag-name-0><tag-name-1><tag-name-n>...'
+            const template = documentTarget.createElement('template');
+            // TODO figure out how to do this without using innerHTML.
+            // Using createElement and appendChild doesn't work because the instance is live, ie the following prints to the console:
+            // customElements.define('my-elem', class extends HTMLElement {constructor () {super(); console.log('hello')}});
+            // document.createElement('template').content.appendChild(document.createElement('my-elem'));
+            template.innerHTML = `<${tagName}>`;
+            const elements = template.content.querySelectorAll('*');
+            if (elements.length !== 1) {
+                throw new Error(`Could not create an element from tag name: <${tagName}>. Instead resulted in ${elements.length} elements.`);
+            }
+            const element = elements[0];
+            return element;
+        }).map(element => referenceManager.createReference(element));
+
+        const elementReferencesJSON = JSON.stringify(elementReferences);
+        return elementReferencesJSON;
     };
 
     // attributeValueConfigsJSON: [{attributeValue, exists}]
@@ -151,9 +156,9 @@
         const attributeNamesInitial = JSON.parse(attributeNamesJSON);
         const attributeNames = attributeNamesInitial.length === 0 ? element.getAttributeNames() : attributeNamesInitial;
         const attributeValueConfigs = attributeNames.map(function (attributeName) {
-            const valueInitial = element.getAttribute(attributeName);
-            const attributeValue = valueInitial === null ? '' : valueInitial;
-            const exists = valueInitial !== null;
+            const attributeValueInitial = element.getAttribute(attributeName);
+            const exists = attributeValueInitial !== null;
+            const attributeValue = attributeValueInitial === null ? '' : attributeValueInitial;
             const attributeValueConfig = {
                 attributeValue,
                 exists
@@ -190,6 +195,7 @@
         } else if (typeof propertyValue === 'object' && propertyValue !== null) {
             // TODO any better way to check if dom object across contexts?
             if (Object.values(NODE_TYPE_NAMES).includes(propertyValue.nodeType)) {
+                // TODO should only create references after all validation to prevent reference leaks if error
                 const reference = referenceManager.createReference(propertyValue);
                 propertyValueConfig.type = 'reference';
                 propertyValueConfig.propertyValueJSON = JSON.stringify({data: reference});
@@ -426,9 +432,9 @@
 
     window.WebVIDOM = {
         // Build (TODO rename to Structure? Or Assemble?)
-        appendChild,
+        appendChildren,
         createDocumentFragment,
-        createElement,
+        createElements,
         // removeChild?
 
         // Configure
@@ -449,7 +455,7 @@
         invokeMethod,
 
         // Search
-        // TODO support querySelector and enforce a single selected element
+        querySelectors,
         querySelectorAll
 
         // TODO how do we handle close?
