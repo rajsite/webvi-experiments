@@ -102,13 +102,31 @@
         return documentFragmentReference;
     };
 
+    const escapeHTMLHelper = window.document.createElement('div');
+    const escapeHTML = function (unescapedHTMLText) {
+        escapeHTMLHelper.textContent = unescapedHTMLText;
+        const escapedHTMLText = escapeHTMLHelper.innerHTML;
+        escapeHTMLHelper.textContent = '';
+        return escapedHTMLText;
+    };
+
+    // const unescapeHTMLHelper = window.document.createElement('textarea');
+    // const unescapeHTML = function (escapedHTMLText) {
+    //     unescapeHTMLHelper.innerHTML = escapedHTMLText;
+    //     const unescapedHTMLText = unescapeHTMLHelper.value;
+    //     unescapeHTMLHelper.innerHTML = '';
+    //     return unescapedHTMLText;
+    // };
+
     const createElements = function (documentTargetReference, tagNamesJSON) {
         const documentTarget = getDocumentTarget(documentTargetReference);
         // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
         const tagNames = JSON.parse(tagNamesJSON);
-        const elementReferences = tagNames.map(function (tagName) {
+        const elementReferences = tagNames.map(function (tagNameInitial) {
+            // This function takes tagNames and not arbitrary HTML. So escape to prevent HTML insertion
+            const tagName = escapeHTML(tagNameInitial);
             // TODO do each of these elements need a new documentfragment context or can it be shared?
-            // MAybe build up the string '<tag-name-0><tag-name-1><tag-name-n>...'
+            // Maybe build up the string '<tag-name-0><tag-name-1><tag-name-n>...'
             const template = documentTarget.createElement('template');
             // TODO figure out how to do this without using innerHTML.
             // Using createElement and appendChild doesn't work because the instance is live, ie the following prints to the console:
@@ -117,9 +135,12 @@
             template.innerHTML = `<${tagName}>`;
             const elements = template.content.querySelectorAll('*');
             if (elements.length !== 1) {
-                throw new Error(`Could not create an element from tag name: <${tagName}>. Instead resulted in ${elements.length} elements.`);
+                throw new Error(`Could not create a single element from tag name: <${tagName}>. Instead resulted in ${elements.length} elements.`);
             }
             const element = elements[0];
+            if (element.tagName.toLowerCase() !== tagNameInitial.toLowerCase()) {
+                throw new Error(`Resulting tag name from input ${tagName} resulted in unexpected output tag name ${element.tagName}`);
+            }
             return element;
         }).map(element => referenceManager.createReference(element));
 
