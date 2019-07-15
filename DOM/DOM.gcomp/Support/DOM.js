@@ -206,6 +206,7 @@
             type: '',
             propertyValueJSON: ''
         };
+        // TODO support undefined and null using an out of band token? ie propertyValueConfig.propertyValueJSON = 'WEBVI_UNDEFINED'
         if (typeof propertyValue === 'number' || typeof propertyValue === 'string' || typeof propertyValue === 'boolean') {
             propertyValueConfig.type = typeof propertyValue;
             propertyValueConfig.propertyValueJSON = JSON.stringify({data: propertyValue});
@@ -286,21 +287,31 @@
             // Mutates array by removing the last name part
             const lastNamePart = propertyNameParts.pop();
             const target = lookupTarget(element, propertyNameParts);
-            const propertValueConfig = propertyValueConfigs[index];
-            const propertyValue = evaluatePropertyValueConfig(propertValueConfig);
+            const propertyValueConfig = propertyValueConfigs[index];
+            const propertyValue = evaluatePropertyValueConfig(propertyValueConfig);
             target[lastNamePart] = propertyValue;
         });
     };
 
     // parametersConfigJSON: [parameterJSON]
-    const invokeMethod = function (elementReference, methodName, parameterConfigsJSON) {
+    const invokeMethod = function (elementReference, methodName, propertyValueConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        const parameterConfigs = JSON.parse(parameterConfigsJSON);
-        const parameters = parameterConfigs.map(parameterConfig => JSON.parse(parameterConfig));
-        const response = elementReference[methodName].apply(elementReference, parameters);
-        const undefinedOrResponseJSON = (response === undefined || response === null) ? 'WEBVI_UNDEFINED' : JSON.stringify(response);
-        return undefinedOrResponseJSON;
+        const methodNameParts = methodName.split('.');
+        // Mutates array by removing the last name part
+        const lastNamePart = methodNameParts.pop();
+        const context = lookupTarget(element, methodNameParts);
+        const method = context[lastNamePart];
+        if (typeof method !== 'function') {
+            throw new Error(`Value at name ${methodName} is not a callable function`);
+        }
+
+        const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
+        const parameters = propertyValueConfigs.map(propertyValueConfig => evaluatePropertyValueConfig(propertyValueConfig));
+        const returnValueInitial = method.apply(context, parameters);
+        const returnValue = (returnValueInitial === undefined || returnValueInitial === null) ? {} : createPropertyValueConfig(returnValueInitial);
+        const returnValueJSON = JSON.stringify(returnValue);
+        return returnValueJSON;
     };
 
     const classesToAdd = function (elementReference, classNamesJSON) {
@@ -371,34 +382,30 @@
         }
     }
 
-    const convertEventtoJSON = function (event, eventConfigJSON) {
-        const eventConfig = JSON.parse(eventConfigJSON);
-        const result = Object.keys(eventConfig)
-            .map(function (eventKey) {
-                const eventValue = event[eventKey];
-                const eventValueOrDefault = (eventValue === null || eventValue === undefined) ? eventConfig[eventKey] : eventValue;
-                const eventResultSingle = {
-                    eventKey,
-                    eventValueOrDefault
-                };
-                return eventResultSingle;
-            })
-            .reduce(function (result, eventResultSingle) {
-                result[eventResultSingle.eventKey] = eventResultSingle.eventValueOrDefault;
-                return result;
-            }, {});
-        const resultJSON = JSON.stringify(result);
-        return resultJSON;
+    // TODO share pattern of converting an array of property values from an object
+    const getEventPropertyValueConfigs = function (event, propertyNames) {
+        const propertyValueConfigs = propertyNames.map(function (propertyName) {
+            const propertyNameParts = propertyName.split('.');
+            // Mutates array by removing the last name part
+            const lastNamePart = propertyNameParts.pop();
+            const target = lookupTarget(event, propertyNameParts);
+            const value = target[lastNamePart];
+            const propertyValueConfig = createPropertyValueConfig(value);
+            return propertyValueConfig;
+        });
+        const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
+        return propertyValueConfigsJSON;
     };
 
     class EventManager {
-        constructor (element, eventName, eventConfigJSON) {
+        constructor (element, eventName, propertyNamesJSON) {
+            const propertyNames = JSON.parse(propertyNamesJSON);
             this._element = element;
             this._eventName = eventName;
             this._queue = new DataQueue();
             this._handler = function (event) {
-                const resultJSON = convertEventtoJSON(event, eventConfigJSON);
-                this._queue.enqueue(resultJSON);
+                const propertyValueConfigsJSON = getEventPropertyValueConfigs(event, propertyNames);
+                this._queue.enqueue(propertyValueConfigsJSON);
             };
             this._element.addEventListener(this._eventName, this._handler);
         }
