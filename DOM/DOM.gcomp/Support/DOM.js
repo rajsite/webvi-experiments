@@ -234,6 +234,19 @@
         return propertyValueConfig;
     };
 
+    const createPropertyValueConfigs = function (base, propertyNames) {
+        const propertyValueConfigs = propertyNames.map(function (propertyName) {
+            const propertyNameParts = propertyName.split('.');
+            // Mutates array by removing the last name part
+            const lastNamePart = propertyNameParts.pop();
+            const target = lookupTarget(base, propertyNameParts);
+            const value = target[lastNamePart];
+            const propertyValueConfig = createPropertyValueConfig(value);
+            return propertyValueConfig;
+        });
+        return propertyValueConfigs;
+    };
+
     const evaluatePropertyValueConfig = function (propertyValueConfig) {
         const {type, propertyValueJSON} = propertyValueConfig;
         const propertyValueParsed = JSON.parse(propertyValueJSON);
@@ -257,15 +270,7 @@
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
         const propertyNames = JSON.parse(propertyNamesJSON);
-        const propertyValueConfigs = propertyNames.map(function (propertyName) {
-            const propertyNameParts = propertyName.split('.');
-            // Mutates array by removing the last name part
-            const lastNamePart = propertyNameParts.pop();
-            const target = lookupTarget(element, propertyNameParts);
-            const value = target[lastNamePart];
-            const propertyValueConfig = createPropertyValueConfig(value);
-            return propertyValueConfig;
-        });
+        const propertyValueConfigs = createPropertyValueConfigs(element, propertyNames);
         const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
         return propertyValueConfigsJSON;
     };
@@ -382,21 +387,6 @@
         }
     }
 
-    // TODO share pattern of converting an array of property values from an object
-    const getEventPropertyValueConfigs = function (event, propertyNames) {
-        const propertyValueConfigs = propertyNames.map(function (propertyName) {
-            const propertyNameParts = propertyName.split('.');
-            // Mutates array by removing the last name part
-            const lastNamePart = propertyNameParts.pop();
-            const target = lookupTarget(event, propertyNameParts);
-            const value = target[lastNamePart];
-            const propertyValueConfig = createPropertyValueConfig(value);
-            return propertyValueConfig;
-        });
-        const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
-        return propertyValueConfigsJSON;
-    };
-
     class EventManager {
         constructor (element, eventName, propertyNamesJSON) {
             const propertyNames = JSON.parse(propertyNamesJSON);
@@ -404,7 +394,7 @@
             this._eventName = eventName;
             this._queue = new DataQueue();
             this._handler = function (event) {
-                const propertyValueConfigsJSON = getEventPropertyValueConfigs(event, propertyNames);
+                const propertyValueConfigsJSON = createPropertyValueConfigs(event, propertyNames);
                 this._queue.enqueue(propertyValueConfigsJSON);
             };
             this._element.addEventListener(this._eventName, this._handler);
