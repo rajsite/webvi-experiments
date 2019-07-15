@@ -113,16 +113,6 @@
         });
     };
 
-    const createDocumentFragment = function (documentTargetReference, fragmentContent) {
-        const documentTarget = getDocumentTarget(documentTargetReference);
-        // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
-        const template = documentTarget.createElement('template');
-        template.innerHTML = fragmentContent;
-        const documentFragment = template.content;
-        const documentFragmentReference = referenceManager.createReference(documentFragment);
-        return documentFragmentReference;
-    };
-
     const escapeHTMLHelper = window.document.createElement('div');
     const escapeHTML = function (unescapedHTMLText) {
         escapeHTMLHelper.textContent = unescapedHTMLText;
@@ -239,16 +229,10 @@
                 propertyValueConfig.type = 'reference';
                 // propertyValueConfig.propertyValueJSON is created using finalizePropertyValueConfig for this type
             } else {
-                throw new Error('Property value is unsupported object type.');
+                propertyValueConfig.type = 'json';
+                // Note that the propertyValue is not wrapped in another object
+                propertyValueConfig.propertyValueJSON = JSON.stringify(propertyValue);
             }
-            // TODO Not sure if I want to enable arbitrary JSON yet. It has a lot of cons (won't have object references, edge cases with numberics).
-            // Also don't think many custom element properties will have an array data type. If they do TypedArrays may be preferable anyway.
-            // It's part of the custom-elements-everywhere suite so may be worth it:
-            // https://github.com/webcomponents/custom-elements-everywhere/blob/master/libraries/preact/src/basic-tests.js#L151
-            // else {
-            //     propertyValueConfig.type = 'json';
-            //     propertyValueConfig.propertyValueJSON = JSON.stringify(propertyValue);
-            // }
         } else {
             throw new Error('Property value is unsupported primitive type.');
         }
@@ -305,11 +289,10 @@
             const reference = propertyValueParsed.data;
             const propertyValue = referenceManager.getObject(reference);
             return propertyValue;
+        } else if (type === 'json') {
+            const propertyValue = propertyValueParsed;
+            return propertyValue;
         }
-        // else if (type === 'json') {
-        //     const propertyValue = propertyValueParsed;
-        //     return propertyValue;
-        // }
         throw new Error('Unexpected property value type ${type}');
     };
 
@@ -366,20 +349,6 @@
         finalizePropertyValueConfig(returnValue, returnValueInitial);
         const returnValueJSON = JSON.stringify(returnValue);
         return returnValueJSON;
-    };
-
-    const classesToAdd = function (elementReference, classNamesJSON) {
-        const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
-        const classNames = JSON.parse(classNamesJSON);
-        element.classList.add.apply(element.classList, classNames);
-    };
-
-    const classesToRemove = function (elementReference, classNamesJSON) {
-        const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
-        const classNames = JSON.parse(classNamesJSON);
-        element.classList.add.apply(element.classList, classNames);
     };
 
     class DataQueue {
@@ -497,14 +466,11 @@
     window.WebVIDOM = {
         // Build (TODO rename to Structure? Or Assemble?)
         appendChildren,
-        createDocumentFragment,
         createElements,
         removeChildren,
 
         // Configure
-        // TODO auto batch sets and gets like a mini fastdom? would be nice to be on raf...
-        classesToAdd,
-        classesToRemove,
+        // TODO auto batch sets and gets like a mini fastdom? would be nice to be on raf...,
         getAttributes,
         setAttributes,
         getProperties,
