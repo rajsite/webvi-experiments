@@ -120,30 +120,26 @@
 
     const createElements = function (documentTargetReference, tagNamesJSON) {
         const documentTarget = getDocumentTarget(documentTargetReference);
-        // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
         const tagNames = JSON.parse(tagNamesJSON);
-        const elementReferences = tagNames.map(function (tagNameInitial) {
-            // This function takes tagNames and not arbitrary HTML. So escape to prevent HTML insertion
-            const tagName = escapeHTML(tagNameInitial);
-            // TODO do each of these elements need a new documentfragment context or can it be shared?
-            // Maybe build up the string '<tag-name-0><tag-name-1><tag-name-n>...'
-            const template = documentTarget.createElement('template');
-            // TODO figure out how to do this without using innerHTML.
-            // Using createElement and appendChild doesn't work because the instance is live, ie the following prints to the console:
-            // customElements.define('my-elem', class extends HTMLElement {constructor () {super(); console.log('hello')}});
-            // document.createElement('template').content.appendChild(document.createElement('my-elem'));
-            template.innerHTML = `<${tagName}>`;
-            const elements = template.content.querySelectorAll('*');
-            if (elements.length !== 1) {
-                throw new Error(`Could not create a single element from tag name: <${tagName}>. Instead resulted in ${elements.length} elements.`);
+        // Escape tag names to catch unexpected HTML insertion
+        const tagNamesContent = tagNames
+            .map(tagName => escapeHTML(tagName))
+            .map(tagNameEscaped => `<${tagNameEscaped}></${tagNameEscaped}>`)
+            .join('');
+        // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
+        const template = documentTarget.createElement('template');
+        template.innerHTML = tagNamesContent;
+        // Rely of document order traversal of querySelectorAll
+        const elements = Array.from(template.content.querySelectorAll('*'));
+        if (tagNames.length !== elements.length) {
+            throw new Error(`Creating ${tagNames.length} tags resulted in ${elements.length} elements. Check that all tag names are valid: ${tagNames.join(',')}`);
+        }
+        tagNames.forEach((tagName, index) => {
+            if (tagName.toLowerCase() !== elements[index].tagName.toLowerCase()) {
+                throw new Error(`Resulting tag name from input ${tagName} resulted in unexpected output tag name ${elements[index].tagName}`);
             }
-            const element = elements[0];
-            if (element.tagName.toLowerCase() !== tagNameInitial.toLowerCase()) {
-                throw new Error(`Resulting tag name from input ${tagName} resulted in unexpected output tag name ${element.tagName}`);
-            }
-            return element;
-        }).map(element => referenceManager.createReference(element));
-
+        });
+        const elementReferences = elements.map(element => referenceManager.createReference(element));
         const elementReferencesJSON = JSON.stringify(elementReferences);
         return elementReferencesJSON;
     };
