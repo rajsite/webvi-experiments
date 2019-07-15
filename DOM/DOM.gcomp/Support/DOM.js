@@ -46,9 +46,9 @@
     };
 
     // Closing a DOM reference does not remove it from the DOM
-    const closeDOMReference = function (reference) {
-        const domObj = referenceManager.getObject(reference);
-        validateDOMObject(domObj, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
+    const closeDOMReference = function (domReference) {
+        const domObj = referenceManager.getObject(domReference);
+        validateDOMObject(domObj, ...Object.keys(NODE_TYPE_NAMES));
         referenceManager.closeReference(domObj);
     };
 
@@ -97,6 +97,20 @@
             parent.innerHTML = '';
         }
         children.forEach(child => parent.appendChild(child));
+    };
+
+    const removeChildren = function (childReferencesJSON) {
+        const childReferences = JSON.parse(childReferencesJSON);
+        const children = childReferences.map(function (childReference) {
+            const child = referenceManager.getObject(childReference);
+            validateDOMObject(child, ELEMENT_NODE);
+            return child;
+        });
+        children.forEach(function (child) {
+            if (child.parentNode !== null) {
+                child.parentNode.removeChild(child);
+            }
+        });
     };
 
     const createDocumentFragment = function (documentTargetReference, fragmentContent) {
@@ -485,7 +499,7 @@
         appendChildren,
         createDocumentFragment,
         createElements,
-        // removeChild?
+        removeChildren,
 
         // Configure
         // TODO auto batch sets and gets like a mini fastdom? would be nice to be on raf...
