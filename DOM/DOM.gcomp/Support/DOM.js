@@ -208,7 +208,7 @@
         };
         if (propertyValue === undefined || propertyValue === null) {
             propertyValueConfig.type = 'undefined';
-            // propertyValueJSON is unused for this type
+            // propertyValueConfig.propertyValueJSON is unused for this type
         } else if (typeof propertyValue === 'number' || typeof propertyValue === 'string' || typeof propertyValue === 'boolean') {
             propertyValueConfig.type = typeof propertyValue;
             propertyValueConfig.propertyValueJSON = JSON.stringify({data: propertyValue});
@@ -216,7 +216,7 @@
             // TODO any better way to check if dom object across contexts?
             if (Object.values(NODE_TYPE_NAMES).includes(propertyValue.nodeType)) {
                 propertyValueConfig.type = 'reference';
-                // propertyValueJSON is created using finalizePropertyValueConfig for this type
+                // propertyValueConfig.propertyValueJSON is created using finalizePropertyValueConfig for this type
             } else {
                 throw new Error('Property value is unsupported object type.');
             }
@@ -326,7 +326,7 @@
     };
 
     // parametersConfigJSON: [parameterJSON]
-    const invokeMethod = function (elementReference, methodName, propertyValueConfigsJSON) {
+    const invokeMethod = async function (elementReference, methodName, propertyValueConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
         const methodNameParts = methodName.split('.');
@@ -340,7 +340,7 @@
 
         const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
         const parameters = propertyValueConfigs.map(propertyValueConfig => evaluatePropertyValueConfig(propertyValueConfig));
-        const returnValueInitial = method.apply(context, parameters);
+        const returnValueInitial = await method.apply(context, parameters);
         const returnValue = createPropertyValueConfig(returnValueInitial);
         finalizePropertyValueConfig(returnValue, returnValueInitial);
         const returnValueJSON = JSON.stringify(returnValue);
