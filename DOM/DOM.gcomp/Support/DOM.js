@@ -45,6 +45,13 @@
         }
     };
 
+    // Closing a DOM reference does not remove it from the DOM
+    const closeDOMReference = function (reference) {
+        const domObj = referenceManager.getObject(reference);
+        validateDOMObject(domObj, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
+        referenceManager.closeReference(domObj);
+    };
+
     const getDocumentTarget = function (documentTargetReference) {
         const documentTargetInitial = referenceManager.getObject(documentTargetReference);
         const globalDocument = window.document;
@@ -499,12 +506,9 @@
 
         // Search
         querySelectors,
-        querySelectorAll
+        querySelectorAll,
 
-        // TODO how do we handle close?
-        // Should we be somewhat magical? Calling appendChild on a DocumentFragment closes the reference?
-        // I don't think element references should be closed automatically if removed from DOM, just document fragments (also because they can't be reused)
-        // Should we handle property references seperately? Maybe not.. might want an element reference to a property.
-        // Maybe we should only allow property references that are DOM objects? Or should this be a generic JavaScript Reflection api...
+        // Manage
+        closeDOMReference
     };
 }());
