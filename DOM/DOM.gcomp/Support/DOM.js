@@ -206,17 +206,17 @@
             type: '',
             propertyValueJSON: ''
         };
-        // TODO support undefined and null using an out of band token? ie propertyValueConfig.propertyValueJSON = 'WEBVI_UNDEFINED'
-        if (typeof propertyValue === 'number' || typeof propertyValue === 'string' || typeof propertyValue === 'boolean') {
+        if (propertyValue === undefined || propertyValue === null) {
+            propertyValueConfig.type = 'undefined';
+            // propertyValueJSON is unused for this type
+        } else if (typeof propertyValue === 'number' || typeof propertyValue === 'string' || typeof propertyValue === 'boolean') {
             propertyValueConfig.type = typeof propertyValue;
             propertyValueConfig.propertyValueJSON = JSON.stringify({data: propertyValue});
         } else if (typeof propertyValue === 'object' && propertyValue !== null) {
             // TODO any better way to check if dom object across contexts?
             if (Object.values(NODE_TYPE_NAMES).includes(propertyValue.nodeType)) {
-                // TODO should only create references after all validation to prevent reference leaks if error
-                const reference = referenceManager.createReference(propertyValue);
                 propertyValueConfig.type = 'reference';
-                propertyValueConfig.propertyValueJSON = JSON.stringify({data: reference});
+                // propertyValueJSON is created using finalizePropertyValueConfig for this type
             } else {
                 throw new Error('Property value is unsupported object type.');
             }
@@ -234,15 +234,39 @@
         return propertyValueConfig;
     };
 
+    const isPropertyValueConfigFinalized = function (propertyValueConfig) {
+        if (propertyValueConfig.type === 'reference' && propertyValueConfig.propertyValueJSON === '') {
+            return false;
+        }
+        return true;
+    };
+
+    const finalizePropertyValueConfig = function (propertyValueConfig, propertyValue) {
+        if (propertyValueConfig.type === 'reference') {
+            const reference = referenceManager.createReference(propertyValue);
+            propertyValueConfig.propertyValueJSON = JSON.stringify({data: reference});
+        }
+    };
+
     const createPropertyValueConfigs = function (base, propertyNames) {
+        const propertyValueConfigsToFinalize = [];
         const propertyValueConfigs = propertyNames.map(function (propertyName) {
             const propertyNameParts = propertyName.split('.');
             // Mutates array by removing the last name part
             const lastNamePart = propertyNameParts.pop();
             const target = lookupTarget(base, propertyNameParts);
-            const value = target[lastNamePart];
-            const propertyValueConfig = createPropertyValueConfig(value);
+            const propertyValue = target[lastNamePart];
+            const propertyValueConfig = createPropertyValueConfig(propertyValue);
+            if (isPropertyValueConfigFinalized(propertyValueConfig) === false) {
+                propertyValueConfigsToFinalize.push({
+                    propertyValueConfig,
+                    propertyValue
+                });
+            }
             return propertyValueConfig;
+        });
+        propertyValueConfigsToFinalize.forEach(function ({propertyValueConfig, propertyValue}) {
+            finalizePropertyValueConfig(propertyValueConfig, propertyValue);
         });
         return propertyValueConfigs;
     };
@@ -250,7 +274,10 @@
     const evaluatePropertyValueConfig = function (propertyValueConfig) {
         const {type, propertyValueJSON} = propertyValueConfig;
         const propertyValueParsed = JSON.parse(propertyValueJSON);
-        if (type === 'number' || type === 'string' || type === 'boolean') {
+        if (type === 'undefined') {
+            const propertyValue = undefined;
+            return propertyValue;
+        } else if (type === 'number' || type === 'string' || type === 'boolean') {
             const propertyValue = propertyValueParsed.data;
             return propertyValue;
         } else if (type === 'reference') {
@@ -314,7 +341,8 @@
         const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
         const parameters = propertyValueConfigs.map(propertyValueConfig => evaluatePropertyValueConfig(propertyValueConfig));
         const returnValueInitial = method.apply(context, parameters);
-        const returnValue = (returnValueInitial === undefined || returnValueInitial === null) ? {} : createPropertyValueConfig(returnValueInitial);
+        const returnValue = createPropertyValueConfig(returnValueInitial);
+        finalizePropertyValueConfig(returnValue, returnValueInitial);
         const returnValueJSON = JSON.stringify(returnValue);
         return returnValueJSON;
     };
