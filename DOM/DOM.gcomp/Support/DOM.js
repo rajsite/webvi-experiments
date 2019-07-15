@@ -462,6 +462,7 @@
     const removeEventListener = function (eventManagerReference) {
         const eventManager = referenceManager.getObject(eventManagerReference);
         validateObject(eventManager, EventManager);
+        referenceManager.closeReference(eventManagerReference);
         eventManager.stop();
     };
 
