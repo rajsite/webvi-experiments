@@ -34,11 +34,15 @@
         [ELEMENT_NODE]: window.Node.ELEMENT_NODE
     };
 
+    const isDOMObject = function (obj) {
+        return typeof obj === 'object' && obj !== null && Object.values(NODE_TYPE_NAMES).includes(obj.nodeType);
+    };
+
     const validateDOMObject = function (obj, ...nodeTypeNames) {
         if (typeof obj !== 'object' || obj === null) {
             throw new Error('Invalid object. Expected a DOM Object.');
         }
-        // TODO any better way to check if dom object across contexts?
+
         const nodeTypeName = nodeTypeNames.find(nodeTypeName => obj.nodeType === NODE_TYPE_NAMES[nodeTypeName]);
         if (nodeTypeName === undefined) {
             throw new Error(`Invalid object. Expected an instance of one of the following: ${nodeTypeNames.join(',')}`);
@@ -224,8 +228,7 @@
             propertyValueConfig.type = typeof propertyValue;
             propertyValueConfig.propertyValueJSON = JSON.stringify({data: propertyValue});
         } else if (typeof propertyValue === 'object' && propertyValue !== null) {
-            // TODO any better way to check if dom object across contexts?
-            if (Object.values(NODE_TYPE_NAMES).includes(propertyValue.nodeType)) {
+            if (isDOMObject(propertyValue)) {
                 propertyValueConfig.type = 'reference';
                 // propertyValueConfig.propertyValueJSON is created using finalizePropertyValueConfig for this type
             } else {
@@ -464,13 +467,12 @@
     };
 
     window.WebVIDOM = {
-        // Build (TODO rename to Structure? Or Assemble?)
+        // Build
         appendChildren,
         createElements,
         removeChildren,
 
         // Configure
-        // TODO auto batch sets and gets like a mini fastdom? would be nice to be on raf...,
         getAttributes,
         setAttributes,
         getProperties,
