@@ -50,7 +50,8 @@
     };
 
     // Closing a DOM reference does not remove it from the DOM
-    const closeDOMReferences = function (domReferences) {
+    const closeDOMReferences = function (domReferencesTypedArray) {
+        const domReferences = Array.from(domReferencesTypedArray);
         domReferences.forEach(domReference => referenceManager.closeReference(domReference));
     };
 
@@ -73,19 +74,22 @@
             const element = elements[0];
             return element;
         }).map(element => referenceManager.createReference(element));
-        return new Int32Array(elementReferences);
+        const elementReferencesTypedArray = new Int32Array(elementReferences);
+        return elementReferencesTypedArray;
     };
 
     const querySelectorAll = function (documentTargetReference, selector) {
         const documentTarget = getDocumentTarget(documentTargetReference);
         const elements = Array.from(documentTarget.querySelectorAll(selector));
         const elementReferences = elements.map(element => referenceManager.createReference(element));
-        return new Int32Array(elementReferences);
+        const elementReferencesTypedArray = new Int32Array(elementReferences);
+        return elementReferencesTypedArray;
     };
 
-    const appendChildren = function (parentReference, childReferences, clearParentContent) {
+    const appendChildren = function (parentReference, childReferencesTypedArray, clearParentContent) {
         const parent = referenceManager.getObject(parentReference);
         validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        const childReferences = Array.from(childReferencesTypedArray);
         const children = childReferences.map(function (childReference) {
             const child = referenceManager.getObject(childReference);
             validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
@@ -98,7 +102,8 @@
         children.forEach(child => parent.appendChild(child));
     };
 
-    const removeChildren = function (childReferences) {
+    const removeChildren = function (childReferencesTypedArray) {
+        const childReferences = Array.from(childReferencesTypedArray);
         const children = childReferences.map(function (childReference) {
             const child = referenceManager.getObject(childReference);
             validateDOMObject(child, ELEMENT_NODE);
@@ -149,7 +154,8 @@
             }
         });
         const elementReferences = elements.map(element => referenceManager.createReference(element));
-        return new Int32Array(elementReferences);
+        const elementReferencesTypedArray = new Int32Array(elementReferences);
+        return elementReferencesTypedArray;
     };
 
     // attributeValueConfigsJSON: [{attributeValue, exists}]
@@ -408,7 +414,7 @@
             this._element = element;
             this._eventName = eventName;
             this._queue = new DataQueue();
-            this._handler = function (event) {
+            this._handler = (event) => {
                 const propertyValueConfigsJSON = createPropertyValueConfigs(event, propertyNames);
                 this._queue.enqueue(propertyValueConfigsJSON);
             };
