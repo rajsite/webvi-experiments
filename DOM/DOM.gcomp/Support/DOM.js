@@ -404,8 +404,7 @@
     }
 
     class EventManager {
-        constructor (element, eventName, propertyNamesJSON) {
-            const propertyNames = JSON.parse(propertyNamesJSON);
+        constructor (element, eventName, propertyNames) {
             this._element = element;
             this._eventName = eventName;
             this._queue = new DataQueue();
@@ -439,10 +438,11 @@
         }
     };
 
-    const addEventListener = function (elementReference, eventName, eventConfigJSON) {
+    const addEventListener = function (elementReference, eventName, propertyNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
-        const eventManager = new EventManager(element, eventName, eventConfigJSON);
+        const propertyNames = JSON.parse(propertyNamesJSON);
+        const eventManager = new EventManager(element, eventName, propertyNames);
         const eventManagerReference = referenceManager.createReference(eventManager);
         return eventManagerReference;
     };
