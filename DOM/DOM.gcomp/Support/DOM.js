@@ -274,18 +274,20 @@
 
     const evaluatePropertyValueConfig = function (propertyValueConfig) {
         const {type, propertyValueJSON} = propertyValueConfig;
-        const propertyValueParsed = JSON.parse(propertyValueJSON);
         if (type === 'undefined') {
             const propertyValue = undefined;
             return propertyValue;
         } else if (type === 'number' || type === 'string' || type === 'boolean') {
+            const propertyValueParsed = JSON.parse(propertyValueJSON);
             const propertyValue = propertyValueParsed.data;
             return propertyValue;
         } else if (type === 'reference') {
+            const propertyValueParsed = JSON.parse(propertyValueJSON);
             const reference = propertyValueParsed.data;
             const propertyValue = referenceManager.getObject(reference);
             return propertyValue;
         } else if (type === 'json') {
+            const propertyValueParsed = JSON.parse(propertyValueJSON);
             const propertyValue = propertyValueParsed;
             return propertyValue;
         }
