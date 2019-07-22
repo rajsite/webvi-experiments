@@ -75,22 +75,19 @@
             const element = elements[0];
             return element;
         }).map(element => referenceManager.createReference(element));
-        const elementReferencesJSON = JSON.stringify(elementReferences);
-        return elementReferencesJSON;
+        return new Int32Array(elementReferences);
     };
 
     const querySelectorAll = function (documentTargetReference, selector) {
         const documentTarget = getDocumentTarget(documentTargetReference);
         const elements = Array.from(documentTarget.querySelectorAll(selector));
         const elementReferences = elements.map(element => referenceManager.createReference(element));
-        const elementReferencesJSON = JSON.stringify(elementReferences);
-        return elementReferencesJSON;
+        return new Int32Array(elementReferences);
     };
 
-    const appendChildren = function (parentReference, childReferencesJSON, clearParentContent) {
+    const appendChildren = function (parentReference, childReferences, clearParentContent) {
         const parent = referenceManager.getObject(parentReference);
         validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-        const childReferences = JSON.parse(childReferencesJSON);
         const children = childReferences.map(function (childReference) {
             const child = referenceManager.getObject(childReference);
             validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
@@ -103,8 +100,7 @@
         children.forEach(child => parent.appendChild(child));
     };
 
-    const removeChildren = function (childReferencesJSON) {
-        const childReferences = JSON.parse(childReferencesJSON);
+    const removeChildren = function (childReferences) {
         const children = childReferences.map(function (childReference) {
             const child = referenceManager.getObject(childReference);
             validateDOMObject(child, ELEMENT_NODE);
@@ -155,8 +151,7 @@
             }
         });
         const elementReferences = elements.map(element => referenceManager.createReference(element));
-        const elementReferencesJSON = JSON.stringify(elementReferences);
-        return elementReferencesJSON;
+        return new Int32Array(elementReferences);
     };
 
     // attributeValueConfigsJSON: [{attributeValue, exists}]
@@ -333,7 +328,7 @@
     };
 
     // parametersConfigJSON: [parameterJSON]
-    const invokeMethod = async function (elementReference, methodName, propertyValueConfigsJSON) {
+    const invokeMethod = async function (elementReference, methodName, parameterPropertyValueConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
         const methodNameParts = methodName.split('.');
@@ -345,13 +340,13 @@
             throw new Error(`Value at name ${methodName} is not a callable function`);
         }
 
-        const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
-        const parameters = propertyValueConfigs.map(propertyValueConfig => evaluatePropertyValueConfig(propertyValueConfig));
-        const returnValueInitial = await method.apply(context, parameters);
-        const returnValue = createPropertyValueConfig(returnValueInitial);
-        finalizePropertyValueConfig(returnValue, returnValueInitial);
-        const returnValueJSON = JSON.stringify(returnValue);
-        return returnValueJSON;
+        const parameterPropertyValueConfigs = JSON.parse(parameterPropertyValueConfigsJSON);
+        const parameters = parameterPropertyValueConfigs.map(parameterPropertyValueConfig => evaluatePropertyValueConfig(parameterPropertyValueConfig));
+        const returnValue = await method.apply(context, parameters);
+        const returnValuePropertyValueConfig = createPropertyValueConfig(returnValue);
+        finalizePropertyValueConfig(returnValuePropertyValueConfig, returnValue);
+        const returnValuePropertyValueConfigJSON = JSON.stringify(returnValuePropertyValueConfig);
+        return returnValuePropertyValueConfigJSON;
     };
 
     class DataQueue {
