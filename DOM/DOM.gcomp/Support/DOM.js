@@ -50,10 +50,8 @@
     };
 
     // Closing a DOM reference does not remove it from the DOM
-    const closeDOMReference = function (domReference) {
-        const domObj = referenceManager.getObject(domReference);
-        validateDOMObject(domObj, ...Object.keys(NODE_TYPE_NAMES));
-        referenceManager.closeReference(domObj);
+    const closeDOMReferences = function (domReferences) {
+        domReferences.forEach(domReference => referenceManager.closeReference(domReference));
     };
 
     const getDocumentTarget = function (documentTargetReference) {
@@ -328,7 +326,7 @@
     };
 
     // parametersConfigJSON: [parameterJSON]
-    const invokeMethod = async function (elementReference, methodName, parameterPropertyValueConfigsJSON) {
+    const invokeElementMethod = async function (elementReference, methodName, parameterPropertyValueConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
         const methodNameParts = methodName.split('.');
@@ -457,8 +455,8 @@
     const waitForEvent = async function (eventManagerReference) {
         const eventManager = referenceManager.getObject(eventManagerReference);
         validateObject(eventManager, EventManager);
-        const resultJSON = await eventManager.read();
-        return resultJSON;
+        const propertyValueConfigsJSON = await eventManager.read();
+        return propertyValueConfigsJSON;
     };
 
     window.WebVIDOM = {
@@ -469,8 +467,8 @@
 
         // Configure
         getAttributes,
-        setAttributes,
         getProperties,
+        setAttributes,
         setProperties,
 
         // Monitor
@@ -479,13 +477,13 @@
         waitForEvent,
 
         // Operate
-        invokeMethod,
+        invokeElementMethod,
 
         // Search
-        querySelectors,
         querySelectorAll,
+        querySelectors,
 
-        // Manage
-        closeDOMReference
+        // Shared
+        closeDOMReferences
     };
 }());
