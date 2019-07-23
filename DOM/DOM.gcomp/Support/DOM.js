@@ -303,7 +303,7 @@
     // propertyValueConfigsJSON: [{type, propertyValueJSON}]
     const getProperties = function (elementReference, propertyNamesJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
+        validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const propertyNames = JSON.parse(propertyNamesJSON);
         const propertyValueConfigs = createPropertyValueConfigs(element, propertyNames);
         const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
@@ -313,7 +313,7 @@
     // propertyValueConfigsJSON: [{type, propertyValueJSON}]
     const setProperties = function (elementReference, propertyNamesJSON, propertyValueConfigsJSON) {
         const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
+        validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
 
         const propertyNames = JSON.parse(propertyNamesJSON);
         const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
@@ -415,8 +415,8 @@
             this._eventName = eventName;
             this._queue = new DataQueue();
             this._handler = (event) => {
-                const propertyValueConfigsJSON = createPropertyValueConfigs(event, propertyNames);
-                this._queue.enqueue(propertyValueConfigsJSON);
+                const propertyValueConfigs = createPropertyValueConfigs(event, propertyNames);
+                this._queue.enqueue(propertyValueConfigs);
             };
             this._element.addEventListener(this._eventName, this._handler);
         }
@@ -463,7 +463,8 @@
     const waitForEvent = async function (eventManagerReference) {
         const eventManager = referenceManager.getObject(eventManagerReference);
         validateObject(eventManager, EventManager);
-        const propertyValueConfigsJSON = await eventManager.read();
+        const propertyValueConfigs = await eventManager.read();
+        const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
         return propertyValueConfigsJSON;
     };
 
