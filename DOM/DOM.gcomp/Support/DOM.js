@@ -55,19 +55,19 @@
         domReferences.forEach(domReference => referenceManager.closeReference(domReference));
     };
 
-    const getDocumentTarget = function (documentTargetReference) {
-        const documentTargetInitial = referenceManager.getObject(documentTargetReference);
+    const getDOMTargetOrGlobalDocument = function (domTargetReference, ...allowedDOMTypes) {
+        const domTargetInitial = referenceManager.getObject(domTargetReference);
         const globalDocument = window.document;
-        const documentTarget = documentTargetInitial === undefined ? globalDocument : documentTargetInitial;
-        validateDOMObject(documentTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-        return documentTarget;
+        const domTarget = domTargetInitial === undefined ? globalDocument : domTargetInitial;
+        validateDOMObject(domTarget, ...allowedDOMTypes);
+        return domTarget;
     };
 
-    const querySelectors = function (documentTargetReference, selectorsJSON) {
-        const documentTarget = getDocumentTarget(documentTargetReference);
+    const querySelectors = function (domTargetReference, selectorsJSON) {
+        const domTarget = getDOMTargetOrGlobalDocument(domTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
         const selectors = JSON.parse(selectorsJSON);
         const elementReferences = selectors.map(function (selector) {
-            const elements = documentTarget.querySelectorAll(selector);
+            const elements = domTarget.querySelectorAll(selector);
             if (elements.length !== 1) {
                 throw new Error(`Expected 1 element with selector ${selector} but found ${elements.length}`);
             }
@@ -78,9 +78,9 @@
         return elementReferencesTypedArray;
     };
 
-    const querySelectorAll = function (documentTargetReference, selector) {
-        const documentTarget = getDocumentTarget(documentTargetReference);
-        const elements = Array.from(documentTarget.querySelectorAll(selector));
+    const querySelectorAll = function (domTargetReference, selector) {
+        const domTarget = getDOMTargetOrGlobalDocument(domTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
+        const elements = Array.from(domTarget.querySelectorAll(selector));
         const elementReferences = elements.map(element => referenceManager.createReference(element));
         const elementReferencesTypedArray = new Int32Array(elementReferences);
         return elementReferencesTypedArray;
@@ -133,7 +133,7 @@
     // };
 
     const createElements = function (documentTargetReference, tagNamesJSON) {
-        const documentTarget = getDocumentTarget(documentTargetReference);
+        const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const tagNames = JSON.parse(tagNamesJSON);
         // Escape tag names to catch unexpected HTML insertion
         const tagNamesContent = tagNames
@@ -156,6 +156,23 @@
         const elementReferences = elements.map(element => referenceManager.createReference(element));
         const elementReferencesTypedArray = new Int32Array(elementReferences);
         return elementReferencesTypedArray;
+    };
+
+    const createDocumentFragmentFromTemplate = function (documentTarget, content) {
+        const template = documentTarget.createElement('template');
+        template.innerHTML = content;
+        return template.content;
+    };
+
+    const createDocumentFragmentFromRange = function (documentTarget, content) {
+        return documentTarget.createRange().createContextualFragment(content);
+    };
+
+    const createDocumentFragment = function (documentTargetReference, content, isInert) {
+        const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        const documentFragment = isInert ? createDocumentFragmentFromTemplate(documentTarget, content) : createDocumentFragmentFromRange(documentTarget, content);
+        const documentFragmentReference = referenceManager.createReference(documentFragment);
+        return documentFragmentReference;
     };
 
     // attributeValueConfigsJSON: [{attributeValue, exists}]
@@ -471,6 +488,7 @@
     window.WebVIDOM = {
         // Build
         appendChildren,
+        createDocumentFragment,
         createElements,
         removeChildren,
 
