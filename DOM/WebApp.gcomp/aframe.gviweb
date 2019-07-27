@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="6BC41FC73EEBA054EE69206D030679F65BB3BB6ED803A909506D70862ECAB1C3DF80DD7BBDC9D99F5B85FB9774E154D67D91B1EA88B1994CA99A82DFEB6F75A9" Timestamp="1D543F3FD527CAC" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="9FFF1BFACA34002695A63BB97BB34811FD8800DF521A40BFABF1CBB9C48DB5AA3F3D07D166850B9DC8713A2F4DD6CBB16E6C86ED06821384849EA1C34544C896" Timestamp="1D5443E8EC0AA1A" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -73,18 +73,19 @@
 				<ArrayBehavior ElementType="String" IndexEditorWidth="42" VisibleRows="6">
 					<p.DefaultElementValue>""</p.DefaultElementValue>
 				</ArrayBehavior>
-				<Literal Bounds="49 21 120 15" DataType="String" Id="d9b47662b7fe41e5b4c1636f03d7a4fb">
+				<Literal Bounds="49 4 120 15" DataType="String" Id="d9b47662b7fe41e5b4c1636f03d7a4fb">
 					<StringBehavior TextDisplayMode="Default" />
 				</Literal>
 			</ArrayLiteral>
 			<NodeLabel AttachedTo="a71c44f9309a4fce902551c61c9e324b" Bounds="390 532 30 15" Id="d0ff9f5f0b7c451895ed498c93592e6e" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>selectors</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="830 400 40 40" Id="5fce23c69913423cb0388ee60f1ab2f3" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Tasks\\Select Element and Replace Contents.gvi&quot;" Signature="@4d2490f8e8df4b4589f36d6177cec6ac" Target="DOM::Tasks::Select Element and Replace Contents.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="830 400 40 40" Id="5fce23c69913423cb0388ee60f1ab2f3" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Tasks\\Select Element and Append Content.gvi&quot;" Signature="@ad3888621f7e4e15bc4164f4a455689b" Target="DOM::Tasks::Select Element and Append Content.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="parent selector" />
 						<Parameter Id="L1" Desc="dom reference" />
+						<Parameter Id="L2" Desc="clear parent content" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="document target reference (document target)" />
 						<Parameter Id="R3" Desc="error out" />
@@ -92,6 +93,7 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
@@ -235,6 +237,14 @@
 			<Comment Bounds="165 325 485 15" Id="3db9c5482b0943efbcb8cfad2ba594f3" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Inert false needed to workaround https://github.com/aframevr/aframe/issues/3182</p.Text>
 			</Comment>
+			<Literal Bounds="775 410 25 15" DataType="Boolean" Id="f8394c78a1f74aaf9402ff0f3fb61775" Label="9532c5eda5ca4521bfda5a4cbdfe3184" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>True</p.Data>
+				<BooleanBehavior />
+			</Literal>
+			<NodeLabel AttachedTo="f8394c78a1f74aaf9402ff0f3fb61775" Bounds="775 392 30 15" Id="9532c5eda5ca4521bfda5a4cbdfe3184" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>clear parent content</p.Text>
+			</NodeLabel>
+			<Wire Id="52f348f3decd4136a8a1e85777761ccf" Joints="N(f8394c78a1f74aaf9402ff0f3fb61775:Out)|(800,415) h(5) v(10) N(5fce23c69913423cb0388ee60f1ab2f3:L2)|(830,425)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" HtmlPanel="[bool]False" Id="e866517206a643f79de968f00e788ea2" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" UpdatedRootPage="[string]&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&#xA;    &lt;head&gt;&#xA;        &lt;meta charset=&quot;utf-8&quot;&gt;&#xA;        &lt;!---Read only section. Source panel edits to these document properties will not be persisted--&gt;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xA;        &lt;title&gt;aframe&lt;/title&gt;&#xA;        &lt;!---End read only section. Additional scripts or document properties can be added outside this section--&gt;&#xA;        &lt;style ni-autogenerated-style-id=&quot;&quot;&gt;&#xA;            /* Edits to the content of this style tag will not be persisted. To add additional styles, add a new style tag before or after this one */&#xA;        &lt;/style&gt;&#xA;        &lt;script src=&quot;https://unpkg.com/aframe@0.9.2/dist/aframe-v0.9.2.js&quot;&gt;&lt;/script&gt;&#xA;&#xA;    &lt;/head&gt;&#xA;&#xA;    &lt;body&gt;&#xA;        &lt;div id=&quot;ni-outdated-browser-message&quot; style=&quot;display:none&quot;&gt;This browser is reporting compatibility with older browser technologies that may perform poorly if it all.&lt;/div&gt;&#xA;        &lt;div id=&quot;ni-failed-to-load-vireo-source&quot; style=&quot;display:none&quot;&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-title&quot;&gt;&#xA;                Unable to load resource file&#xA;            &lt;/div&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-body&quot;&gt;&#xA;                Verify all WebVI files are available and served using an HTTP server or use a browser that can load files directly from the file system. See &lt;a href=&quot;http://digital.ni.com/express.nsf/bycode/HOSTWEBAPP&quot;&gt;Hosting a Web Application on a Server&lt;/a&gt;                for more information.&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;ni-front-panel-wrapper&quot; vi-ref=&quot;&quot; ni-control-id=&quot;FrontPanelWrapper&quot;&gt;&#xA;            &lt;ni-front-panel control-resize-mode=&quot;fixed&quot; layout=&quot;absolute&quot; ni-control-id=&quot;2&quot;&gt;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;            &lt;/ni-front-panel&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/body&gt;&#xA;&#xA;&lt;/html&gt;" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlText BaseName="[string]Text" Extras="[Dictionary&lt;string, string&gt;]" Height="[float]296" Id="70db5affe6a14bd6acd77bfd6bc4da3c" Left="[float]132" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Text" TextWrapping="[TextWrapping]Wrap" Top="[float]116" Width="[float]760" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -263,8 +273,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="4d2490f8e8df4b4589f36d6177cec6ac">
-			<Attributed AttributedType="@912ef6e38fa143db9ee5f120dc46554b">
+		<p.TypeReference TypeId="ad3888621f7e4e15bc4164f4a455689b">
+			<Attributed AttributedType="@3886e7334c6e43f5aecf86258415b1af">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -344,8 +354,8 @@
 		<p.TypeReference TypeId="a93b3e78d93345a48da88dd1d27db454">
 			<Typedef TypedefName="dom reference.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="912ef6e38fa143db9ee5f120dc46554b">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Select Element and Replace Contents.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="3886e7334c6e43f5aecf86258415b1af">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Select Element and Append Content.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@63ca935ef4df4ea7bde7b7c11ca85f3d">
 						<AttributeValues>
@@ -355,6 +365,11 @@
 					<Attributed AttributedType="@b03912df541743cfb13e19637c3d5c61">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]dom reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@d4dfad22308947aaa5b6927af65747f8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]clear parent content" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
@@ -492,6 +507,9 @@
 		<p.TypeReference TypeId="b03912df541743cfb13e19637c3d5c61">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@18512d65e8794195862df0b1b09bc2ad" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="d4dfad22308947aaa5b6927af65747f8">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Boolean" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="ac17e47fe73243168f7768bd4e78879f">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
 		</p.TypeReference>
@@ -557,7 +575,7 @@
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="DOM::Tasks::Select Element and Replace Contents.gvi">
+		<p.IconModel Target="DOM::Tasks::Select Element and Append Content.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -565,7 +583,7 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Select Element and Replace Contents" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Select Element and Append Content" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>

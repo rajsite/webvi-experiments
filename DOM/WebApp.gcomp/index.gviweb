@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="A706BF2FF5D888CA88984CBCED21973B34981C7797D0DC9C68CC4DC545880783A03E7285B0CCAB4334E64188E64E9706B5B7093DAE91A866D69A74B9ECE647BE" Timestamp="1D543F1B92E4105" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="A06516E6438873D86EBF11A0C6A0D4CE65C3421D874E93F812943329F103E151A0AC7CC73673BFD2F72F2EFEFE746E4226DCE69472489050D3EE67CB225F3F96" Timestamp="1D5443E77C9CA55" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -63,12 +63,13 @@
 			<Comment Bounds="765 435 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Top-Level WebVIs usually contain a While Loop that never stops so that they can continue running as long as the web page is open in the user's web browser.</p.Text>
 			</Comment>
-			<MethodCall Bounds="510 75 40 40" Id="2f76e72e1fb1438eb05b565513b3d17c" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Search\\Query Selectors.gvi&quot;" Signature="@8a6a6e1e02fe483a81ef7afd7a96c6bf" Target="DOM::Search::Query Selectors.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="510 75 40 40" Id="2f76e72e1fb1438eb05b565513b3d17c" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Search\\Query Selectors.gvi&quot;" Signature="@95d73cf84e4f47739075ece2e6ea1275" Target="DOM::Search::Query Selectors.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="dom target reference (global document)" />
+						<Parameter Id="L0" Desc="dom target reference in (global document)" />
 						<Parameter Id="L1" Desc="selectors" />
 						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="dom target reference out" />
 						<Parameter Id="R1" Desc="element references" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
@@ -76,6 +77,7 @@
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@8fb1965ca811428bb2e1144f5194dd69" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
@@ -147,7 +149,7 @@
 				<ArrayBehavior ElementType="String" IndexEditorWidth="42" VisibleRows="2">
 					<p.DefaultElementValue>""</p.DefaultElementValue>
 				</ArrayBehavior>
-				<Literal Bounds="49 4 62 15" DataType="String" Id="5b351267a86949a5afeab24b50edf1db">
+				<Literal Bounds="49 38 62 15" DataType="String" Id="5b351267a86949a5afeab24b50edf1db">
 					<StringBehavior TextDisplayMode="Default" />
 				</Literal>
 			</ArrayLiteral>
@@ -499,11 +501,12 @@
 				<p.Text>event name</p.Text>
 			</NodeLabel>
 			<Wire Id="1bf428b4c6b84dfdbd87438f623ff4b0" Joints="N(24b112fa9abd43b08863d9f9bce545e5:Out)|(360,880) h(15) v(-55) N(e7f0b308dcd84b30b25e831a7dd3f8ff:L1)|(390,825)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="510 810 40 40" Id="198220511e664620a2b0cbc5ac97712c" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Tasks\\Select Element and Replace Contents.gvi&quot;" Signature="@4d2490f8e8df4b4589f36d6177cec6ac" Target="DOM::Tasks::Select Element and Replace Contents.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="510 810 40 40" Id="198220511e664620a2b0cbc5ac97712c" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Tasks\\Select Element and Append Content.gvi&quot;" Signature="@ad3888621f7e4e15bc4164f4a455689b" Target="DOM::Tasks::Select Element and Append Content.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="parent selector" />
 						<Parameter Id="L1" Desc="dom reference" />
+						<Parameter Id="L2" Desc="clear parent content" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="document target reference (document target)" />
 						<Parameter Id="R3" Desc="error out" />
@@ -511,28 +514,30 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="9f764fc794ab42e58155aa34184481f4" Joints="N(e7f0b308dcd84b30b25e831a7dd3f8ff:R3)|(430,845) N(198220511e664620a2b0cbc5ac97712c:L3)|(510,845)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="a05eee98d8504413936109abc680c0fc" Joints="N(e7f0b308dcd84b30b25e831a7dd3f8ff:R0)|(430,815) h(50) v(10) N(198220511e664620a2b0cbc5ac97712c:L1)|(510,825)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Literal Bounds="385 915 100 15" DataType="String" Id="1207abfa27b74af3bf2f021d6bf50617" Label="2af9ffbb3fae48f8a36ccbaa7f54b6d8" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="a05eee98d8504413936109abc680c0fc" Joints="N(e7f0b308dcd84b30b25e831a7dd3f8ff:R0)|(430,815) h(25) v(10) N(198220511e664620a2b0cbc5ac97712c:L1)|(510,825)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="345 915 100 15" DataType="String" Id="1207abfa27b74af3bf2f021d6bf50617" Label="2af9ffbb3fae48f8a36ccbaa7f54b6d8" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>.placeholder2</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<NodeLabel AttachedTo="1207abfa27b74af3bf2f021d6bf50617" Bounds="385 897 30 15" Id="2af9ffbb3fae48f8a36ccbaa7f54b6d8" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="1207abfa27b74af3bf2f021d6bf50617" Bounds="345 897 30 15" Id="2af9ffbb3fae48f8a36ccbaa7f54b6d8" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>parent selector</p.Text>
 			</NodeLabel>
-			<Wire Id="3189ee84e66f4960b740f0c68f9d7af8" Joints="N(1207abfa27b74af3bf2f021d6bf50617:Out)|(485,920) h(10) v(-105) N(198220511e664620a2b0cbc5ac97712c:L0)|(510,815)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="3189ee84e66f4960b740f0c68f9d7af8" Joints="N(1207abfa27b74af3bf2f021d6bf50617:Out)|(445,920) h(30) v(-105) N(198220511e664620a2b0cbc5ac97712c:L0)|(510,815)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="cd2f9b417434a3dbbe73dcb236efc74" Joints="N(198220511e664620a2b0cbc5ac97712c:R3)|(550,845) N(e31bdab67f204157a3c0eccf0e507c70:L3)|(585,845)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="dd35691412254729bd3ae66b27875dbd" Joints="N(e7f0b308dcd84b30b25e831a7dd3f8ff:R1)|(430,825) h(5) v(-35) h(144) v(25) N(e31bdab67f204157a3c0eccf0e507c70:L0)|(585,815)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="220 810 40 40" Id="b35c6fd7c824f2b88a56e8a04c46f92" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Search\\Query Selectors.gvi&quot;" Signature="@8a6a6e1e02fe483a81ef7afd7a96c6bf" Target="DOM::Search::Query Selectors.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="220 810 40 40" Id="b35c6fd7c824f2b88a56e8a04c46f92" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Search\\Query Selectors.gvi&quot;" Signature="@95d73cf84e4f47739075ece2e6ea1275" Target="DOM::Search::Query Selectors.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="dom target reference (global document)" />
+						<Parameter Id="L0" Desc="dom target reference in (global document)" />
 						<Parameter Id="L1" Desc="selectors" />
 						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="dom target reference out" />
 						<Parameter Id="R1" Desc="element references" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
@@ -540,6 +545,7 @@
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@8fb1965ca811428bb2e1144f5194dd69" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
@@ -548,12 +554,13 @@
 			<Wire Id="3c191dcd43b049fda797249383fcb976" Joints="N(b35c6fd7c824f2b88a56e8a04c46f92:R1)|(260,825) h(49) v(-30) N(bb226a1a772c4bf790327fba3328be53:array)|(320,795)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="cdeb1dba990a46c7a3d7ef33bd6cd7d0" Joints="N(3f350f5cb0c4756a8efdb0f68514661:R0)|(105,815) N(b35c6fd7c824f2b88a56e8a04c46f92:L0)|(220,815)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="12a28d56c13d4cb09114df48ff49ad88" Joints="N(2dad7b3d48af4d088fd5bb67462a2054:Out)|(172,750) h(42) v(75) N(b35c6fd7c824f2b88a56e8a04c46f92:L1)|(220,825)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="315 225 40 40" Id="ffbb0f679fc042fdbf738a24bd31763e" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Search\\Query Selectors.gvi&quot;" Signature="@8a6a6e1e02fe483a81ef7afd7a96c6bf" Target="DOM::Search::Query Selectors.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="315 225 40 40" Id="ffbb0f679fc042fdbf738a24bd31763e" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Search\\Query Selectors.gvi&quot;" Signature="@95d73cf84e4f47739075ece2e6ea1275" Target="DOM::Search::Query Selectors.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="dom target reference (global document)" />
+						<Parameter Id="L0" Desc="dom target reference in (global document)" />
 						<Parameter Id="L1" Desc="selectors" />
 						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="dom target reference out" />
 						<Parameter Id="R1" Desc="element references" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
@@ -561,12 +568,21 @@
 				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@8fb1965ca811428bb2e1144f5194dd69" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="2cb4c82c221642e084aa4e6602b9a8a5" Joints="N(9d20cf0f35c245c0b2b23cd9e7194f22:Out)|(309,275) v(-35) N(ffbb0f679fc042fdbf738a24bd31763e:L1)|(315,240)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="169cc4a01fab4b6090abadf7d70516d7" Joints="N(ffbb0f679fc042fdbf738a24bd31763e:R1)|(355,240) N(9f056ea22f4d4deb877a940339c28a0a:array)|(400,240)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="5b3091f330c94dde920610caccfceae9" Joints="N(1d48bb67b3ac4263a52873a0d5bacc61:outArray)|(490,80) h(9) v(10) N(2f76e72e1fb1438eb05b565513b3d17c:L1)|(510,90)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="445 950 25 15" DataType="Boolean" Id="d071e197d8384cc3bcf93ff3a83a1a47" Label="caa1159d06254a91b405fee5eee67cdd" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>True</p.Data>
+				<BooleanBehavior />
+			</Literal>
+			<NodeLabel AttachedTo="d071e197d8384cc3bcf93ff3a83a1a47" Bounds="328 950 112 14" Id="caa1159d06254a91b405fee5eee67cdd" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>clear parent content</p.Text>
+			</NodeLabel>
+			<Wire Id="6c99240fb6684542a6c290c77186e332" Joints="N(d071e197d8384cc3bcf93ff3a83a1a47:Out)|(470,955) h(30) v(-120) N(198220511e664620a2b0cbc5ac97712c:L2)|(510,835)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlText BaseName="[string]Text" Height="[float]120" Id="36" Left="[float]164" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]On the WebVI Panel, place controls and indicators to respond to user input and display data.&#xD;&#xA;These controls will appear on the web page that is created when you build this Web Application." TextWrapping="[TextWrapping]Wrap" Top="[float]132" Width="[float]312" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -636,8 +652,8 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="8a6a6e1e02fe483a81ef7afd7a96c6bf">
-			<Attributed AttributedType="@96dbff37b02d4a77b00ef83f9c112876">
+		<p.TypeReference TypeId="95d73cf84e4f47739075ece2e6ea1275">
+			<Attributed AttributedType="@32204625c6284cf5bf2c0b86d25b0206">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -739,20 +755,20 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="4d2490f8e8df4b4589f36d6177cec6ac">
-			<Attributed AttributedType="@912ef6e38fa143db9ee5f120dc46554b">
+		<p.TypeReference TypeId="ad3888621f7e4e15bc4164f4a455689b">
+			<Attributed AttributedType="@3886e7334c6e43f5aecf86258415b1af">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="96dbff37b02d4a77b00ef83f9c112876">
+		<p.TypeReference TypeId="32204625c6284cf5bf2c0b86d25b0206">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Query Selectors.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@25ad431ebf0b485aa11812bd3dedafca">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]dom target reference (global document)" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]dom target reference in (global document)" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c8adc47556e64aeab64e05f6991513a2">
@@ -763,6 +779,11 @@
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6c8c46d1bbfa4035b9b7bed6433d5e9a">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]dom target reference out" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@6832b84ea7a14eddb94a60c56f13befa">
@@ -1058,8 +1079,8 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="912ef6e38fa143db9ee5f120dc46554b">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Select Element and Replace Contents.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="3886e7334c6e43f5aecf86258415b1af">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Select Element and Append Content.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@63ca935ef4df4ea7bde7b7c11ca85f3d">
 						<AttributeValues>
@@ -1069,6 +1090,11 @@
 					<Attributed AttributedType="@b03912df541743cfb13e19637c3d5c61">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]dom reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@d4dfad22308947aaa5b6927af65747f8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]clear parent content" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
@@ -1098,6 +1124,9 @@
 		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="6c8c46d1bbfa4035b9b7bed6433d5e9a">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="6832b84ea7a14eddb94a60c56f13befa">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@8fb1965ca811428bb2e1144f5194dd69" />
 		</p.TypeReference>
@@ -1112,9 +1141,6 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="3b8f8ee5e2884713ad0af6c2af5bed52">
 			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="T1" DataType="Boolean" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="6c8c46d1bbfa4035b9b7bed6433d5e9a">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="ac17e47fe73243168f7768bd4e78879f">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
@@ -1385,7 +1411,7 @@
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="DOM::Tasks::Select Element and Replace Contents.gvi">
+		<p.IconModel Target="DOM::Tasks::Select Element and Append Content.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -1393,7 +1419,7 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Select Element and Replace Contents" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Select Element and Append Content" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
