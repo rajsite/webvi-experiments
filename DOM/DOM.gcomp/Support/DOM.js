@@ -132,19 +132,32 @@
     //     return unescapedHTMLText;
     // };
 
-    const createElements = function (documentTargetReference, tagNamesJSON) {
+    const createDocumentFragmentFromTemplate = function (documentTarget, content) {
+        const template = documentTarget.createElement('template');
+        template.innerHTML = content;
+        return template.content;
+    };
+
+    const createDocumentFragmentFromRange = function (documentTarget, content) {
+        return documentTarget.createRange().createContextualFragment(content);
+    };
+
+    const createDocumentFragmentInertable = function (documentTarget, content, isInert) {
+        const documentFragment = isInert ? createDocumentFragmentFromTemplate(documentTarget, content) : createDocumentFragmentFromRange(documentTarget, content);
+        return documentFragment;
+    };
+
+    const createElements = function (documentTargetReference, tagNamesJSON, isInert) {
         const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const tagNames = JSON.parse(tagNamesJSON);
         // Escape tag names to catch unexpected HTML insertion
-        const tagNamesContent = tagNames
+        const content = tagNames
             .map(tagName => escapeHTML(tagName))
             .map(tagNameEscaped => `<${tagNameEscaped}></${tagNameEscaped}>`)
             .join('');
-        // Use a template so the document fragment is inert. This way event listeners can be added, etc. before the element is attached to the DOM.
-        const template = documentTarget.createElement('template');
-        template.innerHTML = tagNamesContent;
+        const documentFragment = createDocumentFragmentInertable(documentTarget, content, isInert);
         // Rely of document order traversal of querySelectorAll
-        const elements = Array.from(template.content.querySelectorAll('*'));
+        const elements = Array.from(documentFragment.querySelectorAll('*'));
         if (tagNames.length !== elements.length) {
             throw new Error(`Creating ${tagNames.length} tags resulted in ${elements.length} elements. Check that all tag names are valid: ${tagNames.join(',')}`);
         }
@@ -158,19 +171,9 @@
         return elementReferencesTypedArray;
     };
 
-    const createDocumentFragmentFromTemplate = function (documentTarget, content) {
-        const template = documentTarget.createElement('template');
-        template.innerHTML = content;
-        return template.content;
-    };
-
-    const createDocumentFragmentFromRange = function (documentTarget, content) {
-        return documentTarget.createRange().createContextualFragment(content);
-    };
-
     const createDocumentFragment = function (documentTargetReference, content, isInert) {
         const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-        const documentFragment = isInert ? createDocumentFragmentFromTemplate(documentTarget, content) : createDocumentFragmentFromRange(documentTarget, content);
+        const documentFragment = createDocumentFragmentInertable(documentTarget, content, isInert);
         const documentFragmentReference = referenceManager.createReference(documentFragment);
         return documentFragmentReference;
     };
