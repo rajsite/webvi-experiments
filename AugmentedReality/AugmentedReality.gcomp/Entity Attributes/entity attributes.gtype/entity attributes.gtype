@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="63DA5A16146EAC5902311BE120AFC95B9E95E11C84DDF5FB1020FD8ADF0E9CC796891F66BE25F60920992A93436CD635EB32741683D7F676B91110C5C742851C" Timestamp="1D51BCE61B9CC9D" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="6909CF037E52EAA998F9C3460E7805D73F1843D1815ADFBF63DFF88662C2E5B85A4BF866CDE52565DAF84FBBE088FD806B1A1777BB27B9D06F69B2F5D2776A74" Timestamp="1D5444974F50FFD" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
@@ -7,19 +7,28 @@
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
 		<ApplicationVersionInfo Build="6.4.1.50844" Name="LabVIEW NXG" Version="3.1.0" />
 	</SourceModelFeatureSet>
-	<TypeDefinition DataType="@133aa7e034484d039fe978737da21dd4" Id="7933048caa6b4053ba123ea28b6635b7" xmlns="http://www.ni.com/MocCommon">
+	<TypeDefinition DataType="@8816dadcf4bd4a7d8a9af64d448958e9" Id="7933048caa6b4053ba123ea28b6635b7" xmlns="http://www.ni.com/MocCommon">
 		<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-			<TypeDefinitionTarget TargetName="AugmentedReality::Support::attribute.gtype" />
+			<TypeDefinitionTarget TargetName="DOM::Support::property value configs.gtype" />
+			<TypeDefinitionTarget TargetName="DOM::Support::attribute value configs.gtype" />
 		</p.TypeDefinitionTargets>
 		<Icon Id="379a989d30d94191b90c8caa2e1438d0" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 			<IconPanel Height="[float]40" Id="18835d69ccab46b0a80bc07cf8aaf153" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 				<IconTemplate Height="[float]40" Id="8dd5144b14464ffbb94443785c0c2f7e" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DataItem DataType="@133aa7e034484d039fe978737da21dd4" Id="b6bf26ccb45044efa2b739adbc3e29f2" Name="entity attributes">
-			<p.DefaultValue>null</p.DefaultValue>
+		<DataItem DataType="@8816dadcf4bd4a7d8a9af64d448958e9" Id="c16ccdbe1e0d47db9bbecfcb7e63c8d8" Name="entity attributes">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>null</Field1>
+					<Field2>null</Field2>
+					<Field3>null</Field3>
+					<Field4>null</Field4>
+				</Cluster>
+			</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="AugmentedReality::Support::attribute.gtype" />
+				<TypeDefinitionTarget TargetName="DOM::Support::property value configs.gtype" />
+				<TypeDefinitionTarget TargetName="DOM::Support::attribute value configs.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 	</TypeDefinition>
@@ -28,50 +37,143 @@
 		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="bb48a2e2c5a44cc834be30ffd4448cc" Name="entity attributes.gtype" NameTracksFileName="True">
 			<EmbeddedDefinitionReference Bindings="{http://www.ni.com/PlatformFramework}NeverLazy" Id="17e28f86560b4a75846feae205ea8255" ModelDefinitionType="NationalInstruments.PanelCommon.SourceModel.ControlDefinition" Name="ControlDefinition">
 				<ControlDefinition DefaultDirection="Control" Id="4e5bbc3880894028b216fd6166bfa4a9" xmlns="http://www.ni.com/MocCommon">
-					<ArrayViewer ArrayElement="[UIModel]33d1f9dc15c643bcab4bda3014b5aed7" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]157" Id="6cae36e65ea042d2b8ade7a45cfbb81b" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]bed4b208b6254d9197caac69cfa76691" Left="[float]229" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]0" Top="[float]171" Value="{DataItemBinding Id=b6bf26ccb45044efa2b739adbc3e29f2}" Width="[float]295" xmlns="http://www.ni.com/PanelCommon">
-						<p.DefaultElementValue>
-							<Cluster>
-								<Field1>""</Field1>
-								<Field2>""</Field2>
-							</Cluster>
-						</p.DefaultElementValue>
-						<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@91b43f233bcd49fbb531535d8061ab05" Height="[float]145" Id="33d1f9dc15c643bcab4bda3014b5aed7" Label="[UIModel]8f35195d719643fdb821611f23475f7d" TabIndex="[int]0" Width="[float]228" p7:ControlDefinitionChecksum="/c/EscsybY4gEhL1Ux973VfKXFE3uLi2KTEPh82IuS0=" xmlns:p7="http://www.ni.com/PanelCommon">
+					<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@8816dadcf4bd4a7d8a9af64d448958e9" Height="[float]568" Id="b52f0668196149e19ee01a174711d669" Label="[UIModel]22dd51bf59fe4bc6a27cfab2666eefdd" Left="[float]291" TabIndex="[int]0" Top="[float]59" Value="{DataItemBinding Id=c16ccdbe1e0d47db9bbecfcb7e63c8d8}" Width="[float]345" xmlns="http://www.ni.com/PanelCommon">
+						<ArrayViewer ArrayElement="[UIModel]f47a3c15a2b74668b2e6e2641ac49720" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]252" Id="5959bf47f36443dea0e438bf950caee9" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]41f4b35e77f64e5090f8d096b3d454cf" Left="[float]7" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]1" Top="[float]88" Value="{ClusterBinding FieldName=property\ value\ configs}" Width="[float]323" p7:ControlDefinitionChecksum="TQPCRt9XHk5yKTJ+QrrrdMBm2Tm3KMAP7d9l9CvDhaE=" xmlns:p7="http://www.ni.com/PanelCommon">
+							<p.DefaultElementValue>
+								<Cluster>
+									<Field1>""</Field1>
+									<Field2>""</Field2>
+								</Cluster>
+							</p.DefaultElementValue>
 							<p7:p.TypeDefinitionTargets>
-								<p7:TypeDefinitionTarget TargetName="AugmentedReality::Support::attribute.gtype::ControlDefinition" />
+								<p7:TypeDefinitionTarget TargetName="DOM::Support::property value configs.gtype::ControlDefinition" />
 							</p7:p.TypeDefinitionTargets>
-							<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="1bcb35fdccf244c885a78bd9c350d8e0" Label="[UIModel]9db42b5cb3694a25aa1c4d11460667a7" Left="[float]11" MinHeight="[float]24" TabIndex="[int]0" Text="{ClusterBinding FieldName=name}" Top="[float]23" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]198" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<p7:Label Height="[float]16" Id="9db42b5cb3694a25aa1c4d11460667a7" LabelOwner="[UIModel]1bcb35fdccf244c885a78bd9c350d8e0" Left="[float]11" Text="[string]name" Top="[float]3" Width="[float]30" />
-							<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="9884fc9fd16143d99f5fa0f6c85abd1c" Label="[UIModel]ca2bbf41cd684d57be8c9c37c15ecc6b" Left="[float]13" MinHeight="[float]24" TabIndex="[int]1" Text="{ClusterBinding FieldName=valueJSON}" Top="[float]85" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]198" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<p7:Label Height="[float]16" Id="ca2bbf41cd684d57be8c9c37c15ecc6b" LabelOwner="[UIModel]9884fc9fd16143d99f5fa0f6c85abd1c" Left="[float]13" Text="[string]valueJSON" Top="[float]65" Width="[float]57" />
-							<p7:Label Height="[float]16" Id="8f35195d719643fdb821611f23475f7d" IsVisualChild="[bool]False" LabelOwner="[UIModel]33d1f9dc15c643bcab4bda3014b5aed7" Left="[float]61" Text="[string]attribute" Top="[float]-14" Width="[float]46" />
-						</Cluster>
-					</ArrayViewer>
-					<Label Height="[float]16" Id="bed4b208b6254d9197caac69cfa76691" LabelOwner="[UIModel]6cae36e65ea042d2b8ade7a45cfbb81b" Left="[float]229" Text="[string]entity attributes" Top="[float]151" Width="[float]84" xmlns="http://www.ni.com/PanelCommon" />
+							<p7:Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@877e53ca527d4534b56c9c421eb412c2" Height="[float]240" Id="f47a3c15a2b74668b2e6e2641ac49720" Label="[UIModel]1e7097d6dba24583b72d9e53119f6b1c" TabIndex="[int]0" Width="[float]256" p7:ControlDefinitionChecksum="Nft0ZYHK+9THQxA0ZMhGrk+bsTG0LYAtKZM57JaGTxA=">
+								<p7:p.TypeDefinitionTargets>
+									<p7:TypeDefinitionTarget TargetName="DOM::Support::property value config.gtype::ControlDefinition" />
+								</p7:p.TypeDefinitionTargets>
+								<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="73176836bfeb40378043ec8398b3d973" Label="[UIModel]c55e24a714c7422f86d17f191c031512" Left="[float]12" MinHeight="[float]24" TabIndex="[int]0" Text="{ClusterBinding FieldName=type}" Top="[float]30" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]220" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+								<p7:Label Height="[float]16" Id="c55e24a714c7422f86d17f191c031512" LabelOwner="[UIModel]73176836bfeb40378043ec8398b3d973" Left="[float]12" Text="[string]type" Top="[float]10" Width="[float]23" />
+								<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]126" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="b39d795030194037999fb921d22f41e4" Label="[UIModel]c3ea11d385dd4e37b3cbaf4cf3533bb6" Left="[float]13" MinHeight="[float]24" TabIndex="[int]1" Text="{ClusterBinding FieldName=propertyValueJSON}" Top="[float]87" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]222" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+								<p7:Label Height="[float]16" Id="c3ea11d385dd4e37b3cbaf4cf3533bb6" LabelOwner="[UIModel]b39d795030194037999fb921d22f41e4" Left="[float]13" Text="[string]propertyValueJSON" Top="[float]67" Width="[float]103" />
+								<p7:Label Height="[float]16" Id="1e7097d6dba24583b72d9e53119f6b1c" IsVisualChild="[bool]False" LabelOwner="[UIModel]f47a3c15a2b74668b2e6e2641ac49720" Left="[float]61" Text="[string]property value config" Top="[float]-14" Width="[float]113" />
+							</p7:Cluster>
+						</ArrayViewer>
+						<Label Height="[float]16" Id="41f4b35e77f64e5090f8d096b3d454cf" LabelOwner="[UIModel]5959bf47f36443dea0e438bf950caee9" Left="[float]7" Text="[string]property value configs" Top="[float]68" Width="[float]118" />
+						<ArrayViewer ArrayElement="[UIModel]7c5d2aa6e1d14c07b8faa00e4b61a63c" BaseName="[string]String Array Input" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="9d9e0a88f3ff4a0cafd71ebdfa5ed7a7" IndexVisibility="[Visibility]Collapsed" Label="[UIModel]5cb05165c5dc4a6e97ffce1dbd513d6d" Left="[float]8" Orientation="[SMOrientation]Vertical" Rows="[int]1" TabIndex="[int]0" Top="[float]27" Value="{ClusterBinding FieldName=property\ names}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]215">
+							<p.DefaultElementValue>""</p.DefaultElementValue>
+							<StringControl AcceptsReturn="[bool]True" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="7c5d2aa6e1d14c07b8faa00e4b61a63c" Label="[UIModel]53c21af8f3eb4147b92370c648cc4aa9" MinHeight="[float]24" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]183" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+								<Label Id="53c21af8f3eb4147b92370c648cc4aa9" IsVisualChild="[bool]False" LabelOwner="[UIModel]7c5d2aa6e1d14c07b8faa00e4b61a63c" Left="[float]6" Text="[string]String" Top="[float]-14" xmlns="http://www.ni.com/PanelCommon" />
+							</StringControl>
+						</ArrayViewer>
+						<Label Height="[float]16" Id="5cb05165c5dc4a6e97ffce1dbd513d6d" LabelOwner="[UIModel]9d9e0a88f3ff4a0cafd71ebdfa5ed7a7" Left="[float]8" Text="[string]property names" Top="[float]7" Width="[float]84" />
+						<ArrayViewer ArrayElement="[UIModel]a8bd97bcc7ea41b09962b52cf3360f07" BaseName="[string]String Array Input" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="2c3ed144f91e428faa98b2a70fa4dffe" IndexVisibility="[Visibility]Collapsed" Label="[UIModel]8d769046f1f3490f84f89d458979ec73" Left="[float]7" Orientation="[SMOrientation]Vertical" Rows="[int]1" TabIndex="[int]2" Top="[float]374" Value="{ClusterBinding FieldName=attribute\ names}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]215">
+							<p.DefaultElementValue>""</p.DefaultElementValue>
+							<StringControl AcceptsReturn="[bool]True" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="a8bd97bcc7ea41b09962b52cf3360f07" Label="[UIModel]8ae1d0ad82f14924934562a9a0c30279" MinHeight="[float]24" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]183" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+								<Label Id="8ae1d0ad82f14924934562a9a0c30279" IsVisualChild="[bool]False" LabelOwner="[UIModel]a8bd97bcc7ea41b09962b52cf3360f07" Left="[float]6" Text="[string]String" Top="[float]-14" xmlns="http://www.ni.com/PanelCommon" />
+							</StringControl>
+						</ArrayViewer>
+						<Label Height="[float]16" Id="8d769046f1f3490f84f89d458979ec73" LabelOwner="[UIModel]2c3ed144f91e428faa98b2a70fa4dffe" Left="[float]7" Text="[string]attribute names" Top="[float]354" Width="[float]84" />
+						<ArrayViewer ArrayElement="[UIModel]f84737c82aad4a729893c088ecf507af" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]98" Id="f299c83adac84254b09fe10cc79dd308" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]7695020514d54407a5d119ac37766661" Left="[float]6" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]3" Top="[float]441" Value="{ClusterBinding FieldName=attribute\ value\ configs}" Width="[float]301" p7:ControlDefinitionChecksum="Xo4jjct0iujSz0heQfr+d3rWD0zvtfpBvX+lY4jAzMY=" xmlns:p7="http://www.ni.com/PanelCommon">
+							<p.DefaultElementValue>
+								<Cluster>
+									<Field1>""</Field1>
+									<Field2>False</Field2>
+								</Cluster>
+							</p.DefaultElementValue>
+							<p7:p.TypeDefinitionTargets>
+								<p7:TypeDefinitionTarget TargetName="DOM::Support::attribute value configs.gtype::ControlDefinition" />
+							</p7:p.TypeDefinitionTargets>
+							<p7:Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@b8c117b30b744c13af74d7a7d99150f3" Height="[float]86" Id="f84737c82aad4a729893c088ecf507af" IsTabStop="[bool]True" Label="[UIModel]737660ab057d47fa9f9ab435cf7839e9" TabIndex="[int]0" Width="[float]234" p7:ControlDefinitionChecksum="511IO09I9aJsgm0DZOmcuTx48wSeaanlO9CS6tFtvys=">
+								<p7:p.TypeDefinitionTargets>
+									<p7:TypeDefinitionTarget TargetName="DOM::Support::attribute value config.gtype::ControlDefinition" />
+								</p7:p.TypeDefinitionTargets>
+								<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="56a13cc59ac44fe8951ebbbae1553f5a" Label="[UIModel]981ec0cde05145f49771064fe170c5ff" Left="[float]5" MinHeight="[float]24" TabIndex="[int]0" Text="{ClusterBinding FieldName=attributeValue}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]211" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+								<p7:Label Height="[float]16" Id="981ec0cde05145f49771064fe170c5ff" LabelOwner="[UIModel]56a13cc59ac44fe8951ebbbae1553f5a" Left="[float]5" Text="[string]attributeValue" Top="[float]0" Width="[float]75" />
+								<LVCheckBox BaseName="[string]Checkbox" Content="[string]Off/On" ContentVisibility="[Visibility]Collapsed" Height="[float]16" Id="18f869968d3242c8856fc457dd174e40" Label="[UIModel]9dc07c7017a64b78856c0c09c5b679a3" Left="[float]201" MinHeight="[float]16" MinWidth="[float]16" TabIndex="[int]1" Top="[float]55" Value="{ClusterBinding FieldName=exists}" Width="[float]16" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+								<p7:Label Height="[float]16" Id="9dc07c7017a64b78856c0c09c5b679a3" LabelAlignment="[PartAlignment]LeftCenter" LabelOwner="[UIModel]18f869968d3242c8856fc457dd174e40" Left="[float]164" Text="[string]exists" Top="[float]55" Width="[float]29" />
+								<p7:Label Height="[float]16" Id="737660ab057d47fa9f9ab435cf7839e9" IsVisualChild="[bool]False" LabelOwner="[UIModel]f84737c82aad4a729893c088ecf507af" Left="[float]61" Text="[string]set attributes option" Top="[float]-14" Width="[float]114" />
+							</p7:Cluster>
+						</ArrayViewer>
+						<Label Height="[float]16" Id="7695020514d54407a5d119ac37766661" LabelOwner="[UIModel]f299c83adac84254b09fe10cc79dd308" Left="[float]6" Text="[string]attribute value configs" Top="[float]421" Width="[float]118" />
+					</Cluster>
+					<Label Height="[float]16" Id="22dd51bf59fe4bc6a27cfab2666eefdd" LabelOwner="[UIModel]b52f0668196149e19ee01a174711d669" Left="[float]291" Text="[string]entity attributes" Top="[float]39" Width="[float]84" xmlns="http://www.ni.com/PanelCommon" />
 				</ControlDefinition>
 			</EmbeddedDefinitionReference>
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="133aa7e034484d039fe978737da21dd4">
-			<VariableArray DereferenceType="@91b43f233bcd49fbb531535d8061ab05" />
+		<p.TypeReference TypeId="8816dadcf4bd4a7d8a9af64d448958e9">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="property names" DataType="String[]" />
+					<Field FieldAccessPolicy="ReadWrite" Name="property value configs" DataType="@7f8c5bc9adba4d688ba351ea78a2d0af" />
+					<Field FieldAccessPolicy="ReadWrite" Name="attribute names" DataType="String[]" />
+					<Field FieldAccessPolicy="ReadWrite" Name="attribute value configs" DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" />
+				</Members>
+			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="91b43f233bcd49fbb531535d8061ab05">
-			<Attributed AttributedType="@0c7582e9ec25450eb4d368a4fbc606b1">
+		<p.TypeReference TypeId="877e53ca527d4534b56c9c421eb412c2">
+			<Attributed AttributedType="@bd4b8b5e18db4c3883f0fa5030059856">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AugmentedReality::Support" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0c7582e9ec25450eb4d368a4fbc606b1">
-			<Typedef TypedefName="attribute.gtype" UnderlyingType="@90a81410df004f97a14169f3535a1907" />
+		<p.TypeReference TypeId="b8c117b30b744c13af74d7a7d99150f3">
+			<Attributed AttributedType="@916c86d4f7fc41119318dd3e7a935029">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="90a81410df004f97a14169f3535a1907">
+		<p.TypeReference TypeId="7f8c5bc9adba4d688ba351ea78a2d0af">
+			<Attributed AttributedType="@e1088b2219c44c41847ff2f2abeda505">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c6d9594a9d294f38b2b668a22a9b8ab4">
+			<Attributed AttributedType="@9cc1ecd7e6794cc79546dbd90a674073">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bd4b8b5e18db4c3883f0fa5030059856">
+			<Typedef TypedefName="property value config.gtype" UnderlyingType="@d47406b0a68b4ab7ae485e62f6dcaeff" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="916c86d4f7fc41119318dd3e7a935029">
+			<Typedef TypedefName="attribute value config.gtype" UnderlyingType="@40d7bb49609f41daac30e5a74bbdc412" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="e1088b2219c44c41847ff2f2abeda505">
+			<Typedef TypedefName="property value configs.gtype" UnderlyingType="@19293cae627843069257cec0240bd8ca" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="9cc1ecd7e6794cc79546dbd90a674073">
+			<Typedef TypedefName="attribute value configs.gtype" UnderlyingType="@54392ff396fe4dde907016fada4023c0" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="d47406b0a68b4ab7ae485e62f6dcaeff">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="name" DataType="String" />
-					<Field FieldAccessPolicy="ReadWrite" Name="valueJSON" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="type" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="propertyValueJSON" DataType="String" />
 				</Members>
 			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="40d7bb49609f41daac30e5a74bbdc412">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="attributeValue" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="exists" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="19293cae627843069257cec0240bd8ca">
+			<VariableArray DereferenceType="@877e53ca527d4534b56c9c421eb412c2" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="54392ff396fe4dde907016fada4023c0">
+			<VariableArray DereferenceType="@b8c117b30b744c13af74d7a7d99150f3" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 </SourceFile>

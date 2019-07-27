@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="A171AC555C7ED14216A18C2C0FC13B49ACAD84D8CFC187BB17F214FDFC0A300329E08756CA43E20DCD62D4C03AB2A9F682FC69C32CF40743B556588F11635D24" Timestamp="1D52026CAF98AEB" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="F8F5C717B81866EAE67027411E47678F95E4BB41A1D567B126C341734975C4F2108EC8F6102C4E63D7DC19B823EC33E24F7C56A4179A129137BB2DEF0C0E193B" Timestamp="1D5444A78C2B3BD" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -37,149 +37,315 @@
 		<DiagramUnplacedItems Id="73b6233e5fda4f848bab1d82e89cb109" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="107ebeb43e174aa7a7a301200d7ea2f7" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="eac767b6c78b4672a9fea0c37fe931b8">
-			<MethodCall Bounds="560 210 40 50" Id="b42effc822d848678686670433273bb3" ResolveFailedHint="CreateGLTFModelEntity" Signature="@dbe8f5f23ce4464f8203d25b3b3c86bd" Target="AugmentedReality::Support::AugmentedReality.jsli::CreateGLTFModelEntity" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L1" Desc="scene reference" />
-						<Parameter Id="L2" Desc="attributesJSON" />
-						<Parameter Id="L4" Desc="error in" />
-						<Parameter Id="R0" Desc="entity reference" />
-						<Parameter Id="R4" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 45" Id="L4" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 45" Id="R4" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<DataAccessor Bounds="665 210 40 15" DataItem="4df13a803ef24b5aa01e9b070721f8fe" Id="b87f13d77904496b956dbfd04757d3f3" Label="9b68f2597421477c926a8cdd01f850b5" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="715 245 40 15" DataItem="4df13a803ef24b5aa01e9b070721f8fe" Id="b87f13d77904496b956dbfd04757d3f3" Label="9b68f2597421477c926a8cdd01f850b5" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@06a4d0a54d4a45febb998cf54b10ca53" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<Wire Id="6464562c901646d49340c7b34db43a89" Joints="N(b42effc822d848678686670433273bb3:R0)|(600,215) N(b87f13d77904496b956dbfd04757d3f3:Value)|(668,215)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="ff293c21965a4770abb5ab6e676a71d2" Joints="N(c953d7c466fb4499a85f4233ae51f138:Value)|(430,160) h(6) v(40) h(57) B(3) v(-40) N(92b5ad9108214d6d979cc100730f4c6c:Value)|(533,160) B(3) v(25) N(b42effc822d848678686670433273bb3:L1)|(560,225)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="135 310 40 15" DataItem="5291b9efdc2048fc8d9ba0c14b5c8d97" Id="3759164877664505986bb1e5940fc8c1" Label="906437916dde477a8a55b345b8c5cc6f" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="190 455 40 15" DataItem="5291b9efdc2048fc8d9ba0c14b5c8d97" Id="3759164877664505986bb1e5940fc8c1" Label="906437916dde477a8a55b345b8c5cc6f" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<MethodCall Bounds="325 230 40 40" Id="f0a0947b94d14b1d87aa8a1cc60fbdf9" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\AugmentedReality\\AugmentedReality.gcomp\\Support\\Append Attribute.gvi&quot;" Signature="@ac8181c14ddf469bbe74940062a0679c" Target="AugmentedReality::Support::Append Attribute.gvi" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="-90 395 40 15" DataItem="bf07774222a74a84b7a7916b9e2e3b55" Id="f17a12fab6a44273a2f98c57803edfbe" Label="e4435832ef4a43a08621f50f643eff5e" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="@308f8ba31e974f589ae475e733a20c38" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="b87f13d77904496b956dbfd04757d3f3" Bounds="760 245 88 14" Id="9b68f2597421477c926a8cdd01f850b5" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>entity reference</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="3759164877664505986bb1e5940fc8c1" Bounds="168 455 17 14" Id="906437916dde477a8a55b345b8c5cc6f" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>src</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="f17a12fab6a44273a2f98c57803edfbe" Bounds="-184 395 89 14" Id="e4435832ef4a43a08621f50f643eff5e" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>entity attributes</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="1020 300 40 15" DataItem="915b0c2931414560aaab43bd67b1cfad" Id="5689b8a50f7a459e85d79bb734e65d19" Label="6568c22bac15406e80610965ab613360" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="5689b8a50f7a459e85d79bb734e65d19" Bounds="1065 300 50 14" Id="6568c22bac15406e80610965ab613360" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>error out</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="165 300 40 15" DataItem="58a7042b30054e0b8eede960aaeec739" Id="3b18952076a42be9b57189601a2bdd9" Label="e101fd22d9f14a96a1e76027c61d9faa" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="3b18952076a42be9b57189601a2bdd9" Bounds="118 300 42 14" Id="e101fd22d9f14a96a1e76027c61d9faa" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>error in</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="155 145 40 15" DataItem="e7823e5523674ac19bf55af2703d5422" Id="c953d7c466fb4499a85f4233ae51f138" Label="4c0eec76652044cf83ca8bdb40fa0931" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="@a1f48fe28925428ba140747e86420656" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="c953d7c466fb4499a85f4233ae51f138" Bounds="48 145 102 14" Id="4c0eec76652044cf83ca8bdb40fa0931" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>scene reference in</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="205 145 40 15" DataItem="efd5638693c8444ea042fac91d0bce8b" Id="92b5ad9108214d6d979cc100730f4c6c" Label="88939bc352e24d50bf94bd60b75a1a3a" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="@a1f48fe28925428ba140747e86420656" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="92b5ad9108214d6d979cc100730f4c6c" Bounds="250 145 110 14" Id="88939bc352e24d50bf94bd60b75a1a3a" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>scene reference out</p.Text>
+			</NodeLabel>
+			<Wire Id="82d27d756d1948aa88d229236a96e103" Joints="N(c953d7c466fb4499a85f4233ae51f138:Value)|(195,150) h(5) B(1) N(92b5ad9108214d6d979cc100730f4c6c:Value)|(208,150) B(1) v(30) B(3) h(475) N(b86e76aa0c8c4da5a8175b09edc0e35b:T0)|(675,270) B(3) v(85) h(35) N(d66ee80a4d2d4c419eb93a563c153f98:T0)|(235,270)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="65 270 95 15" DataType="String" Id="57bfa5fe491c4c8e8977aa3e3973dd88" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>a-gltf-model</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<MethodCall Bounds="220 270 40 40" Id="d66ee80a4d2d4c419eb93a563c153f98" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Build\\Create Elements.gvi&quot;" Signature="@c52f9e2025d0458ca1b8ed3ba77bb92a" Target="DOM::Build::Create Elements.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="entity attributes in" />
-						<Parameter Id="L1" Desc="name" />
-						<Parameter Id="L2" Desc="valueJSON" />
-						<Parameter Id="R0" Desc="entity attributes out" />
+						<Parameter Id="L0" Desc="tag names" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="T0" Desc="document target reference (global document)" />
+						<Parameter Id="T1" Desc="inert?" />
+						<Parameter Id="R1" Desc="element references" />
+						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="@6acc776b09094563a3ccb713f682df11" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@6acc776b09094563a3ccb713f682df11" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String[]" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="25 0" Id="T1" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@8fb1965ca811428bb2e1144f5194dd69" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<FlattenToJSON Bounds="405 230 40 40" Id="f4ca575f5ed946dbae6c9b2683f8779a" />
-			<Wire Id="37db6ded7336419096f36cea9b405443" Joints="N(f4ca575f5ed946dbae6c9b2683f8779a:JSON string)|(445,235) N(b42effc822d848678686670433273bb3:L2)|(560,235)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="63f3562707934018836dd6097acbbdbe" Joints="N(f0a0947b94d14b1d87aa8a1cc60fbdf9:R0)|(365,235) N(f4ca575f5ed946dbae6c9b2683f8779a:anything)|(405,235)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Literal Bounds="260 240 40 15" DataType="String" Id="6c65d00d7d8c4533b839c36035248058" Label="10790fbddc0a473ebbe804209d445f12" xmlns="http://www.ni.com/MocCommon">
+			<ArrayIndex Bounds="310 250 40 30" Id="d40da789fb2a4ab9b495d95280c116a4" Terminals="array=85fb64bb23084ec69314e8a4d2e3768d, c0t0v, c0out=db296d55be614675aa7b92c32de9ad8f" />
+			<Wire Id="85fb64bb23084ec69314e8a4d2e3768d" Joints="N(d66ee80a4d2d4c419eb93a563c153f98:R1)|(260,285) h(25) v(-30) N(d40da789fb2a4ab9b495d95280c116a4:array)|(310,255)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="-35 395 158 50" HasErrorTerminals="False" Id="e15603bb8c7848a3874f04cb44e6f552" InstanceDataType="@308f8ba31e974f589ae475e733a20c38" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+					<TypeDefinitionTarget TargetName="AugmentedReality::Entity Attributes::entity attributes.gtype" />
+					<TypeDefinitionTarget TargetName="DOM::Support::attribute value configs.gtype" />
+				</p.TypeDefinitionTargets>
+				<PropertyItemTerminal DataType="String[]" Hotspot="158 15" Id="c0t0v" Path="attribute names" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" Hotspot="158 30" Id="c1t0v" Path="attribute value configs" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<Literal Bounds="215 230 25 15" DataType="Boolean" Id="aa644b2e95f14da4a7fb31d92d27c853" Label="a90261e262a24ba7ba3abba150649a94" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>False</p.Data>
+				<BooleanBehavior />
+			</Literal>
+			<Wire Id="28473bdf963f4ace8a07695678f36b24" Joints="N(aa644b2e95f14da4a7fb31d92d27c853:Out)|(240,235) h(5) N(d66ee80a4d2d4c419eb93a563c153f98:T1)|(245,270)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="660 270 40 40" Id="b86e76aa0c8c4da5a8175b09edc0e35b" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Tasks\\Select Element and Append Content.gvi&quot;" Signature="@46e48e1e61f346b2ac173cc8a2ec7fa6" Target="DOM::Tasks::Select Element and Append Content.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="parent selector" />
+						<Parameter Id="L1" Desc="child dom reference in" />
+						<Parameter Id="L2" Desc="clear parent content" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="T0" Desc="parent document target reference (global document)" />
+						<Parameter Id="R1" Desc="child dom reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="575 240 75 15" DataType="String" Id="3957f809495343f39285d506906af3f7" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>a-marker</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="5ecb01f80f7a4a73bcfa9ec95e1f6a4f" Joints="N(3957f809495343f39285d506906af3f7:Out)|(650,245) h(5) v(30) N(b86e76aa0c8c4da5a8175b09edc0e35b:L0)|(660,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="dd67a2d163534e7ab9c58b7669edfca3" Joints="N(48f9d85b17b94de0a34fddc944a2af3b:R3)|(555,305) N(b86e76aa0c8c4da5a8175b09edc0e35b:L3)|(660,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d32868bb9b0349aab621225384477b96" Joints="N(48f9d85b17b94de0a34fddc944a2af3b:R0)|(555,275) h(65) v(10) N(b86e76aa0c8c4da5a8175b09edc0e35b:L1)|(660,285)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="aa644b2e95f14da4a7fb31d92d27c853" Bounds="215 212 30 15" Id="a90261e262a24ba7ba3abba150649a94" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>inert?</p.Text>
+			</NodeLabel>
+			<BuildArray Bounds="165 270 40 20" Id="48eb0793dca241248b1d53df439508fa" Terminals="outArray=ebf2bc073d454c7a926d8e6c34718f63, c0t0v=e2be87978cc24eaeaf4d899066448f7f, c1t0v" />
+			<Wire Id="ebf2bc073d454c7a926d8e6c34718f63" Joints="N(48eb0793dca241248b1d53df439508fa:outArray)|(205,275) N(d66ee80a4d2d4c419eb93a563c153f98:L0)|(220,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="e2be87978cc24eaeaf4d899066448f7f" Joints="N(57bfa5fe491c4c8e8977aa3e3973dd88:Out)|(160,275) N(48eb0793dca241248b1d53df439508fa:c0t0v)|(165,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1ccb1f1504b34720a018bad89c7e22e0" Joints="N(f17a12fab6a44273a2f98c57803edfbe:Value)|(-50,400) N(e15603bb8c7848a3874f04cb44e6f552:instance in)|(-35,400)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="44d23d2f650c445589442e241006bcfc" Joints="N(e15603bb8c7848a3874f04cb44e6f552:c1t0v)|(123,425) h(17) v(15) N(46b46a82ec53427ab0d41881757d8c87:L0)|(235,440)" xmlns="http://www.ni.com/PlatformFramework" />
+			<BuildArray Bounds="230 405 40 20" Id="b400747eff0f43b4ba6b648bc878c016" Terminals="outArray=997449bf25a1449b80988f1b2f36e365, c0t0v=6f7f39486b5648bca426c9c6ee42da04, c1t0v=4041add8ee5f4cf588c53eff0732e4d5" />
+			<Wire Id="6f7f39486b5648bca426c9c6ee42da04" Joints="N(e15603bb8c7848a3874f04cb44e6f552:c0t0v)|(123,410) N(b400747eff0f43b4ba6b648bc878c016:c0t0v)|(230,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="175 415 40 15" DataType="String" Id="2ecb79393be14c028bf2dce18f0449ad" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>src</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<Wire Id="a739ae3e1388447e8a8a33305f0221bb" Joints="N(6c65d00d7d8c4533b839c36035248058:Out)|(300,245) N(f0a0947b94d14b1d87aa8a1cc60fbdf9:L1)|(325,245)" xmlns="http://www.ni.com/PlatformFramework" />
-			<ClusterLiteral Bounds="10 300 100 70" DataType="@d199956093d24bc4b716241ba7db84ba" Id="51b6a3dcc464f158edda942f1edbe2f" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>
-					<Cluster>
-						<Field1>""</Field1>
-					</Cluster>
-				</p.Data>
-				<ClusterBehavior />
-				<Literal Bounds="10 30 40 15" DataType="String" Id="3f7544c2787b44bda15e4f67c0ba3739" Label="b24bfb10ca6044fa98945373c8325dea">
-					<p.Data>""</p.Data>
-					<StringBehavior TextDisplayMode="Default" />
-				</Literal>
-				<NodeLabel AttachedTo="3f7544c2787b44bda15e4f67c0ba3739" Bounds="10 13 25 14" Id="b24bfb10ca6044fa98945373c8325dea" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>data</p.Text>
-				</NodeLabel>
-			</ClusterLiteral>
-			<PropertyNode Bounds="185 300 62 35" HasErrorTerminals="False" Id="f2a2c9afe6c748bd91297dc5f4a51409" InstanceDataType="@d199956093d24bc4b716241ba7db84ba" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
-				<PropertyItemTerminal Action="Write" DataType="String" Hotspot="0 15" Id="c0t0v" Path="data" PathElementMemberKinds="Field" Usage="Required" />
+			<Wire Id="4041add8ee5f4cf588c53eff0732e4d5" Joints="N(2ecb79393be14c028bf2dce18f0449ad:Out)|(215,420) N(b400747eff0f43b4ba6b648bc878c016:c1t0v)|(230,420)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="420 270 40 40" Id="6a88055a6eb94056a2c21a2cc86de486" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Monitor\\Add Event Listener.gvi&quot;" Signature="@1e7a4c25a6e243a2b8f97bcfa45a538d" Target="DOM::Monitor::Add Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="element reference in" />
+						<Parameter Id="L1" Desc="event name" />
+						<Parameter Id="L2" Desc="property names" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="element reference out" />
+						<Parameter Id="R1" Desc="event manager reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String[]" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@18512d65e8794195862df0b1b09bc2ad" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@22657569a9594e579a8295047600f2fb" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="d7cc9df7cb64484ba2879fa02561ae23" Joints="N(d66ee80a4d2d4c419eb93a563c153f98:R3)|(260,305) N(6a88055a6eb94056a2c21a2cc86de486:L3)|(420,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2a58efb377ac4089a3432c6efd8563dc" Joints="N(6a88055a6eb94056a2c21a2cc86de486:R3)|(460,305) N(48f9d85b17b94de0a34fddc944a2af3b:L3)|(515,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="305 225 100 15" DataType="String" Id="7f94e457c97f45eea67f4d1b2face53c" Label="10fadd84eb0e4fe98f70782c91254af3" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>model-loaded</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="7f94e457c97f45eea67f4d1b2face53c" Bounds="305 207 30 15" Id="10fadd84eb0e4fe98f70782c91254af3" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>event name</p.Text>
+			</NodeLabel>
+			<Wire Id="57af15e8de944bcea98bb33360f881c7" Joints="N(7f94e457c97f45eea67f4d1b2face53c:Out)|(405,230) h(5) v(55) N(6a88055a6eb94056a2c21a2cc86de486:L1)|(420,285)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="db296d55be614675aa7b92c32de9ad8f" Joints="N(d40da789fb2a4ab9b495d95280c116a4:c0out)|(350,275) N(6a88055a6eb94056a2c21a2cc86de486:L0)|(420,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="ac75233ac53b4c36a0761b4eccfeb11d" Joints="N(3b18952076a42be9b57189601a2bdd9:Value)|(205,305) N(d66ee80a4d2d4c419eb93a563c153f98:L3)|(220,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d67aefe2a7c649b394de989ffc4a44e3" Joints="N(6a88055a6eb94056a2c21a2cc86de486:R0)|(460,275) N(48f9d85b17b94de0a34fddc944a2af3b:L0)|(515,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="890 270 40 40" Id="de9554ffd3804095b056d29bd51dfbdf" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Monitor\\Wait For Event.gvi&quot;" Signature="@4a60a4a04fea429989d8d569375d75f6" Target="DOM::Monitor::Wait For Event.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="event manager reference in" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="event manager reference out" />
+						<Parameter Id="R1" Desc="property value configs" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@22657569a9594e579a8295047600f2fb" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@22657569a9594e579a8295047600f2fb" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@7f8c5bc9adba4d688ba351ea78a2d0af" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="3e21a45437b245c9a1630733236c2e93" Joints="N(b86e76aa0c8c4da5a8175b09edc0e35b:R3)|(700,305) N(de9554ffd3804095b056d29bd51dfbdf:L3)|(890,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="3ca7d6c8685549db90f80bd720008682" Joints="N(6a88055a6eb94056a2c21a2cc86de486:R1)|(460,285) h(15) v(-70) h(390) v(60) N(de9554ffd3804095b056d29bd51dfbdf:L0)|(890,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="965 270 40 40" Id="55b4e21a141640708770b0992ab111df" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Monitor\\Remove Event Listener.gvi&quot;" Signature="@2af9b744fb99434cab7e79cba492dc43" Target="DOM::Monitor::Remove Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="event manager reference" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@22657569a9594e579a8295047600f2fb" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="c9b8f6da8aa549c2a46cf5757839b90d" Joints="N(de9554ffd3804095b056d29bd51dfbdf:R0)|(930,275) N(55b4e21a141640708770b0992ab111df:L0)|(965,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d64211a52b1433b8e01aa282537f5a5" Joints="N(de9554ffd3804095b056d29bd51dfbdf:R3)|(930,305) N(55b4e21a141640708770b0992ab111df:L3)|(965,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="11fce750f96c4f6aa56025f7076896ee" Joints="N(b86e76aa0c8c4da5a8175b09edc0e35b:R1)|(700,285) h(6) v(-35) N(b87f13d77904496b956dbfd04757d3f3:Value)|(718,250)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Comment Bounds="255 195 200 15" Id="fceb7805f3c1445ca6b7c44f81aa9687" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>TODO add check for model-error</p.Text>
+			</Comment>
+			<Wire Id="b17b19094965422fa8dc48c0c8177db7" Joints="N(55b4e21a141640708770b0992ab111df:R3)|(1005,305) N(5689b8a50f7a459e85d79bb734e65d19:Value)|(1023,305)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="235 435 40 40" Id="46b46a82ec53427ab0d41881757d8c87" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Shared\\Append Attribute Value Config.gvi&quot;" Signature="@7b653f6dafc94e7fbc685ba0f4f47798" Target="DOM::Shared::Append Attribute Value Config.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="attribute value configs in" />
+						<Parameter Id="L2" Desc="attribute value" />
+						<Parameter Id="L3" Desc="exists" />
+						<Parameter Id="R0" Desc="attribute value configs out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="a1406a4d19974dacb94e1dd8fd72ed5b" Joints="N(3759164877664505986bb1e5940fc8c1:Value)|(230,460) N(46b46a82ec53427ab0d41881757d8c87:L2)|(235,460)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="300 395 174 50" HasErrorTerminals="False" Id="6b1634e3ebb94446867e6b0fa13476e7" InstanceDataType="@308f8ba31e974f589ae475e733a20c38" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+					<TypeDefinitionTarget TargetName="AugmentedReality::Entity Attributes::entity attributes.gtype" />
+					<TypeDefinitionTarget TargetName="DOM::Support::attribute value configs.gtype" />
+				</p.TypeDefinitionTargets>
+				<PropertyItemTerminal Action="Write" DataType="String[]" Hotspot="0 15" Id="c0t0v" Path="attribute names" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" Hotspot="0 30" Id="c1t0v" Path="attribute value configs" PathElementMemberKinds="Field" Usage="Required" />
 			</PropertyNode>
-			<Wire Id="eb5d4833be1743c292a1ddf9c70d7bec" Joints="N(51b6a3dcc464f158edda942f1edbe2f:Out)|(110,305) N(f2a2c9afe6c748bd91297dc5f4a51409:instance in)|(185,305)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="50dfc60a70f43e884b5c0d2d6cfff89" Joints="N(3759164877664505986bb1e5940fc8c1:Value)|(175,315) N(f2a2c9afe6c748bd91297dc5f4a51409:c0t0v)|(185,315)" xmlns="http://www.ni.com/PlatformFramework" />
-			<FlattenToJSON Bounds="280 280 40 40" Id="84e0d43c878a46f3845eb0627f94ed39" />
-			<Wire Id="5199b74bcd9040aaa054a43cddd80706" Joints="N(84e0d43c878a46f3845eb0627f94ed39:JSON string)|(320,285) h(5) N(f0a0947b94d14b1d87aa8a1cc60fbdf9:L2)|(325,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="20cfc771bcf4eeb8b3e17ca9c8f0fc9" Joints="N(f2a2c9afe6c748bd91297dc5f4a51409:instance out)|(247,305) h(22) v(-20) N(84e0d43c878a46f3845eb0627f94ed39:anything)|(280,285)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="255 225 40 15" DataItem="bf07774222a74a84b7a7916b9e2e3b55" Id="f17a12fab6a44273a2f98c57803edfbe" Label="e4435832ef4a43a08621f50f643eff5e" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@6acc776b09094563a3ccb713f682df11" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<Wire Id="af09dedf812048fdaef3be5f099d8146" Joints="N(f17a12fab6a44273a2f98c57803edfbe:Value)|(295,230) h(5) v(5) N(f0a0947b94d14b1d87aa8a1cc60fbdf9:L0)|(325,235)" xmlns="http://www.ni.com/PlatformFramework" />
-			<NodeLabel AttachedTo="b87f13d77904496b956dbfd04757d3f3" Bounds="710 210 88 14" Id="9b68f2597421477c926a8cdd01f850b5" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>entity reference</p.Text>
-			</NodeLabel>
-			<NodeLabel AttachedTo="3759164877664505986bb1e5940fc8c1" Bounds="113 310 17 14" Id="906437916dde477a8a55b345b8c5cc6f" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>src</p.Text>
-			</NodeLabel>
-			<NodeLabel AttachedTo="6c65d00d7d8c4533b839c36035248058" Bounds="260 222 30 15" Id="10790fbddc0a473ebbe804209d445f12" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>name</p.Text>
-			</NodeLabel>
-			<NodeLabel AttachedTo="f17a12fab6a44273a2f98c57803edfbe" Bounds="147 225 103 14" Id="e4435832ef4a43a08621f50f643eff5e" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>entity attributes in</p.Text>
-			</NodeLabel>
-			<DataAccessor Bounds="630 250 40 15" DataItem="915b0c2931414560aaab43bd67b1cfad" Id="5689b8a50f7a459e85d79bb734e65d19" Label="6568c22bac15406e80610965ab613360" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="5689b8a50f7a459e85d79bb734e65d19" Bounds="675 250 50 14" Id="6568c22bac15406e80610965ab613360" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>error out</p.Text>
-			</NodeLabel>
-			<Wire Id="38ec6502687146f59b8ce4f5565e8dbc" Joints="N(b42effc822d848678686670433273bb3:R4)|(600,255) N(5689b8a50f7a459e85d79bb734e65d19:Value)|(633,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="505 285 40 15" DataItem="58a7042b30054e0b8eede960aaeec739" Id="3b18952076a42be9b57189601a2bdd9" Label="e101fd22d9f14a96a1e76027c61d9faa" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="3b18952076a42be9b57189601a2bdd9" Bounds="458 285 42 14" Id="e101fd22d9f14a96a1e76027c61d9faa" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>error in</p.Text>
-			</NodeLabel>
-			<Wire Id="4c51eb6ff1c1452f81a0c3543f335cfc" Joints="N(3b18952076a42be9b57189601a2bdd9:Value)|(545,290) h(5) v(-35) N(b42effc822d848678686670433273bb3:L4)|(560,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="390 155 40 15" DataItem="e7823e5523674ac19bf55af2703d5422" Id="c953d7c466fb4499a85f4233ae51f138" Label="4c0eec76652044cf83ca8bdb40fa0931" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@a1f48fe28925428ba140747e86420656" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="c953d7c466fb4499a85f4233ae51f138" Bounds="283 155 102 14" Id="4c0eec76652044cf83ca8bdb40fa0931" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>scene reference in</p.Text>
-			</NodeLabel>
-			<DataAccessor Bounds="530 155 40 15" DataItem="efd5638693c8444ea042fac91d0bce8b" Id="92b5ad9108214d6d979cc100730f4c6c" Label="88939bc352e24d50bf94bd60b75a1a3a" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@a1f48fe28925428ba140747e86420656" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="92b5ad9108214d6d979cc100730f4c6c" Bounds="575 155 110 14" Id="88939bc352e24d50bf94bd60b75a1a3a" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>scene reference out</p.Text>
-			</NodeLabel>
+			<Wire Id="ec6533d1f13b4ff2bd611d96c7d75f84" Joints="N(e15603bb8c7848a3874f04cb44e6f552:instance out)|(123,400) N(6b1634e3ebb94446867e6b0fa13476e7:instance in)|(300,400)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="997449bf25a1449b80988f1b2f36e365" Joints="N(b400747eff0f43b4ba6b648bc878c016:outArray)|(270,410) N(6b1634e3ebb94446867e6b0fa13476e7:c0t0v)|(300,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1f23617b0b9e46dd999c739986bdb118" Joints="N(46b46a82ec53427ab0d41881757d8c87:R0)|(275,440) h(19) v(-15) N(6b1634e3ebb94446867e6b0fa13476e7:c1t0v)|(300,425)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="515 270 40 40" Id="48f9d85b17b94de0a34fddc944a2af3b" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\AugmentedReality\\AugmentedReality.gcomp\\Entity\\Update Entity.gvi&quot;" Signature="@5ae30f08a0d54b1cbe4ff85fdd906d0f" Target="AugmentedReality::Entity::Update Entity.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="entity reference in" />
+						<Parameter Id="L1" Desc="entity attributes" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="entity reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@06a4d0a54d4a45febb998cf54b10ca53" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@308f8ba31e974f589ae475e733a20c38" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@06a4d0a54d4a45febb998cf54b10ca53" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="7335389abb89480bbe981d365e8448a3" Joints="N(6b1634e3ebb94446867e6b0fa13476e7:instance out)|(474,400) h(35) v(-115) N(48f9d85b17b94de0a34fddc944a2af3b:L1)|(515,285)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="5bb0ea37ddbd4e09a0cf67401b655853" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="278bdcfbf6cd438aa72070becfa3760e" />
-			<ArrayViewer ArrayElement="[UIModel]86590c59591941bdb941e5da9a5f5958" BaseName="[string]entity attributes" Columns="[int]1" Dimensions="[int]1" Height="[float]157" Id="b967ee466f904aca836b20bcb6bdec80" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]d0598c10576a41ecb5d3f36b19c6b2ba" Left="[float]196" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]0" Top="[float]308" Value="{DataItemBinding Id=bf07774222a74a84b7a7916b9e2e3b55}" Width="[float]295" p4:ControlDefinitionChecksum="p4qsNQd8POEPs7XSpeGqdZ1WIv91ubrdyJKkze4HfBU=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
-				<p.DefaultElementValue>
-					<Cluster>
-						<Field1>""</Field1>
-						<Field2>""</Field2>
-					</Cluster>
-				</p.DefaultElementValue>
+			<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@308f8ba31e974f589ae475e733a20c38" Height="[float]568" Id="b967ee466f904aca836b20bcb6bdec80" IsTabStop="[bool]True" Label="[UIModel]d0598c10576a41ecb5d3f36b19c6b2ba" Left="[float]116" TabIndex="[int]0" Top="[float]52" Value="{DataItemBinding Id=bf07774222a74a84b7a7916b9e2e3b55}" Width="[float]345" p4:ControlDefinitionChecksum="58fr+XHDPx+E7fIE7I7TnjyLJO/6ttLdceUY9bWhruY=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="AugmentedReality::Entity Attributes::entity attributes.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
-				<p4:Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@91b43f233bcd49fbb531535d8061ab05" Height="[float]145" Id="86590c59591941bdb941e5da9a5f5958" Label="[UIModel]e6274bedf0a84f01be14a836e2b5ae06" TabIndex="[int]0" Width="[float]228" p4:ControlDefinitionChecksum="/c/EscsybY4gEhL1Ux973VfKXFE3uLi2KTEPh82IuS0=">
+				<p4:ArrayViewer ArrayElement="[UIModel]a3f0ffda98664f2cb89079725e9de8fa" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]252" Id="b03d48651aed486ba373fb30630b3ac0" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]af86ab343a6e46ffb216c138efa53641" Left="[float]7" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]1" Top="[float]88" Value="{ClusterBinding FieldName=property\ value\ configs}" Width="[float]323" p4:ControlDefinitionChecksum="TQPCRt9XHk5yKTJ+QrrrdMBm2Tm3KMAP7d9l9CvDhaE=">
+					<p.DefaultElementValue>
+						<Cluster>
+							<Field1>""</Field1>
+							<Field2>""</Field2>
+						</Cluster>
+					</p.DefaultElementValue>
 					<p4:p.TypeDefinitionTargets>
-						<p4:TypeDefinitionTarget TargetName="AugmentedReality::Support::attribute.gtype::ControlDefinition" />
+						<p4:TypeDefinitionTarget TargetName="DOM::Support::property value configs.gtype::ControlDefinition" />
 					</p4:p.TypeDefinitionTargets>
-					<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="d8c45d9289c943babcfb665fa51e602d" Label="[UIModel]db27193a04f8489b9f5bf0a7c9fb0d77" Left="[float]11" MinHeight="[float]24" TabIndex="[int]0" Text="{ClusterBinding FieldName=name}" Top="[float]23" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]198" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-					<p4:Label Height="[float]16" Id="db27193a04f8489b9f5bf0a7c9fb0d77" LabelOwner="[UIModel]d8c45d9289c943babcfb665fa51e602d" Left="[float]11" Text="[string]name" Top="[float]3" Width="[float]30" />
-					<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="af8d980e051343c1b6d0fe5a53e2b638" Label="[UIModel]7f518fea3941436d962996f6b7036802" Left="[float]13" MinHeight="[float]24" TabIndex="[int]1" Text="{ClusterBinding FieldName=valueJSON}" Top="[float]85" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]198" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-					<p4:Label Height="[float]16" Id="7f518fea3941436d962996f6b7036802" LabelOwner="[UIModel]af8d980e051343c1b6d0fe5a53e2b638" Left="[float]13" Text="[string]valueJSON" Top="[float]65" Width="[float]57" />
-					<p4:Label Height="[float]16" Id="e6274bedf0a84f01be14a836e2b5ae06" IsVisualChild="[bool]False" LabelOwner="[UIModel]86590c59591941bdb941e5da9a5f5958" Left="[float]0" Text="[string]attribute" Top="[float]-20" Width="[float]46" />
-				</p4:Cluster>
-			</ArrayViewer>
-			<Label Height="[float]16" Id="d0598c10576a41ecb5d3f36b19c6b2ba" LabelOwner="[UIModel]b967ee466f904aca836b20bcb6bdec80" Left="[float]196" Text="[string]entity attributes in" Top="[float]288" Width="[float]97" xmlns="http://www.ni.com/PanelCommon" />
-			<NumericText BaseName="[string]model reference" Height="[float]24" Id="59d28803b6e0425b9167219a6572a359" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[uint]1" IsReadOnly="[bool]True" Label="[UIModel]8545944c6fbb4647825605c2d791e370" Left="[float]564" MinHeight="[float]24" TabIndex="[int]1" Top="[float]260" Value="{DataItemBinding Id=4df13a803ef24b5aa01e9b070721f8fe}" ValueFormatter="[string]LV:0" ValueType="[Type]@06a4d0a54d4a45febb998cf54b10ca53" Width="[float]72" p4:ControlDefinitionChecksum="GPsQiYFTCnUTMs7fuTICPyJoUtuSVcrMZ1DeehwTzvM=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+					<p4:Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@877e53ca527d4534b56c9c421eb412c2" Height="[float]240" Id="a3f0ffda98664f2cb89079725e9de8fa" Label="[UIModel]4d04c8e470fa47f6b8260d2dd28af662" TabIndex="[int]0" Width="[float]256" p4:ControlDefinitionChecksum="Nft0ZYHK+9THQxA0ZMhGrk+bsTG0LYAtKZM57JaGTxA=">
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="DOM::Support::property value config.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="980b6dc560e64cc8b608501dcee398d0" Label="[UIModel]5b39b1f783a948c98fe0eb4b95f0ea48" Left="[float]12" MinHeight="[float]24" TabIndex="[int]0" Text="{ClusterBinding FieldName=type}" Top="[float]30" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]220" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<p4:Label Height="[float]16" Id="5b39b1f783a948c98fe0eb4b95f0ea48" LabelOwner="[UIModel]980b6dc560e64cc8b608501dcee398d0" Left="[float]12" Text="[string]type" Top="[float]10" Width="[float]23" />
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]126" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="576dc127093845df8ce4d5920d07911a" Label="[UIModel]8652bdae6d0449528aede12c7269f1e9" Left="[float]13" MinHeight="[float]24" TabIndex="[int]1" Text="{ClusterBinding FieldName=propertyValueJSON}" Top="[float]87" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]222" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<p4:Label Height="[float]16" Id="8652bdae6d0449528aede12c7269f1e9" LabelOwner="[UIModel]576dc127093845df8ce4d5920d07911a" Left="[float]13" Text="[string]propertyValueJSON" Top="[float]67" Width="[float]103" />
+						<p4:Label Height="[float]16" Id="4d04c8e470fa47f6b8260d2dd28af662" IsVisualChild="[bool]False" LabelOwner="[UIModel]a3f0ffda98664f2cb89079725e9de8fa" Left="[float]61" Text="[string]property value config" Top="[float]-14" Width="[float]113" />
+					</p4:Cluster>
+				</p4:ArrayViewer>
+				<p4:Label Height="[float]16" Id="af86ab343a6e46ffb216c138efa53641" LabelOwner="[UIModel]b03d48651aed486ba373fb30630b3ac0" Left="[float]7" Text="[string]property value configs" Top="[float]68" Width="[float]119" />
+				<p4:ArrayViewer ArrayElement="[UIModel]bf5963c83d5f4e36a801ac4d24b37308" BaseName="[string]String Array Input" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="5c8e6891a14c4cd7af8a6a8d63b5e245" IndexVisibility="[Visibility]Collapsed" Label="[UIModel]2b9c69ad6c4747e995f33431e4625752" Left="[float]8" Orientation="[SMOrientation]Vertical" Rows="[int]1" TabIndex="[int]0" Top="[float]27" Value="{ClusterBinding FieldName=property\ names}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]215">
+					<p.DefaultElementValue>""</p.DefaultElementValue>
+					<StringControl AcceptsReturn="[bool]True" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="bf5963c83d5f4e36a801ac4d24b37308" Label="[UIModel]67daaff183c04d0c9ae0bfaad5907182" MinHeight="[float]24" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]183" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+						<p4:Label Id="67daaff183c04d0c9ae0bfaad5907182" IsVisualChild="[bool]False" LabelOwner="[UIModel]bf5963c83d5f4e36a801ac4d24b37308" Left="[float]6" Text="[string]String" Top="[float]-14" />
+					</StringControl>
+				</p4:ArrayViewer>
+				<p4:Label Height="[float]16" Id="2b9c69ad6c4747e995f33431e4625752" LabelOwner="[UIModel]5c8e6891a14c4cd7af8a6a8d63b5e245" Left="[float]8" Text="[string]property names" Top="[float]7" Width="[float]84" />
+				<p4:ArrayViewer ArrayElement="[UIModel]4fc124a8ba99491c88ad9b0aeff7303b" BaseName="[string]String Array Input" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="68ef168cf27a46dcafa20ffed7c42f3b" IndexVisibility="[Visibility]Collapsed" Label="[UIModel]53078aac77f84ecd9b8d654d69105029" Left="[float]7" Orientation="[SMOrientation]Vertical" Rows="[int]1" TabIndex="[int]2" Top="[float]374" Value="{ClusterBinding FieldName=attribute\ names}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]215">
+					<p.DefaultElementValue>""</p.DefaultElementValue>
+					<StringControl AcceptsReturn="[bool]True" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="4fc124a8ba99491c88ad9b0aeff7303b" Label="[UIModel]65ec662f3c0d4bd0ae50eefd1734d3ab" MinHeight="[float]24" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]183" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+						<p4:Label Id="65ec662f3c0d4bd0ae50eefd1734d3ab" IsVisualChild="[bool]False" LabelOwner="[UIModel]4fc124a8ba99491c88ad9b0aeff7303b" Left="[float]6" Text="[string]String" Top="[float]-14" />
+					</StringControl>
+				</p4:ArrayViewer>
+				<p4:Label Height="[float]16" Id="53078aac77f84ecd9b8d654d69105029" LabelOwner="[UIModel]68ef168cf27a46dcafa20ffed7c42f3b" Left="[float]7" Text="[string]attribute names" Top="[float]354" Width="[float]84" />
+				<p4:ArrayViewer ArrayElement="[UIModel]abaf84dd0954dc6b24c4a74026c67ff" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]98" Id="e59041a6609945f2ba29fec7fdb53ca5" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]3af7e3718c4a4065acc2af467b9af220" Left="[float]6" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]3" Top="[float]441" Value="{ClusterBinding FieldName=attribute\ value\ configs}" Width="[float]301" p4:ControlDefinitionChecksum="Xo4jjct0iujSz0heQfr+d3rWD0zvtfpBvX+lY4jAzMY=">
+					<p.DefaultElementValue>
+						<Cluster>
+							<Field1>""</Field1>
+							<Field2>False</Field2>
+						</Cluster>
+					</p.DefaultElementValue>
+					<p4:p.TypeDefinitionTargets>
+						<p4:TypeDefinitionTarget TargetName="DOM::Support::attribute value configs.gtype::ControlDefinition" />
+					</p4:p.TypeDefinitionTargets>
+					<p4:Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@b8c117b30b744c13af74d7a7d99150f3" Height="[float]86" Id="abaf84dd0954dc6b24c4a74026c67ff" IsTabStop="[bool]True" Label="[UIModel]1d4ebc32c4744c9e8d63bff62f06e6ea" TabIndex="[int]0" Width="[float]234" p4:ControlDefinitionChecksum="511IO09I9aJsgm0DZOmcuTx48wSeaanlO9CS6tFtvys=">
+						<p4:p.TypeDefinitionTargets>
+							<p4:TypeDefinitionTarget TargetName="DOM::Support::attribute value config.gtype::ControlDefinition" />
+						</p4:p.TypeDefinitionTargets>
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e66cb2e96e6948c8bf988b2784202f75" Label="[UIModel]55a8252c433e49cf8d0ed864ae625c28" Left="[float]5" MinHeight="[float]24" TabIndex="[int]0" Text="{ClusterBinding FieldName=attributeValue}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]211" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<p4:Label Height="[float]16" Id="55a8252c433e49cf8d0ed864ae625c28" LabelOwner="[UIModel]e66cb2e96e6948c8bf988b2784202f75" Left="[float]5" Text="[string]attributeValue" Top="[float]0" Width="[float]75" />
+						<LVCheckBox BaseName="[string]Checkbox" Content="[string]Off/On" ContentVisibility="[Visibility]Collapsed" Height="[float]16" Id="3a6a10dfb65a4fa8802b9155b3b55a3d" Label="[UIModel]7ee6960bf4849cc97de9ac0c7359369" Left="[float]201" MinHeight="[float]16" MinWidth="[float]16" TabIndex="[int]1" Top="[float]55" Value="{ClusterBinding FieldName=exists}" Width="[float]16" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<p4:Label Height="[float]16" Id="7ee6960bf4849cc97de9ac0c7359369" LabelAlignment="[PartAlignment]LeftCenter" LabelOwner="[UIModel]3a6a10dfb65a4fa8802b9155b3b55a3d" Left="[float]164" Text="[string]exists" Top="[float]55" Width="[float]29" />
+						<p4:Label Height="[float]16" Id="1d4ebc32c4744c9e8d63bff62f06e6ea" IsVisualChild="[bool]False" LabelOwner="[UIModel]abaf84dd0954dc6b24c4a74026c67ff" Left="[float]61" Text="[string]set attributes option" Top="[float]-14" Width="[float]114" />
+					</p4:Cluster>
+				</p4:ArrayViewer>
+				<p4:Label Height="[float]16" Id="3af7e3718c4a4065acc2af467b9af220" LabelOwner="[UIModel]e59041a6609945f2ba29fec7fdb53ca5" Left="[float]6" Text="[string]attribute value configs" Top="[float]421" Width="[float]119" />
+			</Cluster>
+			<Label Height="[float]16" Id="d0598c10576a41ecb5d3f36b19c6b2ba" LabelOwner="[UIModel]b967ee466f904aca836b20bcb6bdec80" Left="[float]116" Text="[string]entity attributes" Top="[float]32" Width="[float]84" xmlns="http://www.ni.com/PanelCommon" />
+			<NumericText BaseName="[string]model reference" Height="[float]24" Id="59d28803b6e0425b9167219a6572a359" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[uint]1" IsReadOnly="[bool]True" Label="[UIModel]8545944c6fbb4647825605c2d791e370" Left="[float]740" MinHeight="[float]24" TabIndex="[int]1" Top="[float]196" Value="{DataItemBinding Id=4df13a803ef24b5aa01e9b070721f8fe}" ValueFormatter="[string]LV:0" ValueType="[Type]@06a4d0a54d4a45febb998cf54b10ca53" Width="[float]72" p4:ControlDefinitionChecksum="GPsQiYFTCnUTMs7fuTICPyJoUtuSVcrMZ1DeehwTzvM=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="AugmentedReality::Entity::entity reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</NumericText>
-			<Label Height="[float]16" Id="8545944c6fbb4647825605c2d791e370" LabelOwner="[UIModel]59d28803b6e0425b9167219a6572a359" Left="[float]564" Text="[string]entity reference" Top="[float]240" Width="[float]83" xmlns="http://www.ni.com/PanelCommon" />
-			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="79b6f9e2ea9b4df3b3d77dd37c2604d9" Label="[UIModel]933163893b534bbdaa7d0f61661b8867" Left="[float]308" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]2" Top="[float]500" Value="{DataItemBinding Id=58a7042b30054e0b8eede960aaeec739}" Width="[float]176" p4:ControlDefinitionChecksum="e3nj023iwYRzhBkV8z61WFGSCt7pzzv3hwIJFanixR4=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+			<Label Height="[float]16" Id="8545944c6fbb4647825605c2d791e370" LabelOwner="[UIModel]59d28803b6e0425b9167219a6572a359" Left="[float]740" Text="[string]entity reference" Top="[float]176" Width="[float]83" xmlns="http://www.ni.com/PanelCommon" />
+			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="79b6f9e2ea9b4df3b3d77dd37c2604d9" Label="[UIModel]933163893b534bbdaa7d0f61661b8867" Left="[float]484" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]2" Top="[float]436" Value="{DataItemBinding Id=58a7042b30054e0b8eede960aaeec739}" Width="[float]176" p4:ControlDefinitionChecksum="e3nj023iwYRzhBkV8z61WFGSCt7pzzv3hwIJFanixR4=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
@@ -190,8 +356,8 @@
 				<StringControl AcceptsReturn="[bool]True" Height="[float]95" Id="978fff5a5f784a7b89dfe9a37ffaa176" Label="[UIModel]85fef5501a34814a2ee5fdad9aa7d7d" Left="[float]3" MinHeight="[float]24" TabIndex="[int]2" Text="{ClusterBinding FieldName=source}" Top="[float]70" Width="[float]162" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 				<p4:Label Height="[float]16" Id="85fef5501a34814a2ee5fdad9aa7d7d" LabelOwner="[UIModel]978fff5a5f784a7b89dfe9a37ffaa176" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
-			<Label Height="[float]16" Id="933163893b534bbdaa7d0f61661b8867" LabelOwner="[UIModel]79b6f9e2ea9b4df3b3d77dd37c2604d9" Left="[float]308" Text="[string]error in" Top="[float]480" Width="[float]39" xmlns="http://www.ni.com/PanelCommon" />
-			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="daef791449a24702b519d21d9e9e251b" Label="[UIModel]d6572b9b15e346c6bbc5ac305d254589" Left="[float]548" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]3" Top="[float]500" Value="{DataItemBinding Id=915b0c2931414560aaab43bd67b1cfad}" Width="[float]176" p4:ControlDefinitionChecksum="e3nj023iwYRzhBkV8z61WFGSCt7pzzv3hwIJFanixR4=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+			<Label Height="[float]16" Id="933163893b534bbdaa7d0f61661b8867" LabelOwner="[UIModel]79b6f9e2ea9b4df3b3d77dd37c2604d9" Left="[float]484" Text="[string]error in" Top="[float]416" Width="[float]39" xmlns="http://www.ni.com/PanelCommon" />
+			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="daef791449a24702b519d21d9e9e251b" Label="[UIModel]d6572b9b15e346c6bbc5ac305d254589" Left="[float]724" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]3" Top="[float]436" Value="{DataItemBinding Id=915b0c2931414560aaab43bd67b1cfad}" Width="[float]176" p4:ControlDefinitionChecksum="e3nj023iwYRzhBkV8z61WFGSCt7pzzv3hwIJFanixR4=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
@@ -202,21 +368,21 @@
 				<StringControl AcceptsReturn="[bool]True" Height="[float]95" Id="1a0643701988440695527e2677bb8d8b" IsReadOnly="[bool]True" Label="[UIModel]e75037dc20044e71a1c0d80243b34ba9" Left="[float]3" MinHeight="[float]24" TabIndex="[int]2" Text="{ClusterBinding FieldName=source}" Top="[float]70" Width="[float]162" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 				<p4:Label Height="[float]16" Id="e75037dc20044e71a1c0d80243b34ba9" LabelOwner="[UIModel]1a0643701988440695527e2677bb8d8b" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
-			<Label Height="[float]16" Id="d6572b9b15e346c6bbc5ac305d254589" LabelOwner="[UIModel]daef791449a24702b519d21d9e9e251b" Left="[float]548" Text="[string]error out" Top="[float]480" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
-			<NumericText BaseName="[string]scene reference" Height="[float]24" Id="f5cf8d152ba74765a1fecef0e21ca640" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]b865fb45e7904863b072253208a0e642" Left="[float]564" MinHeight="[float]24" TabIndex="[int]4" Top="[float]180" Value="{DataItemBinding Id=efd5638693c8444ea042fac91d0bce8b}" ValueFormatter="[string]LV:0" ValueType="[Type]@a1f48fe28925428ba140747e86420656" Width="[float]72" p4:ControlDefinitionChecksum="an2p2u3T2F9hTufEFmbukyQtpAGC4s6mwV48MEjEk2k=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<Label Height="[float]16" Id="d6572b9b15e346c6bbc5ac305d254589" LabelOwner="[UIModel]daef791449a24702b519d21d9e9e251b" Left="[float]724" Text="[string]error out" Top="[float]416" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
+			<NumericText BaseName="[string]scene reference" Height="[float]24" Id="f5cf8d152ba74765a1fecef0e21ca640" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]b865fb45e7904863b072253208a0e642" Left="[float]740" MinHeight="[float]24" TabIndex="[int]4" Top="[float]116" Value="{DataItemBinding Id=efd5638693c8444ea042fac91d0bce8b}" ValueFormatter="[string]LV:0" ValueType="[Type]@a1f48fe28925428ba140747e86420656" Width="[float]72" p4:ControlDefinitionChecksum="an2p2u3T2F9hTufEFmbukyQtpAGC4s6mwV48MEjEk2k=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="AugmentedReality::Scene::scene reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</NumericText>
-			<Label Height="[float]16" Id="b865fb45e7904863b072253208a0e642" LabelOwner="[UIModel]f5cf8d152ba74765a1fecef0e21ca640" Left="[float]564" Text="[string]scene reference out" Top="[float]160" Width="[float]104" xmlns="http://www.ni.com/PanelCommon" />
-			<NumericText BaseName="[string]scene reference" Height="[float]24" Id="9a6f692891b04095bd4425c8a0d9f3d9" Interval="[int]1" IsReadOnly="[bool]False" Label="[UIModel]60f38c1552a84446ba7f1c6d47013b18" Left="[float]419" MinHeight="[float]24" TabIndex="[int]5" Top="[float]180" Value="{DataItemBinding Id=e7823e5523674ac19bf55af2703d5422}" ValueFormatter="[string]LV:0" ValueType="[Type]@a1f48fe28925428ba140747e86420656" Width="[float]72" p4:ControlDefinitionChecksum="an2p2u3T2F9hTufEFmbukyQtpAGC4s6mwV48MEjEk2k=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<Label Height="[float]16" Id="b865fb45e7904863b072253208a0e642" LabelOwner="[UIModel]f5cf8d152ba74765a1fecef0e21ca640" Left="[float]740" Text="[string]scene reference out" Top="[float]96" Width="[float]104" xmlns="http://www.ni.com/PanelCommon" />
+			<NumericText BaseName="[string]scene reference" Height="[float]24" Id="9a6f692891b04095bd4425c8a0d9f3d9" Interval="[int]1" IsReadOnly="[bool]False" Label="[UIModel]60f38c1552a84446ba7f1c6d47013b18" Left="[float]595" MinHeight="[float]24" TabIndex="[int]5" Top="[float]116" Value="{DataItemBinding Id=e7823e5523674ac19bf55af2703d5422}" ValueFormatter="[string]LV:0" ValueType="[Type]@a1f48fe28925428ba140747e86420656" Width="[float]72" p4:ControlDefinitionChecksum="an2p2u3T2F9hTufEFmbukyQtpAGC4s6mwV48MEjEk2k=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="AugmentedReality::Scene::scene reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</NumericText>
-			<Label Height="[float]16" Id="60f38c1552a84446ba7f1c6d47013b18" LabelOwner="[UIModel]9a6f692891b04095bd4425c8a0d9f3d9" Left="[float]419" Text="[string]scene reference in" Top="[float]160" Width="[float]96" xmlns="http://www.ni.com/PanelCommon" />
-			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="5bbd68a245e4c679c9dd66cb37f6953" Label="[UIModel]7e1bcf4f29da4b20bf348341f4d49c27" Left="[float]419" MinHeight="[float]24" TabIndex="[int]6" Text="{DataItemBinding Id=5291b9efdc2048fc8d9ba0c14b5c8d97}" Top="[float]260" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="7e1bcf4f29da4b20bf348341f4d49c27" LabelOwner="[UIModel]5bbd68a245e4c679c9dd66cb37f6953" Left="[float]419" Text="[string]src" Top="[float]240" Width="[float]15" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="60f38c1552a84446ba7f1c6d47013b18" LabelOwner="[UIModel]9a6f692891b04095bd4425c8a0d9f3d9" Left="[float]595" Text="[string]scene reference in" Top="[float]96" Width="[float]96" xmlns="http://www.ni.com/PanelCommon" />
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="5bbd68a245e4c679c9dd66cb37f6953" Label="[UIModel]7e1bcf4f29da4b20bf348341f4d49c27" Left="[float]595" MinHeight="[float]24" TabIndex="[int]6" Text="{DataItemBinding Id=5291b9efdc2048fc8d9ba0c14b5c8d97}" Top="[float]196" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="7e1bcf4f29da4b20bf348341f4d49c27" LabelOwner="[UIModel]5bbd68a245e4c679c9dd66cb37f6953" Left="[float]595" Text="[string]src" Top="[float]176" Width="[float]15" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem CallDirection="Output" CallIndex="1" DataType="@06a4d0a54d4a45febb998cf54b10ca53" Id="4df13a803ef24b5aa01e9b070721f8fe" Name="entity reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
@@ -227,8 +393,15 @@
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="2" CallUsage="Required" DataType="String" Id="5291b9efdc2048fc8d9ba0c14b5c8d97" Name="src" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
-		<DataItem CallDirection="Input" CallIndex="3" DataType="@6acc776b09094563a3ccb713f682df11" Id="bf07774222a74a84b7a7916b9e2e3b55" Name="entity attributes in" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>null</p.DefaultValue>
+		<DataItem CallDirection="Input" CallIndex="3" DataType="@308f8ba31e974f589ae475e733a20c38" Id="bf07774222a74a84b7a7916b9e2e3b55" Name="entity attributes" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>null</Field1>
+					<Field2>null</Field2>
+					<Field3>null</Field3>
+					<Field4>null</Field4>
+				</Cluster>
+			</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 				<TypeDefinitionTarget TargetName="AugmentedReality::Entity Attributes::entity attributes.gtype" />
 			</p.TypeDefinitionTargets>
@@ -271,15 +444,6 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="dbe8f5f23ce4464f8203d25b3b3c86bd">
-			<Attributed AttributedType="@8ea89ab157424409877ff3842e05c666">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]50" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
 		<p.TypeReference TypeId="06a4d0a54d4a45febb998cf54b10ca53">
 			<Attributed AttributedType="@add64332f77641b997e41bcdd76a2b80">
 				<AttributeValues>
@@ -287,27 +451,12 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="ac8181c14ddf469bbe74940062a0679c">
-			<Attributed AttributedType="@a6e18a0e43ac4328a16c5ae96152a812">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="6acc776b09094563a3ccb713f682df11">
-			<Attributed AttributedType="@9e3b84dd078842c9b827b7a9969863e6">
+		<p.TypeReference TypeId="308f8ba31e974f589ae475e733a20c38">
+			<Attributed AttributedType="@0fdd6f96eab84c2f837755772e0b5522">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AugmentedReality::Entity Attributes" />
 				</AttributeValues>
 			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="d199956093d24bc4b716241ba7db84ba">
-			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
-				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="data" DataType="String" />
-				</Members>
-			</Composite>
 		</p.TypeReference>
 		<p.TypeReference TypeId="a1f48fe28925428ba140747e86420656">
 			<Attributed AttributedType="@f39a44fc1d4b4b919998591c3347f65a">
@@ -316,37 +465,145 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="91b43f233bcd49fbb531535d8061ab05">
-			<Attributed AttributedType="@0c7582e9ec25450eb4d368a4fbc606b1">
+		<p.TypeReference TypeId="c52f9e2025d0458ca1b8ed3ba77bb92a">
+			<Attributed AttributedType="@e1446a5ba46148fcae45ddf3bef082f2">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]AugmentedReality::Support" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="8ea89ab157424409877ff3842e05c666">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="CreateGLTFModelEntity" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="8fb1965ca811428bb2e1144f5194dd69">
+			<VariableArray DereferenceType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c6d9594a9d294f38b2b668a22a9b8ab4">
+			<Attributed AttributedType="@9cc1ecd7e6794cc79546dbd90a674073">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="46e48e1e61f346b2ac173cc8a2ec7fa6">
+			<Attributed AttributedType="@945d8be5ef744625955064f525418163">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="18512d65e8794195862df0b1b09bc2ad">
+			<Attributed AttributedType="@a93b3e78d93345a48da88dd1d27db454">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1e7a4c25a6e243a2b8f97bcfa45a538d">
+			<Attributed AttributedType="@709e4152a63844849426f755a79c9e65">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="22657569a9594e579a8295047600f2fb">
+			<Attributed AttributedType="@df4810cb55c149e2be5506d8f46ae179">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4a60a4a04fea429989d8d569375d75f6">
+			<Attributed AttributedType="@bd8044d36a3b428dba6a283284624271">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7f8c5bc9adba4d688ba351ea78a2d0af">
+			<Attributed AttributedType="@e1088b2219c44c41847ff2f2abeda505">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2af9b744fb99434cab7e79cba492dc43">
+			<Attributed AttributedType="@fa89b755048a4a70a8050a214f55cff3">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7b653f6dafc94e7fbc685ba0f4f47798">
+			<Attributed AttributedType="@8c86a1e21a624d80aca464e301f4edbf">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="5ae30f08a0d54b1cbe4ff85fdd906d0f">
+			<Attributed AttributedType="@889ec353f4a24c2297a1a46cb3f3c8ec">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="877e53ca527d4534b56c9c421eb412c2">
+			<Attributed AttributedType="@bd4b8b5e18db4c3883f0fa5030059856">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b8c117b30b744c13af74d7a7d99150f3">
+			<Attributed AttributedType="@916c86d4f7fc41119318dd3e7a935029">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DOM::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="add64332f77641b997e41bcdd76a2b80">
+			<Typedef TypedefName="entity reference.gtype" UnderlyingType="UInt32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="0fdd6f96eab84c2f837755772e0b5522">
+			<Typedef TypedefName="entity attributes.gtype" UnderlyingType="@8816dadcf4bd4a7d8a9af64d448958e9" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="f39a44fc1d4b4b919998591c3347f65a">
+			<Typedef TypedefName="scene reference.gtype" UnderlyingType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="e1446a5ba46148fcae45ddf3bef082f2">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Elements.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@c1169f12c605474fbdf8f683cc25bc9c">
+					<Attributed AttributedType="@ddf9010a15dd45a192293b56556c4ff4">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]scene reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]tag names" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@cc708c7fe48a4941a631ea5c8d9dbf2a">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]attributesJSON" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@362afcf622b14a7386836cfcbac56e03">
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@73bde6a774b84f1a90d7020857804105">
+					<Attributed AttributedType="@1f07678be1ee4da9852953c23b98d4f9">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]document target reference (global document)" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@ba3c63cada0e4451bfd6e7006c54c1c8">
+					<Attributed AttributedType="@3b8f8ee5e2884713ad0af6c2af5bed52">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]inert?" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6832b84ea7a14eddb94a60c56f13befa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]element references" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
@@ -354,110 +611,328 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="add64332f77641b997e41bcdd76a2b80">
-			<Typedef TypedefName="entity reference.gtype" UnderlyingType="UInt32" />
+		<p.TypeReference TypeId="9cc1ecd7e6794cc79546dbd90a674073">
+			<Typedef TypedefName="attribute value configs.gtype" UnderlyingType="@54392ff396fe4dde907016fada4023c0" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="a6e18a0e43ac4328a16c5ae96152a812">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Append Attribute.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="945d8be5ef744625955064f525418163">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Select Element and Append Content.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@3184fb3fd30d4e879372936a645b9a0f">
+					<Attributed AttributedType="@63ca935ef4df4ea7bde7b7c11ca85f3d">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity attributes in" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]parent selector" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@3af2cc06dd9446ebb719fb81f06efc1e">
+					<Attributed AttributedType="@b03912df541743cfb13e19637c3d5c61">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]name" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]child dom reference in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@9c70c6c43cc14c7bb85825f3e7b7a8ff">
+					<Attributed AttributedType="@d4dfad22308947aaa5b6927af65747f8">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]valueJSON" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]clear parent content" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@113b8e44b72142c08f462969ae0f805b">
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity attributes out" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@9ae37b1d291d45788b9ce35cbaee5b23">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]parent document target reference (global document)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@0127dd082c474d64a93527b5f6c448b3">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]child dom reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9e3b84dd078842c9b827b7a9969863e6">
-			<Typedef TypedefName="entity attributes.gtype" UnderlyingType="@133aa7e034484d039fe978737da21dd4" />
+		<p.TypeReference TypeId="a93b3e78d93345a48da88dd1d27db454">
+			<Typedef TypedefName="dom reference.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="f39a44fc1d4b4b919998591c3347f65a">
-			<Typedef TypedefName="scene reference.gtype" UnderlyingType="Int32" />
+		<p.TypeReference TypeId="709e4152a63844849426f755a79c9e65">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Add Event Listener.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@ac17e47fe73243168f7768bd4e78879f">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]element reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@3b5b3e1fb17342b196ed7367427b1778">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event name" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@2238c11cb4434c09a7b26694692cd401">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]property names" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6c8c46d1bbfa4035b9b7bed6433d5e9a">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]element reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@98573055ad524cea8d56517556cc4f8c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0c7582e9ec25450eb4d368a4fbc606b1">
-			<Typedef TypedefName="attribute.gtype" UnderlyingType="@90a81410df004f97a14169f3535a1907" />
+		<p.TypeReference TypeId="df4810cb55c149e2be5506d8f46ae179">
+			<Typedef TypedefName="event manager reference.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="c1169f12c605474fbdf8f683cc25bc9c">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
+		<p.TypeReference TypeId="bd8044d36a3b428dba6a283284624271">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Wait For Event.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@ea7a747a25a24168818589a7ea81b414">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@343341ed5405448bb0cef9a36f72bfbe">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c0ca17b5d8f749519160b439a7dacbc3">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]property value configs" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="cc708c7fe48a4941a631ea5c8d9dbf2a">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String" />
+		<p.TypeReference TypeId="e1088b2219c44c41847ff2f2abeda505">
+			<Typedef TypedefName="property value configs.gtype" UnderlyingType="@19293cae627843069257cec0240bd8ca" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="362afcf622b14a7386836cfcbac56e03">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L4" DataType="Error" />
+		<p.TypeReference TypeId="fa89b755048a4a70a8050a214f55cff3">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Remove Event Listener.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@ea7a747a25a24168818589a7ea81b414">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="73bde6a774b84f1a90d7020857804105">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
+		<p.TypeReference TypeId="8c86a1e21a624d80aca464e301f4edbf">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Append Attribute Value Config.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@b57a57d82a794715ad0d291de57ce6ac">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]attribute value configs in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@b40d200aaff14bc2a8d1758f5010cdc1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]attribute value" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@9549d5e91d7a4a3cb088abf7a61e564e">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]exists" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8698896191154255b767492c166e3706">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]attribute value configs out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="ba3c63cada0e4451bfd6e7006c54c1c8">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R4" DataType="Error" />
+		<p.TypeReference TypeId="889ec353f4a24c2297a1a46cb3f3c8ec">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Update Entity.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@b75fa9d6b12142a5a86a9bf7b522f3a1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@064f1e2c078e43f198594c8c466b1f78">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity attributes" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@45e807ace5c4445f8511a0e6988c6215">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="3184fb3fd30d4e879372936a645b9a0f">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@6acc776b09094563a3ccb713f682df11" />
+		<p.TypeReference TypeId="bd4b8b5e18db4c3883f0fa5030059856">
+			<Typedef TypedefName="property value config.gtype" UnderlyingType="@d47406b0a68b4ab7ae485e62f6dcaeff" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="3af2cc06dd9446ebb719fb81f06efc1e">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		<p.TypeReference TypeId="916c86d4f7fc41119318dd3e7a935029">
+			<Typedef TypedefName="attribute value config.gtype" UnderlyingType="@40d7bb49609f41daac30e5a74bbdc412" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="9c70c6c43cc14c7bb85825f3e7b7a8ff">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="113b8e44b72142c08f462969ae0f805b">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@6acc776b09094563a3ccb713f682df11" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="133aa7e034484d039fe978737da21dd4">
-			<VariableArray DereferenceType="@91b43f233bcd49fbb531535d8061ab05" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="90a81410df004f97a14169f3535a1907">
+		<p.TypeReference TypeId="8816dadcf4bd4a7d8a9af64d448958e9">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="name" DataType="String" />
-					<Field FieldAccessPolicy="ReadWrite" Name="valueJSON" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="property names" DataType="String[]" />
+					<Field FieldAccessPolicy="ReadWrite" Name="property value configs" DataType="@7f8c5bc9adba4d688ba351ea78a2d0af" />
+					<Field FieldAccessPolicy="ReadWrite" Name="attribute names" DataType="String[]" />
+					<Field FieldAccessPolicy="ReadWrite" Name="attribute value configs" DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="ddf9010a15dd45a192293b56556c4ff4">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String[]" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1f07678be1ee4da9852953c23b98d4f9">
+			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="3b8f8ee5e2884713ad0af6c2af5bed52">
+			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="T1" DataType="Boolean" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6832b84ea7a14eddb94a60c56f13befa">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@8fb1965ca811428bb2e1144f5194dd69" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="54392ff396fe4dde907016fada4023c0">
+			<VariableArray DereferenceType="@b8c117b30b744c13af74d7a7d99150f3" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="63ca935ef4df4ea7bde7b7c11ca85f3d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b03912df541743cfb13e19637c3d5c61">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="d4dfad22308947aaa5b6927af65747f8">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Boolean" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="9ae37b1d291d45788b9ce35cbaee5b23">
+			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="0127dd082c474d64a93527b5f6c448b3">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="ac17e47fe73243168f7768bd4e78879f">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="3b5b3e1fb17342b196ed7367427b1778">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="2238c11cb4434c09a7b26694692cd401">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String[]" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6c8c46d1bbfa4035b9b7bed6433d5e9a">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@18512d65e8794195862df0b1b09bc2ad" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="98573055ad524cea8d56517556cc4f8c">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@22657569a9594e579a8295047600f2fb" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="ea7a747a25a24168818589a7ea81b414">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@22657569a9594e579a8295047600f2fb" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="343341ed5405448bb0cef9a36f72bfbe">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@22657569a9594e579a8295047600f2fb" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c0ca17b5d8f749519160b439a7dacbc3">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@7f8c5bc9adba4d688ba351ea78a2d0af" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="19293cae627843069257cec0240bd8ca">
+			<VariableArray DereferenceType="@877e53ca527d4534b56c9c421eb412c2" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b57a57d82a794715ad0d291de57ce6ac">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b40d200aaff14bc2a8d1758f5010cdc1">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="9549d5e91d7a4a3cb088abf7a61e564e">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Boolean" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="8698896191154255b767492c166e3706">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@c6d9594a9d294f38b2b668a22a9b8ab4" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b75fa9d6b12142a5a86a9bf7b522f3a1">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@06a4d0a54d4a45febb998cf54b10ca53" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="064f1e2c078e43f198594c8c466b1f78">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@308f8ba31e974f589ae475e733a20c38" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="45e807ace5c4445f8511a0e6988c6215">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@06a4d0a54d4a45febb998cf54b10ca53" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="d47406b0a68b4ab7ae485e62f6dcaeff">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="type" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="propertyValueJSON" DataType="String" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="40d7bb49609f41daac30e5a74bbdc412">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="attributeValue" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="exists" DataType="Boolean" />
 				</Members>
 			</Composite>
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="AugmentedReality::Support::AugmentedReality.jsli::CreateGLTFModelEntity">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 50">
-						<IconPanel Height="[float]50" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]50" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]46" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateGLTFModelEntity" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]50" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]AugmentedReality.gcomp" Top="[float]0" Width="[float]40" />
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]50" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;AugmentedReality.jsli&gt;" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]AugmentedReality" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
-									<FontSetting FontFamily="Verdana" FontSize="6" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
-		<p.IconModel Target="AugmentedReality::Support::Append Attribute.gvi">
+		<p.IconModel Target="DOM::Build::Create Elements.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -465,10 +940,118 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Append Attribute" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Elements" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DOM.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="DOM::Tasks::Select Element and Append Content.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Select Element and Append Content" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DOM.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="DOM::Monitor::Add Event Listener.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Add Event Listener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DOM.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="DOM::Monitor::Wait For Event.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Wait For Event" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DOM.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="DOM::Monitor::Remove Event Listener.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Remove Event Listener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DOM.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="DOM::Shared::Append Attribute Value Config.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Append Attribute Value Config" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DOM.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="AugmentedReality::Entity::Update Entity.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Block" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
+								<Path Data="[PathGeometry]M 18,18 L 0,18 L 0,2 C 0,0.896000028 0.896000028,0 2,0 L 18,0 L 18,18 Z" Fill="[SMSolidColorBrush]#b2000000" Height="[float]18" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]18" />
+							</IconTemplate>
+							<Path Data="[PathGeometry]M 0,5.23232317 L 4.89320326,4.38383818 L 6.93203831,0 L 9.2427187,4.52525234 L 14,5.23232317 L 10.3300982,8.909091 L 11.2815542,14 L 6.93203831,11.3131275 L 2.71844697,14 L 3.53398013,8.76767635 L 0,5.23232317 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]14" Left="[float]4" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ffe0e0e0" StrokeThickness="[float]1" Top="[float]4" Width="[float]14" />
+							<Path Data="[PathGeometry]M 17.9230003,0.209000006 C 18.5440006,-0.338999987 19.9020004,0.184 21.3630009,1.84000003 C 22.8260002,3.49499989 23.1760006,4.90799999 22.5559998,5.45599985 L 19.9319992,7.77400017 L 15.3000002,2.5250001 L 17.9230003,0.209000006 Z M 3.86899996,18.2870007 L 9.52499962,15.6280003 L 6.71099997,16.1119995 L 6.83400011,13.3339996 L 5.91900015,13.809 L 6.21700001,11.8800001 L 2.87700009,17.1630001 L 3.86899996,18.2870007 Z M 10.1879997,16.3780003 L 0,20.7029991 L 5.5539999,11.1309996 L 11.5509996,5.83500004 L 16.184,11.0819998 L 10.1879997,16.3780003 Z M 18.3619995,9.01599979 L 13.7290001,3.76900005 C 13.3909998,3.38599992 14.151,2.73600006 14.4779997,3.10599995 L 19.1119995,8.35400009 C 19.4459991,8.7329998 18.6860008,9.38300037 18.3619995,9.01599979 M 16.8719997,10.3500004 L 12.2390003,5.10300016 C 11.901,4.71999979 12.6599998,4.07000017 12.9879999,4.44199991 L 17.6210003,9.68799973 C 17.9559994,10.0670004 17.1949997,10.717 16.8719997,10.3500004" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]20.703" Left="[float]13" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]22.849" />
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]AugmentedReality.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
