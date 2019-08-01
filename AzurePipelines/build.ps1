@@ -3,8 +3,8 @@ Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 Write-Host "Build AugmentedReality project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
-# Write-Host "Build AugmentedReality SecretBox project"
-# Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp"
+Write-Host "Build AugmentedReality SecretBox project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp"
 
 Write-Host "Build BusyState"
 Invoke-NXGBuildApplication -ProjectDirectory ".\BusyState" -ProjectFileName "BusyState.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
