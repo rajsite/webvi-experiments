@@ -4763,6 +4763,14 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 		changeMatrixMode : 'modelViewMatrix',
 		// minimal confidence in the marke recognition - between [0, 1] - default to 1
 		minConfidence: 0.6,
+		// turn on/off camera smoothing
+		smooth: false,
+		// number of matrices to smooth tracking over, more = smoother but slower follow
+		smoothCount: 5,
+		// distance tolerance for smoothing, if smoothThreshold # of matrices are under tolerance, tracking will stay still
+		smoothTolerance: 0.01,
+		// threshold for smoothing, will keep still unless enough matrices are over tolerance
+		smoothThreshold: 2,
 	}
 
 	// sanity check
@@ -4800,6 +4808,10 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 
 			_this.parameters[ key ] = newValue
 		}
+	}
+
+	if (this.parameters.smooth) {
+		this.smoothMatrices = []; // last DEBOUNCE_COUNT modelViewMatrix
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -4864,9 +4876,49 @@ ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatr
 		modelViewMatrix.multiply(markerAxisTransformMatrix)
 	}
 
+	var renderReqd = false;
+
 	// change markerObject3D.matrix based on parameters.changeMatrixMode
 	if( this.parameters.changeMatrixMode === 'modelViewMatrix' ){
-		markerObject3D.matrix.copy(modelViewMatrix)
+		if (this.parameters.smooth) {
+			var sum,
+					i, j,
+					averages, // average values for matrix over last smoothCount
+					exceedsAverageTolerance = 0;
+
+			this.smoothMatrices.push(modelViewMatrix.elements.slice()); // add latest
+
+			if (this.smoothMatrices.length < (this.parameters.smoothCount + 1)) {
+				markerObject3D.matrix.copy(modelViewMatrix); // not enough for average
+			} else {
+				this.smoothMatrices.shift(); // remove oldest entry
+				averages = [];
+
+				for (i in modelViewMatrix.elements) { // loop over entries in matrix
+					sum = 0;
+					for (j in this.smoothMatrices) { // calculate average for this entry
+						sum += this.smoothMatrices[j][i];
+					}
+					averages[i] = sum / this.parameters.smoothCount;
+					// check how many elements vary from the average by at least AVERAGE_MATRIX_TOLERANCE
+					if (Math.abs(averages[i] - modelViewMatrix.elements[i]) >= this.parameters.smoothTolerance) {
+						exceedsAverageTolerance++;
+					}
+				}
+				
+				// if moving (i.e. at least AVERAGE_MATRIX_THRESHOLD entries are over AVERAGE_MATRIX_TOLERANCE)
+				if (exceedsAverageTolerance >= this.parameters.smoothThreshold) {
+					// then update matrix values to average, otherwise, don't render to minimize jitter
+					for (i in modelViewMatrix.elements) {
+						modelViewMatrix.elements[i] = averages[i];
+					}
+					markerObject3D.matrix.copy(modelViewMatrix);
+					renderReqd = true; // render required in animation loop
+				}
+			}
+		} else {
+			markerObject3D.matrix.copy(modelViewMatrix)
+		}
 	}else if( this.parameters.changeMatrixMode === 'cameraTransformMatrix' ){
 		markerObject3D.matrix.getInverse( modelViewMatrix )
 	}else {
@@ -4878,6 +4930,8 @@ ARjs.MarkerControls.prototype.updateWithModelViewMatrix = function(modelViewMatr
 
 	// dispatchEvent
 	this.dispatchEvent( { type: 'markerFound' } );
+
+	return renderReqd;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -4990,7 +5044,7 @@ var THREEx = THREEx || {}
 THREEx.ArMarkerHelper = function(markerControls){
 	this.object3d = new THREE.Group
 
-	var mesh = new THREE.AxisHelper()
+	var mesh = new THREE.AxesHelper()
 	this.object3d.add(mesh)
 
 	var text = markerControls.id
@@ -5015,14 +5069,14 @@ THREEx.ArMarkerHelper = function(markerControls){
 	// var geometry = new THREE.CubeGeometry(1, 1, 1)
 	var geometry = new THREE.PlaneGeometry(1, 1)
 	var material = new THREE.MeshBasicMaterial({
-		map: texture, 
+		map: texture,
 		transparent: true
 	});
 	var mesh = new THREE.Mesh(geometry, material)
 	mesh.rotation.x = -Math.PI/2
 
 	this.object3d.add(mesh)
-	
+
 }
 var THREEx = THREEx || {}
 
@@ -5254,9 +5308,7 @@ Object.assign( ARjs.Context.prototype, THREE.EventDispatcher.prototype );
 // ARjs.Context.baseURL = '../'
 // default to github page
 ARjs.Context.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'
-ARjs.Context.REVISION = '1.6.2'
-
-
+ARjs.Context.REVISION = '1.7.5';
 
 /**
  * Create a default camera for this trackingBackend
@@ -5616,26 +5668,26 @@ var THREEx = THREEx || {}
  * - you can use this class to understand how to tune your specific usecase
  * - it is made to help people to build parameters without understanding all the underlying details.
  */
-ARjs.Profile = THREEx.ArToolkitProfile = function(){
-	this.reset()
+ARjs.Profile = THREEx.ArToolkitProfile = function () {
+    this.reset()
 
-	this.performance('default')
+    this.performance('default')
 }
 
 
-ARjs.Profile.prototype._guessPerformanceLabel = function() {
-	var isMobile = navigator.userAgent.match(/Android/i)
-			|| navigator.userAgent.match(/webOS/i)
-			|| navigator.userAgent.match(/iPhone/i)
-			|| navigator.userAgent.match(/iPad/i)
-			|| navigator.userAgent.match(/iPod/i)
-			|| navigator.userAgent.match(/BlackBerry/i)
-			|| navigator.userAgent.match(/Windows Phone/i)
-			? true : false 
-	if( isMobile === true ){
-		return 'phone-normal'
-	}
-	return 'desktop-normal'
+ARjs.Profile.prototype._guessPerformanceLabel = function () {
+    var isMobile = navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+        ? true : false
+    if (isMobile === true) {
+        return 'phone-normal'
+    }
+    return 'desktop-normal'
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -5646,21 +5698,21 @@ ARjs.Profile.prototype._guessPerformanceLabel = function() {
  * reset all parameters
  */
 ARjs.Profile.prototype.reset = function () {
-	this.sourceParameters = {
-		// to read from the webcam 
-		sourceType : 'webcam',
-	}
+    this.sourceParameters = {
+        // to read from the webcam
+        sourceType: 'webcam',
+    }
 
-	this.contextParameters = {
-		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
-		detectionMode: 'mono',
-	}
-	this.defaultMarkerParameters = {
-		type : 'pattern',
-		patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
-		changeMatrixMode: 'modelViewMatrix',
-	}
-	return this
+    this.contextParameters = {
+        cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
+        detectionMode: 'mono',
+    }
+    this.defaultMarkerParameters = {
+        type: 'pattern',
+        patternUrl: THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
+        changeMatrixMode: 'modelViewMatrix',
+    }
+    return this
 };
 
 //////////////////////////////////////////////////////////////////////////////
@@ -5669,36 +5721,36 @@ ARjs.Profile.prototype.reset = function () {
 
 
 
-ARjs.Profile.prototype.performance = function(label) {
+ARjs.Profile.prototype.performance = function (label) {
 
-	if( label === 'default' ){
-		label = this._guessPerformanceLabel()
-	}
+    if (label === 'default') {
+        label = this._guessPerformanceLabel()
+    }
 
-	if( label === 'desktop-fast' ){
-		this.contextParameters.canvasWidth = 640*3
-		this.contextParameters.canvasHeight = 480*3
+    if (label === 'desktop-fast') {
+        this.contextParameters.canvasWidth = 640 * 3
+        this.contextParameters.canvasHeight = 480 * 3
 
-		this.contextParameters.maxDetectionRate = 30
-	}else if( label === 'desktop-normal' ){
-		this.contextParameters.canvasWidth = 640
-		this.contextParameters.canvasHeight = 480
+        this.contextParameters.maxDetectionRate = 30
+    } else if (label === 'desktop-normal') {
+        this.contextParameters.canvasWidth = 640
+        this.contextParameters.canvasHeight = 480
 
-		this.contextParameters.maxDetectionRate = 60
-	}else if( label === 'phone-normal' ){
-		this.contextParameters.canvasWidth = 80*4
-		this.contextParameters.canvasHeight = 60*4
+        this.contextParameters.maxDetectionRate = 60
+    } else if (label === 'phone-normal') {
+        this.contextParameters.canvasWidth = 80 * 4
+        this.contextParameters.canvasHeight = 60 * 4
 
-		this.contextParameters.maxDetectionRate = 30
-	}else if( label === 'phone-slow' ){
-		this.contextParameters.canvasWidth = 80*3
-		this.contextParameters.canvasHeight = 60*3
+        this.contextParameters.maxDetectionRate = 30
+    } else if (label === 'phone-slow') {
+        this.contextParameters.canvasWidth = 80 * 3
+        this.contextParameters.canvasHeight = 60 * 3
 
-		this.contextParameters.maxDetectionRate = 30		
-	}else {
-		console.assert(false, 'unknonwn label '+label)
-	}
-	return this
+        this.contextParameters.maxDetectionRate = 30
+    } else {
+        console.assert(false, 'unknonwn label ' + label)
+    }
+    return this
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -5707,85 +5759,85 @@ ARjs.Profile.prototype.performance = function(label) {
 
 
 ARjs.Profile.prototype.defaultMarker = function (trackingBackend) {
-	trackingBackend = trackingBackend || this.contextParameters.trackingBackend
+    trackingBackend = trackingBackend || this.contextParameters.trackingBackend
 
-	if( trackingBackend === 'artoolkit' ){
-		this.contextParameters.detectionMode = 'mono'
-		this.defaultMarkerParameters.type = 'pattern'
-		this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
-	}else if( trackingBackend === 'aruco' ){
-		this.contextParameters.detectionMode = 'mono'
-		this.defaultMarkerParameters.type = 'barcode'
-		this.defaultMarkerParameters.barcodeValue = 1001
-	}else if( trackingBackend === 'tango' ){
-		// FIXME temporary placeholder - to reevaluate later
-		this.defaultMarkerParameters.type = 'barcode'
-		this.defaultMarkerParameters.barcodeValue = 1001
-	}else console.assert(false)
+    if (trackingBackend === 'artoolkit') {
+        this.contextParameters.detectionMode = 'mono'
+        this.defaultMarkerParameters.type = 'pattern'
+        this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
+    } else if (trackingBackend === 'aruco') {
+        this.contextParameters.detectionMode = 'mono'
+        this.defaultMarkerParameters.type = 'barcode'
+        this.defaultMarkerParameters.barcodeValue = 1001
+    } else if (trackingBackend === 'tango') {
+        // FIXME temporary placeholder - to reevaluate later
+        this.defaultMarkerParameters.type = 'barcode'
+        this.defaultMarkerParameters.barcodeValue = 1001
+    } else console.assert(false)
 
-	return this
+    return this
 }
 //////////////////////////////////////////////////////////////////////////////
 //		Source
 //////////////////////////////////////////////////////////////////////////////
 ARjs.Profile.prototype.sourceWebcam = function () {
-	this.sourceParameters.sourceType = 'webcam'
-	delete this.sourceParameters.sourceUrl
-	return this
+    this.sourceParameters.sourceType = 'webcam'
+    delete this.sourceParameters.sourceUrl
+    return this
 }
 
 ARjs.Profile.prototype.sourceVideo = function (url) {
-	this.sourceParameters.sourceType = 'video'
-	this.sourceParameters.sourceUrl = url
-	return this
+    this.sourceParameters.sourceType = 'video'
+    this.sourceParameters.sourceUrl = url
+    return this
 }
 
 ARjs.Profile.prototype.sourceImage = function (url) {
-	this.sourceParameters.sourceType = 'image'
-	this.sourceParameters.sourceUrl = url
-	return this
+    this.sourceParameters.sourceType = 'image'
+    this.sourceParameters.sourceUrl = url
+    return this
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //		trackingBackend
 //////////////////////////////////////////////////////////////////////////////
 ARjs.Profile.prototype.trackingBackend = function (trackingBackend) {
-	console.warn('stop profile.trackingBackend() obsolete function. use .trackingMethod instead')
-	this.contextParameters.trackingBackend = trackingBackend
-	return this
+    console.warn('stop profile.trackingBackend() obsolete function. use .trackingMethod instead')
+    this.contextParameters.trackingBackend = trackingBackend
+    return this
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //		trackingBackend
 //////////////////////////////////////////////////////////////////////////////
 ARjs.Profile.prototype.changeMatrixMode = function (changeMatrixMode) {
-	this.defaultMarkerParameters.changeMatrixMode = changeMatrixMode
-	return this
+    this.defaultMarkerParameters.changeMatrixMode = changeMatrixMode
+    return this
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //		trackingBackend
 //////////////////////////////////////////////////////////////////////////////
 ARjs.Profile.prototype.trackingMethod = function (trackingMethod) {
-	var data = ARjs.Utils.parseTrackingMethod(trackingMethod)
-	this.defaultMarkerParameters.markersAreaEnabled = data.markersAreaEnabled
-	this.contextParameters.trackingBackend = data.trackingBackend	
-	return this
+    var data = ARjs.Utils.parseTrackingMethod(trackingMethod)
+    this.defaultMarkerParameters.markersAreaEnabled = data.markersAreaEnabled
+    this.contextParameters.trackingBackend = data.trackingBackend
+    return this
 }
 
 /**
  * check if the profile is valid. Throw an exception is not valid
  */
 ARjs.Profile.prototype.checkIfValid = function () {
-	if( this.contextParameters.trackingBackend === 'tango' ){
-		this.sourceImage(THREEx.ArToolkitContext.baseURL + '../data/images/img.jpg')
-	}
-	return this
+    if (this.contextParameters.trackingBackend === 'tango') {
+        this.sourceImage(THREEx.ArToolkitContext.baseURL + '../data/images/img.jpg')
+    }
+    return this
 }
 var ARjs = ARjs || {}
 var THREEx = THREEx || {}
 
-ARjs.Source = THREEx.ArToolkitSource = function(parameters){	
+ARjs.Source = THREEx.ArToolkitSource = function(parameters){
 	var _this = this
 
 	this.ready = false
@@ -5804,7 +5856,7 @@ ARjs.Source = THREEx.ArToolkitSource = function(parameters){
 		// resolution of at which we initialize in the source image
 		sourceWidth: 640,
 		sourceHeight: 480,
-		// resolution displayed for the source 
+		// resolution displayed for the source
 		displayWidth: 640,
 		displayHeight: 480,
 	}
@@ -5831,7 +5883,7 @@ ARjs.Source = THREEx.ArToolkitSource = function(parameters){
 
 			_this.parameters[ key ] = newValue
 		}
-	}	
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -5841,12 +5893,12 @@ ARjs.Source.prototype.init = function(onReady, onError){
 	var _this = this
 
         if( this.parameters.sourceType === 'image' ){
-                var domElement = this._initSourceImage(onSourceReady, onError)                        
+                var domElement = this._initSourceImage(onSourceReady, onError)
         }else if( this.parameters.sourceType === 'video' ){
-                var domElement = this._initSourceVideo(onSourceReady, onError)                        
+                var domElement = this._initSourceVideo(onSourceReady, onError)
         }else if( this.parameters.sourceType === 'webcam' ){
-                // var domElement = this._initSourceWebcamOld(onSourceReady)                        
-                var domElement = this._initSourceWebcam(onSourceReady, onError)                        
+                // var domElement = this._initSourceWebcamOld(onSourceReady)
+                var domElement = this._initSourceWebcam(onSourceReady, onError)
         }else{
                 console.assert(false)
         }
@@ -5856,17 +5908,24 @@ ARjs.Source.prototype.init = function(onReady, onError){
         this.domElement.style.position = 'absolute'
         this.domElement.style.top = '0px'
         this.domElement.style.left = '0px'
-        this.domElement.style.zIndex = '-2'
+		this.domElement.style.zIndex = '-2'
+		this.domElement.setAttribute('id', 'arjs-video');
 
 	return this
         function onSourceReady(){
-		document.body.appendChild(_this.domElement);
+        document.body.appendChild(_this.domElement);
+        window.addEventListener('arjs-video-loaded', function(ev) {console.log('ss',ev)})
+        window.dispatchEvent(new CustomEvent('arjs-video-loaded', {
+            detail: {
+                component: document.querySelector('#arjs-video'),
+            },
+        }));
 
 		_this.ready = true
 
 		onReady && onReady()
         }
-} 
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 //          init image source
@@ -5890,7 +5949,7 @@ ARjs.Source.prototype._initSourceImage = function(onReady) {
 		clearInterval(interval)
 	}, 1000/50);
 
-	return domElement                
+	return domElement
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -5921,7 +5980,7 @@ ARjs.Source.prototype._initSourceVideo = function(onReady) {
 	domElement.height = this.parameters.sourceHeight
 	domElement.style.width = this.parameters.displayWidth+'px'
 	domElement.style.height = this.parameters.displayHeight+'px'
-	
+
 	// wait until the video stream is ready
 	var interval = setInterval(function() {
 		if (!domElement.videoWidth)	return;
@@ -5939,8 +5998,10 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 	var _this = this
 
 	// init default value
-	onError = onError || function(error){	
+	onError = onError || function(error){
 		alert('Webcam Error\nName: '+error.name + '\nMessage: '+error.message)
+		var event = new CustomEvent('camera-error', {error: error});
+		window.dispatchEvent(event);
 	}
 
 	var domElement = document.createElement('video');
@@ -5951,8 +6012,8 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 	domElement.style.height = this.parameters.displayHeight+'px'
 
 	// check API is available
-	if (navigator.mediaDevices === undefined 
-			|| navigator.mediaDevices.enumerateDevices === undefined 
+	if (navigator.mediaDevices === undefined
+			|| navigator.mediaDevices.enumerateDevices === undefined
 			|| navigator.mediaDevices.getUserMedia === undefined  ){
 		if( navigator.mediaDevices === undefined )				var fctName = 'navigator.mediaDevices'
 		else if( navigator.mediaDevices.enumerateDevices === undefined )	var fctName = 'navigator.mediaDevices.enumerateDevices'
@@ -5993,11 +6054,14 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 		// get a device which satisfy the constraints
 		navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function success(stream) {
 			// set the .src of the domElement
-			domElement.srcObject = stream;
+            domElement.srcObject = stream;
+
+			var event = new CustomEvent('camera-init', {stream: stream});
+			window.dispatchEvent(event);
 			// to start the video, when it is possible to start it only on userevent. like in android
 			document.body.addEventListener('click', function(){
 				domElement.play();
-			})
+			});
 			// domElement.play();
 
 // TODO listen to loadedmetadata instead
@@ -6039,7 +6103,7 @@ ARjs.Source.prototype.hasMobileTorch = function(){
 	if( videoTrack.getCapabilities === undefined )	return false
 
 	var capabilities = videoTrack.getCapabilities()
-	
+
 	return capabilities.torch ? true : false
 }
 
@@ -6050,7 +6114,7 @@ ARjs.Source.prototype.hasMobileTorch = function(){
 ARjs.Source.prototype.toggleMobileTorch = function(){
 	// sanity check
 	console.assert(this.hasMobileTorch() === true)
-		
+
 	var stream = arToolkitSource.domElement.srcObject
 	if( stream instanceof MediaStream === false ){
 		alert('enabling mobile torch is available only on webcam')
@@ -6063,7 +6127,7 @@ ARjs.Source.prototype.toggleMobileTorch = function(){
 
 	var videoTrack = stream.getVideoTracks()[0];
 	var capabilities = videoTrack.getCapabilities()
-	
+
 	if( !capabilities.torch ){
 		alert('no mobile torch is available on your camera')
 		return
@@ -6108,7 +6172,7 @@ ARjs.Source.prototype.onResizeElement = function(){
 	}else{
 		console.assert(false)
 	}
-	
+
 	// compute sourceAspect
 	var sourceAspect = sourceWidth / sourceHeight
 	// compute screenAspect
@@ -6120,7 +6184,7 @@ ARjs.Source.prototype.onResizeElement = function(){
 		var newWidth = sourceAspect * screenHeight
 		this.domElement.style.width = newWidth+'px'
 		this.domElement.style.marginLeft = -(newWidth-screenWidth)/2+'px'
-		
+
 		// init style.height/.marginTop to normal value
 		this.domElement.style.height = screenHeight+'px'
 		this.domElement.style.marginTop = '0px'
@@ -6129,7 +6193,7 @@ ARjs.Source.prototype.onResizeElement = function(){
 		var newHeight = 1 / (sourceAspect / screenWidth)
 		this.domElement.style.height = newHeight+'px'
 		this.domElement.style.marginTop = -(newHeight-screenHeight)/2+'px'
-		
+
 		// init style.width/.marginLeft to normal value
 		this.domElement.style.width = screenWidth+'px'
 		this.domElement.style.marginLeft = '0px'
@@ -6138,7 +6202,7 @@ ARjs.Source.prototype.onResizeElement = function(){
 /*
 ARjs.Source.prototype.copyElementSizeTo = function(otherElement){
 	otherElement.style.width = this.domElement.style.width
-	otherElement.style.height = this.domElement.style.height	
+	otherElement.style.height = this.domElement.style.height
 	otherElement.style.marginLeft = this.domElement.style.marginLeft
 	otherElement.style.marginTop = this.domElement.style.marginTop
 }
@@ -6184,28 +6248,28 @@ ARjs.Source.prototype.onResize	= function(arToolkitContext, renderer, camera){
 	}
 
 	var trackingBackend = arToolkitContext.parameters.trackingBackend
-	
+
 
 	// RESIZE DOMELEMENT
 	if( trackingBackend === 'artoolkit' ){
 
 		this.onResizeElement()
-		
+
 		var isAframe = renderer.domElement.dataset.aframeCanvas ? true : false
 		if( isAframe === false ){
-			this.copyElementSizeTo(renderer.domElement)	
+			this.copyElementSizeTo(renderer.domElement)
 		}else{
-			
+
 		}
 
 		if( arToolkitContext.arController !== null ){
-			this.copyElementSizeTo(arToolkitContext.arController.canvas)	
+			this.copyElementSizeTo(arToolkitContext.arController.canvas)
 		}
 	}else if( trackingBackend === 'aruco' ){
 		this.onResizeElement()
-		this.copyElementSizeTo(renderer.domElement)	
+		this.copyElementSizeTo(renderer.domElement)
 
-		this.copyElementSizeTo(arToolkitContext.arucoContext.canvas)	
+		this.copyElementSizeTo(arToolkitContext.arucoContext.canvas)
 	}else if( trackingBackend === 'tango' ){
 		renderer.setSize( window.innerWidth, window.innerHeight )
 	}else console.assert(false, 'unhandled trackingBackend '+trackingBackend)
@@ -6214,16 +6278,16 @@ ARjs.Source.prototype.onResize	= function(arToolkitContext, renderer, camera){
 	// UPDATE CAMERA
 	if( trackingBackend === 'artoolkit' ){
 		if( arToolkitContext.arController !== null ){
-			camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );			
+			camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
 		}
-	}else if( trackingBackend === 'aruco' ){	
+	}else if( trackingBackend === 'aruco' ){
 		camera.aspect = renderer.domElement.width / renderer.domElement.height;
-		camera.updateProjectionMatrix();			
+		camera.updateProjectionMatrix();
 	}else if( trackingBackend === 'tango' ){
 		var vrDisplay = arToolkitContext._tangoContext.vrDisplay
 		// make camera fit vrDisplay
 		if( vrDisplay && vrDisplay.displayName === "Tango VR Device" ) THREE.WebAR.resizeVRSeeThroughCamera(vrDisplay, camera)
-	}else console.assert(false, 'unhandled trackingBackend '+trackingBackend)	
+	}else console.assert(false, 'unhandled trackingBackend '+trackingBackend)
 }
 var THREEx = THREEx || {}
 
@@ -6662,75 +6726,53 @@ var ARjs = ARjs || {}
 
 /**
  * Create an debug UI for an ARjs.Anchor
- * 
+ *
  * @param {ARjs.Anchor} arAnchor - the anchor to user
  */
-ARjs.SessionDebugUI = function(arSession, tangoPointCloud){
-	var trackingBackend = arSession.arContext.parameters.trackingBackend
+ARjs.SessionDebugUI = function (arSession, tangoPointCloud) {
+    var trackingBackend = arSession.arContext.parameters.trackingBackend
 
-	this.domElement = document.createElement('div')
-	this.domElement.style.color = 'rgba(0,0,0,0.9)'
-	this.domElement.style.backgroundColor = 'rgba(127,127,127,0.5)'
-	this.domElement.style.display = 'inline-block'
-	this.domElement.style.padding = '0.5em'
-	this.domElement.style.margin = '0.5em'
-	this.domElement.style.textAlign = 'left'
+    this.domElement = document.createElement('div')
+    this.domElement.style.color = 'rgba(0,0,0,0.9)'
+    this.domElement.style.backgroundColor = 'rgba(127,127,127,0.5)'
+    this.domElement.style.display = 'block'
+    this.domElement.style.padding = '0.5em'
+    this.domElement.style.position = 'fixed'
+    this.domElement.style.left = '5px'
+    this.domElement.style.bottom = '10px'
+    this.domElement.style.textAlign = 'right'
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		add title
-	//////////////////////////////////////////////////////////////////////////////
-	// var domElement = document.createElement('div')
-	// domElement.style.display = 'block'
-	// domElement.style.fontWeight = 'bold'
-	// domElement.style.fontSize = '120%'
-	// this.domElement.appendChild(domElement)
-	// domElement.innerHTML = 'AR.js Session Debug'
+    //////////////////////////////////////////////////////////////////////////////
+    //		current-tracking-backend
+    //////////////////////////////////////////////////////////////////////////////
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		current-tracking-backend
-	//////////////////////////////////////////////////////////////////////////////
+    var domElement = document.createElement('span')
+    domElement.style.display = 'block'
+    domElement.innerHTML = '<b>trackingBackend</b> : ' + trackingBackend
+    this.domElement.appendChild(domElement)
 
-	var domElement = document.createElement('span')
-	domElement.style.display = 'block'
-	this.domElement.appendChild(domElement)
-	domElement.innerHTML = '<b>trackingBackend</b> : ' +trackingBackend
-	
-	//////////////////////////////////////////////////////////////////////////////
-	//		augmented-websites
-	//////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+    //		toggle-point-cloud
+    //////////////////////////////////////////////////////////////////////////////
 
-	if( ARjs.SessionDebugUI.AugmentedWebsiteURL ){
-		var domElement = document.createElement('a')
-		domElement.innerHTML = 'Share on augmented-websites'
-		domElement.style.display = 'block'
-		// domElement.setAttribute('target', '_blank')
-		domElement.href = ARjs.SessionDebugUI.AugmentedWebsiteURL + '?'+location.href
-		this.domElement.appendChild(domElement)						
-	}
+    if (trackingBackend === 'tango' && tangoPointCloud) {
+        var domElement = document.createElement('button')
+        this.domElement.appendChild(domElement)
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		toggle-point-cloud
-	//////////////////////////////////////////////////////////////////////////////
+        domElement.id = 'buttonTangoTogglePointCloud'
+        domElement.innerHTML = 'toggle-point-cloud'
+        domElement.href = 'javascript:void(0)'
 
-	if( trackingBackend === 'tango' && tangoPointCloud ){
-		var domElement = document.createElement('button')
-		this.domElement.appendChild(domElement)
+        domElement.addEventListener('click', function () {
+            var scene = arSession.parameters.scene
 
-		domElement.id= 'buttonTangoTogglePointCloud'
-		domElement.innerHTML = 'toggle-point-cloud'
-		domElement.href='javascript:void(0)'
-
-		domElement.addEventListener('click', function(){
-			var scene = arSession.parameters.scene
-	// TODO how tangoPointCloud, get connected here ???
-	// in arguments simply ?
-			if( tangoPointCloud.object3d.parent ){
-				scene.remove(tangoPointCloud.object3d)
-			}else{
-				scene.add(tangoPointCloud.object3d)			
-			}
-		})
-	}
+            if (tangoPointCloud.object3d.parent) {
+                scene.remove(tangoPointCloud.object3d)
+            } else {
+                scene.add(tangoPointCloud.object3d)
+            }
+        })
+    }
 }
 
 /**
@@ -6743,108 +6785,103 @@ ARjs.SessionDebugUI.AugmentedWebsiteURL = 'https://webxr.io/augmented-website'
 //		ARjs.AnchorDebugUI
 //////////////////////////////////////////////////////////////////////////////
 
-
-
-
 /**
  * Create an debug UI for an ARjs.Anchor
- * 
+ *
  * @param {ARjs.Anchor} arAnchor - the anchor to user
  */
-ARjs.AnchorDebugUI = function(arAnchor){
-	var _this = this 
-	var arSession = arAnchor.arSession
-	var trackingBackend = arSession.arContext.parameters.trackingBackend
-	
-	this.domElement = document.createElement('div')
-	this.domElement.style.color = 'rgba(0,0,0,0.9)'
-	this.domElement.style.backgroundColor = 'rgba(127,127,127,0.5)'
-	this.domElement.style.display = 'inline-block'
-	this.domElement.style.padding = '0.5em'
-	this.domElement.style.margin = '0.5em'
-	this.domElement.style.textAlign = 'left'
+ARjs.AnchorDebugUI = function (arAnchor) {
+    var arSession = arAnchor.arSession
+    var trackingBackend = arSession.arContext.parameters.trackingBackend
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		add title
-	//////////////////////////////////////////////////////////////////////////////
+    this.domElement = document.createElement('div')
+    this.domElement.style.color = 'rgba(0,0,0,0.9)'
+    this.domElement.style.backgroundColor = 'rgba(127,127,127,0.5)'
+    this.domElement.style.display = 'inline-block'
+    this.domElement.style.padding = '0.5em'
+    this.domElement.style.margin = '0.5em'
+    this.domElement.style.textAlign = 'left'
 
-	// var domElement = document.createElement('div')
-	// domElement.style.display = 'block'
-	// domElement.style.fontWeight = 'bold'
-	// domElement.style.fontSize = '120%'
-	// this.domElement.appendChild(domElement)
-	// domElement.innerHTML = 'Anchor Marker Debug'
+    //////////////////////////////////////////////////////////////////////////////
+    //		current-tracking-backend
+    //////////////////////////////////////////////////////////////////////////////
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		current-tracking-backend
-	//////////////////////////////////////////////////////////////////////////////
+    var domElement = document.createElement('span')
+    domElement.style.display = 'block'
+    domElement.style.padding = '0.5em'
+    domElement.style.color = 'rgba(0,0,0,0.9)'
+    domElement.style.backgroundColor = 'rgba(127,127,127,0.5)'
+    domElement.style.position = 'fixed'
+    domElement.style.left = '5px'
+    domElement.style.bottom = '40px'
 
-	var domElement = document.createElement('span')
-	domElement.style.display = 'block'
-	this.domElement.appendChild(domElement)
-	domElement.innerHTML = '<b>markersAreaEnabled</b> :' +arAnchor.parameters.markersAreaEnabled
+    this.domElement.appendChild(domElement)
+    domElement.innerHTML = '<b>markersAreaEnabled</b> :' + arAnchor.parameters.markersAreaEnabled
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		toggle-marker-helper
-	//////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+    //		toggle-marker-helper
+    //////////////////////////////////////////////////////////////////////////////
 
-	if( arAnchor.parameters.markersAreaEnabled ){
-		var domElement = document.createElement('button')
-		domElement.style.display = 'block'
-		this.domElement.appendChild(domElement)
+    if (arAnchor.parameters.markersAreaEnabled) {
+        var domElement = document.createElement('button')
+        domElement.style.display = 'block'
+        this.domElement.style.padding = '0.5em'
+        this.domElement.style.position = 'fixed'
+        this.domElement.style.textAlign = 'left'
+        this.domElement.appendChild(domElement)
 
-		domElement.id= 'buttonToggleMarkerHelpers'
-		domElement.innerHTML = 'toggle-marker-helper'
-		domElement.href='javascript:void(0)'
+        domElement.id = 'buttonToggleMarkerHelpers'
+        domElement.innerHTML = 'toggle-marker-helper'
+        domElement.href = 'javascript:void(0)'
 
-		var subMarkerHelpersVisible = false
-		domElement.addEventListener('click', function(){
-			subMarkerHelpersVisible = subMarkerHelpersVisible ? false : true
-			arAnchor.markersArea.setSubMarkersVisibility(subMarkerHelpersVisible)		
-		})
-	}
-	
-	//////////////////////////////////////////////////////////////////////////////
-	//		Learn-new-marker-area
-	//////////////////////////////////////////////////////////////////////////////
+        var subMarkerHelpersVisible = false
+        domElement.addEventListener('click', function () {
+            subMarkerHelpersVisible = subMarkerHelpersVisible ? false : true
+            arAnchor.markersArea.setSubMarkersVisibility(subMarkerHelpersVisible)
+        })
+    }
 
-	if( arAnchor.parameters.markersAreaEnabled ){
-		var domElement = document.createElement('button')
-		domElement.style.display = 'block'
-		this.domElement.appendChild(domElement)
+    //////////////////////////////////////////////////////////////////////////////
+    //		Learn-new-marker-area
+    //////////////////////////////////////////////////////////////////////////////
 
-		domElement.id = 'buttonMarkersAreaLearner'
-		domElement.innerHTML = 'Learn-new-marker-area'
-		domElement.href ='javascript:void(0)'
+    if (arAnchor.parameters.markersAreaEnabled) {
+        var domElement = document.createElement('button')
+        domElement.style.display = 'block'
+        this.domElement.appendChild(domElement)
 
-		domElement.addEventListener('click', function(){
-			if( ARjs.AnchorDebugUI.MarkersAreaLearnerURL !== null ){
-				var learnerURL = ARjs.AnchorDebugUI.MarkersAreaLearnerURL
-			}else{
-				var learnerURL = ARjs.Context.baseURL + 'examples/multi-markers/examples/learner.html'
-			}
-			ARjs.MarkersAreaUtils.navigateToLearnerPage(learnerURL, trackingBackend)
-		})	
-	}
+        domElement.id = 'buttonMarkersAreaLearner'
+        domElement.innerHTML = 'Learn-new-marker-area'
+        domElement.href = 'javascript:void(0)'
 
-	//////////////////////////////////////////////////////////////////////////////
-	//		Reset-marker-area
-	//////////////////////////////////////////////////////////////////////////////
+        domElement.addEventListener('click', function () {
+            if (ARjs.AnchorDebugUI.MarkersAreaLearnerURL !== null) {
+                var learnerURL = ARjs.AnchorDebugUI.MarkersAreaLearnerURL
+            } else {
+                var learnerURL = ARjs.Context.baseURL + 'examples/multi-markers/examples/learner.html'
+            }
+            ARjs.MarkersAreaUtils.navigateToLearnerPage(learnerURL, trackingBackend)
+        })
+    }
 
-	if( arAnchor.parameters.markersAreaEnabled ){
-		var domElement = document.createElement('button')
-		domElement.style.display = 'block'
-		this.domElement.appendChild(domElement)
+    //////////////////////////////////////////////////////////////////////////////
+    //		Reset-marker-area
+    //////////////////////////////////////////////////////////////////////////////
 
-		domElement.id = 'buttonMarkersAreaReset'
-		domElement.innerHTML = 'Reset-marker-area'
-		domElement.href ='javascript:void(0)'
+    if (arAnchor.parameters.markersAreaEnabled) {
+        var domElement = document.createElement('button')
+        domElement.style.display = 'block'
+        this.domElement.appendChild(domElement)
 
-		domElement.addEventListener('click', function(){
-			ARjs.MarkersAreaUtils.storeDefaultMultiMarkerFile(trackingBackend)
-			location.reload()
-		})
-	}
+        domElement.id = 'buttonMarkersAreaReset'
+        domElement.innerHTML = 'Reset-marker-area'
+        domElement.href = 'javascript:void(0)'
+
+        domElement.addEventListener('click', function () {
+            ARjs.MarkersAreaUtils.storeDefaultMultiMarkerFile(trackingBackend)
+            location.reload()
+        })
+    }
 }
 
 /**
@@ -8211,175 +8248,196 @@ ARjs.MarkersAreaUtils.buildMarkersAreaFileFromResolution = function(trackingBack
 //		arjs-anchor
 //////////////////////////////////////////////////////////////////////////////
 AFRAME.registerComponent('arjs-anchor', {
-	dependencies: ['arjs', 'artoolkit'],
-	schema: {
-		preset: {
-			type: 'string',
-		},
-		markerhelpers : {	// IIF preset === 'area'
-			type: 'boolean',
-			default: false,
-		},
+    dependencies: ['arjs', 'artoolkit'],
+    schema: {
+        preset: {
+            type: 'string',
+        },
+        markerhelpers: {	// IIF preset === 'area'
+            type: 'boolean',
+            default: false,
+        },
 
-		// controls parameters
-		size: {
-			type: 'number',
-			default: 1
-		},
-		type: {
-			type: 'string',
-		},
-		patternUrl: {
-			type: 'string',
-		},
-		barcodeValue: {
-			type: 'number'
-		},
-		changeMatrixMode: {
-			type: 'string',
-			default : 'modelViewMatrix',
-		},
-		minConfidence: {
-			type: 'number',
-			default: 0.6,
-		},
-	},
-	init: function () {
-		var _this = this
+        // controls parameters
+        size: {
+            type: 'number',
+            default: 1
+        },
+        type: {
+            type: 'string',
+        },
+        patternUrl: {
+            type: 'string',
+        },
+        barcodeValue: {
+            type: 'number'
+        },
+        changeMatrixMode: {
+            type: 'string',
+            default: 'modelViewMatrix',
+        },
+        minConfidence: {
+            type: 'number',
+            default: 0.6,
+        },
+        smooth: {
+            type: 'boolean',
+            default: false,
+        },
+        smoothCount: {
+            type: 'number',
+            default: 5,
+        },
+        smoothTolerance: {
+            type: 'number',
+            default: 0.01,
+        },
+        smoothThreshold: {
+            type: 'number',
+            default: 2,
+        },
+    },
+    init: function () {
+        var _this = this
 
-		// get arjsSystem
-		var arjsSystem = this.el.sceneEl.systems.arjs || this.el.sceneEl.systems.artoolkit
+        // get arjsSystem
+        var arjsSystem = this.el.sceneEl.systems.arjs || this.el.sceneEl.systems.artoolkit
 
-		//////////////////////////////////////////////////////////////////////////////
-		//		Code Separator
-		//////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////
+        //		Code Separator
+        //////////////////////////////////////////////////////////////////////////////
 
-		_this.isReady = false
-		_this._arAnchor = null
+        _this.isReady = false
+        _this._arAnchor = null
 
-		// honor object visibility
-		if( _this.data.changeMatrixMode === 'modelViewMatrix' ){
-			_this.el.object3D.visible = false
-		}else if( _this.data.changeMatrixMode === 'cameraTransformMatrix' ){
- 			_this.el.sceneEl.object3D.visible = false
-		}else console.assert(false)
+        // honor object visibility
+        if (_this.data.changeMatrixMode === 'modelViewMatrix') {
+            _this.el.object3D.visible = false
+        } else if (_this.data.changeMatrixMode === 'cameraTransformMatrix') {
+            _this.el.sceneEl.object3D.visible = false
+        } else console.assert(false)
 
-		// trick to wait until arjsSystem is isReady
-		var startedAt = Date.now()
-		var timerId = setInterval(function(){
-			// wait until the system is isReady
-			if( arjsSystem.isReady === false )	return
+        // trick to wait until arjsSystem is isReady
+        var startedAt = Date.now()
+        var timerId = setInterval(function () {
+            // wait until the system is isReady
+            if (arjsSystem.isReady === false) return
 
-			clearInterval(timerId)
+            clearInterval(timerId)
 
-			//////////////////////////////////////////////////////////////////////////////
-			//		update arProfile
-			//////////////////////////////////////////////////////////////////////////////
-			var arProfile = arjsSystem._arProfile
+            //////////////////////////////////////////////////////////////////////////////
+            //		update arProfile
+            //////////////////////////////////////////////////////////////////////////////
+            var arProfile = arjsSystem._arProfile
 
-			// arProfile.changeMatrixMode('modelViewMatrix')
-			arProfile.changeMatrixMode(_this.data.changeMatrixMode)
+            // arProfile.changeMatrixMode('modelViewMatrix')
+            arProfile.changeMatrixMode(_this.data.changeMatrixMode)
 
-			// honor this.data.preset
-			var markerParameters = Object.assign({}, arProfile.defaultMarkerParameters)
+            // honor this.data.preset
+            var markerParameters = Object.assign({}, arProfile.defaultMarkerParameters)
 
-			if( _this.data.preset === 'hiro' ){
-				markerParameters.type = 'pattern'
-				markerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-hiro.patt'
-				markerParameters.markersAreaEnabled = false
-			}else if( _this.data.preset === 'kanji' ){
-				markerParameters.type = 'pattern'
-				markerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-kanji.patt'
-				markerParameters.markersAreaEnabled = false
-			}else if( _this.data.preset === 'area' ){
-				markerParameters.type = 'barcode'
-				markerParameters.barcodeValue = 1001
-				markerParameters.markersAreaEnabled = true
-			}else if( _this.data.type === 'barcode' ){
-				markerParameters = {
-					type:               _this.data.type,
-					changeMatrixMode:   'modelViewMatrix',
-					barcodeValue:       _this.data.barcodeValue,
-					markersAreaEnabled: false
-				}
-			}else if( _this.data.type === 'pattern' ){
-				markerParameters.type = _this.data.type
-				markerParameters.patternUrl = _this.data.patternUrl;
-				markerParameters.markersAreaEnabled = false
-			}else {
-				// console.assert( this.data.preset === '', 'illegal preset value '+this.data.preset)
-			}
+            if (_this.data.preset === 'hiro') {
+                markerParameters.type = 'pattern'
+                markerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + 'examples/marker-training/examples/pattern-files/pattern-hiro.patt'
+                markerParameters.markersAreaEnabled = false
+            } else if (_this.data.preset === 'kanji') {
+                markerParameters.type = 'pattern'
+                markerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + 'examples/marker-training/examples/pattern-files/pattern-kanji.patt'
+                markerParameters.markersAreaEnabled = false
+            } else if (_this.data.preset === 'area') {
+                markerParameters.type = 'barcode'
+                markerParameters.barcodeValue = 1001
+                markerParameters.markersAreaEnabled = true
+            } else if (_this.data.type === 'barcode') {
+                markerParameters = {
+                    type: _this.data.type,
+                    changeMatrixMode: 'modelViewMatrix',
+                    barcodeValue: _this.data.barcodeValue,
+                    markersAreaEnabled: false
+                }
+            } else if (_this.data.type === 'pattern') {
+                markerParameters.type = _this.data.type
+                markerParameters.patternUrl = _this.data.patternUrl;
+                markerParameters.markersAreaEnabled = false
+            } else {
+                // console.assert( this.data.preset === '', 'illegal preset value '+this.data.preset)
+            }
 
-			//////////////////////////////////////////////////////////////////////////////
-			//		create arAnchor
-			//////////////////////////////////////////////////////////////////////////////
+            markerParameters.smooth = _this.data.smooth;
+            markerParameters.smoothCount = _this.data.smoothCount;
+            markerParameters.smoothTolerance = _this.data.smoothTolerance;
+            markerParameters.smoothThreshold = _this.data.smoothThreshold;
 
-			var arSession = arjsSystem._arSession
-			var arAnchor  = _this._arAnchor = new ARjs.Anchor(arSession, markerParameters)
+            //////////////////////////////////////////////////////////////////////////////
+            //		create arAnchor
+            //////////////////////////////////////////////////////////////////////////////
 
-			// it is now considered isReady
-			_this.isReady = true
+            var arSession = arjsSystem._arSession
+            var arAnchor = _this._arAnchor = new ARjs.Anchor(arSession, markerParameters)
 
-			//////////////////////////////////////////////////////////////////////////////
-			//		honor .debugUIEnabled
-			//////////////////////////////////////////////////////////////////////////////
-			if( arjsSystem.data.debugUIEnabled ){
-				// get or create containerElement
-				var containerElement = document.querySelector('#arjsDebugUIContainer')
-				if( containerElement === null ){
-					containerElement = document.createElement('div')
-					containerElement.id = 'arjsDebugUIContainer'
-					containerElement.setAttribute('style', 'position: fixed; bottom: 10px; width:100%; text-align: center; z-index: 1; color: grey;')
-					document.body.appendChild(containerElement)
-				}
-				// create anchorDebugUI
-				var anchorDebugUI = new ARjs.AnchorDebugUI(arAnchor)
-				containerElement.appendChild(anchorDebugUI.domElement)
-			}
-		}, 1000/60)
-	},
-	remove : function(){
-	},
-	update: function () {
-	},
-	tick: function(){
-		var _this = this
-		// if not yet isReady, do nothing
-		if( this.isReady === false )	return
+            // it is now considered isReady
+            _this.isReady = true
 
-		//////////////////////////////////////////////////////////////////////////////
-		//		update arAnchor
-		//////////////////////////////////////////////////////////////////////////////
-		var arjsSystem = this.el.sceneEl.systems.arjs || this.el.sceneEl.systems.artoolkit
-		this._arAnchor.update()
+            //////////////////////////////////////////////////////////////////////////////
+            //		honor .debugUIEnabled
+            //////////////////////////////////////////////////////////////////////////////
+            if (arjsSystem.data.debugUIEnabled) {
+                // get or create containerElement
+                var containerElement = document.querySelector('#arjsDebugUIContainer')
+                if (containerElement === null) {
+                    containerElement = document.createElement('div')
+                    containerElement.id = 'arjsDebugUIContainer'
+                    containerElement.setAttribute('style', 'position: fixed; bottom: 10px; width:100%; text-align: center; z-index: 1; color: grey;')
+                    document.body.appendChild(containerElement)
+                }
+                // create anchorDebugUI
+                var anchorDebugUI = new ARjs.AnchorDebugUI(arAnchor)
+                containerElement.appendChild(anchorDebugUI.domElement)
+            }
+        }, 1000 / 60)
+    },
+    remove: function () {
+    },
+    update: function () {
+    },
+    tick: function () {
+        var _this = this
+        // if not yet isReady, do nothing
+        if (this.isReady === false) return
 
-		//////////////////////////////////////////////////////////////////////////////
-		//		honor pose
-		//////////////////////////////////////////////////////////////////////////////
-		var arWorldRoot = this._arAnchor.object3d
-		arWorldRoot.updateMatrixWorld(true)
-		arWorldRoot.matrixWorld.decompose(this.el.object3D.position, this.el.object3D.quaternion, this.el.object3D.scale)
+        //////////////////////////////////////////////////////////////////////////////
+        //		update arAnchor
+        //////////////////////////////////////////////////////////////////////////////
+        var arjsSystem = this.el.sceneEl.systems.arjs || this.el.sceneEl.systems.artoolkit
+        this._arAnchor.update()
 
-		//////////////////////////////////////////////////////////////////////////////
-		//		honor visibility
-		//////////////////////////////////////////////////////////////////////////////
-		if( _this._arAnchor.parameters.changeMatrixMode === 'modelViewMatrix' ){
-			var wasVisible = _this.el.object3D.visible
-			_this.el.object3D.visible = this._arAnchor.object3d.visible
-		}else if( _this._arAnchor.parameters.changeMatrixMode === 'cameraTransformMatrix' ){
-			var wasVisible = _this.el.sceneEl.object3D.visible
-			_this.el.sceneEl.object3D.visible = this._arAnchor.object3d.visible
-		}else console.assert(false)
+        //////////////////////////////////////////////////////////////////////////////
+        //		honor pose
+        //////////////////////////////////////////////////////////////////////////////
+        var arWorldRoot = this._arAnchor.object3d
+        arWorldRoot.updateMatrixWorld(true)
+        arWorldRoot.matrixWorld.decompose(this.el.object3D.position, this.el.object3D.quaternion, this.el.object3D.scale)
 
-		// emit markerFound markerLost
-		if( _this._arAnchor.object3d.visible === true && wasVisible === false ){
-			_this.el.emit('markerFound')
-		}else if( _this._arAnchor.object3d.visible === false && wasVisible === true ){
-			_this.el.emit('markerLost')
-		}
+        //////////////////////////////////////////////////////////////////////////////
+        //		honor visibility
+        //////////////////////////////////////////////////////////////////////////////
+        if (_this._arAnchor.parameters.changeMatrixMode === 'modelViewMatrix') {
+            var wasVisible = _this.el.object3D.visible
+            _this.el.object3D.visible = this._arAnchor.object3d.visible
+        } else if (_this._arAnchor.parameters.changeMatrixMode === 'cameraTransformMatrix') {
+            var wasVisible = _this.el.sceneEl.object3D.visible
+            _this.el.sceneEl.object3D.visible = this._arAnchor.object3d.visible
+        } else console.assert(false)
+
+        // emit markerFound markerLost
+        if (_this._arAnchor.object3d.visible === true && wasVisible === false) {
+            _this.el.emit('markerFound')
+        } else if (_this._arAnchor.object3d.visible === false && wasVisible === true) {
+            _this.el.emit('markerLost')
+        }
 
 
-	}
+    }
 })
 
 //////////////////////////////////////////////////////////////////////////////
@@ -8387,32 +8445,36 @@ AFRAME.registerComponent('arjs-anchor', {
 //////////////////////////////////////////////////////////////////////////////
 
 AFRAME.registerPrimitive('a-anchor', AFRAME.utils.extendDeep({}, AFRAME.primitives.getMeshMixin(), {
-	defaultComponents: {
-		'arjs-anchor': {},
-		'arjs-hit-testing': {},
-	},
-	mappings: {
-		'type': 'arjs-anchor.type',
-		'size': 'arjs-anchor.size',
-		'url': 'arjs-anchor.patternUrl',
-		'value': 'arjs-anchor.barcodeValue',
-		'preset': 'arjs-anchor.preset',
-		'minConfidence': 'arjs-anchor.minConfidence',
-		'markerhelpers': 'arjs-anchor.markerhelpers',
+    defaultComponents: {
+        'arjs-anchor': {},
+        'arjs-hit-testing': {},
+    },
+    mappings: {
+        'type': 'arjs-anchor.type',
+        'size': 'arjs-anchor.size',
+        'url': 'arjs-anchor.patternUrl',
+        'value': 'arjs-anchor.barcodeValue',
+        'preset': 'arjs-anchor.preset',
+        'min-confidence': 'arjs-anchor.minConfidence',
+        'marker-helpers': 'arjs-anchor.markerhelpers',
+        'smooth': 'arjs-anchor.smooth',
+        'smooth-count': 'arjs-anchor.smoothCount',
+        'smooth-tolerance': 'arjs-anchor.smoothTolerance',
+        'smooth-threshold': 'arjs-anchor.smoothThreshold',
 
-		'hit-testing-renderDebug': 'arjs-hit-testing.renderDebug',
-		'hit-testing-enabled': 'arjs-hit-testing.enabled',
-	}
+        'hit-testing-render-debug': 'arjs-hit-testing.renderDebug',
+        'hit-testing-enabled': 'arjs-hit-testing.enabled',
+    }
 }))
 
 
 
 AFRAME.registerPrimitive('a-camera-static', AFRAME.utils.extendDeep({}, AFRAME.primitives.getMeshMixin(), {
-	defaultComponents: {
-		'camera': {},
-	},
-	mappings: {
-	}
+    defaultComponents: {
+        'camera': {},
+    },
+    mappings: {
+    }
 }))
 
 //////////////////////////////////////////////////////////////////////////////
@@ -8420,40 +8482,44 @@ AFRAME.registerPrimitive('a-camera-static', AFRAME.utils.extendDeep({}, AFRAME.p
 //////////////////////////////////////////////////////////////////////////////
 // FIXME
 AFRAME.registerPrimitive('a-marker', AFRAME.utils.extendDeep({}, AFRAME.primitives.getMeshMixin(), {
-	defaultComponents: {
-		'arjs-anchor': {},
-		'arjs-hit-testing': {},
-	},
-	mappings: {
-		'type': 'arjs-anchor.type',
-		'size': 'arjs-anchor.size',
-		'url': 'arjs-anchor.patternUrl',
-		'value': 'arjs-anchor.barcodeValue',
-		'preset': 'arjs-anchor.preset',
-		'minConfidence': 'arjs-anchor.minConfidence',
-		'markerhelpers': 'arjs-anchor.markerhelpers',
+    defaultComponents: {
+        'arjs-anchor': {},
+        'arjs-hit-testing': {},
+    },
+    mappings: {
+        'type': 'arjs-anchor.type',
+        'size': 'arjs-anchor.size',
+        'url': 'arjs-anchor.patternUrl',
+        'value': 'arjs-anchor.barcodeValue',
+        'preset': 'arjs-anchor.preset',
+        'min-confidence': 'arjs-anchor.minConfidence',
+        'marker-helpers': 'arjs-anchor.markerhelpers',
+        'smooth': 'arjs-anchor.smooth',
+        'smooth-count': 'arjs-anchor.smoothCount',
+        'smooth-tolerance': 'arjs-anchor.smoothTolerance',
+        'smooth-threshold': 'arjs-anchor.smoothThreshold',
 
-		'hit-testing-renderDebug': 'arjs-hit-testing.renderDebug',
-		'hit-testing-enabled': 'arjs-hit-testing.enabled',
-	}
+        'hit-testing-render-debug': 'arjs-hit-testing.renderDebug',
+        'hit-testing-enabled': 'arjs-hit-testing.enabled',
+    }
 }))
 
 AFRAME.registerPrimitive('a-marker-camera', AFRAME.utils.extendDeep({}, AFRAME.primitives.getMeshMixin(), {
-	defaultComponents: {
-		'arjs-anchor': {
-			changeMatrixMode: 'cameraTransformMatrix'
-		},
-		'camera': {},
-	},
-	mappings: {
-		'type': 'arjs-anchor.type',
-		'size': 'arjs-anchor.size',
-		'url': 'arjs-anchor.patternUrl',
-		'value': 'arjs-anchor.barcodeValue',
-		'preset': 'arjs-anchor.preset',
-		'minConfidence': 'arjs-anchor.minConfidence',
-		'markerhelpers': 'arjs-anchor.markerhelpers',
-	}
+    defaultComponents: {
+        'arjs-anchor': {
+            changeMatrixMode: 'cameraTransformMatrix'
+        },
+        'camera': {},
+    },
+    mappings: {
+        'type': 'arjs-anchor.type',
+        'size': 'arjs-anchor.size',
+        'url': 'arjs-anchor.patternUrl',
+        'value': 'arjs-anchor.barcodeValue',
+        'preset': 'arjs-anchor.preset',
+        'min-confidence': 'arjs-anchor.minConfidence',
+        'marker-helpers': 'arjs-anchor.markerhelpers',
+    }
 }))
 //////////////////////////////////////////////////////////////////////////////
 //		arjs-hit-testing
