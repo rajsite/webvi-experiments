@@ -317,7 +317,7 @@
             const propertyValue = propertyValueParsed;
             return propertyValue;
         }
-        throw new Error('Unexpected property value type ${type}');
+        throw new Error(`Unexpected property value type ${type}`);
     };
 
     // propertyValueConfigsJSON: [{type, propertyValueJSON}]
