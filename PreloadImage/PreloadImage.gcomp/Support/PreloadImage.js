@@ -21,15 +21,9 @@
         return await Promise.all(promisesReturningSettledResults);
     };
 
-    const abortPromises = async function (abortController, promises) {
-        const allSettledPromise = allSettled(promises);
-        abortController.abort();
-        await allSettledPromise;
-    };
-
     // NOTE shared image resource only allowed because Preleoad Image Url is non-reentrant
     const image = new Image();
-    const loadImage = function (imageUrl, {signal}) {
+    const loadImage = function (imageUrl, {signal} = {}) {
         return new Promise(function (resolve, reject) {
             if (signal !== undefined && signal.aborted) {
                 reject(new Error('image load aborted'));
@@ -59,18 +53,18 @@
         });
     };
 
-    const wait = function (timeoutInitial, {signal}) {
+    const sleep = function (timeoutMilliseconds, {signal} = {}) {
         return new Promise(function (resolve, reject) {
             // All browsers use Int32 max to represent timeout, ie Math.pow(2,31)-1, about 24.8 days
             const MAX_SAFE_TIMEOUT_MS = 2147483647;
             if (signal !== undefined && signal.aborted) {
-                throw new Error('wait aborted');
+                throw new Error('aborted');
             }
-            if (typeof timeoutInitial !== 'number') {
-                throw new Error('Expected timeout to be a number');
+            if (typeof timeoutMilliseconds !== 'number') {
+                throw new Error('Expected sleep timeout to be a number in milliseconds');
             }
 
-            const timeout = (Number.isNaN(timeoutInitial) || timeoutInitial < 0 || timeoutInitial > MAX_SAFE_TIMEOUT_MS) ? MAX_SAFE_TIMEOUT_MS : timeoutInitial;
+            const timeout = (Number.isNaN(timeoutMilliseconds) || timeoutMilliseconds < 0 || timeoutMilliseconds > MAX_SAFE_TIMEOUT_MS) ? MAX_SAFE_TIMEOUT_MS : timeoutMilliseconds;
             let cleanup;
             let timeoutReference;
             const timeoutHandler = function () {
@@ -78,7 +72,7 @@
                 cleanup();
             };
             const abortHandler = function () {
-                reject(new Error('wait aborted'));
+                reject(new Error('aborted'));
                 cleanup();
             };
             cleanup = function () {
@@ -87,27 +81,31 @@
                     signal.removeEventListener('abort', abortHandler);
                 }
             };
-
-            timeoutReference = setTimeout(timeoutHandler, timeout);
             if (signal !== undefined) {
                 signal.addEventListener('abort', abortHandler);
             }
+            timeoutReference = setTimeout(timeoutHandler, timeout);
         });
+    };
+
+    const timeout = async function (...args) {
+        await sleep(...args);
+        throw new Error('timeout');
     };
 
     const preloadImage = async function (imageUrl, timeoutInSeconds) {
         const MILLISECONDS_PER_SECOND = 1000;
-        const timeout = timeoutInSeconds * MILLISECONDS_PER_SECOND;
+        const timeoutMilliseconds = timeoutInSeconds * MILLISECONDS_PER_SECOND;
         const abortController = new AbortController();
         const loadImagePromise = loadImage(imageUrl, {signal: abortController.signal});
-        const waitPromise = wait(timeout, {signal: abortController.signal}).then(() => {
-            throw new Error('image preload timeout');
-        });
-        const promises = [loadImagePromise, waitPromise];
+        const timeoutPromise = timeout(timeoutMilliseconds, {signal: abortController.signal});
+        const promises = [loadImagePromise, timeoutPromise];
         try {
             await Promise.race(promises);
         } finally {
-            abortPromises(abortController, promises);
+            const allSettledPromise = allSettled(promises);
+            abortController.abort();
+            await allSettledPromise;
         }
     };
 
