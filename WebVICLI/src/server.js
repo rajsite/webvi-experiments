@@ -21,10 +21,10 @@
     const cwd = process.cwd();
     console.log(`Current Working Directory: ${cwd}`);
 
-    const serverRoot = path.resolve(cwd, 'tests/HelloWorld/Builds/Server_Web Server').toString();
+    const serverRoot = path.resolve(cwd, 'Builds/Server_HelloWorld').toString();
     console.log(`Web Application Server Root: ${serverRoot}`);
 
-    const clientRoot = path.resolve(cwd, 'tests/HelloWorld/Builds/Client_Web Server').toString();
+    const clientRoot = path.resolve(cwd, 'Builds/Client_HelloWorld').toString();
 
     const vireoHelpers = require(path.resolve(serverRoot, 'ni-webvi-resource-v0/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.min.js'));
 
