@@ -53,7 +53,7 @@
                 try {
                     // enqueue needs to be called before writing to memory? seems to reset values if after..
                     const vireo = vireoInstance.getVireo();
-                    vireoInstance.enqueue();
+                    vireoInstance.enqueueVI();
                     vireo.eggShell.writeDouble(serverValueRef, server);
                     await vireo.eggShell.executeSlicesUntilClumpsFinished();
                 } catch (ex) {

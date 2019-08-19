@@ -3,6 +3,8 @@
 (async function () {
     'use strict';
 
+    const {performance} = require('perf_hooks');
+    const webviCLIStart = performance.now();
     const path = require('path');
     const process = require('process');
     const glob = require('glob');
@@ -69,6 +71,9 @@
     vireoInstance.enqueueVI();
     await vireo.eggShell.executeSlicesUntilClumpsFinished();
     console.log('Finished running WebVICLI Main VI.');
+    const webviCLIEnd = performance.now();
+    const SECONDS_PER_MILLISECOND = 1000;
+    console.log(`WebVICLI took ${(webviCLIEnd - webviCLIStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
 }()).catch(function (ex) {
     'use strict';
     console.error(ex);
