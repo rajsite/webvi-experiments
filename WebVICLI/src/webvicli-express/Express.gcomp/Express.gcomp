@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="866C5B03CD94E1E0D365DA674F56DAD212C9EA57FF6FF0A23DD3CDA58B070A0EBA66FA7A33F486CB5FCD1994521725A1E76764F182AC96C8D9C5A7981277C392" Timestamp="1D55609AF3D8542" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="2D2D06878C1DD4D21BCF7C8FC62A71265E69FF19E964E6EA276E6E99381D187D9FBD140C97F3B8575D5AE0849B8DD49337119EC282CC2194DBF531140ECA6D6F" Timestamp="1D556D75EF0E687" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -16,9 +16,10 @@
 		<CompilerSymbolTable Id="578f18d1960348cabd25cb519948c760" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="d1210352a9f04e98b96d4b20d25c72ff" Name="Configuration1">
 			<CompilerSymbolTable Id="41d4d109ae304c97b93bd661853f583a" xmlns="http://www.ni.com/PlatformFramework" />
-			<ComponentItemProperties AssociatedEnvoyId="cda53e472d14ff8a156a2e0d5953fb7" Exported="True" Id="feef112ca32f405795ff745a6b295ccb" />
 			<ComponentItemProperties AssociatedEnvoyId="3c3883f74aca407785f1317a78702a11" Exported="True" Id="40fbdb6c99b54929ad8f4e0486b4ef01" />
 			<ComponentItemProperties AssociatedEnvoyId="66bd56dd9b224e12b5e1f2d40095d3fe" Exported="True" Id="782ddae7b8dd4ba8b813a42023aa19fb" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="f8ee6428c97940e08a3592976d902299" Id="f176e691510b4ea8babe886783e206de" />
+			<ComponentItemProperties AssociatedEnvoyId="86e26789e8184d31a350b4c1f2c1477e" Exported="True" Id="9b77a29c108e466d82526c891a32085d" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="690c35aba8064826aa6621ceff1f5cb5" xmlns="http://www.ni.com/PlatformFramework">
@@ -28,10 +29,15 @@
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="6de5c110d9514bb2afc1db74c1ae31c0" Name="Express">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="578826b9309944a48ec229d845d46e17" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="a05033dd72394b288ac5464672bec62a" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Express.jsli" StoragePath="Support\Express.jsli" />
+					<EmbeddedDefinitionReference Id="f8ee6428c97940e08a3592976d902299" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Express.js">
+						<ExternalFile>
+							<p.StoragePath>"Support\\Express.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
 				</NameScopingEnvoy>
-				<SourceFileReference Id="cda53e472d14ff8a156a2e0d5953fb7" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Server Console Log.gviweb" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" StoragePath="Server Console Log.gviweb" />
 				<SourceFileReference Id="3c3883f74aca407785f1317a78702a11" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Write Server JSON Response.gviweb" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" StoragePath="Write Server JSON Response.gviweb" />
 				<SourceFileReference Bindings="EnvoyManager" Id="66bd56dd9b224e12b5e1f2d40095d3fe" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="server.gtype" StoragePath="server.gtype\server.gtype" />
+				<SourceFileReference Id="86e26789e8184d31a350b4c1f2c1477e" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Run Express Application.gvi" StoragePath="Run Express Application.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="4822ed3289534ece9f3190efd9b4f956" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="Express.gcomp" NameTracksFileName="True">
