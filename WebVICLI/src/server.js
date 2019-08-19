@@ -163,6 +163,7 @@
                 await vireo.eggShell.executeSlicesUntilClumpsFinished();
             } catch (ex) {
                 console.error(ex);
+                // TODO discard crashed vireo instance
             } finally {
                 referenceManager.closeReference(server);
                 await pool.release(vireoConfigPromise);
