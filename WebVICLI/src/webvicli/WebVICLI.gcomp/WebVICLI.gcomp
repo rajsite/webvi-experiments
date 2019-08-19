@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="8F88747C445D665D7A41072CE741F7C79E3C85FF0759BD40BAE60B25AB3477848685F05DC63E8F82F411133EFA2926730FDE9E5BD0E2B1244240AE5D558F6125" Timestamp="1D556383B33AA79" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="195EE8E2F7C4358638CEA15085A02C3B0A4C2BD1B0EDBBA2B031D7205600EB74E6C398B3E3407E7F282828820CF2B49085AF23803128E0E45E4FA6A16D57EF3A" Timestamp="1D55660848DB0D4" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -15,8 +15,9 @@
 		<CompilerSymbolTable Id="884335468d364a72b0bae4d797acc8e2" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="bc6de4215ffa4e30b2bf8847ac054469" Name="Configuration1">
 			<CompilerSymbolTable Id="d12c2fe8a90c47b2bd16a94bc57eb8d7" xmlns="http://www.ni.com/PlatformFramework" />
-			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="3b4f7a5c636747c9af2eab6d1c93cfcb" Id="4d88bcf8e8264b23811c47aded2eaeb6" />
 			<ComponentItemProperties AssociatedEnvoyId="3c653f7b58784e7da383a04d0613f992" Exported="True" Id="b81c6709b9434032b907f0ee0d8209e9" />
+			<ComponentItemProperties AssociatedEnvoyId="3b37745c442c4b0d8ca43e31f3407671" Exported="True" Id="3478b91a4cc64bc3a88d4bd9b99a41cc" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="3b697f32db0497d922833a92234a1d4" Id="d8be5bab81904294b2110e7a958567ad" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="d6488af5dd21434195f1f9f057eeef20" xmlns="http://www.ni.com/PlatformFramework">
@@ -24,18 +25,18 @@
 		<EmbeddedDefinitionReference Id="6724670e4db44118a4be326f3084835c" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
 			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="4615b9c3fc714ad783235a28a32986ab" Name="node_modules">
-				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="f629f4c5854444aba4ee72bf14f237b7" Name="webvicli-paths">
-					<EmbeddedDefinitionReference Id="3b4f7a5c636747c9af2eab6d1c93cfcb" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="index.js">
+				<SourceFileReference Id="3c653f7b58784e7da383a04d0613f992" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Get Application Component Path.gvi" StoragePath="Get Application Component Path.gvi" />
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="6720d4aa71f34e8cb147dd8e946e5d6f" Name="Support">
+					<SourceFileReference Bindings="EnvoyManager" Id="3b37745c442c4b0d8ca43e31f3407671" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="WebVICLI.jsli" StoragePath="Support\WebVICLI.jsli" />
+					<EmbeddedDefinitionReference Id="3b697f32db0497d922833a92234a1d4" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="WebVICLI.js">
 						<ExternalFile>
-							<p.StoragePath>"webvicli-paths\\index.js"</p.StoragePath>
+							<p.StoragePath>"Support\\WebVICLI.js"</p.StoragePath>
 						</ExternalFile>
 					</EmbeddedDefinitionReference>
 				</NameScopingEnvoy>
-				<SourceFileReference Bindings="EnvoyManager" Id="7c3c8e045f234c9698b832edcb0cbb2a" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="WebVICLIAPI.jsli" StoragePath="WebVICLIAPI.jsli" />
-				<SourceFileReference Id="3c653f7b58784e7da383a04d0613f992" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Include WebVI CLI JS API.gvi" StoragePath="Include WebVI CLI JS API.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
-		<NameScopingEnvoy Id="63d34664336a4f3d99fd60bb20017cc6" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="node_modules.gcomp" NameTracksFileName="True">
+		<NameScopingEnvoy Id="63d34664336a4f3d99fd60bb20017cc6" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="WebVICLI.gcomp" NameTracksFileName="True">
 			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />
 			<ContentReference ContentIdentifier="bc6de4215ffa4e30b2bf8847ac054469" Id="337be3bfccfa4ec98858a34107a7978e" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
 		</NameScopingEnvoy>
