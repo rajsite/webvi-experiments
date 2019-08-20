@@ -16,8 +16,10 @@
 
     // Setup shared webvicli singleton config
     const webvicli = require('webvicli');
-    const componentPath = path.resolve(cwd, 'Builds/Server_HelloWorld').toString();
-    const clientPath = path.resolve(cwd, 'Builds/Client_HelloWorld').toString();
+    const serverName = process.argv[2] || 'Server_HelloWorld';
+    const clientName = process.argv[3] || 'Client_HelloWorld';
+    const componentPath = path.resolve(cwd, `Builds/${serverName}`).toString();
+    const clientPath = path.resolve(cwd, `Builds/${clientName}`).toString();
     webvicli.setComponentPath(componentPath);
     webvicli.setClientPath(clientPath);
     console.log(`Web Application Component Path: ${componentPath}`);
@@ -67,9 +69,11 @@
     console.log('Finished loading WebVICLI Main VI.');
 
     console.log('Running WebVICLI Main VI...');
+    console.log('---------------------------');
     const vireo = vireoInstance.getVireo();
     vireoInstance.enqueueVI();
     await vireo.eggShell.executeSlicesUntilClumpsFinished();
+    console.log('----------------------------------');
     console.log('Finished running WebVICLI Main VI.');
     const webviCLIEnd = performance.now();
     const SECONDS_PER_MILLISECOND = 1000;
