@@ -1,6 +1,19 @@
 (function () {
     'use strict';
 
+    // Bunch of workarounds to enable client WebSocket api in node.js
+    global.window = {};
+    require('webvi-websockets');
+    global.NationalInstrumentsWebSockets = global.window.NationalInstrumentsWebSockets;
+    global.window = undefined;
+    const W3CWebSocket = require('websocket').w3cwebsocket;
+    class WebSocketShim extends W3CWebSocket {
+        get protocol () {
+            return this._protocol === undefined ? '' : this._protocol;
+        }
+    }
+    global.WebSocket = WebSocketShim;
+
     const path = require('path');
     const xhr2 = require('xhr2');
 
