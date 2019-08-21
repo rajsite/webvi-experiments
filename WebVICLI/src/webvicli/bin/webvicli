@@ -5,23 +5,34 @@
 
     const {performance} = require('perf_hooks');
     const webviCLIStart = performance.now();
+
     const path = require('path');
     const process = require('process');
     const glob = require('glob');
     const fs = require('fs');
     const cheerio = require('cheerio');
 
-    const cwd = process.cwd();
-    console.log(`Current Working Directory: ${cwd}`);
-
     // Setup shared webvicli singleton config
     const webvicli = require('webvicli');
+    const webvicliconfig = {
+        setComponentPath: webvicli.setComponentPath,
+        setClientPath: webvicli.setClientPath
+    };
+    const VireoNode = webvicli.VireoNode;
+
+    // using the require('../src/webvicliconfig.js') didn't work because in vscode dev tools they were resulting in different paths
+    // for the relative require it had a lowercase c:/ and for this version it has C:/ and the case insensitivity broke the singleton
+    // which I guess is expected: https://medium.com/@lazlojuly/are-node-js-modules-singletons-764ae97519af
+    // I guess switch to a Symbol https://derickbailey.com/2016/03/09/creating-a-true-singleton-in-node-js-with-es6-symbols/
+    // const webvicliconfig = require('../src/webvicliconfig.js');
     const serverName = process.argv[2] || 'Server_HelloWorld';
     const clientName = process.argv[3] || 'Client_HelloWorld';
+    const cwd = process.cwd();
+    console.log(`Current Working Directory: ${cwd}`);
     const componentPath = path.resolve(cwd, `Builds/${serverName}`).toString();
     const clientPath = path.resolve(cwd, `Builds/${clientName}`).toString();
-    webvicli.setComponentPath(componentPath);
-    webvicli.setClientPath(clientPath);
+    webvicliconfig.setComponentPath(componentPath);
+    webvicliconfig.setClientPath(clientPath);
     console.log(`Web Application Component Path: ${componentPath}`);
     console.log(`Web Application Client Path: ${clientPath}`);
 
@@ -65,14 +76,15 @@
 
     console.log('Loading WebVICLI Main VI...');
     const viaWithEnqueue = fs.readFileSync(path.resolve(componentPath, viaPath), 'utf8');
-    const vireoInstance = await webvicli.createVireoInstance(viaWithEnqueue);
+    // const VireoNode = require('../src/VireoNode.js');
+    const vireoNode = new VireoNode(viaWithEnqueue);
+    await vireoNode.initialize();
     console.log('Finished loading WebVICLI Main VI.');
 
     console.log('Running WebVICLI Main VI...');
     console.log('---------------------------');
-    const vireo = vireoInstance.getVireo();
-    vireoInstance.enqueueVI();
-    await vireo.eggShell.executeSlicesUntilClumpsFinished();
+    vireoNode.enqueueVI();
+    await vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
     console.log('----------------------------------');
     console.log('Finished running WebVICLI Main VI.');
     const webviCLIEnd = performance.now();

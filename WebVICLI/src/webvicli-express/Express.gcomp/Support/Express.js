@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
 
@@ -20,6 +19,7 @@
     const referenceManager = webvicli.getReferenceManager();
     const componentPath = webvicli.getComponentPath();
     const clientPath = webvicli.getClientPath();
+    const VireoNode = webvicli.VireoNode;
 
     const runExpressApplication = async function () {
         console.log('Searching for routes and initializing runtime instances...');
@@ -31,15 +31,15 @@
             const route = '/' + viaPath.substring(0, match.index);
             const method = match[1];
             const viaWithEnqueue = fs.readFileSync(path.resolve(componentPath, viaPath), 'utf8');
-            const vireoInstance = await webvicli.createVireoInstance(viaWithEnqueue);
-            const vireo = vireoInstance.getVireo();
-            const serverValueRef = vireo.eggShell.findValueRef(vireoInstance.getVIName(), 'dataItem_Server');
-            return {method, route, vireoInstance, serverValueRef};
+            const vireoNode = new VireoNode(viaWithEnqueue);
+            await vireoNode.initialize();
+            const serverValueRef = vireoNode.vireo.eggShell.findValueRef(vireoNode.getVIName(), 'dataItem_Server');
+            return {method, route, vireoNode, serverValueRef};
         }));
         console.log('Finished searching for routes and initializing runtime instances.');
 
-        const createVireoMiddleware = function (vireoInstance, serverValueRef) {
-            const vireoPoolInstance = {vireoInstance, serverValueRef};
+        const createVireoMiddleware = function (vireoNode, serverValueRef) {
+            const vireoPoolInstance = {vireoNode, serverValueRef};
             const pool = genericPool.createPool(
                 {create: () => vireoPoolInstance, destroy: () => undefined},
                 {max: 1, min: 1}
@@ -49,13 +49,12 @@
                 const start = performance.now();
                 const vireoPoolInstance = await pool.acquire();
                 const server = referenceManager.createReference({req, res});
-                const {vireoInstance, serverValueRef} = vireoPoolInstance;
+                const {vireoNode, serverValueRef} = vireoPoolInstance;
                 try {
                     // enqueue needs to be called before writing to memory? seems to reset values if after..
-                    const vireo = vireoInstance.getVireo();
-                    vireoInstance.enqueueVI();
-                    vireo.eggShell.writeDouble(serverValueRef, server);
-                    await vireo.eggShell.executeSlicesUntilClumpsFinished();
+                    vireoNode.enqueueVI();
+                    vireoNode.vireo.eggShell.writeDouble(serverValueRef, server);
+                    await vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
                 } catch (ex) {
                     console.error(ex);
                     // TODO discard crashed vireo instance
@@ -72,8 +71,8 @@
 
         console.log('Configuring express vireo middleware');
         endpointConfigs.forEach(function (endpointConfig) {
-            const {method, route, vireoInstance, serverValueRef} = endpointConfig;
-            app[method](route, createVireoMiddleware(vireoInstance, serverValueRef));
+            const {method, route, vireoNode, serverValueRef} = endpointConfig;
+            app[method](route, createVireoMiddleware(vireoNode, serverValueRef));
         });
 
         console.log('Configuring express static folder');
