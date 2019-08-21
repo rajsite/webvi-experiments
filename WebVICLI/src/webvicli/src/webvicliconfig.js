@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    console.log('!!!!!!!!! ' + __filename);
     const applicationPaths = {
         componentPath: undefined,
         clientPath: undefined
