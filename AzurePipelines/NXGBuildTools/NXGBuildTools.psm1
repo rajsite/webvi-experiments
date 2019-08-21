@@ -2,7 +2,7 @@ function Assert-FileExists {
     Param ([string]$path)
     if (![System.IO.File]::Exists($path))
     {
-        throw "Could not find file at $path"
+        throw "Could not find file at $path resolved to ${Resolve-Path($path)}"
     }
     else 
     {
@@ -103,7 +103,7 @@ function Invoke-NXGBuildApplication {
     $labviewnxgcli = 'C:\Program Files\National Instruments\LabVIEW NXG 3.0\labviewnxgcli.exe'
     Assert-FileExists($labviewnxgcli)
 
-    $projectpath = Join-Path $ProjectDirectory $ProjectFileName
+    $projectpath = Resolve-Path (Join-Path $ProjectDirectory $ProjectFileName)
     $buildapplicationcommand = 'build-application -n "{0}" -t "{1}" -p "{2}"' -f $ComponentFileName, $TargetName, $projectpath
 
     $process = Watch-TrialWindow
@@ -133,7 +133,7 @@ function Invoke-CopyBuildOutput {
     $ComponentFileName -match '(?<ComponentName>.*)\.gcomp' | Out-Null
     $ComponentName = $Matches.ComponentName
     $targetfolder = '{0}_{1}' -f $ComponentName, $TargetName
-    $buildoutput = Join-Path $ProjectDirectory "Builds\$targetfolder"
+    $buildoutput = Resolve-Path (Join-Path $ProjectDirectory "Builds\$targetfolder")
     $buildoutputfiles = Join-Path $buildoutput "\*"
     Assert-DirectoryExists $buildoutput
     

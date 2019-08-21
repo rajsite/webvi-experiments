@@ -49,7 +49,14 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Leaflet" -TargetName "Web Server" -C
 Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 
+Write-Host "Copy WebVICLI build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVICLI" -TargetName "HelloWorld" -ComponentFileName "Server.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVICLI\Builds\Server_HelloWorld"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVICLI" -TargetName "HelloWorld" -ComponentFileName "Client.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVICLI\Builds\Client_HelloWorld"
+Copy-item -Force -Recurse ".\WebVICLI\packages" -Destination "$ghpagesbuilddir\WebVICLI\packages"
+Copy-Item ".\WebVICLI\package.json" "$ghpagesbuilddir\WebVICLI\package.json"
+Copy-Item ".\WebVICLI\package-lock.json" "$ghpagesbuilddir\WebVICLI\package-lock.json"
+
 Write-Host "Creating archive of all build output"
-Run $7zip "a ghpages.zip ." .\ghpagesbuild
+Run $7zip "a ghpages.zip . " "$(Resolve-Path $ghpagesbuilddir)"
 
 Write-Host "Done! :D"
