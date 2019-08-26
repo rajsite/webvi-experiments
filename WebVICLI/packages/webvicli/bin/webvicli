@@ -66,7 +66,7 @@
     console.log('Searching for WebVICLI Main VI');
     const viaPaths = glob.sync('**/main.via.txt', {cwd: componentPath});
     if (viaPaths.length !== 1) {
-        throw new Error('Expected to find exactly one WebVICLI Main VI (main.via.txt)');
+        throw new Error(`Expected to find exactly one WebVICLI Main VI (main.via.txt). Found ${viaPaths.length}`);
     }
     const viaPath = viaPaths[0];
     console.log('Finished searching for WebVICLI Main VI.');

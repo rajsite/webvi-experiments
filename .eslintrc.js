@@ -145,7 +145,7 @@ module.exports = {
         'operator-linebreak': ['error', 'after'],
         'padded-blocks': ['error', 'never'],
         'quote-props': ['error', 'consistent-as-needed'],
-        'quotes': ['error', 'single'],
+        'quotes': ["error", "single", { "allowTemplateLiterals": true }],
         'require-jsdoc': 'error',
         'semi-spacing': 'error',
         'semi': 'error',
