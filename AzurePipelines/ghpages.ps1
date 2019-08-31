@@ -25,6 +25,12 @@ Get-ChildItem ".\AzurePipelines\GitHubPagesRoot\*" | ForEach-Object {
     Copy-Item $_.FullName "$ghpagesbuilddir" -Recurse
 }
 
+Write-Host "Copy Arcade projects: Fire build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\Fire"
+
+Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
+
 Write-Host "Copy AugmentedReality build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\AugmentedReality" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
 
@@ -39,9 +45,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Web Server" -C
 
 Write-Host "Copy Express build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Express" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Express"
-
-Write-Host "Copy Fire build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\Fire" -TargetName "Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\Fire"
 
 Write-Host "Copy Leaflet build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Leaflet" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Leaflet"
