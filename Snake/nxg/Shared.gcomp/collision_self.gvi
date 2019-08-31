@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="9CECC5332A96462246CFFD0E074A2B96" Timestamp="1D329A471571FE3" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C8D0FA76F51A01A1B88EB19517E17CE9964845B5E92EEEF097CCA1A72201CDB17D1B30826986B03C55373F8C1EFD4687703815299F64F3EE2115428C7205BFA2" Timestamp="1D56049AFFF6FB3" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="5.2.0.5082" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="5.2.0.4" Version="5.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="5.2.0.5082" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="5.2.0.9" Version="5.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="5.2.0.5082" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="5.2.0.0" Version="5.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="5.2.0.5082" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="5.2.0.1" Version="5.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="5.2.0.5082" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="5.2.0.10" Version="5.2.0.49152" />
-		<ApplicationVersionInfo Build="5.2.0.5082" Name="LabVIEW NXG" Version="2.0.0" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
+		<ApplicationVersionInfo Build="6.4.1.50844" Name="LabVIEW NXG" Version="3.1.0" />
 	</SourceModelFeatureSet>
 	<VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
 		<Icon Id="17" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -36,7 +36,7 @@
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
 			<DataAccessor Bounds="255 490 40 15" DataItem="16" Id="35" Label="36" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@ac34f4da861b417e9db91d19c0cd748a" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@36d4036707804872ab26714435453d9c" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="35" Bounds="255 467 80 20" Id="36" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>Snake Plot</p.Text>
@@ -54,9 +54,9 @@
 			<NodeLabel AttachedTo="39" Bounds="1460 322 50 20" Id="40" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>Result</p.Text>
 			</NodeLabel>
-			<PropertyNode Bounds="345 480 75 20" HasErrorTerminals="False" Id="41" InstanceDataType="@ac34f4da861b417e9db91d19c0cd748a" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+			<PropertyNode Bounds="345 480 75 20" HasErrorTerminals="False" Id="41" InstanceDataType="@36d4036707804872ab26714435453d9c" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-					<TypeDefinitionTarget TargetName="Application:xyplot\.gtype" />
+					<TypeDefinitionTarget TargetName="Shared::xyplot.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal DataType="Int32[]" Hotspot="75 15" Id="c0t0v" Path="X" PathElementMemberKinds="Field" Usage="Optional" />
 				<PropertyItemTerminal DataType="Int32[]" Hotspot="75 30" Id="c1t0v" Path="Y" PathElementMemberKinds="Field" Usage="Optional" />
@@ -126,7 +126,7 @@
 								<Wire Id="127" Joints="N(93:85)|(4,275) h(257) v(-45) N(91:85)|(286,230)" xmlns="http://www.ni.com/PlatformFramework" />
 							</CaseStructure.Case>
 							<CaseStructure.Case Bounds="5 5 290 375" Id="86" Pattern="True">
-								<MethodCall Bounds="90 290 60 60" DomainName="Application" Id="102" Label="103" ResolveFailedHint="&quot;C:\\Users\\mraj\\Documents\\LabVIEW Projects\\2017_09_09_14_04_05\\snake.lvproject\\Application.gcomp\\ccw.gvi&quot;" Target="Application:ccw\.gvi" xmlns="http://www.ni.com/MocCommon">
+								<MethodCall Bounds="90 290 60 60" Id="102" Label="103" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Snake\\nxg\\Shared.gcomp\\ccw.gvi&quot;" Signature="@903b74bbc6ea48249df702fa5e8bc1ad" Target="Shared::ccw.gvi" xmlns="http://www.ni.com/MocCommon">
 									<p.MethodDeclaration>
 										<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 											<Parameter Id="L0" Desc="A" />
@@ -149,7 +149,7 @@
 								<NodeLabel AttachedTo="102" Bounds="90 269 45 18" Id="103" IsReadOnly="True" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 									<p.Text>ccw</p.Text>
 								</NodeLabel>
-								<MethodCall Bounds="90 225 60 60" DomainName="Application" Id="104" Label="105" ResolveFailedHint="&quot;C:\\Users\\mraj\\Documents\\LabVIEW Projects\\2017_09_09_14_04_05\\snake.lvproject\\Application.gcomp\\ccw.gvi&quot;" Target="Application:ccw\.gvi" xmlns="http://www.ni.com/MocCommon">
+								<MethodCall Bounds="90 225 60 60" Id="104" Label="105" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Snake\\nxg\\Shared.gcomp\\ccw.gvi&quot;" Signature="@903b74bbc6ea48249df702fa5e8bc1ad" Target="Shared::ccw.gvi" xmlns="http://www.ni.com/MocCommon">
 									<p.MethodDeclaration>
 										<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 											<Parameter Id="L0" Desc="A" />
@@ -173,7 +173,7 @@
 									<p.Text>ccw</p.Text>
 								</NodeLabel>
 								<IsNotEqual Bounds="200 275 30 30" Id="106" />
-								<MethodCall Bounds="90 110 60 60" DomainName="Application" Id="107" Label="108" ResolveFailedHint="&quot;C:\\Users\\mraj\\Documents\\LabVIEW Projects\\2017_09_09_14_04_05\\snake.lvproject\\Application.gcomp\\ccw.gvi&quot;" Target="Application:ccw\.gvi" xmlns="http://www.ni.com/MocCommon">
+								<MethodCall Bounds="90 110 60 60" Id="107" Label="108" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Snake\\nxg\\Shared.gcomp\\ccw.gvi&quot;" Signature="@903b74bbc6ea48249df702fa5e8bc1ad" Target="Shared::ccw.gvi" xmlns="http://www.ni.com/MocCommon">
 									<p.MethodDeclaration>
 										<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 											<Parameter Id="L0" Desc="A" />
@@ -196,7 +196,7 @@
 								<NodeLabel AttachedTo="107" Bounds="90 89 45 18" Id="108" IsReadOnly="True" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 									<p.Text>ccw</p.Text>
 								</NodeLabel>
-								<MethodCall Bounds="90 45 60 60" DomainName="Application" Id="109" Label="110" ResolveFailedHint="&quot;C:\\Users\\mraj\\Documents\\LabVIEW Projects\\2017_09_09_14_04_05\\snake.lvproject\\Application.gcomp\\ccw.gvi&quot;" Target="Application:ccw\.gvi" xmlns="http://www.ni.com/MocCommon">
+								<MethodCall Bounds="90 45 60 60" Id="109" Label="110" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Snake\\nxg\\Shared.gcomp\\ccw.gvi&quot;" Signature="@903b74bbc6ea48249df702fa5e8bc1ad" Target="Shared::ccw.gvi" xmlns="http://www.ni.com/MocCommon">
 									<p.MethodDeclaration>
 										<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 											<Parameter Id="L0" Desc="A" />
@@ -339,27 +339,27 @@
 			<Switch ClickMode="[ClickMode]Press" Content="[string]" ContentVisibility="[Visibility]Collapsed" Enabled="[bool]True" FalseContent="[string]" FalseContentVisibility="[Visibility]Collapsed" Height="[float]28" Id="24" IsMomentary="[bool]False" IsReadOnly="[bool]True" IsTabStop="[bool]True" Label="[UIModel]25" Left="[float]284" Orientation="[SMOrientation]Horizontal" Shape="[SwitchShape]Slider" TabIndex="[int]0" Top="[float]45" TrueContent="[string]" Value="{DataItemBinding Id=15}" Width="[float]50" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 			<Label Id="25" LabelOwner="[UIModel]24" Left="[float]284" Text="[string]Result" Top="[float]25" xmlns="http://www.ni.com/PanelCommon" />
 			<Label Id="34" LabelOwner="[UIModel]26" Left="[float]100" Text="[string]Snake Plot" Top="[float]10" xmlns="http://www.ni.com/PanelCommon" />
-			<Cluster AutoArrange="[AutoArrange]None" ClusterType="[Type]@ac34f4da861b417e9db91d19c0cd748a" Enabled="[bool]True" Height="[float]66" Id="26" IsTabStop="[bool]True" Label="[UIModel]34" Left="[float]100" TabIndex="[int]1" Top="[float]30" Value="{DataItemBinding Id=16}" Width="[float]154" p4:ControlDefinitionChecksum="86q5lU1dCsM1d1xnPsvYNQ==" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+			<Cluster AutoArrange="[AutoArrange]None" ClusterType="[Type]@36d4036707804872ab26714435453d9c" Enabled="[bool]True" Height="[float]66" Id="26" IsTabStop="[bool]True" Label="[UIModel]34" Left="[float]100" TabIndex="[int]1" Top="[float]30" Value="{DataItemBinding Id=16}" Width="[float]154" p4:ControlDefinitionChecksum="AkH6Ct436OQS76AHHB0qhsMA40/QKXuUaXdQ6kWjQEE=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
-					<p4:TypeDefinitionTarget TargetName="Application:xyplot\.gtype:ControlDefinition" />
+					<p4:TypeDefinitionTarget TargetName="Shared::xyplot.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
-				<p4:ArrayViewer ArrayElement="[UIModel]185" Columns="[int]1" Dimensions="[int]1" Enabled="[bool]True" Height="[float]33" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="181" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" IsTabStop="[bool]True" Label="[UIModel]182" Left="[float]8" Rows="[int]1" TabIndex="[int]0" Top="[float]25" Value="{ClusterBinding FieldName=X}" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]62">
+				<p4:ArrayViewer ArrayElement="[UIModel]9abd7c2ae25644acadcc85d5e44e948f" Columns="[int]1" Dimensions="[int]1" Enabled="[bool]True" Height="[float]33" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="421e2bd7cb314b60bed34a629878bbb2" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" IsTabStop="[bool]True" Label="[UIModel]40627b0675a14306a3ef07d9c99eddfd" Left="[float]8" Rows="[int]1" TabIndex="[int]0" Top="[float]25" Value="{ClusterBinding FieldName=X}" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]62">
 					<p.DefaultElementValue>0</p.DefaultElementValue>
-					<NumericText Enabled="[bool]True" Height="[float]24" Id="185" Interval="[int]1" IsTabStop="[bool]True" Maximum="[int]2147483647" MinHeight="[float]24" Minimum="[int]-2147483648" RadixBase="[RadixBase]0" RadixVisibility="[SMVisibility]Hidden" TabIndex="[int]0" ValueFormatter="[string]LV:G0" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+					<NumericText Enabled="[bool]True" Height="[float]24" Id="9abd7c2ae25644acadcc85d5e44e948f" Interval="[int]1" IsTabStop="[bool]True" Maximum="[int]2147483647" MinHeight="[float]24" Minimum="[int]-2147483648" RadixBase="[RadixBase]0" RadixVisibility="[SMVisibility]Hidden" TabIndex="[int]0" ValueFormatter="[string]LV:G0" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 				</p4:ArrayViewer>
-				<p4:Label Id="182" LabelOwner="[UIModel]181" Left="[float]8" Text="[string]X" Top="[float]5" />
-				<p4:ArrayViewer ArrayElement="[UIModel]186" Columns="[int]1" Dimensions="[int]1" Enabled="[bool]True" Height="[float]33" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="183" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" IsTabStop="[bool]True" Label="[UIModel]184" Left="[float]80" Rows="[int]1" TabIndex="[int]1" Top="[float]25" Value="{ClusterBinding FieldName=Y}" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]62">
+				<p4:Label Id="40627b0675a14306a3ef07d9c99eddfd" LabelOwner="[UIModel]421e2bd7cb314b60bed34a629878bbb2" Left="[float]8" Text="[string]X" Top="[float]5" />
+				<p4:ArrayViewer ArrayElement="[UIModel]b62336694aa34500a745dc7843f10616" Columns="[int]1" Dimensions="[int]1" Enabled="[bool]True" Height="[float]33" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="f39809c43a4142c6b4bd723f6b57adf7" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" IsTabStop="[bool]True" Label="[UIModel]5b1846e4a5574b5ba3a485f9a91a9fc4" Left="[float]80" Rows="[int]1" TabIndex="[int]1" Top="[float]25" Value="{ClusterBinding FieldName=Y}" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]62">
 					<p.DefaultElementValue>0</p.DefaultElementValue>
-					<NumericText Enabled="[bool]True" Height="[float]24" Id="186" Interval="[int]1" IsTabStop="[bool]True" Maximum="[int]2147483647" MinHeight="[float]24" Minimum="[int]-2147483648" RadixBase="[RadixBase]0" RadixVisibility="[SMVisibility]Hidden" TabIndex="[int]0" ValueFormatter="[string]LV:G0" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+					<NumericText Enabled="[bool]True" Height="[float]24" Id="b62336694aa34500a745dc7843f10616" Interval="[int]1" IsTabStop="[bool]True" Maximum="[int]2147483647" MinHeight="[float]24" Minimum="[int]-2147483648" RadixBase="[RadixBase]0" RadixVisibility="[SMVisibility]Hidden" TabIndex="[int]0" ValueFormatter="[string]LV:G0" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 				</p4:ArrayViewer>
-				<p4:Label Id="184" LabelOwner="[UIModel]183" Left="[float]80" Text="[string]Y" Top="[float]5" />
+				<p4:Label Id="5b1846e4a5574b5ba3a485f9a91a9fc4" LabelOwner="[UIModel]f39809c43a4142c6b4bd723f6b57adf7" Left="[float]80" Text="[string]Y" Top="[float]5" />
 			</Cluster>
 			<Menu Id="122" IsApplicationMenu="[bool]True" Left="[float]0" Top="[float]0" Visible="[bool]False" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem CallDirection="Output" CallIndex="1" DataType="Boolean" Id="15" Name="Result" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
-		<DataItem CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="@ac34f4da861b417e9db91d19c0cd748a" Id="16" Name="Snake Plot" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="@36d4036707804872ab26714435453d9c" Id="16" Name="Snake Plot" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>
 				<Cluster>
 					<Field1>null</Field1>
@@ -367,22 +367,71 @@
 				</Cluster>
 			</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="Application:xyplot\.gtype" />
+				<TypeDefinitionTarget TargetName="Shared::xyplot.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="ac34f4da861b417e9db91d19c0cd748a">
-			<Attributed AttributedType="@8c01809356e54d62ae6e94d4438ad190">
+		<p.TypeReference TypeId="36d4036707804872ab26714435453d9c">
+			<Attributed AttributedType="@3b71f9a99dc54f4dac27c0b52f40671d">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Application" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Shared" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="8c01809356e54d62ae6e94d4438ad190">
-			<Typedef TypedefName="xyplot.gtype" UnderlyingType="@f58a3ba764f64f06801a5e51b8de32bf" />
+		<p.TypeReference TypeId="903b74bbc6ea48249df702fa5e8bc1ad">
+			<Attributed AttributedType="@8b16667c1c7f4d0d9228fd74a0285a6f">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]60" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]60" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="f58a3ba764f64f06801a5e51b8de32bf">
+		<p.TypeReference TypeId="3b71f9a99dc54f4dac27c0b52f40671d">
+			<Typedef TypedefName="xyplot.gtype" UnderlyingType="@37048c5944244e568f8647da17a5e685" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="8b16667c1c7f4d0d9228fd74a0285a6f">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="ccw.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@9fb2d2db937847dca31d1353fc324b69">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]A" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@39b0860340904795997639f2e0344d1c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]B" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@64cd819f72ff436fa86b6d60b7cdd071">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]C" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@eb15c7bd37444c6784588362624d6cdd">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]D" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@59d3da4d7f3a4e86956b5495b4f9fa42">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]E" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@1d72bdc39a214a70865496024e6151df">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]F" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@724da229b860439682b9c2f50ec69941">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]Result" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="37048c5944244e568f8647da17a5e685">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
 					<Field FieldAccessPolicy="ReadWrite" Name="X" DataType="Int32[]" />
@@ -390,9 +439,30 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
+		<p.TypeReference TypeId="9fb2d2db937847dca31d1353fc324b69">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="39b0860340904795997639f2e0344d1c">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="64cd819f72ff436fa86b6d60b7cdd071">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="eb15c7bd37444c6784588362624d6cdd">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="59d3da4d7f3a4e86956b5495b4f9fa42">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L4" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1d72bdc39a214a70865496024e6151df">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L5" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="724da229b860439682b9c2f50ec69941">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Boolean" />
+		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Application:ccw\.gvi">
+		<p.IconModel Target="Shared::ccw.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 60 60">
@@ -402,7 +472,7 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
 							<Image Height="[float]30" Left="[float]15" MinHeight="[float]13" MinWidth="[float]13" Source="[SMEmbeddedImageSource]iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAIAAAC0Ujn1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADTSURBVEhL3Y9ZEoMwDEO5/6VTNxYe74S2mXb6PhIkywKOsY1/rT5aEMrwM5fu9y+muE90ulkTdN6RuBKtdhyzPOvBreAoAT2BVX3gYjXhWpyMpNOuWoDbEmPl2nopc6P6LnurXfvHqonvVc/fegIdHHkQqpEVtlFOJjqMOG5kRb2mYVOfjAtbEYqiQ+hSHXBhK0Ku2oxTwkvcJzRmoDOHYJmaghHv4HqJn6+OvUR4VRZqoHy1klQz0DXI1cl6oIClqHzN9dcRXKTBoGUp9Brbqsd4AOD1IV722xU1AAAAAElFTkSuQmCC" Top="[float]15" Width="[float]30" />
-							<IconTemplate Height="[float]60" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Application.gcomp" Top="[float]0" Width="[float]60" />
+							<IconTemplate Height="[float]60" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Shared.gcomp" Top="[float]0" Width="[float]60" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
