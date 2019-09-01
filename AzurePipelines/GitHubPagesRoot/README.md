@@ -1,8 +1,8 @@
 # webvi-experiments
 
--Arcade
-    - [Fire](https://rajsite.github.io/webvi-experiments/build/Fire/)
-    - [Snake](https://rajsite.github.io/webvi-experiments/build/Snake/)
+- Arcade 🕹️
+    - [Fire 🔥](https://rajsite.github.io/webvi-experiments/build/Fire/)
+    - [Snake 🐍](https://rajsite.github.io/webvi-experiments/Snake/)
 - [AugmentedReality](https://rajsite.github.io/webvi-experiments/AugmentedReality)
     - [SecretBox](https://rajsite.github.io/webvi-experiments/AugmentedRealitySecretBox)
 - [BusyState](https://rajsite.github.io/webvi-experiments/BusyState)
