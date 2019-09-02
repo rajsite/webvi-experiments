@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="68943508928C923338C880DFD06BFFB6147E447FB04E53A0D4B3ED2417E839A2DA1D162F485BF84512E49A5043A9EF9FEEEAFD253F3E1D7328F668A5771B0560" Timestamp="1D561DE76A733C6" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="74324EE75E57C526B81186B24E12B75222E27E0C05B763876C19BF439C8C40CCDF771A66DFC16168CABB303531A55E03CECF56603094354667513A6F5787B6E9" Timestamp="1D561E13552F007" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -41,6 +41,9 @@
 			<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="345" Left="[float]0" MinHeight="[float]24" Name="[string]Difficulty" TabIndex="[int]1" Top="[float]0" Value="{DataItemBinding Id=343}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]70" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 			<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="349" Interval="[int]1" Left="[float]0" MinHeight="[float]24" Name="[string]Height" TabIndex="[int]2" Top="[float]0" Value="{DataItemBinding Id=347}" ValueFormatter="[string]LV:G6" ValueType="[Type]Int32" Width="[float]70" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 			<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="353" Left="[float]0" MinHeight="[float]24" Name="[string]Position" TabIndex="[int]3" Top="[float]0" Value="{DataItemBinding Id=351}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]70" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="361" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]364" Left="[float]0" MinHeight="[float]24" TabIndex="[int]4" TextAlignment="[TextAlignment]Center" Top="[float]20" Value="{DataItemBinding Id=359}" ValueFormatter="[string]LV:G6" ValueType="[Type]Int32" Width="[float]88" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlLabel Height="[float]16" Id="364" IsVisualChild="[bool]False" LabelOwner="[UIModel]361" Left="[float]0" Text="[string]Current Score" Top="[float]0" Width="[float]79" />
+			</HtmlNumericText>
 		</FrontPanelUnplacedItems>
 		<BlockDiagram Id="12">
 			<Literal Bounds="295 -260 45 15" DataType="Int32" Id="15" xmlns="http://www.ni.com/MocCommon">
@@ -423,7 +426,7 @@
 				<Multiply Bounds="560 60 30 30" Id="171" Terminals="o=185, c0t0v=186, c1t0v=180" />
 				<RoundToNearest Bounds="630 60 30 30" Id="172" />
 				<Multiply Bounds="150 120 30 30" Id="173" Terminals="o=178, c0t0v=179, c1t0v=181" />
-				<MethodCall Bounds="940 360 40 40" Id="174" Label="175" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Avalanche\\nxg\\Application.gcomp\\collision detection.gvi&quot;" Signature="@1ed853bc1dc24e5f9d0d937d90500e1f" Target="Application::collision detection.gvi" Template="Icon" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="940 360 40 40" Id="174" Label="175" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Avalanche\\nxg\\WebApp.gcomp\\collision detection.gvi&quot;" Signature="@1ed853bc1dc24e5f9d0d937d90500e1f" Target="WebApp::collision detection.gvi" Template="Icon" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="L0" Desc="y values" />
@@ -704,41 +707,65 @@
 			<Wire Id="328" Joints="N(16:Out)|(340,170) N(106:o0)|(385,170)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="329" Joints="N(15:Out)|(340,-255) h(41) v(7) N(103:101)|(391,-248)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]480" Id="14" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]320" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="361" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]364" Left="[float]129" MinHeight="[float]24" TabIndex="[int]1" Top="[float]452" Value="{DataItemBinding Id=359}" ValueFormatter="[string]LV:G6" ValueType="[Type]Int32" Width="[float]70" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlLabel Height="[float]16" Id="364" LabelOwner="[UIModel]361" Left="[float]129" Text="[string]Current Score" Top="[float]432" Width="[float]79" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlCartesianGraph DataSource="{DataItemBinding Id=365}" DataSourceType="[Type]@a4af02bf645b4547985728defcdaabf4" Height="[float]280" Id="367" Label="[UIModel]378" Left="[float]4" PlotAreaMargin="[SMThickness]NaN,NaN,NaN,NaN" SuppressScaleLayout="[bool]False" TabIndex="[int]2" Top="[float]4" Width="[float]312" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlAxis Adjuster="[RangeAdjuster]None" Id="368" Label="[string]Time" LabelVisibility="[SMVisibility]Collapsed" MajorDivisions="[UIModel]371" MajorGridLines="[UIModel]391" MinorTickVisibility="[SMVisibility]Collapsed" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
-					<HtmlRangeLabeledDivisions Id="371" LabelVisibility="[SMVisibility]Collapsed" Mode="[RangeDivisionsMode]Auto" TickVisibility="[SMVisibility]Collapsed">
-						<p.LabelPresenter Kind="LVRelativeSeconds" Format="0.######" />
-					</HtmlRangeLabeledDivisions>
-					<HtmlGridLines Id="391" Visibility="[SMVisibility]Hidden" />
-				</HtmlAxis>
-				<HtmlAxis Adjuster="[RangeAdjuster]None" Id="369" Label="[string]Amplitude" LabelVisibility="[SMVisibility]Collapsed" MajorDivisions="[UIModel]372" MajorGridLines="[UIModel]392" MinorTickVisibility="[SMVisibility]Collapsed" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
-					<HtmlRangeLabeledDivisions Id="372" LabelVisibility="[SMVisibility]Collapsed" Mode="[RangeDivisionsMode]Auto" TickVisibility="[SMVisibility]Collapsed">
-						<p.LabelPresenter Kind="LVRelativeSeconds" Format="G6" ShortFormat="0.000E+0" />
-					</HtmlRangeLabeledDivisions>
-					<HtmlGridLines Id="392" Visibility="[SMVisibility]Hidden" />
-				</HtmlAxis>
-				<HtmlPlot HorizontalScale="[UIModel]368" Id="370" Label="[string]Plot" VerticalScale="[UIModel]369">
-					<HtmlPlotRenderer Id="373" LineThickness="[double]1" PointFill="[SMSolidColorBrush]#ff000000" PointShape="[PointShape]Rectangle" />
-				</HtmlPlot>
-			</HtmlCartesianGraph>
-			<HtmlScaleLegend Graph="[UIModel]367" Height="[float]60" Id="374" Left="[float]315" MinWidth="[float]145" Top="[float]222" Visible="[bool]False" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlPlotLegend Graph="[UIModel]367" Height="[float]28" Id="375" Left="[float]315" MinWidth="[float]145" Top="[float]4" Visible="[bool]False" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlCursorLegend Graph="[UIModel]367" Height="[float]202" Id="376" Left="[float]4" MinWidth="[float]320" Top="[float]283" Visible="[bool]False" Width="[float]320" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlGraphTools Graph="[UIModel]367" Height="[float]30" Id="377" Left="[float]6" Top="[float]6" Visible="[bool]False" Width="[float]120" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlLabel Height="[float]16" Id="378" LabelOwner="[UIModel]367" Left="[float]4" Text="[string]Graph" Top="[float]-16" Visible="[bool]False" Width="[float]39" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlButton BaseName="[string]Button" Content="[string] " ContentVisibility="[Visibility]Visible" Glyph="[int]61536" Height="[float]168" Id="395" IsTabStop="[bool]True" Label="[UIModel]396" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]3" Top="[float]308" Value="{DataItemBinding Id=385}" Width="[float]88" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<FontSetting FontFamily="Segoe UI" FontSize="48" Id="402" xmlns="http://www.ni.com/PlatformFramework" />
-			</HtmlButton>
-			<HtmlLabel Height="[float]16" Id="396" LabelOwner="[UIModel]395" Left="[float]4" Text="[string]left" Top="[float]288" Visible="[bool]False" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlButton BaseName="[string]Button" Content="[string] " Glyph="[int]61537" Height="[float]168" Id="399" IsTabStop="[bool]True" Label="[UIModel]400" Left="[float]228" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]4" Top="[float]308" Value="{DataItemBinding Id=381}" Width="[float]88" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<FontSetting FontFamily="Segoe UI" FontSize="48" Id="401" xmlns="http://www.ni.com/PlatformFramework" />
-			</HtmlButton>
-			<HtmlLabel Height="[float]16" Id="400" LabelOwner="[UIModel]399" Left="[float]228" Text="[string]right" Top="[float]288" Visible="[bool]False" Width="[float]32" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlLVLinearProgressBar BaseName="[string]Progress Bar" Height="[float]24" Id="405" IsTabStop="[bool]True" Label="[UIModel]406" Left="[float]104" Maximum="[double]100" MinHeight="[float]8" MinWidth="[float]40" Minimum="[double]0" Orientation="[SMOrientation]Horizontal" TabIndex="[int]0" Top="[float]324" Value="{DataItemBinding Id=355}" Width="[float]120" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlLabel Height="[float]16" Id="406" LabelAlignment="[PartAlignment]TopCenter" LabelOwner="[UIModel]405" Left="[float]118" Text="[string]Level Completion" Top="[float]304" Width="[float]99" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		<HtmlFrontPanel Height="[float]768" Id="14" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]400" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlFlexibleLayoutGroup Height="[float]328" Id="1404815a74a247f899eef3584a831c04" Left="[float]30" Top="[float]30" Width="[float]340" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]328" Id="46747f9d0f5e4ffa8378ccf708665343" Left="[float]0" Top="[float]0" Width="[float]340">
+					<HtmlFlexibleLayoutContainer Height="[float]312" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Center" Id="e841f450208a44c68cbbb42bb8798220" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Center" Width="[float]324">
+						<HtmlFlexibleLayoutComponent Height="[float]300" Id="caf01fee818a4bca83c904454810b1f3" Left="[float]12" Top="[float]6" Width="[float]300">
+							<HtmlCartesianGraph ControlResizeMode="[ControlResizeMode]Fixed" DataSource="{DataItemBinding Id=365}" DataSourceType="[Type]@a4af02bf645b4547985728defcdaabf4" Height="[float]300" Id="367" Label="[UIModel]378" Left="[float]0" PlotAreaMargin="[SMThickness]NaN,NaN,NaN,NaN" SuppressScaleLayout="[bool]False" TabIndex="[int]0" Top="[float]0" Width="[float]300">
+								<HtmlAxis Adjuster="[RangeAdjuster]None" Id="368" Label="[string]Time" LabelVisibility="[SMVisibility]Collapsed" MajorDivisions="[UIModel]371" MajorGridLines="[UIModel]391" MinorTickVisibility="[SMVisibility]Collapsed" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
+									<HtmlRangeLabeledDivisions Id="371" LabelVisibility="[SMVisibility]Collapsed" Mode="[RangeDivisionsMode]Auto" TickVisibility="[SMVisibility]Collapsed">
+										<p.LabelPresenter Kind="LVRelativeSeconds" Format="0.######" />
+									</HtmlRangeLabeledDivisions>
+									<HtmlGridLines Id="391" Visibility="[SMVisibility]Hidden" />
+								</HtmlAxis>
+								<HtmlAxis Adjuster="[RangeAdjuster]None" Id="369" Label="[string]Amplitude" LabelVisibility="[SMVisibility]Collapsed" MajorDivisions="[UIModel]372" MajorGridLines="[UIModel]392" MinorTickVisibility="[SMVisibility]Collapsed" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
+									<HtmlRangeLabeledDivisions Id="372" LabelVisibility="[SMVisibility]Collapsed" Mode="[RangeDivisionsMode]Auto" TickVisibility="[SMVisibility]Collapsed">
+										<p.LabelPresenter Kind="LVRelativeSeconds" Format="G6" ShortFormat="0.000E+0" />
+									</HtmlRangeLabeledDivisions>
+									<HtmlGridLines Id="392" Visibility="[SMVisibility]Hidden" />
+								</HtmlAxis>
+								<HtmlPlot HorizontalScale="[UIModel]368" Id="370" Label="[string]Plot" VerticalScale="[UIModel]369">
+									<HtmlPlotRenderer Id="373" LineThickness="[double]1" PointFill="[SMSolidColorBrush]#ff000000" PointShape="[PointShape]Rectangle" />
+								</HtmlPlot>
+							</HtmlCartesianGraph>
+							<HtmlScaleLegend Graph="[UIModel]367" Height="[float]60" Id="374" Left="[float]299" MinWidth="[float]145" Top="[float]238" Visible="[bool]False" Width="[float]145" />
+							<HtmlPlotLegend Graph="[UIModel]367" Height="[float]28" Id="375" Left="[float]299" MinWidth="[float]145" Top="[float]0" Visible="[bool]False" Width="[float]145" />
+							<HtmlCursorLegend Graph="[UIModel]367" Height="[float]202" Id="376" Left="[float]0" MinWidth="[float]320" Top="[float]299" Visible="[bool]False" Width="[float]320" />
+							<HtmlGraphTools Graph="[UIModel]367" Height="[float]30" Id="377" Left="[float]2" Top="[float]2" Visible="[bool]False" Width="[float]120" />
+							<HtmlLabel Height="[float]16" Id="378" LabelOwner="[UIModel]367" Left="[float]0" Text="[string]Graph" Top="[float]-20" Visible="[bool]False" Width="[float]39" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
+			<HtmlFlexibleLayoutGroup Height="[float]52" Id="e79f9fb7765745eb89d943bde4a2e4de" Left="[float]30" Top="[float]358" Width="[float]340" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]52" Id="53f8d06ecc7a4272adf7c41fdfe0b330" Left="[float]0" Top="[float]0" Width="[float]340">
+					<HtmlFlexibleLayoutContainer Height="[float]36" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Center" Id="6d071650a8ef4e96996fa4621d671c0f" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Center" Width="[float]324">
+						<HtmlFlexibleLayoutComponent Height="[float]24" Id="f06b9b3d5dce42bbabe22b218d658c27" Left="[float]14" Top="[float]6" Width="[float]296">
+							<HtmlLVLinearProgressBar BaseName="[string]Progress Bar" Height="[float]24" Id="405" IsTabStop="[bool]True" Label="[UIModel]406" Left="[float]0" Maximum="[double]100" MinHeight="[float]8" MinWidth="[float]40" Minimum="[double]0" Orientation="[SMOrientation]Horizontal" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=355}" Width="[float]296" />
+							<HtmlLabel Height="[float]16" Id="406" LabelOwner="[UIModel]405" Left="[float]0" Text="[string]Level Completion" Top="[float]-20" Visible="[bool]False" Width="[float]99" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
+			<HtmlFlexibleLayoutGroup Height="[float]196" Id="f5beafb54c2a448fa18edc9964cbb739" Left="[float]30" Top="[float]410" Width="[float]340" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]196" Id="42026939346142a3b354b167dbe35e34" Left="[float]0" Top="[float]0" Width="[float]340">
+					<HtmlFlexibleLayoutContainer Height="[float]180" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]SpaceBetween" Id="b36770f4c4084f85afbd137a119762d5" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Center" Width="[float]324">
+						<HtmlFlexibleLayoutComponent Height="[float]168" Id="1ef2a1738c6b42cc80ac87ba3923ce64" Left="[float]14" Top="[float]6" Width="[float]88">
+							<HtmlButton BaseName="[string]Button" Content="[string] " ContentVisibility="[Visibility]Visible" Glyph="[int]61536" Height="[float]168" Id="395" IsTabStop="[bool]True" Label="[UIModel]396" Left="[float]0" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=385}" Width="[float]88">
+								<FontSetting FontFamily="Segoe UI" FontSize="48" Id="402" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlButton>
+							<HtmlLabel Height="[float]16" Id="396" LabelOwner="[UIModel]395" Left="[float]0" Text="[string]left" Top="[float]-20" Visible="[bool]False" Width="[float]24" />
+						</HtmlFlexibleLayoutComponent>
+						<HtmlFlexibleLayoutComponent Height="[float]168" Id="9e571988947e4db3aab599e7ae83abac" Left="[float]222" Top="[float]6" Width="[float]88">
+							<HtmlButton BaseName="[string]Button" Content="[string] " Glyph="[int]61537" Height="[float]168" Id="399" IsTabStop="[bool]True" Label="[UIModel]400" Left="[float]0" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=381}" Width="[float]88">
+								<FontSetting FontFamily="Segoe UI" FontSize="48" Id="401" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlButton>
+							<HtmlLabel Height="[float]16" Id="400" LabelOwner="[UIModel]399" Left="[float]0" Text="[string]right" Top="[float]-20" Visible="[bool]False" Width="[float]32" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
 		</HtmlFrontPanel>
 		<DataItem DataType="Boolean" Id="339" Name="stop" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>False</p.DefaultValue>
@@ -838,7 +865,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Application::collision detection.gvi">
+		<p.IconModel Target="WebApp::collision detection.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -848,7 +875,7 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
 							<Image Height="[float]30" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[SMEmbeddedImageSource]iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAIAAAC0Ujn1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC+SURBVEhL7ZBRDsMgDEO5/6VZSlLXZIGGap1Uqe8D7BC72kq9jbfa8fTqUs4/k9kBtprPLGzatQdUcN5N3JNivicOmGqoxXBU9E0QyFeLVsz3+IAKPlkIrOcEYfCbamGUudYrLKyu8pfq8MfKMPMn8Noh7Br0OhESlDYxmO5WcVaYr9krG8VptkCHeGpbvuF4UyFA89BhYToZm7OBwAkwBLDt3cBkO9nMcTuTSFctZNrBae8m9LqDt9rxxOpaP1PVYxyTgV4xAAAAAElFTkSuQmCC" Top="[float]5" Width="[float]30" />
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Application.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
