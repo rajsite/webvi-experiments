@@ -7,7 +7,7 @@ Write-Host "Build Arcade projects: Reflex"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName "Reflex.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build Arcade projects: Snake"
-Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "snake.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "Snake.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build AugmentedReality project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
