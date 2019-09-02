@@ -3,6 +3,9 @@ Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 Write-Host "Build Arcade projects: Fire"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Fire" -ProjectFileName "LabVIEW PSX Doom Fire.lvproject" -TargetName "Web Server" -ComponentFileName "Application.gcomp"
 
+Write-Host "Build Arcade projects: Reflex"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName "Reflex.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build Arcade projects: Snake"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "snake.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
