@@ -1,5 +1,8 @@
 Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 
+Write-Host "Build Arcade projects: Avalanche"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Avalanche\nxg" -ProjectFileName "Avalanche.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build Arcade projects: Fire"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Fire" -ProjectFileName "LabVIEW PSX Doom Fire.lvproject" -TargetName "Web Server" -ComponentFileName "Application.gcomp"
 

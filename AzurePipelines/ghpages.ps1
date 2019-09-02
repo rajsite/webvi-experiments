@@ -25,6 +25,9 @@ Get-ChildItem ".\AzurePipelines\GitHubPagesRoot\*" | ForEach-Object {
     Copy-Item $_.FullName "$ghpagesbuilddir" -Recurse
 }
 
+Write-Host "Copy Arcade projects: Avalanche build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Avalanche\nxg" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Avalanche"
+
 Write-Host "Copy Arcade projects: Fire build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\Fire"
 
