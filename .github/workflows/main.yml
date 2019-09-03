@@ -1,4 +1,4 @@
-name: CI
+name: webvi-experiments continuous integration
 
 on:
   push:
@@ -7,10 +7,16 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-2019
-    
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
+    - name: Install LabVIEW NXG
       run: powershell .\AzurePipelines\install.ps1
+    - name: Build LabVIEW Projects
+      run: powershell .\AzurePipelines\build.ps1
+    - name: Create GitHub Pages Output
+      run: powershell .\AzurePipelines\ghpages.ps1
+    - uses: actions/upload-artifact@master
+      with:
+        name: ghpagesbuildoutput
+        path: /ghpagesbuild
