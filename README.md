@@ -13,3 +13,10 @@ WebVI Experiments are currently in the [user-defined error code range](http://zo
 Individual experiments are using the following error code ranges:
 
 - DOM (567000 - 567099)
+
+## Changelog
+
+Major changes that resulted in files being moved or deleted.
+
+- Arcade contains the Avalanche, Snake, and DOOM Fire games
+- FileTasks is result of Uppy refactor
