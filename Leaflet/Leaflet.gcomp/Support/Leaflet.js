@@ -41,9 +41,11 @@
             parent.appendChild(element);
 
             const map = L.map(element).setView([latitude, longitude], zoomLevel);
-            const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            const tileLayer = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+                // Other OpenStreetMap tile servers: https://wiki.openstreetmap.org/wiki/Tile_servers
+                // WikiMedia Maps Terms of Use: https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use
                 // Must be attributed for OpenStreetMaps, see: https://www.openstreetmap.org/copyright
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+                attribution: '<a href="https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use">Wikimedia Maps</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
             });
 
             map.addLayer(tileLayer);
