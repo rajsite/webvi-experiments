@@ -1,9 +1,9 @@
 (function () {
     'use strict';
-    // TokenTypes: <Array, ArrayEnd, ArrayDouble, ArrayString, ArrayBoolean, Object, ObjectKey, ObjectEnd, Double, String, True, False, Null>
+    // TokenTypesEnum: <Array, ArrayEnd, ArrayDouble, ArrayString, ArrayBoolean, Object, ObjectKey, ObjectEnd, Double, String, True, False, Null>
     // Token {Type, Data, Offsets}
     // Token {
-    //     T:  For all types -> One of <A, AE, AD, AS, AB, O, OK, OE, D, S, T, F, N>
+    //     T:  For all types -> One of TokenTypesEnum as number
     //     D:
     //         For ArrayDouble, ArrayString, ArrayBoolean -> JSON string of the corresponding types as a 1D array
     //         For ObjectKey -> string of key
@@ -22,7 +22,7 @@
     // Example:
     // {"hello": "world"} -> [{"T":"O","O":[1,3]}, {"T":"OK","D":"hello"}, {"T":"S","D":"world"}, {"T":"OE"}]
     //
-    // Notable edge cases:
+    // Notable edge cases (note the examples are using abbrevated token names instead of enum numbers for readability):
     // true -> [{"T":"T"}]
     // false -> [{"T":"F"}]
     // null -> [{"T":"N"}]
@@ -35,19 +35,19 @@
     // [1,null] -> [{"T":"A","O":[1,2,3]}, {"T":"D","D":"1"}, {"T":"N"}, {"T":"AE"}]
 
     // TokenTypes
-    const ARRAY = 'A';
-    const ARRAYEND = 'AE';
-    const ARRAYDOUBLE = 'AD';
-    const ARRAYSTRING = 'AS';
-    const ARRAYBOOLEAN = 'AB';
-    const OBJECT = 'O';
-    const OBJECTKEY = 'OK';
-    const OBJECTEND = 'OE';
-    const DOUBLE = 'D';
-    const STRING = 'S';
-    const TRUE = 'T';
-    const FALSE = 'F';
-    const NULL = 'N';
+    const ARRAY = 0;
+    const ARRAYEND = 1;
+    const ARRAYDOUBLE = 2;
+    const ARRAYSTRING = 3;
+    const ARRAYBOOLEAN = 4;
+    const OBJECT = 5;
+    const OBJECTKEY = 6;
+    const OBJECTEND = 7;
+    const DOUBLE = 8;
+    const STRING = 9;
+    const TRUE = 10;
+    const FALSE = 11;
+    const NULL = 12;
 
     // Token Fields
     const TYPE = 'T';
