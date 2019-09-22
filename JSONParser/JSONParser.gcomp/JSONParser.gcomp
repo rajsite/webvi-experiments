@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="3C127C02504730C5893175CB2AEDB3A6AA39C2732F4D0BD03C9CA5FC3A68CF91D638B0F193A9E79BFD7E607AF102F470BEA12048F18EAC5D569A0DDF2B2B46B4" Timestamp="1D5704129A4B760" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="64B1397B5DB157C6D1D71B14938F58CDACF5473F8CA13B03FD31E38973C3B58F74539F397DEC4CD2AE9A2F746F45C24592C3C2B7F3B5CA21ED766F704E1B7BAB" Timestamp="1D570DAB0E70AF4" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -15,8 +15,10 @@
 		<CompilerSymbolTable Id="a4f59afd3a04cd09b41edabc0ea2602" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="2115f5692a014d5c9407e0b432116e9d" Name="Configuration1">
 			<CompilerSymbolTable Id="c4ef5451b1b446a0ad46349632cb165e" xmlns="http://www.ni.com/PlatformFramework" />
-			<ComponentItemProperties AssociatedEnvoyId="bb18b675dc324621bf3829088321828f" Exported="True" Id="b26fb6f6845446e683337b67e8b9d786" />
 			<ComponentItemProperties AssociatedEnvoyId="5e043310e7c340e2b56382f1492935eb" Exported="True" Id="a40e40716ff44b15bdfc375a72c326cf" />
+			<ComponentItemProperties AssociatedEnvoyId="8088f1bdad114d62a0116eca290b81f9" Exported="True" Id="fd04084978b4ed9a4c40c2e19cccbc3" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="c64a216619ca44c588001b14bc97174c" Id="44100f88db274440aa7df72bb7f11cc5" />
+			<ComponentItemProperties AssociatedEnvoyId="990a94dc594ed69ab852ae136ab6d4" Exported="True" Id="3736aba9ac7446cbc9bcbaaa84fd60c" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="e95fee9538a64660846ba0914f852957" xmlns="http://www.ni.com/PlatformFramework">
@@ -26,9 +28,17 @@
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="9ab94cebe94471e9d433963ef7aa589" Name="JSONParser">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="a2d6bb5581d345dbbb80a937072eb10e" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="336cc5c19f954268a9380e44fb22472b" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="JSONParser.jsli" StoragePath="Support\JSONParser.jsli" />
+					<SourceFileReference Bindings="EnvoyManager" Id="173ba394fe844d9bff307211972c01e" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="Type.gtype" StoragePath="Support\Type.gtype\Type.gtype" />
+					<SourceFileReference Bindings="EnvoyManager" Id="57e53ff3b3b644e8bdedf5117ff121e1" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="Token.gtype" StoragePath="Support\Token.gtype\Token.gtype" />
+					<EmbeddedDefinitionReference Id="c64a216619ca44c588001b14bc97174c" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="JSONParser.js">
+						<ExternalFile>
+							<p.StoragePath>"Support\\JSONParser.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
 				</NameScopingEnvoy>
-				<SourceFileReference Bindings="EnvoyManager" Id="bb18b675dc324621bf3829088321828f" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="JSON Token.gtype" StoragePath="JSON Token.gtype\JSON Token.gtype" />
-				<SourceFileReference Id="5e043310e7c340e2b56382f1492935eb" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="JSON Tokenize.gvi" StoragePath="JSON Tokenize.gvi" />
+				<SourceFileReference Id="5e043310e7c340e2b56382f1492935eb" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Parse JSON.gvi" StoragePath="Parse JSON.gvi" />
+				<SourceFileReference Bindings="EnvoyManager" Id="8088f1bdad114d62a0116eca290b81f9" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="JSON Tokens.gtype" StoragePath="JSON Tokens.gtype\JSON Tokens.gtype" />
+				<SourceFileReference Id="990a94dc594ed69ab852ae136ab6d4" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Encode JSON.gvi" StoragePath="Encode JSON.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="7c0c2559f7df4503938457f2cf42c94d" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="JSONParser.gcomp" NameTracksFileName="True">
