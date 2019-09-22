@@ -212,6 +212,16 @@
         return tokensJSON;
     };
 
+    const jsonStringify = function (tokensJSON) {
+        const tokens = JSON.parse(tokensJSON);
+        let result = tokens;
+        const currentValueJSON = JSON.stringify(result);
+        return currentValueJSON;
+    };
+
     // Global property for JSLI
-    window.WebVIJSONParser = {jsonTokenize};
+    window.WebVIJSONParser = {
+        jsonTokenize,
+        jsonStringify
+    };
 }());
