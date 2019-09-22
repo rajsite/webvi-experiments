@@ -294,7 +294,7 @@
             }
         };
 
-        const result = visitValue(index);
+        const result = visitValue();
         const currentValueJSON = JSON.stringify(result);
         return currentValueJSON;
     };
