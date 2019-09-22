@@ -7,22 +7,24 @@
     //     D:
     //         For ArrayDouble, ArrayString, ArrayBoolean -> JSON string of the corresponding types as a 1D array
     //         For ObjectKey -> string of key
-    //         For Double -> string of number and cannot be IEEE754 special tokens (NaN, Infinitiy, -Infinity)
+    //         For Double -> string of number, cannot be IEEE754 special tokens (NaN, Infinitiy, -Infinity) because using built-in JSON.parse()
     //         For String -> string
-    //         For other types -> field ommitted
+    //         For other types -> empty string
     //     O:
     //         For Array -> offsets to each value and an additional offset to ArrayEnd
     //         For Object -> offsets to each ObjectKey (and the value starts one after the offset) and an additional offset to ObjectEnd
-    //         For other types -> field omitted
+    //         For other types -> empty array
     //         Note the offsets are relative to the current token not the top-level token array
     // }
-    // The Type field will always be emitted, the Data and Offsets will only be emitted as needed.
-    // Note the Types ArrayDouble, ArrayString, and ArrayBoolean do not have Offsets or corresponding ArrayEnd tokens.
+    // Note the Types ArrayDouble, ArrayString, and ArrayBoolean do not have corresponding ArrayEnd tokens.
     //
-    // Example:
+    // Conceptual examples:
+    // **NOTE**: Examples omit empty fields and are using abbrevated token names instead of enum numbers for readability
+    //
+    // Simple object:
     // {"hello": "world"} -> [{"T":"O","O":[1,3]}, {"T":"OK","D":"hello"}, {"T":"S","D":"world"}, {"T":"OE"}]
     //
-    // Notable edge cases (note the examples are using abbrevated token names instead of enum numbers for readability):
+    // Notable edge cases:
     // true -> [{"T":"T"}]
     // false -> [{"T":"F"}]
     // null -> [{"T":"N"}]
@@ -60,23 +62,33 @@
     const visitDouble = function (value) {
         return [{
             [TYPE]: DOUBLE,
-            [DATA]: String(value)
+            [DATA]: String(value),
+            [OFFSETS]: []
         }];
     };
 
     const visitString = function (value) {
         return [{
             [TYPE]: STRING,
-            [DATA]: value
+            [DATA]: value,
+            [OFFSETS]: []
         }];
     };
 
     const visitBoolean = function (value) {
-        return [{[TYPE]: value ? TRUE : FALSE}];
+        return [{
+            [TYPE]: value ? TRUE : FALSE,
+            [DATA]: '',
+            [OFFSETS]: []
+        }];
     };
 
     const visitNull = function () {
-        return [{[TYPE]: NULL}];
+        return [{
+            [TYPE]: NULL,
+            [DATA]: '',
+            [OFFSETS]: []
+        }];
     };
 
     const visitArrayOfPrimitives = function (value) {
@@ -103,7 +115,8 @@
         }
         tokens.push({
             [TYPE]: tokenType,
-            [DATA]: JSON.stringify(value)
+            [DATA]: JSON.stringify(value),
+            [OFFSETS]: []
         });
         return tokens;
     };
@@ -119,6 +132,7 @@
 
         tokens.push({
             [TYPE]: ARRAY,
+            [DATA]: '',
             [OFFSETS]: offsets
         });
 
@@ -131,7 +145,11 @@
         }
 
         offsets.push(currentOffset);
-        tokens.push({[TYPE]: ARRAYEND});
+        tokens.push({
+            [TYPE]: ARRAYEND,
+            [DATA]: '',
+            [OFFSETS]: []
+        });
         return tokens;
     };
 
@@ -141,6 +159,7 @@
 
         tokens.push({
             [TYPE]: OBJECT,
+            [DATA]: '',
             [OFFSETS]: offsets
         });
 
@@ -151,7 +170,8 @@
                 offsets.push(currentOffset);
                 tokens.push({
                     [TYPE]: OBJECTKEY,
-                    [DATA]: key
+                    [DATA]: key,
+                    [OFFSETS]: []
                 });
                 currentOffset += 1;
                 tokens.push(...valueTokens);
@@ -160,7 +180,11 @@
         }
 
         offsets.push(currentOffset);
-        tokens.push({[TYPE]: OBJECTEND});
+        tokens.push({
+            [TYPE]: OBJECTEND,
+            [DATA]: '',
+            [OFFSETS]: []
+        });
         return tokens;
     };
 
