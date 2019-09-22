@@ -214,7 +214,87 @@
 
     const jsonStringify = function (tokensJSON) {
         const tokens = JSON.parse(tokensJSON);
-        let result = tokens;
+
+        // All the visitors advance the shared index
+        let index = 0;
+        let visitValue;
+
+        const visitArray = function () {
+            const result = [];
+            // Advance index over Array token; should now be value or ArrayEnd
+            index += 1;
+            while (tokens[index][TYPE] !== ARRAYEND) {
+                const value = visitValue();
+                result.push(value);
+            }
+            // Advance index over ArrayEnd token
+            index += 1;
+            return result;
+        };
+
+        const visitObject = function () {
+            const result = {};
+            // Advance over Object token; should now be ObjectKey or ObjectEnd
+            index += 1;
+            while (tokens[index][TYPE] !== OBJECTEND) {
+                const key = tokens[index][DATA];
+                // Advance over ObjectKey token; should now be value
+                index += 1;
+                const value = visitValue();
+                result[key] = value;
+            }
+            // Advance index over ObjectEnd token
+            index += 1;
+            return result;
+        };
+
+        const visitPrimitive = function () {
+            const token = tokens[index];
+            // Advance index over token; all primitives are one token long
+            index += 1;
+            switch (token[TYPE]) {
+            case ARRAYDOUBLE:
+            case ARRAYSTRING:
+            case ARRAYBOOLEAN:
+                return JSON.parse(token[DATA]);
+            case DOUBLE:
+                return parseFloat(token[DATA]);
+            case STRING:
+                return token[DATA];
+            case TRUE:
+                return true;
+            case FALSE:
+                return false;
+            case NULL:
+                return null;
+            default:
+                throw new Error('Unexpected token type, expected primitive');
+            }
+        };
+
+        visitValue = function () {
+            switch (tokens[index][TYPE]) {
+            case ARRAY:
+                // visitArray handles ARRAYEND
+                return visitArray();
+            case OBJECT:
+                // visitObject handles ObjectKey and ObjectEnd
+                return visitObject();
+            case ARRAYDOUBLE:
+            case ARRAYSTRING:
+            case ARRAYBOOLEAN:
+            case DOUBLE:
+            case STRING:
+            case TRUE:
+            case FALSE:
+            case NULL:
+                return visitPrimitive();
+            default:
+                throw new Error('Unexpected Token type, tokens may be invalid');
+            }
+        };
+
+        const result = visitValue(index);
         const currentValueJSON = JSON.stringify(result);
         return currentValueJSON;
     };
