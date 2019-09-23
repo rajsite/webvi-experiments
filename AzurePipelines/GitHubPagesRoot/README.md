@@ -11,6 +11,7 @@
 - [BusyState](https://rajsite.github.io/webvi-experiments/BusyState)
 - [ECharts](https://rajsite.github.io/webvi-experiments/ECharts)
 - [Express](https://webvi-express-test.herokuapp.com/)
+- [JSONParser](https://rajsite.github.io/webvi-experiments/JSONParser)
 - [Leaflet](https://rajsite.github.io/webvi-experiments/Leaflet)
 - WebBluetooth
     - [BatteryLevel](https://rajsite.github.io/webvi-experiments/WebBluetooth/BatteryLevel.html)

@@ -21,14 +21,17 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileNa
 Write-Host "Build AugmentedReality SecretBox project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp"
 
-Write-Host "Build BusyState"
+Write-Host "Build BusyState project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\BusyState" -ProjectFileName "BusyState.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
-Write-Host "Build ECharts"
+Write-Host "Build ECharts project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
-Write-Host "Build Express"
+Write-Host "Build Express project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Express" -ProjectFileName "Express.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
+Write-Host "Build JSONParser project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\JSONParser" -ProjectFileName "JSONParser.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build Leaflet project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Leaflet" -ProjectFileName "Leaflet.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
