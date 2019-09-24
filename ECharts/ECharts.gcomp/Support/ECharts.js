@@ -39,6 +39,12 @@
 
         parent.appendChild(element);
         const echart = echarts.init(element);
+        if (window.ResizeObserver) {
+            const resizeObserver = new ResizeObserver(() => {
+                echart.resize();
+            });
+            resizeObserver.observe(element);
+        }
         const echartReference = referenceManager.createReference(echart);
         return echartReference;
     };
