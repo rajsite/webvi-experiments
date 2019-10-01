@@ -39,11 +39,15 @@
             return typeof obj === 'object' && obj !== null;
         };
         const result = pathSegments.reduce(function (obj, pathSegment) {
-            const curr = obj[pathSegment];
-            if (!isObject(curr) && !Array.isArray(curr)) {
-                throw new Error(`Cannot find value at path: ${pathSegments.join('.')}`);
+            if (Array.isArray(obj)) {
+                if (pathSegment === ':end') {
+                    return obj[obj.length - 1];
+                }
+                return obj[pathSegment];
+            } else if (isObject(obj)) {
+                return obj[pathSegment];
             }
-            return curr;
+            throw new Error(`Cannot find value at path: ${pathSegments.join('.')}`);
         }, target);
         return result;
     };
