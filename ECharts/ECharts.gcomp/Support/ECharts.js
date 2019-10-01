@@ -2,6 +2,52 @@
 (function () {
     'use strict';
 
+    const deepMerge = function (target, ...args) {
+        const isObject = function (obj) {
+            return typeof obj === 'object' && obj !== null;
+        };
+        args.forEach(function (arg) {
+            if (Array.isArray(arg)) {
+                if (!Array.isArray(target)) {
+                    throw new Error('Cannot merge an array onto a target non-array');
+                }
+                arg.forEach(item => target.push(item));
+            } else if (isObject(arg)) {
+                Object.keys(arg).forEach(function (prop) {
+                    if (Array.isArray(arg[prop])) {
+                        if (!Array.isArray(target[prop])) {
+                            target[prop] = [];
+                        }
+                        deepMerge(target[prop], arg[prop]);
+                    } else if (isObject(arg[prop])) {
+                        if (!isObject(target[prop])) {
+                            target[prop] = {};
+                        }
+                        deepMerge(target[prop], arg[prop]);
+                    } else {
+                        target[prop] = arg[prop];
+                    }
+                });
+            } else {
+                throw new Error('Cannot merge arg into target, arg must be an array or object to merge');
+            }
+        });
+    };
+
+    const lookupPath = function (target, pathSegments) {
+        const isObject = function (obj) {
+            return typeof obj === 'object' && obj !== null;
+        };
+        const result = pathSegments.reduce(function (obj, pathSegment) {
+            const curr = obj[pathSegment];
+            if (!isObject(curr) && !Array.isArray(curr)) {
+                throw new Error(`Cannot find value at path: ${pathSegments.join('.')}`);
+            }
+            return curr;
+        }, target);
+        return result;
+    };
+
     class ReferenceManager {
         constructor () {
             this._nextReference = 1;
@@ -63,20 +109,14 @@
             throw new Error('Invalid echarts reference.');
         }
 
-        // The optionsArrayJSON is a string that represents a JSON array of JSON objects of structure: [{"name": string, "propertiesJSON": string}, ...]
+        // The optionsArrayJSON is a string that represents a JSON array of JSON objects of structure: [{"path": [string], "propertiesJSON": string}, ...]
         // The propertiesJSON is a string that represents a JSON object of arbitrary structure
         const optionsArray = JSON.parse(optionsArrayJSON);
         const options = {};
         optionsArray.forEach(function (option) {
+            const target = lookupPath(options, option.path);
             const properties = JSON.parse(option.propertiesJSON);
-            if (option.name === 'series') {
-                if (options.series === undefined) {
-                    options.series = [];
-                }
-                options.series.push(properties);
-            } else {
-                options[option.name] = properties;
-            }
+            deepMerge(target, properties);
         });
         echart.setOption(options);
     };
