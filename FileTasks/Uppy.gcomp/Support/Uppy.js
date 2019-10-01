@@ -2,11 +2,10 @@
 (function () {
     'use strict';
 
-    const isObject = function (obj) {
-        return typeof obj === 'object' && obj !== null;
-    };
-
     const deepMerge = function (target, ...args) {
+        const isObject = function (obj) {
+            return typeof obj === 'object' && obj !== null;
+        };
         args.forEach(function (arg) {
             if (Array.isArray(arg)) {
                 if (!Array.isArray(target)) {
