@@ -21,6 +21,5 @@
             this.references.delete(reference);
         }
     }
-    const referenceManager = new ReferenceManager();
-    module.exports = referenceManager;
+    module.exports = ReferenceManager;
 }());

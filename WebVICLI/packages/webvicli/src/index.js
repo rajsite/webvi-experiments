@@ -1,20 +1,17 @@
 (function () {
     'use strict';
 
-    const webvicliconfig = require('./webvicliconfig.js');
-    const referenceManager = require('./referenceManager.js');
+    const glob = require('glob');
+    const htmlRequire = require('./htmlRequire.js');
+    const ReferenceManager = require('./referenceManager.js');
     const VireoNode = require('./VireoNode.js');
     const WebVICLIRunner = require('./WebVICLIRunner.js');
-
-    const getReferenceManager = function () {
-        return referenceManager;
-    };
-
-    const {getComponentPath, getClientPath} = webvicliconfig;
+    const sharedReferenceManager = new ReferenceManager();
     module.exports = {
-        getReferenceManager,
-        getComponentPath,
-        getClientPath,
+        glob,
+        htmlRequire,
+        ReferenceManager,
+        sharedReferenceManager,
         VireoNode,
         WebVICLIRunner
     };

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="B2FA502971D860060F514A8D0EE1A592B18E27199FB0359359AD3B29E0D4B7715D04ED924D92E4BBEA043D5418F731F629426B7F99184D2B5124A74D1126DA14" Timestamp="1D55711E2AB50C3" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="9DCDB288D95E7E4A63B1C2EFF5A3D824558B1B98B54B181C695B05BA05074AE47B85816F4BE44718B9721F125C648B3278783AACDF492298E2AC04C3F92F9060" Timestamp="1D57CE03B711820" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
@@ -56,13 +56,15 @@
 				<p.Text>message</p.Text>
 			</NodeLabel>
 			<Wire Id="886555a240794f128685900b67b41e32" Joints="N(3582c916cae849e5a378dd9f23ea537d:Out)|(435,255) N(f59377a445f84349b0be0e420bb6b6ae:L0)|(445,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="505 250 40 40" Id="fdb7f53dee994c27a3f957c5a42d5882" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\WebVICLI\\src\\webvicli-express\\Express.gcomp\\Run Express Application.gvi&quot;" Signature="@9252ff8772e145bdbe9edfe7f9e818d8" Target="Express::Run Express Application.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="505 250 40 40" Id="fdb7f53dee994c27a3f957c5a42d5882" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\WebVICLI\\packages\\webvicli-express\\Express.gcomp\\Run Express Application.gvi&quot;" Signature="@ca535ab6be264c1aab2ddace2b79a102" Target="Express::Run Express Application.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="client path" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
@@ -218,6 +220,14 @@
 				<p.Text>timeout</p.Text>
 			</NodeLabel>
 			<Wire Id="3f17b06a9ef64955b93e9f9f57c53b20" Joints="N(5a3a33970156433686b84eb32d9e887f:Out)|(885,205) h(5) v(60) N(b77e9cd1cd234b1a99a8734a25b39c41:L1)|(905,265)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="360 225 135 15" DataType="String" Id="22096d90e4814bf1aa9c49c7fa611290" Label="a3521b44f3ea4be9b984589131dbd90c" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>../Client_HelloWorld</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="22096d90e4814bf1aa9c49c7fa611290" Bounds="360 207 30 15" Id="a3521b44f3ea4be9b984589131dbd90c" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>client path</p.Text>
+			</NodeLabel>
+			<Wire Id="59bf8837b9bb4ba19a349241b5e5a375" Joints="N(22096d90e4814bf1aa9c49c7fa611290:Out)|(495,230) h(5) v(25) N(fdb7f53dee994c27a3f957c5a42d5882:L0)|(505,255)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" HtmlPanel="[bool]False" Id="8be165beb9c742e8a5ccae3a32aecd7a" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" />
 	</VirtualInstrument>
@@ -230,8 +240,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9252ff8772e145bdbe9edfe7f9e818d8">
-			<Attributed AttributedType="@e8a908e4debb437caa470b3048d6455e">
+		<p.TypeReference TypeId="ca535ab6be264c1aab2ddace2b79a102">
+			<Attributed AttributedType="@9cc50ef7b3fe46ad856c9e5adc63d27a">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -291,9 +301,14 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="e8a908e4debb437caa470b3048d6455e">
+		<p.TypeReference TypeId="9cc50ef7b3fe46ad856c9e5adc63d27a">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Run Express Application.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
+					<Attributed AttributedType="@bedbe476a340469ea7de44222c22640d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]client path" />
+						</AttributeValues>
+					</Attributed>
 					<Attributed AttributedType="@e644d82de5364f9caf3924d31d60d8ce">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
@@ -439,6 +454,9 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="17bff48168cc4e78885944fac1c367fa">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="bedbe476a340469ea7de44222c22640d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="cd50deaaf57c4d1a942c74ab588babfc">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />

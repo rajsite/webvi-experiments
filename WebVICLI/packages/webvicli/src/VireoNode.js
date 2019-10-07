@@ -15,10 +15,8 @@
     }
     global.WebSocket = WebSocketShim;
 
-    const path = require('path');
     const xhr2 = require('xhr2');
-
-    const webvicliconfig = require('./webvicliconfig.js');
+    const vireoHelpers = require('vireo');
     class VireoNode {
         constructor (viaWithEnqueue) {
             const enqueueRegex = /^enqueue\s*\((\S*)\)$/m;
@@ -34,9 +32,6 @@
         }
 
         async initialize () {
-            const componentPath = webvicliconfig.getComponentPath();
-            const vireoHelpers = require(path.resolve(componentPath, 'ni-webvi-resource-v0/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.min.js'));
-
             const vireo = await vireoHelpers.createInstance();
 
             vireo.httpClient.setXMLHttpRequestImplementation(xhr2);

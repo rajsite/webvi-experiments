@@ -2,55 +2,38 @@
 (function () {
     'use strict';
 
+    // node imports
     const {performance} = require('perf_hooks');
-    const path = require('path');
-    const glob = require('glob');
     const fs = require('fs');
-    const cheerio = require('cheerio');
+    const process = require('process');
 
-    const {setComponentPath, setClientPath, getComponentPath} = require('./webvicliconfig.js');
+    // webvicli imports
+    const glob = require('glob');
+    const htmlRequire = require('./htmlRequire');
     const VireoNode = require('./VireoNode.js');
 
+    const SECONDS_PER_MILLISECOND = 1000;
+
     class WebVICLIRunner {
-        constructor (componentPath, clientPath) {
-            console.log(`Web Application Component Path: ${componentPath}`);
-            console.log(`Web Application Client Path: ${clientPath}`);
-            setComponentPath(componentPath);
-            setClientPath(clientPath);
-        }
+        constructor () {
+            console.log('WebVICLI Main File load start');
+            const webviCLIMainFileLoadStart = performance.now();
+            const cwd = process.cwd();
+            console.log(`Current Working Directory: ${cwd}`);
 
-        async run () {
-            const componentPath = getComponentPath();
-            const webviCLIStart = performance.now();
-            console.log('Searching for node dependencies...');
-            const htmlPaths = glob.sync('**/*.html', {cwd: componentPath});
-            const dependencyPathSet = new Set();
-            htmlPaths.forEach(htmlPath => {
-                const resolvedHtmlPath = path.resolve(componentPath, htmlPath);
-                const resolvedHtmlDir = path.dirname(resolvedHtmlPath);
-                const endpointHTML = fs.readFileSync(resolvedHtmlPath, 'utf8');
-                const $$ = cheerio.load(endpointHTML);
-                const rawDependencyPaths = [];
-                $$('script[webvi-express-require]').each(function (index, element) {
-                    const src = $$(element).attr('src');
-                    // Seems to be formatted with windows path format
-                    const normalized = src.replace(/\\/g, '/');
-                    rawDependencyPaths.push(normalized);
-                });
-                const dependencyPaths = rawDependencyPaths.map((rawDependencyPath) => path.resolve(resolvedHtmlDir, rawDependencyPath));
-                dependencyPaths.forEach((dependencyPath) => dependencyPathSet.add(dependencyPath));
-            });
-            console.log('Finished searching for node dependencies.');
+            console.log('Searching for Main VI HTML in current working directory');
+            const htmlPaths = glob.sync('**/main.html', {absolute: true});
+            if (htmlPaths.length !== 1) {
+                throw new Error(`Expected to find exactly one Main VI HTML (main.html). Found ${htmlPaths.length}`);
+            }
+            const htmlPath = htmlPaths[0];
+            console.log('Finished searching for Main VI HTML');
 
-            console.log('Discovered node dependencies:');
-            dependencyPathSet.forEach(dependencyPath => console.log(dependencyPath));
-
-            console.log('Loading node dependencies...');
-            dependencyPathSet.forEach(dependencyPath => require(dependencyPath));
-            console.log('Finished loading node dependencies.');
+            console.log('Discoverd Main VI HTML:');
+            console.log(htmlPath);
 
             console.log('Searching for WebVICLI Main VI');
-            const viaPaths = glob.sync('**/main.via.txt', {cwd: componentPath});
+            const viaPaths = glob.sync('**/main.via.txt', {absolute: true});
             if (viaPaths.length !== 1) {
                 throw new Error(`Expected to find exactly one WebVICLI Main VI (main.via.txt). Found ${viaPaths.length}`);
             }
@@ -60,21 +43,38 @@
             console.log('Discoverd WebVICLI Main VI:');
             console.log(viaPath);
 
-            console.log('Loading WebVICLI Main VI...');
-            const viaWithEnqueue = fs.readFileSync(path.resolve(componentPath, viaPath), 'utf8');
+            // htmlRequire for main should always be synchronous with node startup for dependencies that have to run at that time
+            console.log('Loading Main VI HTML WebVICLI require attributes');
+            htmlRequire(htmlPath);
+            console.log('Finished loading Main VI HTML WebVICLI require attributes');
+
+            console.log('Loading Main VI via');
+            const viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
             const vireoNode = new VireoNode(viaWithEnqueue);
-            await vireoNode.initialize();
-            console.log('Finished loading WebVICLI Main VI.');
+            console.log('Finished loading Main VI via');
+
+            const webviCLIMainFileLoadEnd = performance.now();
+            console.log(`WebVICLI Main File load took ${(webviCLIMainFileLoadEnd - webviCLIMainFileLoadStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
+
+            this._vireoNode = vireoNode;
+        }
+
+        async run () {
+            console.log('Starting WebVICLI main execution');
+            const webviCLIStart = performance.now();
+            console.log('Instancing Vireo runtime for Main VI...');
+            await this._vireoNode.initialize();
+            console.log('Finished instancing Vireo runtime for Main VI.');
 
             console.log('Running WebVICLI Main VI...');
             console.log('---------------------------');
-            vireoNode.enqueueVI();
-            await vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
+            this._vireoNode.enqueueVI();
+            await this._vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
             console.log('----------------------------------');
             console.log('Finished running WebVICLI Main VI.');
             const webviCLIEnd = performance.now();
-            const SECONDS_PER_MILLISECOND = 1000;
-            console.log(`WebVICLI took ${(webviCLIEnd - webviCLIStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
+
+            console.log(`WebVICLI main execution took ${(webviCLIEnd - webviCLIStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
         }
     }
 

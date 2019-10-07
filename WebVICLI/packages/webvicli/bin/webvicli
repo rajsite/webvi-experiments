@@ -3,17 +3,8 @@
 (async function () {
     'use strict';
 
-    const path = require('path');
-    const process = require('process');
     const {WebVICLIRunner} = require('webvicli');
-
-    const serverName = process.argv[2] || 'Server_HelloWorld';
-    const clientName = process.argv[3] || 'Client_HelloWorld';
-    const cwd = process.cwd();
-    console.log(`Current Working Directory: ${cwd}`);
-    const componentPath = path.resolve(cwd, `Builds/${serverName}`).toString();
-    const clientPath = path.resolve(cwd, `Builds/${clientName}`).toString();
-    const webvicliRunner = new WebVICLIRunner(componentPath, clientPath);
+    const webvicliRunner = new WebVICLIRunner();
     await webvicliRunner.run();
 }()).catch(function (ex) {
     'use strict';
