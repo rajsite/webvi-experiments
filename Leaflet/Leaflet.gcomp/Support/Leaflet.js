@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 /* global L:false */
 (function () {
     'use strict';
