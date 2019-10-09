@@ -19,13 +19,11 @@
 
     // webvicli-express imports
     const express = require('express');
-    const createVireoMiddleware = require('./createVireoMiddleware');
+    const createVireoMiddleware = require('./createVireoMiddleware.js');
 
-    const runExpressApplication = async function (clientPath) {
-        const cwd = process.cwd();
-
+    const runExpressApplication = async function (serverPath, clientPath) {
         console.log('Searching for routes');
-        const viaPaths = glob.sync('**/@(get|post|put|all).via.txt');
+        const viaPaths = glob.sync('**/@(get|post|put|all).via.txt', {cwd: serverPath});
         const endpointConfigs = viaPaths.map(function (viaPath) {
             const {dir, name} = path.parse(viaPath);
 
@@ -33,7 +31,7 @@
             const route = '/' + dir;
             const viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
             const htmlFileName = `${dir}/${method}.html`;
-            const htmlPath = path.join(cwd, htmlFileName);
+            const htmlPath = path.join(serverPath, htmlFileName);
 
             return {method, route, viaWithEnqueue, htmlPath};
         });
@@ -54,7 +52,8 @@
             app[method](route, createVireoMiddleware({viaWithEnqueue}));
         });
 
-        const staticAssets = path.join(cwd, clientPath);
+        // TODO should just make a path.resolve node that is user facing instead
+        const staticAssets = path.normalize(clientPath);
         console.log('Configuring express static folder: ' + staticAssets);
         app.use(express.static(staticAssets));
 

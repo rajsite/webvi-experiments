@@ -6,13 +6,15 @@
     const ReferenceManager = require('./referenceManager.js');
     const VireoNode = require('./VireoNode.js');
     const WebVICLIRunner = require('./WebVICLIRunner.js');
-    const sharedReferenceManager = new ReferenceManager();
+    const WebVICLI = require('./WebVICLI.js');
+    const sharedReferenceManager = require('./sharedReferenceManager.js');
     module.exports = {
         glob,
         htmlRequire,
         ReferenceManager,
         sharedReferenceManager,
         VireoNode,
-        WebVICLIRunner
+        WebVICLIRunner,
+        WebVICLI
     };
 }());

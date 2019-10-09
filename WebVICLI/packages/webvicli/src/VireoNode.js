@@ -32,6 +32,7 @@
         }
 
         async initialize () {
+            // TODO pass the viaWithEnqueue into initialize so it doesn't have to be cached
             const vireo = await vireoHelpers.createInstance();
 
             vireo.httpClient.setXMLHttpRequestImplementation(xhr2);

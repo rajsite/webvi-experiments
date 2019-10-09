@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 (function () {
     'use strict';
 
@@ -9,20 +8,23 @@
 
     // webvicli imports
     const glob = require('glob');
-    const htmlRequire = require('./htmlRequire');
+    const htmlRequire = require('./htmlRequire.js');
+    const sharedReferenceManager = require('./sharedReferenceManager.js');
     const VireoNode = require('./VireoNode.js');
 
     const SECONDS_PER_MILLISECOND = 1000;
 
     class WebVICLIRunner {
-        constructor () {
+        constructor ({cwd = process.cwd()} = {}) {
+            // take an optional cwd and an optional via file path
+            // TODO take a path to a .via.txt file
+            // assume it has a corresponding .html file
             console.log('WebVICLI Main File load start');
             const webviCLIMainFileLoadStart = performance.now();
-            const cwd = process.cwd();
             console.log(`Current Working Directory: ${cwd}`);
 
             console.log('Searching for Main VI HTML in current working directory');
-            const htmlPaths = glob.sync('**/main.html', {absolute: true});
+            const htmlPaths = glob.sync('**/main.html', {absolute: true, cwd});
             if (htmlPaths.length !== 1) {
                 throw new Error(`Expected to find exactly one Main VI HTML (main.html). Found ${htmlPaths.length}`);
             }
@@ -33,7 +35,7 @@
             console.log(htmlPath);
 
             console.log('Searching for WebVICLI Main VI');
-            const viaPaths = glob.sync('**/main.via.txt', {absolute: true});
+            const viaPaths = glob.sync('**/main.via.txt', {absolute: true, cwd});
             if (viaPaths.length !== 1) {
                 throw new Error(`Expected to find exactly one WebVICLI Main VI (main.via.txt). Found ${viaPaths.length}`);
             }
@@ -57,9 +59,11 @@
             console.log(`WebVICLI Main File load took ${(webviCLIMainFileLoadEnd - webviCLIMainFileLoadStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
 
             this._vireoNode = vireoNode;
+            this._cwd = cwd;
         }
 
         async run () {
+            // TODO check if main has a cli dataItem and create a reference if it does. webvicli will expose an api to get the configured current working directory
             console.log('Starting WebVICLI main execution');
             const webviCLIStart = performance.now();
             console.log('Instancing Vireo runtime for Main VI...');
@@ -69,12 +73,27 @@
             console.log('Running WebVICLI Main VI...');
             console.log('---------------------------');
             this._vireoNode.enqueueVI();
-            await this._vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
+
+            const viName = this._vireoNode.getVIName();
+            const vireo = this._vireoNode.vireo;
+            const applicationValueRef = vireo.eggShell.findValueRef(viName, 'dataItem_Application');
+            const applicationReference = applicationValueRef === undefined ? undefined : sharedReferenceManager.createReference(this);
+            if (applicationValueRef !== undefined && applicationReference !== undefined) {
+                vireo.eggShell.writeDouble(applicationValueRef, applicationReference);
+            }
+
+            await vireo.eggShell.executeSlicesUntilClumpsFinished();
+
+            sharedReferenceManager.closeReference(applicationReference);
             console.log('----------------------------------');
             console.log('Finished running WebVICLI Main VI.');
             const webviCLIEnd = performance.now();
 
             console.log(`WebVICLI main execution took ${(webviCLIEnd - webviCLIStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
+        }
+
+        get cwd () {
+            return this._cwd;
         }
     }
 

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
 
-    const WebVIExpress = require('./WebVIExpress');
+    const WebVIExpress = require('./WebVIExpress.js');
     module.exports = {WebVIExpress};
 }());

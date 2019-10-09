@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="09834D99E5D64E8C0D3AC3F5A7AD416420F94150F1F8BAE249D647DD749D55128EE0301C085D4339A113D42243085DF599619C17AF72E5ED4C7CEFD7CA5A37A4" Timestamp="1D57CE01602711C" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="CD9E45DD7EBE2E0CE0539B3C21AE377DCD9DE7B97F750289D7B31AF8FBBACC1490108A21929823A9B97B0D36F9B36099AB76986FACE4DFADBE338312FFAA8B00" Timestamp="1D57E626D557E59" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -20,9 +20,9 @@
 				</IconTemplate>
 			</IconPanel>
 		</Icon>
-		<ConnectorPane Height="40" Id="e9a677ad33c543d592b5c8697a1d66e3" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-			<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="ea1555898f164dcc9692f33b68fa8a72" />
-			<ConnectorPaneTerminal Hotspot="0 15" />
+		<ConnectorPane Height="40" Id="e9a677ad33c543d592b5c8697a1d66e3" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+			<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="359aa3767d9645978228268fef1c2e9a" />
+			<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="ea1555898f164dcc9692f33b68fa8a72" />
 			<ConnectorPaneTerminal Hotspot="0 25" />
 			<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 50" Parameter="4e2b341714e84c8a9ed8845b6364abc5" />
 			<ConnectorPaneTerminal Hotspot="15 0" />
@@ -59,17 +59,20 @@
 				<p4:Label Height="[float]16" Id="135a009fdd8e4233896ccff57b2819a9" LabelOwner="[UIModel]396a2399f0340359f06d694447f1a61" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
 			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="3dfef9c654954caca822ecae8a5fa2c0" IsReadOnly="[bool]False" Left="[float]0" MinHeight="[float]24" Name="[string]client path" TabIndex="[int]2" Text="{DataItemBinding Id=ea1555898f164dcc9692f33b68fa8a72}" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="f8b4be2e901d486b836dc80ee2a55e64" IsReadOnly="[bool]False" Left="[float]0" MinHeight="[float]24" Name="[string]server path" TabIndex="[int]3" Text="{DataItemBinding Id=359aa3767d9645978228268fef1c2e9a}" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 		</FrontPanelUnplacedItems>
 		<BlockDiagram Id="cb400b0c50794960af0cd407bd392cb2">
-			<MethodCall Bounds="420 200 40 40" Id="8d4fbc2bc41aa9b501af9c102c0f3" ResolveFailedHint="RunExpressApplication" Signature="@eb5ee14ba32a4189b1ee9d04c6a3719c" Target="Express::Support::Express.jsli::RunExpressApplication" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="420 200 40 40" Id="8d4fbc2bc41aa9b501af9c102c0f3" ResolveFailedHint="RunExpressApplication" Signature="@bc032a5e8fae4ab8a56e0be96435962f" Target="Express::Support::Express.jsli::RunExpressApplication" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="clientPath" />
+						<Parameter Id="L0" Desc="serverPath" />
+						<Parameter Id="L1" Desc="clientPath" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="String" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
@@ -93,7 +96,14 @@
 			<NodeLabel AttachedTo="fbb7c92b997145b5aabcf78cbd1dcb5c" Bounds="286 200 59 14" Id="9bbf11c8a1744fb28ac7cc627fbb18ef" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>client path</p.Text>
 			</NodeLabel>
-			<Wire Id="4fc23f1910394d8b83892596302fdb26" Joints="N(fbb7c92b997145b5aabcf78cbd1dcb5c:Value)|(390,205) N(8d4fbc2bc41aa9b501af9c102c0f3:L0)|(420,205)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="fcf135dda8c048b5957cde0fd9513676" Joints="N(fbb7c92b997145b5aabcf78cbd1dcb5c:Value)|(390,205) h(6) v(10) N(8d4fbc2bc41aa9b501af9c102c0f3:L1)|(420,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="350 175 40 15" DataItem="359aa3767d9645978228268fef1c2e9a" Id="67f507eff35c40229188cf9c7c9ddaec" Label="fa4d4e7244f6489eb269e9b91d5e1457" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="67f507eff35c40229188cf9c7c9ddaec" Bounds="281 175 64 14" Id="fa4d4e7244f6489eb269e9b91d5e1457" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>server path</p.Text>
+			</NodeLabel>
+			<Wire Id="a16c18ba5f6d439d80250b8c20e5158a" Joints="N(67f507eff35c40229188cf9c7c9ddaec:Value)|(390,180) h(15) v(25) N(8d4fbc2bc41aa9b501af9c102c0f3:L0)|(420,205)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="ea681293a62540bbba7c11fcf6ed3dbc" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="78b84e5c8b774eb5aedca3557d3dff0f" />
@@ -125,21 +135,29 @@
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="String" Id="ea1555898f164dcc9692f33b68fa8a72" Name="client path" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
+		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="2" CallUsage="Required" DataType="String" Id="359aa3767d9645978228268fef1c2e9a" Name="server path" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
+		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="eb5ee14ba32a4189b1ee9d04c6a3719c">
-			<Attributed AttributedType="@24238fac64b74d48be117ccf8647ae5d">
+		<p.TypeReference TypeId="bc032a5e8fae4ab8a56e0be96435962f">
+			<Attributed AttributedType="@17773414c00f458e8a5139f6439b0074">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="24238fac64b74d48be117ccf8647ae5d">
+		<p.TypeReference TypeId="17773414c00f458e8a5139f6439b0074">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="RunExpressApplication" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@ead93e9ccf09449ea827723cce09a8c5">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]serverPath" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@069cf77559a645a087566635e390a7da">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]clientPath" />
 						</AttributeValues>
@@ -159,6 +177,9 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="ead93e9ccf09449ea827723cce09a8c5">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="069cf77559a645a087566635e390a7da">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="e644d82de5364f9caf3924d31d60d8ce">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
