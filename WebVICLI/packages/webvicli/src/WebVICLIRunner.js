@@ -9,13 +9,13 @@
     // webvicli imports
     const glob = require('glob');
     const htmlRequire = require('./htmlRequire.js');
-    const sharedReferenceManager = require('./sharedReferenceManager.js');
     const VireoNode = require('./VireoNode.js');
 
     const SECONDS_PER_MILLISECOND = 1000;
 
     class WebVICLIRunner {
         constructor ({cwd = process.cwd()} = {}) {
+            // TODO rename cwd to searchPath or something
             // take an optional cwd and an optional via file path
             // TODO take a path to a .via.txt file
             // assume it has a corresponding .html file
@@ -59,7 +59,6 @@
             console.log(`WebVICLI Main File load took ${(webviCLIMainFileLoadEnd - webviCLIMainFileLoadStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
 
             this._vireoNode = vireoNode;
-            this._cwd = cwd;
         }
 
         async run () {
@@ -73,27 +72,12 @@
             console.log('Running WebVICLI Main VI...');
             console.log('---------------------------');
             this._vireoNode.enqueueVI();
-
-            const viName = this._vireoNode.getVIName();
-            const vireo = this._vireoNode.vireo;
-            const applicationValueRef = vireo.eggShell.findValueRef(viName, 'dataItem_Application');
-            const applicationReference = applicationValueRef === undefined ? undefined : sharedReferenceManager.createReference(this);
-            if (applicationValueRef !== undefined && applicationReference !== undefined) {
-                vireo.eggShell.writeDouble(applicationValueRef, applicationReference);
-            }
-
-            await vireo.eggShell.executeSlicesUntilClumpsFinished();
-
-            sharedReferenceManager.closeReference(applicationReference);
+            await this._vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
             console.log('----------------------------------');
             console.log('Finished running WebVICLI Main VI.');
             const webviCLIEnd = performance.now();
 
             console.log(`WebVICLI main execution took ${(webviCLIEnd - webviCLIStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
-        }
-
-        get cwd () {
-            return this._cwd;
         }
     }
 
