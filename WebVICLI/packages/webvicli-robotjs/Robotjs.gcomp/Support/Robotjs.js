@@ -14,7 +14,7 @@
         });
     };
 
-    global.WebVIRobotjs = {
+    module.exports = {
         getScreenSize,
         moveMouse
     };

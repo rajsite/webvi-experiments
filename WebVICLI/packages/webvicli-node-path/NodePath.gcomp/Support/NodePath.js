@@ -9,5 +9,5 @@
         return absolutePath;
     };
 
-    global.WebVINodePath = {resolve};
+    module.exports = {resolve};
 }());

@@ -7,34 +7,37 @@
     // webvicli imports
     const cheerio = require('cheerio');
 
-    const htmlRequireAttributeName = 'webvi-express-require';
+    const htmlRequireAttributeName = 'webvicli-global';
 
     const htmlRequire = function (resolvedHtmlPath) {
-        const dependencyPathSet = new Set();
         const resolvedHtmlDir = path.dirname(resolvedHtmlPath);
-
         console.log(`Loading webvicli require html file path ${resolvedHtmlPath}`);
         const endpointHTML = fs.readFileSync(resolvedHtmlPath, 'utf8');
         const $$ = cheerio.load(endpointHTML);
         console.log('Finished loading webvicli require html file');
 
         console.log(`Finding require attributes in html file path ${resolvedHtmlPath}`);
-        const rawDependencyPaths = [];
+        const dependencyPaths = new Map();
         $$(`script[${htmlRequireAttributeName}]`).each(function (index, element) {
             const src = $$(element).attr('src');
+            const globalName = $$(element).attr(htmlRequireAttributeName);
+            if (typeof globalName !== 'string' || globalName === '') {
+                throw new Error(`expected attribute ${htmlRequireAttributeName} to have non-empty string value, but found: ${globalName}`);
+            }
             // Seems to be formatted with windows path format
-            const normalized = src.replace(/\\/g, '/');
-            rawDependencyPaths.push(normalized);
+            const srcNormalized = src.replace(/\\/g, '/');
+            const dependencyPath = path.resolve(resolvedHtmlDir, srcNormalized);
+            dependencyPaths.set(globalName, dependencyPath);
         });
-        const dependencyPaths = rawDependencyPaths.map((rawDependencyPath) => path.resolve(resolvedHtmlDir, rawDependencyPath));
-        dependencyPaths.forEach((dependencyPath) => dependencyPathSet.add(dependencyPath));
         console.log('Finished finding require attributes');
 
         console.log('Discovered node dependencies:');
-        dependencyPathSet.forEach(dependencyPath => console.log(dependencyPath));
+        dependencyPaths.forEach((dependencyPath, globalName) => console.log(`${globalName} - ${dependencyPath}`));
 
         console.log('Loading node dependencies...');
-        dependencyPathSet.forEach(dependencyPath => require(dependencyPath));
+        dependencyPaths.forEach((dependencyPath, globalName) => {
+            global[globalName] = require(dependencyPath);
+        });
         console.log('Finished loading node dependencies.');
     };
 

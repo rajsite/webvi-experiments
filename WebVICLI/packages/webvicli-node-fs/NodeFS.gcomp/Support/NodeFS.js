@@ -7,5 +7,5 @@
         return data;
     };
 
-    global.WebVINodeFS = {readFile};
+    module.exports = {readFile};
 }());

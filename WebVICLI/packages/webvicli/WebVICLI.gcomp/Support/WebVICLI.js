@@ -9,7 +9,7 @@
         return componentDirectory;
     };
 
-    global.WebVICLI = {
+    module.exports = {
         ...WebVICLI,
         getComponentDirectory
     };
