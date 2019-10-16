@@ -52,9 +52,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\BusyState" -TargetName "Web Server" 
 Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
 
-Write-Host "Copy Express build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\Express" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Express"
-
 Write-Host "Copy JSONParser build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
 
