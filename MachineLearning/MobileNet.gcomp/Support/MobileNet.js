@@ -48,7 +48,8 @@
         }
         await imageLoad(helperImage, fileReference);
         const results = await model.classify(helperImage);
-        console.log(results);
+        const resultsJSON = JSON.stringify(results);
+        return resultsJSON;
     };
     window.WebVIMobileNet = {
         load,
