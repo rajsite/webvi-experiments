@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="B1CB49EA4B2697879C5DD2162DDDBCA60DF2EFB0242C01F3ED9916D622535545BF31133C2376506651F2B5D06043A1E3088EEB4C251DE962F2F4EE4FE6567404" Timestamp="1D587AC9F702F7A" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="B070665B4FD1F7599E0BD7EF3AAF4E7D7BE21E31CA5CDD81F89204EBF308477C048402965DDCB751F8D1535CB0D016640E669A3657EC4882AF5FCA327E1EA907" Timestamp="1D587B3C1F0DC04" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -15,6 +15,10 @@
 		<CompilerSymbolTable Id="1fe8811b1c544d5a83705e87298ccc9c" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="5ec104b4d4784d32910c048572c47337" Name="Configuration1">
 			<CompilerSymbolTable Id="30ab80e9e64f404f82a21dbc51a6042b" xmlns="http://www.ni.com/PlatformFramework" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="57efe1c782374e8d9b152321f0aaba38" Id="ed5106b674864e71814a8cd8a358fce6" />
+			<ComponentItemProperties AssociatedEnvoyId="f98d8d92c474093ab04e0f50a537bf1" Exported="True" Id="20f2350078ad47b0a8af6ceb6bad5abb" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="a891b88b59a14e7f80ba4214b3fc296c" Id="1bb438153a5e4b33996a1495be243c65" />
+			<ComponentItemProperties AssociatedEnvoyId="8b41ac4d47dc4a8fb4ce79e874482820" Exported="True" Id="b4aeb22b8d2c4cfb8b819010b7bd88b7" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="60218c6e473c447289f19f4408fa7b71" xmlns="http://www.ni.com/PlatformFramework">
@@ -24,7 +28,28 @@
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="d515cb97d9d74b3ca07e00ed01ad871d" Name="MobileNet">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="c15df13fc10c44d294497b6f5b08d0d0" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="a07c32bdfc724b499d247af5855e4912" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="MobileNet.jsli" StoragePath="Support\MobileNet.jsli" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="d97e94bb5bb14351b537056e33742c91" Name="node_modules">
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="98b963b024b640599075fb81d6a447a4" Name="@tensorflow-models">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="f3e1c5c60f04ecb92f4804334aa46af" Name="mobilenet">
+								<NameScopingEnvoy AutomaticallyResolveUp="True" Id="1532e000d8bf4cbc9de291abe17ba3e5" Name="dist">
+									<EmbeddedDefinitionReference Id="57efe1c782374e8d9b152321f0aaba38" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="mobilenet.js">
+										<ExternalFile>
+											<p.StoragePath>"Support\\node_modules\\@tensorflow-models\\mobilenet\\dist\\mobilenet.js"</p.StoragePath>
+										</ExternalFile>
+									</EmbeddedDefinitionReference>
+								</NameScopingEnvoy>
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
+					</NameScopingEnvoy>
+					<EmbeddedDefinitionReference Id="a891b88b59a14e7f80ba4214b3fc296c" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="MobileNet.js">
+						<ExternalFile>
+							<p.StoragePath>"Support\\MobileNet.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
+					<SourceFileReference Bindings="EnvoyManager" Id="bba7abd54a3d4999aa9fce2285be7fab" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="model reference.gtype" StoragePath="Support\model reference.gtype\model reference.gtype" />
 				</NameScopingEnvoy>
+				<SourceFileReference Id="f98d8d92c474093ab04e0f50a537bf1" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Load MobileNet.gvi" StoragePath="Load MobileNet.gvi" />
+				<SourceFileReference Id="8b41ac4d47dc4a8fb4ce79e874482820" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Classify MobileNet.gvi" StoragePath="Classify MobileNet.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="ba9541f2b4f54f8ba43e0ad0c5b0d794" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="MobileNet.gcomp" NameTracksFileName="True">
