@@ -13,6 +13,7 @@
 - [Express](https://webvicli-express.herokuapp.com/)
 - [JSONParser](https://rajsite.github.io/webvi-experiments/JSONParser)
 - [Leaflet](https://rajsite.github.io/webvi-experiments/Leaflet)
+- [MachineLearning](https://rajsite.github.io/webvi-experiments/MachineLearning)
 - WebBluetooth
     - [BatteryLevel](https://rajsite.github.io/webvi-experiments/WebBluetooth/BatteryLevel.html)
     - [Dotti](https://rajsite.github.io/webvi-experiments/WebBluetooth/Dotti.html)
