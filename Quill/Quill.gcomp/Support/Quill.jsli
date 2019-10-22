@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="6B1C7371990AA5E54E658B205480D775069450AF4C1E4A5675DE3BDA527B890D38A975021DBA7B582C8023DCE177675F4F4C0264727B737F7CED8AE73884CE8E" Timestamp="1D5889E3EF50FE3" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="66D1A0977E76D2962832B82DA8B1671BC5301B0B85DDD53771B2D8F2CD089A117AB03604985CEF36C2E9C36586EBD963B864C1FE468FEC6DF86F7939DEAAAFF2" Timestamp="1D588A530CE9B0F" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
@@ -11,10 +11,112 @@
 				<IconTemplate Height="[float]40" Id="848c5da1d96c4450babb2f13e82f1431" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="e9f5bde3a24b4a8c96919fe77bfd4556" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;Quill.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
+		<DependenciesTextBox Id="e9f5bde3a24b4a8c96919fe77bfd4556" ScriptAndLinkDependencies="&quot;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;node_modules/quill/dist/quill.snow.css&amp;quot;&amp;gt;\r\n&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;Quill.css&amp;quot;&amp;gt;\r\n\r\n&amp;lt;script src=&amp;quot;node_modules/quill/dist/quill.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;Quill.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="c4f64c498b7410099f872f7cc2c52d5" xmlns="http://www.ni.com/PlatformFramework">
 		<ProjectSettings Id="63aeb5556654ce796c6d402c2a7c99b" ModelDefinitionType="ProjectSettings" Name="ZProjectSettings" />
-		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="b723e28add9e483e9f0564c73dd0a224" Name="Quill.jsli" NameTracksFileName="True" />
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="b723e28add9e483e9f0564c73dd0a224" Name="Quill.jsli" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Id="6cb16f15edbc4158bfa73cba44dd101a" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CreateQuill">
+				<JavaScriptLibraryEntryPoint Id="854fb282db7644a290dd559ec69b16bb" Symbol="WebVIQuill.createQuill" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="2f94cdd367cb4a9fb2d121e92a28f788" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="d9706a22c7f14dccbb34ed5984fcfd5e" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="4f48924e07b240fcb6fca7634232bb95" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="113fc162711844f78dd6586168715877" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="7fa5b32ad58c44b08783dcd7d1e9e5da" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="888f58633ab2449e8f491156ba65ff72" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateQuill" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" Id="7876d913d7314d47be86ab8a238caec7" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="eca2de7e93b64a03aa4bad4e680bf3f2" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal />
+						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="a880919197984a4e9d08427418ac1514" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="7407898579b447b6a0b1835bc5ecaa7b" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="53ca1ba1180d4245b530a4e5ae88619b" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="7aef0a9f96fc4ba486ae0434f642ab3d" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="7407898579b447b6a0b1835bc5ecaa7b" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="7aef0a9f96fc4ba486ae0434f642ab3d" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="3bac1986628546a3857bf11a1b1c84c7" IsReturnParameter="True" Name="quillReference">
+						<JavaScriptType ActualDataType="@5faf79004db34dbb835898847dabd97e" Id="da67174665eb467aa90e57c21c1c5d90" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="53ca1ba1180d4245b530a4e5ae88619b" Name="quillReference" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="eeaee76cb19e4423b94ea7984f762db6" Name="selector">
+						<JavaScriptType ActualDataType="@92fa81f6cce141d082e59b2283f476da" Id="83f3735c06124e10ae17aa4378b35bf6" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="a880919197984a4e9d08427418ac1514" Name="selector" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="b8a409ccf324478811306e684c1b034" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CloseQuill">
+				<JavaScriptLibraryEntryPoint Id="4f4b2eabff474def93ac64a307672a6a" Symbol="WebVIQuill.closeQuill" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="f56514388fff472aa49147d640e67c90" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="bf4e449a716540aab15c9f4d336cbbf4" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="654eaecc8d4e40bdbe66afc924c14eb5" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="c638bda6c1a84fe88bf8272b98dd307b" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="add906038adc42ab8d0d9c74309f5d9e" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="5343c4d93a8e4b808b62c8cf40100537" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CloseQuill" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" Id="4581076f85704fbd8a82bf58656f9fa0" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="263ed7098f59480eb1def02e87de2b4c" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="6906804c68554e9ead4a3e3c20b63d0a" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="c278a152b6044ce887938b2ab59b7cd5" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="d15d0108238744a0a760dc4b992fc506" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="c278a152b6044ce887938b2ab59b7cd5" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="d15d0108238744a0a760dc4b992fc506" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="35a878f7f18145fabb19699abde82b42" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@e9654ddd60d84995beac8f651d17a1d3" Id="1ae7794f79e2439faf76b91f33e5c20b" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="1128c4d0b8f94772a59c5b67bb983e4c" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="7a8bfe7ef1004ca98140f3255170e79d" Name="quillReference">
+						<JavaScriptType ActualDataType="@5faf79004db34dbb835898847dabd97e" Id="7025cd952b9e4e329fef4a6e6c13727e" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="6906804c68554e9ead4a3e3c20b63d0a" Name="quillReference" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
 	</EnvoyManagerFile>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="5faf79004db34dbb835898847dabd97e">
+			<Attributed AttributedType="Int32">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="92fa81f6cce141d082e59b2283f476da">
+			<Attributed AttributedType="String">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="e9654ddd60d84995beac8f651d17a1d3">
+			<Attributed AttributedType="Void">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
 </SourceFile>

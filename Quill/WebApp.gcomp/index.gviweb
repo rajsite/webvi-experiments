@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="071608C2D458EADB0C2F6A0654CC9828326245F1667F8F6B148A1B779C6BA9AD88D0CB2E03F870A651BF0AAAB60958CBCD37FD53F4EFF8FEAEFB0B8FD2536329" Timestamp="1D505FAF5752400" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="E6C9D8C7C8BB7EBFCB859447E768ECA2ED9E5FE27A0E1C2875F008DCFE47DBC6D6692AEFA69599165D751B52CE38FA70432DA7E4D0C2B6C621D6F44D771D8C89" Timestamp="1D588A66D9289C3" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
-		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="6.3.0.49152" Version="6.3.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.0.49504" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
-		<ApplicationVersionInfo Build="6.4.0.49504" Name="LabVIEW NXG" Version="3.1.0" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="6.2.0.49153" Version="6.2.0.49153" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="6.3.0.49152" Version="6.3.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
+		<ApplicationVersionInfo Build="6.4.1.50844" Name="LabVIEW NXG" Version="3.1.0" />
 	</SourceModelFeatureSet>
 	<VirtualInstrument Id="1" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" xmlns="http://www.ni.com/LabVIEW.VI">
 		<Icon Id="2" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -34,7 +35,14 @@
 			<ConnectorPaneTerminal Hotspot="15 40" />
 			<ConnectorPaneTerminal Hotspot="25 40" />
 		</ConnectorPane>
-		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
+		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="0 0 40 15" DataItem="bf01bd94fc024a9884f93118b453e7a8" Id="5d5aa6d8433747edbbbcb1ef20cbd491" Label="2fabc3aa6f1a42e69db046903dc3f2b5">
+				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="5d5aa6d8433747edbbbcb1ef20cbd491" Bounds="-35 0 30 15" Id="2fabc3aa6f1a42e69db046903dc3f2b5" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>String</p.Text>
+			</NodeLabel>
+		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
 			<WhileLoop Bounds="285 110 541 355" DiagramId="17" Id="16">
@@ -57,6 +65,8 @@
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
 				<Wire Id="26" Joints="N(24:Out)|(440,285) N(23:time to wait)|(450,285)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopTunnel Bounds="-4 35 13 10" Docking="Left" Id="652d9a0411734f22b05a22a4c5c09bb4" Terminals="o0=f7d5f18019334a1b89ef9953155d1437, i0" />
+				<LoopTunnel Bounds="-4 65 13 10" Docking="Left" Id="5c2dff4d3dc0403294d4f8c8a34aa5b2" Terminals="o0=f36831950e904d4c8580bc3e366fcacf, i0" />
 			</WhileLoop>
 			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Top-Level WebVIs usually contain a While Loop that never stops so that they can continue running as long as the web page is open in the user's web browser.</p.Text>
@@ -64,9 +74,125 @@
 			<Comment Bounds="80 230 170 90" Id="29" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Place setup code before the loop. For example, perform initial data communication and wire the results into the loop.</p.Text>
 			</Comment>
+			<MethodCall Bounds="95 145 40 40" Id="346cd4665d524422b58933e0254c5b4b" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Quill\\Quill.gcomp\\Create Quill.gvi&quot;" Signature="@aa17aeed07314a878136139f8609d281" Target="Quill::Create Quill.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="selector" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="quill reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@3261185fb9f346cca253018e9d7c4d12" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="-10 145 75 15" DataType="String" Id="baaca473deaf4ae6a1e64e911d938b12" Label="384172e0fe144ea3907c9d74eeaec003" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>.my-quill</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="baaca473deaf4ae6a1e64e911d938b12" Bounds="-10 127 30 15" Id="384172e0fe144ea3907c9d74eeaec003" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>selector</p.Text>
+			</NodeLabel>
+			<Wire Id="4dd8d2786a294e9295f7709c9a07d274" Joints="N(baaca473deaf4ae6a1e64e911d938b12:Out)|(65,150) N(346cd4665d524422b58933e0254c5b4b:L0)|(95,150)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f7d5f18019334a1b89ef9953155d1437" Joints="N(346cd4665d524422b58933e0254c5b4b:R0)|(135,150) N(652d9a0411734f22b05a22a4c5c09bb4:o0)|(281,150)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f36831950e904d4c8580bc3e366fcacf" Joints="N(346cd4665d524422b58933e0254c5b4b:R3)|(135,180) N(5c2dff4d3dc0403294d4f8c8a34aa5b2:o0)|(281,180)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<HtmlText BaseName="[string]Text" Height="[float]32" Id="36" Left="[float]180" MinHeight="[float]11" MinWidth="[float]11" Text="[string]On the WebVI Panel, place controls and indicators to respond to user input and display data.&#xD;&#xA;These controls will appear on the web page that is created when you build this Web Application." TextWrapping="[TextWrapping]Wrap" Top="[float]132" Width="[float]516" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlFlexibleLayoutGroup Height="[float]248" Id="ea5ac6caaf124f3d965cb04036b8eda9" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]248" Id="ee25b4f74d9c4fc181d4dcba10214d83" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Height="[float]232" Id="46e9ba42efb5429ebb598233f3e57d85" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]220" Id="c5b5f3c5e0d940088b1884287249f440" Left="[float]14" Top="[float]6" Width="[float]488">
+							<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]200" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="137660b418d24db596efae93ffcc169d" Label="[UIModel]389c3eeb44844b9abec791ec8c87710e" Left="[float]0" MinHeight="[float]20" MinWidth="[float]20" TabIndex="[int]0" Text="{DataItemBinding Id=bf01bd94fc024a9884f93118b453e7a8}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]488">
+								<HtmlBehavior ClassAttributes="my-quill" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlStringControl>
+							<HtmlLabel Height="[float]16" Id="389c3eeb44844b9abec791ec8c87710e" LabelOwner="[UIModel]137660b418d24db596efae93ffcc169d" Left="[float]0" Text="[string]String" Top="[float]0" Width="[float]38" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
 		</HtmlFrontPanel>
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="bf01bd94fc024a9884f93118b453e7a8" Name="String" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
+		</DataItem>
 	</VirtualInstrument>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="aa17aeed07314a878136139f8609d281">
+			<Attributed AttributedType="@4d6b144f22924684bb4603fd1c7a20b4">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3261185fb9f346cca253018e9d7c4d12">
+			<Attributed AttributedType="@548c1fca1bb843b1bab5dc19da82df8b">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Quill::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4d6b144f22924684bb4603fd1c7a20b4">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Quill.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@005614e6871c4166a75776a75d9e9d8b">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@5c049a00a5bc454480da347f13c13335">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]quill reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@aad2d5879eda4b119a60e73dd9d8447d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="548c1fca1bb843b1bab5dc19da82df8b">
+			<Typedef TypedefName="quill reference.gtype" UnderlyingType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="005614e6871c4166a75776a75d9e9d8b">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="51dc3048367d48a9a4325cb459a032e8">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5c049a00a5bc454480da347f13c13335">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@3261185fb9f346cca253018e9d7c4d12" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="aad2d5879eda4b119a60e73dd9d8447d">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+	<IconTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.IconModel Target="Quill::Create Quill.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Quill" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="7.5" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Quill.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+	</IconTable>
 </SourceFile>

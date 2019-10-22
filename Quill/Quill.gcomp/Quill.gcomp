@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="C7484304A221C75B8A431E2290F6815B681B43179C458B6D74B580BB735CF93F7A4C5ABBD5B8A5B2C6143AEA244F4978EC2D8F7CD94E928622FEC85B8C3ADE13" Timestamp="1D5889E3E8B2A91" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C7A97EE54EB05FE7B0F373BB15F8FB88042782AB047D91756CBDE50891E2D30985322800A132DFDAFFD59DC911E1F05AB3F2FDF841FF73D132750EEA2FCA9BF4" Timestamp="1D588A530ADCCA9" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -15,7 +15,13 @@
 		<CompilerSymbolTable Id="68e2b21d75e8421d866dd51adae9acc6" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="20f49472ad634e51833f447db06f6f92" Name="Configuration1">
 			<CompilerSymbolTable Id="f3581ab690064f4087d9a669bd9d6bc2" xmlns="http://www.ni.com/PlatformFramework" />
-			<ComponentItemProperties AssociatedEnvoyId="bc0655dfb0cc47c88117b39f2fb12543" Exported="True" Id="7360522cff594983b1b87234eefeeae5" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="7878e96fb424b1fa10dec55ec3ac93b" Id="cddc3cf5dc5b441bbd1eacf6cc79d7d5" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="ed6e78a782454a0c9a198c5a3df670f2" Id="6fbd5ce2515c490ab66784c4f1a9aa07" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="d51210ee262f4dcdbb8559ef6cdeb2ce" Id="a829070799dc4ab682014d6b8ebffc51" />
+			<ComponentItemProperties AssociatedEnvoyId="a1a306b44956429cb1252a069947136e" Exported="True" Id="2a5f142bec0c4cbab5f780b7d7238b2f" />
+			<ComponentItemProperties AssociatedEnvoyId="59196e93d9a42ffbf88c78ec134c550" Exported="True" Id="3efe95f157664bf3b90c638f8884e2cc" />
+			<ComponentItemProperties AssociatedEnvoyId="1d8a81abb4394fe6bb54bdfe397cec50" Exported="True" Id="a21a0142a6424f91a4c8e655b431f3b1" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="1b43bc70f0764d4e850bbaec2128f676" Id="140f40bf5a4c4459a53918b36046ba20" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="225786ce2d7345a68de8eeedc3ecfe10" xmlns="http://www.ni.com/PlatformFramework">
@@ -25,7 +31,36 @@
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="486daba29cfd4f8ca091c40da69b5969" Name="Quill">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="deab63e63789497db5fa9b4abad63cf7" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="bc0655dfb0cc47c88117b39f2fb12543" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Quill.jsli" StoragePath="Support\Quill.jsli" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="eeeaa9a31308431b8c57adeae51c82ea" Name="node_modules">
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="bab3ebe8763347918bc3198d7e57657a" Name="quill">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="5356eff37465429295e81c344b43eb9e" Name="dist">
+								<EmbeddedDefinitionReference Id="7878e96fb424b1fa10dec55ec3ac93b" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="quill.js">
+									<ExternalFile>
+										<p.StoragePath>"Support\\node_modules\\quill\\dist\\quill.js"</p.StoragePath>
+									</ExternalFile>
+								</EmbeddedDefinitionReference>
+								<EmbeddedDefinitionReference Id="ed6e78a782454a0c9a198c5a3df670f2" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="quill.snow.css">
+									<ExternalFile>
+										<p.StoragePath>"Support\\node_modules\\quill\\dist\\quill.snow.css"</p.StoragePath>
+									</ExternalFile>
+								</EmbeddedDefinitionReference>
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
+					</NameScopingEnvoy>
+					<EmbeddedDefinitionReference Id="d51210ee262f4dcdbb8559ef6cdeb2ce" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Quill.js">
+						<ExternalFile>
+							<p.StoragePath>"Support\\Quill.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
+					<SourceFileReference Bindings="EnvoyManager" Id="59196e93d9a42ffbf88c78ec134c550" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="quill reference.gtype" StoragePath="Support\quill reference.gtype\quill reference.gtype" />
+					<EmbeddedDefinitionReference Id="1b43bc70f0764d4e850bbaec2128f676" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Quill.css">
+						<ExternalFile>
+							<p.StoragePath>"Support\\Quill.css"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
 				</NameScopingEnvoy>
+				<SourceFileReference Id="a1a306b44956429cb1252a069947136e" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Quill.gvi" StoragePath="Create Quill.gvi" />
+				<SourceFileReference Id="1d8a81abb4394fe6bb54bdfe397cec50" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Close Quill.gvi" StoragePath="Close Quill.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="e69987c01d5444888c07890a2959e86c" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="Quill.gcomp" NameTracksFileName="True">
