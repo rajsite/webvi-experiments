@@ -32,12 +32,13 @@
         const element = elements[0];
         element.innerHTML = '';
 
-        // Workaround for header size https://github.com/quilljs/quill/issues/1285
-        element.style.display = 'flex';
-        element.style.flexDirection = 'column';
-        const container = document.createElement('div');
-        element.appendChild(container);
-        const quill = new window.Quill(container, {theme: 'snow'});
+        const quillContainer = document.createElement('div');
+        quillContainer.classList.add('webvi-quill-container');
+        const quillEditor = document.createElement('div');
+        quillContainer.appendChild(quillEditor);
+        element.appendChild(quillContainer);
+
+        const quill = new window.Quill(quillEditor, {theme: 'snow'});
         const quillReference = referenceManager.createReference(quill);
         return quillReference;
     };
