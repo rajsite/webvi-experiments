@@ -11,7 +11,7 @@
     const htmlRequire = require('./htmlRequire.js');
     const VireoNode = require('./VireoNode.js');
 
-    const SECONDS_PER_MILLISECOND = 1000;
+    const MILLISECOND_PER_SECOND = 1000;
 
     class WebVICLIRunner {
         constructor ({cwd = process.cwd()} = {}) {
@@ -56,7 +56,7 @@
             console.log('Finished loading Main VI via');
 
             const webviCLIMainFileLoadEnd = performance.now();
-            console.log(`WebVICLI Main File load took ${(webviCLIMainFileLoadEnd - webviCLIMainFileLoadStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
+            console.log(`WebVICLI Main File load took ${(webviCLIMainFileLoadEnd - webviCLIMainFileLoadStart) / MILLISECOND_PER_SECOND} seconds to run.`);
 
             this._vireoNode = vireoNode;
         }
@@ -77,7 +77,7 @@
             console.log('Finished running WebVICLI Main VI.');
             const webviCLIEnd = performance.now();
 
-            console.log(`WebVICLI main execution took ${(webviCLIEnd - webviCLIStart) / SECONDS_PER_MILLISECOND} seconds to run.`);
+            console.log(`WebVICLI main execution took ${(webviCLIEnd - webviCLIStart) / MILLISECOND_PER_SECOND} seconds to run.`);
         }
     }
 
