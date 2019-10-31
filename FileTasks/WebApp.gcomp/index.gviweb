@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="1082B2A9CB5564397792DAAE52AADBB98E61465C5CB857F25E06C238CA9B69A65354AEC661ED2AEAB5B693288E4E436C009AD980C07E3CB120F68BCD36CEF1D7" Timestamp="1D52E125DC0E7FC" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="F853C65E772185D00ACF881BC8DC64F5DED3E3B17DD13384C1D132EC389764FFF400D5332130DEA9E6C40F0B5F16A1CA4EB50DD8D51F0029A27D499C1A20354F" Timestamp="1D59003B871CF82" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -38,7 +38,7 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<MethodCall Bounds="490 255 40 40" Id="3fbb9f04d7447ca839bdb522a54644f" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\FileTasks.gcomp\\Download File Text.gvi&quot;" Signature="@98ec24fb548b4c06abba9b2da99d2de6" Target="FileTasks::Download File Text.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="490 255 40 40" Id="3fbb9f04d7447ca839bdb522a54644f" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\FileTasks\\FileTasks.gcomp\\Download File Text.gvi&quot;" Signature="@98ec24fb548b4c06abba9b2da99d2de6" Target="FileTasks::Download File Text.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="file contents" />
@@ -61,30 +61,24 @@
 				<p.Text>error out</p.Text>
 			</NodeLabel>
 			<Wire Id="a5925dd226a84678a64a56aedc8f8522" Joints="N(3fbb9f04d7447ca839bdb522a54644f:R3)|(530,290) N(89e43bfa340e4ddf8fed11f5011002a6:Value)|(563,290)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="340 255 40 40" Id="9aba5561d177428ebaffb2291c8e2c94" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Uppy\\FileTasks.gcomp\\Read File Text.gvi&quot;" Signature="@a04ff3cd5d88401c9cdeaa9471d02e5d" Target="FileTasks::Read File Text.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="340 255 40 40" Id="9aba5561d177428ebaffb2291c8e2c94" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\FileTasks\\FileTasks.gcomp\\Read File Text.gvi&quot;" Signature="@78a4fa2064574b028506b14a7dcdf8ce" Target="FileTasks::Read File Text.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L1" Desc="allowed file types" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R0" Desc="file content" />
+						<Parameter Id="R1" Desc="file name" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="String[]" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="aac1b61885d1415a8dcfb2f5e103f61f" Joints="N(9aba5561d177428ebaffb2291c8e2c94:R0)|(380,260) N(3fbb9f04d7447ca839bdb522a54644f:L0)|(490,260)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="a47050081ffb4faf996e2410cc9be807" Joints="N(9aba5561d177428ebaffb2291c8e2c94:R3)|(380,290) N(3fbb9f04d7447ca839bdb522a54644f:L3)|(490,290)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Literal Bounds="380 195 80 15" DataType="String" Id="47c5fac1e4e34a9bb35a10f8ad6b93aa" Label="60f272170a9e47489e9705434f21478f" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>output.txt</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="47c5fac1e4e34a9bb35a10f8ad6b93aa" Bounds="380 177 30 15" Id="60f272170a9e47489e9705434f21478f" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>file name</p.Text>
-			</NodeLabel>
-			<Wire Id="70c07f44bbb456da0208fe95872dde8" Joints="N(47c5fac1e4e34a9bb35a10f8ad6b93aa:Out)|(460,200) h(5) v(70) N(3fbb9f04d7447ca839bdb522a54644f:L1)|(490,270)" xmlns="http://www.ni.com/PlatformFramework" />
 			<ArrayLiteral Bounds="140 265 170 74" DataType="String[]" Id="f96404a4b0df49588d5a05152bdf63b8" Label="595bfba962084d72b50085caebd850f6" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>
 					<Array Lengths="1" IsBinary="True" Compression="GZip">
@@ -94,7 +88,7 @@
 				<ArrayBehavior ElementType="String" IndexEditorWidth="42" VisibleRows="4">
 					<p.DefaultElementValue>""</p.DefaultElementValue>
 				</ArrayBehavior>
-				<Literal Bounds="49 38 107 15" DataType="String" Id="c3cb1c5470934cbd8d2dc7bec5802add">
+				<Literal Bounds="49 4 107 15" DataType="String" Id="c3cb1c5470934cbd8d2dc7bec5802add">
 					<StringBehavior TextDisplayMode="Default" />
 				</Literal>
 			</ArrayLiteral>
@@ -102,6 +96,7 @@
 				<p.Text>allowed file types</p.Text>
 			</NodeLabel>
 			<Wire Id="5b1ba42f44bd4d5595ed2a7c65c3fd6a" Joints="N(f96404a4b0df49588d5a05152bdf63b8:Out)|(310,270) N(9aba5561d177428ebaffb2291c8e2c94:L1)|(340,270)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="ebbd09f805864af4ae942a3215eab3b4" Joints="N(9aba5561d177428ebaffb2291c8e2c94:R1)|(380,270) N(3fbb9f04d7447ca839bdb522a54644f:L1)|(490,270)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="84722dd73f1e4712be37c9a3f61c637f" Label="[UIModel]baa5bd795fbd422ebaef222dbca25eb7" Left="[float]404" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]0" Top="[float]276" Value="{DataItemBinding Id=488052bcb3b44da83b29c35b55f3d52}" Width="[float]176" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -136,8 +131,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="a04ff3cd5d88401c9cdeaa9471d02e5d">
-			<Attributed AttributedType="@9636f14e12fb481aa65661f85c9d557e">
+		<p.TypeReference TypeId="78a4fa2064574b028506b14a7dcdf8ce">
+			<Attributed AttributedType="@699730acaed648208628c28b175428bf">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -175,7 +170,7 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9636f14e12fb481aa65661f85c9d557e">
+		<p.TypeReference TypeId="699730acaed648208628c28b175428bf">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Read File Text.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@bad9c69b54ae42c5ad582aae423f911c">
@@ -191,6 +186,11 @@
 					<Attributed AttributedType="@22c942a2e195482b817b34228f0d6652">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]file content" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@64f67ad7150140fc97583b6c3bc44de7">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]file name" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
@@ -221,6 +221,9 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="22c942a2e195482b817b34228f0d6652">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="64f67ad7150140fc97583b6c3bc44de7">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="String" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">

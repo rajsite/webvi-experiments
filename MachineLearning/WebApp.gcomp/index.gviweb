@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="B8AE5E32970C201D34588596541D4C74E4E7B1EC39EF7D79536A6C89C55C4BABBA4EED50F8EAD54432DECFD921E9D73E7A33A18DE265F4A736BD88FAA2EB35BB" Timestamp="1D587D95E95D928" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="9C7E08E1D43E92C822E3F82B1A0F7EED9CA58C76F077BE41FCA95FAFD6F346D16B0C4221650DBB4A87C29AE483F9450A4D94CA68C732C10F6BE2C65CA0E7BECE" Timestamp="1D59007E72B61EF" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -38,7 +38,7 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<MethodCall Bounds="350 165 40 40" Id="ad89f1798b944285a5deb234d73219d7" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\MachineLearning\\MobileNet.gcomp\\Load MobileNet.gvi&quot;" Signature="@8f8e00aa167f4e0bacbe7b5e50257abf" Target="MobileNet::Load MobileNet.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="350 165 40 40" Id="ad89f1798b944285a5deb234d73219d7" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\MachineLearning\\MobileNet.gcomp\\Load MobileNet.gvi&quot;" Signature="@8f8e00aa167f4e0bacbe7b5e50257abf" Target="MobileNet::Load MobileNet.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L3" Desc="error in" />
@@ -87,13 +87,14 @@
 				<p.Text>Value</p.Text>
 			</NodeLabel>
 			<Wire Id="7bd06b0e13a548c2bfd65674d702eb7e" Joints="N(ad89f1798b944285a5deb234d73219d7:R3)|(390,200) N(929ab1634aeb485ab4284daba6c06e2f:error in)|(515,200)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="690 165 40 40" Id="1fab2bbc9b724af8a1d107784a68158a" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\FileTasks\\FileTasks.gcomp\\Capture Image as File.gvi&quot;" Signature="@d60a88b8d51c47ae934d63bce1ace374" Target="FileTasks::Capture Image as File.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="690 165 40 40" Id="1fab2bbc9b724af8a1d107784a68158a" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\FileTasks\\FileTasks.gcomp\\Capture Image as File.gvi&quot;" Signature="@7711f887b8f443dc958adfddc8d2b6a3" Target="FileTasks::Capture Image as File.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="B0" Desc="countdown" />
 						<Parameter Id="B1" Desc="mirror" />
 						<Parameter Id="L1" Desc="allowed file types" />
 						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="T0" Desc="facing mode" />
 						<Parameter Id="R0" Desc="file reference" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
@@ -102,12 +103,13 @@
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="25 40" Id="B1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@b3be5375ad7a49e39ed323ad03a2f7b5" Direction="Input" Hotspot="15 0" Id="T0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="6566d900df264071913435b4455dc2d8" Joints="N(929ab1634aeb485ab4284daba6c06e2f:error out)|(651,200) N(1fab2bbc9b724af8a1d107784a68158a:L3)|(690,200)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="bd3cb7055ef844e8a01d356e6f4e1cc7" Joints="N(7b3b88518f6d4689837a2a78bb487ef0:control reference)|(130,265) h(45) B(1) v(-75) N(e08103494a994af6a5eddbc8994ebea8:instance in)|(180,190) B(1) v(5) h(325) B(5) h(270) v(-80) N(a4ca67185e3f4500a1f762c836a86dd0:instance in)|(795,190) B(5) v(-80) N(929ab1634aeb485ab4284daba6c06e2f:instance in)|(515,190)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="970 165 40 40" Id="4c0e4fb29b874e65804e0514506c7912" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\MachineLearning\\MobileNet.gcomp\\Classify MobileNet.gvi&quot;" Signature="@8df4ce00b359496f8a3578fedd2ff382" Target="MobileNet::Classify MobileNet.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="970 165 40 40" Id="4c0e4fb29b874e65804e0514506c7912" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\MachineLearning\\MobileNet.gcomp\\Classify MobileNet.gvi&quot;" Signature="@8df4ce00b359496f8a3578fedd2ff382" Target="MobileNet::Classify MobileNet.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="model reference" />
@@ -148,25 +150,47 @@
 				<p.Text>predictions</p.Text>
 			</NodeLabel>
 			<Wire Id="88c3d85b54ae4fef822673758ccb19b4" Joints="N(4c0e4fb29b874e65804e0514506c7912:R0)|(1010,170) N(5723a944342b4958841fc9f6773b1c1b:Value)|(1043,170)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="575 120 125 15" DataType="@b3be5375ad7a49e39ed323ad03a2f7b5" Id="8f62d3f65e344a53b461cf517174dbf3" Label="19361ca092154e049d4e2ab33fc52fb6" p4:ControlDefinitionChecksum="h4F3Aal0luIl1C+ROjBVCNrzO+DAHOaM3vFQOGW3nOQ=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>1</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="Uppy::Support::facing modes.gtype" />
+					<p4:TypeDefinitionTarget TargetName="Uppy::Support::facing modes.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<EnumBehavior />
+			</Literal>
+			<NodeLabel AttachedTo="8f62d3f65e344a53b461cf517174dbf3" Bounds="575 102 30 15" Id="19361ca092154e049d4e2ab33fc52fb6" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>facing mode</p.Text>
+			</NodeLabel>
+			<Wire Id="b61e74affbea4cecab66c23483e3989e" Joints="N(8f62d3f65e344a53b461cf517174dbf3:Out)|(700,125) h(5) N(1fab2bbc9b724af8a1d107784a68158a:T0)|(705,165)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e85fbf5839774cb09da5d574c3407ba2" Label="[UIModel]4e580540484341f299d709c3bcc3f0f9" Left="[float]196" MinHeight="[float]20" MinWidth="[float]20" TabIndex="[int]0" Text="{DataItemBinding Id=4c67c6f38593475da6a9dbd66cced35b}" Top="[float]116" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]200" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlLabel Height="[float]16" Id="4e580540484341f299d709c3bcc3f0f9" LabelOwner="[UIModel]e85fbf5839774cb09da5d574c3407ba2" Left="[float]196" Text="[string]status" Top="[float]96" Width="[float]38" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<HtmlArrayViewer ArrayElement="[UIModel]1c221eec31794468a2b403fa805e9c4b" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]472" Id="da35ff833a00497c986d9936a08ea675" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]257ccf94fea4889be1ea3815aea4446" Left="[float]628" Orientation="[SMOrientation]Vertical" Rows="[int]4" TabIndex="[int]1" Top="[float]84" Value="{DataItemBinding Id=3a3cb403bfd1403c8c05bb9d389383e3}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]233" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<p.DefaultElementValue>
-					<Cluster>
-						<Field1>""</Field1>
-						<Field2>0x0</Field2>
-					</Cluster>
-				</p.DefaultElementValue>
-				<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@13e0fe2ce69c40f5bec3a7098196c154" Height="[float]112" Id="1c221eec31794468a2b403fa805e9c4b" Width="[float]204">
-					<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="70f9f9ccde964b1bb252363aa2a701be" IsReadOnly="[bool]True" Label="[UIModel]58bfef5f7ca14694bf9c8a20d2454108" Left="[float]4" MinHeight="[float]24" Text="{ClusterBinding FieldName=className}" Top="[float]24" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]168" />
-					<HtmlLabel Height="[float]16" Id="58bfef5f7ca14694bf9c8a20d2454108" LabelOwner="[UIModel]70f9f9ccde964b1bb252363aa2a701be" Left="[float]4" Text="[string]className" Top="[float]4" Width="[float]57" />
-					<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="4a2c411a5d3149aeb92987804209f2e9" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" IsReadOnly="[bool]True" Label="[UIModel]e1f034536e96499ab8d6883c239c4b6c" Left="[float]4" MinHeight="[float]24" Top="[float]76" Value="{ClusterBinding FieldName=probability}" Width="[float]168" />
-					<HtmlLabel Height="[float]16" Id="e1f034536e96499ab8d6883c239c4b6c" LabelOwner="[UIModel]4a2c411a5d3149aeb92987804209f2e9" Left="[float]4" Text="[string]probability" Top="[float]56" Width="[float]58" />
-				</HtmlCluster>
-			</HtmlArrayViewer>
-			<HtmlLabel Height="[float]16" Id="257ccf94fea4889be1ea3815aea4446" LabelOwner="[UIModel]da35ff833a00497c986d9936a08ea675" Left="[float]628" Text="[string]predictions" Top="[float]64" Width="[float]66" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlFlexibleLayoutGroup Height="[float]572" Id="a431f993f65c489183cfcb60377b46fb" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]572" Id="412ab0b73174c69897cba9c76e55837" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Direction="[FlexibleLayoutDirection]Column" Height="[float]556" Id="ff3aa5c94a614097957e0708612ea295" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]44" Id="94fdd9e57ade4f10891016f9a1928a14" Left="[float]14" Top="[float]6" Width="[float]200">
+							<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e85fbf5839774cb09da5d574c3407ba2" Label="[UIModel]4e580540484341f299d709c3bcc3f0f9" Left="[float]0" MinHeight="[float]20" MinWidth="[float]20" TabIndex="[int]0" Text="{DataItemBinding Id=4c67c6f38593475da6a9dbd66cced35b}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]200" />
+							<HtmlLabel Height="[float]16" Id="4e580540484341f299d709c3bcc3f0f9" LabelOwner="[UIModel]e85fbf5839774cb09da5d574c3407ba2" Left="[float]0" Text="[string]status" Top="[float]0" Width="[float]38" />
+						</HtmlFlexibleLayoutComponent>
+						<HtmlFlexibleLayoutComponent Height="[float]492" Id="389fcf846da64b079bef55f6c84e950f" Left="[float]14" Top="[float]58" Width="[float]233">
+							<HtmlArrayViewer ArrayElement="[UIModel]1c221eec31794468a2b403fa805e9c4b" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]472" Id="da35ff833a00497c986d9936a08ea675" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]257ccf94fea4889be1ea3815aea4446" Left="[float]0" Orientation="[SMOrientation]Vertical" Rows="[int]4" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=3a3cb403bfd1403c8c05bb9d389383e3}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]233">
+								<p.DefaultElementValue>
+									<Cluster>
+										<Field1>""</Field1>
+										<Field2>0x0</Field2>
+									</Cluster>
+								</p.DefaultElementValue>
+								<HtmlCluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@13e0fe2ce69c40f5bec3a7098196c154" Height="[float]112" Id="1c221eec31794468a2b403fa805e9c4b" Width="[float]204">
+									<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="70f9f9ccde964b1bb252363aa2a701be" IsReadOnly="[bool]True" Label="[UIModel]58bfef5f7ca14694bf9c8a20d2454108" Left="[float]4" MinHeight="[float]24" Text="{ClusterBinding FieldName=className}" Top="[float]24" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]168" />
+									<HtmlLabel Height="[float]16" Id="58bfef5f7ca14694bf9c8a20d2454108" LabelOwner="[UIModel]70f9f9ccde964b1bb252363aa2a701be" Left="[float]4" Text="[string]className" Top="[float]4" Width="[float]57" />
+									<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="4a2c411a5d3149aeb92987804209f2e9" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" IsReadOnly="[bool]True" Label="[UIModel]e1f034536e96499ab8d6883c239c4b6c" Left="[float]4" MinHeight="[float]24" Top="[float]76" Value="{ClusterBinding FieldName=probability}" Width="[float]168" />
+									<HtmlLabel Height="[float]16" Id="e1f034536e96499ab8d6883c239c4b6c" LabelOwner="[UIModel]4a2c411a5d3149aeb92987804209f2e9" Left="[float]4" Text="[string]probability" Top="[float]56" Width="[float]58" />
+								</HtmlCluster>
+							</HtmlArrayViewer>
+							<HtmlLabel Height="[float]16" Id="257ccf94fea4889be1ea3815aea4446" LabelOwner="[UIModel]da35ff833a00497c986d9936a08ea675" Left="[float]0" Text="[string]predictions" Top="[float]0" Width="[float]66" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
 		</HtmlFrontPanel>
 		<DataItem AdaptToDiagramType="True" DataType="String" Id="4c67c6f38593475da6a9dbd66cced35b" Name="status" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
@@ -191,11 +215,18 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d60a88b8d51c47ae934d63bce1ace374">
-			<Attributed AttributedType="@99e9998b3b9545afa68284bd5d0a7300">
+		<p.TypeReference TypeId="7711f887b8f443dc958adfddc8d2b6a3">
+			<Attributed AttributedType="@d39eda7eafec41dead3dde17e468e10f">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b3be5375ad7a49e39ed323ad03a2f7b5">
+			<Attributed AttributedType="@bd5f75119015468bbec3e7d170e937e7">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Uppy::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -235,7 +266,7 @@
 		<p.TypeReference TypeId="4119ef5d6152423e93f43d72baa915c8">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Load MobileNet.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
@@ -245,7 +276,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]model reference" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
@@ -256,7 +287,7 @@
 		<p.TypeReference TypeId="c1e516f780844d4e9ded5e1621fcca69">
 			<Typedef TypedefName="model reference.gtype" UnderlyingType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="99e9998b3b9545afa68284bd5d0a7300">
+		<p.TypeReference TypeId="d39eda7eafec41dead3dde17e468e10f">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Capture Image as File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@1ee1cd70a6094ec69a83d9810c6fe669">
@@ -274,9 +305,14 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]allowed file types" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@9b3d51d15b714d01b03b7171e1744169">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]facing mode" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@da139781e6f744009d13ef60f66560c0">
@@ -284,13 +320,16 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]file reference" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
 			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bd5f75119015468bbec3e7d170e937e7">
+			<Typedef TypedefName="facing modes.gtype" UnderlyingType="@b7dd34d3dd5f40c1bdacf0b1c0cf13a3" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="910ff235325941d283446852bbadb11d">
 			<Typedef TypedefName="file reference.gtype" UnderlyingType="String" />
@@ -308,7 +347,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]file reference" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
@@ -318,7 +357,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]predictions" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
@@ -329,13 +368,13 @@
 		<p.TypeReference TypeId="c29de64cf85f476aad4931c2492ec47f">
 			<Typedef TypedefName="predictions.gtype" UnderlyingType="@c64995c6ada04d10b16c45d82df1b7d2" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
+		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="8c7c6495a21a45669f14c64d7ad45366">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@6426cc78bff3440da545e14ed0a8c419" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
+		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="1ee1cd70a6094ec69a83d9810c6fe669">
@@ -347,8 +386,22 @@
 		<p.TypeReference TypeId="bad9c69b54ae42c5ad582aae423f911c">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String[]" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="9b3d51d15b714d01b03b7171e1744169">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="@b3be5375ad7a49e39ed323ad03a2f7b5" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="da139781e6f744009d13ef60f66560c0">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@5ef5d0c5dd1d40e9b4b8ea57d7544494" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b7dd34d3dd5f40c1bdacf0b1c0cf13a3">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="user" />
+					<EnumerationMember Value="1" Name="environment" />
+					<EnumerationMember Value="2" Name="left" />
+					<EnumerationMember Value="3" Name="right" />
+				</Members>
+				<DataType>UInt16</DataType>
+			</Enumeration>
 		</p.TypeReference>
 		<p.TypeReference TypeId="05d51cfb2d8a4b748e38af3edadb9d53">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@6426cc78bff3440da545e14ed0a8c419" />

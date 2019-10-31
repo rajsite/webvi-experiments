@@ -2,6 +2,23 @@
 (function () {
     'use strict';
 
+    const createObjectUrlWithMetadata = function (blobOrFile) {
+        const fileObjectUrlInitial = URL.createObjectURL(blobOrFile);
+        const url = new URL(fileObjectUrlInitial);
+
+        // We rely on using the hash to store file metadata
+        if (url.hash !== '') {
+            URL.revokeObjectURL(blobOrFile);
+            throw new Error('File API Unsupported: cannot store file metadata on blob url');
+        }
+
+        const metadata = new URLSearchParams();
+        metadata.set('name', typeof blobOrFile.name === 'string' ? blobOrFile.name : '');
+        url.hash = metadata.toString();
+        const fileObjectUrl = url.toString();
+        return fileObjectUrl;
+    };
+
     const deepMerge = function (target, ...args) {
         const isObject = function (obj) {
             return typeof obj === 'object' && obj !== null;
@@ -57,9 +74,10 @@
             let cleanup;
             uppyConfig.core.onBeforeUpload = function (uppyFiles) {
                 // Get the user selected file / blob
+                // TODO try and get name metadata for Blob types, ie webcam?
                 const fileObjectUrls = Object.keys(uppyFiles)
                     .map(key => uppyFiles[key].data)
-                    .map(blobOrFile => URL.createObjectURL(blobOrFile));
+                    .map(blobOrFile => createObjectUrlWithMetadata(blobOrFile));
                 const fileObjectUrlsJSON = JSON.stringify(fileObjectUrls);
                 resolve(fileObjectUrlsJSON);
 
