@@ -1,3 +1,4 @@
+/* global Quill:false */
 (function () {
     'use strict';
 
@@ -38,7 +39,7 @@
         quillContainer.appendChild(quillEditor);
         element.appendChild(quillContainer);
 
-        const quill = new window.Quill(quillEditor, {theme: 'snow'});
+        const quill = new Quill(quillEditor, {theme: 'snow'});
         const quillReference = referenceManager.createReference(quill);
         return quillReference;
     };
@@ -47,8 +48,39 @@
         referenceManager.closeReference(quillReference);
     };
 
+    const getContents = function (quillReference) {
+        const quill = referenceManager.getObject(quillReference);
+        if (quill instanceof Quill === false) {
+            throw new Error('Expected instance of Quill object');
+        }
+        const contents = quill.getContents();
+        const contentsJSON = JSON.stringify(contents);
+        return contentsJSON;
+    };
+
+    const setContents = function (quillReference, contentsJSON) {
+        const quill = referenceManager.getObject(quillReference);
+        if (quill instanceof Quill === false) {
+            throw new Error('Expected instance of Quill object');
+        }
+        const contents = JSON.parse(contentsJSON);
+        quill.setContents(contents);
+    };
+
+    const enable = function (quillReference, contentsJSON, ) {
+        const quill = referenceManager.getObject(quillReference);
+        if (quill instanceof Quill === false) {
+            throw new Error('Expected instance of Quill object');
+        }
+        const contents = JSON.parse(contentsJSON);
+        quill.setContents(contents);
+    };
+
     window.WebVIQuill = {
         createQuill,
-        closeQuill
+        closeQuill,
+        getContents,
+        setContents,
+        enable
     };
 }());
