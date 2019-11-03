@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="7318C0558CCF9FC74B55B6494AADD7923917C36627DCE315633E16DE828BEBE8E74932FFF0404804B923A1AEC8E78339D8F81C4464A2A28FF8CE219EF878F4BD" Timestamp="1D591DA96D3714B" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="072D5A8F933B98A6CDA489DF5726C0E286A7CCC4AC89B4942FFEDD7C4B7B31D35B60C591BED41C9F8AE896E53FE3F09FBFE0A8407D325A1BB90E072F56ED874F" Timestamp="1D592905B6A4B04" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -15,7 +15,10 @@
 		<CompilerSymbolTable Id="c0a419f6cf264d56983f248a5bb10f88" xmlns="http://www.ni.com/PlatformFramework" />
 		<ComponentConfiguration Id="b537f7092b7d41c2a45c4222db130792" Name="Configuration1">
 			<CompilerSymbolTable Id="83480c41bda04b558f18a344632d6945" xmlns="http://www.ni.com/PlatformFramework" />
-			<ComponentItemProperties AssociatedEnvoyId="9a54b5e40f984d768bff5e6677257e1f" Exported="True" Id="a2a680b9088c47f08214596908fad6ce" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="65324ee73f2a4e4dabd27aaeaf563322" Id="56f24e9e687e421e960e516c3c42bce9" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="78a167713e4c497482ae56e2eebdb4f7" Id="68a733b2df5a4228890ee86ae0689b82" />
+			<ComponentItemProperties AssociatedEnvoyId="86ebb0c467ae429486acdb108c2e627e" Exported="True" Id="50332db10979497d8cacbd0b4e75f705" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="7364e2f50a8d4ac38031ff8ce1178880" Id="6cf81f55a39b4d129a163357d053be8d" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="5ce2304b431b496681186f395d46b3b2" xmlns="http://www.ni.com/PlatformFramework">
@@ -25,7 +28,31 @@
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="313c537f97384df28b968f8a585bd5f1" Name="CKEditor">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="3b6f1f565e474b5a847dad9ffbbcbb2e" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="9a54b5e40f984d768bff5e6677257e1f" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="CKEditor.jsli" StoragePath="Support\CKEditor.jsli" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="457c4e22f9f54dc8bec3f7c7189c909e" Name="node_modules">
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="2f0ec608995246cb9b55d96673571c8f" Name="@ckeditor">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="f1ce288ca10f4cd7ace18ca736eded6f" Name="ckeditor5-build-classic">
+								<NameScopingEnvoy AutomaticallyResolveUp="True" Id="79384dacdb1c4147bbe18327b4f830dc" Name="build">
+									<EmbeddedDefinitionReference Id="65324ee73f2a4e4dabd27aaeaf563322" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="ckeditor.js">
+										<ExternalFile>
+											<p.StoragePath>"Support\\node_modules\\@ckeditor\\ckeditor5-build-classic\\build\\ckeditor.js"</p.StoragePath>
+										</ExternalFile>
+									</EmbeddedDefinitionReference>
+								</NameScopingEnvoy>
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
+					</NameScopingEnvoy>
+					<EmbeddedDefinitionReference Id="78a167713e4c497482ae56e2eebdb4f7" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="CKEditor.js">
+						<ExternalFile>
+							<p.StoragePath>"Support\\CKEditor.js"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
+					<EmbeddedDefinitionReference Id="7364e2f50a8d4ac38031ff8ce1178880" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="CKEditor.css">
+						<ExternalFile>
+							<p.StoragePath>"Support\\CKEditor.css"</p.StoragePath>
+						</ExternalFile>
+					</EmbeddedDefinitionReference>
 				</NameScopingEnvoy>
+				<SourceFileReference Id="86ebb0c467ae429486acdb108c2e627e" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create.gvi" StoragePath="Create.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="2a1d1afcbb61407b90952b2320448485" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="CKEditor.gcomp" NameTracksFileName="True">
