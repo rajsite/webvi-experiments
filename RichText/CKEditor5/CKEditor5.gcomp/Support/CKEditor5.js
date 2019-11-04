@@ -18,5 +18,5 @@
         await window.ClassicEditor.create(textarea);
     };
 
-    window.WebVICKEditor = {create};
+    window.WebVICKEditor5 = {create};
 }());
