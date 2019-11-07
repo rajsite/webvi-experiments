@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="5E46840CAA72F0C67661927FC16F99203BCF30462C7C8CC16DDF7944220EA674A52BD54137226416D07787181F29F6A414C190692695539716734AFE6191F7A7" Timestamp="1D5915484066AA7" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="ED2ED46A845494F131AC5D563689EAB6CE7A161A417F488D9D66CD6865DA1986E3AFC48B90E2D2D9607EF86367A5852A7395A6546A4695D5E065681F83B8B176" Timestamp="1D595118CA52A84" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -250,241 +250,134 @@
 			<Label Height="[float]16" Id="197" LabelOwner="[UIModel]158" Left="[float]564" Text="[string]game state out" Top="[float]-32" Width="[float]61" xmlns="http://www.ni.com/PanelCommon" />
 		</FrontPanelUnplacedItems>
 		<BlockDiagram Id="12">
-			<ForLoop Bounds="418 273 291 206" DiagramId="18" Id="17">
-				<LoopIteration Bounds="5 176 15 15" Id="22" />
-				<PropertyNode Bounds="145 40 107 50" HasErrorTerminals="False" Id="23" InstanceDataType="@1df5feb9245c4d69bee45e5cf358f312" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
-					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-						<TypeDefinitionTarget TargetName="Snek::Entity.gtype" />
-						<TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype" />
-						<TypeDefinitionTarget TargetName="Snek::Entity Components::Position::Position.gtype" />
-					</p.TypeDefinitionTargets>
-					<PropertyItemTerminal Action="Write" DataType="@3af7d5ff956448f588f3dc5e5562cecd" Hotspot="0 15" Id="c0t0v" Path="Snake Body" PathElementMemberKinds="Field" Usage="Required" />
-					<PropertyItemTerminal Action="Write" DataType="@b5bf7a315d65428286744938703f7410" Hotspot="0 30" Id="c1t0v" Path="Position" PathElementMemberKinds="Field" Usage="Required" />
-				</PropertyNode>
-				<ArrayLiteral Bounds="39 50 76 25" DataType="@3af7d5ff956448f588f3dc5e5562cecd" Id="24" Label="25" xmlns="http://www.ni.com/MocCommon">
-					<p.Data>
-						<Array Lengths="1" IsBinary="True" Compression="GZip">
-							<BinaryElements>H4sIAAAAAAAEAGNgZGBg+A8EIBoEBEAMEOZgZOQGAEXVXkMeAAAA</BinaryElements>
-						</Array>
-					</p.Data>
-					<ArrayBehavior ElementType="@318211d5a39846a5b0e1394b3e780a69" IndexEditorWidth="42">
-						<p.DefaultElementValue>False</p.DefaultElementValue>
-					</ArrayBehavior>
-					<Literal Bounds="47 4 15 15" DataType="@318211d5a39846a5b0e1394b3e780a69" Id="32" Label="33" p6:ControlDefinitionChecksum="DFX0Lh6vghtjuKAW5oUuYbWoEA2pRQ8js10BhbWHUV4=" xmlns:p6="http://www.ni.com/PanelCommon">
-						<p6:p.TypeDefinitionTargets>
-							<p6:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype" />
-							<p6:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype::ControlDefinition" />
-						</p6:p.TypeDefinitionTargets>
-						<BooleanBehavior />
-					</Literal>
-					<NodeLabel AttachedTo="32" Bounds="47 -14 30 15" Id="33" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>Snake Body</p.Text>
-					</NodeLabel>
-				</ArrayLiteral>
-				<NodeLabel AttachedTo="24" Bounds="39 32 30 15" Id="25" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>Snake Body</p.Text>
-				</NodeLabel>
-				<Wire Facade="WireInvisibleFacade" Id="27" Joints="N(30:Out)|(145,45) N(23:instance in)|(145,45)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="28" Joints="N(24:Out)|(115,55) N(23:c0t0v)|(145,55)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="29" Joints="N(23:instance out)|(252,45) N(21:i0)|(279,45)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Add Bounds="95 155 30 30" Id="211" Terminals="o=219, c0t0v=212, c1t0v=213" />
-				<Wire Id="212" Joints="N(210:i0)|(6,160) N(211:c0t0v)|(95,160)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="213" Joints="N(22:Output)|(20,181) h(5) v(-6) N(211:c1t0v)|(95,175)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="219" Joints="N(211:o)|(125,170) N(220:i0)|(279,170)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="35 110 40 40" Id="269" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\SubVIs\\Translate Position in Direction.gvi&quot;" Signature="@989f18aa90ed4a469348ad27e269fc2c" Target="Snek::SubVIs::Translate Position in Direction.gvi" xmlns="http://www.ni.com/MocCommon">
+			<ForLoop Bounds="608 98 476 211" DiagramId="18" Id="17">
+				<LoopIteration Bounds="5 180 15 15" Id="22" />
+				<MethodCall Bounds="250 20 40 40" Id="269" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Position\\Translate Position.gvi&quot;" Signature="@e08dcd0c25bd49d2b523bf4ffdbf4f0d" Target="Snek::Entity Components::Position::Translate Position.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-							<Parameter Id="L0" Desc="position in" />
-							<Parameter Id="L1" Desc="direction" />
-							<Parameter Id="L2" Desc="spaces" />
-							<Parameter Id="R0" Desc="position out" />
+							<Parameter Id="L0" Desc="game state in" />
+							<Parameter Id="L1" Desc="entity index in" />
+							<Parameter Id="L2" Desc="direction" />
+							<Parameter Id="L3" Desc="spaces" />
+							<Parameter Id="R0" Desc="game state out" />
+							<Parameter Id="R1" Desc="enitity index out" />
+							<Parameter Id="R2" Desc="updated position" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
-					<Terminal DataType="@79d6762b44cb416488b56138c027e807" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="@b6eb17e731c04b4d9136cb388dd24dd3" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Int32" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="@79d6762b44cb416488b56138c027e807" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@b6eb17e731c04b4d9136cb388dd24dd3" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@79d6762b44cb416488b56138c027e807" Direction="Output" Hotspot="40 25" Id="R2" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
-				<BuildArray Bounds="95 95 40 20" Id="514" Terminals="outArray=515, c0t0v=516, c1t0v" />
-				<Wire Id="515" Joints="N(514:outArray)|(135,100) v(-30) N(23:c1t0v)|(145,70)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="516" Joints="N(269:R0)|(75,115) h(5) B(1) v(-15) N(514:c0t0v)|(95,100) B(1) v(5) h(190) v(-15) N(521:18)|(279,105)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="522" Joints="N(520:i0)|(6,105) h(5) v(10) N(269:L0)|(35,115)" xmlns="http://www.ni.com/PlatformFramework" />
-				<ClusterLiteral Bounds="133 40 12 9" DataType="@1df5feb9245c4d69bee45e5cf358f312" Id="30" Label="31" p5:ControlDefinitionChecksum="jKGVzjrHjCN+cog9wj4o/2G1FmBNm8frCWSKXoHZ2no=" xmlns:p5="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
-					<p.Data>
-						<Cluster>
-							<Field1>null</Field1>
-							<Field2>null</Field2>
-							<Field3>null</Field3>
-							<Field4>null</Field4>
-							<Field5>null</Field5>
-						</Cluster>
-					</p.Data>
+				<MethodCall Bounds="25 20 40 40" Id="d8b00a03fe374c7585b5dfc0972bfb7e" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Entity Create.gvi&quot;" Signature="@e422d3d294ff4e4ea4d628af84f367d0" Target="Snek::Entity Components::Entity Create.gvi" xmlns="http://www.ni.com/MocCommon">
+					<p.MethodDeclaration>
+						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+							<Parameter Id="L0" Desc="game state in" />
+							<Parameter Id="R0" Desc="game state out" />
+							<Parameter Id="R1" Desc="entity index" />
+						</MethodDeclaration>
+					</p.MethodDeclaration>
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				</MethodCall>
+				<Wire Id="58ad62eaf30e4d9d812154c5b9c78491" Joints="N(40cc8b96f6804ff2944e064be0ff1190:i0)|(6,25) N(d8b00a03fe374c7585b5dfc0972bfb7e:L0)|(25,25)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Literal Bounds="150 125 75 15" DataType="@b6eb17e731c04b4d9136cb388dd24dd3" Id="bd8dbc81f2a64605a9d209750a1e7212" Label="e4b2a335681240b3a60f814522a589f7" p5:ControlDefinitionChecksum="j80XVCKXRkbK42Qh48QRY5acr1Hd4A4Du+lpOEDqm6c=" xmlns:p5="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>0</p.Data>
 					<p5:p.TypeDefinitionTargets>
-						<p5:TypeDefinitionTarget TargetName="Snek::Entity.gtype" />
-						<p5:TypeDefinitionTarget TargetName="Snek::Entity.gtype::ControlDefinition" />
+						<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Direction::Direction.gtype" />
+						<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Direction::Direction.gtype::ControlDefinition" />
 					</p5:p.TypeDefinitionTargets>
-					<ClusterBehavior AutoArrange="ArrangeVertically" />
-					<ArrayLiteral Bounds="2 20 135 25" DataType="@c4dfb577390746baba6cac2f165ddc4b" Id="240cd3cfecc421faab3005ce8a5c496" Label="f064013a7f26468c9e3b9863854ce817">
-						<p.Data>null</p.Data>
-						<ArrayBehavior ElementType="@b6eb17e731c04b4d9136cb388dd24dd3" IndexEditorWidth="42" Orientation="Horizontal">
-							<p.DefaultElementValue>0</p.DefaultElementValue>
-						</ArrayBehavior>
-						<Literal Bounds="0 0 75 15" DataType="@b6eb17e731c04b4d9136cb388dd24dd3" Id="942ce45e447542c5b3b22d6935ae705c" p5:ControlDefinitionChecksum="j80XVCKXRkbK42Qh48QRY5acr1Hd4A4Du+lpOEDqm6c=">
-							<p5:p.TypeDefinitionTargets>
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Direction::Direction.gtype" />
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Direction::Direction.gtype::ControlDefinition" />
-							</p5:p.TypeDefinitionTargets>
-							<EnumBehavior />
-						</Literal>
-					</ArrayLiteral>
-					<NodeLabel AttachedTo="240cd3cfecc421faab3005ce8a5c496" Bounds="2 2 30 15" Id="f064013a7f26468c9e3b9863854ce817" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>Direction</p.Text>
-					</NodeLabel>
-					<ArrayLiteral Bounds="2 67 75 25" DataType="@93dd6422ef5441798ed32357aa403ea9" Id="4970d18089424a57b6fd0078116d395c" Label="f341a82d89204ff58a22a15aa380bbce">
-						<p.Data>null</p.Data>
-						<ArrayBehavior ElementType="@cd4ad6bb548c4ebeb004ff111d328ef5" IndexEditorWidth="42" Orientation="Horizontal">
-							<p.DefaultElementValue>False</p.DefaultElementValue>
-						</ArrayBehavior>
-						<Literal Bounds="0 0 15 15" DataType="@cd4ad6bb548c4ebeb004ff111d328ef5" Id="9657db8979484f789394b91760f73105" p5:ControlDefinitionChecksum="NVkuOrEfi3X6k0ciTQzJ2Qc8BtqNSzM01UsZCbP5LVE=">
-							<p5:p.TypeDefinitionTargets>
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Edible::Edible.gtype" />
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Edible::Edible.gtype::ControlDefinition" />
-							</p5:p.TypeDefinitionTargets>
-							<BooleanBehavior />
-						</Literal>
-					</ArrayLiteral>
-					<NodeLabel AttachedTo="4970d18089424a57b6fd0078116d395c" Bounds="2 49 30 15" Id="f341a82d89204ff58a22a15aa380bbce" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>Edible</p.Text>
-					</NodeLabel>
-					<ArrayLiteral Bounds="2 114 121 94" DataType="@b5bf7a315d65428286744938703f7410" Id="e35b75cca43c421686a8943333af3de5" Label="2445c63a85c74558a56838c832729a8a">
-						<p.Data>null</p.Data>
-						<ArrayBehavior ElementType="@79d6762b44cb416488b56138c027e807" IndexEditorWidth="42" Orientation="Horizontal">
-							<p.DefaultElementValue>0_0_</p.DefaultElementValue>
-						</ArrayBehavior>
-						<ClusterLiteral Bounds="-46 0 61 84" DataType="@79d6762b44cb416488b56138c027e807" Id="86eedf35c9d047cda3e8c6c15741b19f" Label="f3c7d72ac34f4842a91a041901582dfc" p5:ControlDefinitionChecksum="SKh0iE1PMiREuO12Jo6av+HSvnnhQMVBUDkpGk6mrEQ=">
-							<p5:p.TypeDefinitionTargets>
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Position::Position.gtype" />
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Position::Position.gtype::ControlDefinition" />
-							</p5:p.TypeDefinitionTargets>
-							<ClusterBehavior AutoArrange="ArrangeVertically" />
-							<Literal Bounds="2 20 40 15" DataType="Int32" Id="c87757cd58f74bbc955fb9ea6b21c103" Label="5c9700c33aa640d2b332dfb34b160071">
-								<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
-							</Literal>
-							<NodeLabel AttachedTo="c87757cd58f74bbc955fb9ea6b21c103" Bounds="2 2 30 15" Id="5c9700c33aa640d2b332dfb34b160071" xmlns="http://www.ni.com/PlatformFramework">
-								<p.Text>X</p.Text>
-							</NodeLabel>
-							<Literal Bounds="2 57 40 15" DataType="Int32" Id="66f37592fc0401aa50cd2714baf316c" Label="1dbec2a459c74dd68bef995bf3a0afb4">
-								<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
-							</Literal>
-							<NodeLabel AttachedTo="66f37592fc0401aa50cd2714baf316c" Bounds="2 39 30 15" Id="1dbec2a459c74dd68bef995bf3a0afb4" xmlns="http://www.ni.com/PlatformFramework">
-								<p.Text>Y</p.Text>
-							</NodeLabel>
-						</ClusterLiteral>
-						<NodeLabel AttachedTo="86eedf35c9d047cda3e8c6c15741b19f" Bounds="-46 -15 30 15" Id="f3c7d72ac34f4842a91a041901582dfc" xmlns="http://www.ni.com/PlatformFramework">
-							<p.Text>Position</p.Text>
-						</NodeLabel>
-					</ArrayLiteral>
-					<NodeLabel AttachedTo="e35b75cca43c421686a8943333af3de5" Bounds="2 96 30 15" Id="2445c63a85c74558a56838c832729a8a" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>Position</p.Text>
-					</NodeLabel>
-					<ArrayLiteral Bounds="2 230 75 25" DataType="@3af7d5ff956448f588f3dc5e5562cecd" Id="b445c4acbae548378f2e30a00466e027" Label="2943f1a7625d466788581c1b1e9723db">
-						<p.Data>null</p.Data>
-						<ArrayBehavior ElementType="@318211d5a39846a5b0e1394b3e780a69" IndexEditorWidth="42" Orientation="Horizontal">
-							<p.DefaultElementValue>False</p.DefaultElementValue>
-						</ArrayBehavior>
-						<Literal Bounds="0 0 15 15" DataType="@318211d5a39846a5b0e1394b3e780a69" Id="3bf7bf0ca6de4bf6a0f9c3915c2cec4b" Label="8ad2d8a4a8bb41709f84bfae2913eeef" p5:ControlDefinitionChecksum="DFX0Lh6vghtjuKAW5oUuYbWoEA2pRQ8js10BhbWHUV4=">
-							<p5:p.TypeDefinitionTargets>
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype" />
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype::ControlDefinition" />
-							</p5:p.TypeDefinitionTargets>
-							<BooleanBehavior />
-						</Literal>
-						<NodeLabel AttachedTo="3bf7bf0ca6de4bf6a0f9c3915c2cec4b" Bounds="0 -15 30 15" Id="8ad2d8a4a8bb41709f84bfae2913eeef" xmlns="http://www.ni.com/PlatformFramework">
-							<p.Text>Snake Body</p.Text>
-						</NodeLabel>
-					</ArrayLiteral>
-					<NodeLabel AttachedTo="b445c4acbae548378f2e30a00466e027" Bounds="2 212 30 15" Id="2943f1a7625d466788581c1b1e9723db" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>Snake Body</p.Text>
-					</NodeLabel>
-					<ArrayLiteral Bounds="2 277 181 67" DataType="@0ef60655238b4f5d9b8dcc0c5bc7febe" Id="b10929e9bb684ccb90387578a6e30414" Label="a1b078312910420f846ec97553af9a8f">
-						<p.Data>null</p.Data>
-						<ArrayBehavior ElementType="@5fcd621cc92c4605b4386c249b8d28ec" IndexEditorWidth="42" Orientation="Horizontal">
-							<p.DefaultElementValue>
-								<Cluster>
-									<Field1>null</Field1>
-								</Cluster>
-							</p.DefaultElementValue>
-						</ArrayBehavior>
-						<ClusterLiteral Bounds="-106 0 121 57" DataType="@5fcd621cc92c4605b4386c249b8d28ec" Id="3ce4b4705f214f8e944d844f7f5ce63e" Label="e47fc421857547308b017e9fbd4f11e1" p5:ControlDefinitionChecksum="CRXQJuv1+QUu1+LgRgRBvK2sGwScVlzoK4/sRM2JvNQ=">
-							<p5:p.TypeDefinitionTargets>
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Head::Snake Head.gtype" />
-								<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Head::Snake Head.gtype::ControlDefinition" />
-							</p5:p.TypeDefinitionTargets>
-							<ClusterBehavior AutoArrange="ArrangeVertically" />
-							<ArrayLiteral Bounds="2 20 100 25" DataType="Int32[]" Id="7c2fa67757dd49ecaa4e55d78aee4df8" Label="889d868446594fb9a2634c6bf0e4bcbc">
-								<ArrayBehavior ElementType="Int32" IndexEditorWidth="42" Orientation="Horizontal">
-									<p.DefaultElementValue>0</p.DefaultElementValue>
-								</ArrayBehavior>
-								<Literal Bounds="0 0 40 15" DataType="Int32" Id="652db78e0a914c2cb4e3002a3cb1e8aa">
-									<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
-								</Literal>
-							</ArrayLiteral>
-							<NodeLabel AttachedTo="7c2fa67757dd49ecaa4e55d78aee4df8" Bounds="2 2 30 15" Id="889d868446594fb9a2634c6bf0e4bcbc" xmlns="http://www.ni.com/PlatformFramework">
-								<p.Text>Snake Body Entities Index</p.Text>
-							</NodeLabel>
-						</ClusterLiteral>
-						<NodeLabel AttachedTo="3ce4b4705f214f8e944d844f7f5ce63e" Bounds="-106 -15 30 15" Id="e47fc421857547308b017e9fbd4f11e1" xmlns="http://www.ni.com/PlatformFramework">
-							<p.Text>Snake Head</p.Text>
-						</NodeLabel>
-					</ArrayLiteral>
-					<NodeLabel AttachedTo="b10929e9bb684ccb90387578a6e30414" Bounds="2 259 30 15" Id="a1b078312910420f846ec97553af9a8f" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>Snake Head</p.Text>
-					</NodeLabel>
-					<DockedConstantFacade UndockedSize="202 356" />
-				</ClusterLiteral>
-				<NodeLabel AttachedTo="30" Bounds="133 22 30 15" Id="31" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>Entity</p.Text>
+					<EnumBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="bd8dbc81f2a64605a9d209750a1e7212" Bounds="150 107 30 15" Id="e4b2a335681240b3a60f814522a589f7" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>direction</p.Text>
 				</NodeLabel>
+				<Wire Id="bcbace5442b4de9b94ca1cad9885705" Joints="N(bd8dbc81f2a64605a9d209750a1e7212:Out)|(225,130) h(5) v(-85) N(269:L2)|(250,45)" xmlns="http://www.ni.com/PlatformFramework" />
+				<MethodCall Bounds="170 20 40 40" Id="19ca82a823048e7870a784c17066193" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Position\\Position Set.gvi&quot;" Signature="@c0b760851d4c4c54a7209cc0f8fa01fd" Target="Snek::Entity Components::Position::Position Set.gvi" xmlns="http://www.ni.com/MocCommon">
+					<p.MethodDeclaration>
+						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+							<Parameter Id="L0" Desc="game state in" />
+							<Parameter Id="L1" Desc="enitity index" />
+							<Parameter Id="L2" Desc="position" />
+							<Parameter Id="R0" Desc="game state out" />
+							<Parameter Id="R1" Desc="enitity index out" />
+						</MethodDeclaration>
+					</p.MethodDeclaration>
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@79d6762b44cb416488b56138c027e807" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				</MethodCall>
+				<Wire Id="feff6c9784c348eca52c647fac7862c5" Joints="N(520:i0)|(6,100) h(153) v(-55) N(19ca82a823048e7870a784c17066193:L2)|(170,45)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="d419061261fc4d3fb8e3f573cdb03121" Joints="N(d8b00a03fe374c7585b5dfc0972bfb7e:R0)|(65,25) N(19ca82a823048e7870a784c17066193:L0)|(170,25)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="99c859adc34d4ef889f939efcf207599" Joints="N(19ca82a823048e7870a784c17066193:R0)|(210,25) N(269:L0)|(250,25)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="1382983e86ef4db0b095f4d35969fe3d" Joints="N(19ca82a823048e7870a784c17066193:R1)|(210,35) N(269:L1)|(250,35)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="4b5b5e7636f34bf8bb35ab846228c775" Joints="N(269:R2)|(290,45) h(11) v(55) N(521:18)|(464,100)" xmlns="http://www.ni.com/PlatformFramework" />
+				<MethodCall Bounds="385 20 40 40" Id="636b69d53913428f98c72c9e7cfebee0" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Snake Body\\Snake Body Set.gvi&quot;" Signature="@66b112068a064f359689d79b4ad0f611" Target="Snek::Entity Components::Snake Body::Snake Body Set.gvi" xmlns="http://www.ni.com/MocCommon">
+					<p.MethodDeclaration>
+						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+							<Parameter Id="L0" Desc="game state in" />
+							<Parameter Id="L1" Desc="enitity index in" />
+							<Parameter Id="L2" Desc="snake body?" />
+							<Parameter Id="R0" Desc="game state out" />
+							<Parameter Id="R1" Desc="enitity index out" />
+						</MethodDeclaration>
+					</p.MethodDeclaration>
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@318211d5a39846a5b0e1394b3e780a69" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				</MethodCall>
+				<Wire Id="1c264d72f4e04687a60775dce56cbf2f" Joints="N(636b69d53913428f98c72c9e7cfebee0:R0)|(425,25) N(d97bb03760df4f89a4463e695b8d7a1f:18)|(464,25)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="ca35e6e4b5eb4592a64706aac51ffa88" Joints="N(269:R0)|(290,25) N(636b69d53913428f98c72c9e7cfebee0:L0)|(385,25)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="f09d45d8bcfa4c4ab8c0bc496d22b11e" Joints="N(d8b00a03fe374c7585b5dfc0972bfb7e:R1)|(65,35) N(19ca82a823048e7870a784c17066193:L1)|(170,35)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="a9d48a1ac5964b7598f653877bdda2d6" Joints="N(636b69d53913428f98c72c9e7cfebee0:R1)|(425,35) h(15) v(130) N(220:i0)|(464,165)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="1d62814f9a6e420289cbdfa083a6c202" Joints="N(269:R1)|(290,35) N(636b69d53913428f98c72c9e7cfebee0:L1)|(385,35)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Literal Bounds="330 40 25 15" DataType="@318211d5a39846a5b0e1394b3e780a69" Id="69f2808fd7b4788a1b8cf859e86f502" Label="72057f3cb1fa42b0a549ba61e7118ffa" p5:ControlDefinitionChecksum="DFX0Lh6vghtjuKAW5oUuYbWoEA2pRQ8js10BhbWHUV4=" xmlns:p5="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>True</p.Data>
+					<p5:p.TypeDefinitionTargets>
+						<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype" />
+						<p5:TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Body::Snake Body.gtype::ControlDefinition" />
+					</p5:p.TypeDefinitionTargets>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="69f2808fd7b4788a1b8cf859e86f502" Bounds="330 22 30 15" Id="72057f3cb1fa42b0a549ba61e7118ffa" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>snake body?</p.Text>
+				</NodeLabel>
+				<Wire Id="b2fa24cb4c724cd686675eb589ea5538" Joints="N(69f2808fd7b4788a1b8cf859e86f502:Out)|(355,45) N(636b69d53913428f98c72c9e7cfebee0:L2)|(385,45)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopCount Bounds="1 1 15 15" Docking="Left" Id="19" Terminals="17=108, 18" />
-				<LoopTunnel AutoIndex="True" Bounds="281 42 13 10" Docking="Right" Id="21" Terminals="o0=216, i0=29" TunnelMode="0" />
-				<LoopTunnel Bounds="-5 157 13 10" Docking="Left" Id="210" Terminals="o0=209, i0=212" />
-				<LoopTunnel AutoIndex="True" Bounds="281 167 13 10" Docking="Right" Id="220" Terminals="o0=240, i0=219" TunnelMode="0" />
-				<LeftShiftRegister Bounds="-5 102 13 10" Docking="Left" Id="520" RightRegister="521" Terminals="o0=517, i0=522" />
-				<RightShiftRegister Bounds="281 102 13 10" Docking="Right" Id="521" Terminals="17, 18=516" />
+				<LoopTunnel AutoIndex="True" Bounds="466 162 13 10" Docking="Right" Id="220" Terminals="o0=240, i0=a9d48a1ac5964b7598f653877bdda2d6" TunnelMode="0" />
+				<LeftShiftRegister Bounds="-5 97 13 10" Docking="Left" Id="520" RightRegister="521" Terminals="o0=517, i0=feff6c9784c348eca52c647fac7862c5" />
+				<RightShiftRegister Bounds="466 97 13 10" Docking="Right" Id="521" Terminals="17, 18=4b5b5e7636f34bf8bb35ab846228c775" />
+				<LeftShiftRegister Bounds="-5 22 13 10" Docking="Left" Id="40cc8b96f6804ff2944e064be0ff1190" RightRegister="d97bb03760df4f89a4463e695b8d7a1f" Terminals="o0=e3bcdd92031c456fa167b81547551341, i0=58ad62eaf30e4d9d812154c5b9c78491" />
+				<RightShiftRegister Bounds="466 22 13 10" Docking="Right" Id="d97bb03760df4f89a4463e695b8d7a1f" Terminals="17=2814237202674ecbb6d811a0c4c662d1, 18=1c264d72f4e04687a60775dce56cbf2f" />
 			</ForLoop>
-			<DataAccessor Bounds="349 275 40 15" DataItem="103" Id="106" Label="107" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="539 95 40 15" DataItem="103" Id="106" Label="107" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="106" Bounds="198 275 146 14" Id="107" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="106" Bounds="388 95 146 14" Id="107" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>number of body segments</p.Text>
 			</NodeLabel>
-			<Wire Id="108" Joints="N(106:Value)|(389,280) N(19:17)|(419,280)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="335 375 40 15" DataItem="112" Id="113" Label="114" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="108" Joints="N(106:Value)|(579,100) h(9) v(5) N(19:17)|(609,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="525 195 40 15" DataItem="112" Id="113" Label="114" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@79d6762b44cb416488b56138c027e807" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="113" Bounds="286 375 44 14" Id="114" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="113" Bounds="476 195 44 14" Id="114" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>position</p.Text>
 			</NodeLabel>
-			<DataAccessor Bounds="-20 120 40 15" DataItem="155" Id="156" Label="157" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="520 120 40 15" DataItem="155" Id="156" Label="157" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="156" Bounds="-101 120 76 14" Id="157" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="156" Bounds="439 120 76 14" Id="157" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>game state in</p.Text>
 			</NodeLabel>
-			<PropertyNode Bounds="35 155 75 35" HasErrorTerminals="False" Id="205" InstanceDataType="@e2d01fc6803a4534920038d676d348fe" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
-				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-					<TypeDefinitionTarget TargetName="Snek::Game State.gtype" />
-					<TypeDefinitionTarget TargetName="Snek::Entity.gtype" />
-				</p.TypeDefinitionTargets>
-				<PropertyItemTerminal DataType="@a90bdf54690441cb940205f913f32bef" Hotspot="75 15" Id="c0t0v" Path="Entities" PathElementMemberKinds="Field" Usage="Optional" />
-			</PropertyNode>
-			<Wire Id="206" Joints="N(156:Value)|(20,125) h(10) B(1) N(225:instance in)|(810,125) B(1) v(35) N(205:instance in)|(35,160)" xmlns="http://www.ni.com/PlatformFramework" />
-			<ArraySize Bounds="170 420 40 20" Id="207" />
-			<Wire Id="208" Joints="N(205:c0t0v)|(110,170) h(20) B(1) N(214:c0t0v)|(735,170) B(1) v(255) N(207:array)|(170,425)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="209" Joints="N(207:size(s\))|(210,435) N(210:o0)|(413,435)" xmlns="http://www.ni.com/PlatformFramework" />
-			<BuildArray Bounds="735 165 40 20" ConcatenateInputsIsRequested="True" Id="214" Terminals="outArray=227, c0t0v=208, c1t0v=216" />
-			<Wire Id="216" Joints="N(21:o0)|(712,320) h(7) v(-140) N(214:c1t0v)|(735,180)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="890 160 40 20" Id="217" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\SubVIs\\Snake Head Index.gvi&quot;" Signature="@8eca3a53763a4a7eb50e8fb5100d0296" Target="Snek::SubVIs::Snake Head Index.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="1225 130 40 20" Id="217" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\SubVIs\\Snake Head Index.gvi&quot;" Signature="@8eca3a53763a4a7eb50e8fb5100d0296" Target="Snek::SubVIs::Snake Head Index.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="R0" Desc="Index" />
@@ -492,78 +385,72 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<DataAccessor Bounds="1595 120 40 15" DataItem="198" Id="199" Label="200" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="1905 120 40 15" DataItem="198" Id="199" Label="200" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="199" Bounds="1640 120 84 14" Id="200" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="199" Bounds="1950 120 84 14" Id="200" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>game state out</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="955 150 40 40" Id="221" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Snake Head\\Snake Head Get.gvi&quot;" Signature="@e8c3692fbb194b33b2da9c417326f6db" Target="Snek::Entity Components::Snake Head::Snake Head Get.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="1275 120 40 40" Id="221" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Snake Head\\Snake Head Get.gvi&quot;" Signature="@55df091ad88d4b6eb90b8de542447166" Target="Snek::Entity Components::Snake Head::Snake Head Get.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="game state in" />
 						<Parameter Id="L1" Desc="entity index" />
+						<Parameter Id="R0" Desc="game state out" />
+						<Parameter Id="R1" Desc="enitity index out" />
 						<Parameter Id="R2" Desc="snake head" />
+						<Parameter Id="T1" Desc="exists?" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@5fcd621cc92c4605b4386c249b8d28ec" Direction="Output" Hotspot="40 25" Id="R2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="25 0" Id="T1" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="222" Joints="N(217:R0)|(930,165) N(221:L1)|(955,165)" xmlns="http://www.ni.com/PlatformFramework" />
-			<PropertyNode Bounds="810 120 81 35" HasErrorTerminals="False" Id="225" InstanceDataType="@e2d01fc6803a4534920038d676d348fe" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
-				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-					<TypeDefinitionTarget TargetName="Snek::Game State.gtype" />
-					<TypeDefinitionTarget TargetName="Snek::Entity.gtype" />
-				</p.TypeDefinitionTargets>
-				<PropertyItemTerminal Action="Write" DataType="@a90bdf54690441cb940205f913f32bef" Hotspot="0 15" Id="c0t0v" Path="Entities" PathElementMemberKinds="Field" Usage="Required" />
-			</PropertyNode>
-			<Wire Id="227" Joints="N(214:outArray)|(775,170) h(20) v(-35) N(225:c0t0v)|(810,135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="228" Joints="N(225:instance out)|(891,125) h(44) B(1) N(263:L0)|(1535,125) B(1) v(30) N(221:L0)|(955,155)" xmlns="http://www.ni.com/PlatformFramework" />
-			<PropertyNode Bounds="1015 195 180 35" HasErrorTerminals="False" Id="229" InstanceDataType="@5fcd621cc92c4605b4386c249b8d28ec" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="222" Joints="N(217:R0)|(1265,135) N(221:L1)|(1275,135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="1325 195 180 35" HasErrorTerminals="False" Id="229" InstanceDataType="@5fcd621cc92c4605b4386c249b8d28ec" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 					<TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Head::Snake Head.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal DataType="Int32[]" Hotspot="180 15" Id="c0t0v" Path="Snake Body Entities Index" PathElementMemberKinds="Field" Usage="Optional" />
 			</PropertyNode>
-			<Wire Id="230" Joints="N(221:R2)|(995,175) h(15) v(25) N(229:instance in)|(1015,200)" xmlns="http://www.ni.com/PlatformFramework" />
-			<BuildArray Bounds="1245 205 40 20" ConcatenateInputsIsRequested="True" Id="238" Terminals="outArray=261, c0t0v=239, c1t0v=240" />
-			<Wire Id="239" Joints="N(229:c0t0v)|(1195,210) N(238:c0t0v)|(1245,210)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="240" Joints="N(220:o0)|(712,445) h(528) v(-225) N(238:c1t0v)|(1245,220)" xmlns="http://www.ni.com/PlatformFramework" />
-			<PropertyNode Bounds="1300 195 197 35" HasErrorTerminals="False" Id="260" InstanceDataType="@5fcd621cc92c4605b4386c249b8d28ec" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="230" Joints="N(221:R2)|(1315,145) h(5) v(55) N(229:instance in)|(1325,200)" xmlns="http://www.ni.com/PlatformFramework" />
+			<BuildArray Bounds="1555 205 40 20" ConcatenateInputsIsRequested="True" Id="238" Terminals="outArray=261, c0t0v=239, c1t0v=240" />
+			<Wire Id="239" Joints="N(229:c0t0v)|(1505,210) N(238:c0t0v)|(1555,210)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="240" Joints="N(220:o0)|(1087,265) h(463) v(-45) N(238:c1t0v)|(1555,220)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="1610 195 197 35" HasErrorTerminals="False" Id="260" InstanceDataType="@5fcd621cc92c4605b4386c249b8d28ec" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 					<TypeDefinitionTarget TargetName="Snek::Entity Components::Snake Head::Snake Head.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal Action="Write" DataType="Int32[]" Hotspot="0 15" Id="c0t0v" Path="Snake Body Entities Index" PathElementMemberKinds="Field" Usage="Required" />
 			</PropertyNode>
-			<Wire Id="261" Joints="N(238:outArray)|(1285,210) N(260:c0t0v)|(1300,210)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="262" Joints="N(229:instance out)|(1195,200) N(260:instance in)|(1300,200)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1535 120 40 40" Id="263" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Snake Head\\Snake Head Set.gvi&quot;" Signature="@6d638dedee6f4a2293a3c34113ed02d9" Target="Snek::Entity Components::Snake Head::Snake Head Set.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="261" Joints="N(238:outArray)|(1595,210) N(260:c0t0v)|(1610,210)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="262" Joints="N(229:instance out)|(1505,200) N(260:instance in)|(1610,200)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="1845 120 40 40" Id="263" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Entity Components\\Snake Head\\Snake Head Set.gvi&quot;" Signature="@807fb5ac91c54aaf814e3eec57851e7f" Target="Snek::Entity Components::Snake Head::Snake Head Set.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="game state in" />
 						<Parameter Id="L1" Desc="enitity index" />
 						<Parameter Id="L2" Desc="snake head" />
 						<Parameter Id="R0" Desc="game state out" />
+						<Parameter Id="R1" Desc="enitity index out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@5fcd621cc92c4605b4386c249b8d28ec" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@5fcd621cc92c4605b4386c249b8d28ec" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<MethodCall Bounds="1470 130 40 20" Id="264" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\SubVIs\\Snake Head Index.gvi&quot;" Signature="@8eca3a53763a4a7eb50e8fb5100d0296" Target="Snek::SubVIs::Snake Head Index.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="R0" Desc="Index" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<Wire Id="265" Joints="N(264:R0)|(1510,135) N(263:L1)|(1535,135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="266" Joints="N(260:instance out)|(1497,200) h(33) v(-55) N(263:L2)|(1535,145)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="268" Joints="N(263:R0)|(1575,125) N(199:Value)|(1598,125)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="517" Joints="N(113:Value)|(375,380) N(520:o0)|(413,380)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="266" Joints="N(260:instance out)|(1807,200) h(33) v(-55) N(263:L2)|(1845,145)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="268" Joints="N(263:R0)|(1885,125) N(199:Value)|(1908,125)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="517" Joints="N(113:Value)|(565,200) N(520:o0)|(603,200)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="242461aa68a4ad2884d0653f41497a1" Joints="N(221:R0)|(1315,125) N(263:L0)|(1845,125)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="316cae47982848499028ed891bb0624b" Joints="N(221:R1)|(1315,135) N(263:L1)|(1845,135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="e3bcdd92031c456fa167b81547551341" Joints="N(156:Value)|(560,125) N(40cc8b96f6804ff2944e064be0ff1190:o0)|(603,125)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2814237202674ecbb6d811a0c4c662d1" Joints="N(d97bb03760df4f89a4463e695b8d7a1f:17)|(1087,125) N(221:L0)|(1275,125)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" Id="13" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="14" />
@@ -658,31 +545,11 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="3af7d5ff956448f588f3dc5e5562cecd">
-			<VariableArray DereferenceType="@318211d5a39846a5b0e1394b3e780a69" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="b5bf7a315d65428286744938703f7410">
-			<VariableArray DereferenceType="@79d6762b44cb416488b56138c027e807" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="318211d5a39846a5b0e1394b3e780a69">
-			<Attributed AttributedType="@c4f7c40429d5428e90ebb9dc5fdaaaa0">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Snake Body" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="989f18aa90ed4a469348ad27e269fc2c">
-			<Attributed AttributedType="@3974e77abe8045e4a57b7ff435df7568">
+		<p.TypeReference TypeId="e08dcd0c25bd49d2b523bf4ffdbf4f0d">
+			<Attributed AttributedType="@554b28f5407f40ad8dc1c6f495a22030">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="79d6762b44cb416488b56138c027e807">
-			<Attributed AttributedType="@6ed59168d59240a3b6657fc20600957c">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Position" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -693,31 +560,43 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="c4dfb577390746baba6cac2f165ddc4b">
-			<VariableArray DereferenceType="@b6eb17e731c04b4d9136cb388dd24dd3" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="93dd6422ef5441798ed32357aa403ea9">
-			<VariableArray DereferenceType="@cd4ad6bb548c4ebeb004ff111d328ef5" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="cd4ad6bb548c4ebeb004ff111d328ef5">
-			<Attributed AttributedType="@45b5d601469b49cbbf2ab30b00b42ffa">
+		<p.TypeReference TypeId="79d6762b44cb416488b56138c027e807">
+			<Attributed AttributedType="@6ed59168d59240a3b6657fc20600957c">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Edible" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Position" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0ef60655238b4f5d9b8dcc0c5bc7febe">
-			<VariableArray DereferenceType="@5fcd621cc92c4605b4386c249b8d28ec" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="5fcd621cc92c4605b4386c249b8d28ec">
-			<Attributed AttributedType="@5f06f7e466444709ae2992bfec0fd49c">
+		<p.TypeReference TypeId="e422d3d294ff4e4ea4d628af84f367d0">
+			<Attributed AttributedType="@9ae2ff2dff16418a97a473ac8fa9d713">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Snake Head" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="a90bdf54690441cb940205f913f32bef">
-			<VariableArray DereferenceType="@1df5feb9245c4d69bee45e5cf358f312" />
+		<p.TypeReference TypeId="c0b760851d4c4c54a7209cc0f8fa01fd">
+			<Attributed AttributedType="@1c626d0ffb4445309d4972356283e2f0">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="66b112068a064f359689d79b4ad0f611">
+			<Attributed AttributedType="@bed097f1c50d4bdb8b964c0be2a2c48d">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="318211d5a39846a5b0e1394b3e780a69">
+			<Attributed AttributedType="@c4f7c40429d5428e90ebb9dc5fdaaaa0">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Snake Body" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
 		<p.TypeReference TypeId="8eca3a53763a4a7eb50e8fb5100d0296">
 			<Attributed AttributedType="@4f1200adab994c129faae37d1533b006">
@@ -727,16 +606,23 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="e8c3692fbb194b33b2da9c417326f6db">
-			<Attributed AttributedType="@0ca044101dd74715a9c327811ffb3865">
+		<p.TypeReference TypeId="55df091ad88d4b6eb90b8de542447166">
+			<Attributed AttributedType="@763f7bb5af6747ac804d0214b7538a2e">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="6d638dedee6f4a2293a3c34113ed02d9">
-			<Attributed AttributedType="@d1e0304927e440cfb22f1ccd7adc4858">
+		<p.TypeReference TypeId="5fcd621cc92c4605b4386c249b8d28ec">
+			<Attributed AttributedType="@5f06f7e466444709ae2992bfec0fd49c">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Snake Head" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="807fb5ac91c54aaf814e3eec57851e7f">
+			<Attributed AttributedType="@bad0568e8f534913bb7510d0ebcb964b">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -762,30 +648,42 @@
 				</ClosedGenericParameters>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="c4f7c40429d5428e90ebb9dc5fdaaaa0">
-			<Typedef TypedefName="Snake Body.gtype" UnderlyingType="Boolean" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="3974e77abe8045e4a57b7ff435df7568">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Translate Position in Direction.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="554b28f5407f40ad8dc1c6f495a22030">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Translate Position.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@cf45be4256a3448f89f22ac4d466c9f9">
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]position in" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@a30234503a7c4db08ca8fc5d550bd63c">
+					<Attributed AttributedType="@be157c56cb794a89aeb29b0ed1ef2491">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity index in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@3a786c6c2fbb4332a8dd0b015f2d1b84">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]direction" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@c34ab404566541fd8e5e89ecd6d77bff">
+					<Attributed AttributedType="@1b12a4cb8ae74ba2aa306a8464d11073">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]spaces" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@956a8d2a26f74aaabd20e294fe3212b4">
+					<Attributed AttributedType="@8d376f1ab6c34003bc504efeb61bf6c8">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]position out" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6272eda1a9e6467dac607aceef1f1c02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@b2b6d1f84a0c407aa1d211512c2389ee">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]updated position" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
@@ -794,8 +692,91 @@
 		<p.TypeReference TypeId="367b21a4ba224699ad4c3a789bee737f">
 			<Typedef TypedefName="Direction.gtype" UnderlyingType="@5378f9884dd144cea76ba62eb648d7fb" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="45b5d601469b49cbbf2ab30b00b42ffa">
-			<Typedef TypedefName="Edible.gtype" UnderlyingType="Boolean" />
+		<p.TypeReference TypeId="9ae2ff2dff16418a97a473ac8fa9d713">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Entity Create.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8d376f1ab6c34003bc504efeb61bf6c8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6272eda1a9e6467dac607aceef1f1c02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity index" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1c626d0ffb4445309d4972356283e2f0">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Position Set.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@be157c56cb794a89aeb29b0ed1ef2491">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a6d7dd0374ba48ba9d9e9358eb160d05">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]position" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8d376f1ab6c34003bc504efeb61bf6c8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6272eda1a9e6467dac607aceef1f1c02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bed097f1c50d4bdb8b964c0be2a2c48d">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Snake Body Set.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@be157c56cb794a89aeb29b0ed1ef2491">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@951ab36daaf74703ad7d943c461b2850">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]snake body?" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8d376f1ab6c34003bc504efeb61bf6c8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6272eda1a9e6467dac607aceef1f1c02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c4f7c40429d5428e90ebb9dc5fdaaaa0">
+			<Typedef TypedefName="Snake Body.gtype" UnderlyingType="Boolean" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="4f1200adab994c129faae37d1533b006">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Snake Head Index.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -808,17 +789,27 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0ca044101dd74715a9c327811ffb3865">
+		<p.TypeReference TypeId="763f7bb5af6747ac804d0214b7538a2e">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Snake Head Get.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@5215257de49e4538a6afde3e6ab12759">
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@773012724d754bbca5d4ff2ba7511abb">
+					<Attributed AttributedType="@be157c56cb794a89aeb29b0ed1ef2491">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]entity index" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8d376f1ab6c34003bc504efeb61bf6c8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6272eda1a9e6467dac607aceef1f1c02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index out" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@833c0eca45254a3e8181b3ffa03b0710">
@@ -826,23 +817,28 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]snake head" />
 						</AttributeValues>
 					</Attributed>
+					<Attributed AttributedType="@9b5c69e241a149079cae77b0f5098f23">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]exists?" />
+						</AttributeValues>
+					</Attributed>
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d1e0304927e440cfb22f1ccd7adc4858">
+		<p.TypeReference TypeId="bad0568e8f534913bb7510d0ebcb964b">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Snake Head Set.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@5215257de49e4538a6afde3e6ab12759">
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@773012724d754bbca5d4ff2ba7511abb">
+					<Attributed AttributedType="@be157c56cb794a89aeb29b0ed1ef2491">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@dac7b3b9a4974dee9de09ab43d39f2b6">
+					<Attributed AttributedType="@7fe8d02cb26e4e288a1c6dc830a5c0f4">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]snake head" />
 						</AttributeValues>
@@ -850,6 +846,11 @@
 					<Attributed AttributedType="@8d376f1ab6c34003bc504efeb61bf6c8">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6272eda1a9e6467dac607aceef1f1c02">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]enitity index out" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
@@ -904,17 +905,26 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="cf45be4256a3448f89f22ac4d466c9f9">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@79d6762b44cb416488b56138c027e807" />
+		<p.TypeReference TypeId="4ed819d41d7442e6896a0c2ca6014d5a">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@e2d01fc6803a4534920038d676d348fe" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="a30234503a7c4db08ca8fc5d550bd63c">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@b6eb17e731c04b4d9136cb388dd24dd3" />
+		<p.TypeReference TypeId="be157c56cb794a89aeb29b0ed1ef2491">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="c34ab404566541fd8e5e89ecd6d77bff">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Int32" />
+		<p.TypeReference TypeId="3a786c6c2fbb4332a8dd0b015f2d1b84">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="@b6eb17e731c04b4d9136cb388dd24dd3" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="956a8d2a26f74aaabd20e294fe3212b4">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@79d6762b44cb416488b56138c027e807" />
+		<p.TypeReference TypeId="1b12a4cb8ae74ba2aa306a8464d11073">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="8d376f1ab6c34003bc504efeb61bf6c8">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@e2d01fc6803a4534920038d676d348fe" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6272eda1a9e6467dac607aceef1f1c02">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b2b6d1f84a0c407aa1d211512c2389ee">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R2" DataType="@79d6762b44cb416488b56138c027e807" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="5378f9884dd144cea76ba62eb648d7fb">
 			<Enumeration>
@@ -931,23 +941,41 @@
 				<DataType>UInt8</DataType>
 			</Enumeration>
 		</p.TypeReference>
+		<p.TypeReference TypeId="a6d7dd0374ba48ba9d9e9358eb160d05">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="@79d6762b44cb416488b56138c027e807" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="951ab36daaf74703ad7d943c461b2850">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="@318211d5a39846a5b0e1394b3e780a69" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="0b57fd13b8b446b68a5975bcb525e368">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="5215257de49e4538a6afde3e6ab12759">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@e2d01fc6803a4534920038d676d348fe" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="773012724d754bbca5d4ff2ba7511abb">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="833c0eca45254a3e8181b3ffa03b0710">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R2" DataType="@5fcd621cc92c4605b4386c249b8d28ec" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="dac7b3b9a4974dee9de09ab43d39f2b6">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="@5fcd621cc92c4605b4386c249b8d28ec" />
+		<p.TypeReference TypeId="9b5c69e241a149079cae77b0f5098f23">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="T1" DataType="Boolean" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="8d376f1ab6c34003bc504efeb61bf6c8">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@e2d01fc6803a4534920038d676d348fe" />
+		<p.TypeReference TypeId="7fe8d02cb26e4e288a1c6dc830a5c0f4">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="@5fcd621cc92c4605b4386c249b8d28ec" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a90bdf54690441cb940205f913f32bef">
+			<VariableArray DereferenceType="@1df5feb9245c4d69bee45e5cf358f312" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c4dfb577390746baba6cac2f165ddc4b">
+			<VariableArray DereferenceType="@b6eb17e731c04b4d9136cb388dd24dd3" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="93dd6422ef5441798ed32357aa403ea9">
+			<VariableArray DereferenceType="@cd4ad6bb548c4ebeb004ff111d328ef5" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b5bf7a315d65428286744938703f7410">
+			<VariableArray DereferenceType="@79d6762b44cb416488b56138c027e807" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="3af7d5ff956448f588f3dc5e5562cecd">
+			<VariableArray DereferenceType="@318211d5a39846a5b0e1394b3e780a69" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="0ef60655238b4f5d9b8dcc0c5bc7febe">
+			<VariableArray DereferenceType="@5fcd621cc92c4605b4386c249b8d28ec" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="a61cd5f0a45c4fd3b2af39f92d775a86">
 			<Composite Id="1" Name="NationalInstruments.SourceModel.DataTypes.Queue" ReferenceClass="" Sealed="" GenericTypeDefinition="@e1eac224cf8146e583d80ef6aac0d732">
@@ -960,6 +988,13 @@
 		<p.TypeReference TypeId="351fc7166f1b4b3faae2293142394149">
 			<Typedef TypedefName="User Action.gtype" UnderlyingType="@e788aadf0d7f46449b2c38ff2ecdcef0" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="cd4ad6bb548c4ebeb004ff111d328ef5">
+			<Attributed AttributedType="@45b5d601469b49cbbf2ab30b00b42ffa">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek::Entity Components::Edible" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="e788aadf0d7f46449b2c38ff2ecdcef0">
 			<Enumeration>
 				<Members>
@@ -969,9 +1004,12 @@
 				<DataType>UInt16</DataType>
 			</Enumeration>
 		</p.TypeReference>
+		<p.TypeReference TypeId="45b5d601469b49cbbf2ab30b00b42ffa">
+			<Typedef TypedefName="Edible.gtype" UnderlyingType="Boolean" />
+		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Snek::SubVIs::Translate Position in Direction.gvi">
+		<p.IconModel Target="Snek::Entity Components::Position::Translate Position.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -979,8 +1017,62 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Translate Position in Direction" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Translate Position" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Snek.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Snek::Entity Components::Entity Create.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Entity Create" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="7.5" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Snek.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Snek::Entity Components::Position::Position Set.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Position Set" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Snek.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Snek::Entity Components::Snake Body::Snake Body Set.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Snake Body Set" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Snek.gcomp" Top="[float]0" Width="[float]40" />

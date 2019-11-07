@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="6A325E76AF33AF83151689E427E895F937A86C28E605A4C9BD5808E16DCB1190296E2690A07504D230DBDD1FA0566BD43810A3613969FADA2F0E56335746D09B" Timestamp="1D59155785F060E" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="6DB6F1BD1C6BB406D1BD43F3A779B4177A65BB81EEFC496D84728AF6CD53E535F96297565BA3B210CA769E8B9E2D2554CBDE4D3728225B4375485B162C6D69A7" Timestamp="1D5951601BDFBB6" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -41,10 +41,10 @@
 			<WhileLoop Bounds="160 290 787 425" DiagramId="48" Id="47">
 				<LoopIteration Bounds="5 395 15 15" Id="49" />
 				<LoopCondition Bounds="685 365 15 15" Id="50" />
-				<DataAccessor Bounds="340 285 40 15" DataItem="43" Id="44" Label="45" xmlns="http://www.ni.com/MocCommon">
+				<DataAccessor Bounds="340 295 40 15" DataItem="43" Id="44" Label="45" xmlns="http://www.ni.com/MocCommon">
 					<Terminal DataType="@151f9b42b56d400fbf826543a369eeed" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 				</DataAccessor>
-				<NodeLabel AttachedTo="44" Bounds="385 285 71 14" Id="45" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="44" Bounds="385 295 71 14" Id="45" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>Snake Game</p.Text>
 				</NodeLabel>
 				<Literal Bounds="630 365 25 15" DataType="Boolean" Id="82" Label="83" xmlns="http://www.ni.com/MocCommon">
@@ -55,34 +55,32 @@
 					<p.Text>stop</p.Text>
 				</NodeLabel>
 				<Wire Id="84" Joints="N(82:Out)|(655,370) N(50:Input)|(685,370)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="110 250 40 50" Id="90" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Snake Move System.gvi&quot;" Signature="@eb250de076b3409b95937a4ee05b03fa" Target="Snek::Systems::Snake Move System.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="110 250 40 50" Id="90" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Snake Move System.gvi&quot;" Signature="@1483be6c517c4d209419e34a5fbe966b" Target="Snek::Systems::Snake Move System.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="L0" Desc="game state in" />
 							<Parameter Id="R0" Desc="game state out" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
-					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
-				<MethodCall Bounds="215 285 40 40" Id="159" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Render System.gvi&quot;" Signature="@1f849a43f30244b4b91ebebcb6d21e1c" Target="Snek::Systems::Render System.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="215 285 40 40" Id="159" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Render System.gvi&quot;" Signature="@5bdb1ee5072c417e8500add32530f781" Target="Snek::Systems::Render System.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="L0" Desc="game state in" />
-							<Parameter Id="R0" Desc="game state rendered" />
+							<Parameter Id="R1" Desc="game state rendered" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
-					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="@151f9b42b56d400fbf826543a369eeed" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@151f9b42b56d400fbf826543a369eeed" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
-				<Wire Id="160" Joints="N(90:R0)|(150,255) h(60) B(1) N(88:48)|(773,255) B(1) v(35) N(159:L0)|(215,290)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="166" Joints="N(159:R0)|(255,290) h(30) B(1) N(44:Value)|(343,290) B(1) v(40) N(167:array)|(290,330)" xmlns="http://www.ni.com/PlatformFramework" />
-				<ArrayIndex Bounds="290 325 40 30" Id="167" Terminals="array=166, c0t0v=188, c0out=170" />
+				<ArrayIndex Bounds="290 335 40 30" Id="167" Terminals="array=80e4b237e8e2459dbd610b3c14750855, c0t0v=188, c0out=170" />
 				<PropertyNode Bounds="375 355 50 50" HasErrorTerminals="False" Id="169" InstanceDataType="@f58a3ba764f64f06801a5e51b8de32bf" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
 					<PropertyItemTerminal DataType="Int32[]" Hotspot="50 15" Id="c0t0v" Path="X" PathElementMemberKinds="Field" Usage="Optional" />
 					<PropertyItemTerminal DataType="Int32[]" Hotspot="50 30" Id="c1t0v" Path="Y" PathElementMemberKinds="Field" Usage="Optional" />
 				</PropertyNode>
-				<Wire Id="170" Joints="N(167:c0out)|(330,350) h(5) v(10) N(169:instance in)|(375,360)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="170" Joints="N(167:c0out)|(330,360) N(169:instance in)|(375,360)" xmlns="http://www.ni.com/PlatformFramework" />
 				<DataAccessor Bounds="495 365 40 15" DataItem="171" Id="175" Label="176" xmlns="http://www.ni.com/MocCommon">
 					<Terminal DataType="Int32[]" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 				</DataAccessor>
@@ -97,7 +95,7 @@
 					<p.Text>Y</p.Text>
 				</NodeLabel>
 				<Wire Id="184" Joints="N(169:c1t0v)|(425,385) N(182:Value)|(498,385)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="240 345 40 20" Id="187" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\SubVIs\\Snake Head Index.gvi&quot;" Signature="@8eca3a53763a4a7eb50e8fb5100d0296" Target="Snek::SubVIs::Snake Head Index.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="240 355 40 20" Id="187" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\SubVIs\\Snake Head Index.gvi&quot;" Signature="@8eca3a53763a4a7eb50e8fb5100d0296" Target="Snek::SubVIs::Snake Head Index.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="R0" Desc="Index" />
@@ -105,7 +103,7 @@
 					</p.MethodDeclaration>
 					<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
-				<Wire Id="188" Joints="N(187:R0)|(280,350) N(167:c0t0v)|(290,350)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="188" Joints="N(187:R0)|(280,360) N(167:c0t0v)|(290,360)" xmlns="http://www.ni.com/PlatformFramework" />
 				<DataAccessor Bounds="35 395 40 15" DataItem="512d641f4a4b401790728ac7f8ba608b" Id="f736121e2a75406eb95ed26ad3415c91" Label="140f97ebc3064c80a6cb9c489464f02f" xmlns="http://www.ni.com/MocCommon">
 					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 				</DataAccessor>
@@ -113,7 +111,7 @@
 					<p.Text>loop iteration</p.Text>
 				</NodeLabel>
 				<Wire Id="917c2cf03464cf4ae03802cf1529cbf" Joints="N(49:Output)|(20,400) N(f736121e2a75406eb95ed26ad3415c91:Value)|(38,400)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="565 15 40 40" Id="c814884151d24ab79f8d2bb764af35d2" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Milliseconds Per Iteration.gvi&quot;" Signature="@1299f60d71614dc3bbf27d63fe17205a" Target="Snek::Milliseconds Per Iteration.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="565 15 40 40" Id="c814884151d24ab79f8d2bb764af35d2" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Milliseconds Per Iteration.gvi&quot;" Signature="@1299f60d71614dc3bbf27d63fe17205a" Target="Snek::Milliseconds Per Iteration.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="R0" Desc="ms per iteration" />
@@ -128,18 +126,17 @@
 					<p.Text>ms per iteration</p.Text>
 				</NodeLabel>
 				<Wire Id="95d5886de24a415a9ea91fb90b427c62" Joints="N(c814884151d24ab79f8d2bb764af35d2:R0)|(605,20) N(df921bdd544d461db97360d0ab3560f8:Value)|(638,20)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="40 250 40 40" Id="aed0baf52d3f473aa27fec7f0f9caa9f" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Process User Input System.gvi&quot;" Signature="@cc69bd7fae2b4907aa73ac599ceb368c" Target="Snek::Systems::Process User Input System.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="40 250 40 40" Id="aed0baf52d3f473aa27fec7f0f9caa9f" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Process User Input System.gvi&quot;" Signature="@23a7235ebce54b9ca8fef792882c327d" Target="Snek::Systems::Process User Input System.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="L0" Desc="game state in" />
 							<Parameter Id="R0" Desc="game state out" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
-					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="@e2d01fc6803a4534920038d676d348fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
 				<Wire Id="23ab1343419b406dbed6237c7148713a" Joints="N(89:i0)|(4,255) N(aed0baf52d3f473aa27fec7f0f9caa9f:L0)|(40,255)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="5516c5bcdf2a4d33bd67f17dc5ec9ca1" Joints="N(aed0baf52d3f473aa27fec7f0f9caa9f:R0)|(80,255) N(90:L0)|(110,255)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wait Bounds="570 70 40 40" Id="2352148b9cec4d41ba4cbb8ed0161e08" />
 				<Literal Bounds="500 85 40 15" DataType="UInt32" Id="2f975f99429943c4a91e5a208f8df3bf" Label="3c46b1970fed4830a7fe5a16ddc9da94" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>10</p.Data>
@@ -149,10 +146,13 @@
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
 				<Wire Id="c753a8ac02fd4cacbafe985adaa16e94" Joints="N(2f975f99429943c4a91e5a208f8df3bf:Out)|(540,90) N(2352148b9cec4d41ba4cbb8ed0161e08:time to wait)|(570,90)" xmlns="http://www.ni.com/PlatformFramework" />
-				<RightShiftRegister Bounds="778 255 13 10" Docking="Right" Id="88" Terminals="47, 48=160" />
+				<Wire Id="80e4b237e8e2459dbd610b3c14750855" Joints="N(159:R1)|(255,300) h(30) B(1) N(44:Value)|(343,300) B(1) v(40) N(167:array)|(290,340)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="cdc3bfd827d94662b53ada23c8930117" Joints="N(aed0baf52d3f473aa27fec7f0f9caa9f:R0)|(80,255) N(90:L0)|(110,255)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="b5e2cc138df843b58806e12fe0cefdf5" Joints="N(90:R0)|(150,255) h(60) B(1) N(88:48)|(773,255) B(1) v(35) N(159:L0)|(215,290)" xmlns="http://www.ni.com/PlatformFramework" />
+				<RightShiftRegister Bounds="778 255 13 10" Docking="Right" Id="88" Terminals="47, 48=b5e2cc138df843b58806e12fe0cefdf5" />
 				<LeftShiftRegister Bounds="-4 255 13 10" Docking="Left" Id="89" RightRegister="88" Terminals="o0=666075d75675408a84afec24b34a27cb, i0=23ab1343419b406dbed6237c7148713a" />
 			</WhileLoop>
-			<MethodCall Bounds="-175 545 40 40" Id="85" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Initialization System.gvi&quot;" Signature="@cdfd22c056564ee99afb97861d3b2f38" Target="Snek::Systems::Initialization System.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="-175 545 40 40" Id="85" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Arcade\\Snek\\Snek.gcomp\\Systems\\Initialization System.gvi&quot;" Signature="@cdfd22c056564ee99afb97861d3b2f38" Target="Snek::Systems::Initialization System.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="R0" Desc="game state out" />
@@ -332,7 +332,7 @@
 							<HtmlLabel Height="[float]16" Id="185" LabelOwner="[UIModel]172" Left="[float]0" Text="[string]X" Top="[float]0" Width="[float]14" />
 						</HtmlFlexibleLayoutComponent>
 						<HtmlFlexibleLayoutComponent Height="[float]140" Id="1d40c7236d0f4fb1acb70353c1f6c145" Left="[float]188" Top="[float]6" Width="[float]101">
-							<HtmlArrayViewer ArrayElement="[UIModel]180" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]120" Id="179" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]186" Left="[float]0" Orientation="[SMOrientation]Vertical" Rows="[int]4" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=178}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]101">
+							<HtmlArrayViewer ArrayElement="[UIModel]180" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" FirstIndex="[ArrayElementIndex]0" Height="[float]120" Id="179" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]186" Left="[float]0" Orientation="[SMOrientation]Vertical" Rows="[int]4" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=178}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]101">
 								<p.DefaultElementValue>0</p.DefaultElementValue>
 								<HtmlNumericText BaseName="[string]Numeric" Height="[float]24" Id="180" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Interval="[int]1" IsReadOnly="[bool]True" MinHeight="[float]24" RadixBase="[RadixBase]Decimal" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]72" />
 							</HtmlArrayViewer>
@@ -368,8 +368,8 @@
 		<p.TypeReference TypeId="151f9b42b56d400fbf826543a369eeed">
 			<VariableArray DereferenceType="@f58a3ba764f64f06801a5e51b8de32bf" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="eb250de076b3409b95937a4ee05b03fa">
-			<Attributed AttributedType="@fb9cbde4d79a41b59d57a6dea94b234d">
+		<p.TypeReference TypeId="1483be6c517c4d209419e34a5fbe966b">
+			<Attributed AttributedType="@c629ce362c884a6092445874c5d9ffe8">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]50" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -383,8 +383,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="1f849a43f30244b4b91ebebcb6d21e1c">
-			<Attributed AttributedType="@be831c4b7eb44097a19520514789f9c7">
+		<p.TypeReference TypeId="5bdb1ee5072c417e8500add32530f781">
+			<Attributed AttributedType="@04d6a8b9947c44fa93b06f9ae86fc208">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -415,8 +415,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="cc69bd7fae2b4907aa73ac599ceb368c">
-			<Attributed AttributedType="@257aeef235bf41fb8ef2b5461f7b4283">
+		<p.TypeReference TypeId="23a7235ebce54b9ca8fef792882c327d">
+			<Attributed AttributedType="@6dc091f8a81d48d1a8fdf68f70509426">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -466,10 +466,10 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="fb9cbde4d79a41b59d57a6dea94b234d">
+		<p.TypeReference TypeId="c629ce362c884a6092445874c5d9ffe8">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Snake Move System.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@5215257de49e4538a6afde3e6ab12759">
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
 						</AttributeValues>
@@ -485,15 +485,15 @@
 		<p.TypeReference TypeId="709aefbbdbb645348782ae3ed124a0e9">
 			<Typedef TypedefName="Game State.gtype" UnderlyingType="@a8f59312b3f941ff968c382362001ee1" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="be831c4b7eb44097a19520514789f9c7">
+		<p.TypeReference TypeId="04d6a8b9947c44fa93b06f9ae86fc208">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Render System.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@5215257de49e4538a6afde3e6ab12759">
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@0a01e6c5718a4cb6b9749dc9134943cd">
+					<Attributed AttributedType="@1f5ed155f2954b4f94c01ea79ea7c115">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state rendered" />
 						</AttributeValues>
@@ -523,10 +523,10 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="257aeef235bf41fb8ef2b5461f7b4283">
+		<p.TypeReference TypeId="6dc091f8a81d48d1a8fdf68f70509426">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Process User Input System.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@5215257de49e4538a6afde3e6ab12759">
+					<Attributed AttributedType="@4ed819d41d7442e6896a0c2ca6014d5a">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]game state in" />
 						</AttributeValues>
@@ -567,8 +567,8 @@
 		<p.TypeReference TypeId="351fc7166f1b4b3faae2293142394149">
 			<Typedef TypedefName="User Action.gtype" UnderlyingType="@e788aadf0d7f46449b2c38ff2ecdcef0" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="5215257de49e4538a6afde3e6ab12759">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@e2d01fc6803a4534920038d676d348fe" />
+		<p.TypeReference TypeId="4ed819d41d7442e6896a0c2ca6014d5a">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@e2d01fc6803a4534920038d676d348fe" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="8d376f1ab6c34003bc504efeb61bf6c8">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@e2d01fc6803a4534920038d676d348fe" />
@@ -582,8 +582,8 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0a01e6c5718a4cb6b9749dc9134943cd">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@151f9b42b56d400fbf826543a369eeed" />
+		<p.TypeReference TypeId="1f5ed155f2954b4f94c01ea79ea7c115">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@151f9b42b56d400fbf826543a369eeed" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="0b57fd13b8b446b68a5975bcb525e368">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
