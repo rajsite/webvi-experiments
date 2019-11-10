@@ -60,7 +60,8 @@
 
         // input processing
         const callChain = JSON.parse(callChainJSON);
-        const viName = callChain[callChain.length - 1];
+        // The zeroth item in the call chain is the Inspect Panel Values VI
+        const viName = callChain[1];
         const viNameEncoded = vireoHelpers.staticHelpers.encodeIdentifier(viName);
         const viRef = vireo.eggShell.findValueRef(viNameEncoded, '');
 
