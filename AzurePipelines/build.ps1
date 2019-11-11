@@ -36,6 +36,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Leaflet" -ProjectFileName "Leafl
 Write-Host "Build MachineLearning project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\MachineLearning" -ProjectFileName "MachineLearning.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build RichText project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\RichText" -ProjectFileName "RichText.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build WebBluetooth project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\WebBluetooth" -ProjectFileName "WebBluetooth.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 

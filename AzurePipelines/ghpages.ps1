@@ -61,6 +61,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Leaflet" -TargetName "Web Server" -C
 Write-Host "Copy MachineLearning build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\MachineLearning"
 
+Write-Host "Copy RichText build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\RichText"
+
 Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 
