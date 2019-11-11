@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="1ABB3C98ABEA8FCE0BF37C47B4D6B6CB9BFD090657B0BEEC12FEBCA8E6C48058D0B13A4E79AC5764EE2093BF3AD5C562A912750734416419150CF7EDC9601795" Timestamp="1D598C49E7B19CC" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="99BF9A92551E6DEFCEB264FE88B1FC29E6D9166ED7B143EFF539FF22E83881FA83C9808D638E387D82AE0C0BD890FD8CD8598D3DC6FEB526415773A2F9812AC2" Timestamp="1D598D516392B4C" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -47,12 +47,6 @@
 			</DataAccessor>
 			<NodeLabel AttachedTo="24f20830e3424dd8abbc375c5eca0e25" Bounds="45 0 30 15" Id="f6458a37402942c0be2237146520ef7a" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>quill output</p.Text>
-			</NodeLabel>
-			<DataAccessor Bounds="0 0 40 15" DataItem="daa52dda887c4c1e9d74cd0b8e5491c5" Id="133519510a03423fbddb696cca33e74a" Label="363e005469a846f5bc59164773bde657">
-				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="133519510a03423fbddb696cca33e74a" Bounds="-35 0 30 15" Id="363e005469a846f5bc59164773bde657" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>submit</p.Text>
 			</NodeLabel>
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
@@ -181,6 +175,12 @@
 						<Wire Id="e5b1bad439424368a4c1ff129b3f4761" Joints="N(f104082dcd774e6088afad01f9cd2483:ae467d88d3ad4975ac317bcd2a61f31b)|(2,115) N(5d738ca782ee4df7a0fac35507468f85:L3)|(15,115)" xmlns="http://www.ni.com/PlatformFramework" />
 						<Wire Id="965720cabdd4fc38832d8b8583067c2" Joints="N(5d738ca782ee4df7a0fac35507468f85:R1)|(55,95) h(41) v(23) h(11) B(3) N(ac57460dfc424b6a9453ffb0636d5d28:Value)|(115,118) B(3) v(77) N(7ae75ee95d7a4411b8f6f40e96e12309:L1)|(116,195)" xmlns="http://www.ni.com/PlatformFramework" />
 						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventName="Value changed" EventSourceType="Content" EventType="@2ba5655d6df64e0fa58c87490f066773" SourceContent="32947435555f48908652d8b1ac2cc6b4" SourceName="submit" />
+						<DataAccessor Bounds="205 45 40 15" DataItem="daa52dda887c4c1e9d74cd0b8e5491c5" Id="133519510a03423fbddb696cca33e74a" Label="363e005469a846f5bc59164773bde657" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="133519510a03423fbddb696cca33e74a" Bounds="162 45 38 14" Id="363e005469a846f5bc59164773bde657" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>submit</p.Text>
+						</NodeLabel>
 					</EventStructure.EventCase>
 					<EventStructure.Tunnel Bounds="-2 198 25 10" Docking="Left" Id="c68d838e792e412c9abce0e6417cfa44" Terminals="f5c06e7912f04c4f95c7157eb307890b=67b612b9e34e4990917af2b6a9034f07, ae467d88d3ad4975ac317bcd2a61f31b=b7697153eced4be3b91e85d8d82dbe41" />
 					<EventStructure.Tunnel Bounds="-2 98 25 10" Docking="Left" Id="9adc2c93f30944d0a979a713bf1a5548" Terminals="f5c06e7912f04c4f95c7157eb307890b=4a38d545fee6424d9ecd0bbb38406999, ae467d88d3ad4975ac317bcd2a61f31b=9665099f323a424cad0dcf7072eb4521" />
@@ -205,28 +205,28 @@
 				<LoopTunnel Bounds="-4 150 13 10" Docking="Left" Id="abf0c8f0b1bb4b05afe44995a97428b5" Terminals="o0=fd40f51d461f4aa585779d44f10ec113, i0=5d863e13b2b1491a969454ad5c78dda6" />
 			</WhileLoop>
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]1140" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<HtmlFlexibleLayoutGroup Height="[float]344" Id="ae2c1bf4db854ec183139cee43fbdb63" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlFlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]344" Id="4e8a3507656b477bb63f2236750cfbe2" Left="[float]0" Top="[float]0" Width="[float]964">
-					<HtmlFlexibleLayoutContainer Height="[float]328" Id="d69f2a1241974369a0b7563b9836c864" Left="[float]8" Top="[float]8" Width="[float]948">
-						<HtmlFlexibleLayoutComponent Height="[float]316" Id="ad93a5bd1a6b4e6b895d872ef240f534" Left="[float]14" Top="[float]6" Width="[float]424">
-							<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" ControlResizeMode="[ControlResizeMode]Fixed" Height="[float]296" Id="c253cfefa3164057a18b200848ff4162" Label="[UIModel]620f820673b44b1183606f29c97a79c5" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" Source="{DataItemBinding Id=48b75b5d00fc452489bee6e775929d10}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]20" Width="[float]424">
+		<HtmlFrontPanel Height="[float]1176" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<HtmlFlexibleLayoutGroup Height="[float]380" Id="ae2c1bf4db854ec183139cee43fbdb63" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]380" Id="4e8a3507656b477bb63f2236750cfbe2" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Direction="[FlexibleLayoutDirection]Column" Height="[float]364" Id="d69f2a1241974369a0b7563b9836c864" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]316" Id="ad93a5bd1a6b4e6b895d872ef240f534" Left="[float]14" Top="[float]6" Width="[float]920">
+							<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" ControlResizeMode="[ControlResizeMode]Horizontally" Height="[float]296" Id="c253cfefa3164057a18b200848ff4162" Label="[UIModel]620f820673b44b1183606f29c97a79c5" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" Source="{DataItemBinding Id=48b75b5d00fc452489bee6e775929d10}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]20" Width="[float]920">
 								<HtmlBehavior ClassAttributes="my-quill-input" xmlns="http://www.ni.com/PlatformFramework" />
 							</HtmlUrlImage>
 							<HtmlLabel Height="[float]16" Id="620f820673b44b1183606f29c97a79c5" LabelOwner="[UIModel]c253cfefa3164057a18b200848ff4162" Left="[float]0" Text="[string]quill input" Top="[float]0" Width="[float]60" />
 						</HtmlFlexibleLayoutComponent>
-						<HtmlFlexibleLayoutComponent Height="[float]28" Id="82389b5a3fc14065bffd409d873be792" Left="[float]446" Top="[float]6" Width="[float]72">
+						<HtmlFlexibleLayoutComponent Height="[float]28" Id="82389b5a3fc14065bffd409d873be792" Left="[float]14" Top="[float]330" Width="[float]72">
 							<HtmlButton BaseName="[string]Button" Content="[string]submit" Height="[float]28" Id="32947435555f48908652d8b1ac2cc6b4" Label="[UIModel]db0a8d5ff274c9395f70eb535c76031" Left="[float]0" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=daa52dda887c4c1e9d74cd0b8e5491c5}" Width="[float]72" />
-							<HtmlLabel Height="[float]10" Id="db0a8d5ff274c9395f70eb535c76031" LabelOwner="[UIModel]32947435555f48908652d8b1ac2cc6b4" Left="[float]0" Text="[string]submit" Top="[float]-20" Visible="[bool]False" Width="[float]10" />
+							<HtmlLabel Height="[float]16" Id="db0a8d5ff274c9395f70eb535c76031" LabelOwner="[UIModel]32947435555f48908652d8b1ac2cc6b4" Left="[float]0" Text="[string]submit" Top="[float]-20" Visible="[bool]False" Width="[float]43" />
 						</HtmlFlexibleLayoutComponent>
 					</HtmlFlexibleLayoutContainer>
 				</HtmlFlexibleLayoutWrapper>
 			</HtmlFlexibleLayoutGroup>
-			<HtmlFlexibleLayoutGroup Height="[float]344" Id="4acbc3fbf764efda74dcfce76de79eb" Left="[float]30" Top="[float]374" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<HtmlFlexibleLayoutGroup Height="[float]344" Id="4acbc3fbf764efda74dcfce76de79eb" Left="[float]30" Top="[float]410" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<HtmlFlexibleLayoutWrapper Height="[float]344" Id="9dffbc6c39654559850abd3643cdedd7" Left="[float]0" Top="[float]0" Width="[float]964">
 					<HtmlFlexibleLayoutContainer Height="[float]328" Id="3191c1195176423e94547aa360815975" Left="[float]8" Top="[float]8" Width="[float]948">
-						<HtmlFlexibleLayoutComponent Height="[float]316" Id="64a186693099463fa593cdb154481187" Left="[float]14" Top="[float]6" Width="[float]424">
-							<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" ControlResizeMode="[ControlResizeMode]Fixed" Height="[float]296" Id="2a5c2d18b0e84c229b85772b2bfd8e01" Label="[UIModel]6c4cfcacb60340d182fd648f329d390a" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" Source="{DataItemBinding Id=e98cf9b756b44dd98eef7870424f9552}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]20" Width="[float]424">
+						<HtmlFlexibleLayoutComponent Height="[float]316" Id="64a186693099463fa593cdb154481187" Left="[float]14" Top="[float]6" Width="[float]920">
+							<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" ControlResizeMode="[ControlResizeMode]Horizontally" Height="[float]296" Id="2a5c2d18b0e84c229b85772b2bfd8e01" Label="[UIModel]6c4cfcacb60340d182fd648f329d390a" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" Source="{DataItemBinding Id=e98cf9b756b44dd98eef7870424f9552}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]20" Width="[float]920">
 								<HtmlBehavior ClassAttributes="my-quill-output" xmlns="http://www.ni.com/PlatformFramework" />
 							</HtmlUrlImage>
 							<HtmlLabel Height="[float]16" Id="6c4cfcacb60340d182fd648f329d390a" LabelOwner="[UIModel]2a5c2d18b0e84c229b85772b2bfd8e01" Left="[float]0" Text="[string]quill output" Top="[float]0" Width="[float]69" />
@@ -234,11 +234,11 @@
 					</HtmlFlexibleLayoutContainer>
 				</HtmlFlexibleLayoutWrapper>
 			</HtmlFlexibleLayoutGroup>
-			<HtmlFlexibleLayoutGroup Height="[float]392" Id="200567c76de444fb9c5ad4aaa61d36d3" Left="[float]30" Top="[float]718" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<HtmlFlexibleLayoutGroup Height="[float]392" Id="200567c76de444fb9c5ad4aaa61d36d3" Left="[float]30" Top="[float]754" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<HtmlFlexibleLayoutWrapper Height="[float]392" Id="f030eeb12d774ae4a2348fb831f639c2" Left="[float]0" Top="[float]0" Width="[float]964">
 					<HtmlFlexibleLayoutContainer Height="[float]376" Id="5e8d3dbc7ced48b694063910fdc2e3cb" Left="[float]8" Top="[float]8" Width="[float]948">
-						<HtmlFlexibleLayoutComponent Height="[float]364" Id="8351aad9f15148a4a6a7e4e917d34620" Left="[float]14" Top="[float]6" Width="[float]520">
-							<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]344" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="dbbc92f6d35c49568f2aba135f20a018" IsReadOnly="[bool]True" Label="[UIModel]4040cfa597b040c5a437211f995930ff" Left="[float]0" MinHeight="[float]24" TabIndex="[int]0" Text="{DataItemBinding Id=97fab40ef74a4c6e87a8ae4c54a2d605}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]520" WordWrap="[bool]True" />
+						<HtmlFlexibleLayoutComponent Height="[float]364" Id="8351aad9f15148a4a6a7e4e917d34620" Left="[float]14" Top="[float]6" Width="[float]920">
+							<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" ControlResizeMode="[ControlResizeMode]Horizontally" Height="[float]344" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="dbbc92f6d35c49568f2aba135f20a018" IsReadOnly="[bool]True" Label="[UIModel]4040cfa597b040c5a437211f995930ff" Left="[float]0" MinHeight="[float]24" TabIndex="[int]0" Text="{DataItemBinding Id=97fab40ef74a4c6e87a8ae4c54a2d605}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]920" WordWrap="[bool]True" />
 							<HtmlLabel Height="[float]16" Id="4040cfa597b040c5a437211f995930ff" LabelOwner="[UIModel]dbbc92f6d35c49568f2aba135f20a018" Left="[float]0" Text="[string]deltas json" Top="[float]0" Width="[float]64" />
 						</HtmlFlexibleLayoutComponent>
 					</HtmlFlexibleLayoutContainer>
