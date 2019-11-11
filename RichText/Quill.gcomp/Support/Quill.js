@@ -31,44 +31,28 @@
                 <span class="ql-formats">
                     <select class="ql-font"></select>
                     <select class="ql-size"></select>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-bold"></button>
                     <button class="ql-italic"></button>
                     <button class="ql-underline"></button>
                     <button class="ql-strike"></button>
-                </span>
-                <span class="ql-formats">
                     <select class="ql-color"></select>
                     <select class="ql-background"></select>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-script" value="sub"></button>
                     <button class="ql-script" value="super"></button>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-header" value="1"></button>
                     <button class="ql-header" value="2"></button>
                     <button class="ql-blockquote"></button>
                     <button class="ql-code-block"></button>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-list" value="ordered"></button>
                     <button class="ql-list" value="bullet"></button>
                     <button class="ql-indent" value="-1"></button>
                     <button class="ql-indent" value="+1"></button>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-direction" value="rtl"></button>
                     <select class="ql-align"></select>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-link"></button>
                     <button class="ql-image"></button>
                     <button class="ql-video"></button>
                     <button class="ql-formula"></button>
-                </span>
-                <span class="ql-formats">
                     <button class="ql-clean"></button>
                 </span>
             </div>
@@ -76,13 +60,30 @@
         </div>
     `;
 
-    const createQuill = function (selector) {
+    const setDisabledHelper = function (quill, disabled) {
+        const enable = !disabled;
+        quill.enable(enable);
+        quill.options.bounds.classList.toggle('webvi-quill-disable', disabled);
+    };
+
+    const removeHiddenToolbarFormats = function (webviQuillToolbar, toolbarFormats) {
+        const toolbarElements = [...webviQuillToolbar.querySelectorAll('.ql-formats > *')];
+        toolbarElements.forEach(element => {
+            const format = element.classList[0].substring('ql-'.length);
+            if (!toolbarFormats.includes(format)) {
+                element.parentNode.removeChild(element);
+            }
+        });
+    };
+
+    const createQuill = function (selector, formatsJSON, hiddenToolbarFormatsJSON, disabled) {
         const elements = document.querySelectorAll(selector);
         if (elements.length !== 1) {
             throw new Error(`Expected to find one element with selector ${selector}, but found ${elements.length}`);
         }
-        const element = elements[0];
-        element.innerHTML = '';
+        const formats = JSON.parse(formatsJSON);
+        const hiddenToolbarFormats = JSON.parse(hiddenToolbarFormatsJSON);
+        const toolbarFormats = formats.filter(format => !hiddenToolbarFormats.includes(format));
 
         const template = document.createElement('template');
         template.innerHTML = quillTemplate;
@@ -90,14 +91,21 @@
         const webviQuillContainer = quillTemplateInstance.querySelector('.webvi-quill-container');
         const webviQuillToolbar = quillTemplateInstance.querySelector('.webvi-quill-toolbar');
         const webviQuillEditor = quillTemplateInstance.querySelector('.webvi-quill-editor');
+        removeHiddenToolbarFormats(webviQuillToolbar, toolbarFormats);
 
+        const element = elements[0];
+        element.innerHTML = '';
         element.appendChild(webviQuillContainer);
 
         const quill = new Quill(webviQuillEditor, {
             modules: {toolbar: webviQuillToolbar},
-            theme: 'snow'
+            theme: 'snow',
+            bounds: webviQuillContainer,
+            formats
         });
+        setDisabledHelper(quill, disabled);
         const quillReference = referenceManager.createReference(quill);
+        window.quill = quill;
         return quillReference;
 
         // var quill = new Quill('#editor-container', {
@@ -138,8 +146,7 @@
         if (quill instanceof Quill === false) {
             throw new Error('Expected instance of Quill object');
         }
-        const enable = !disabled;
-        quill.enable(enable);
+        setDisabledHelper(quill, disabled);
     };
 
     window.WebVIQuill = {
