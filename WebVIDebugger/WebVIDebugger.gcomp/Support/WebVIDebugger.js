@@ -60,7 +60,7 @@
 
         // input processing
         const callChain = JSON.parse(callChainJSON);
-        // The zeroth item in the call chain is the Inspect Panel Values VI
+        // Skip the zeroth item in the call chain as it is the Inspect Panel Values VI
         const viName = callChain[1];
         const viNameEncoded = vireoHelpers.staticHelpers.encodeIdentifier(viName);
         const viRef = vireo.eggShell.findValueRef(viNameEncoded, '');
@@ -75,7 +75,8 @@
             return obj;
         }, {});
 
-        console.log(dataItems);
+        const eventData = JSON.stringify(dataItems);
+        window.postMessage(eventData, '*');
     };
 
     window.WebVIDebugger = {inspectPanelValues};
