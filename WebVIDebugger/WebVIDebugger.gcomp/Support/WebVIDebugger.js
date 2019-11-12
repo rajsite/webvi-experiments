@@ -50,7 +50,11 @@
         };
     };
 
+    let pendingUpdate;
     const inspectPanelValues = function (callChainJSON) {
+        if (pendingUpdate !== undefined) {
+            return;
+        }
         // static references
         const {vireoHelpers, vireo} = getReferences();
         if (vireoHelpers === undefined || vireo === undefined) {
@@ -76,7 +80,10 @@
         }, {});
 
         const eventData = JSON.stringify(dataItems);
-        window.postMessage(eventData, '*');
+        pendingUpdate = requestAnimationFrame(() => {
+            window.postMessage(eventData, '*');
+            pendingUpdate = undefined;
+        });
     };
 
     window.WebVIDebugger = {inspectPanelValues};
