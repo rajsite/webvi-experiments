@@ -20,7 +20,7 @@ jobs:
       run: powershell .\AzurePipelines\install.ps1
     - name: Build LabVIEW Projects
       run: powershell .\AzurePipelines\build.ps1
-      timeout-minutes: 120
+      timeout-minutes: 30
       continue-on-error: true
     - name: Upload screenshots
       uses: actions/upload-artifact@v1
