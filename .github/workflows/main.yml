@@ -9,11 +9,24 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout repository
+      uses: actions/checkout@v1
+    - name: Start capturing screenshots
+      run: |
+        npm install
+        npm run start-periodic-screenshot
+      working-directory: ./PeriodicScreenshot
     - name: Install LabVIEW NXG
       run: powershell .\AzurePipelines\install.ps1
     - name: Build LabVIEW Projects
       run: powershell .\AzurePipelines\build.ps1
+      timeout-minutes: 120
+      continue-on-error: true
+    - name: Upload screenshots
+      uses: actions/upload-artifact@v1
+      with:
+        name: debugscreenshots
+        path: ./PeriodicScreenshot/dist
     # - name: Create GitHub Pages Output
     #   run: powershell .\AzurePipelines\ghpages.ps1
     # - uses: actions/upload-artifact@master
