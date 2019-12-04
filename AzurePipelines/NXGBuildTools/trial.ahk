@@ -1,4 +1,6 @@
 WinWait LabVIEW NXG Licensing Wizard
+WinActivate LabVIEW NXG Licensing Wizard
+WinWaitActive LabVIEW NXG Licensing Wizard
 Sleep 10000
 ControlClick, Evaluate
 Sleep 2000

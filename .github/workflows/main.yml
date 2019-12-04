@@ -11,13 +11,13 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v1
+    - name: Install LabVIEW NXG
+      run: powershell .\AzurePipelines\install.ps1
     - name: Start capturing screenshots
       run: |
         npm install
         npm run start-periodic-screenshot
       working-directory: ./PeriodicScreenshot
-    - name: Install LabVIEW NXG
-      run: powershell .\AzurePipelines\install.ps1
     - name: Build LabVIEW Projects
       run: powershell .\AzurePipelines\build.ps1
       timeout-minutes: 30
