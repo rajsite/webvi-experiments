@@ -33,11 +33,24 @@
         });
     };
 
+    let pendingPromise;
     const fire = async function (optionsArrayJSON) {
         const optionsArray = JSON.parse(optionsArrayJSON).map(option => JSON.parse(option.propertiesJSON));
         const options = {};
         deepMerge(options, ...optionsArray);
-        const results = await window.Swal.fire(options);
+
+        // looks like if a parallel call is made to Swal.fire the current call is never resolved so prevent parallel calls
+        // TODO this only stops parallel calls through the JSLI calls, should file an issue on SweetAlert GitHub in general
+        if (pendingPromise !== undefined) {
+            throw new Error('SweetAlert dialog already open, cannot open new dialog');
+        }
+        pendingPromise = window.Swal.fire(options);
+        let results;
+        try {
+            results = await pendingPromise;
+        } finally {
+            pendingPromise = undefined;
+        }
         const dismissUnfiltered = results.dismiss === undefined ? 'success' : results.dismiss;
         const dismiss = ['success', 'backdrop', 'cancel', 'close', 'esc', 'timer'].includes(dismissUnfiltered) ? dismissUnfiltered : 'unknown';
         const value = results.value === undefined ? '' : String(results.value);
