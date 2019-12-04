@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "mkdirp-promise": "^5.0.1",
+    "pm2": "^4.2.0",
     "screenshot-desktop": "^1.10.0"
   },
   "scripts": {
-    "periodic-screenshot": "node .",
-    "start-periodic-screenshot": "start /min cmd /c npm run periodic-screenshot"
+    "start": "pm2 start index.js",
+    "stop": "pm2 kill"
   }
 }

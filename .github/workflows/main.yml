@@ -14,14 +14,17 @@ jobs:
     - name: Install LabVIEW NXG
       run: powershell .\AzurePipelines\install.ps1
     - name: Start capturing screenshots
+      working-directory: ./AzurePipelines/periodic-screenshot
       run: |
         npm install
-        npm run start-periodic-screenshot
-      working-directory: ./AzurePipelines/periodic-screenshot
+        npm run start
     - name: Build LabVIEW Projects
       run: powershell .\AzurePipelines\build.ps1
       timeout-minutes: 30
       continue-on-error: true
+    - name: Stop capturing screenshots
+      working-directory: ./AzurePipelines/periodic-screenshot
+      run: npm run stop
     - name: Upload screenshots
       uses: actions/upload-artifact@v1
       with:
@@ -33,4 +36,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: ghpagesbuild
-        path: /ghpagesbuild
+        path: ./ghpagesbuild
