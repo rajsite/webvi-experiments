@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="5E8AE5DFBFEDEA3BAA1FF00A5478A38B7B01CDFFC7D3102A837E0C7B178575015A5AD9703B927EE5BE3C05D8751743012F7818EE5ABE76B3F82929134F40F650" Timestamp="1D5A9FE493421CA" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="69EE7CD4ADF09DB78AEA42065C02DE87B378D2F8BFA764B91A0BE72A32AB1E9E5EB0FE793722F0224BD0D77187ACD0BE7F5E21D7B89DAE11DE961A9C9C5CD9D5" Timestamp="1D5AA158899D09B" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
@@ -11,10 +11,59 @@
 				<IconTemplate Height="[float]40" Id="4526599734a4a9a96a86f28f1d7fd26" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="2283050916534169b4620ae545c70049" ScriptAndLinkDependencies="&quot;&amp;lt;link href=&amp;quot;node_modules/sweetalert2/dist/sweetalert2.min.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;\r\n&amp;lt;script src=&amp;quot;node_modules/sweetalert2/dist/sweetalert2.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;SweetAlert.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
+		<DependenciesTextBox Id="2283050916534169b4620ae545c70049" ScriptAndLinkDependencies="&quot;&amp;lt;link href=&amp;quot;node_modules/sweetalert2/dist/sweetalert2.min.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;\r\n&amp;lt;script src=&amp;quot;node_modules/sweetalert2/dist/sweetalert2.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;SweetAlert.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="5d7c364650494a2db1014ab19d92a219" xmlns="http://www.ni.com/PlatformFramework">
 		<ProjectSettings Id="5be557da708d4fbaa3e89f58c3bebe1e" ModelDefinitionType="ProjectSettings" Name="ZProjectSettings" />
-		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="aa82ea3de7ed4c029eccef047a18dc52" Name="SweetAlert.jsli" NameTracksFileName="True" />
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="aa82ea3de7ed4c029eccef047a18dc52" Name="SweetAlert.jsli" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Id="7377cb037fd0491b9276a183fa8dc4a3" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="Fire">
+				<JavaScriptLibraryEntryPoint Id="4067446f9030415b932f975c2771b3aa" Symbol="WebVISweetAlert.fire" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="ae41857ee4124170bddb891cdb2872f8" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="3233e9b926854db19e5a28ad6f9ddae4" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="892f59f715c24d6fbf3a0e98dd048dd7" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="1e24f70e66194ca29f7fa57c7c9de21c" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="d646fe5e34b2470d93973b93b26b8bdc" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Id="eb1a4cd71750443e8999ce6336898123" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Fire" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="11.25" Id="2ed00f17747048258a00a9627c6e0a45" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="68b2f09eeb694d4085fa85c2d6afb293" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal />
+						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="3936138e05d14881a06ba2447c9b7767" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="dcef197f8e844ce580378f4d6a48eb31" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="1d79699904f54cfc8b5c5c71067d2695" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="1456569a3b644fa7acf23f47a5ff35e2" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="dcef197f8e844ce580378f4d6a48eb31" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="1456569a3b644fa7acf23f47a5ff35e2" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="f078a484bf5b49ed9a7a70d8d44756dc" IsReturnParameter="True" Name="resultJSON">
+						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="70c092de2d74473aac5406227804890c" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="1d79699904f54cfc8b5c5c71067d2695" Name="resultJSON" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="7e3807da422943e5880e936be7a630a7" Name="optionsArrayJSON">
+						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="c165d112a76a40bdb01da69343e5b7ef" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="3936138e05d14881a06ba2447c9b7767" Name="optionsArrayJSON" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
 	</EnvoyManagerFile>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="7a0d745212ea43e8a195a3e0a8f4fb9a">
+			<Attributed AttributedType="String">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
 </SourceFile>
