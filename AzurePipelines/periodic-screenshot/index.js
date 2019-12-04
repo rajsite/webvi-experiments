@@ -3,12 +3,10 @@
 
     const path = require('path');
     const fs = require('fs').promises;
-    // const tempy = require('tempy');
     const screenshotDesktop = require('screenshot-desktop');
     const mkdirp = require('mkdirp-promise');
 
     const intervalMs = 10000;
-    // const targetDir = tempy.directory();
     const targetDir = path.join(process.cwd(), 'dist');
     await mkdirp(targetDir);
 

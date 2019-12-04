@@ -1,4 +1,4 @@
-name: webvi-experiments continuous integration
+name: webvi-experiments ci
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
       run: |
         npm install
         npm run start-periodic-screenshot
-      working-directory: ./PeriodicScreenshot
+      working-directory: ./AzurePipelines/periodic-screenshot
     - name: Build LabVIEW Projects
       run: powershell .\AzurePipelines\build.ps1
       timeout-minutes: 30
@@ -25,11 +25,12 @@ jobs:
     - name: Upload screenshots
       uses: actions/upload-artifact@v1
       with:
-        name: debugscreenshots
-        path: ./PeriodicScreenshot/dist
-    # - name: Create GitHub Pages Output
-    #   run: powershell .\AzurePipelines\ghpages.ps1
-    # - uses: actions/upload-artifact@master
-    #   with:
-    #     name: ghpagesbuildoutput
-    #     path: /ghpagesbuild
+        name: screenshots
+        path: ./AzurePipelines/periodic-screenshot/dist
+    - name: Create GitHub Pages Output
+      run: powershell .\AzurePipelines\ghpages.ps1
+    - name: Upload GitHub Pages Output
+      uses: actions/upload-artifact@v1
+      with:
+        name: ghpagesbuild
+        path: /ghpagesbuild
