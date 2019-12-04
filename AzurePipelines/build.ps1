@@ -39,6 +39,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\MachineLearning" -ProjectFileNam
 Write-Host "Build RichText project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\RichText" -ProjectFileName "RichText.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build SweetAlert project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "SweetAlert.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build WebBluetooth project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\WebBluetooth" -ProjectFileName "WebBluetooth.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 

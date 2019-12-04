@@ -15,6 +15,7 @@
 - [Leaflet](https://rajsite.github.io/webvi-experiments/Leaflet)
 - [MachineLearning](https://rajsite.github.io/webvi-experiments/MachineLearning)
 - [RichText](https://rajsite.github.io/webvi-experiments/RichText)
+- [SweetAlert](https://rajsite.github.io/webvi-experiments/SweetAlert)
 - WebBluetooth
     - [BatteryLevel](https://rajsite.github.io/webvi-experiments/WebBluetooth/BatteryLevel.html)
     - [Dotti](https://rajsite.github.io/webvi-experiments/WebBluetooth/Dotti.html)

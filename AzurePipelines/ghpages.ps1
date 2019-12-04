@@ -67,6 +67,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Web Se
 Write-Host "Copy RichText build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\RichText"
 
+Write-Host "Copy SweetAlert build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SweetAlert"
+
 Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 
