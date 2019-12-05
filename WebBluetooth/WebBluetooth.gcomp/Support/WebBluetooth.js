@@ -2,6 +2,14 @@
 (function () {
     'use strict';
 
+    // Workaround for https://github.com/daphtdazz/WebBLE/issues/22
+    // Console function list from niSupport.js
+    ['error', 'warn', 'debug', 'info', 'group', 'groupEnd'].forEach(function (name) {
+        if (!console[name]) {
+            console[name] = console.log;
+        }
+    });
+
     class ReferenceManager {
         constructor () {
             this._nextReference = 1;
