@@ -1,4 +1,3 @@
-/* globals BluetoothDevice:true, BluetoothRemoteGATTService: true, BluetoothRemoteGATTCharacteristic: true */
 (function () {
     'use strict';
 
@@ -45,6 +44,13 @@
         if (result === undefined) {
             throw new Error('Invalid reference.');
         }
+
+        // Workaround for https://github.com/daphtdazz/WebBLE/issues/27
+        // loosen validation to let WebBLE run until the Web Bluetooth objects are exported
+        if (expectedType === undefined) {
+            return result;
+        }
+
         if (result instanceof expectedType === false) {
             throw new Error(`Expected reference to be an instance of ${expectedType.name}.`);
         }
@@ -153,7 +159,7 @@
 
     const gattServerConnect = async function (deviceReference) {
         console.log('connect');
-        const device = validateWebBluetoothAndReference(deviceReference, BluetoothDevice);
+        const device = validateWebBluetoothAndReference(deviceReference, window.BluetoothDevice);
         const gattServerMonitor = new GATTServerMonitor(device);
         await gattServerMonitor.connect();
         console.log('connect end');
@@ -161,7 +167,7 @@
 
     const gattServerDisconnect = function (deviceReference) {
         console.log('disconnect');
-        const device = validateWebBluetoothAndReference(deviceReference, BluetoothDevice);
+        const device = validateWebBluetoothAndReference(deviceReference, window.BluetoothDevice);
         const gattServerMonitor = GATTServerMonitor.lookupDeviceGattServerMonitor(device);
         gattServerMonitor.disconnect();
         console.log('disconnect end');
@@ -170,7 +176,7 @@
     // For information about primary vs included services: https://webbluetoothcg.github.io/web-bluetooth/#information-model
     const getPrimaryService = async function (deviceReference, serviceName) {
         console.log('primary service');
-        const device = validateWebBluetoothAndReference(deviceReference, BluetoothDevice);
+        const device = validateWebBluetoothAndReference(deviceReference, window.BluetoothDevice);
         const service = await device.gatt.getPrimaryService(serviceName);
         const serviceReference = referenceManager.createReference(service);
         GATTServerMonitor.registerDeviceResource(device, serviceReference);
@@ -180,7 +186,7 @@
 
     const getCharacteristic = async function (serviceReference, characteristicName) {
         console.log('get characteristic');
-        const service = validateWebBluetoothAndReference(serviceReference, BluetoothRemoteGATTService);
+        const service = validateWebBluetoothAndReference(serviceReference, window.BluetoothRemoteGATTService);
         const characteristic = await service.getCharacteristic(characteristicName);
         const characteristicReference = referenceManager.createReference(characteristic);
         GATTServerMonitor.registerDeviceResource(service.device, characteristicReference);
@@ -190,7 +196,7 @@
 
     const readValue = async function (characteristicReference) {
         console.log('read value');
-        const characteristic = validateWebBluetoothAndReference(characteristicReference, BluetoothRemoteGATTCharacteristic);
+        const characteristic = validateWebBluetoothAndReference(characteristicReference, window.BluetoothRemoteGATTCharacteristic);
         const valueDataView = await characteristic.readValue();
         // DataView documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
         console.log('read value end');
@@ -198,7 +204,7 @@
     };
 
     const writeValue = async function (characteristicReference, value) {
-        const characteristic = validateWebBluetoothAndReference(characteristicReference, BluetoothRemoteGATTCharacteristic);
+        const characteristic = validateWebBluetoothAndReference(characteristicReference, window.BluetoothRemoteGATTCharacteristic);
         await characteristic.writeValue(value);
     };
 
@@ -299,7 +305,7 @@
     }
 
     const startCharacteristicNotification = async function (characteristicReference) {
-        const characteristic = validateWebBluetoothAndReference(characteristicReference, BluetoothRemoteGATTCharacteristic);
+        const characteristic = validateWebBluetoothAndReference(characteristicReference, window.BluetoothRemoteGATTCharacteristic);
         const characteristicMonitor = new CharacteristicMonitor(characteristic);
         const characteristicMonitorReference = referenceManager.createReference(characteristicMonitor);
         GATTServerMonitor.registerResource(characteristic.service.device, characteristicMonitorReference);
