@@ -205,7 +205,11 @@
 
     const writeValue = async function (characteristicReference, value) {
         const characteristic = validateWebBluetoothAndReference(characteristicReference, window.BluetoothRemoteGATTCharacteristic);
-        await characteristic.writeValue(value);
+        // Workaround for https://github.com/daphtdazz/WebBLE/issues/28
+        // make a copy of the TypeArray so a reference to the WebVI underlying buffer is not passed through
+        const valueCopy = new Uint8Array(value);
+        console.log('writing bytes to characteristic:' + Array.prototype.join.call(valueCopy, ','));
+        await characteristic.writeValue(valueCopy);
     };
 
     class DataQueue {
