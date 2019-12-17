@@ -25,7 +25,7 @@ jobs:
         filePath: '.\AzurePipelines\ghpages.ps1'
   - task: CopyFiles@2
     inputs:
-        contents: 'ghpagesbuild\ghpages.zip'
+        contents: 'ghpagesarchive\ghpages.zip'
         targetFolder: $(Build.ArtifactStagingDirectory)
   - task: PublishBuildArtifacts@1
     inputs:
@@ -44,7 +44,7 @@ jobs:
   - task: ExtractFiles@1
     displayName: 'Extract files'
     inputs:
-      archiveFilePatterns: '$(Agent.BuildDirectory)/ghpages/ghpagesbuild/ghpages.zip'
+      archiveFilePatterns: '$(Agent.BuildDirectory)/ghpages/ghpagesarchive/ghpages.zip'
       destinationFolder: '$(Agent.BuildDirectory)/ghpagesout'
   - task: UseRubyVersion@0
     inputs:

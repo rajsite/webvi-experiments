@@ -1,6 +1,7 @@
 Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 
 $ghpagesbuilddir = ".\ghpagesbuild"
+$ghpagesarchivedir = ".\ghpagesarchive"
 
 $7zip = "C:\Program Files\7-Zip\7z.exe"
 Write-Host "Checking if 7zip is already installed"
@@ -80,7 +81,12 @@ Copy-item -Force -Recurse ".\WebVICLI\packages" -Destination "$ghpagesbuilddir\W
 Copy-Item ".\WebVICLI\package.json" "$ghpagesbuilddir\WebVICLI\package.json"
 Copy-Item ".\WebVICLI\package-lock.json" "$ghpagesbuilddir\WebVICLI\package-lock.json"
 
+Write-Host "Setting up ghpages archive output folder"
+Remove-Item $ghpagesarchivedir -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
+Write-Host $err
+New-Item -Name $ghpagesarchivedir -ItemType directory | Out-Null
+
 Write-Host "Creating archive of all build output"
-Run $7zip "a ghpages.zip . " "$(Resolve-Path $ghpagesbuilddir)"
+Run $7zip "a $(Resolve-Path $ghpagesarchivedir)\ghpages.zip" "$(Resolve-Path $ghpagesbuilddir)"
 
 Write-Host "Done! :D"
