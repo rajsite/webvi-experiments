@@ -118,8 +118,13 @@
         //   });
     };
 
-    const closeQuill = function (quillReference) {
+    const destroyQuill = function (quillReference) {
+        const quill = referenceManager.getObject(quillReference);
+        if (quill instanceof Quill === false) {
+            return;
+        }
         referenceManager.closeReference(quillReference);
+        quill.container.parentNode.removeChild(quill.container);
     };
 
     const getContents = function (quillReference) {
@@ -151,7 +156,7 @@
 
     window.WebVIQuill = {
         createQuill,
-        closeQuill,
+        destroyQuill,
         getContents,
         setContents,
         setDisabled
