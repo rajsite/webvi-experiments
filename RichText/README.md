@@ -1,6 +1,6 @@
 # Rich Text for WebVIs
 
-Rich text editing on the web turns out to be a pretty diverse with lots of options available. The goal of this document is to give a few attributes of rich text editors to consider when choosing one for a project.
+Rich text editing on the web turns out to be pretty diverse with lots of options available. The goal of this document is to give a few attributes of rich text editors to consider when choosing one for a project.
 
 ## Considerations
 
