@@ -68,28 +68,27 @@ The rich text libraries I landed on and think are interesting enough to create e
 
 | Name              | Comment editor | Blog editor | Document editor | Edit Representation   | Standalone HTML | Library-coupled HTML | Abstract format | Maintenance <br> 🟢🟡🔴 |
 | :---------------: | :------------: | :---------: | :-------------: | :-------------------: | :-------------: | :------------------: | :-------------: | :---: |
-| Basecamp Trix     | X              |             |                 | Model                 | X               |                      |                 | 🟢 |
-| Microsoft Rooster | X              |             |                 | Model                 | ?               | ?                    |                 | 🟢/🟡 |
+| CKEditor 4        | ?              | X           | X               | `contenteditable`     | X               | X                    |                 | 🟡/🔴 |
 | Quill             | X              | X           |                 | Operational Transform |                 | X                    | X               | 🟡 |
-| CKEditor 4        | ?              | X           | X               | `contenteditable`     | X               |                      |                 | 🟡/🔴 |
+| Basecamp Trix     | X              |             |                 | Model                 | X               |                      |                 | 🟢 |
+| Microsoft Rooster | X              |             |                 | `contenteditable`     | X               |                      |                 | 🟢/🟡 |
 
 Additional notes:
-- Basecamp Trix:
+- CKEditor 4 (started Mar 2011):
 
-    Maintenance (Dec 2019): Been around for a while with a pretty stable / minimal feature set. Backed by a company that has also been around for a while. Regular bug fix releases and responsive to issues.
+    Maintenance (as of Dec 2019): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-).
 
-- Microsoft Rooster:
+- Quill (started July 2012):
 
-    Maintenance (Dec 2019): Pretty new library and while open source is light on documentation / polish of a open source project intended for wide usage. From a big vendor and used in a big project so giving some benefit of the doubt.
+    Maintenance (as of Dec 2019): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
 
-- Quill:
+- Basecamp Trix (started Feb 2014):
 
-    Maintenance (Dec 2019): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
+    Maintenance (as of Dec 2019): Been around for a while with a pretty stable / minimal feature set. Backed by a company that has also been around for a while. Regular bug fix releases and responsive to issues.
 
-- CKEditor 4:
+- Microsoft Rooster (started Jul 2017):
 
-    Maintenance (Dec 2019): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-).
-
+    Maintenance (as of Dec 2019): Pretty new library and while open source is light on documentation / polish of a open source project intended for wide usage. From a big vendor and used in a big project so giving some benefit of the doubt.
 
 Honorable mentions:
 
