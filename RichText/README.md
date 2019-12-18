@@ -54,7 +54,7 @@ The save format for the output of the JavaScript library. The value that may be 
 
 ### Maintenance
 
-A really rough measure of how well a library is maintained. Some things to consider:
+A really rough measure of how well a library is maintained **according to my opinion**. Some things to consider:
 - Does the library have regular releases?
 
    A stable library that's been around for a while may have infrequent major releases but hopefully address security issues and bugs.
@@ -66,17 +66,30 @@ A really rough measure of how well a library is maintained. Some things to consi
 
 The rich text libraries I landed on and think are interesting enough to create examples. There are undoubtedly many more interesting libraries and this is not an exhaustive or thorough survey.
 
-| Name              | Comment editor | Blog editor | Document editor | OT or Model | `contenteditable` | Standalone HTML | Library-coupled HTML | Abstract format | Maintenance <br> 🟢🟡🔴 |
-| :---------------: | :------------: | :---------: | :-------------: | :---------: | :---------------: | :-------------: | :------------------: | :-------------: | :---: |
-| Basecamp Trix     | X              |             |                 | X           |                   | X               |                      |                 | 🟢    |
-| Microsoft Rooster | X              |             |                 | ?           |                   | ?               | ?                    |                 | 🟢🟡 |
-| Quill             | X              | X           |                 | X           |                   |                 | X                    | X               | 🟡    |
-| CKEditor 4        | ?              | X           | X               |             | X                 | X               |                      |                 | 🟡    |
+| Name              | Comment editor | Blog editor | Document editor | Edit Representation   | Standalone HTML | Library-coupled HTML | Abstract format | Maintenance <br> 🟢🟡🔴 |
+| :---------------: | :------------: | :---------: | :-------------: | :-------------------: | :-------------: | :------------------: | :-------------: | :---: |
+| Basecamp Trix     | X              |             |                 | Model                 | X               |                      |                 | 🟢 |
+| Microsoft Rooster | X              |             |                 | Model                 | ?               | ?                    |                 | 🟢/🟡 |
+| Quill             | X              | X           |                 | Operational Transform |                 | X                    | X               | 🟡 |
+| CKEditor 4        | ?              | X           | X               | `contenteditable`     | X               |                      |                 | 🟡/🔴 |
 
-<!-- In work
 Additional notes:
-- Basecamp Trix: 
--->
+- Basecamp Trix:
+
+    Maintenance (Dec 2019): Been around for a while with a pretty stable / minimal feature set. Backed by a company that has also been around for a while. Regular bug fix releases and responsive to issues.
+
+- Microsoft Rooster:
+
+    Maintenance (Dec 2019): Pretty new library and while open source is light on documentation / polish of a open source project intended for wide usage. From a big vendor and used in a big project so giving some benefit of the doubt.
+
+- Quill:
+
+    Maintenance (Dec 2019): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
+
+- CKEditor 4:
+
+    Maintenance (Dec 2019): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-).
+
 
 Honorable mentions:
 
