@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="4E3F67B3F2D83CF79EA50A8FB956D76D35D3FF97C54F99B7028C961AF2464482294092ACF2B80E88E616D65BFF5A047CE94F754F84398E8CD41B51B77784E613" Timestamp="1D5B5265E961A68" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="74D168C60BD195855CA515A833AE4B8DBE0628B8A0FCF64CB7C391A73220191DADD29953E6C35587EEDE4631AC64518C8F6D8A47DA2E89ABF57EC83A3390E501" Timestamp="1D5B5FD5C39E64A" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -42,43 +42,45 @@
 			<NodeLabel AttachedTo="cac43aef31c4a04b70c55bd1c79e56d" Bounds="45 0 30 15" Id="46d3b0d8a04a42a59eff7554be508eb9" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>ckeditor input</p.Text>
 			</NodeLabel>
-			<DataAccessor Bounds="0 0 40 15" DataItem="3fbf3f8b6ce6419f987dd50e3891c131" Id="f4ac987831af4dd0ae6b0f019aac9226" Label="36e28028993b4401bbde1bf037d14845">
-				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="0 0 40 15" DataItem="7d65108d12f94d74b2557de152d0a685" Id="a3d1b54eefac4b61aea4923907fdf4ff" Label="59d95aeaed8f4a94a1c3fcd46ac49c78">
+				<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="f4ac987831af4dd0ae6b0f019aac9226" Bounds="-35 0 30 15" Id="36e28028993b4401bbde1bf037d14845" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>Submit</p.Text>
+			<NodeLabel AttachedTo="a3d1b54eefac4b61aea4923907fdf4ff" Bounds="45 0 30 15" Id="59d95aeaed8f4a94a1c3fcd46ac49c78" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>ckeditor output</p.Text>
 			</NodeLabel>
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="f26c97fc165940dcb94f08af70d10709" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="119f31130e4283b5f67bdcb61889e6">
-			<MethodCall Bounds="370 195 40 40" Id="add6d1eac9c047f7a0fad43c095ec9a9" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\CKEditor4.gcomp\\Create CKEditor.gvi&quot;" Signature="@662443ce86ab4262bb7fd0bc6265224a" Target="CKEditor4::Create CKEditor.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="370 195 40 40" Id="add6d1eac9c047f7a0fad43c095ec9a9" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\CKEditor4.gcomp\\Create CKEditor.gvi&quot;" Signature="@7b4e21efb41146fe82865b35a1e40f3c" Target="CKEditor4::Create CKEditor.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="B0" Desc="disabled" />
 						<Parameter Id="L0" Desc="selector" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R0" Desc="ckeditor reference" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 40" Id="B0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@f0aeba3440a54c51a32a817cf89d0d76" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Literal Bounds="245 195 95 15" DataType="String" Id="531e44bf1521409a92b196e41acf95b5" Label="b74c5d142d7141169c06cf185abcacae" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>.my-ckeditor</p.Data>
+			<Literal Bounds="210 195 130 15" DataType="String" Id="531e44bf1521409a92b196e41acf95b5" Label="b74c5d142d7141169c06cf185abcacae" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>.my-ckeditor-input</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<NodeLabel AttachedTo="531e44bf1521409a92b196e41acf95b5" Bounds="245 177 30 15" Id="b74c5d142d7141169c06cf185abcacae" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="531e44bf1521409a92b196e41acf95b5" Bounds="210 177 30 15" Id="b74c5d142d7141169c06cf185abcacae" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>selector</p.Text>
 			</NodeLabel>
 			<Wire Id="6558acbe963d46609ee554e9084bc7a9" Joints="N(531e44bf1521409a92b196e41acf95b5:Out)|(340,200) N(add6d1eac9c047f7a0fad43c095ec9a9:L0)|(370,200)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="540 140 425 270" DiagramId="98f0f11899a042359af39efb385b1994" Id="bd822bf7916745a0834e490804b93408">
-				<LoopIteration Bounds="5 240 15 15" Id="3eaae742c0384e669bf3c6df3a24091e" />
-				<LoopCondition Bounds="395 240 15 15" Id="23b24b55b5654f55b195f13fbad57569" />
-				<EventStructure Bounds="20 10 375 220" Id="8265a147aaf8405ab167a943344bcc40" Selected="1b6b1cf39d5d439da06f87b990e21501" UserSelectorBounds="20 0 335 17">
-					<EventStructure.EventCase Bounds="21 18 333 194" Id="1b6b1cf39d5d439da06f87b990e21501">
-						<EventStructure.EventData Bounds="0 82 92 50" HasErrorTerminals="False" Id="145ed1b63b0047bfb8a432e7297c2a8f" InstanceDataType="@b0e1eafc330341789997fcceeb440f88" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
+			<WhileLoop Bounds="540 85 460 405" DiagramId="98f0f11899a042359af39efb385b1994" Id="bd822bf7916745a0834e490804b93408">
+				<LoopIteration Bounds="5 375 15 15" Id="3eaae742c0384e669bf3c6df3a24091e" />
+				<LoopCondition Bounds="430 375 15 15" Id="23b24b55b5654f55b195f13fbad57569" />
+				<EventStructure Bounds="14 17 416 348" Id="8265a147aaf8405ab167a943344bcc40" Selected="1b6b1cf39d5d439da06f87b990e21501" UserSelectorBounds="20 0 376 17">
+					<EventStructure.EventCase Bounds="21 18 374 322" Id="1b6b1cf39d5d439da06f87b990e21501">
+						<EventStructure.EventData Bounds="0 245 92 50" HasErrorTerminals="False" Id="145ed1b63b0047bfb8a432e7297c2a8f" InstanceDataType="@b0e1eafc330341789997fcceeb440f88" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
 							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
 							</p.TypeDefinitionTargets>
@@ -86,31 +88,150 @@
 							<EventPropertyItemTerminal DataType="Boolean" Hotspot="92 30" Id="c1t0v" Path="New Value" PathElementMemberKinds="Field" Usage="Optional" />
 						</EventStructure.EventData>
 						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventName="Value changed" EventSourceType="Content" EventType="@2ba5655d6df64e0fa58c87490f066773" SourceContent="40525536e4bb4d63bbe86ae5be399e95" SourceName="Submit" />
+						<MethodCall Bounds="25 70 40 40" Id="3b235e10e24049868e0b9f18f5fede49" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\CKEditor4.gcomp\\Get Content.gvi&quot;" Signature="@847866fabe67410f876941dfadca669e" Target="CKEditor4::Get Content.gvi" xmlns="http://www.ni.com/MocCommon">
+							<p.MethodDeclaration>
+								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+									<Parameter Id="L0" Desc="ckeditor reference in" />
+									<Parameter Id="L3" Desc="error in" />
+									<Parameter Id="R0" Desc="ckeditor reference out" />
+									<Parameter Id="R1" Desc="content" />
+									<Parameter Id="R3" Desc="error out" />
+								</MethodDeclaration>
+							</p.MethodDeclaration>
+							<Terminal DataType="@3261185fb9f346cca253018e9d7c4d12" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="@3261185fb9f346cca253018e9d7c4d12" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="String" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+						</MethodCall>
+						<Wire Id="a1b8f588230d4b72a90c17eea5251c64" Joints="N(88c0b1e16034cd59eb27471d627d99b:1b6b1cf39d5d439da06f87b990e21501)|(2,75) N(3b235e10e24049868e0b9f18f5fede49:L0)|(25,75)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="753c00d287214055a72a003b5f425660" Joints="N(57c6983cecb84331858ceeec2b645955:1b6b1cf39d5d439da06f87b990e21501)|(2,105) N(3b235e10e24049868e0b9f18f5fede49:L3)|(25,105)" xmlns="http://www.ni.com/PlatformFramework" />
+						<MethodCall Bounds="165 170 40 40" Id="90765bd2caa148e9a7097daafc8e7580" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\CKEditor4.gcomp\\Set Content.gvi&quot;" Signature="@f1968bb5933f4369ae8d7ba245ac3bb6" Target="CKEditor4::Set Content.gvi" xmlns="http://www.ni.com/MocCommon">
+							<p.MethodDeclaration>
+								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+									<Parameter Id="L0" Desc="ckeditor reference in" />
+									<Parameter Id="L1" Desc="content" />
+									<Parameter Id="L3" Desc="error in" />
+									<Parameter Id="R0" Desc="ckeditor reference out" />
+									<Parameter Id="R3" Desc="error out" />
+								</MethodDeclaration>
+							</p.MethodDeclaration>
+							<Terminal DataType="Int32" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+						</MethodCall>
+						<Wire Id="b9a5f374804e4aa1a157a811c034eb82" Joints="N(dd1425924c1b4fafa3ee794ee454a58c:1b6b1cf39d5d439da06f87b990e21501)|(2,175) N(90765bd2caa148e9a7097daafc8e7580:L0)|(165,175)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="1e5ae138756b46999149a48aa61948d8" Joints="N(15c93b6761c1450786e8ff8681285275:1b6b1cf39d5d439da06f87b990e21501)|(2,205) N(90765bd2caa148e9a7097daafc8e7580:L3)|(165,205)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="202addfda9ee40b0892da62496beeaa5" Joints="N(3b235e10e24049868e0b9f18f5fede49:R1)|(65,85) h(11) v(10) B(2) N(62746b0f913c42baa05d27634fd8bc89:Value)|(208,95) B(2) v(90) N(90765bd2caa148e9a7097daafc8e7580:L1)|(165,185)" xmlns="http://www.ni.com/PlatformFramework" />
+						<DataAccessor Bounds="315 25 40 15" DataItem="3fbf3f8b6ce6419f987dd50e3891c131" Id="f4ac987831af4dd0ae6b0f019aac9226" Label="36e28028993b4401bbde1bf037d14845" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="f4ac987831af4dd0ae6b0f019aac9226" Bounds="270 25 40 14" Id="36e28028993b4401bbde1bf037d14845" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>Submit</p.Text>
+						</NodeLabel>
+						<DataAccessor Bounds="205 90 40 15" DataItem="5be1a23844484f3f9d25365f0a35845b" Id="62746b0f913c42baa05d27634fd8bc89" Label="dd76b6ec3df94ed19f3199825e775d4e" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="62746b0f913c42baa05d27634fd8bc89" Bounds="250 90 42 14" Id="dd76b6ec3df94ed19f3199825e775d4e" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>content</p.Text>
+						</NodeLabel>
 					</EventStructure.EventCase>
+					<EventStructure.Tunnel Bounds="-2 88 25 10" Docking="Left" Id="88c0b1e16034cd59eb27471d627d99b" Terminals="8265a147aaf8405ab167a943344bcc40=9d046619a0ef48aa9f912700eda98872, 1b6b1cf39d5d439da06f87b990e21501=a1b8f588230d4b72a90c17eea5251c64" />
+					<EventStructure.Tunnel Bounds="-2 118 25 10" Docking="Left" Id="57c6983cecb84331858ceeec2b645955" Terminals="8265a147aaf8405ab167a943344bcc40=46a3c0fb907d4c1f81d47c74aafca408, 1b6b1cf39d5d439da06f87b990e21501=753c00d287214055a72a003b5f425660" />
+					<EventStructure.Tunnel Bounds="-2 188 25 10" Docking="Left" Id="dd1425924c1b4fafa3ee794ee454a58c" Terminals="8265a147aaf8405ab167a943344bcc40=1543fa155e4143f5a0cefc958df905a6, 1b6b1cf39d5d439da06f87b990e21501=b9a5f374804e4aa1a157a811c034eb82" />
+					<EventStructure.Tunnel Bounds="-2 218 25 10" Docking="Left" Id="15c93b6761c1450786e8ff8681285275" Terminals="8265a147aaf8405ab167a943344bcc40=b12db3fe667c4c90a1c4147292fd84d7, 1b6b1cf39d5d439da06f87b990e21501=1e5ae138756b46999149a48aa61948d8" />
 				</EventStructure>
-				<Literal Bounds="340 240 25 15" DataType="Boolean" Id="ed768693a9004ec59ea0307dc7f90f1a" Label="a1f9e49f4b96453fbc53f21182df64b7" xmlns="http://www.ni.com/MocCommon">
+				<Literal Bounds="375 375 25 15" DataType="Boolean" Id="ed768693a9004ec59ea0307dc7f90f1a" Label="a1f9e49f4b96453fbc53f21182df64b7" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>False</p.Data>
 					<BooleanBehavior />
 				</Literal>
-				<NodeLabel AttachedTo="ed768693a9004ec59ea0307dc7f90f1a" Bounds="340 222 30 15" Id="a1f9e49f4b96453fbc53f21182df64b7" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="ed768693a9004ec59ea0307dc7f90f1a" Bounds="375 357 30 15" Id="a1f9e49f4b96453fbc53f21182df64b7" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>stop</p.Text>
 				</NodeLabel>
-				<Wire Id="42e5ea8f5b8a4138936e2311a5fb614c" Joints="N(ed768693a9004ec59ea0307dc7f90f1a:Out)|(365,245) N(23b24b55b5654f55b195f13fbad57569:Input)|(395,245)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="42e5ea8f5b8a4138936e2311a5fb614c" Joints="N(ed768693a9004ec59ea0307dc7f90f1a:Out)|(400,380) N(23b24b55b5654f55b195f13fbad57569:Input)|(430,380)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="9d046619a0ef48aa9f912700eda98872" Joints="N(73aeec33025248d5a9e6f59f1daea854:i0)|(4,110) N(88c0b1e16034cd59eb27471d627d99b:8265a147aaf8405ab167a943344bcc40)|(12,110)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="46a3c0fb907d4c1f81d47c74aafca408" Joints="N(e2aafdd401c445eebf600309b5d8aff1:i0)|(4,140) N(57c6983cecb84331858ceeec2b645955:8265a147aaf8405ab167a943344bcc40)|(12,140)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="1543fa155e4143f5a0cefc958df905a6" Joints="N(65722c974b374d0aaedbd3d5f710e515:i0)|(4,210) N(dd1425924c1b4fafa3ee794ee454a58c:8265a147aaf8405ab167a943344bcc40)|(12,210)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="b12db3fe667c4c90a1c4147292fd84d7" Joints="N(4700e7eaee874457b4f9829ea90a7032:i0)|(4,240) N(15c93b6761c1450786e8ff8681285275:8265a147aaf8405ab167a943344bcc40)|(12,240)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopTunnel Bounds="-4 110 13 10" Docking="Left" Id="73aeec33025248d5a9e6f59f1daea854" Terminals="o0=a28786083420432dac8750a506ed908f, i0=9d046619a0ef48aa9f912700eda98872" />
+				<LoopTunnel Bounds="-4 140 13 10" Docking="Left" Id="e2aafdd401c445eebf600309b5d8aff1" Terminals="o0=b0aa6039db94f62bf24a34ec874e277, i0=46a3c0fb907d4c1f81d47c74aafca408" />
+				<LoopTunnel Bounds="-4 210 13 10" Docking="Left" Id="65722c974b374d0aaedbd3d5f710e515" Terminals="o0=906e9f5e0d7e4a64b246c212eea47663, i0=1543fa155e4143f5a0cefc958df905a6" />
+				<LoopTunnel Bounds="-4 240 13 10" Docking="Left" Id="4700e7eaee874457b4f9829ea90a7032" Terminals="o0=6c76e7a5b1204c60a61fa84f67293cb8, i0=b12db3fe667c4c90a1c4147292fd84d7" />
 			</WhileLoop>
+			<MethodCall Bounds="365 295 40 40" Id="8a4a92462e2b45d6905a28b9302f2679" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\CKEditor4.gcomp\\Create CKEditor.gvi&quot;" Signature="@7b4e21efb41146fe82865b35a1e40f3c" Target="CKEditor4::Create CKEditor.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="B0" Desc="disabled" />
+						<Parameter Id="L0" Desc="selector" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="ckeditor reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 40" Id="B0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@f0aeba3440a54c51a32a817cf89d0d76" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="200 295 135 15" DataType="String" Id="850ec9eff2ca42369f32a51d7d86d714" Label="9ab59ba6f9a0467688b8ae1af7b7b14b" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>.my-ckeditor-output</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="c42d66fcc1a84e9ca4de987763786568" Joints="N(850ec9eff2ca42369f32a51d7d86d714:Out)|(335,300) N(8a4a92462e2b45d6905a28b9302f2679:L0)|(365,300)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="850ec9eff2ca42369f32a51d7d86d714" Bounds="200 277 30 15" Id="9ab59ba6f9a0467688b8ae1af7b7b14b" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>selector</p.Text>
+			</NodeLabel>
+			<Literal Bounds="350 365 25 15" DataType="Boolean" Id="7baf2b4919fb4e1b87a97cd673618e62" Label="ea98ae15acb34dc4a7b0f57637c3e0d4" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>True</p.Data>
+				<BooleanBehavior />
+			</Literal>
+			<NodeLabel AttachedTo="7baf2b4919fb4e1b87a97cd673618e62" Bounds="350 347 30 15" Id="ea98ae15acb34dc4a7b0f57637c3e0d4" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>disabled</p.Text>
+			</NodeLabel>
+			<Wire Id="ea8f6000be8147f085c8583c9743b9ae" Joints="N(7baf2b4919fb4e1b87a97cd673618e62:Out)|(375,370) h(5) N(8a4a92462e2b45d6905a28b9302f2679:B0)|(380,335)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="a28786083420432dac8750a506ed908f" Joints="N(add6d1eac9c047f7a0fad43c095ec9a9:R0)|(410,200) N(73aeec33025248d5a9e6f59f1daea854:o0)|(536,200)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="b0aa6039db94f62bf24a34ec874e277" Joints="N(add6d1eac9c047f7a0fad43c095ec9a9:R3)|(410,230) N(e2aafdd401c445eebf600309b5d8aff1:o0)|(536,230)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="906e9f5e0d7e4a64b246c212eea47663" Joints="N(8a4a92462e2b45d6905a28b9302f2679:R0)|(405,300) N(65722c974b374d0aaedbd3d5f710e515:o0)|(536,300)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="6c76e7a5b1204c60a61fa84f67293cb8" Joints="N(8a4a92462e2b45d6905a28b9302f2679:R3)|(405,330) N(4700e7eaee874457b4f9829ea90a7032:o0)|(536,330)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]768" HtmlPanel="[bool]False" Id="bc0719c488db4cfe90e5d5f3046a9d41" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+		<HtmlFrontPanel Height="[float]1080" HtmlPanel="[bool]False" Id="bc0719c488db4cfe90e5d5f3046a9d41" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlFlexibleLayoutGroup Height="[float]348" Id="25da03c79e7a4658b8028d52edcea45a" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<HtmlFlexibleLayoutWrapper Height="[float]348" Id="d6ae19922b984812b458c41b0cd6f12a" Left="[float]0" Top="[float]0" Width="[float]964">
 					<HtmlFlexibleLayoutContainer Direction="[FlexibleLayoutDirection]Column" Height="[float]332" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Left" Id="f6886851b78b4cbcaf0804a97b24b28e" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Center" Width="[float]948">
 						<HtmlFlexibleLayoutComponent Height="[float]284" Id="68e5b619bbd4c3c92d818084034f362" Left="[float]14" Top="[float]6" Width="[float]904">
 							<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" ControlResizeMode="[ControlResizeMode]Horizontally" Height="[float]264" Id="1b6ceffb370847a3b75c88c4cadf1d0e" Label="[UIModel]38b506dc424d4bdaa0baee5572c28d0a" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" Source="{DataItemBinding Id=45272194c1cf48c886eb9423c9b6abe5}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]20" Width="[float]904">
-								<HtmlBehavior ClassAttributes="my-ckeditor" xmlns="http://www.ni.com/PlatformFramework" />
+								<HtmlBehavior ClassAttributes="my-ckeditor-input" xmlns="http://www.ni.com/PlatformFramework" />
 							</HtmlUrlImage>
 							<HtmlLabel Height="[float]16" Id="38b506dc424d4bdaa0baee5572c28d0a" LabelOwner="[UIModel]1b6ceffb370847a3b75c88c4cadf1d0e" Left="[float]0" Text="[string]ckeditor input" Top="[float]0" Width="[float]81" />
 						</HtmlFlexibleLayoutComponent>
 						<HtmlFlexibleLayoutComponent Height="[float]28" Id="cfd0dacabf4f400d9187f5b64386c0c1" Left="[float]14" Top="[float]298" Width="[float]72">
 							<HtmlButton BaseName="[string]Button" Content="[string]Submit" Height="[float]28" Id="40525536e4bb4d63bbe86ae5be399e95" Label="[UIModel]e647fffd1e9f4cde8e7b39b231741025" Left="[float]0" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=3fbf3f8b6ce6419f987dd50e3891c131}" Width="[float]72" />
-							<HtmlLabel Height="[float]10" Id="e647fffd1e9f4cde8e7b39b231741025" LabelOwner="[UIModel]40525536e4bb4d63bbe86ae5be399e95" Left="[float]0" Text="[string]Submit" Top="[float]-20" Visible="[bool]False" Width="[float]10" />
+							<HtmlLabel Height="[float]16" Id="e647fffd1e9f4cde8e7b39b231741025" LabelOwner="[UIModel]40525536e4bb4d63bbe86ae5be399e95" Left="[float]0" Text="[string]Submit" Top="[float]-20" Visible="[bool]False" Width="[float]44" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
+			<HtmlFlexibleLayoutGroup Height="[float]312" Id="5336ae64bb81490c927492b17d9e8872" Left="[float]30" Top="[float]378" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]312" Id="6636787a6ff645d1bdc72d287ad2ec46" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Height="[float]296" Id="131c0ee5fe774410a93da8b06f71da8f" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]284" Id="3071995cf60743f098ef18a19ba6b338" Left="[float]14" Top="[float]6" Width="[float]904">
+							<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" ControlResizeMode="[ControlResizeMode]Horizontally" Height="[float]264" Id="cb132c9f295f439c9efcd202661c30da" Label="[UIModel]ba54d507a1c9400498fa4ab441512bda" Left="[float]0" MinHeight="[float]24" MinWidth="[float]24" Source="{DataItemBinding Id=7d65108d12f94d74b2557de152d0a685}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]20" Width="[float]904">
+								<HtmlBehavior ClassAttributes="my-ckeditor-output" xmlns="http://www.ni.com/PlatformFramework" />
+							</HtmlUrlImage>
+							<HtmlLabel Height="[float]16" Id="ba54d507a1c9400498fa4ab441512bda" LabelOwner="[UIModel]cb132c9f295f439c9efcd202661c30da" Left="[float]0" Text="[string]ckeditor output" Top="[float]0" Width="[float]89" />
+						</HtmlFlexibleLayoutComponent>
+					</HtmlFlexibleLayoutContainer>
+				</HtmlFlexibleLayoutWrapper>
+			</HtmlFlexibleLayoutGroup>
+			<HtmlFlexibleLayoutGroup Height="[float]360" Id="4734eb0f413a46888179d2c1e7840cf4" Left="[float]30" Top="[float]690" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+				<HtmlFlexibleLayoutWrapper Height="[float]360" Id="f01a84df4b544e4383df817682ea5c0a" Left="[float]0" Top="[float]0" Width="[float]964">
+					<HtmlFlexibleLayoutContainer Height="[float]344" Id="168fe12fbac44ac38a3b1fa9789f684e" Left="[float]8" Top="[float]8" Width="[float]948">
+						<HtmlFlexibleLayoutComponent Height="[float]332" Id="657063a0a26e432990daa18749aa02cb" Left="[float]14" Top="[float]6" Width="[float]888">
+							<HtmlStringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]312" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="fd61415adccc48268e1db468f8167238" IsReadOnly="[bool]True" Label="[UIModel]c5112a8e075a415789102f70d45d2fb7" Left="[float]0" MinHeight="[float]20" MinWidth="[float]20" TabIndex="[int]0" Text="{DataItemBinding Id=5be1a23844484f3f9d25365f0a35845b}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]888" />
+							<HtmlLabel Height="[float]16" Id="c5112a8e075a415789102f70d45d2fb7" LabelOwner="[UIModel]fd61415adccc48268e1db468f8167238" Left="[float]0" Text="[string]content" Top="[float]0" Width="[float]48" />
 						</HtmlFlexibleLayoutComponent>
 					</HtmlFlexibleLayoutContainer>
 				</HtmlFlexibleLayoutWrapper>
@@ -122,10 +243,16 @@
 		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="3fbf3f8b6ce6419f987dd50e3891c131" IsLatched="True" Name="Submit" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="7d65108d12f94d74b2557de152d0a685" Name="ckeditor output" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="5be1a23844484f3f9d25365f0a35845b" Name="content" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
+		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="662443ce86ab4262bb7fd0bc6265224a">
-			<Attributed AttributedType="@f478d1eca7c64b2092663a19d1ab4903">
+		<p.TypeReference TypeId="7b4e21efb41146fe82865b35a1e40f3c">
+			<Attributed AttributedType="@b0d9198ae2e0406995d1f38d4ce3d572">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -160,9 +287,37 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="f478d1eca7c64b2092663a19d1ab4903">
+		<p.TypeReference TypeId="847866fabe67410f876941dfadca669e">
+			<Attributed AttributedType="@e200afcc711345acab7219542fd5fdb7">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3261185fb9f346cca253018e9d7c4d12">
+			<Attributed AttributedType="@548c1fca1bb843b1bab5dc19da82df8b">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Quill::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f1968bb5933f4369ae8d7ba245ac3bb6">
+			<Attributed AttributedType="@dc4e23302f7446f2ae8e509ff5cc5b0a">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b0d9198ae2e0406995d1f38d4ce3d572">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create CKEditor.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
+					<Attributed AttributedType="@7715ad8e9b6d47c3b676fd786b4831fa">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]disabled" />
+						</AttributeValues>
+					</Attributed>
 					<Attributed AttributedType="@005614e6871c4166a75776a75d9e9d8b">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
@@ -196,6 +351,74 @@
 				</Parameters>
 			</Event>
 		</p.TypeReference>
+		<p.TypeReference TypeId="e200afcc711345acab7219542fd5fdb7">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Content.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@7942f576e25046d983892e84a0edb846">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]ckeditor reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@5c049a00a5bc454480da347f13c13335">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]ckeditor reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@1082fe6196054b359f2f2197d2d53645">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]content" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@aad2d5879eda4b119a60e73dd9d8447d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="548c1fca1bb843b1bab5dc19da82df8b">
+			<Typedef TypedefName="quill reference.gtype" UnderlyingType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="dc4e23302f7446f2ae8e509ff5cc5b0a">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Set Content.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@b2a19782d12a45f79e218867af56c2f7">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]ckeditor reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@faa30bcb1dcd444a91f2547280e0a336">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]content" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@88a63d36ce724455972ee3960fda751e">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]ckeditor reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@aad2d5879eda4b119a60e73dd9d8447d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7715ad8e9b6d47c3b676fd786b4831fa">
+			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="B0" DataType="Boolean" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="005614e6871c4166a75776a75d9e9d8b">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
 		</p.TypeReference>
@@ -218,6 +441,24 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
+		<p.TypeReference TypeId="7942f576e25046d983892e84a0edb846">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@3261185fb9f346cca253018e9d7c4d12" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5c049a00a5bc454480da347f13c13335">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@3261185fb9f346cca253018e9d7c4d12" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1082fe6196054b359f2f2197d2d53645">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b2a19782d12a45f79e218867af56c2f7">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Int32" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="faa30bcb1dcd444a91f2547280e0a336">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="88a63d36ce724455972ee3960fda751e">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
+		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
 		<p.IconModel Target="CKEditor4::Create CKEditor.gvi">
@@ -230,6 +471,42 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create CKEditor" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]CKEditor4.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="CKEditor4::Get Content.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Content" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]CKEditor4.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="CKEditor4::Set Content.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Set Content" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6.75" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]CKEditor4.gcomp" Top="[float]0" Width="[float]40" />

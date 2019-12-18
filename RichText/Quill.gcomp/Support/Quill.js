@@ -124,7 +124,7 @@
             return;
         }
         referenceManager.closeReference(quillReference);
-        quill.container.parentNode.removeChild(quill.container);
+        quill.options.bounds.parentNode.removeChild(quill.options.bounds);
     };
 
     const getContents = function (quillReference) {

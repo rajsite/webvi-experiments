@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="81B6617A661FDDBCA8F2A16B0656EF2EC8E86B45E2839969C1256F27C4C260655F0E60F83C063F00C2E382F1CBA46243364735DD62EF02033744D97950D48ACF" Timestamp="1D5B52BC0BA82A1" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C33256C850CD205B78743DAF59098301830CE64F5987B4D1379002DE902ECE5C21424B8553FFC8735F4EDB240EE0D0AC7DC8827B6A58F809DB1AE10ABEE86581" Timestamp="1D5B5FC81F13D4E" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -20,8 +20,8 @@
 				</IconTemplate>
 			</IconPanel>
 		</Icon>
-		<ConnectorPane Height="40" Id="6301463ec9e64b65883ce4ee0cbff10c" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-			<ConnectorPaneTerminal ListViewHotspot="0 80" Parameter="891a9ff1e0a64408b5c806509178c216" />
+		<ConnectorPane Height="40" Id="6301463ec9e64b65883ce4ee0cbff10c" ListViewHeight="115" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+			<ConnectorPaneTerminal ListViewHotspot="0 95" Parameter="891a9ff1e0a64408b5c806509178c216" />
 			<ConnectorPaneTerminal Hotspot="0 15" />
 			<ConnectorPaneTerminal Hotspot="0 25" />
 			<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="473c7551f3f7478b90ca29b2b3e3731d" />
@@ -31,22 +31,24 @@
 			<ConnectorPaneTerminal Hotspot="40 15" />
 			<ConnectorPaneTerminal Hotspot="40 25" />
 			<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="a56e901082584802a99b862dfb15a484" />
-			<ConnectorPaneTerminal Hotspot="15 40" />
+			<ConnectorPaneTerminal Hotspot="15 40" ListViewHotspot="0 80" Parameter="c7b80f6c7dd349f4ab660a4e4418c0c5" />
 			<ConnectorPaneTerminal Hotspot="25 40" />
 		</ConnectorPane>
 		<DiagramUnplacedItems Id="614f4771f5564e53ad5e9fb0ce4a0742" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="dca6daa2e4a5485dad85ab9eae42a1bc" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="454cc6cabb55403a95860e827cd33fb9">
-			<MethodCall Bounds="345 185 40 40" Id="28ab7f315ba741f498878305d2ba8a8e" ResolveFailedHint="CreateCKEditor" Signature="@d3977bef434f4724a8b67af8ce17105a" Target="CKEditor4::Support::CKEditor4.jsli::CreateCKEditor" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="345 185 40 40" Id="28ab7f315ba741f498878305d2ba8a8e" ResolveFailedHint="CreateCKEditor" Signature="@20ae57b7b0854cd5902d7641f5210f73" Target="CKEditor4::Support::CKEditor4.jsli::CreateCKEditor" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L1" Desc="selector" />
+						<Parameter Id="L2" Desc="disabled" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R0" Desc="return" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
@@ -72,13 +74,20 @@
 				<p.Text>error in</p.Text>
 			</NodeLabel>
 			<Wire Id="e593bf9bee04caca24223ceb103153b" Joints="N(6d26551f1aad4741a498662c88bd2b51:Value)|(315,220) N(28ab7f315ba741f498878305d2ba8a8e:L3)|(345,220)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="275 195 40 15" DataItem="891a9ff1e0a64408b5c806509178c216" Id="d59fb670703b472ea017fb9f02d1c3d9" Label="2766d728feb846f894fb0cfb4d579b08" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="270 155 40 15" DataItem="891a9ff1e0a64408b5c806509178c216" Id="d59fb670703b472ea017fb9f02d1c3d9" Label="2766d728feb846f894fb0cfb4d579b08" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="d59fb670703b472ea017fb9f02d1c3d9" Bounds="226 195 44 14" Id="2766d728feb846f894fb0cfb4d579b08" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="d59fb670703b472ea017fb9f02d1c3d9" Bounds="221 155 44 14" Id="2766d728feb846f894fb0cfb4d579b08" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>selector</p.Text>
 			</NodeLabel>
-			<Wire Id="9e37b977f2cf476581315dc82ad3b969" Joints="N(d59fb670703b472ea017fb9f02d1c3d9:Value)|(315,200) N(28ab7f315ba741f498878305d2ba8a8e:L1)|(345,200)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9e37b977f2cf476581315dc82ad3b969" Joints="N(d59fb670703b472ea017fb9f02d1c3d9:Value)|(310,160) h(25) v(40) N(28ab7f315ba741f498878305d2ba8a8e:L1)|(345,200)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="275 190 40 15" DataItem="c7b80f6c7dd349f4ab660a4e4418c0c5" Id="32d25bed253d448b9072d9b97be9e57b" Label="3e13d4be7872499d8711652fba5bb425" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="32d25bed253d448b9072d9b97be9e57b" Bounds="224 190 46 14" Id="3e13d4be7872499d8711652fba5bb425" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>disabled</p.Text>
+			</NodeLabel>
+			<Wire Id="85c9741688be4184b32d3b15b9625843" Joints="N(32d25bed253d448b9072d9b97be9e57b:Value)|(315,195) h(6) v(15) N(28ab7f315ba741f498878305d2ba8a8e:L2)|(345,210)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="95524fabdef044dd8153545c8b84d35c" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="3d166aaca07a4e5bae22b4f55cc5d297" />
@@ -114,6 +123,8 @@
 			<Label Height="[float]16" Id="86804d71eb8c42f990042b91cd24f48f" LabelOwner="[UIModel]f6c10a13e8744742b2b364f02d4d0b38" Left="[float]692" Text="[string]error out" Top="[float]272" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
 			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="6e48873e43dd46b7b4aea9fdc574ddad" IsReadOnly="[bool]False" Label="[UIModel]e821767ff56745faa76da58984f310dd" Left="[float]452" MinHeight="[float]24" TabIndex="[int]3" Text="{DataItemBinding Id=891a9ff1e0a64408b5c806509178c216}" Top="[float]180" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]168" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 			<Label Height="[float]16" Id="e821767ff56745faa76da58984f310dd" LabelOwner="[UIModel]6e48873e43dd46b7b4aea9fdc574ddad" Left="[float]452" Text="[string]selector" Top="[float]160" Width="[float]42" xmlns="http://www.ni.com/PanelCommon" />
+			<Switch BaseName="[string]Square LED" FalseContent="[string]Off" Height="[float]72" Id="50e04277b262461b81c10f4cadae0f54" IsReadOnly="[bool]False" Label="[UIModel]8dca43c05f1940fdbd080cc5ef062b33" Left="[float]580" MinHeight="[float]36" MinWidth="[float]34" Orientation="[SMOrientation]Vertical" Shape="[SwitchShape]Slider" TabIndex="[int]4" Top="[float]516" TrueContent="[string]On" Value="{DataItemBinding Id=c7b80f6c7dd349f4ab660a4e4418c0c5}" Width="[float]40" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="8dca43c05f1940fdbd080cc5ef062b33" LabelOwner="[UIModel]50e04277b262461b81c10f4cadae0f54" Left="[float]580" Text="[string]disabled" Top="[float]496" Width="[float]45" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem CallDirection="Output" CallIndex="1" DataType="@f0aeba3440a54c51a32a817cf89d0d76" Id="75210ce25994d9da2f7312c758b6bee" Name="ckeditor reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
@@ -148,12 +159,15 @@
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="String" Id="891a9ff1e0a64408b5c806509178c216" Name="selector" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
+		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="2" CallUsage="Optional" DataType="Boolean" Id="c7b80f6c7dd349f4ab660a4e4418c0c5" Name="disabled" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
+		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="d3977bef434f4724a8b67af8ce17105a">
-			<Attributed AttributedType="@204352cdfe95452aa41fe383e03fe2b1">
+		<p.TypeReference TypeId="20ae57b7b0854cd5902d7641f5210f73">
+			<Attributed AttributedType="@570017975db7476d801f3de3296b78bb">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0|1" />
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
@@ -166,12 +180,17 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="204352cdfe95452aa41fe383e03fe2b1">
+		<p.TypeReference TypeId="570017975db7476d801f3de3296b78bb">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="CreateCKEditor" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@734b79e512a544a0a397349010c3753d">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6b22c753274e44f887b082356217e94f">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]disabled" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
@@ -197,6 +216,9 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="734b79e512a544a0a397349010c3753d">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6b22c753274e44f887b082356217e94f">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Boolean" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="51dc3048367d48a9a4325cb459a032e8">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
