@@ -84,7 +84,7 @@ Additional notes:
 
 - Basecamp Trix (started Feb 2014):
 
-    Maintenance (as of Dec 2019): Been around for a while with a pretty stable / minimal feature set. Backed by a company that has also been around for a while. Regular bug fix releases and responsive to issues.
+    Maintenance (as of Dec 2019): Been around for a while with a pretty stable / minimal feature set. Backed by a company that has also been around for a while. Regular bug fix releases and responsive to issues. Also now including in Rails 6 as the rich text editor for the [Action Text](https://edgeguides.rubyonrails.org/action_text_overview.html) feature.
 
 - Microsoft Rooster (started Jul 2017):
 
