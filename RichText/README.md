@@ -24,7 +24,7 @@ I made up the following use cases to help me sort through the JS libraries avail
 
 3. **Document editor**. The primary content on the page and comparable to the feature set of a word processor.
 
-    Even more configurable than the blog level and may support sophisticated layouts like nested / mixed tables and lists, different views such as print vs web layout, advanced plugins, and powerful inline widgets.
+    Even more configurable than the blog level and may support sophisticated layouts like nested / mixed tables and lists, different views such as print vs web layout, advanced plugins, and powerful inline widgets / configuration dialogs.
 
 4. **Framework platform**.
 
@@ -68,32 +68,37 @@ The rich text libraries I landed on and think are interesting enough to create e
 
 | Name              | Comment editor | Blog editor | Document editor | Edit Representation   | Standalone HTML | Library-coupled HTML | Abstract format | Maintenance <br> 🟢🟡🔴 |
 | :---------------: | :------------: | :---------: | :-------------: | :-------------------: | :-------------: | :------------------: | :-------------: | :---: |
-| CKEditor 4        | ?              | X           | X               | `contenteditable`     | X               | X                    |                 | 🟡/🔴 |
+| CKEditor 4        |                | X           | X               | `contenteditable`     | X               |                      |                 | 🟡/🔴 |
 | Quill             | X              | X           |                 | Operational Transform |                 | X                    | X               | 🟡 |
 | Basecamp Trix     | X              |             |                 | Model                 | X               |                      |                 | 🟢 |
-| Microsoft Rooster | X              |             |                 | `contenteditable`     | X               |                      |                 | 🟢/🟡 |
 
-Additional notes:
-- CKEditor 4 (started Mar 2011):
+Additional notes (as of December 2019):
 
-    Maintenance (as of Dec 2019): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-).
+- CKEditor 4 (started Mar 2011): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-). CKEditor 4 is pretty heavyweight so I decided not to mark it as a good comment editor. CKEditor 4 has a large footprint of about 3 MB build output and about 500 separate files. Had to ignore about 1000 localization files so that it can be included reliably in a Library Component in NXG without causing instability due to the number of files.
 
-- Quill (started July 2012):
+- Quill (started July 2012): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
 
-    Maintenance (as of Dec 2019): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
+   Quill uses a JSON representation of the rich text content called [delta](https://quilljs.com/docs/delta/) instead of HTML. Seems like users [attempt to access the internal HTML representation from Quill](https://github.com/quilljs/quill/issues/903) but it appears to be very heavily coupled to the stylesheet (for example has an unconventional representation of nested lists and lots of classes). This example does not try to access the internal HTML representation and instead demonstrates creating a Quill control and indicator.
 
-- Basecamp Trix (started Feb 2014):
+- Basecamp Trix (started Feb 2014): Been around for a while with a pretty stable / minimal feature set. Regular bug fix releases and responsive to issues. Included in Rails 6 as the rich text editor for the [Action Text](https://edgeguides.rubyonrails.org/action_text_overview.html) feature. It's very lightweight and has a clean HTML representation. This example disables the image / attachment feature because it takes a fair bit of integration code and ends up highly coupled to the library stylesheets.
 
-    Maintenance (as of Dec 2019): Been around for a while with a pretty stable / minimal feature set. Backed by a company that has also been around for a while. Regular bug fix releases and responsive to issues. Also now including in Rails 6 as the rich text editor for the [Action Text](https://edgeguides.rubyonrails.org/action_text_overview.html) feature.
+## Honorable Mentions
 
-- Microsoft Rooster (started Jul 2017):
+Libraries that are interesting but have some issue or behavior that prevents them from being a full example.
 
-    Maintenance (as of Dec 2019): Pretty new library and while open source is light on documentation / polish of a open source project intended for wide usage. From a big vendor and used in a big project so giving some benefit of the doubt.
+| Name              | Comment editor | Blog editor | Document editor | Edit Representation   | Standalone HTML | Library-coupled HTML | Abstract format | Maintenance <br> 🟢🟡🔴 |
+| :---------------: | :------------: | :---------: | :-------------: | :-------------------: | :-------------: | :------------------: | :-------------: | :---: |
+| CKEditor 5        | X              | X           | X               | Operational Transform | ?               |                      |                 | 🟢 |
+| Prose Mirror      | n/a            | n/a         | n/a             | Operational Transform | ?               |                      |                 | 🟢 |
+| Microsoft Rooster | n/a            | n/a         | n/a             | `contenteditable`     | X               |                      |                 | 🟢/🟡 |
 
-Honorable mentions:
+Additional Notes (as of December 2019):
 
-- CKEditor 5 is a pretty darn flexible and powerful library. It runs the gamut of the editor types, is operational transform based, and has different save formats. Unfortunately the license makes it incompatible with the goals of these examples but you may want to try it in your own project. See the [CKEditor 5 example](CKEditor5/) for more details.
-- ProseMirror is a framework platform that seems to be the goto for using as the basis of new application specific rich text editors. It will be interesting to see if good standalone editors built on top of ProseMirror start to emerge over time.
+- CKEditor 5 (started Jun 2014) is a pretty darn flexible and powerful library. It runs the gamut of the editor types, is operational transform based, and has different save formats. Unfortunately the license makes it incompatible with the goals of these examples but you may want to try it in your own project. See the [CKEditor 5 example](Archived/CKEditor5/) for more details.
+
+- ProseMirror (started Sep 2016) is a framework platform that seems to be the goto for using as the basis of new application specific rich text editors. It will be interesting to see if good standalone editors built on top of ProseMirror start to emerge over time. Framework is too high-level to provide an example at this time.
+
+- Microsoft Rooster (started Jul 2017): Pretty new library and while open source is light on documentation / polish of a open source project intended for wide usage. Unfortunately does not include a toolbar UI out of the box so is more of a framework platform for building an editor. Also the generated HTML is standalone but very verbose using lots of inline style attributes for setting font, etc. See the [Rooster example](Archived/Rooster/) for example integration code.
 
 ## Resources
 
