@@ -58,9 +58,11 @@
         await ckeditorLoaded();
         const config = {
             language: 'en',
-            width: '100%',
-            height: '100%',
-            readOnly: disabled
+            readOnly: disabled,
+            resize_enabled: false,
+            disableNativeSpellChecker: false,
+            removePlugins: 'wsc,scayt,sourcearea,about,elementspath',
+            extraPlugins: 'sourcedialog'
         };
         const editor = window.CKEDITOR.appendTo(parent, config);
         await ckeditorInstanceReady(editor);
