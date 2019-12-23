@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="B331944081D9FEE6DC5B7ED919ED7F01DE6E2D4B2647B149CAAE70BA8DAFA816A48393A8BF77F539C991490B8C8568B2AE556E56408FEF0ECFFF72D216C1DC54" Timestamp="1D5B91D2FB2989B" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="0EDDC97158A470CF4B08B1055422BE9D4F27246AC29C884A1F33DFE21FEB6AFAA136E051585C627FE4A3C41F2D354046047A0CEB773B755DCD1A35791B44D908" Timestamp="1D5B93C7869BDE6" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="6.2.0.49152" Version="6.2.0.49152" />
@@ -51,11 +51,12 @@
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<MethodCall Bounds="215 110 40 40" Id="346cd4665d524422b58933e0254c5b4b" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Create Quill.gvi&quot;" Signature="@542890808c40475fbacad1e8f9191a96" Target="Quill::Create Quill.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="215 110 40 40" Id="346cd4665d524422b58933e0254c5b4b" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Create Quill.gvi&quot;" Signature="@e4dbc0108efe4d2c896f675a1f4a5810" Target="Quill::Create Quill.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="B0" Desc="disabled" />
 						<Parameter Id="L0" Desc="selector" />
+						<Parameter Id="L1" Desc="quill plugins" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="supported formats" />
 						<Parameter Id="R0" Desc="quill reference" />
@@ -64,24 +65,26 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 40" Id="B0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@3261185fb9f346cca253018e9d7c4d12" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Literal Bounds="85 110 110 15" DataType="String" Id="baaca473deaf4ae6a1e64e911d938b12" Label="384172e0fe144ea3907c9d74eeaec003" xmlns="http://www.ni.com/MocCommon">
+			<Literal Bounds="70 75 110 15" DataType="String" Id="baaca473deaf4ae6a1e64e911d938b12" Label="384172e0fe144ea3907c9d74eeaec003" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>.my-quill-input</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<Wire Id="4dd8d2786a294e9295f7709c9a07d274" Joints="N(baaca473deaf4ae6a1e64e911d938b12:Out)|(195,115) N(346cd4665d524422b58933e0254c5b4b:L0)|(215,115)" xmlns="http://www.ni.com/PlatformFramework" />
-			<NodeLabel AttachedTo="baaca473deaf4ae6a1e64e911d938b12" Bounds="85 92 30 15" Id="384172e0fe144ea3907c9d74eeaec003" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<Wire Id="4dd8d2786a294e9295f7709c9a07d274" Joints="N(baaca473deaf4ae6a1e64e911d938b12:Out)|(180,80) h(15) v(35) N(346cd4665d524422b58933e0254c5b4b:L0)|(215,115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="baaca473deaf4ae6a1e64e911d938b12" Bounds="70 57 30 15" Id="384172e0fe144ea3907c9d74eeaec003" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>selector</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="220 210 40 40" Id="f6cd93fc318f4a00a2f4b3a4f79d4a7a" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Create Quill.gvi&quot;" Signature="@542890808c40475fbacad1e8f9191a96" Target="Quill::Create Quill.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="220 210 40 40" Id="f6cd93fc318f4a00a2f4b3a4f79d4a7a" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Create Quill.gvi&quot;" Signature="@e4dbc0108efe4d2c896f675a1f4a5810" Target="Quill::Create Quill.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="B0" Desc="disabled" />
 						<Parameter Id="L0" Desc="selector" />
+						<Parameter Id="L1" Desc="quill plugins" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="supported formats" />
 						<Parameter Id="R0" Desc="quill reference" />
@@ -90,17 +93,18 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 40" Id="B0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@3261185fb9f346cca253018e9d7c4d12" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Literal Bounds="85 210 115 15" DataType="String" Id="1c65ffe1eb684420bc3b7f00c4c754b0" Label="712ae39ec27045068e57ec829843bd67" xmlns="http://www.ni.com/MocCommon">
+			<Literal Bounds="80 185 115 15" DataType="String" Id="1c65ffe1eb684420bc3b7f00c4c754b0" Label="712ae39ec27045068e57ec829843bd67" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>.my-quill-output</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<Wire Id="da5a0c9cdd4f47a0845bdba47b4fa61b" Joints="N(1c65ffe1eb684420bc3b7f00c4c754b0:Out)|(200,215) N(f6cd93fc318f4a00a2f4b3a4f79d4a7a:L0)|(220,215)" xmlns="http://www.ni.com/PlatformFramework" />
-			<NodeLabel AttachedTo="1c65ffe1eb684420bc3b7f00c4c754b0" Bounds="85 192 30 15" Id="712ae39ec27045068e57ec829843bd67" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<Wire Id="da5a0c9cdd4f47a0845bdba47b4fa61b" Joints="N(1c65ffe1eb684420bc3b7f00c4c754b0:Out)|(195,190) h(5) v(25) N(f6cd93fc318f4a00a2f4b3a4f79d4a7a:L0)|(220,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="1c65ffe1eb684420bc3b7f00c4c754b0" Bounds="80 167 30 15" Id="712ae39ec27045068e57ec829843bd67" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>selector</p.Text>
 			</NodeLabel>
 			<Literal Bounds="180 275 25 15" DataType="Boolean" Id="f1d87ce92bd14cd2880ae475efab6792" Label="7ce060761e184aaf9b37af42bae47efd" xmlns="http://www.ni.com/MocCommon">
@@ -190,6 +194,70 @@
 				<LoopTunnel Bounds="-4 220 13 10" Docking="Left" Id="41c265d274134bdb995d17dad2ea454d" Terminals="o0=2198232529694891a6db441561942aa2, i0=67b612b9e34e4990917af2b6a9034f07" />
 				<LoopTunnel Bounds="-4 120 13 10" Docking="Left" Id="68bd4bb7a0fb452f96d194e78250e997" Terminals="o0=69a273dfd9a7414bb8c90cbd75c44192, i0=4a38d545fee6424d9ecd0bbb38406999" />
 			</WhileLoop>
+			<MethodCall Bounds="65 110 40 40" Id="a639610ab45542bc889992b797bdddf6" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Plugins\\Append Code-Block Plugin.gvi&quot;" Signature="@275ff08fd6e24d8487683bf2ed529a97" Target="Quill::Plugins::Append Code-Block Plugin.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="quill plugins in" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="quill plugins out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="120 110 40 40" Id="9444866c91344d0b2a754b26431b188" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Plugins\\Append Formula Plugin.gvi&quot;" Signature="@f2ebf8ced42a490fb3df1f90614fde64" Target="Quill::Plugins::Append Formula Plugin.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="quill plugins in" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="quill plugins out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="3d798794e6b943ca85db6bc0c294ada5" Joints="N(a639610ab45542bc889992b797bdddf6:R3)|(105,145) N(9444866c91344d0b2a754b26431b188:L3)|(120,145)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="dd4c191cc11b424fb9cbe1d9ef29bd98" Joints="N(9444866c91344d0b2a754b26431b188:R3)|(160,145) N(346cd4665d524422b58933e0254c5b4b:L3)|(215,145)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="17f64c7f6972482fb50d67838ed6db83" Joints="N(a639610ab45542bc889992b797bdddf6:R0)|(105,115) N(9444866c91344d0b2a754b26431b188:L0)|(120,115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="ab2d492a44ff47d8897bbc5a2b160533" Joints="N(9444866c91344d0b2a754b26431b188:R0)|(160,115) h(10) v(10) N(346cd4665d524422b58933e0254c5b4b:L1)|(215,125)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="85 210 40 40" Id="e6a5f470a1dc418e99d6c1fb7dcfe531" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Plugins\\Append Code-Block Plugin.gvi&quot;" Signature="@275ff08fd6e24d8487683bf2ed529a97" Target="Quill::Plugins::Append Code-Block Plugin.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="quill plugins in" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="quill plugins out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="140 210 40 40" Id="9125a0ae6b4148b99b7f52a49f4eb293" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\RichText\\Quill.gcomp\\Plugins\\Append Formula Plugin.gvi&quot;" Signature="@f2ebf8ced42a490fb3df1f90614fde64" Target="Quill::Plugins::Append Formula Plugin.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="quill plugins in" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="quill plugins out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@30d009135d884db68d058c100a59321e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="3fd6fe5afb4249c8b7b7092ae8c9ab2a" Joints="N(e6a5f470a1dc418e99d6c1fb7dcfe531:R0)|(125,215) N(9125a0ae6b4148b99b7f52a49f4eb293:L0)|(140,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="e65a725983e241cc9775fd4763df2164" Joints="N(e6a5f470a1dc418e99d6c1fb7dcfe531:R3)|(125,245) N(9125a0ae6b4148b99b7f52a49f4eb293:L3)|(140,245)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="fdae1ecb01d64370a31b4af9acd51c3b" Joints="N(9125a0ae6b4148b99b7f52a49f4eb293:R3)|(180,245) N(f6cd93fc318f4a00a2f4b3a4f79d4a7a:L3)|(220,245)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="7945610f3b04452faef90ce0ba1203cd" Joints="N(9125a0ae6b4148b99b7f52a49f4eb293:R0)|(180,215) h(6) v(10) N(f6cd93fc318f4a00a2f4b3a4f79d4a7a:L1)|(220,225)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]1176" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlFlexibleLayoutGroup Height="[float]380" Id="ae2c1bf4db854ec183139cee43fbdb63" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -245,11 +313,18 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="542890808c40475fbacad1e8f9191a96">
-			<Attributed AttributedType="@cfc665c98485463c9b233af15fc8d701">
+		<p.TypeReference TypeId="e4dbc0108efe4d2c896f675a1f4a5810">
+			<Attributed AttributedType="@b20ebd00efde4c45b4c2c991f603f380">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="30d009135d884db68d058c100a59321e">
+			<Attributed AttributedType="@bd409310f470466aa14237179f84de98">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Quill::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -297,7 +372,23 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="cfc665c98485463c9b233af15fc8d701">
+		<p.TypeReference TypeId="275ff08fd6e24d8487683bf2ed529a97">
+			<Attributed AttributedType="@8b44f6213b2b4e6d9c43e2dc14e93478">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f2ebf8ced42a490fb3df1f90614fde64">
+			<Attributed AttributedType="@80b3722cfa1445c1935c2df5e20ec6c1">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b20ebd00efde4c45b4c2c991f603f380">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Quill.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@7715ad8e9b6d47c3b676fd786b4831fa">
@@ -308,6 +399,11 @@
 					<Attributed AttributedType="@005614e6871c4166a75776a75d9e9d8b">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@0f9b3036740a463082a4c7523da88d25">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]quill plugins" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
@@ -332,6 +428,9 @@
 					</Attributed>
 				</Parameters>
 			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bd409310f470466aa14237179f84de98">
+			<Typedef TypedefName="quill plugins.gtype" UnderlyingType="String[]" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="548c1fca1bb843b1bab5dc19da82df8b">
 			<Typedef TypedefName="quill reference.gtype" UnderlyingType="Int32" />
@@ -405,11 +504,66 @@
 				</Parameters>
 			</Event>
 		</p.TypeReference>
+		<p.TypeReference TypeId="8b44f6213b2b4e6d9c43e2dc14e93478">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Append Code-Block Plugin.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@0534eb7c4e644b228952624a3341eb09">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]quill plugins in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a4e9d2d230864c8e875f2747702c5223">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]quill plugins out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@aad2d5879eda4b119a60e73dd9d8447d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="80b3722cfa1445c1935c2df5e20ec6c1">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Append Formula Plugin.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@0534eb7c4e644b228952624a3341eb09">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]quill plugins in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@51dc3048367d48a9a4325cb459a032e8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a4e9d2d230864c8e875f2747702c5223">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]quill plugins out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@aad2d5879eda4b119a60e73dd9d8447d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
 		<p.TypeReference TypeId="7715ad8e9b6d47c3b676fd786b4831fa">
 			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="B0" DataType="Boolean" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="005614e6871c4166a75776a75d9e9d8b">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="0f9b3036740a463082a4c7523da88d25">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@30d009135d884db68d058c100a59321e" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="51dc3048367d48a9a4325cb459a032e8">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
@@ -441,6 +595,12 @@
 					<Field FieldAccessPolicy="ReadWrite" Name="New Value" DataType="Boolean" />
 				</Members>
 			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="0534eb7c4e644b228952624a3341eb09">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@30d009135d884db68d058c100a59321e" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a4e9d2d230864c8e875f2747702c5223">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@30d009135d884db68d058c100a59321e" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
@@ -490,6 +650,42 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Set Content" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
 									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Quill.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Quill::Plugins::Append Code-Block Plugin.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Append Code-Block Plugin" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Quill.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Quill::Plugins::Append Formula Plugin.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Height="[float]36" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Append Formula Plugin" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]36">
+									<FontSetting FontFamily="Verdana" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Quill.gcomp" Top="[float]0" Width="[float]40" />

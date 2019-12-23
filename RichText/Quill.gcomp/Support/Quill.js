@@ -24,6 +24,18 @@
     }
     const referenceManager = new ReferenceManager();
 
+    const validateKatex = function () {
+        if (window.katex === undefined) {
+            throw new Error('The format "formula" requires the Include Formula Plugin VI to be called. Katex was not imported successfully.');
+        }
+    };
+
+    const validateHighlight = function () {
+        if (window.hljs === undefined) {
+            throw new Error('The format "code-block" requires the Include Code-Block VI to be called. Highlight.js was not imported successfully.');
+        }
+    };
+
     const createQuillTemplate = function (formats) {
         const quillTemplate = `
             <div class="webvi-quill-container">
@@ -110,12 +122,23 @@
         const element = elements[0];
         element.innerHTML = '';
 
+        if (formats.includes('formula')) {
+            validateKatex();
+        }
+
+        if (formats.includes('code-block')) {
+            validateHighlight();
+        }
+
         const {container, toolbar, editor} = createQuillTemplate(formats);
         const filteredFormats = formats.filter(format => format !== 'spacer');
         element.appendChild(container);
 
         const config = {
-            modules: {toolbar},
+            modules: {
+                syntax: true,
+                toolbar
+            },
             theme: 'snow',
             bounds: container,
             formats: filteredFormats
@@ -168,6 +191,8 @@
         destroyQuill,
         getContents,
         setContents,
-        setDisabled
+        setDisabled,
+        validateKatex,
+        validateHighlight
     };
 }());

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="07F42DB5C3D9FB99438B3045F85C834D838E45F8CFA43FCA65BEB35F80F740B9D20144D1B8434C9949328BB0374D9BF57957EAC2737A670C49565F843665B66B" Timestamp="1D5B5FB9B8FBAB8" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="9CF5EDCE8C9FB45022005DB5B92BFCD6BBD6081E4EA23E6602A714B2AF05E46CF1E7BC36019C9275F8987E45B323EDB9EC756611FFB712D69D4AF616C5BB182F" Timestamp="1D5B93BCE253322" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -46,6 +46,10 @@
 			<ComponentItemProperties AssociatedEnvoyId="dba14cc0a5b744a58982535b159c8c4c" Exported="True" Id="d6bff8358bea4748aae72da7eef057c2" />
 			<ComponentItemProperties AssociatedEnvoyId="4eff168885824eeaaf4bce5c523122f4" Exported="True" Id="9c39f4f2435e4303ba1d5dfebfb6c686" />
 			<ComponentItemProperties AssociatedEnvoyId="e7d533a865204a2eabc6d8dbcc38ac3f" Exported="True" Id="2c738936f0a942b396e163bb1dc328dd" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="e78787865d7c4110a036d07c6bc3d847" Id="b11b743314d648d4bfad08cd70b73c73" />
+			<ComponentItemProperties AssociatedEnvoyId="36b29710dbdb4602ab6303108e4746ee" Exported="True" Id="e3ad1b405d7a4310a7c427edcc44f987" />
+			<ComponentItemProperties AssociatedEnvoyId="e0ab91a216754ea9be985be77b8f6e19" Exported="True" Id="4c781d5ecd0b4a9bbb26221736bd60ec" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="73f430c36d5c44e6a61b8e38d71a4af5" Id="eaa6422803f7447d825371282842222d" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="225786ce2d7345a68de8eeedc3ecfe10" xmlns="http://www.ni.com/PlatformFramework">
@@ -186,6 +190,24 @@
 								</NameScopingEnvoy>
 							</NameScopingEnvoy>
 						</NameScopingEnvoy>
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="172de43dd7ec4f37b68ee4e2eab680b5" Name="@rajsite">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="fe1f239f150f43ec92692d09ead466ed" Name="highlightjs-cdn-release">
+								<NameScopingEnvoy AutomaticallyResolveUp="True" Id="aa252c5e0e49426a8b689763c5df0d72" Name="build">
+									<EmbeddedDefinitionReference Id="e78787865d7c4110a036d07c6bc3d847" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="highlight.min.js">
+										<ExternalFile>
+											<p.StoragePath>"Support\\node_modules\\@rajsite\\highlightjs-cdn-release\\build\\highlight.min.js"</p.StoragePath>
+										</ExternalFile>
+									</EmbeddedDefinitionReference>
+									<NameScopingEnvoy AutomaticallyResolveUp="True" Id="450da56cec28405b99ee7feb7c7193cc" Name="styles">
+										<EmbeddedDefinitionReference Id="73f430c36d5c44e6a61b8e38d71a4af5" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="vs2015.min.css">
+											<ExternalFile>
+												<p.StoragePath>"Support\\node_modules\\@rajsite\\highlightjs-cdn-release\\build\\styles\\vs2015.min.css"</p.StoragePath>
+											</ExternalFile>
+										</EmbeddedDefinitionReference>
+									</NameScopingEnvoy>
+								</NameScopingEnvoy>
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
 					</NameScopingEnvoy>
 					<EmbeddedDefinitionReference Id="d51210ee262f4dcdbb8559ef6cdeb2ce" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Quill.js">
 						<ExternalFile>
@@ -198,12 +220,19 @@
 							<p.StoragePath>"Support\\Quill.css"</p.StoragePath>
 						</ExternalFile>
 					</EmbeddedDefinitionReference>
+					<SourceFileReference Bindings="EnvoyManager" Id="80c978ab9fb34c89a64bb4b85f08b608" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Katex.jsli" StoragePath="Support\Katex.jsli" />
+					<SourceFileReference Bindings="EnvoyManager" Id="fc672f53ff394475b5e0e722afffeaee" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Highlight.jsli" StoragePath="Support\Highlight.jsli" />
+					<SourceFileReference Bindings="EnvoyManager" Id="67c2331dd1854cb2bdb08c6dad287857" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="quill plugins.gtype" StoragePath="Support\quill plugins.gtype\quill plugins.gtype" />
 				</NameScopingEnvoy>
 				<SourceFileReference Id="a1a306b44956429cb1252a069947136e" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Quill.gvi" StoragePath="Create Quill.gvi" />
 				<SourceFileReference Id="1d8a81abb4394fe6bb54bdfe397cec50" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Destroy Quill.gvi" StoragePath="Destroy Quill.gvi" />
 				<SourceFileReference Id="dba14cc0a5b744a58982535b159c8c4c" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Get Content.gvi" StoragePath="Get Content.gvi" />
 				<SourceFileReference Id="4eff168885824eeaaf4bce5c523122f4" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Set Content.gvi" StoragePath="Set Content.gvi" />
 				<SourceFileReference Id="e7d533a865204a2eabc6d8dbcc38ac3f" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Set Disabled.gvi" StoragePath="Set Disabled.gvi" />
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="89f20fdfd6704580aa63a7c67f58a158" Name="Plugins">
+					<SourceFileReference Id="36b29710dbdb4602ab6303108e4746ee" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Append Code-Block Plugin.gvi" StoragePath="Plugins\Append Code-Block Plugin.gvi" />
+					<SourceFileReference Id="e0ab91a216754ea9be985be77b8f6e19" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Append Formula Plugin.gvi" StoragePath="Plugins\Append Formula Plugin.gvi" />
+				</NameScopingEnvoy>
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="e69987c01d5444888c07890a2959e86c" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="Quill.gcomp" NameTracksFileName="True">
