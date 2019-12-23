@@ -101,10 +101,20 @@
         await ckeditorSetData(editor, content);
     };
 
+    const setDisabled = function (editorReference, disabled) {
+        const editor = referenceManager.getObject(editorReference);
+        if (editor === undefined) {
+            throw new Error('Expected instance of CKEditor object.');
+        }
+
+        editor.setReadOnly(disabled);
+    };
+
     window.WebVICKEditor4 = {
         create,
         destroy,
         getContent,
-        setContent
+        setContent,
+        setDisabled
     };
 }());

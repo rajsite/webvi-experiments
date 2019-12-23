@@ -66,6 +66,8 @@
         if (trix === undefined) {
             return;
         }
+        const {trixContainer} = trix;
+        trixContainer.parentNode.removeChild(trixContainer);
         referenceManager.closeReference(trixReference);
     };
 
@@ -88,7 +90,7 @@
         trixEditor.value = content;
     };
 
-    const setDisable = function (trixReference, disabled) {
+    const setDisabled = function (trixReference, disabled) {
         const trix = referenceManager.getObject(trixReference);
         if (trix === undefined) {
             throw new Error('Expected instance of Trix object');
@@ -101,6 +103,6 @@
         destroy,
         getContent,
         setContent,
-        setDisable
+        setDisabled
     };
 }());
