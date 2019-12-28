@@ -24,7 +24,7 @@
         }]);
     }());
 
-    const registerWebVICLIFileProtocol = function (clientPath) {
+    const registerFileProtocol = function (clientPath) {
         return new Promise(function (resolve, reject) {
             const {protocol} = electron;
             const handler = function (request, callback) {
@@ -62,7 +62,7 @@
     const initializeElectron = async function (clientPath) {
         const {app} = electron;
         await app.whenReady();
-        await registerWebVICLIFileProtocol(clientPath);
+        await registerFileProtocol(clientPath);
     };
 
     const createBrowserWindow = async function () {
