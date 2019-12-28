@@ -15,7 +15,7 @@
     const process = require('process');
 
     // webvicli imports
-    const {glob, htmlRequire, sharedReferenceManager} = require('webvicli');
+    const {glob, htmlRequire, sharedReferenceManager} = require('@webvi-node/runner');
 
     // webvicli-express imports
     const express = require('express');

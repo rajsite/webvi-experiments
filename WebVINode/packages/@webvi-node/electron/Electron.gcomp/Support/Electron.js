@@ -1,5 +1,5 @@
 (function () {
     'use strict';
 
-    module.exports = require('webvicli-electron').WebVIElectron;
+    module.exports = require('@webvi-node/electron').WebVIElectron;
 }());

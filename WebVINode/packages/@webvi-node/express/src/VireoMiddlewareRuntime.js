@@ -2,7 +2,7 @@
     'use strict';
 
     // webvicli imports
-    const {VireoNode} = require('webvicli');
+    const {VireoNode} = require('@webvi-node/runner');
 
     class VireoMiddlewareRuntime {
         constructor () {

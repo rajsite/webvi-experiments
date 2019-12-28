@@ -1,23 +1,24 @@
 {
-    "name": "webvicli-all",
+    "name": "@webvi-node/dev",
     "version": "0.0.1",
     "private": true,
     "scripts": {
         "start": "npm run start-express",
-        "start-cli": "cd Builds/TestWebVICLI_webvicli && webvicli",
-        "start-express": "cd Builds/TestExpressServer_webvicli-express && webvicli",
+        "start-cli": "cd Builds/TestWebVICLI_runner && webvi",
+        "start-express": "cd Builds/TestExpressServer_express && webvi",
         "start-electron": "electron .",
-        "start-robot": "cd Builds/TestRobot_webvicli-robot && webvicli",
+        "start-robot": "cd Builds/TestRobot_robot && webvi",
         "build": "electron-packager . --out=dist/ --overwrite --electron-version=6.0.4"
     },
     "dependencies": {
-        "webvicli": "file:packages/webvicli",
-        "webvicli-electron": "file:packages/webvicli-electron",
-        "webvicli-express": "file:packages/webvicli-express",
-        "webvicli-node-fs": "file:packages/webvicli-node-fs",
-        "webvicli-node-path": "file:packages/webvicli-node-path"
+        "@webvi-node/cli": "file:packages/@webvi-node/cli",
+        "@webvi-node/electron": "file:packages/@webvi-node/electron",
+        "@webvi-node/express": "file:packages/@webvi-node/express",
+        "@webvi-node/fs": "file:packages/@webvi-node/fs",
+        "@webvi-node/path": "file:packages/@webvi-node/path",
+        "@webvi-node/runner": "file:packages/@webvi-node/runner"
     },
     "optionalDependencies": {
-        "webvicli-robot": "file:packages/webvicli-robot"
+        "@webvi-node/robot": "file:packages/@webvi-node/robot"
     }
 }

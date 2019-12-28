@@ -5,8 +5,7 @@
     const {performance} = require('perf_hooks');
 
     // webvicli imports
-    const webvicli = require('webvicli');
-    const sharedReferenceManager = webvicli.sharedReferenceManager;
+    const {sharedReferenceManager} = require('@webvi-node/runner');
 
     // webvicli-express imports
     const genericPool = require('generic-pool');

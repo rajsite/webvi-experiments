@@ -6,7 +6,7 @@
     const path = require('path');
 
     // webvicli imports
-    const {sharedReferenceManager} = require('webvicli');
+    const {sharedReferenceManager} = require('@webvi-node/runner');
 
     // webvicli-electron imports
     const electron = require('electron');
