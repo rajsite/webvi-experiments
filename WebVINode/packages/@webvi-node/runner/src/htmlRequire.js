@@ -7,7 +7,7 @@
     // webvicli imports
     const cheerio = require('cheerio');
 
-    const htmlRequireAttributeName = 'webvicli-global';
+    const htmlRequireAttributeName = 'webvi-node-global';
 
     const htmlRequire = function (resolvedHtmlPath) {
         const resolvedHtmlDir = path.dirname(resolvedHtmlPath);
