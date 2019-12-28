@@ -1,13 +1,8 @@
 (function () {
     'use strict';
 
-    // node imports
     const {performance} = require('perf_hooks');
-
-    // webvicli imports
     const {sharedReferenceManager} = require('@webvi-node/runner');
-
-    // webvicli-express imports
     const genericPool = require('generic-pool');
     const VireoMiddlewareRuntime = require('./VireoMiddlewareRuntime.js');
 

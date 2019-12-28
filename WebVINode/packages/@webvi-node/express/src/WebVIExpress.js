@@ -9,15 +9,10 @@
     // The top-level VI is enqueued when an endpoint is run. The VI is not rebooted so state persists between executions of an endpoint per endpoint.
     // The ReferenceManager is shared across all instances so need to be careful about references shared between instances (none yet?)
 
-    // node imports
     const fs = require('fs');
     const path = require('path');
     const process = require('process');
-
-    // webvicli imports
     const {htmlRequire, sharedReferenceManager} = require('@webvi-node/runner');
-
-    // webvicli-express imports
     const glob = require('glob');
     const express = require('express');
     const createVireoMiddleware = require('./createVireoMiddleware.js');

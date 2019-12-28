@@ -1,20 +1,17 @@
 (function () {
     'use strict';
-    // node imports
     const path = require('path');
     const fs = require('fs');
-
-    // webvicli imports
     const cheerio = require('cheerio');
 
     const htmlRequireAttributeName = 'webvi-node-global';
 
     const htmlRequire = function (resolvedHtmlPath) {
         const resolvedHtmlDir = path.dirname(resolvedHtmlPath);
-        console.log(`Loading webvicli require html file path ${resolvedHtmlPath}`);
+        console.log(`Loading webvi-node require html file path ${resolvedHtmlPath}`);
         const endpointHTML = fs.readFileSync(resolvedHtmlPath, 'utf8');
         const $$ = cheerio.load(endpointHTML);
-        console.log('Finished loading webvicli require html file');
+        console.log('Finished loading webvi-node require html file');
 
         console.log(`Finding require attributes in html file path ${resolvedHtmlPath}`);
         const dependencyPaths = new Map();

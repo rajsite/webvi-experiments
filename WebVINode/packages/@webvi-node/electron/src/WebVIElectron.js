@@ -1,17 +1,12 @@
 (function () {
     'use strict';
 
-    // node imports
     const mime = require('mime-types');
     const path = require('path');
-
-    // webvicli imports
     const {sharedReferenceManager} = require('@webvi-node/runner');
-
-    // webvicli-electron imports
     const electron = require('electron');
 
-    const scheme = 'webvicli';
+    const scheme = 'webvi-node';
     const host = '.';
     const origin = `${scheme}://${host}`;
     const root = `${origin}/`;

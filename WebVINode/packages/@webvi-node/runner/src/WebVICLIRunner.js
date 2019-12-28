@@ -1,12 +1,9 @@
 (function () {
     'use strict';
 
-    // node imports
     const {performance} = require('perf_hooks');
     const fs = require('fs');
     const process = require('process');
-
-    // webvicli imports
     const glob = require('glob');
     const htmlRequire = require('./htmlRequire.js');
     const VireoNode = require('./VireoNode.js');
