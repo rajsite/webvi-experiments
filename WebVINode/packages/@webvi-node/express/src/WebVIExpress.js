@@ -15,9 +15,10 @@
     const process = require('process');
 
     // webvicli imports
-    const {glob, htmlRequire, sharedReferenceManager} = require('@webvi-node/runner');
+    const {htmlRequire, sharedReferenceManager} = require('@webvi-node/runner');
 
     // webvicli-express imports
+    const glob = require('glob');
     const express = require('express');
     const createVireoMiddleware = require('./createVireoMiddleware.js');
 
