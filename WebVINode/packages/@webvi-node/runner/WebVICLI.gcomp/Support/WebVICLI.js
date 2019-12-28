@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    const WebVICLI = require('@webvi-node/runner').WebVICLI;
     const path = require('path');
     // This must be resolved from the Library component build output directory
     // Assume path similar to Builds/ApplicationComponentRoot/WebVICLI/Support/WebVICLI.js
@@ -9,8 +8,5 @@
         return componentDirectory;
     };
 
-    module.exports = {
-        ...WebVICLI,
-        getComponentDirectory
-    };
+    module.exports = {getComponentDirectory};
 }());
