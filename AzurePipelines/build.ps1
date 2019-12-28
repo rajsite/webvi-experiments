@@ -45,6 +45,6 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "Sw
 Write-Host "Build WebBluetooth project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\WebBluetooth" -ProjectFileName "WebBluetooth.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
-Write-Host "Build WebVICLI project"
-Invoke-NXGBuildApplication -ProjectDirectory ".\WebVICLI" -ProjectFileName "WebVICLI.lvproject" -TargetName "webvicli-express" -ComponentFileName "TestExpressClient.gcomp"
-Invoke-NXGBuildApplication -ProjectDirectory ".\WebVICLI" -ProjectFileName "WebVICLI.lvproject" -TargetName "webvicli-express" -ComponentFileName "TestExpressServer.gcomp"
+Write-Host "Build WebVINode project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.lvproject" -TargetName "express" -ComponentFileName "TestExpressClient.gcomp"
+Invoke-NXGBuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.lvproject" -TargetName "express" -ComponentFileName "TestExpressServer.gcomp"

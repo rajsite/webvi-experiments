@@ -74,12 +74,12 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Web Server"
 Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 
-Write-Host "Copy WebVICLI build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVICLI" -TargetName "webvicli-express" -ComponentFileName "TestExpressServer.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVICLI\Builds\TestExpressServer_webvicli-express"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVICLI" -TargetName "webvicli-express" -ComponentFileName "TestExpressClient.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVICLI\Builds\TestExpressClient_webvicli-express"
-Copy-item -Force -Recurse ".\WebVICLI\packages" -Destination "$ghpagesbuilddir\WebVICLI\packages"
-Copy-Item ".\WebVICLI\package.json" "$ghpagesbuilddir\WebVICLI\package.json"
-Copy-Item ".\WebVICLI\package-lock.json" "$ghpagesbuilddir\WebVICLI\package-lock.json"
+Write-Host "Copy WebVINode build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "express" -ComponentFileName "TestExpressServer.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\Builds\TestExpressServer_express"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "express" -ComponentFileName "TestExpressClient.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\Builds\TestExpressClient_express"
+Copy-item -Force -Recurse ".\WebVINode\packages" -Destination "$ghpagesbuilddir\WebVINode\packages"
+Copy-Item ".\WebVINode\package.json" "$ghpagesbuilddir\WebVINode\package.json"
+Copy-Item ".\WebVINode\package-lock.json" "$ghpagesbuilddir\WebVINode\package-lock.json"
 
 Write-Host "Setting up ghpages archive output folder"
 Remove-Item $ghpagesarchivedir -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
