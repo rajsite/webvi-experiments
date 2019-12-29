@@ -100,7 +100,7 @@ function Watch-TrialWindow
 function Invoke-NXGBuildApplication {
     Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName)
     Write-Host "Checking if LabVIEW NXG CLI is available"
-    $labviewnxgcli = 'C:\Program Files\National Instruments\LabVIEW NXG 3.0\labviewnxgcli.exe'
+    $labviewnxgcli = 'C:\Program Files\National Instruments\LabVIEW NXG 4.0\labviewnxgcli.exe'
     Assert-FileExists($labviewnxgcli)
 
     $projectpath = Resolve-Path (Join-Path $ProjectDirectory $ProjectFileName)
