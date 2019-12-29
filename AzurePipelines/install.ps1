@@ -20,7 +20,8 @@ if ($install_NIPM)
     
     Assert-FileDoesNotExist($nipm)
     Write-Host "Installing NIPM..."
-    Start-Process -FilePath $nipmInstaller -ArgumentList "/Q" -Wait
+    # Command line flags http://www.ni.com/documentation/en/ni-package-manager/latest/manual/automate-installer/
+    Start-Process -FilePath $nipmInstaller -ArgumentList "--passive --accept-eulas --prevent-reboot" -Wait
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Remove-Item $nipmInstaller
