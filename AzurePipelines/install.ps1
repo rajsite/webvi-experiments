@@ -42,17 +42,17 @@ if ($install_nxg)
     Run $nipm 'update'
     
     Write-Host "Installing NI Certificates..."
-    Run $nipm 'install ni-certificates --accept-eulas --assume-yes --verbose'
+    Run $nipm 'install ni-certificates --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     
     Write-Host "Installing LabVIEW NXG..."
-    Run $nipm 'install ni-labview-nxg-4.0.0 --accept-eulas --assume-yes --verbose'
+    Run $nipm 'install ni-labview-nxg-4.0.0 --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     
     Write-Host "Installing LabVIEW NXG Web Module..."
-    Run $nipm 'install ni-labview-nxg-4.0.0-web-module --accept-eulas --assume-yes --verbose'
+    Run $nipm 'install ni-labview-nxg-4.0.0-web-module --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Assert-FileExists($nxg)
