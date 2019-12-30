@@ -52,7 +52,7 @@ function Run {
     $out = New-Object System.Collections.ArrayList
     $handler = 
     {
-        if (! [String]::IsNullOrEmpty($EventArgs.Data)) 
+        if ($EventArgs.Data -is [String] -And ! [String]::IsNullOrEmpty($EventArgs.Data)) 
         {
             $Event.MessageData.Add($EventArgs.Data)
         }
