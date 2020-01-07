@@ -2,7 +2,6 @@
     'use strict';
 
     const getReferences = function () {
-        const WebApplication = window.customElements.get('ni-web-application');
         const webAppElement = document.querySelector('ni-web-application');
 
         // nxg 3.1
@@ -24,18 +23,13 @@
 
         // nxg 5? (tentative prototype, nxg 5 support not guaranteed, not in beta)
         // Note: In nxg 4 we switched to es6 modules and these internals are no longer exposed in the global scope (good thing),
-        // but in order for the debug tools to be possible we might need to expose some properties (like the "ForDebugOnlyUnstable" properties below)
-        // TODO: Maybe we should just expose the vireo instance and helpers on the webapp element instead of all this exposing services stuff...
-        if (WebApplication.WebApplicationModelsServiceForDebugOnlyUnstable !== undefined) {
+        // but in order for the debug tools to be possible we might need to expose some properties (like vireoInstance and vireoHelpers below)
+        if (webAppElement.vireoInstance !== undefined) {
             // Find vireo instance
-            const webApplicationModelsService = WebApplication.WebApplicationModelsServiceForDebugOnlyUnstable;
-            const webAppModel = webApplicationModelsService.getModel(webAppElement);
-            const updateService = webAppModel.updateService;
-            const vireo = updateService.vireo;
+            const vireo = webAppElement.vireoInstance;
 
             // Find vireoHelpers
-            const LocalUpdateService = updateService.constructor;
-            const vireoHelpers = LocalUpdateService.VireoHelpersForDebugOnlyUnstable;
+            const vireoHelpers = webAppElement.vireoHelpers;
 
             return {
                 vireoHelpers,
@@ -71,7 +65,7 @@
 
         // read dataspace
         const dataSpaceJSON = vireo.eggShell.readJSON(viRef);
-        // Using jsonic instead of JSON.parse because of cases where readJSON results in invalid JSON (may be in future NXG versions): https://github.com/ni/VireoSDK/pull/622
+        // Using jsonic instead of JSON.parse because of cases where readJSON results in invalid JSON (should be in final NXG 5): https://github.com/ni/VireoSDK/pull/622
         const dataSpace = jsonic(dataSpaceJSON);
         const dataItemNames = Object.keys(dataSpace).filter(key => key.indexOf('dataItem_') !== -1);
         const dataItems = dataItemNames.reduce(function (obj, dataItemName) {
@@ -80,6 +74,7 @@
         }, {});
 
         const eventData = JSON.stringify(dataItems);
+        console.log(eventData);
         pendingUpdate = requestAnimationFrame(() => {
             window.postMessage(eventData, '*');
             pendingUpdate = undefined;
