@@ -8,6 +8,7 @@
     global.NationalInstrumentsWebSockets = global.window.NationalInstrumentsWebSockets;
     global.window = oldWindow;
     const W3CWebSocket = require('websocket').w3cwebsocket;
+    // Shim for issue: https://github.com/theturtle32/WebSocket-Node/issues/379
     class WebSocketShim extends W3CWebSocket {
         get protocol () {
             return this._protocol === undefined ? '' : this._protocol;
