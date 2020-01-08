@@ -15,17 +15,17 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName 
 Write-Host "Build Arcade projects: Snake"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "Snake.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
-Write-Host "Build AugmentedReality project"
-Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
-
-Write-Host "Build AugmentedReality SecretBox project"
-Invoke-NXGBuildApplication -ProjectDirectory ".\AugmentedReality" -ProjectFileName "AugmentedReality.lvproject" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp"
-
 Write-Host "Build BusyState project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\BusyState" -ProjectFileName "BusyState.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build ECharts project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
+Write-Host "Build ImmersiveWeb projects: AugmentedReality"
+Invoke-NXGBuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "ImmersiveWeb.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
+Write-Host "Build ImmersiveWeb projects: SecretBox"
+Invoke-NXGBuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "ImmersiveWeb.lvproject" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp"
 
 Write-Host "Build JSONParser project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\JSONParser" -ProjectFileName "JSONParser.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"

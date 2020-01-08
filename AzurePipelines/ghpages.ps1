@@ -44,17 +44,17 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Web Serv
 Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
 
-Write-Host "Copy AugmentedReality build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\AugmentedReality" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
-
-Write-Host "Copy AugmentedReality SecretBox build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\AugmentedReality" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
-
 Write-Host "Copy BusyState build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\BusyState" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\BusyState"
 
 Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
+
+Write-Host "Copy ImmersiveWeb projects: AugmentedReality build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
+
+Write-Host "Copy ImmersiveWeb projects: SecretBox build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
 
 Write-Host "Copy JSONParser build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
