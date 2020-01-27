@@ -64,7 +64,7 @@ function Run {
     $p.BeginOutputReadLine()	
     while (!$p.HasExited)
     {
-        Wait-Event -Timeout 1
+        Wait-Event -Timeout 1 | Out-Null
         while($out.Length -gt 0)
         {
             $out[0].ToString()
