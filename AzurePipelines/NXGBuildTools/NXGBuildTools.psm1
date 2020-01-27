@@ -54,7 +54,7 @@ function Run {
     {
         if ($EventArgs.Data -is [String] -And ! [String]::IsNullOrEmpty($EventArgs.Data)) 
         {
-            $Event.MessageData.Add($EventArgs.Data)
+            # $Event.MessageData.Add($EventArgs.Data)
         }
     }
     
@@ -64,7 +64,7 @@ function Run {
     $p.BeginOutputReadLine()	
     while (!$p.HasExited)
     {
-        Wait-Event -Timeout 1 | Out-Null
+        Wait-Event -Timeout 1
         while($out.Length -gt 0)
         {
             $out[0].ToString()
