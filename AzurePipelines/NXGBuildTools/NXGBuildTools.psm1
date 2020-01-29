@@ -79,6 +79,7 @@ function Invoke-NXGBuildApplication {
 
     $process = Watch-TrialWindow
     Write-Host "Running build command: $buildapplicationcommand"
+    Invoke-MinimizeWindows
     Run $labviewnxgcli $buildapplicationcommand
     try {
         Write-Host "AutoHotKey stopping"
@@ -123,4 +124,9 @@ function Invoke-DeletePackages {
     Write-Host $err
 }
 
-Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages
+function Invoke-MinimizeWindows {
+    $shell = New-Object -ComObject "Shell.Application"
+    $shell.minimizeall()
+}
+
+Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages, Invoke-MinimizeWindows
