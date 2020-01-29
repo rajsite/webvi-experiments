@@ -39,8 +39,6 @@ function Run {
     
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
     $pinfo.FileName = $fileName
-    $pinfo.RedirectStandardError = $true
-    $pinfo.RedirectStandardOutput = $true
     $pinfo.UseShellExecute = $false
     $pinfo.Arguments = $arguments
     if ($workingdirectory) {
@@ -48,35 +46,8 @@ function Run {
     }
     $p = New-Object System.Diagnostics.Process
     $p.StartInfo = $pinfo
-    
-    $out = New-Object System.Collections.ArrayList
-    $handler = 
-    {
-        if ($EventArgs.Data -is [String] -And ! [String]::IsNullOrEmpty($EventArgs.Data)) 
-        {
-            # $Event.MessageData.Add($EventArgs.Data)
-        }
-    }
-    
-    $outEvent = Register-ObjectEvent -InputObject $p -Action $handler -EventName 'OutputDataReceived' -MessageData $out
-        
-    $p.Start() | Out-Null
-    $p.BeginOutputReadLine()	
-    while (!$p.HasExited)
-    {
-        Wait-Event -Timeout 1
-        while($out.Length -gt 0)
-        {
-            $out[0].ToString()
-            $out.RemoveAt(0)
-        }
-    }
-    while($out.Length -gt 0)
-    {
-        $out[0].ToString()
-        $out.RemoveAt(0)
-    }
-    Unregister-Event -SourceIdentifier $outEvent.Name
+    $p.Start();
+    $p.WaitForExit();
 }
 
 function Watch-TrialWindow
