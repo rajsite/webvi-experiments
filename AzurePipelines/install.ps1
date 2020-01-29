@@ -42,16 +42,19 @@ if ($install_nxg)
     Run $nipm 'update'
     
     Write-Host "Installing NI Certificates..."
+    Invoke-PrintDiskspace
     Run $nipm 'install ni-certificates --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     
     Write-Host "Installing LabVIEW NXG..."
+    Invoke-PrintDiskspace
     Run $nipm 'install ni-labview-nxg-4.0.0 --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     
     Write-Host "Installing LabVIEW NXG Web Module..."
+    Invoke-PrintDiskspace
     Run $nipm 'install ni-labview-nxg-4.0.0-web-module --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"

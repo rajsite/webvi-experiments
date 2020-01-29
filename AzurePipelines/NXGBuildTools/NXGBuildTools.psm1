@@ -114,4 +114,8 @@ function Invoke-CopyBuildOutput {
     }
 }
 
-Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput
+function Invoke-PrintDiskspace {
+    Get-WmiObject -Class Win32_logicaldisk
+}
+
+Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace
