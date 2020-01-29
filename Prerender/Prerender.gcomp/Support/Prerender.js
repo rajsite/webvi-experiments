@@ -5,6 +5,26 @@
         return;
     }
 
+    const createFetchPreload = function (url) {
+        const link = document.createElement('link');
+        link.href = url;
+        link.rel = 'preload';
+        link.as = 'fetch';
+        link.crossOrigin = '';
+        return link;
+    };
+
+    const preloadRuntime = function () {
+        const webAppElement = document.querySelector('ni-web-application');
+        const vireoSource = webAppElement.getAttribute('vireo-source');
+        const vireoSourcePreload = createFetchPreload(vireoSource);
+        document.head.appendChild(vireoSourcePreload);
+
+        const wasmUrl = webAppElement.getAttribute('wasm-url');
+        const wasmUrlPreload = createFetchPreload(wasmUrl);
+        document.head.appendChild(wasmUrlPreload);
+    };
+
     const prerenderUrl = function (urlElement) {
         const href = urlElement.getAttribute('href');
         const content = urlElement.getAttribute('content');
@@ -44,6 +64,10 @@
         textElement.appendChild(newContent);
     };
 
+    const clearPrerenderText = function (textElement) {
+        textElement.innerHTML = '';
+    };
+
     const prerender = function () {
         const textElements = Array.from(document.querySelectorAll('ni-text'));
         textElements.forEach(prerenderText);
@@ -51,6 +75,12 @@
         imgElements.forEach(prerenderImage);
         const urlElements = Array.from(document.querySelectorAll('ni-hyperlink'));
         urlElements.forEach(prerenderUrl);
+        preloadRuntime();
+    };
+
+    const clearPrerender = function () {
+        const textElements = Array.from(document.querySelectorAll('ni-text'));
+        textElements.forEach(clearPrerenderText);
     };
 
     // Bulk of WebVI scripts are defer loaded so run after the interactive transition
@@ -59,10 +89,7 @@
         if (document.readyState === 'interactive') {
             prerender();
         } else if (document.readyState === 'complete') {
-            const textElements = Array.from(document.querySelectorAll('ni-text'));
-            textElements.forEach(el => {
-                el.innerHTML = '';
-            });
+            clearPrerender();
         }
     });
 
