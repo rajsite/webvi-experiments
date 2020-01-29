@@ -25,6 +25,8 @@ if ($install_NIPM)
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Remove-Item $nipmInstaller
+
+    Add-Content "$Env:Localappdata\National Instruments\NI Package Manager\nipkg.ini" "[nipkg]`ncachepackages=false"
 }
 
 Assert-FileExists($nipm)
