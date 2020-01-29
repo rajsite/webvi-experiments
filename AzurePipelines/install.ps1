@@ -52,7 +52,9 @@ if ($install_nxg)
     Run $nipm 'install ni-labview-nxg-4.0.0 --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
+    Invoke-PrintDiskspace
     Invoke-DeletePackages
+    Invoke-PrintDiskspace
 
     Write-Host "Installing LabVIEW NXG Web Module..."
     Invoke-PrintDiskspace
@@ -60,7 +62,9 @@ if ($install_nxg)
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Assert-FileExists($nxg)
+    Invoke-PrintDiskspace
     Invoke-DeletePackages
+    Invoke-PrintDiskspace
 }
 
 return
