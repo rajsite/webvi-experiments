@@ -3,7 +3,7 @@ Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 $ghpagesbuilddir = ".\ghpagesbuild"
 $ghpagesarchivedir = ".\ghpagesarchive"
 
-$7zip = "C:\Program Files\7-Zip\7z.exe"
+$7zip = "$Env:Programfiles\7-Zip\7z.exe"
 Write-Host "Checking if 7zip is already installed"
 if ([System.IO.File]::Exists($7zip))
 {

@@ -3,7 +3,7 @@ Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 $rootDirectory = (Get-Location).Path
 Write-Host "Current directory $rootDirectory"
 
-$nipm = 'C:\Program Files\National Instruments\NI Package Manager\nipkg.exe'
+$nipm = "$Env:Programfiles\National Instruments\NI Package Manager\nipkg.exe"
 $install_NIPM = $true
 if ($install_NIPM)
 {
@@ -32,7 +32,7 @@ Assert-FileExists($nipm)
 $install_nxg = $true
 if ($install_nxg)
 {
-    $nxg = 'C:\Program Files\National Instruments\LabVIEW NXG 4.0\LabVIEW NXG.exe'
+    $nxg = "$Env:Programfiles\National Instruments\LabVIEW NXG 4.0\LabVIEW NXG.exe"
     Assert-FileDoesNotExist($nxg)
     
     Write-Host "Adding LabVIEW NXG feeds to NI Package Manager"
