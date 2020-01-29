@@ -118,4 +118,9 @@ function Invoke-PrintDiskspace {
     Get-WmiObject -Class Win32_logicaldisk
 }
 
-Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace
+function Invoke-DeletePackages {
+    Remove-Item "$Env:Programdata\National Instruments\NI Package Manager\Packages" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
+    Write-Host $err
+}
+
+Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages
