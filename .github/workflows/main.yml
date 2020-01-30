@@ -7,33 +7,35 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v1
-    # - name: Install LabVIEW NXG
-    #   run: powershell .\AzurePipelines\install.ps1
-    # - name: Start capturing screenshots
-    #   working-directory: ./AzurePipelines/periodic-screenshot
-    #   run: |
-    #     npm install
-    #     npm run start
-    # - name: Build LabVIEW Projects
-    #   run: powershell .\AzurePipelines\build.ps1
-    #   timeout-minutes: 60
-    #   continue-on-error: true
-    # - name: Stop capturing screenshots
-    #   working-directory: ./AzurePipelines/periodic-screenshot
-    #   run: npm run stop
-    # - name: Upload screenshots
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: screenshots
-    #     path: ./AzurePipelines/periodic-screenshot/dist
-    # - name: Create GitHub Pages Output
-    #   run: powershell .\AzurePipelines\ghpages.ps1
-    # - name: Upload GitHub Pages Output
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: ghpagesarchive
-    #     path: ./ghpagesarchive
+    - name: Clean-up GitHub Actions Diskspace
+      run: powershell .\AzurePipelines\github-actions-free-disk.ps1
+    - name: Install LabVIEW NXG
+      run: powershell .\AzurePipelines\install.ps1
+    - name: Start capturing screenshots
+      working-directory: ./AzurePipelines/periodic-screenshot
+      run: |
+        npm install
+        npm run start
+    - name: Build LabVIEW Projects
+      run: powershell .\AzurePipelines\build.ps1
+      timeout-minutes: 60
+      continue-on-error: true
+    - name: Stop capturing screenshots
+      working-directory: ./AzurePipelines/periodic-screenshot
+      run: npm run stop
+    - name: Upload screenshots
+      uses: actions/upload-artifact@v1
+      with:
+        name: screenshots
+        path: ./AzurePipelines/periodic-screenshot/dist
+    - name: Create GitHub Pages Output
+      run: powershell .\AzurePipelines\ghpages.ps1
+    - name: Upload GitHub Pages Output
+      uses: actions/upload-artifact@v1
+      with:
+        name: ghpagesarchive
+        path: ./ghpagesarchive

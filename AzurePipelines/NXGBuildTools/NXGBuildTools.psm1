@@ -39,8 +39,6 @@ function Run {
     
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
     $pinfo.FileName = $fileName
-    $pinfo.RedirectStandardError = $true
-    $pinfo.RedirectStandardOutput = $true
     $pinfo.UseShellExecute = $false
     $pinfo.Arguments = $arguments
     if ($workingdirectory) {
@@ -48,35 +46,8 @@ function Run {
     }
     $p = New-Object System.Diagnostics.Process
     $p.StartInfo = $pinfo
-    
-    $out = New-Object System.Collections.ArrayList
-    $handler = 
-    {
-        if ($EventArgs.Data -is [String] -And ! [String]::IsNullOrEmpty($EventArgs.Data)) 
-        {
-            # $Event.MessageData.Add($EventArgs.Data)
-        }
-    }
-    
-    $outEvent = Register-ObjectEvent -InputObject $p -Action $handler -EventName 'OutputDataReceived' -MessageData $out
-        
-    $p.Start() | Out-Null
-    $p.BeginOutputReadLine()	
-    while (!$p.HasExited)
-    {
-        Wait-Event -Timeout 1
-        while($out.Length -gt 0)
-        {
-            $out[0].ToString()
-            $out.RemoveAt(0)
-        }
-    }
-    while($out.Length -gt 0)
-    {
-        $out[0].ToString()
-        $out.RemoveAt(0)
-    }
-    Unregister-Event -SourceIdentifier $outEvent.Name
+    $p.Start();
+    $p.WaitForExit();
 }
 
 function Watch-TrialWindow
@@ -108,6 +79,7 @@ function Invoke-NXGBuildApplication {
 
     $process = Watch-TrialWindow
     Write-Host "Running build command: $buildapplicationcommand"
+    Invoke-MinimizeWindows
     Run $labviewnxgcli $buildapplicationcommand
     try {
         Write-Host "AutoHotKey stopping"
@@ -143,4 +115,28 @@ function Invoke-CopyBuildOutput {
     }
 }
 
-Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput
+function Invoke-PrintDiskspace {
+    Get-WmiObject -Class Win32_logicaldisk
+}
+
+function Invoke-DeletePackages {
+    Remove-Item "$Env:Programdata\National Instruments\NI Package Manager\Packages" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
+    Write-Host $err
+}
+
+function Invoke-MinimizeWindows {
+    $shell = New-Object -ComObject "Shell.Application"
+    $shell.minimizeall()
+}
+
+function Invoke-PrintFolderSizes {
+    Param ([string]$path)
+    $colItems = Get-ChildItem $path | Where-Object {$_.PSIsContainer -eq $true} | Sort-Object
+    foreach ($i in $colItems)
+    {
+        $subFolderItems = Get-ChildItem $i.FullName -recurse -force | Where-Object {$_.PSIsContainer -eq $false} | Measure-Object -property Length -sum | Select-Object Sum
+        $i.FullName + " -- " + "{0:N2}" -f ($subFolderItems.sum / 1MB) + " MB"
+    }
+}
+
+Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages, Invoke-MinimizeWindows, Invoke-PrintFolderSizes

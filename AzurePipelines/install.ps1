@@ -17,7 +17,7 @@ if ($install_NIPM)
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Assert-FileExists($nipmInstaller)
-    
+
     Assert-FileDoesNotExist($nipm)
     Write-Host "Installing NIPM..."
     # Command line flags http://www.ni.com/documentation/en/ni-package-manager/latest/manual/automate-installer/
@@ -34,27 +34,32 @@ if ($install_nxg)
 {
     $nxg = "$Env:Programfiles\National Instruments\LabVIEW NXG 4.0\LabVIEW NXG.exe"
     Assert-FileDoesNotExist($nxg)
-    
+
     Write-Host "Adding LabVIEW NXG feeds to NI Package Manager"
     Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-4.0.0/7.1/released'
     Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-4.0.0-rte/7.1/released'
     Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-4.0.0-web-module/7.1/released'
     Run $nipm 'update'
-    
+
     Write-Host "Installing NI Certificates..."
+    Invoke-PrintDiskspace
     Run $nipm 'install ni-certificates --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
-    
+    Invoke-PrintDiskspace
+
     Write-Host "Installing LabVIEW NXG..."
+    Invoke-PrintDiskspace
     Run $nipm 'install ni-labview-nxg-4.0.0 --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
-    
+    Invoke-PrintDiskspace
+
     Write-Host "Installing LabVIEW NXG Web Module..."
     Run $nipm 'install ni-labview-nxg-4.0.0-web-module --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
+    Invoke-PrintDiskspace
     Assert-FileExists($nxg)
 }
 
