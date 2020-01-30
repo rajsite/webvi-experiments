@@ -27,6 +27,7 @@ if ($install_NIPM)
     Remove-Item $nipmInstaller
 
     Add-Content "$Env:Localappdata\National Instruments\NI Package Manager\nipkg.ini" "cachepackages=false"
+    Invoke-PrintFolderSizes("$Env:Programfiles")
 }
 
 Assert-FileExists($nipm)
