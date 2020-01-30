@@ -6,7 +6,7 @@ Invoke-PrintDiskspace
 Remove-Item "$Env:Programfiles\Unity" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
 Write-Host $err
 
-Remove-Item "$Env:Programdata\Boost" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
+Remove-Item "$Env:Programfiles\Boost" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
 Write-Host $err
 
 Write-Host "After removing some Program Files"
