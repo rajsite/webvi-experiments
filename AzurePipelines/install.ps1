@@ -1,17 +1,5 @@
 Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
 
-Write-Host "Before removing some Program Files"
-Invoke-PrintDiskspace
-
-Remove-Item "$Env:Programfiles\Unity" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
-Write-Host $err
-
-Remove-Item "$Env:Programfiles\Boost" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
-Write-Host $err
-
-Write-Host "After removing some Program Files"
-Invoke-PrintDiskspace
-
 $rootDirectory = (Get-Location).Path
 Write-Host "Current directory $rootDirectory"
 
@@ -37,9 +25,6 @@ if ($install_NIPM)
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Remove-Item $nipmInstaller
-
-    Add-Content "$Env:Localappdata\National Instruments\NI Package Manager\nipkg.ini" "cachepackages=false"
-    Invoke-PrintFolderSizes("$Env:Programfiles")
 }
 
 Assert-FileExists($nipm)
@@ -61,6 +46,7 @@ if ($install_nxg)
     Run $nipm 'install ni-certificates --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
+    Invoke-PrintDiskspace
 
     Write-Host "Installing LabVIEW NXG..."
     Invoke-PrintDiskspace
@@ -68,18 +54,13 @@ if ($install_nxg)
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Invoke-PrintDiskspace
-    Invoke-DeletePackages
-    Invoke-PrintDiskspace
 
     Write-Host "Installing LabVIEW NXG Web Module..."
-    Invoke-PrintDiskspace
     Run $nipm 'install ni-labview-nxg-4.0.0-web-module --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
+    Invoke-PrintDiskspace
     Assert-FileExists($nxg)
-    Invoke-PrintDiskspace
-    Invoke-DeletePackages
-    Invoke-PrintDiskspace
 }
 
 return

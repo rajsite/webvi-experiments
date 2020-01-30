@@ -7,10 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v1
+    - name: Clean-up GitHub Actions Diskspace
+      run: powershell .\AzurePipelines\github-actions-free-disk.ps1
     - name: Install LabVIEW NXG
       run: powershell .\AzurePipelines\install.ps1
     - name: Start capturing screenshots
