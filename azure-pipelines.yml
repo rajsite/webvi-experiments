@@ -9,6 +9,11 @@ jobs:
     vmImage: 'vs2017-win2016'
   steps:
   - task: PowerShell@2
+    displayName: Lint markdown
+    script: |
+        npm ci
+        npm test
+  - task: PowerShell@2
     displayName: Install LabVIEW NXG
     inputs:
         targetType: 'filePath'

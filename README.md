@@ -1,24 +1,17 @@
-# webvi-experiments
+# WebVI Experiments
 
-A collection of experiments for WebVIs.
+A collection of experiments for WebVIs 🧪.
 
-See the demos at http://bit.ly/webvi-experiments.
+## LabVIEW Community Examples
 
-> Note: These projects are experimental and NOT yet considered suitable for production use. Experiments may have breaking changes, be non-functional prototypes, or be removed altogether without notice. The software is provided "AS IS", without warranty of any kind (see license for more details).
+The following projects have been shared on the LabVIEW Community 🥰:
 
-## Error code ranges
+- [SweetAlert 🍩](https://forums.ni.com/t5/Example-Programs/SweetAlert-Highly-configurable-popups-for-WebVIs-in-LabVIEW-NXG/ta-p/4011222) - Highly configurable popups for WebVIs in LabVIEW NXG.
 
-WebVI Experiments are currently in the [user-defined error code range](http://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/def_cust_errors/) starting at error code 567000.
+Please ask questions on the LabVIEW Community / use the downloads attached to pages in the LabVIEW Community. If you find the examples from the LabVIEW Community useful, make sure and share the [awesome WebVIs](https://github.com/rajsite/awesome-webvis) you make! 🏄‍♀️.
 
-Individual experiments are using the following error code ranges:
+## Other Examples
 
-- DOM (567000 - 567099)
+Warning: The other projects in this repository that are not shared on the LabVIEW Community or projects that are on the LabVIEW Community but have corresponding updates in this repository that are not published to the LabVIEW Community yet are experimental and NOT yet considered suitable for use ⚠.
 
-## Changelog
-
-Major changes that resulted in files being moved or deleted.
-
-- WebVICLI renamed to WebVINode
-- WebVICLI contains the Express and Electron frameworks
-- Arcade contains the Avalanche, Snake, and DOOM Fire games
-- FileTasks contains Uppy library
+Experiments may have breaking changes, be non-functional prototypes, or be removed altogether without notice. The software is provided "AS IS", without warranty of any kind (see license).

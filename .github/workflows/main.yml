@@ -11,6 +11,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v1
+    - name: Lint markdown
+      run: |
+        npm ci
+        npm test
     - name: Clean-up GitHub Actions Diskspace
       run: powershell .\AzurePipelines\github-actions-free-disk.ps1
     - name: Install LabVIEW NXG
@@ -18,7 +22,7 @@ jobs:
     - name: Start capturing screenshots
       working-directory: ./AzurePipelines/periodic-screenshot
       run: |
-        npm install
+        npm ci
         npm run start
     - name: Build LabVIEW Projects
       run: powershell .\AzurePipelines\build.ps1
