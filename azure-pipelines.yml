@@ -10,10 +10,11 @@ jobs:
   steps:
   - task: PowerShell@2
     displayName: Lint markdown
-    targetType: inline
-    script: |
-        npm ci
-        npm test
+    inputs:
+      targetType: inline
+      script: |
+          npm ci
+          npm test
   - task: PowerShell@2
     displayName: Install LabVIEW NXG
     inputs:
