@@ -4,10 +4,10 @@
   "private": true,
   "description": "A collection of experiments for WebVIs 🧪.",
   "scripts": {
-    "link": "glob-exec --foreach \"{./*.md,./.github/**/*.md}\" -- \"npm run markdown-link-check -- -c .linkcheck.json {{file}}\"",
+    "link": "glob-exec --foreach \"{./*.md,./.github/*.md,./.github/**/*.md}\" -- \"npm run markdown-link-check -- -c .linkcheck.json {{file}}\"",
     "markdown-link-check": "markdown-link-check",
-    "lint": "markdownlint {./*.md,./.github/**/*.md}",
-    "spelling": "mdspell --en-us --ignore-numbers --report \"./*.md\" \"./.github/**/*.md\"",
+    "lint": "markdownlint {./*.md,./.github/*.md,./.github/**/*.md}",
+    "spelling": "mdspell --en-us --ignore-numbers --report \"./*.md\" \"./.github/*.md\" \"./.github/**/*.md\"",
     "test": "npm run lint && npm run spelling && npm run link"
   },
   "repository": {
