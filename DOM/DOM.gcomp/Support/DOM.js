@@ -34,10 +34,6 @@
         [ELEMENT_NODE]: window.Node.ELEMENT_NODE
     };
 
-    const isDOMObject = function (obj) {
-        return typeof obj === 'object' && obj !== null && Object.values(NODE_TYPE_NAMES).includes(obj.nodeType);
-    };
-
     const validateDOMObject = function (obj, ...nodeTypeNames) {
         if (typeof obj !== 'object' || obj === null) {
             throw new Error('Invalid object. Expected a DOM Object.');
@@ -147,15 +143,13 @@
         return documentFragment;
     };
 
-    const createElements = function (documentTargetReference, tagNamesJSON, isInert) {
-        const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-        const tagNames = JSON.parse(tagNamesJSON);
+    const createElementsInert = function (documentTarget, tagNames) {
         // Escape tag names to catch unexpected HTML insertion
         const content = tagNames
             .map(tagName => escapeHTML(tagName))
             .map(tagNameEscaped => `<${tagNameEscaped}></${tagNameEscaped}>`)
             .join('');
-        const documentFragment = createDocumentFragmentInertable(documentTarget, content, isInert);
+        const documentFragment = createDocumentFragmentInertable(documentTarget, content, true);
         // Rely of document order traversal of querySelectorAll
         const elements = Array.from(documentFragment.querySelectorAll('*'));
         if (tagNames.length !== elements.length) {
@@ -166,6 +160,18 @@
                 throw new Error(`Resulting tag name from input ${tagName} resulted in unexpected output tag name ${elements[index].tagName}`);
             }
         });
+        return elements;
+    };
+
+    const createElementsLive = function (documentTarget, tagNames) {
+        const elements = tagNames.map(tagName => documentTarget.createElement(tagName));
+        return elements;
+    };
+
+    const createElements = function (documentTargetReference, tagNamesJSON, isInert) {
+        const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        const tagNames = JSON.parse(tagNamesJSON);
+        const elements = isInert ? createElementsInert(documentTarget, tagNames) : createElementsLive(documentTarget, tagNames);
         const elementReferences = elements.map(element => referenceManager.createReference(element));
         const elementReferencesTypedArray = new Int32Array(elementReferences);
         return elementReferencesTypedArray;
@@ -178,50 +184,25 @@
         return documentFragmentReference;
     };
 
-    // attributeValueConfigsJSON: [{attributeValue, exists}]
-    const setAttributes = function (elementReference, attributeNamesJSON, attributeValueConfigsJSON) {
-        const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
-        const attributeNames = JSON.parse(attributeNamesJSON);
-        const attributeValueConfigs = JSON.parse(attributeValueConfigsJSON);
-
-        if (attributeNames.length !== attributeValueConfigs.length) {
-            throw new Error('Must provide an equal number of attribute names and attribute values to set');
-        }
-
-        attributeNames.forEach(function (attributeName, index) {
-            const attributeValueConfig = attributeValueConfigs[index];
-            const {attributeValue, exists} = attributeValueConfig;
-            if (exists) {
-                element.setAttribute(attributeName, attributeValue);
-            } else {
-                element.removeAttribute(attributeName);
-            }
-        });
-    };
-
-    // attributeValueResultsJSON : {attributeNames: [attributeName], attributeValueConfigs: [{attributeValue, exists}]}
     const getAttributes = function (elementReference, attributeNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
         const attributeNamesInitial = JSON.parse(attributeNamesJSON);
         const attributeNames = attributeNamesInitial.length === 0 ? element.getAttributeNames() : attributeNamesInitial;
-        const attributeValueConfigs = attributeNames.map(function (attributeName) {
-            const attributeValueInitial = element.getAttribute(attributeName);
-            const exists = attributeValueInitial !== null;
-            const attributeValue = attributeValueInitial === null ? '' : attributeValueInitial;
-            const attributeValueConfig = {
-                attributeValue,
-                exists
+        const domValues = attributeNames.map(function (name) {
+            const valueInitial = element.getAttribute(name);
+            const exists = valueInitial !== null;
+            const type = exists ? 'attribute' : 'absent';
+            const value = exists ? valueInitial : '';
+            const domValue = {
+                type,
+                name,
+                value
             };
-            return attributeValueConfig;
+            return domValue;
         });
-        const attributeValueResults = {
-            attributeNames,
-            attributeValueConfigs
-        };
-        const attributeValueResultsJSON = JSON.stringify(attributeValueResults);
-        return attributeValueResultsJSON;
+        const domValuesJSON = JSON.stringify(domValues);
+        return domValuesJSON;
     };
 
     const lookupTarget = function (base, propertyNameParts) {
@@ -235,126 +216,117 @@
         return target;
     };
 
-    const createPropertyValueConfig = function (propertyValue) {
-        const propertyValueConfig = {
+    const createPropertyDomValue = function (name, value) {
+        const domValue = {
             type: '',
-            propertyValueJSON: ''
+            name,
+            value: ''
         };
-        if (propertyValue === undefined || propertyValue === null) {
-            propertyValueConfig.type = 'undefined';
-            // propertyValueConfig.propertyValueJSON is unused for this type
-        } else if (typeof propertyValue === 'number' || typeof propertyValue === 'string' || typeof propertyValue === 'boolean') {
-            propertyValueConfig.type = typeof propertyValue;
-            propertyValueConfig.propertyValueJSON = JSON.stringify({data: propertyValue});
-        } else if (typeof propertyValue === 'object' && propertyValue !== null) {
-            if (isDOMObject(propertyValue)) {
-                propertyValueConfig.type = 'reference';
-                // propertyValueConfig.propertyValueJSON is created using finalizePropertyValueConfig for this type
-            } else {
-                propertyValueConfig.type = 'json';
-                // Note that the propertyValue is not wrapped in another object
-                propertyValueConfig.propertyValueJSON = JSON.stringify(propertyValue);
-            }
+        if (value === undefined || value === null) {
+            domValue.type = 'undefined';
+            // domValue.value stays empty string
+        } else if (typeof value === 'number' || typeof value === 'string' || typeof value === 'boolean') {
+            domValue.type = typeof value;
+            domValue.value = String(value);
         } else {
-            throw new Error('Property value is unsupported primitive type.');
+            throw new Error(`Property value with name ${name} is unsupported type.`);
         }
-        return propertyValueConfig;
+        return domValue;
     };
 
-    const isPropertyValueConfigFinalized = function (propertyValueConfig) {
-        if (propertyValueConfig.type === 'reference' && propertyValueConfig.propertyValueJSON === '') {
-            return false;
-        }
-        return true;
-    };
-
-    const finalizePropertyValueConfig = function (propertyValueConfig, propertyValue) {
-        if (propertyValueConfig.type === 'reference') {
-            const reference = referenceManager.createReference(propertyValue);
-            propertyValueConfig.propertyValueJSON = JSON.stringify({data: reference});
-        }
-    };
-
-    const createPropertyValueConfigs = function (base, propertyNames) {
-        const propertyValueConfigsToFinalize = [];
-        const propertyValueConfigs = propertyNames.map(function (propertyName) {
-            const propertyNameParts = propertyName.split('.');
+    const createPropertyDomValues = function (base, names) {
+        const domValues = names.map(function (name) {
+            const nameParts = name.split('.');
             // Mutates array by removing the last name part
-            const lastNamePart = propertyNameParts.pop();
-            const target = lookupTarget(base, propertyNameParts);
-            const propertyValue = target[lastNamePart];
-            const propertyValueConfig = createPropertyValueConfig(propertyValue);
-            if (isPropertyValueConfigFinalized(propertyValueConfig) === false) {
-                propertyValueConfigsToFinalize.push({
-                    propertyValueConfig,
-                    propertyValue
-                });
-            }
-            return propertyValueConfig;
+            const lastNamePart = nameParts.pop();
+            const target = lookupTarget(base, nameParts);
+            const value = target[lastNamePart];
+            const domValue = createPropertyDomValue(name, value);
+            return domValue;
         });
-        propertyValueConfigsToFinalize.forEach(function ({propertyValueConfig, propertyValue}) {
-            finalizePropertyValueConfig(propertyValueConfig, propertyValue);
-        });
-        return propertyValueConfigs;
+        return domValues;
     };
 
-    const evaluatePropertyValueConfig = function (propertyValueConfig) {
-        const {type, propertyValueJSON} = propertyValueConfig;
+    const evaluatePropertyDomValue = function (domValue) {
+        const {type, value} = domValue;
         if (type === 'undefined') {
             const propertyValue = undefined;
             return propertyValue;
-        } else if (type === 'number' || type === 'string' || type === 'boolean') {
-            const propertyValueParsed = JSON.parse(propertyValueJSON);
-            const propertyValue = propertyValueParsed.data;
+        } else if (type === 'number') {
+            const propertyValue = Number(value);
             return propertyValue;
-        } else if (type === 'reference') {
-            const propertyValueParsed = JSON.parse(propertyValueJSON);
-            const reference = propertyValueParsed.data;
-            const propertyValue = referenceManager.getObject(reference);
-            return propertyValue;
-        } else if (type === 'json') {
-            const propertyValueParsed = JSON.parse(propertyValueJSON);
-            const propertyValue = propertyValueParsed;
+        } else if (type === 'string') {
+            return value;
+        } else if (type === 'boolean') {
+            const propertyValue = Boolean(value);
             return propertyValue;
         }
         throw new Error(`Unexpected property value type ${type}`);
     };
 
-    // propertyValueConfigsJSON: [{type, propertyValueJSON}]
     const getProperties = function (elementReference, propertyNamesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const propertyNames = JSON.parse(propertyNamesJSON);
-        const propertyValueConfigs = createPropertyValueConfigs(element, propertyNames);
-        const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
-        return propertyValueConfigsJSON;
+        const domValues = createPropertyDomValues(element, propertyNames);
+        const domValuesJSON = JSON.stringify(domValues);
+        return domValuesJSON;
     };
 
-    // propertyValueConfigsJSON: [{type, propertyValueJSON}]
-    const setProperties = function (elementReference, propertyNamesJSON, propertyValueConfigsJSON) {
+    const setDomValues = function (elementReference, domValuesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
 
-        const propertyNames = JSON.parse(propertyNamesJSON);
-        const propertyValueConfigs = JSON.parse(propertyValueConfigsJSON);
-
-        if (propertyNames.length !== propertyValueConfigs.length) {
-            throw new Error('Must provide an equal number of property names and property values to set');
-        }
-
-        propertyNames.forEach(function (propertyName, index) {
-            const propertyNameParts = propertyName.split('.');
-            // Mutates array by removing the last name part
-            const lastNamePart = propertyNameParts.pop();
-            const target = lookupTarget(element, propertyNameParts);
-            const propertyValueConfig = propertyValueConfigs[index];
-            const propertyValue = evaluatePropertyValueConfig(propertyValueConfig);
-            target[lastNamePart] = propertyValue;
+        const domValues = JSON.parse(domValuesJSON);
+        domValues.forEach(function (domValue) {
+            if (domValue.type === 'attribute') {
+                element.setAttribute(domValue.name, domValue.value);
+            } else if (domValue.type === 'absent') {
+                element.removeAttribute(domValue.name);
+            } else {
+                const nameParts = domValue.name.split('.');
+                // Mutates array by removing the last name part
+                const lastNamePart = nameParts.pop();
+                const target = lookupTarget(element, nameParts);
+                const value = evaluatePropertyDomValue(domValue);
+                target[lastNamePart] = value;
+            }
         });
     };
 
-    // parametersConfigJSON: [parameterJSON]
-    const invokeElementMethod = async function (elementReference, methodName, parameterPropertyValueConfigsJSON) {
+    const getReferences = function (elementReference, propertyNamesJSON) {
+        const element = referenceManager.getObject(elementReference);
+        validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        const propertyNames = JSON.parse(propertyNamesJSON);
+        const references = propertyNames.map(function (name) {
+            const nameParts = name.split('.');
+            // Mutates array by removing the last name part
+            const lastNamePart = nameParts.pop();
+            const target = lookupTarget(element, nameParts);
+            const value = target[lastNamePart];
+            const reference = referenceManager.createReference(value);
+            return reference;
+        });
+        const referencesTypedArray = new Int32Array(references);
+        return referencesTypedArray;
+    };
+
+    const setReferences = function (elementReference, propertyNamesJSON, referencesTypedArray) {
+        const element = referenceManager.getObject(elementReference);
+        validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        const propertyNames = JSON.parse(propertyNamesJSON);
+        propertyNames.forEach(function (name, index) {
+            const reference = referencesTypedArray[index];
+            const value = ReferenceManager.getObject(reference);
+            const nameParts = name.split('.');
+            // Mutates array by removing the last name part
+            const lastNamePart = nameParts.pop();
+            const target = lookupTarget(element, nameParts);
+            target[lastNamePart] = value;
+        });
+    };
+
+    const invokeElementMethod = async function (elementReference, methodName, parameterDomValuesJSON) {
         const element = referenceManager.getObject(elementReference);
         validateDOMObject(element, ELEMENT_NODE);
         const methodNameParts = methodName.split('.');
@@ -366,13 +338,13 @@
             throw new Error(`Value at name ${methodName} is not a callable function`);
         }
 
-        const parameterPropertyValueConfigs = JSON.parse(parameterPropertyValueConfigsJSON);
-        const parameters = parameterPropertyValueConfigs.map(parameterPropertyValueConfig => evaluatePropertyValueConfig(parameterPropertyValueConfig));
+        const parameterDomValues = JSON.parse(parameterDomValuesJSON);
+        const parameters = parameterDomValues.map(parameterDomValue => evaluatePropertyDomValue(parameterDomValue));
         const returnValue = await method.apply(context, parameters);
-        const returnValuePropertyValueConfig = createPropertyValueConfig(returnValue);
-        finalizePropertyValueConfig(returnValuePropertyValueConfig, returnValue);
-        const returnValuePropertyValueConfigJSON = JSON.stringify(returnValuePropertyValueConfig);
-        return returnValuePropertyValueConfigJSON;
+        const returnDomValue = createPropertyDomValue('return', returnValue);
+        const returnDomValues = [returnDomValue];
+        const returnDomValuesJSON = JSON.stringify(returnDomValues);
+        return returnDomValuesJSON;
     };
 
     class DataQueue {
@@ -435,8 +407,8 @@
             this._eventName = eventName;
             this._queue = new DataQueue();
             this._handler = (event) => {
-                const propertyValueConfigs = createPropertyValueConfigs(event, propertyNames);
-                this._queue.enqueue(propertyValueConfigs);
+                const domValues = createPropertyDomValues(event, propertyNames);
+                this._queue.enqueue(domValues);
             };
             this._element.addEventListener(this._eventName, this._handler);
         }
@@ -483,9 +455,9 @@
     const waitForEvent = async function (eventManagerReference) {
         const eventManager = referenceManager.getObject(eventManagerReference);
         validateObject(eventManager, EventManager);
-        const propertyValueConfigs = await eventManager.read();
-        const propertyValueConfigsJSON = JSON.stringify(propertyValueConfigs);
-        return propertyValueConfigsJSON;
+        const domValues = await eventManager.read();
+        const domValuesJSON = JSON.stringify(domValues);
+        return domValuesJSON;
     };
 
     window.WebVIDOM = {
@@ -498,8 +470,9 @@
         // Configure
         getAttributes,
         getProperties,
-        setAttributes,
-        setProperties,
+        getReferences,
+        setDomValues,
+        setReferences,
 
         // Monitor
         addEventListener,
