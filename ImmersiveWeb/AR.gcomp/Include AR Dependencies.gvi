@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="DFFE7EF5791A974FD68DA0D38A311EC0DA2C2EDA291A488A2323837ADF8E577031E1748B5D38D5B407D395A309E8429387C5569F328E318CED52B49EA792EEE8" Timestamp="1D5DF0FE2F8EDEE" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="3318E1FF4749D629A2C1B3B9C4297926BE3897DAED0D42EDE94A2484B37704E62F81D4E92B4F0044FDC890B9253A279D06CDF2F9318EAC7C5F6D45C82FACF31D" Timestamp="1D5DF15D398784C" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
@@ -77,13 +77,24 @@
 				<p.Text>error out</p.Text>
 			</NodeLabel>
 			<Wire Id="be2849250f0943de9f58a0a32d85a68d" Joints="N(a8274f00658540c8a37ef943689e36a7:R3)|(440,260) N(15087c01bcf64250807351ea050092fe:Value)|(473,260)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="330 255 40 15" DataItem="6ffee26be2d045eab8b1a02995167227" Id="80abea0069dd433993cc6cc616fa5819" Label="e9006bd8207a4a6fb36f4b64bfc93c9b" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="220 255 40 15" DataItem="6ffee26be2d045eab8b1a02995167227" Id="80abea0069dd433993cc6cc616fa5819" Label="e9006bd8207a4a6fb36f4b64bfc93c9b" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="80abea0069dd433993cc6cc616fa5819" Bounds="283 255 42 14" Id="e9006bd8207a4a6fb36f4b64bfc93c9b" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="80abea0069dd433993cc6cc616fa5819" Bounds="173 255 42 14" Id="e9006bd8207a4a6fb36f4b64bfc93c9b" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>error in</p.Text>
 			</NodeLabel>
-			<Wire Id="b4894a47546640578aee2190bca3e873" Joints="N(80abea0069dd433993cc6cc616fa5819:Value)|(370,260) N(a8274f00658540c8a37ef943689e36a7:L3)|(400,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="315 225 40 40" Id="6faabead9a754dc29a240465f7173eed" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\ImmersiveWeb\\AFrame.gcomp\\Support\\Include AFrame Dependencies.gvi&quot;" Signature="@e7adb11a7fbd4e3ab91044d507d4f8a0" Target="AFrame::Support::Include AFrame Dependencies.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="21be5f816fe74833a43cc0c1623d92e6" Joints="N(80abea0069dd433993cc6cc616fa5819:Value)|(260,260) N(6faabead9a754dc29a240465f7173eed:L3)|(315,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="7c5b0aa091054f2692ecfcaaa1bcc3f5" Joints="N(6faabead9a754dc29a240465f7173eed:R3)|(355,260) N(a8274f00658540c8a37ef943689e36a7:L3)|(400,260)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="1c0be08b5f2e4787826b466f1e8f6285" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="34c92a138f8c44bd8e44ec6eee5acefa" />
@@ -123,8 +134,32 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
+		<p.TypeReference TypeId="e7adb11a7fbd4e3ab91044d507d4f8a0">
+			<Attributed AttributedType="@c52c657800e745339fec430a087d1e84">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="55127585052f49139180d7fd19a0a319">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="IncludeARDependencies" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c52c657800e745339fec430a087d1e84">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Include AFrame Dependencies.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
@@ -167,6 +202,24 @@
 									<FontSetting FontFamily="Verdana" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="AFrame::Support::Include AFrame Dependencies.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Include AFrame Dependencies" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]AFrame.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
