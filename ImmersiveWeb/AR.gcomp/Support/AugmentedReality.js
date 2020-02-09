@@ -24,13 +24,13 @@
         const topLevelVIDirectoryUrl = stripUrlEnd(windowUrl);
         return topLevelVIDirectoryUrl;
     };
-    const inlcudeARDependencies = function () {
+    const includeARDependencies = function () {
         // intentionally blank
     };
 
     window.WebVIAugmentedReality = {
         getAugmentedRealityDirectoryUrl,
         getTopLevelVIDirectoryUrl,
-        inlcudeARDependencies
+        includeARDependencies
     };
 }());
