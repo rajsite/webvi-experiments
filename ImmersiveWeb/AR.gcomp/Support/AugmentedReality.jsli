@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="19846971757AD55DDBCB9373829106BE59936A1DE3BEC9F0951ACAA9EE6760B7DABEB350CD9A29AEB199A389DECBC726E48A9B21F407D7337A3FB3BBDCB96955" Timestamp="1D5DF01543DB0FB" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="AEDFBC5EB20CC033C1D7342B392E03BA55D6540BDAC7325CDD6264C4AC2FE3EF03DCFF0BE4B4814A2099B06A39406B665C1B63A32435BB17DB79748DBC255BE7" Timestamp="1D5DF0EA688AFFA" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
@@ -17,7 +17,7 @@
 				</IconTemplate>
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="7a66ea8f7f9d40529590f508280290ef" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;AugmentedReality.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;!-- Note: The aframe and ar.js dependencies are used by AugmentedReality.html and not directly by the WebVI --&amp;gt;\r\n&quot;" />
+		<DependenciesTextBox Id="7a66ea8f7f9d40529590f508280290ef" ScriptAndLinkDependencies="&quot;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;AugmentedReality.css&amp;quot;&amp;gt;\r\n\r\n&amp;lt;script src=&amp;quot;node_modules/ar_js/aframe/build/aframe-ar.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;AugmentedReality.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;!-- Note: The aframe and ar.js dependencies are used by AugmentedReality.html and not directly by the WebVI --&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="9" xmlns="http://www.ni.com/PlatformFramework">
 		<EnvoyManagerRootEnvoy Id="10" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
@@ -92,11 +92,53 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="de401097953e43f7abd7b30e479b2924" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="InlcudeARDependencies">
+				<JavaScriptLibraryEntryPoint Id="2033ae4b5e884d71b7d2625f96d26a14" Symbol="WebVIAugmentedReality.inlcudeARDependencies" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="b483b170b184668ad8b2ff084d4a845" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="5608b1b35b0444ed844d20693ad82f2b" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="d6e8c3466f7e42c59801a7d685871369" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="545870b6064a4c3f903bd0305084327c" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="b2728496762b4692af8c71bae8a0d665" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Id="2c94d7db72a14b788178242a1f7a493d" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]InlcudeARDependencies" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="43fe7da1c06341f699b19be807f0af11" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="1770fa4fcb5c4172bd8f14db7bb10067" ListViewHeight="70" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="3ba92370359e44ceb729631d2152e60c" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="42c9df65a2ef4ad4a620788622bbf25b" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="3ba92370359e44ceb729631d2152e60c" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="42c9df65a2ef4ad4a620788622bbf25b" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="7e9963618cd144a0b9075073f6ef06b1" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@944905d42fe342679bc16a8700965d81" Id="b8e507e886d748ffb726ade263c8df63" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="a29b672d141343e78df907f73413b010" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
 		<p.TypeReference TypeId="6290d7ebaa60406f97e6c0d355b86f3d">
 			<Attributed AttributedType="String">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="944905d42fe342679bc16a8700965d81">
+			<Attributed AttributedType="Void">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 				</AttributeValues>

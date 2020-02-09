@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="BC69DA0BEFE42B22499934B4F5478896E7CBD0A0F054C6228251DB793819851DDC94978C498FCE2E7CBF4DF6155A3AE6A49E1C4FB0AD11D59C940743312547A5" Timestamp="1D5DF06C1D10984" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="4CA36E866A1F8985E8EB7F4944FD4B7CB44F2147996C8E2D9F5F43D1B7DF15CFF407B198766FC7595A6EAA2CC5E2BF217AA68811BBEADFB1096CDC3918564B89" Timestamp="1D5DF0F288EE1D9" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
@@ -11,10 +11,55 @@
 				<IconTemplate Height="[float]40" Id="1ad2584a633f4a949aec6f1142078502" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="1302e71ed9a84353a25c7909e3fdeab0" />
+		<DependenciesTextBox Id="1302e71ed9a84353a25c7909e3fdeab0" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;node_modules/aframe/dist/aframe-v1.0.4.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;node_modules/aframe-extras/dist/aframe-extras.js&amp;quot;&amp;gt; &amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;node_modules/aframe-text-geometry-component/dist/aframe-text-geometry-component.js&amp;quot;&amp;gt; &amp;lt;/script&amp;gt;\r\n\r\n&amp;lt;script src=&amp;quot;AFrame.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="fb84e229f22549a08427fa17cc4af5b7" xmlns="http://www.ni.com/PlatformFramework">
 		<EnvoyManagerRootEnvoy Id="26d4ae838c5841889ce815520f2099c8" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
-		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="dea9d34fa1d440aeae3c1ba9b4d258b4" Name="AFrame.jsli" NameTracksFileName="True" />
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="dea9d34fa1d440aeae3c1ba9b4d258b4" Name="AFrame.jsli" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Id="ccdad86453564fdeb71416e063812c8f" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="IncludeAFrameDependencies">
+				<JavaScriptLibraryEntryPoint Id="83005060106b4415875d561181edaa9c" Symbol="WebVIAFrame.includeAFrameDependencies" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="c0e043c7e1d8499faae2c253ce717efb" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="e97e99f5340848259663ef3f57559dc8" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="c58a295101244b26a0f5977e9852fc8b" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="cd49010d958844d2916c2b3c2b6b5e0d" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="8984df9f6d7e42ad90caf10c301598ce" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Id="4eb8567d92d248b2ace3e9628a51d188" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]IncludeAFrameDependencies" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="3971547706b042659287fa3e69bf964e" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="de0c6c2851974baf8ad422349fc0987d" ListViewHeight="70" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="680e54f8f4264248a5f48be5068770e3" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="5f5f2371d80f46cabcd59890e2b63448" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="680e54f8f4264248a5f48be5068770e3" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5f5f2371d80f46cabcd59890e2b63448" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="ef487d727ec4c66b6d9c043f0556dca" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@944905d42fe342679bc16a8700965d81" Id="d0960b05bb104791ab8fdb6c268f9d24" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="600c904624dd4e46967af14027206fa2" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
 	</EnvoyManagerFile>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="944905d42fe342679bc16a8700965d81">
+			<Attributed AttributedType="Void">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
 </SourceFile>
