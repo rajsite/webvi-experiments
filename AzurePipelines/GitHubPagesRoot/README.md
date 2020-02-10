@@ -12,6 +12,7 @@
 - ImmersiveWeb
     - [AugmentedReality](https://rajsite.github.io/webvi-experiments/AugmentedReality)
     - [SecretBox](https://rajsite.github.io/webvi-experiments/AugmentedRealitySecretBox)
+    - [VirtualReality](https://rajsite.github.io/webvi-experiments/VirtualReality)
 - [JSONParser](https://rajsite.github.io/webvi-experiments/JSONParser)
 - [Leaflet](https://rajsite.github.io/webvi-experiments/Leaflet)
 - [MachineLearning](https://rajsite.github.io/webvi-experiments/MachineLearning)

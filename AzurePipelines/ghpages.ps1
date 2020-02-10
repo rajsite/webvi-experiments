@@ -56,6 +56,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Serve
 Write-Host "Copy ImmersiveWeb projects: SecretBox build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
 
+Write-Host "Copy ImmersiveWeb projects: VirtualReality build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "VirtualReality.gcomp" -TargetDirectory "$ghpagesbuilddir\VirtualReality"
+
 Write-Host "Copy JSONParser build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
 
