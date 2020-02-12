@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="7B2A32933BE55CDF332B95FF0DA545F0EDDDCE5451E4739167A7AB3DD2EE043DB0A442853D57CA3629511DEBD7B93D717024DEB4BDD6B1E5EAF0C5FF020A931F" Timestamp="1D5DFCE4ADEBA2F" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="884598FDDFB24F8FC30DEBAA36BF8042620ADA13E09799271C6BD68D34B857EF1A5618F1651AAA225BC894639F53EA1361F4E437E7EBD953BB26028A5A8BD2A1" Timestamp="1D5E141D73FDF38" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
@@ -239,7 +239,7 @@
 							<ArrayBehavior ElementType="String" IndexEditorWidth="42">
 								<p.DefaultElementValue>""</p.DefaultElementValue>
 							</ArrayBehavior>
-							<Literal Bounds="50 45 46 15" DataType="String" Id="186b83f355be4dfaac2e05f7857dada3">
+							<Literal Bounds="48 2 46 15" DataType="String" Id="186b83f355be4dfaac2e05f7857dada3">
 								<StringBehavior TextDisplayMode="Default" />
 							</Literal>
 						</ArrayLiteral>
@@ -253,7 +253,7 @@
 							<ArrayBehavior ElementType="String" IndexEditorWidth="42" Orientation="Horizontal">
 								<p.DefaultElementValue>""</p.DefaultElementValue>
 							</ArrayBehavior>
-							<Literal Bounds="48 19 56 15" DataType="String" Id="78cd55fb8fdb47d29ecca1ea4502380c">
+							<Literal Bounds="48 2 56 15" DataType="String" Id="78cd55fb8fdb47d29ecca1ea4502380c">
 								<StringBehavior TextDisplayMode="Default" />
 							</Literal>
 						</ArrayLiteral>
@@ -458,6 +458,37 @@
 			</WhileLoop>
 			<Wire Id="73a9eadab39043459379a976d2864efa" Joints="N(630436a938184fb59b6a8ad51071c819:R3)|(425,470) h(50) v(5) h(15) v(5) N(84404dd2a1d848e3bab809d7be47c668:o0)|(491,480)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="173ace0a342b4bdcb19dbada3df0f79b" Joints="N(917deec7474dd5bc9831e673dd5ab0:R1)|(355,560) h(120) v(5) h(15) v(5) N(81ef8fd096d4445aba2a641c4bf64b44:o0)|(491,570)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="40 455 40 40" Id="6db665f6728e47499b0b64871b33c9a6" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\DOM\\DOM.gcomp\\Values\\Append Attribute.gvi&quot;" Signature="@1df965949863416a89a78f20d227c634" Target="DOM::Values::Append Attribute.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="dom values in" />
+						<Parameter Id="L1" Desc="name" />
+						<Parameter Id="L2" Desc="value" />
+						<Parameter Id="R0" Desc="dom values out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@15bd5943c92e48eba5707811bef20950" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@15bd5943c92e48eba5707811bef20950" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="1efb9338c30a46cb8b7b0e7fa43dec70" Joints="N(6db665f6728e47499b0b64871b33c9a6:R0)|(80,460) N(1f4660710a0749c6b24983e385a62507:L2)|(130,460)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="-55 465 65 15" DataType="String" Id="831129d383e040daae5d506ed2395b6b" Label="cee12cf5c5894e04a8e831f8cea14165" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>renderer</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="831129d383e040daae5d506ed2395b6b" Bounds="-55 447 30 15" Id="cee12cf5c5894e04a8e831f8cea14165" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>name</p.Text>
+			</NodeLabel>
+			<Wire Id="568b747a02314b56aec32e15b096c5f9" Joints="N(831129d383e040daae5d506ed2395b6b:Out)|(10,470) N(6db665f6728e47499b0b64871b33c9a6:L1)|(40,470)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="-135 490 150 15" DataType="String" Id="3fd499652b9422b939ce71da85fc682" Label="2e10686b4e7646fca0ebeb128b880e8f" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>colorManagement: true</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="3fd499652b9422b939ce71da85fc682" Bounds="-135 472 30 15" Id="2e10686b4e7646fca0ebeb128b880e8f" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>value</p.Text>
+			</NodeLabel>
+			<Wire Id="2fe42d689ecc4a27bc1c64b901a895e5" Joints="N(3fd499652b9422b939ce71da85fc682:Out)|(15,495) h(10) v(-15) N(6db665f6728e47499b0b64871b33c9a6:L2)|(40,480)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" HtmlPanel="[bool]False" Id="1921d14fde4047b78b367d1843386bca" LayoutSystem="[LayoutSystem]Absolute" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<HtmlUrlImage Alternate="[string]" BaseName="[string]UrlImage" Height="[float]504" Id="7ef7741ef571472faf100a9745dbae82" Label="[UIModel]6668103ec5a241189203db97a609c185" Left="[float]20" Source="{DataItemBinding Id=e5b4a7dd0e8d499e852e7d54cdf97338}" Stretch="[SMStretch]Uniform" TabIndex="[int]0" Top="[float]36" Width="[float]984" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
