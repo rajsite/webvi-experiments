@@ -4,8 +4,8 @@
     const getReferences = function () {
         const webAppElement = document.querySelector('ni-web-application');
 
-        // nxg 3.1
-        if (window.vireoHelpers !== undefined) {
+        const isNXG3 = window.vireoHelpers && window.NationalInstruments && window.NationalInstruments.HtmlVI && window.NationalInstruments.HtmlVI.webApplicationModelsService;
+        if (isNXG3) {
             // Find vireo instance
             const webApplicationModelsService = window.NationalInstruments.HtmlVI.webApplicationModelsService;
             const webAppModel = webApplicationModelsService.getModel(webAppElement);
@@ -24,7 +24,8 @@
         // nxg 5? (tentative prototype, nxg 5 support not guaranteed, not in beta)
         // Note: In nxg 4 we switched to es6 modules and these internals are no longer exposed in the global scope (good thing),
         // but in order for the debug tools to be possible we might need to expose some properties (like vireoInstance and vireoHelpers below)
-        if (webAppElement.vireoInstance !== undefined) {
+        const isNXG5 = window.vireoHelpers && webAppElement.vireoInstance;
+        if (isNXG5) {
             // Find vireo instance
             const vireo = webAppElement.vireoInstance;
 
