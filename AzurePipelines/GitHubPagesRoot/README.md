@@ -11,6 +11,7 @@
 - [Express](https://webvicli-express.herokuapp.com/)
 - ImmersiveWeb
     - [AugmentedReality](https://rajsite.github.io/webvi-experiments/AugmentedReality)
+    - [HardwareDashboard](https://rajsite.github.io/webvi-experiments/HardwareDashboard)
     - [SecretBox](https://rajsite.github.io/webvi-experiments/AugmentedRealitySecretBox)
     - [VirtualReality](https://rajsite.github.io/webvi-experiments/VirtualReality)
 - [JSONParser](https://rajsite.github.io/webvi-experiments/JSONParser)

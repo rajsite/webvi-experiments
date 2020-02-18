@@ -53,6 +53,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Web Server" -C
 Write-Host "Copy ImmersiveWeb projects: AugmentedReality build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
 
+Write-Host "Copy ImmersiveWeb projects: HardwareDashboard build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "HardwareDashboard.gcomp" -TargetDirectory "$ghpagesbuilddir\HardwareDashboard"
+
 Write-Host "Copy ImmersiveWeb projects: SecretBox build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
 

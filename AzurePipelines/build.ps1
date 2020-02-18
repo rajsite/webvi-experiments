@@ -24,6 +24,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "EChar
 Write-Host "Build ImmersiveWeb projects: AugmentedReality"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "ImmersiveWeb.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build ImmersiveWeb projects: HardwareDashboard"
+Invoke-NXGBuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "ImmersiveWeb.lvproject" -TargetName "Web Server" -ComponentFileName "HardwareDashboard.gcomp"
+
 Write-Host "Build ImmersiveWeb projects: SecretBox"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "ImmersiveWeb.lvproject" -TargetName "Web Server" -ComponentFileName "SecretBox.gcomp"
 
