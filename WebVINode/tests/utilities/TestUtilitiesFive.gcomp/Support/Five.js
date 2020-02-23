@@ -1,4 +1,3 @@
-/* globals module: true, require: true */
 (function (root, factory) {
     'use strict';
     if (typeof module === 'object' && module.exports) {

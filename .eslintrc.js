@@ -136,7 +136,7 @@ module.exports = {
         'no-underscore-dangle': ["error", { "allowAfterThis": true }],
         'no-unneeded-ternary': 'error',
         'no-whitespace-before-property': 'error',
-        'object-curly-newline': ["error", { "multiline": true }],
+        'object-curly-newline': ["error", { "consistent": true }],
         'object-curly-spacing': 'error',
         'object-property-newline': ["error", { "allowAllPropertiesOnSameLine": true }],
         'one-var-declaration-per-line': 'error',

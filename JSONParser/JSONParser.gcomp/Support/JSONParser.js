@@ -165,7 +165,7 @@
 
         let currentOffset = 1;
         for (let key in value) {
-            if (value.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(value, key)) {
                 const valueTokens = visitValue(value[key]);
                 offsets.push(currentOffset);
                 tokens.push({
