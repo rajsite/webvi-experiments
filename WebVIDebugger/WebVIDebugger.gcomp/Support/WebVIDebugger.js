@@ -17,7 +17,8 @@
 
             return {
                 vireoHelpers,
-                vireo
+                vireo,
+                webAppElement
             };
         }
 
@@ -34,14 +35,16 @@
 
             return {
                 vireoHelpers,
-                vireo
+                vireo,
+                webAppElement
             };
         }
 
         // nxg 4 may be SOL, couldn't find any good ways to access internal state :(
         return {
             vireoHelpers: undefined,
-            vireo: undefined
+            vireo: undefined,
+            webAppElement
         };
     };
 
@@ -51,7 +54,7 @@
             return;
         }
         // static references
-        const {vireoHelpers, vireo} = getReferences();
+        const {vireoHelpers, vireo, webAppElement} = getReferences();
         if (vireoHelpers === undefined || vireo === undefined) {
             console.log('WebVIDebugger not supported in this version of NXG. Only');
         }
@@ -76,10 +79,8 @@
 
         const eventData = JSON.stringify(dataItems);
         console.log(eventData);
-        pendingUpdate = requestAnimationFrame(() => {
-            window.postMessage(eventData, '*');
-            pendingUpdate = undefined;
-        });
+        const event = new CustomEvent('webvi-debugger-message', {detail: eventData});
+        webAppElement.dispatchEvent(event);
     };
 
     window.WebVIDebugger = {inspectPanelValues};

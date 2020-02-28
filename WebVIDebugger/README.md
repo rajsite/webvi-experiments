@@ -21,5 +21,5 @@ Supports NXG 3.1, but not NXG 4.0 or NXG 5 beta. Hopefully can support NXG 5 in 
 
    The content script then uses `browser.runtime.sendMessage()` to send a message across the Extension's private message bus.
 
-   TODO: switch to connection api instead of extension message + element events so can tell which page instance is the event source.
+   TODO: switch to [connect api](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/connect) instead of extension message + element events so can tell which page instance is the event source.
 3. The `WebVIDevTools` panel built from `webvi-devtools-panel.gviweb` listens for messages on the Extension's private message bus.

@@ -6,14 +6,15 @@
 
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
-    "permissions": ["<all_urls>"],
-
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["Support/webvi-devtools-content.js"],
-          "run_at": "document_start"
-        }
+    "permissions": [
+      "activeTab"
     ],
+    "browser_action": {
+      "default_title": "Enable WebVI Debugger for this page"
+    },
+    "background": {
+      "page": "Support/webvi-devtools-background.html",
+      "persistent": false
+    },
     "devtools_page": "Support/webvi-devtools-load-panel.html"
 }

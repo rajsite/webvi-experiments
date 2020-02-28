@@ -2,20 +2,8 @@
     'use strict';
 
     const browser = window.browser || window.chrome;
-
-    const isFromPage = function (evt) {
-        return evt.source === window;
-    };
-
-    const isValidMessageType = function (evt) {
-        return typeof evt.data === 'string';
-    };
-
-    window.addEventListener('message', function (evt) {
-        if (isFromPage(evt) === false || isValidMessageType(evt) === false) {
-            return;
-        }
-
-        browser.runtime.sendMessage(evt.data);
+    const webAppElement = document.querySelector('ni-web-application');
+    webAppElement.addEventListener('webvi-debugger-message', function (event) {
+        browser.runtime.sendMessage(event.detail);
     });
 }());

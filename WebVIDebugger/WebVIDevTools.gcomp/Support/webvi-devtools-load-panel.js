@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
     const browser = window.browser || window.chrome;
@@ -8,5 +7,3 @@
         '/webvi-devtools-panel.html'
     );
 }());
-
-
