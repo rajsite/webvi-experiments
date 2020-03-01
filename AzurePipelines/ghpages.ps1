@@ -77,6 +77,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Web Server" -
 Write-Host "Copy SweetAlert build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SweetAlert"
 
+Write-Host "Copy WebAudio build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebAudio" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebAudio"
+
 Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 

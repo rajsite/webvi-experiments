@@ -48,6 +48,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\RichText" -ProjectFileName "Rich
 Write-Host "Build SweetAlert project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "SweetAlert.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build WebAudio project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\WebAudio" -ProjectFileName "WebAudio.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build WebBluetooth project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\WebBluetooth" -ProjectFileName "WebBluetooth.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
