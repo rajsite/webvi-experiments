@@ -15,6 +15,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName 
 Write-Host "Build Arcade projects: Snake"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "Snake.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build Bootstrap project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootstrap.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build BusyState project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\BusyState" -ProjectFileName "BusyState.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
