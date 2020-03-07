@@ -23,6 +23,24 @@
         }
     };
 
+    const createTemplateHandler = function (template) {
+        const templateElement = document.createElement('template');
+        templateElement.innerHTML = template;
+        const fragment = templateElement.content;
+        const querySelector = function (selector) {
+            const elements = fragment.querySelectorAll(selector);
+            if (elements.length !== 1) {
+                throw new Error(`Expected one element with selector ${selector} but found ${elements.length} in template: ${template}`);
+            }
+            const element = elements[0];
+            return element;
+        };
+        const querySelectors = function (selectors) {
+            return selectors.map(querySelector);
+        };
+        return {querySelector, querySelectors};
+    };
+
     const createNavbar = function () {
         // Documentation for bootstrap navbars:
         // https://getbootstrap.com/docs/4.0/components/navbar/
@@ -41,18 +59,15 @@
             </div>
         </nav>
         `;
-        const template = document.createElement('template');
-        template.innerHTML = navbarTemplate;
-        const fragment = template.content;
+        const templateHandler = createTemplateHandler(navbarTemplate);
 
-        navbarParts.brand = fragment.querySelector('.navbar-brand');
-        navbarParts.nav = fragment.querySelector('.navbar-nav');
+        navbarParts.brand = templateHandler.querySelector('.navbar-brand');
+        navbarParts.nav = templateHandler.querySelector('.navbar-nav');
 
-        const toggler = fragment.querySelector('.navbar-toggler');
-        const collapse = fragment.querySelector('.navbar-collapse');
+        const [toggler, collapse] = templateHandler.querySelectors(['.navbar-toggler', '.navbar-collapse']);
         $(toggler).click(() => $(collapse).collapse('toggle'));
 
-        const navbar = fragment.querySelector('.navbar');
+        const navbar = templateHandler.querySelector('.navbar');
         document.body.insertAdjacentElement('afterbegin', navbar);
     };
 
@@ -90,12 +105,9 @@
             <a class="nav-link"></a>
         </li>
         `;
-        const template = document.createElement('template');
-        template.innerHTML = navItemTemplate;
-        const fragment = template.content;
+        const templateHandler = createTemplateHandler(navItemTemplate);
 
-        const navItem = fragment.querySelector('.nav-item');
-        const navLink = fragment.querySelector('.nav-link');
+        const [navItem, navLink] = templateHandler.querySelectors(['.nav-item', '.nav-link']);
         navLink.textContent = text;
         navLink.href = rebasedUrl.href;
 
