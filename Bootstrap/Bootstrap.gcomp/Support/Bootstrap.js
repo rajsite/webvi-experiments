@@ -98,6 +98,11 @@
         navbarParts.brand.href = rebasedUrl.href;
     };
 
+    const trimIndex = function (url) {
+        const urlWithoutIndex = url.replace(/index\.html$/, '');
+        return urlWithoutIndex;
+    };
+
     const appendNavItem = function (text, url) {
         const rebasedUrl = rebaseUrlFromWebAppRoot(url);
         const navItemTemplate = `
@@ -111,8 +116,8 @@
         navLink.textContent = text;
         navLink.href = rebasedUrl.href;
 
-        const windowPathname = window.location.pathname;
-        const rebasedUrlPathname = rebasedUrl.pathname;
+        const windowPathname = trimIndex(window.location.pathname);
+        const rebasedUrlPathname = trimIndex(rebasedUrl.pathname);
         if (windowPathname === rebasedUrlPathname) {
             navItem.classList.add('active');
         }
