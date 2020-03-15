@@ -40,19 +40,23 @@
             parent.appendChild(element);
 
             const map = L.map(element).setView([latitude, longitude], zoomLevel);
-            const tileLayer = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-                // Other OpenStreetMap tile servers: https://wiki.openstreetmap.org/wiki/Tile_servers
-                // WikiMedia Maps Terms of Use: https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use
-                // Must be attributed for OpenStreetMaps, see: https://www.openstreetmap.org/copyright
-                attribution: '<a href="https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use">Wikimedia Maps</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-            });
-
-            map.addLayer(tileLayer);
             const mapReference = referenceManager.createReference(map);
             map.whenReady(function () {
                 resolve(mapReference);
             });
         });
+    };
+
+    const addTileLayer = function (mapReference, urlTemplate, attribution) {
+        const map = referenceManager.getObject(mapReference);
+        if (map === undefined) {
+            throw new Error('Invalid Leaflet map reference');
+        }
+        const tileLayer = L.tileLayer(urlTemplate, {
+            attribution
+        });
+
+        map.addLayer(tileLayer);
     };
 
     const mapDestroy = function (mapReference) {
@@ -98,6 +102,7 @@
     window.WebVILeaflet = {
         mapCreate,
         mapDestroy,
+        addTileLayer,
         markerCreate,
         markerDestroy,
         markerPopupShow
