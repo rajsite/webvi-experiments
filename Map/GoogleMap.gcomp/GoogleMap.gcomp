@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="65C6E9D6BD9466FD5BF2844C9F087D57C63331724C3A4C889A57DC484C25180BD87B8FD817F6797E65837E5B574119B43F7834779C8DF1127FD4FC7324560D6A" Timestamp="1D60A452CBCFA1F" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
+		<ApplicationVersionInfo Build="7.1.0.50148" Name="LabVIEW NXG" Version="4.0.0" />
+	</SourceModelFeatureSet>
+	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="a0cd1d9017e493ca600726dc1160550" RootNamespaceId="17dd3cda45294430b9c97fbc8750393b" xmlns="http://www.ni.com/GComponent.xsd">
+		<Icon Id="4bd7ddc69be24192ab585f449292081d" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="da5b0941e60f4908bb298f02dcfa0fed" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="e2527d9e0c734e8faa6c159e4e209820" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<CompilerSymbolTable Id="cc850c162d304c76b5585c9f2da79fa6" xmlns="http://www.ni.com/PlatformFramework" />
+		<ComponentConfiguration Id="c70076cf5aab44a2b35e32cbb538ea82" Name="Configuration1">
+			<CompilerSymbolTable Id="9c8943e3c4244e11ac40ae8a35e9a135" xmlns="http://www.ni.com/PlatformFramework" />
+			<ComponentItemProperties AssociatedEnvoyId="ab61b67f04964b48995a4562c9ddabe3" Exported="True" Id="7f719104473041fcb192a344d25e9f6d" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="624f2f660f08485e913a1dff77df8cb8" Id="1d675a62a8034b06b841ff271d09c731" />
+			<ComponentItemProperties AssociatedEnvoyId="b56339daf3c443af8a4460b1f6236b1f" Exported="True" Id="bcab8f6de0c646caa7081f9e1acbe441" />
+			<ComponentItemProperties AssociatedEnvoyId="52b852739ea4310a0ab44e3b38f75f3" Exported="True" Id="22e78893f0d241ddb9e358a3931c7eda" />
+			<ComponentItemProperties AssociatedEnvoyId="8e05e89a68d64fc184d06dc7c83c7300" Exported="True" Id="9da773e147c04319863f2141d6bfa6ae" />
+			<ComponentItemProperties AssociatedEnvoyId="4649896d72a4831ac642f15be5d13de" Exported="True" Id="585165bf52e64016bf066f6cb79f3fb0" />
+		</ComponentConfiguration>
+	</ComponentDefinition>
+	<EnvoyManagerFile Id="eed9fb00b81247ddb5f9c2a0c55a2c89" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="39839d4f42cb4c65910533512d1c0b64" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<EmbeddedDefinitionReference Id="c42840e7cc9b4793a848a5ee0ca6d174" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
+			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
+			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="17dd3cda45294430b9c97fbc8750393b" Name="GoogleMap">
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="65d05d284f7b4d5fa91ff44bf56ede0f" Name="Support">
+					<SourceFileReference Bindings="EnvoyManager" Id="ab61b67f04964b48995a4562c9ddabe3" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="GoogleMap.jsli" StoragePath="Support\GoogleMap.jsli" />
+					<FileReference Bindings=".js" Id="624f2f660f08485e913a1dff77df8cb8" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="GoogleMap.js" StoragePath="Support\GoogleMap.js" />
+				</NameScopingEnvoy>
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="3b5c40246b774551842eb4a3833f762c" Name="Map">
+					<SourceFileReference Id="b56339daf3c443af8a4460b1f6236b1f" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Map.gvi" StoragePath="Map\Create Map.gvi" />
+					<SourceFileReference Id="52b852739ea4310a0ab44e3b38f75f3" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Initialize Map.gvi" StoragePath="Map\Initialize Map.gvi" />
+					<SourceFileReference Bindings="EnvoyManager" Id="8e05e89a68d64fc184d06dc7c83c7300" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="map reference.gtype" StoragePath="Map\map reference.gtype\map reference.gtype" />
+					<SourceFileReference Id="4649896d72a4831ac642f15be5d13de" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Destroy Map.gvi" StoragePath="Map\Destroy Map.gvi" />
+				</NameScopingEnvoy>
+			</NameScopingEnvoy>
+		</EmbeddedDefinitionReference>
+		<NameScopingEnvoy Id="47accd6b571a499b84da9a1b3a88f60c" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="GoogleMap.gcomp" NameTracksFileName="True">
+			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />
+			<ContentReference ContentIdentifier="c70076cf5aab44a2b35e32cbb538ea82" Id="ba0c9d77c37047a6a17e4bc20d06f106" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+</SourceFile>

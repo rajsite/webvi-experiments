@@ -62,7 +62,7 @@
     const mapDestroy = function (mapReference) {
         const map = referenceManager.getObject(mapReference);
         if (map === undefined) {
-            throw new Error('Invalid Leaflet map reference');
+            return;
         }
         referenceManager.closeReference(mapReference);
         map.remove();
