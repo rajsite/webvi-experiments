@@ -40,7 +40,7 @@ Write-Host "Build JSONParser project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\JSONParser" -ProjectFileName "JSONParser.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build Leaflet project"
-Invoke-NXGBuildApplication -ProjectDirectory ".\Leaflet" -ProjectFileName "Leaflet.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Map" -ProjectFileName "Map.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build MachineLearning project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\MachineLearning" -ProjectFileName "MachineLearning.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp"

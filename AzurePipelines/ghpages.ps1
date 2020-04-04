@@ -69,7 +69,7 @@ Write-Host "Copy JSONParser build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
 
 Write-Host "Copy Leaflet build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\Leaflet" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Leaflet"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Map" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Leaflet"
 
 Write-Host "Copy MachineLearning build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\MachineLearning"
