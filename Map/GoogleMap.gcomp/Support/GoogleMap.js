@@ -71,5 +71,28 @@
         return mapReference;
     };
 
-    window.WebVIGoogleMap = {initialize, createMap};
+    const createMarker = function (mapReference, lat, lng, title) {
+        const map = referenceManager.getObject(mapReference);
+        if (map === undefined) {
+            throw new Error('Invalid Google Map reference');
+        }
+        const marker = new window.google.maps.Marker({
+            position: {lat, lng},
+            map,
+            title
+        });
+        const markerReference = referenceManager.createReference(marker);
+        return markerReference;
+    };
+
+    const destroyMarker = function (markerReference) {
+        const marker = referenceManager.getObject(markerReference);
+        if (marker === undefined) {
+            throw new Error('Invalid Google Map marker reference');
+        }
+        referenceManager.closeReference(markerReference);
+        marker.setMap(null);
+    };
+
+    window.WebVIGoogleMap = {initialize, createMap, createMarker, destroyMarker};
 }());
