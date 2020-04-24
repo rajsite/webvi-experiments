@@ -58,20 +58,20 @@
         constructor (source) {
             const audioContext = getAudioContext();
             const analyser = audioContext.createAnalyser();
-            this.analyser = analyser;
-            this.floatTimeDomainData = new Float32Array(analyser.fftSize);
-            this.floatFrequencyData = new Float32Array(analyser.frequencyBinCount);
+            this._analyser = analyser;
+            this._floatTimeDomainData = new Float32Array(analyser.fftSize);
+            this._floatFrequencyData = new Float32Array(analyser.frequencyBinCount);
             source.connect(analyser);
         }
 
         getFloatTimeDomainData () {
-            this.analyser.getFloatTimeDomainData(this.floatTimeDomainData);
-            return this.floatTimeDomainData;
+            this._analyser.getFloatTimeDomainData(this._floatTimeDomainData);
+            return this._floatTimeDomainData;
         }
 
         getFloatFrequencyData () {
-            this.analyser.getFloatFrequencyData(this.floatFrequencyData);
-            return this.floatFrequencyData;
+            this._analyser.getFloatFrequencyData(this._floatFrequencyData);
+            return this._floatFrequencyData;
         }
     }
 
@@ -102,10 +102,16 @@
         return floatFrequencyData;
     };
 
+    const getSampleRate = function () {
+        const audioContext = getAudioContext();
+        return audioContext.sampleRate;
+    };
+
     window.WebVIWebAudio = {
         createMediaStreamAudioSourceNode,
         createAnalyser,
         getFloatTimeDomainData,
-        getFloatFrequencyData
+        getFloatFrequencyData,
+        getSampleRate
     };
 }());

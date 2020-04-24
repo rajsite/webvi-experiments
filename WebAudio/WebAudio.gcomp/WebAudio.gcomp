@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="A031C7F33318CB322984301998C701F61A6E88AEA81B5B1D16C80F517ECD0413164D4037C93ADB87B0683D6C23D513B9C8EF1CA31FA922FE76742E111729586B" Timestamp="1D5EF9023486420" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="0CDBB6EA9E8BBFE62BC1D872E2955D162E68DA01C025AFE0202726471B6E1B58F9FDD9F027AE14399CF2CCA099D5F3E64AEE339904C81D14446B4986B0889BC9" Timestamp="1D619C8383AFD72" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -20,6 +20,8 @@
 			<ComponentItemProperties AssociatedEnvoyId="2cf751807dda42689e648fd7f457d14c" Exported="True" Id="e0a632f32dd04edeb407e207856be61b" />
 			<ComponentItemProperties AssociatedEnvoyId="1c5acdf5ff96491382a6a8d38eedd442" Exported="True" Id="3a4ba47031124b66b16c8fc8b0543773" />
 			<ComponentItemProperties AssociatedEnvoyId="493607070f334a63848198bc78a0c8c5" Exported="True" Id="579ad030337d417f8b5a2df8a612df31" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="96960bd16c9f45d79a194acfa15976eb" Id="ff0f4cfa02694109907f538037b0a2fe" />
+			<ComponentItemProperties AssociatedEnvoyId="c070c83d5d234b65b95791d21734fe6c" Exported="True" Id="137812ed560a4f719b20fa1aff39180b" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="9a5ec055aa7a4fb6ae4d5e242bbb15cb" xmlns="http://www.ni.com/PlatformFramework">
@@ -32,11 +34,15 @@
 					<FileReference Bindings=".js" Id="228127c25bb5434f8e370c1128f09cec" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="WebAudio.js" StoragePath="Support\WebAudio.js" />
 					<SourceFileReference Bindings="EnvoyManager" Id="9702e5ef89b74088adafa33487c3714c" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="audio node reference.gtype" StoragePath="Support\audio node reference.gtype\audio node reference.gtype" />
 					<SourceFileReference Bindings="EnvoyManager" Id="b7c54d9aef714b919d3a1c56371956d6" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="analyser reference.gtype" StoragePath="Support\analyser reference.gtype\analyser reference.gtype" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="2aef52ec16074719bce430c196429fc8" Name="ThirdParty">
+						<FileReference Bindings=".js" Id="96960bd16c9f45d79a194acfa15976eb" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="AudioContextMonkeyPatch.js" StoragePath="Support\ThirdParty\AudioContextMonkeyPatch.js" />
+					</NameScopingEnvoy>
 				</NameScopingEnvoy>
 				<SourceFileReference Id="f31fb67efd374f6b867380274ffa8d66" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Media Stream Audio Source Node.gvi" StoragePath="Create Media Stream Audio Source Node.gvi" />
 				<SourceFileReference Id="2cf751807dda42689e648fd7f457d14c" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Analyzer.gvi" StoragePath="Create Analyzer.gvi" />
 				<SourceFileReference Id="1c5acdf5ff96491382a6a8d38eedd442" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Get Analyser Time Domain Data.gvi" StoragePath="Get Analyser Time Domain Data.gvi" />
 				<SourceFileReference Id="493607070f334a63848198bc78a0c8c5" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Get Analyser Frequency Data.gvi" StoragePath="Get Analyser Frequency Data.gvi" />
+				<SourceFileReference Id="c070c83d5d234b65b95791d21734fe6c" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Get Sample Rate.gvi" StoragePath="Get Sample Rate.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="bf314eb170f544e0810e1955ca467816" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="WebAudio.gcomp" NameTracksFileName="True">
