@@ -69,25 +69,32 @@ function Watch-TrialWindow
     return Start-Process -FilePath $autohotkey -Args "$PSScriptRoot\trial.ahk" -PassThru
 }
 function Invoke-NXGBuildApplication {
-    Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName)
+    Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName, [switch]$usemonitor = $false)
     Write-Host "Checking if LabVIEW NXG CLI is available"
-    $labviewnxgcli = "$Env:Programfiles\National Instruments\LabVIEW NXG 4.0\labviewnxgcli.exe"
+    $labviewnxgcli = "$Env:Programfiles\National Instruments\LabVIEW NXG 5.0\labviewnxgcli.exe"
     Assert-FileExists($labviewnxgcli)
 
     $projectpath = Resolve-Path (Join-Path $ProjectDirectory $ProjectFileName)
     $buildapplicationcommand = 'build-application -n "{0}" -t "{1}" -p "{2}"' -f $ComponentFileName, $TargetName, $projectpath
 
-    $process = Watch-TrialWindow
-    Write-Host "Running build command: $buildapplicationcommand"
-    Invoke-MinimizeWindows
-    Run $labviewnxgcli $buildapplicationcommand
-    try {
-        Write-Host "AutoHotKey stopping"
-        Stop-Process -InputObject $process
-        Write-Host "AutoHotKey stopped"
+    Write-Host "Use cli monitor?: $usemonitor"
+    if ($usemonitor) {
+        $process = Watch-TrialWindow
+        Invoke-MinimizeWindows
     }
-    catch {
-        Write-Host "AutoHotKey already stopped"
+
+    Write-Host "Running build command: $buildapplicationcommand"
+    Run $labviewnxgcli $buildapplicationcommand
+
+    if ($usemonitor) {
+        try {
+            Write-Host "AutoHotKey stopping"
+            Stop-Process -InputObject $process
+            Write-Host "AutoHotKey stopped"
+        }
+        catch {
+            Write-Host "AutoHotKey already stopped"
+        }
     }
 }
 
