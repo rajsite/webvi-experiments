@@ -1,20 +1,10 @@
 (function () {
     'use strict';
 
-    // Bunch of workarounds to enable client WebSocket api in node.js
-    const oldWindow = global.window;
-    global.window = {};
-    require('webvi-websockets');
-    global.NationalInstrumentsWebSockets = global.window.NationalInstrumentsWebSockets;
-    global.window = oldWindow;
-    const W3CWebSocket = require('websocket').w3cwebsocket;
-    // Shim for issue: https://github.com/theturtle32/WebSocket-Node/issues/379
-    class WebSocketShim extends W3CWebSocket {
-        get protocol () {
-            return this._protocol === undefined ? '' : this._protocol;
-        }
-    }
-    global.WebSocket = WebSocketShim;
+    // TODO switch to vireo.javaScriptInvoke.registerCustomGlobal()
+    const webviWebsockets = require('webvi-websockets');
+    const w3cwebsocket = require('websocket').w3cwebsocket;
+    global.NationalInstrumentsWebSockets = webviWebsockets(w3cwebsocket);
 
     const xhr2 = require('xhr2');
     const vireoHelpers = require('vireo');
