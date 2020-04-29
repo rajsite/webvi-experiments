@@ -7,7 +7,6 @@
     - [Reflex 👉](https://rajsite.github.io/webvi-experiments/Reflex/)
     - [Snake 🐍](https://rajsite.github.io/webvi-experiments/Snake/)
 - [Bootstrap](https://rajsite.github.io/webvi-experiments/Bootstrap/)
-- [BusyState](https://rajsite.github.io/webvi-experiments/BusyState/)
 - [ECharts](https://rajsite.github.io/webvi-experiments/ECharts/)
 - [Express](https://webvicli-express.herokuapp.com/)
 - ImmersiveWeb

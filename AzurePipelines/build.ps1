@@ -22,9 +22,6 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileNa
 Write-Host "Build Bootstrap project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootstrap.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
-Write-Host "Build BusyState project"
-Invoke-NXGBuildApplication -ProjectDirectory ".\BusyState" -ProjectFileName "BusyState.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
-
 Write-Host "Build ECharts project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
