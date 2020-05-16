@@ -3,7 +3,7 @@ name: webvi-experiments ci
 on:
   push:
     branches:
-    - master
+    - '*'
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
         npm ci
         npm run start
     - name: Build LabVIEW Projects
-      run: powershell .\AzurePipelines\build.ps1
+      run: powershell .\AzurePipelines\build.ps1 -usemonitor
       timeout-minutes: 60
       continue-on-error: true
     - name: Stop capturing screenshots

@@ -25,6 +25,7 @@ jobs:
     inputs:
         targetType: 'filePath'
         filePath: '.\AzurePipelines\build.ps1'
+        arguments: ' -usemonitor'
   - task: PowerShell@2
     displayName: Create GitHub Pages Output
     inputs:
@@ -38,29 +39,29 @@ jobs:
     inputs:
         pathtoPublish: $(Build.ArtifactStagingDirectory)
         artifactName: ghpages
-# - job: deploy
-#   dependsOn: build
-#   pool:
-#     vmImage: 'ubuntu-16.04'
-#   steps:
-#   - task: DownloadBuildArtifacts@0
-#     inputs:
-#         downloadType: 'single'
-#         artifactName: ghpages
-#         downloadPath: '$(Agent.BuildDirectory)'
-#   - task: ExtractFiles@1
-#     displayName: 'Extract files'
-#     inputs:
-#       archiveFilePatterns: '$(Agent.BuildDirectory)/ghpages/ghpagesarchive/ghpages.zip'
-#       destinationFolder: '$(Agent.BuildDirectory)/ghpagesout'
-#   - task: UseRubyVersion@0
-#     inputs:
-#         versionSpec: '>=2.4'
-#   - task: Bash@3
-#     env:
-#       TRAVIS_REPO_SLUG: rajsite/webvi-experiments
-#       GHPAGESTOKEN: $(ghpagestokensecret)
-#     inputs:
-#       targetType: 'filePath'
-#       filePath: './AzurePipelines/deploy.sh'
-#       workingDirectory: '$(Agent.BuildDirectory)/ghpagesout'
+- job: deploy
+  dependsOn: build
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+  - task: DownloadBuildArtifacts@0
+    inputs:
+        downloadType: 'single'
+        artifactName: ghpages
+        downloadPath: '$(Agent.BuildDirectory)'
+  - task: ExtractFiles@1
+    displayName: 'Extract files'
+    inputs:
+      archiveFilePatterns: '$(Agent.BuildDirectory)/ghpages/ghpagesarchive/ghpages.zip'
+      destinationFolder: '$(Agent.BuildDirectory)/ghpagesout'
+  - task: UseRubyVersion@0
+    inputs:
+        versionSpec: '>=2.4'
+  - task: Bash@3
+    env:
+      TRAVIS_REPO_SLUG: rajsite/webvi-experiments
+      GHPAGESTOKEN: $(ghpagestokensecret)
+    inputs:
+      targetType: 'filePath'
+      filePath: './AzurePipelines/deploy.sh'
+      workingDirectory: '$(Agent.BuildDirectory)/ghpagesout'

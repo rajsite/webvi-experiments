@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="0CDBB6EA9E8BBFE62BC1D872E2955D162E68DA01C025AFE0202726471B6E1B58F9FDD9F027AE14399CF2CCA099D5F3E64AEE339904C81D14446B4986B0889BC9" Timestamp="1D619C8383AFD72" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="68688DCF802B4B6AF0A8AECD44B38060B44ED9623899DCA12EEACA7D18ED0EE5579848109FABF581596435827170B578F8BA5DDA66A7B380D3C5CB8228FAC6ED" Timestamp="1D62496C8C2DB6C" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
-		<ApplicationVersionInfo Build="7.1.0.50148" Name="LabVIEW NXG" Version="4.0.0" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
 	</SourceModelFeatureSet>
 	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="5c28f28af28145428cac4f14860ad71c" RootNamespaceId="c8f8421ecb13408dbb0fa19844b91cc3" xmlns="http://www.ni.com/GComponent.xsd">
 		<Icon Id="ecfe3ba916f34c66a054c646ee274fb2" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -22,6 +22,8 @@
 			<ComponentItemProperties AssociatedEnvoyId="493607070f334a63848198bc78a0c8c5" Exported="True" Id="579ad030337d417f8b5a2df8a612df31" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="96960bd16c9f45d79a194acfa15976eb" Id="ff0f4cfa02694109907f538037b0a2fe" />
 			<ComponentItemProperties AssociatedEnvoyId="c070c83d5d234b65b95791d21734fe6c" Exported="True" Id="137812ed560a4f719b20fa1aff39180b" />
+			<GLibraryProperties Id="91adcf4abd6941feb5024852e7e8f817" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="40dbf921fe6245058a9160fb9808184f" Id="88cd89f85b574adca7edb13fb83525c4" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="9a5ec055aa7a4fb6ae4d5e242bbb15cb" xmlns="http://www.ni.com/PlatformFramework">
@@ -36,6 +38,7 @@
 					<SourceFileReference Bindings="EnvoyManager" Id="b7c54d9aef714b919d3a1c56371956d6" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="analyser reference.gtype" StoragePath="Support\analyser reference.gtype\analyser reference.gtype" />
 					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="2aef52ec16074719bce430c196429fc8" Name="ThirdParty">
 						<FileReference Bindings=".js" Id="96960bd16c9f45d79a194acfa15976eb" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="AudioContextMonkeyPatch.js" StoragePath="Support\ThirdParty\AudioContextMonkeyPatch.js" />
+						<FileReference Bindings=".js" Id="40dbf921fe6245058a9160fb9808184f" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="get-float-time-domain-data.js" StoragePath="Support\ThirdParty\get-float-time-domain-data.js" />
 					</NameScopingEnvoy>
 				</NameScopingEnvoy>
 				<SourceFileReference Id="f31fb67efd374f6b867380274ffa8d66" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Media Stream Audio Source Node.gvi" StoragePath="Create Media Stream Audio Source Node.gvi" />
@@ -45,8 +48,7 @@
 				<SourceFileReference Id="c070c83d5d234b65b95791d21734fe6c" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Get Sample Rate.gvi" StoragePath="Get Sample Rate.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
-		<NameScopingEnvoy Id="bf314eb170f544e0810e1955ca467816" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="WebAudio.gcomp" NameTracksFileName="True">
-			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />
+		<NameScopingEnvoy Id="bf314eb170f544e0810e1955ca467816" Name="WebAudio.gcomp" NameTracksFileName="True">
 			<ContentReference ContentIdentifier="1b5bf02b83564a3aa8bcf8a3ac7cfe28" Id="d45e9fced2bc4b0890f9c72d3516bb9e" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
