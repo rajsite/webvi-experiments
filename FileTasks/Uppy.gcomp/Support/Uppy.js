@@ -2,23 +2,6 @@
 (function () {
     'use strict';
 
-    const createObjectUrlWithMetadata = function (blobOrFile) {
-        const fileObjectUrlInitial = URL.createObjectURL(blobOrFile);
-        const url = new URL(fileObjectUrlInitial);
-
-        // We rely on using the hash to store file metadata
-        if (url.hash !== '') {
-            URL.revokeObjectURL(blobOrFile);
-            throw new Error('File API Unsupported: cannot store file metadata on blob url');
-        }
-
-        const metadata = new URLSearchParams();
-        metadata.set('name', typeof blobOrFile.name === 'string' ? blobOrFile.name : '');
-        url.hash = metadata.toString();
-        const fileObjectUrl = url.toString();
-        return fileObjectUrl;
-    };
-
     const deepMerge = function (target, ...args) {
         const isObject = function (obj) {
             return typeof obj === 'object' && obj !== null;
@@ -51,6 +34,20 @@
         });
     };
 
+    const coerceToFile = function (uppyFile) {
+        const fileOrBlob = uppyFile.data;
+        // Preserve File for metadata (lastModified, contentType, etc.)
+        if (fileOrBlob instanceof File) {
+            return fileOrBlob;
+        }
+        const meta = {};
+        if (typeof uppyFile.type === 'string' && uppyFile.type.length !== 0) {
+            meta.type = uppyFile.type;
+        }
+        const file = new File([fileOrBlob], uppyFile.name, meta);
+        return file;
+    };
+
     const requestFiles = function (optionsArrayJSON) {
         return new Promise(function (resolve, reject) {
             const uppyConfig = {
@@ -73,13 +70,10 @@
 
             let cleanup;
             uppyConfig.core.onBeforeUpload = function (uppyFiles) {
-                // Get the user selected file / blob
-                // TODO try and get name metadata for Blob types, ie webcam?
                 const fileObjectUrls = Object.keys(uppyFiles)
-                    .map(key => uppyFiles[key].data)
-                    .map(blobOrFile => createObjectUrlWithMetadata(blobOrFile));
-                const fileObjectUrlsJSON = JSON.stringify(fileObjectUrls);
-                resolve(fileObjectUrlsJSON);
+                    .map(fileId => uppyFiles[fileId])
+                    .map(uppyFile => coerceToFile(uppyFile));
+                resolve(fileObjectUrls);
 
                 // Clean-up the dialog and uppy state
                 cleanup();

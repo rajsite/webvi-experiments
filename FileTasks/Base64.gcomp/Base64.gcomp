@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="30B6CEF6ADA18FDAEFD260FC6A9058F5A221644E08ED77AD37843BE95493F95FEC5DB9EA4FC10FD155303801629F3AB41EC058695159E2527BD8592BA6D7815E" Timestamp="1D52E248BFFA70C" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="3A282B42F9AA5A1477FA71DFD3C019C9FEF319B66736B76727DD6B042B627FB167C78AFD6C6C57DA89D72C018250333124954D57941FA035A2D4A21F6A6CC879" Timestamp="1D62C6D2211159E" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
-		<ApplicationVersionInfo Build="6.4.1.50844" Name="LabVIEW NXG" Version="3.1.0" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
 	</SourceModelFeatureSet>
 	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="c88582f105de437997c25f7d3e891969" RootNamespaceId="b907eb92be024ad4bb87fa1bba9c7e22" xmlns="http://www.ni.com/GComponent.xsd">
 		<Icon Id="81a0327e5e1f43098beb3c5384bfd702" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -16,25 +16,25 @@
 		<ComponentConfiguration Id="426190b3f52d4c4ebd8a453011c36a92" Name="Configuration1">
 			<CompilerSymbolTable Id="1f76724570554d95b49c3c1e84b2148f" xmlns="http://www.ni.com/PlatformFramework" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="d2b2bd9413d140c89c3612efcfb07226" Id="a5262ad7f0964c1490af832e4be864e4" />
+			<GLibraryProperties Id="fb72bb7fcdc74b5992647161db3ee1f1" />
+			<ComponentItemProperties AssociatedEnvoyId="47723a9f2380494f9598d87cd31d4a6f" Exported="True" Id="f91a6782b708457597d7d51bd3ae17ac" />
+			<ComponentItemProperties AssociatedEnvoyId="62c793eb63914f7b9e97a7d7804a5cb2" Exported="True" Id="345cd3f3b36447b5b62eca9e87085f5f" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="276370fa2ecc462a8805285a867de674" xmlns="http://www.ni.com/PlatformFramework">
-		<ProjectSettings Id="8235064da464083e9844c31f0b79f" ModelDefinitionType="ProjectSettings" Name="ZProjectSettings" />
+		<EnvoyManagerRootEnvoy Id="8235064da464083e9844c31f0b79f" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
 		<EmbeddedDefinitionReference Id="b9069352378e4e82acfec9d3abbcedb4" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
 			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="b907eb92be024ad4bb87fa1bba9c7e22" Name="Base64">
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="23e916da98c142a399721a0a422d213b" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="8c72bb69691f47069dd4c401277a4028" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Base64.jsli" StoragePath="Support\Base64.jsli" />
-					<EmbeddedDefinitionReference Id="d2b2bd9413d140c89c3612efcfb07226" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Base64.js">
-						<ExternalFile>
-							<p.StoragePath>"Support\\Base64.js"</p.StoragePath>
-						</ExternalFile>
-					</EmbeddedDefinitionReference>
+					<FileReference Bindings=".js" Id="d2b2bd9413d140c89c3612efcfb07226" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="Base64.js" StoragePath="Support\Base64.js" />
 				</NameScopingEnvoy>
+				<SourceFileReference Id="47723a9f2380494f9598d87cd31d4a6f" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Base64 Encode.gvi" StoragePath="Base64 Encode.gvi" />
+				<SourceFileReference Id="62c793eb63914f7b9e97a7d7804a5cb2" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Base64 Decode.gvi" StoragePath="Base64 Decode.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
-		<NameScopingEnvoy Id="a04ca54844d347a390c5590b2ab3a062" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="Base64.gcomp" NameTracksFileName="True">
-			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />
+		<NameScopingEnvoy Id="a04ca54844d347a390c5590b2ab3a062" Name="Base64.gcomp" NameTracksFileName="True">
 			<ContentReference ContentIdentifier="426190b3f52d4c4ebd8a453011c36a92" Id="11e1e4f1cb6a457c8ca951cc4e279d8a" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>

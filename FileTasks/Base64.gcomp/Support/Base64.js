@@ -1,23 +1,23 @@
 (function () {
     'use strict';
 
-    const encodeAsBase64 = function (byteArray) {
-        const binaryString = String.fromCharCode.apply(undefined, byteArray);
-        const base64EncodedString = btoa(binaryString);
-        return base64EncodedString;
+    const encode = function (data) {
+        const binaryString = String.fromCharCode.apply(undefined, data);
+        const encodedData = btoa(binaryString);
+        return encodedData;
     };
 
-    const decodeFromBase64 = function (base64EncodedString) {
-        const binaryString = atob(base64EncodedString);
-        const byteArray = new Uint8Array(binaryString.length);
-        for (let i = 0; i < byteArray.length; i++) {
-            byteArray[i] = binaryString.charCodeAt(i);
+    const decode = function (encodedData) {
+        const binaryString = atob(encodedData);
+        const data = new Uint8Array(binaryString.length);
+        for (let i = 0; i < data.length; i++) {
+            data[i] = binaryString.charCodeAt(i);
         }
-        return byteArray;
+        return data;
     };
 
     window.WebVIBase64 = {
-        encodeAsBase64,
-        decodeFromBase64
+        encode,
+        decode
     };
 }());
