@@ -46,9 +46,11 @@
         if (model === undefined) {
             throw new Error('Expected model reference');
         }
-        await imageLoad(helperImage, fileReference);
+        const src = URL.createObjectURL(fileReference);
+        await imageLoad(helperImage, src);
         const results = await model.classify(helperImage);
         const resultsJSON = JSON.stringify(results);
+        URL.revokeObjectURL(src);
         return resultsJSON;
     };
     window.WebVIMobileNet = {
