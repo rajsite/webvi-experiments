@@ -38,12 +38,6 @@
         URL.revokeObjectURL(url);
     };
 
-    const createFileUrl = function (file) {
-        validateFile(file);
-        const url = URL.createObjectURL(file);
-        return url;
-    };
-
     const getFileMetadata = function (file) {
         validateFile(file);
         const fileMetadata = {name: file.name};
@@ -51,11 +45,10 @@
         return fileMetadataJSON;
     };
 
-    window.WebVIFileApi = {
+    window.WebVIFile = {
         createFile,
         readFile,
         downloadFile,
-        createFileUrl,
         getFileMetadata
     };
 }());

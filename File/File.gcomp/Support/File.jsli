@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="78C9D9DDB92698018C2778ACB3235F4DDF475E3D5F7697A957BDEEDBF39BD35728F3E3626743768E316C2425878BDDDBDEEE4727753167CE3DD9FE14C2E073ED" Timestamp="1D6281CABEA4F8F" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="4FCAE90483BED163804E3307F236D1382084737E6F1707712192A52C149A2A0611F6F9A557B357EF49419DE28A08CC93D23B16AC5EBFB121CC73D48D6A89E1F9" Timestamp="1D633E00DF985E7" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -11,13 +11,13 @@
 				<IconTemplate Height="[float]40" Id="4eb07aea8ed74f81a354160d78b04e4e" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="b0cda56b0d16419e96331b02dba22f1a" ScriptAndLinkDependencies="&amp;lt;script src=&amp;quot;FileApi.js&amp;quot; defer&amp;gt;&amp;lt;/script&amp;gt;" />
+		<DependenciesTextBox Id="b0cda56b0d16419e96331b02dba22f1a" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;File.js&amp;quot; defer&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="f0db8ebd6b2c46b5bdaf7c4facf7f451" xmlns="http://www.ni.com/PlatformFramework">
 		<EnvoyManagerRootEnvoy Id="da6359669bc84a95a45642e501f7038e" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
-		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="a29b83dbb134eba879a51a3f88768ee" Name="FileApi.jsli" NameTracksFileName="True">
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="a29b83dbb134eba879a51a3f88768ee" Name="File.jsli" NameTracksFileName="True">
 			<EmbeddedDefinitionReference Id="fe5851b40775481dbc2f71b2672553cf" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CreateFile">
-				<JavaScriptLibraryEntryPoint Id="b66f900f35a54eea8d48ea2927ae0321" Symbol="WebVIFileApi.createFile" xmlns="http://www.ni.com/JavaScriptLibrary">
+				<JavaScriptLibraryEntryPoint Id="b66f900f35a54eea8d48ea2927ae0321" Symbol="WebVIFile.createFile" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="19a4abd0d09f45259e7862c8fc98b598" ListViewIconCrop="0 0 40 50" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]50" Id="cb1cbfcfb24d48fc822424a42950ec40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]50" Id="72a52dced432475f9f13492e9bc8a43d" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
@@ -47,9 +47,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="2ee0a193ce640eb8c9b1839ca869730" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="b40596ca2b804be3b87306feff0bf356" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="be3a4b63894f4cf8af3fae4dae0c18d9" IsReturnParameter="True" Name="fileObjectUrl">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="16f0629085944dcc9afcd015a1885354" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="d08a147a9a1c432f9100d51e92ecb667" Name="fileObjectUrl" />
+					<JavaScriptLibraryParameter Id="be3a4b63894f4cf8af3fae4dae0c18d9" IsReturnParameter="True" Name="fileReference">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="c75324a60c5e414c82476f969f677d96" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="d08a147a9a1c432f9100d51e92ecb667" Name="fileReference" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="9568e54be4c74a78a3bd82fe352e5810" Name="uint8Array">
 						<JavaScriptType ActualDataType="@f21e5a75cf5d49d4a187370f29d6b881" Id="33ea7dc98277432da31df1fb8acf364c" />
@@ -65,47 +65,8 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="3f1595dbbf744723863809e3d978e14d" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CloseFile">
-				<JavaScriptLibraryEntryPoint Id="bc0ca2c0176441538d6844f1d87d4f81" Symbol="WebVIFileApi.closeFile" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="b56213ded08c43699695ce022803b761" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="622ece9a4d8840bab518ac5542b740d6" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="4b4b8cde3fed420f8804d4b1811fb7b9" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="84cf9ce667764098b32182eb4cf80364" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="39a28589fcc34c61b7ead96310abe280" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Id="d73e79e23e5f4af78fe7e79778726ebe" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CloseFile" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Verdana" FontSize="6" Id="9cf4bd74e0bd4f5aa184dd798043023f" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="5831d11e0514621a73ba3e92e1783b3" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="f515a12bf2884b4b98b2a3386dfbf0ea" />
-						<ConnectorPaneTerminal Hotspot="0 15" />
-						<ConnectorPaneTerminal Hotspot="0 25" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="f7cd47b9ccd04ef4942df48840706890" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="5cc5b06bdb0a41e3aab31e6322d209d6" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f7cd47b9ccd04ef4942df48840706890" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5cc5b06bdb0a41e3aab31e6322d209d6" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="e58d46bef35b4ae6a4e926e8da31fc20" IsReturnParameter="True" Name="return">
-						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="a59060a7f0047dc8cc2d2c5486134dc" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="7a42eb516d324c07b940d83bb1a55598" Name="return out" Visible="False" />
-					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="b91358b0ee0f47f7b98be819674d3ac3" Name="fileObjectUrl">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="84095846e34f44b4b78d93a1fce3ed43" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f515a12bf2884b4b98b2a3386dfbf0ea" Name="fileObjectUrl" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
 			<EmbeddedDefinitionReference Id="ec2e4e02abfa4fda82500972ff1b5cdd" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="ReadFile">
-				<JavaScriptLibraryEntryPoint Id="78eedb41820d42c5b551f49eb600a049" Symbol="WebVIFileApi.readFile" xmlns="http://www.ni.com/JavaScriptLibrary">
+				<JavaScriptLibraryEntryPoint Id="78eedb41820d42c5b551f49eb600a049" Symbol="WebVIFile.readFile" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="dd694b9ce3aa4af0a544189726e6ab11" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="b5d0ec2fa0ed468dbbb208e5d4447926" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="71ec26b49f0743ef80273baa3b156a68" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
@@ -137,14 +98,14 @@
 						<JavaScriptType ActualDataType="@f21e5a75cf5d49d4a187370f29d6b881" Id="30dd102f94354a5c9b84885cea3f7653" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5cdfcac3be7a48749d5e58afa8ed6ad2" Name="uint8Array" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="903009e07d744cf6aa93ffbfcba84ea3" Name="fileObjectUrl">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="b6c90b84d57644f2b335df9da1fc59ff" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="ab0416e2f447436fa4f2e9ae184bcca9" Name="fileObjectUrl" />
+					<JavaScriptLibraryParameter Id="903009e07d744cf6aa93ffbfcba84ea3" Name="fileReference">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="d2295799e1864e0d9a635ed40ec452da" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="ab0416e2f447436fa4f2e9ae184bcca9" Name="fileReference" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
 			<EmbeddedDefinitionReference Id="b1202149b96f4a35a1627081d0447b89" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DownloadFile">
-				<JavaScriptLibraryEntryPoint Id="9c331b17d5f345178f36df7207a2c8f5" Symbol="WebVIFileApi.downloadFile" xmlns="http://www.ni.com/JavaScriptLibrary">
+				<JavaScriptLibraryEntryPoint Id="9c331b17d5f345178f36df7207a2c8f5" Symbol="WebVIFile.downloadFile" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="cbba3cd44ece4fb7aebb4f5ae1605d2b" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="cb72acf0e2ad4c5a9a02cfc6d7a212c6" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="65c455e8a40049e795e4a9fb8fa7d5dd" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
@@ -176,18 +137,18 @@
 						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="d794b90c09242e0bc00ddbda2452df8" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="d75fde97392b4648a6635356cc99ba6d" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="a76b808334b745499dac0e4fee729839" Name="fileObjectUrl">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="70603731a49b4af1b533187dea543376" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f59d26b027c646cda8602a4b5d58d2a0" Name="fileObjectUrl" />
+					<JavaScriptLibraryParameter Id="a76b808334b745499dac0e4fee729839" Name="fileReference">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="4cf099c01ee549ff85104719d2dbb1d4" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="f59d26b027c646cda8602a4b5d58d2a0" Name="fileReference" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="b4514f98595343a3b0dc68c82329465e" Name="name">
+					<JavaScriptLibraryParameter Id="b4514f98595343a3b0dc68c82329465e" Name="overriddenFileName">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="92156904845844439b9970d9775aeb08" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="cf6a3438da1a4c44973169d12f969406" Name="name" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="cf6a3438da1a4c44973169d12f969406" Name="overriddenFileName" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
 			<EmbeddedDefinitionReference Id="442715ca30124913b03036afdff74597" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CreateFileUrl">
-				<JavaScriptLibraryEntryPoint Id="73470319e3cc42e79d0d11093028410e" Symbol="WebVIFileApi.createFileUrl" xmlns="http://www.ni.com/JavaScriptLibrary">
+				<JavaScriptLibraryEntryPoint Id="73470319e3cc42e79d0d11093028410e" Symbol="URL.createObjectURL" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="c080e132a33542c49436fbc8db800b51" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="f005f882e6bf4b81bd1af211eb18c566" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="731e327e42eb47368b23e718edaa76ba" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
@@ -215,9 +176,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="ab04e3e594174278bedf10f5ffd7b465" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="927b5520b15943c9964ec9c5ff012082" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="114f6af8763e4ba8b7bd412044d2be1f" IsReturnParameter="True" Name="fileUrl">
+					<JavaScriptLibraryParameter Id="114f6af8763e4ba8b7bd412044d2be1f" IsReturnParameter="True" Name="url">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="e7f32af5d65845ab998718aa275d2446" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="28d41017697e4286a0f4d9361a10587f" Name="fileUrl" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="28d41017697e4286a0f4d9361a10587f" Name="url" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="68e6668acb454643a63d9266eaef52b9" Name="fileReference">
 						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="d9c8b0ec923d4bcdadfba03a83da78b9" />
@@ -226,7 +187,7 @@
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
 			<EmbeddedDefinitionReference Id="33dd6e5e1fef47a095e7e98dadabff75" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="GetFileMetadata">
-				<JavaScriptLibraryEntryPoint Id="247c6437bfe74c3baa082da434d312e6" Symbol="WebVIFileApi.getFileMetadata" xmlns="http://www.ni.com/JavaScriptLibrary">
+				<JavaScriptLibraryEntryPoint Id="247c6437bfe74c3baa082da434d312e6" Symbol="WebVIFile.getFileMetadata" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="2be7a0d84e8f42a2a6d9ba52b442a0ef" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="6996e3bceb844e37ab5ea87a7dd42903" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="e12103b34c1c4fbc8b64957f398cb511" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
@@ -264,13 +225,53 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="b505d20e810d46e39cf225836aa590ed" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CloseFileUrl">
+				<JavaScriptLibraryEntryPoint Id="51b447ede2e9472693dfe6d19e39ecae" Symbol="URL.revokeObjectURL" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="f3d3bb54865b47e5bab79b6b27b68682" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="ea2825ad035749f9a15ffa63cf8e5547" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="bd8b7fac7cb04995bf2c779664493c0b" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="5de24ad81e5f4f7d815d7b606feff7e7" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="8a25c988b61a49b2ad6e3e53602a998d" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Id="1eb7b9b1f1e64169acd83fcc8d69f3cd" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CloseFileUrl" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="9d11dab1b99a42c08193e7fbe33070be" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="a2ebe1366bec4356ad90ddc0c7586967" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="b63183814ca6401683d3d9bd06067496" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="f04d0d949e7d42d993e5f0b474b4dcb6" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="cac29aa300c94010909928b00b4f23d0" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f04d0d949e7d42d993e5f0b474b4dcb6" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="cac29aa300c94010909928b00b4f23d0" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="bc26eb63953c4b73ab955b07d1353652" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="459c199c9cfb4285ba20a6b3e01b1cb1" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2e5eabd9df844eaabca48cabadec9165" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="6d80536fd1ca43c9bfd31a31ca167d58" Name="url">
+						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="6b071dd8c31c4528b442aaa4f4092902" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="b63183814ca6401683d3d9bd06067496" Name="url" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="7a0d745212ea43e8a195a3e0a8f4fb9a">
-			<Attributed AttributedType="String">
+		<p.TypeReference TypeId="8e39b3e51f424325880b3db570786c0a">
+			<Attributed AttributedType="@d5cc76c39163420cb65dd0e1a0e0eb64">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -281,18 +282,17 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="761c1e6d42c140fea62c015adb1483c9">
-			<Attributed AttributedType="Void">
+		<p.TypeReference TypeId="7a0d745212ea43e8a195a3e0a8f4fb9a">
+			<Attributed AttributedType="String">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="8e39b3e51f424325880b3db570786c0a">
-			<Attributed AttributedType="@d5cc76c39163420cb65dd0e1a0e0eb64">
+		<p.TypeReference TypeId="761c1e6d42c140fea62c015adb1483c9">
+			<Attributed AttributedType="Void">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
-					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
