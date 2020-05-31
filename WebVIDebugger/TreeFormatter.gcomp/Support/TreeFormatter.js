@@ -51,15 +51,15 @@
         }
     };
 
-    const convertToJSONTree = function (json) {
+    const formatJSONForTree = function (json) {
         const jsonTree = [];
         const value = parseJSON(json);
         if (value !== undefined) {
             visitValue(jsonTree, '', value);
         }
-        const jsonTreeJSON = JSON.stringify(jsonTree);
-        return jsonTreeJSON;
+        const treeJSON = JSON.stringify(jsonTree);
+        return treeJSON;
     };
 
-    window.WebVIJSONTree = {convertToJSONTree};
+    window.WebVITreeFormatter = {formatJSONForTree};
 }());
