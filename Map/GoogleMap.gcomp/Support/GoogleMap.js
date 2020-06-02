@@ -35,12 +35,16 @@
         return map;
     };
 
-    const createMarker = function (map, lat, lng, title) {
-        const marker = new window.google.maps.Marker({
+    const createMarker = function (map, lat, lng, title, iconUrl) {
+        const options = {
             position: {lat, lng},
             map,
             title
-        });
+        };
+        if (iconUrl !== '') {
+            options.icon = iconUrl;
+        }
+        const marker = new window.google.maps.Marker(options);
         return marker;
     };
 

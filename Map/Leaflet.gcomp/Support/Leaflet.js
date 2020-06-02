@@ -23,8 +23,12 @@
         map.remove();
     };
 
-    const markerCreate = function (map, latitude, longitude, text) {
-        const marker = L.marker([latitude, longitude]);
+    const markerCreate = function (map, latitude, longitude, text, iconUrl) {
+        const options = {};
+        if (iconUrl !== '') {
+            options.icon = L.icon({iconUrl});
+        }
+        const marker = L.marker([latitude, longitude], options);
         if (text.length !== 0) {
             marker.bindPopup(text);
         }
