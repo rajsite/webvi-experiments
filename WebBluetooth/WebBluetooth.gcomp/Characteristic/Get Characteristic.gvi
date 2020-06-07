@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="305AA65FECE3246896AE0195A8874D9CAB42362FB2B6A888A12B4FBBD477675A6492B2D17FF114321342BDD7192808CD3DDAC83CAB5E16D5DBB85B7B2F06DBA9" Timestamp="1D639DF48FC401F" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="6317CBCD3F16A03EAFC91F0282ACBA7871205EEAC375FAD93EAE7AF23253CC8B5EB7F799692F5332DCBCB183499233303980391B4A366A942658CDBC39457B7E" Timestamp="1D63CF7043ED80D" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -37,13 +37,13 @@
 		<DiagramUnplacedItems Id="aac2c8f54cc1493d972e777188296855" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="8c9b4c1848c24153b4e7ed584a852d88" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="b48fc5e845fe42b98f1f96e3c64679c8">
-			<MethodCall Bounds="495 310 40 40" Id="a589367d6d8740a78929f74ca5d2ccfa" ResolveFailedHint="GetCharacteristic" Signature="@1002162226754c8290e5a495d948c5c6" Target="WebBluetooth::Support::WebBluetooth.jsli::GetCharacteristic" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="495 310 40 40" Id="a589367d6d8740a78929f74ca5d2ccfa" ResolveFailedHint="GetCharacteristic" Signature="@aeb4e74e63f74785bff913deb8f1aa02" Target="WebBluetooth::Support::WebBluetooth.jsli::GetCharacteristic" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L1" Desc="service reference" />
-						<Parameter Id="L2" Desc="characteristic uuid" />
+						<Parameter Id="L1" Desc="service" />
+						<Parameter Id="L2" Desc="characteristicName" />
 						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="characteristic reference" />
+						<Parameter Id="R0" Desc="characteristic" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
@@ -57,7 +57,7 @@
 				<Terminal DataType="@005677d0220b4a89982bdedfd9105247" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="2ad2a574c0564354a5282c1f206c5055" Bounds="311 300 109 14" Id="fe7d4164fed84ccfa8ac34af41f51dca" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>service reference in</p.Text>
+				<p.Text>service reference</p.Text>
 			</NodeLabel>
 			<Wire Id="550570d594c34dcdae17d9a4c3e95d77" Joints="N(2ad2a574c0564354a5282c1f206c5055:Value)|(465,305) h(10) v(20) N(a589367d6d8740a78929f74ca5d2ccfa:L1)|(495,325)" xmlns="http://www.ni.com/PlatformFramework" />
 			<DataAccessor Bounds="425 320 40 15" DataItem="5655dea9eab140b8a10e767da530ea7f" Id="2222da0412a6465e99a73f422fee608c" Label="311a17afeade463a984fd3f7d5348fba" xmlns="http://www.ni.com/MocCommon">
@@ -132,9 +132,9 @@
 					<p4:TypeDefinitionTarget TargetName="WebBluetooth::Support::service reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</OpaqueRefnum>
-			<Label Height="[float]16" Id="c7bc26bbe0104a298add2a7fddee9dba" LabelOwner="[UIModel]7c6bcdc29cdf42a78fe097f14703769e" Left="[float]340" Text="[string]service reference in" Top="[float]224" Width="[float]102" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="c7bc26bbe0104a298add2a7fddee9dba" LabelOwner="[UIModel]7c6bcdc29cdf42a78fe097f14703769e" Left="[float]340" Text="[string]service reference" Top="[float]224" Width="[float]89" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
-		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@005677d0220b4a89982bdedfd9105247" Id="a4eebfa98d944a31b65dacbe1a040f99" Name="service reference in" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@005677d0220b4a89982bdedfd9105247" Id="a4eebfa98d944a31b65dacbe1a040f99" Name="service reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 				<TypeDefinitionTarget TargetName="WebBluetooth::Support::service reference.gtype" />
@@ -178,8 +178,8 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="1002162226754c8290e5a495d948c5c6">
-			<Attributed AttributedType="@b9f16caa19294e65b98ecd4caa3bb62f">
+		<p.TypeReference TypeId="aeb4e74e63f74785bff913deb8f1aa02">
+			<Attributed AttributedType="@539813fa53a84401b5ebc8cfd49359be">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -215,17 +215,17 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="b9f16caa19294e65b98ecd4caa3bb62f">
+		<p.TypeReference TypeId="539813fa53a84401b5ebc8cfd49359be">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GetCharacteristic" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@f5b393bfcaa7457f943319b1335db925">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]service reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]service" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@b40d200aaff14bc2a8d1758f5010cdc1">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristic uuid" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristicName" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
@@ -235,7 +235,7 @@
 					</Attributed>
 					<Attributed AttributedType="@02ee94edd56d425b99659ee9bc27df13">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristic reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]characteristic" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="809050E6C55941D362CB90C393FCD25C2DA28A6485D30DDB283BD5C1D3C7E3D5543D341D35189B0BD1719655F6D08024D39008D8E9EB314D1AA1F7A6E7577E5B" Timestamp="1D639DF5078B4A3" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="96F1C57A2C9E19D86FB5F68359A548240DEBBDAFD8D71FE84DBC33C2657D0915AA682B660B7021452A0C993A2A9E18AAD31DBE020096293AD87BF973C94DDD97" Timestamp="1D63CF6C21BAFD0" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -37,13 +37,13 @@
 		<DiagramUnplacedItems Id="897a2375d7e94c42a991bc7df5f93b72" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="53c65c766440492b9bb87f15814c319d" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="90f5c8c4f0fd403280116379be65003c">
-			<MethodCall Bounds="520 305 40 40" Id="31c464eca39c470ea01c2a02276062c0" ResolveFailedHint="GetPrimaryService" Signature="@dbae127b246b48498952688aa2bfc575" Target="WebBluetooth::Support::WebBluetooth.jsli::GetPrimaryService" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="520 305 40 40" Id="31c464eca39c470ea01c2a02276062c0" ResolveFailedHint="GetPrimaryService" Signature="@d3f152aeedaf4eebb7390d5e60455ff9" Target="WebBluetooth::Support::WebBluetooth.jsli::GetPrimaryService" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L1" Desc="device reference" />
-						<Parameter Id="L2" Desc="service uuid" />
+						<Parameter Id="L1" Desc="device" />
+						<Parameter Id="L2" Desc="serviceName" />
 						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="service reference" />
+						<Parameter Id="R0" Desc="service" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
@@ -57,7 +57,7 @@
 				<Terminal DataType="@d78ccd320978456a855bf624e1d954fc" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="6bd3aa95e7a140c483180180df41f486" Bounds="339 290 106 14" Id="fc6584e8a9ce4a35bae3ab3e97f74148" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>device reference in</p.Text>
+				<p.Text>device reference</p.Text>
 			</NodeLabel>
 			<Wire Id="dd6cc5444b164eb3847f519369591411" Joints="N(6bd3aa95e7a140c483180180df41f486:Value)|(490,295) h(20) v(25) N(31c464eca39c470ea01c2a02276062c0:L1)|(520,320)" xmlns="http://www.ni.com/PlatformFramework" />
 			<DataAccessor Bounds="450 315 40 15" DataItem="8694dadc45114733a1fbe754903eb630" Id="ec1dac5cad8c444a9b3d51a6760a34b7" Label="295df61121c64ddcb986f79aeadfb239" xmlns="http://www.ni.com/MocCommon">
@@ -96,7 +96,7 @@
 					<p4:TypeDefinitionTarget TargetName="WebBluetooth::Support::device reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 			</OpaqueRefnum>
-			<Label Height="[float]16" Id="7101dea271f1439bbfdd5cd97b806a70" LabelOwner="[UIModel]14df972085f740f895f933bc530ce0b1" Left="[float]436" Text="[string]device reference in" Top="[float]208" Width="[float]100" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="7101dea271f1439bbfdd5cd97b806a70" LabelOwner="[UIModel]14df972085f740f895f933bc530ce0b1" Left="[float]436" Text="[string]device reference" Top="[float]208" Width="[float]87" xmlns="http://www.ni.com/PanelCommon" />
 			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="a13899799ba4195bf34e3ed33b5a0c1" IsTabStop="[bool]True" Label="[UIModel]5c85426914e540a2af8dfbef8d931457" LabelLinked="[bool]True" Left="[float]436" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]1" Top="[float]452" Value="{DataItemBinding Id=1af67d37f584c0f8ac6556d0caa0c65}" Width="[float]176" p4:ControlDefinitionChecksum="J+f/EiASvnzghyjtgi4nEE7z+0udh8Z1+KU2hWC1ppw=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype::ControlDefinition" />
@@ -134,7 +134,7 @@
 			</StringControl>
 			<Label Height="[float]16" Id="213b3d0a7a6344c4971785d6aa97dcc2" LabelOwner="[UIModel]732930bc95924d24a61c737afdf455d4" Left="[float]436" Text="[string]service uuid" Top="[float]304" Width="[float]63" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
-		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@d78ccd320978456a855bf624e1d954fc" Id="843b9eb9d3fc4f86b83e383a62f0a422" Name="device reference in" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@d78ccd320978456a855bf624e1d954fc" Id="843b9eb9d3fc4f86b83e383a62f0a422" Name="device reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 				<TypeDefinitionTarget TargetName="WebBluetooth::Support::device reference.gtype" />
@@ -178,8 +178,8 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="dbae127b246b48498952688aa2bfc575">
-			<Attributed AttributedType="@11e26d519eea45d68c2a3bccc6a64d96">
+		<p.TypeReference TypeId="d3f152aeedaf4eebb7390d5e60455ff9">
+			<Attributed AttributedType="@d4519e6218c74be4bf42aa1e1088e820">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -215,17 +215,17 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="11e26d519eea45d68c2a3bccc6a64d96">
+		<p.TypeReference TypeId="d4519e6218c74be4bf42aa1e1088e820">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GetPrimaryService" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@f5b393bfcaa7457f943319b1335db925">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]device reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]device" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@b40d200aaff14bc2a8d1758f5010cdc1">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]service uuid" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]serviceName" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
@@ -235,7 +235,7 @@
 					</Attributed>
 					<Attributed AttributedType="@02ee94edd56d425b99659ee9bc27df13">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]service reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]service" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
