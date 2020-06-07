@@ -33,8 +33,8 @@
     visitValue = function (jsonTree, path, value) {
         if (value === null || typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string') {
             jsonTree.push({
-                path,
-                value: String(value)
+                location: path,
+                data: String(value)
             });
         } else if (Array.isArray(value)) {
             visitArray(jsonTree, path, value);

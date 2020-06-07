@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="1291EA1714C12F92F39005C038C55F616883DA54DA54BA609CBD9AD7445DBD74D9F675A5164A33FDE82602D3F4CF74A4CC3254103145BB4858AA125740030CA0" Timestamp="1D63718A4C43057" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="68A8C08E1B7A3EAFB745F18277D32C90D249D141D67732ADD64CCC449D58ABA71A89E1E15F363C1D95C5F30E960ED378A1B8AD0A9DFD1AE672EC56E73ED823B6" Timestamp="1D6396CDF9A3594" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -58,7 +58,6 @@
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
 				<Wire Id="26" Joints="N(24:Out)|(440,285) N(23:time to wait)|(450,285)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="125 100 40 40" Id="e6d8d0e246e94602b71d18519c4ae4d0" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebVIDebugger\\WebVIDebugger.gcomp\\Inspect Panel Values.gvi&quot;" Signature="@2799f7d1e0f04e6e8a4666e1a6809929" Target="DebugProbe::Inspect Panel Values.gvi" xmlns="http://www.ni.com/MocCommon" />
 				<DataAccessor Bounds="50 325 40 15" DataItem="67b9fdd5648d4a1380cf3c16c790b24a" Id="44192443f6b44c8a860c09eca64241dc" Label="d52f839ee1e44c1ca03194766a88f692" xmlns="http://www.ni.com/MocCommon">
 					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 				</DataAccessor>
@@ -72,7 +71,15 @@
 				<NodeLabel AttachedTo="b3992ec45f4549b9bd6879f018535bfb" Bounds="45 23 66 14" Id="32eeb73079044c469332b54780f9344a" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>Game State</p.Text>
 				</NodeLabel>
-				<Wire Id="d090748e3bba45359a6d8f144f8cd6d1" Joints="N(972286cf3bd4438db47152b263786de8:i0)|(4,45) N(b3992ec45f4549b9bd6879f018535bfb:Value)|(48,45)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="d090748e3bba45359a6d8f144f8cd6d1" Joints="N(972286cf3bd4438db47152b263786de8:i0)|(4,45) h(26) B(1) N(b3992ec45f4549b9bd6879f018535bfb:Value)|(48,45) B(1) v(55) N(a073ca33e9984f128d035c1ae965f6f4:L0)|(75,100)" xmlns="http://www.ni.com/PlatformFramework" />
+				<MethodCall Bounds="75 95 40 40" Id="a073ca33e9984f128d035c1ae965f6f4" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebVIDebugger\\WebVIDebugger.gcomp\\Probe.gvi&quot;" Signature="@52eab6e1dae941859f8a1b88e0446fd4" Target="WebVIDebugger::Probe.gvi" xmlns="http://www.ni.com/MocCommon">
+					<p.MethodDeclaration>
+						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+							<Parameter Id="L0" Desc="probe in" />
+						</MethodDeclaration>
+					</p.MethodDeclaration>
+					<Terminal DataType="@bd2232353db34e3ebe062acdcac878ce" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				</MethodCall>
 				<LoopTunnel Bounds="-4 45 13 10" Docking="Left" Id="972286cf3bd4438db47152b263786de8" Terminals="o0=7b00e05f51094c80879ef5c730c2230b, i0=d090748e3bba45359a6d8f144f8cd6d1" />
 			</WhileLoop>
 			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
@@ -298,20 +305,23 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="2799f7d1e0f04e6e8a4666e1a6809929">
-			<Attributed AttributedType="@b042d864a95b4b168de0eb328ae79fb5">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
 		<p.TypeReference TypeId="e2d01fc6803a4534920038d676d348fe">
 			<Attributed AttributedType="@709aefbbdbb645348782ae3ed124a0e9">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Snek" />
 				</AttributeValues>
 			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="52eab6e1dae941859f8a1b88e0446fd4">
+			<Attributed AttributedType="@775e91da0db24d30b25158daa4db4f40">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bd2232353db34e3ebe062acdcac878ce">
+			<Composite Id="1" Name="Variant" Sealed="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="ec87cfc60bdb42a48f247b36b537654d">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
@@ -388,11 +398,19 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="b042d864a95b4b168de0eb328ae79fb5">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Inspect Panel Values.gvi" ReturnType="Void" GenericTypeDefinition="Void" />
-		</p.TypeReference>
 		<p.TypeReference TypeId="709aefbbdbb645348782ae3ed124a0e9">
 			<Typedef TypedefName="Game State.gtype" UnderlyingType="@a8f59312b3f941ff968c382362001ee1" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="775e91da0db24d30b25158daa4db4f40">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Probe.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@a2b535f5141a47619d6b078acb359663">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]probe in" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
 		<p.TypeReference TypeId="3ca3ab980bd94a97953a305e3eb3db28">
 			<Typedef TypedefName="Entity.gtype" UnderlyingType="@7423eba18b3f491b91674dbbe7b60e32" />
@@ -427,6 +445,9 @@
 					<Field FieldAccessPolicy="ReadWrite" Name="User Actions" DataType="@29a6220ea3224841af79e74d17821cb0" />
 				</Members>
 			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a2b535f5141a47619d6b078acb359663">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@bd2232353db34e3ebe062acdcac878ce" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="7423eba18b3f491b91674dbbe7b60e32">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
@@ -505,16 +526,16 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="DebugProbe::Inspect Panel Values.gvi">
+		<p.IconModel Target="WebVIDebugger::Probe.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Inspect Panel Values" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Verdana" FontSize="6.75" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Probe" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="9.75" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebVIDebugger.gcomp" Top="[float]0" Width="[float]40" />
