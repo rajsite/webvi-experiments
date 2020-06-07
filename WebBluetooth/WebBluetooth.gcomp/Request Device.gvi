@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="566476119676A9236DB35038087099161C9C5249446E02CFD830D619337488C70306D233038DAC0ECECD08D45061B6C14355F26648F3B5ABE6DBECD41FDD0D99" Timestamp="1D639DD9F144241" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="0D41613C965D532A872915FB8CBE37BEDD188E5D5AE559B1701A85CF9931D98456E94D681A7AF9D0FC905C5EF24426B17FCBE5965278FB0A66B6A146D62808F9" Timestamp="1D63C8B18919D0D" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -44,7 +44,7 @@
 				<p.Text>accept all devices</p.Text>
 			</NodeLabel>
 			<DataAccessor Bounds="570 60 40 15" DataItem="bfdee03390c245fdb9ba567c29824e7d" Id="dbaddd6088d14664a465a496ac7e22f0" Label="9b3d63bf08ce46af83207fe8f7fd5ea3" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@cad302636b0447338a066a1e4ee14bd6" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@003cfd2584044f639bc83b82a1d94882" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="dbaddd6088d14664a465a496ac7e22f0" Bounds="533 60 32 14" Id="9b3d63bf08ce46af83207fe8f7fd5ea3" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>filters</p.Text>
@@ -55,14 +55,14 @@
 			<NodeLabel AttachedTo="21977fee2354459ac3ed6de898507d3" Bounds="444 125 121 14" Id="58a9a7f3a33a4141bb5bd56e99e33975" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>optional service uuids</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="740 120 40 70" Id="7e24e8c450c7483b8724a755ddc8170f" ResolveFailedHint="RequestDevice" Signature="@ef278caf4467451e88bc5951b6908b93" Target="WebBluetooth::Support::WebBluetooth.jsli::RequestDevice" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="740 120 40 70" Id="7e24e8c450c7483b8724a755ddc8170f" ResolveFailedHint="RequestDevice" Signature="@38eaff22ea0445308b3cbc7f38a4e4a5" Target="WebBluetooth::Support::WebBluetooth.jsli::RequestDevice" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L1" Desc="filters json" />
-						<Parameter Id="L2" Desc="accept all devices" />
-						<Parameter Id="L3" Desc="optional service uuids json" />
+						<Parameter Id="L1" Desc="filtersJSON" />
+						<Parameter Id="L2" Desc="acceptAllDevices" />
+						<Parameter Id="L3" Desc="optionalServiceUUIDsJSON" />
 						<Parameter Id="L6" Desc="error in" />
-						<Parameter Id="R0" Desc="device reference" />
+						<Parameter Id="R0" Desc="device" />
 						<Parameter Id="R6" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
@@ -126,39 +126,6 @@
 				<p4:Label Height="[float]16" Id="4c848e66118c4bf895a6007adee9d452" LabelOwner="[UIModel]b437fcbb61fc4d2f861801832e6bb19c" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
 			<Label Height="[float]16" Id="e16ddf225bda4d3fb9bf22d6c9c18bb4" LabelOwner="[UIModel]665d2e4f0bf84ae7ba42611eac11c421" Left="[float]792" Text="[string]error out" Top="[float]368" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
-			<ArrayViewer ArrayElement="[UIModel]365acf4cfffb463ea5fb0cc4b2a53385" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]212" Id="2cf7158fab584ffe9b176564ee3f1773" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]b45299028bd64e53897d5bf33e769d0a" Left="[float]68" Orientation="[SMOrientation]Vertical" Rows="[int]1" TabIndex="[int]3" Top="[float]148" Value="{DataItemBinding Id=bfdee03390c245fdb9ba567c29824e7d}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]484" xmlns="http://www.ni.com/PanelCommon">
-				<p.DefaultElementValue>
-					<Cluster>
-						<Field1>null</Field1>
-					</Cluster>
-				</p.DefaultElementValue>
-				<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@9a3f97a56d1d4f20b2fdf82bc61a8854" Height="[float]200" Id="365acf4cfffb463ea5fb0cc4b2a53385" IsTabStop="[bool]True" Label="[UIModel]2918d153be4a48d582dc13ad67a30204" TabIndex="[int]0" Width="[float]452" p5:ControlDefinitionChecksum="GVuMzlXcw9ud63U9vuuydeEe0y8dq2eTSSxEYNkhdrk=" xmlns:p5="http://www.ni.com/PanelCommon">
-					<p5:p.TypeDefinitionTargets>
-						<p5:TypeDefinitionTarget TargetName="WebBluetooth::Support::filter.gtype::ControlDefinition" />
-					</p5:p.TypeDefinitionTargets>
-					<p5:ArrayViewer ArrayElement="[UIModel]c35462df10024ae585d29dabbff8fba9" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]155" Id="482b7579022f4626aae9dadaf5d34d55" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]8d581ac5d8bf4474962760141d5c995d" Left="[float]33" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]0" Top="[float]20" Value="{ClusterBinding FieldName=filterSettings}" Width="[float]371">
-						<p.DefaultElementValue>
-							<Cluster>
-								<Field1>""</Field1>
-								<Field2>""</Field2>
-							</Cluster>
-						</p.DefaultElementValue>
-						<p5:Cluster BaseName="[string]filter setting" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@6fa57fa3b40641249728ebd49067ea7c" Height="[float]143" Id="c35462df10024ae585d29dabbff8fba9" IsTabStop="[bool]True" Label="[UIModel]b946175ea331443ebe9c22529b7ec395" LabelLinked="[bool]True" TabIndex="[int]0" Width="[float]304" p5:ControlDefinitionChecksum="kVoXXDfhXnahn02T+Xc/CsbzPgHKoVI4ZWTbDDfYkcE=">
-							<p5:p.TypeDefinitionTargets>
-								<p5:TypeDefinitionTarget TargetName="WebBluetooth::Support::filter setting.gtype::ControlDefinition" />
-							</p5:p.TypeDefinitionTargets>
-							<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="aa88f8765382455786c9ac67fa0d77af" Label="[UIModel]f24939e1a03141efb8dd70bb00b5c0e9" Left="[float]8" TabIndex="[int]0" Text="{ClusterBinding FieldName=name}" Top="[float]28" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]261" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<p5:Label Height="[float]16" Id="f24939e1a03141efb8dd70bb00b5c0e9" LabelOwner="[UIModel]aa88f8765382455786c9ac67fa0d77af" Left="[float]8" Text="[string]name" Top="[float]8" Width="[float]30" />
-							<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="1c9e967903774398a3f2a7f0574c7473" Label="[UIModel]b98ad71890cd4d1d98fa9f82835d6a0e" Left="[float]8" TabIndex="[int]1" Text="{ClusterBinding FieldName=settingJSON}" Top="[float]89" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]261" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<p5:Label Height="[float]16" Id="b98ad71890cd4d1d98fa9f82835d6a0e" LabelOwner="[UIModel]1c9e967903774398a3f2a7f0574c7473" Left="[float]8" Text="[string]settingJSON" Top="[float]69" Width="[float]65" />
-							<p5:Label Height="[float]16" Id="b946175ea331443ebe9c22529b7ec395" IsVisualChild="[bool]False" LabelOwner="[UIModel]c35462df10024ae585d29dabbff8fba9" Left="[float]61" Text="[string]filter setting" Top="[float]-14" Width="[float]64" />
-						</p5:Cluster>
-					</p5:ArrayViewer>
-					<p5:Label Height="[float]16" Id="8d581ac5d8bf4474962760141d5c995d" LabelOwner="[UIModel]482b7579022f4626aae9dadaf5d34d55" Left="[float]33" Text="[string]filterSettings" Top="[float]0" Width="[float]67" />
-					<p5:Label Height="[float]16" Id="2918d153be4a48d582dc13ad67a30204" IsVisualChild="[bool]False" LabelOwner="[UIModel]365acf4cfffb463ea5fb0cc4b2a53385" Left="[float]6" Text="[string]filter" Top="[float]-14" Width="[float]24" />
-				</Cluster>
-			</ArrayViewer>
-			<Label Height="[float]16" Id="b45299028bd64e53897d5bf33e769d0a" LabelOwner="[UIModel]2cf7158fab584ffe9b176564ee3f1773" Left="[float]68" Text="[string]filters" Top="[float]128" Width="[float]30" xmlns="http://www.ni.com/PanelCommon" />
 			<ArrayViewer ArrayElement="[UIModel]4b7d0530bc274e6bbd59023c025b06bc" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="b2b8aa7be2b44014a47e4922d9ed9209" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]14976307853b492bad34c389077dd2a7" Left="[float]712" Orientation="[SMOrientation]Vertical" Rows="[int]1" TabIndex="[int]4" Top="[float]628" Value="{DataItemBinding Id=512577f5819540c8aef5ee11d5e575f7}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]104" xmlns="http://www.ni.com/PanelCommon">
 				<p.DefaultElementValue>""</p.DefaultElementValue>
 				<StringControl AcceptsReturn="[bool]True" BaseName="[string]uuid" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="4b7d0530bc274e6bbd59023c025b06bc" IsTabStop="[bool]True" Label="[UIModel]acd97c679b374001be716afe46c68b64" LabelLinked="[bool]True" TabIndex="[int]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" p5:ControlDefinitionChecksum="J0cy0inZWdn6BRZkKXWpaCarrFXjPKar56kGRMtoDDI=" xmlns:p5="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -177,14 +144,35 @@
 				</p4:p.TypeDefinitionTargets>
 			</OpaqueRefnum>
 			<Label Height="[float]16" Id="d93693bdfd4e4a7caf7c3e35cf48a21f" LabelOwner="[UIModel]ea240e3bddf0489db9390f6216f16357" Left="[float]792" Text="[string]device reference" Top="[float]144" Width="[float]87" xmlns="http://www.ni.com/PanelCommon" />
+			<ArrayViewer ArrayElement="[UIModel]a226aed676b842f49482185779d27dcd" BaseName="[string]filters" Columns="[int]1" Dimensions="[int]1" Height="[float]88" Id="9e920b7c2f904863a4c0c8c282f99805" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" IsTabStop="[bool]True" Label="[UIModel]8441a1433dd041b3afa3b228cd91a3b5" LabelLinked="[bool]True" Left="[float]376" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]3" Top="[float]164" Value="{DataItemBinding Id=bfdee03390c245fdb9ba567c29824e7d}" Width="[float]295" p4:ControlDefinitionChecksum="gZ75q60A5UVeq8j1j0Trtb85PTieUP709APJkm6LyfY=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+				<p.DefaultElementValue>
+					<Cluster>
+						<Field1>null</Field1>
+					</Cluster>
+				</p.DefaultElementValue>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="WebBluetooth::Support::filters.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<p4:Cluster BaseName="[string]filter" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@1638d9669e624093b860dbc609e2ada2" Height="[float]76" Id="a226aed676b842f49482185779d27dcd" IsTabStop="[bool]True" Label="[UIModel]f9c664c6c8284d6a9a582d89cfd0d93a" LabelLinked="[bool]True" TabIndex="[int]0" Width="[float]283">
+					<p4:ArrayViewer ArrayElement="[UIModel]ca342ca66ed24be58f9a4ebc6891c9cd" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="e16062a65d1f47398876582f0a6a4de7" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]b992eb0acb654d0aa44df154377b835a" Left="[float]5" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]0" Top="[float]22" Value="{ClusterBinding FieldName=filterParts}" Width="[float]263">
+						<p.DefaultElementValue>""</p.DefaultElementValue>
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]filterPartJSON" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="ca342ca66ed24be58f9a4ebc6891c9cd" IsReadOnly="[bool]False" IsTabStop="[bool]True" Label="[UIModel]c756ee7f19bb41afa01040566d9f0182" LabelLinked="[bool]True" TabIndex="[int]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]196" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+							<p4:Label Height="[float]16" Id="c756ee7f19bb41afa01040566d9f0182" IsVisualChild="[bool]False" LabelOwner="[UIModel]ca342ca66ed24be58f9a4ebc6891c9cd" Left="[float]61" Text="[string]filterPart" Top="[float]-14" Width="[float]74" />
+						</StringControl>
+					</p4:ArrayViewer>
+					<p4:Label Height="[float]16" Id="b992eb0acb654d0aa44df154377b835a" LabelOwner="[UIModel]e16062a65d1f47398876582f0a6a4de7" Left="[float]5" Text="[string]filterParts" Top="[float]2" Width="[float]50" />
+					<p4:Label Height="[float]16" Id="f9c664c6c8284d6a9a582d89cfd0d93a" IsVisualChild="[bool]False" LabelOwner="[UIModel]a226aed676b842f49482185779d27dcd" Left="[float]6" Text="[string]filter" Top="[float]-14" Width="[float]25" />
+				</p4:Cluster>
+			</ArrayViewer>
+			<Label Height="[float]16" Id="8441a1433dd041b3afa3b228cd91a3b5" LabelOwner="[UIModel]9e920b7c2f904863a4c0c8c282f99805" Left="[float]376" Text="[string]filters" Top="[float]144" Width="[float]30" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="2" CallUsage="Optional" DataType="Boolean" Id="bdfe511d08a4496aace621ef283d0888" Name="accept all devices" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
-		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="0" DataType="@cad302636b0447338a066a1e4ee14bd6" Id="bfdee03390c245fdb9ba567c29824e7d" Name="filters" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="0" DataType="@003cfd2584044f639bc83b82a1d94882" Id="bfdee03390c245fdb9ba567c29824e7d" Name="filters" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>null</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="WebBluetooth::Support::filter.gtype" />
+				<TypeDefinitionTarget TargetName="WebBluetooth::Support::filters.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="3" CallUsage="Optional" DataType="@c5f26343b7d94a83975628663a1d030f" Id="512577f5819540c8aef5ee11d5e575f7" Name="optional service uuids" xmlns="http://www.ni.com/MocCommon">
@@ -225,14 +213,18 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="cad302636b0447338a066a1e4ee14bd6">
-			<VariableArray DereferenceType="@9a3f97a56d1d4f20b2fdf82bc61a8854" />
+		<p.TypeReference TypeId="003cfd2584044f639bc83b82a1d94882">
+			<Attributed AttributedType="@bc8c82cb2ac9406a85e7514ca6c248a3">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebBluetooth::Support" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
 		<p.TypeReference TypeId="c5f26343b7d94a83975628663a1d030f">
 			<VariableArray DereferenceType="@c24f6765509344a7b4e2a34190e1ec1f" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="ef278caf4467451e88bc5951b6908b93">
-			<Attributed AttributedType="@8ab2f7d22f324c239751bdde6c788914">
+		<p.TypeReference TypeId="38eaff22ea0445308b3cbc7f38a4e4a5">
+			<Attributed AttributedType="@e6e13ef8875046f9ad708a23fecf6f62">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|3|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]70" />
@@ -254,19 +246,15 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9a3f97a56d1d4f20b2fdf82bc61a8854">
-			<Attributed AttributedType="@4593fb6b194a40f8bcfcb316b44b7152">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebBluetooth::Support" />
-				</AttributeValues>
-			</Attributed>
+		<p.TypeReference TypeId="1638d9669e624093b860dbc609e2ada2">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="filterParts" DataType="String[]" />
+				</Members>
+			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="6fa57fa3b40641249728ebd49067ea7c">
-			<Attributed AttributedType="@c2cfc559e9844601b5f193471d1442df">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebBluetooth::Support" />
-				</AttributeValues>
-			</Attributed>
+		<p.TypeReference TypeId="bc8c82cb2ac9406a85e7514ca6c248a3">
+			<Typedef TypedefName="filters.gtype" UnderlyingType="@432b7ba916464b299392705a2836673d" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="c24f6765509344a7b4e2a34190e1ec1f">
 			<Attributed AttributedType="@270b98aec8fb4731a406f7feab8baf02">
@@ -275,22 +263,22 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="8ab2f7d22f324c239751bdde6c788914">
+		<p.TypeReference TypeId="e6e13ef8875046f9ad708a23fecf6f62">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="RequestDevice" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@71a098c613714e6cbf55f235fd15e3b8">
+					<Attributed AttributedType="@069cf77559a645a087566635e390a7da">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]filters json" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]filtersJSON" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@d4dfad22308947aaa5b6927af65747f8">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]accept all devices" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]acceptAllDevices" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@da5c2de11c0f4bca93e9f3d954df47b6">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]optional service uuids json" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]optionalServiceUUIDsJSON" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@b577765812cd4f8f8e0e880e2427b9d6">
@@ -300,7 +288,7 @@
 					</Attributed>
 					<Attributed AttributedType="@02ee94edd56d425b99659ee9bc27df13">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]device reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]device" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@6ca58f16e0594ddf8c6a6cc5f213d921">
@@ -317,16 +305,13 @@
 		<p.TypeReference TypeId="79e393fddd1e4ffe9d36ef151a65dbfe">
 			<Typedef TypedefName="device reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="4593fb6b194a40f8bcfcb316b44b7152">
-			<Typedef TypedefName="filter.gtype" UnderlyingType="@4696b75368074820b9dd09d67948066d" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="c2cfc559e9844601b5f193471d1442df">
-			<Typedef TypedefName="filter setting.gtype" UnderlyingType="@775c910c520c451e8b701befa9f903ee" />
+		<p.TypeReference TypeId="432b7ba916464b299392705a2836673d">
+			<VariableArray DereferenceType="@1638d9669e624093b860dbc609e2ada2" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="270b98aec8fb4731a406f7feab8baf02">
 			<Typedef TypedefName="uuid.gtype" UnderlyingType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="71a098c613714e6cbf55f235fd15e3b8">
+		<p.TypeReference TypeId="069cf77559a645a087566635e390a7da">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="d4dfad22308947aaa5b6927af65747f8">
@@ -343,24 +328,6 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="6ca58f16e0594ddf8c6a6cc5f213d921">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R6" DataType="Error" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="4696b75368074820b9dd09d67948066d">
-			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
-				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="filterSettings" DataType="@0a3ed683dc66426199682ca41a4e3682" />
-				</Members>
-			</Composite>
-		</p.TypeReference>
-		<p.TypeReference TypeId="775c910c520c451e8b701befa9f903ee">
-			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
-				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="name" DataType="String" />
-					<Field FieldAccessPolicy="ReadWrite" Name="settingJSON" DataType="String" />
-				</Members>
-			</Composite>
-		</p.TypeReference>
-		<p.TypeReference TypeId="0a3ed683dc66426199682ca41a4e3682">
-			<VariableArray DereferenceType="@6fa57fa3b40641249728ebd49067ea7c" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">

@@ -1,6 +1,38 @@
 (function () {
     'use strict';
 
+    const deepMerge = function (target, ...args) {
+        const isObject = function (obj) {
+            return typeof obj === 'object' && obj !== null;
+        };
+        args.forEach(function (arg) {
+            if (Array.isArray(arg)) {
+                if (!Array.isArray(target)) {
+                    throw new Error('Cannot merge an array onto a target non-array');
+                }
+                arg.forEach(item => target.push(item));
+            } else if (isObject(arg)) {
+                Object.keys(arg).forEach(function (prop) {
+                    if (Array.isArray(arg[prop])) {
+                        if (!Array.isArray(target[prop])) {
+                            target[prop] = [];
+                        }
+                        deepMerge(target[prop], arg[prop]);
+                    } else if (isObject(arg[prop])) {
+                        if (!isObject(target[prop])) {
+                            target[prop] = {};
+                        }
+                        deepMerge(target[prop], arg[prop]);
+                    } else {
+                        target[prop] = arg[prop];
+                    }
+                });
+            } else {
+                throw new Error('Cannot merge arg into target, arg must be an array or object to merge');
+            }
+        });
+    };
+
     const validateWebBluetooth = function () {
         if (navigator.bluetooth === undefined) {
             throw new Error('Web Bluetooth not supported on this platform.');
@@ -32,17 +64,10 @@
         validateWebBluetooth();
         // Dynamic JSON structure cannot be well-represented: https://github.com/WebBluetoothCG/web-bluetooth/issues/407
         const filters = JSON.parse(filtersJSON).map(filter => {
-            return filter.filterSettings.map(function ({name, settingJSON}) {
-                const settingRaw = JSON.parse(settingJSON);
-                const setting = settingRaw.single_property_to_unflatten === undefined ? settingRaw : settingRaw.single_property_to_unflatten;
-                return {
-                    name,
-                    setting
-                };
-            }).reduce(function (filter, {name, setting}) {
-                filter[name] = setting;
-                return filter;
-            }, {});
+            const filterParts = filter.filterParts.map(filterPart => JSON.parse(filterPart));
+            const filterPartsMerged = {};
+            deepMerge(filterPartsMerged, ...filterParts);
+            return filterPartsMerged;
         });
         const optionalServices = JSON.parse(optionalServiceUUIDsJSON);
         const options = {
