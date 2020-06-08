@@ -136,18 +136,22 @@
                 // According to spec:
                 // After notifications are enabled, the resulting value-change events won’t be delivered until after the current microtask checkpoint.
                 // This allows a developer to set up handlers in the .then handler of the result promise.
-                characteristicValueChangedHandler = () => controller.enqueue(characteristic.value.buffer);
+                characteristicValueChangedHandler = () => {
+                    controller.enqueue(new Uint8Array(characteristic.value.buffer));
+                };
                 // TODO controller close will allow exisiting values to be read. Should we instead kill the stream?
-                serviceRemovedHandler = () => controller.close();
-                gattServerDisconnectedHandler = () => controller.close();
+                serviceRemovedHandler = () => {
+                    controller.close();
+                };
+                gattServerDisconnectedHandler = () => {
+                    controller.close();
+                };
                 characteristic.addEventListener('characteristicvaluechanged', characteristicValueChangedHandler);
-                characteristic.service.addEventListener('serviceremoved', serviceRemovedHandler);
                 characteristic.service.device.addEventListener('gattserverdisconnected', gattServerDisconnectedHandler);
                 // TODO add error case event listeners, see https://github.com/WebBluetoothCG/web-bluetooth/issues/500
             },
             async cancel () {
                 characteristic.removeEventListener('characteristicvaluechanged', characteristicValueChangedHandler);
-                characteristic.service.removeEventListener('serviceremoved', serviceRemovedHandler);
                 characteristic.service.device.removeEventListener('gattserverdisconnected', gattServerDisconnectedHandler);
                 await characteristic.stopNotifications();
             }
@@ -157,13 +161,17 @@
     };
 
     const readCharacteristicNotification = async function (notificationStreamReader) {
-        validateWebBluetoothValue(notificationStreamReader, window.ReadableStream);
-        const value = await notificationStreamReader.read();
+        validateWebBluetoothValue(notificationStreamReader, window.ReadableStreamDefaultReader);
+        const {value, done} = await notificationStreamReader.read();
+        if (done) {
+            // TODO make parseable errors to report the done state
+            throw new Error('Notification stream done');
+        }
         return value;
     };
 
     const stopCharacteristicNotification = async function (notificationStreamReader) {
-        validateWebBluetoothValue(notificationStreamReader, window.ReadableStream);
+        validateWebBluetoothValue(notificationStreamReader, window.ReadableStreamDefaultReader);
         await notificationStreamReader.cancel();
     };
 
