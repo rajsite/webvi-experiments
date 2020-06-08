@@ -129,7 +129,7 @@
         // TODO disallow multiple startCharacteristicNotifications for the same characteristic?
         validateWebBluetoothValue(characteristic, window.BluetoothRemoteGATTCharacteristic);
         // https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_streams#The_ReadableStream_constructor
-        let characteristicValueChangedHandler, serviceRemovedHandler, gattServerDisconnectedHandler;
+        let characteristicValueChangedHandler, gattServerDisconnectedHandler;
         const notificationStream = new ReadableStream({
             async start (controller) {
                 await characteristic.startNotifications();
@@ -140,9 +140,6 @@
                     controller.enqueue(new Uint8Array(characteristic.value.buffer));
                 };
                 // TODO controller close will allow exisiting values to be read. Should we instead kill the stream?
-                serviceRemovedHandler = () => {
-                    controller.close();
-                };
                 gattServerDisconnectedHandler = () => {
                     controller.close();
                 };
