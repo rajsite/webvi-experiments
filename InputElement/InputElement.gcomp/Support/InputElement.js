@@ -1,153 +1,108 @@
 (function () {
     'use strict';
 
-    class DataQueue {
-        constructor () {
-            this._queue = [];
-            this._pendingResolve = undefined;
-            this._pendingReject = undefined;
+    const validateInputElement = function (element) {
+        if (element instanceof HTMLInputElement === false) {
+            throw new Error('Input is not a valid HTMLInputElement');
         }
-
-        _clearPending () {
-            this._pendingResolve = undefined;
-            this._pendingReject = undefined;
-        }
-
-        enqueue (data) {
-            if (this._queue === undefined) {
-                throw new Error(`The queue has already been destroyed, cannot enqueue new data: ${data}`);
-            }
-
-            this._queue.push(data);
-
-            if (this._pendingResolve !== undefined) {
-                const pendingResolve = this._pendingResolve;
-                this._clearPending();
-                pendingResolve(this._queue.shift());
-            }
-        }
-
-        dequeue () {
-            if (this._queue === undefined) {
-                throw new Error('The queue has already been destroyed, cannot dequeue any data.');
-            }
-
-            if (this._pendingResolve !== undefined) {
-                throw new Error('A pending dequeue operation already exists. Only one pending dequeue operation allowed at a time.');
-            }
-
-            if (this._queue.length === 0) {
-                return new Promise((resolve, reject) => {
-                    this._pendingResolve = resolve;
-                    this._pendingReject = reject;
-                });
-            }
-
-            return this._queue.shift();
-        }
-
-        destroy () {
-            const remaining = this._queue;
-            this._queue = undefined;
-
-            if (this._pendingResolve !== undefined) {
-                const toReject = this._pendingReject;
-                this._clearPending();
-                toReject(new Error('Pending dequeue operation failed due to queue destruction.'));
-            }
-
-            return remaining;
-        }
-    }
-
-    let nextRefnum = 1;
-    class RefnumManager {
-        constructor () {
-            this.refnums = new Map();
-        }
-
-        createRefnum (obj) {
-            const refnum = nextRefnum;
-            nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
-        }
-
-        getObject (refnum) {
-            return this.refnums.get(refnum);
-        }
-
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
-        }
-    }
-    const refnumManager = new RefnumManager();
-
-    const getInputConfig = function (refnum) {
-        const inputConfig = refnumManager.getObject(refnum);
-        if (inputConfig === undefined) {
-            throw new Error('Invalid refnum, create a valid input refnum first');
-        }
-        return inputConfig;
     };
 
-    const createAndListenForChange = function (selector, attributesJSON) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Expected to find exactly one element with selector: ${selector}, but instead found: ${elements.length}`);
+    const validateEventStreamReader = function (eventStreamReader) {
+        if (eventStreamReader instanceof window.ReadableStreamDefaultReader === false) {
+            throw new Error('Input is not a valid event stream reader');
         }
+    };
 
-        const containerElement = elements[0];
+    const validateEventName = function (name) {
+        const supportedEvents = ['change', 'input'];
+        if (supportedEvents.includes(name) === false) {
+            throw new Error(`Expected one of the following event types: ${supportedEvents.join(' ')} but received ${name}`);
+        }
+    };
+
+    const createElement = function (placeholder, attributesJSON) {
         const attributes = JSON.parse(attributesJSON);
+        const inputElement = document.createElement('input');
+        attributes.forEach(({name, value}) => inputElement.setAttribute(name, value));
+        placeholder.appendChild(inputElement);
+        return inputElement;
+    };
 
-        const input = document.createElement('input');
-        attributes.forEach(({name, value}) => input.setAttribute(name, value));
+    const getValue = function (inputElement) {
+        validateInputElement(inputElement);
+        const value = inputElement.value;
+        return value;
+    };
 
-        containerElement.innerHTML = '';
-        containerElement.appendChild(input);
+    const setValue = function (inputElement, value) {
+        validateInputElement(inputElement);
+        inputElement.value = value;
+    };
 
-        const queue = new DataQueue();
-        const handler = () => queue.enqueue(input.value);
-        const stopEvents = () => input.removeEventListener('change', handler);
-        input.addEventListener('change', handler);
-
-        const inputConfig = {
-            stopEvents,
-            queue,
-            input
+    const getAttribute = function (inputElement, name) {
+        validateInputElement(inputElement);
+        const value = inputElement.getAttribute(name);
+        const exists = value !== null;
+        const result = {
+            value: exists ? value : '',
+            exists
         };
-
-        const refnum = refnumManager.createRefnum(inputConfig);
-        return refnum;
+        const resultJSON = JSON.stringify(result);
+        return resultJSON;
     };
 
-    const waitForChange = async function (refnum) {
-        const inputConfig = getInputConfig(refnum);
-        return await inputConfig.queue.dequeue();
+    const setAttribute = function (inputElement, name, value, remove) {
+        validateInputElement(inputElement);
+        if (remove) {
+            inputElement.removeAttribute(name);
+        } else {
+            inputElement.setAttribute(name, value);
+        }
     };
 
-    const stopListeningForChange = async function (refnum) {
-        const inputConfig = getInputConfig(refnum);
-        inputConfig.stopEvents();
-        inputConfig.queue.destroy();
+    const addEventListener = function (inputElement, name) {
+        validateInputElement(inputElement);
+        validateEventName(name);
+        let changeHandler;
+        const eventStream = new ReadableStream({
+            start (controller) {
+                changeHandler = () => {
+                    controller.enqueue(inputElement.value);
+                };
+                inputElement.addEventListener(name, changeHandler);
+            },
+            cancel () {
+                inputElement.removeEventListener(name, changeHandler);
+            }
+        });
+        const eventStreamReader = eventStream.getReader();
+        return eventStreamReader;
     };
 
-    const getProperty = function (refnum, name) {
-        const inputConfig = getInputConfig(refnum);
-        const value = inputConfig.input[name];
-        return String(value);
+    const waitForEvent = async function (eventStreamReader) {
+        validateEventStreamReader(eventStreamReader);
+        const {value, done} = await eventStreamReader.read();
+        const result = {
+            value: done ? '' : value,
+            done
+        };
+        const resultJSON = JSON.stringify(result);
+        return resultJSON;
     };
 
-    const setProperty = function (refnum, name, value) {
-        const inputConfig = getInputConfig(refnum);
-        inputConfig.input[name] = value;
+    const removeEventListener = async function (eventStreamReader) {
+        validateEventStreamReader(eventStreamReader);
+        await eventStreamReader.cancel();
     };
 
-    window.customInputControl = {
-        createAndListenForChange,
-        waitForChange,
-        stopListeningForChange,
-        getProperty,
-        setProperty
+    window.WebVIInputElement = {
+        createElement,
+        getValue,
+        setValue,
+        getAttribute,
+        setAttribute,
+        addEventListener,
+        waitForEvent,
+        removeEventListener
     };
 }());
