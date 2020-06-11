@@ -2,7 +2,7 @@
 
 Incredibly experimental. Major security issues (see TODOs below). 🔥
 
-Supports NXG 3.1, but not NXG 4.0 or NXG 5 beta. Hopefully can support NXG 5 in the future 🤞.
+Only supports NXG 5.
 
 ## Overview
 

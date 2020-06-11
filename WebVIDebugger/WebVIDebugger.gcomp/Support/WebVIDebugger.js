@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const inspectPanelValues = function (callChainJSON) {
+    const inspectPanelValues = function (name, callChainJSON) {
         // static references
         const webAppElement = document.querySelector('ni-web-application');
 
@@ -34,9 +34,15 @@
             return obj;
         }, {});
 
-        const eventData = JSON.stringify(dataItems);
-        console.log(eventData);
-        const event = new CustomEvent('webvi-debugger-message', {detail: eventData});
+        const inspectPanelResult = {
+            [name]: dataItems
+        };
+        console.log(inspectPanelResult);
+        const inspectPanelResultJSON = JSON.stringify(inspectPanelResult);
+        const eventConfig = {
+            detail: inspectPanelResultJSON
+        };
+        const event = new CustomEvent('webvi-debugger-message', eventConfig);
         webAppElement.dispatchEvent(event);
     };
 

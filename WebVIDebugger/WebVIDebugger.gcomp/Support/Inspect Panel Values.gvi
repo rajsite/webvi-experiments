@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="F3DC7DBE13E5AE10B4BEE4BE7FEF60918066B0302E194743E94187DDE3E207A8DFDAE0B99D84E6B4A4C2BAD65EF1F482FECF2E88C9B4A138497C4B35C98FE31F" Timestamp="1D6371C79AC5AD5" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="224F116ADD97B71FAD8D284F7B20BD9AC68727A0BAD5927F6F8FCE45F0FF955A9BA515CFC34EA2A66CB25FDA8E2496C1C0F34BFD86FE7A3A79376B4F37613D41" Timestamp="1D63FAC4DFBAF34" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
 	</SourceModelFeatureSet>
@@ -18,8 +20,8 @@
 				</IconTemplate>
 			</IconPanel>
 		</Icon>
-		<ConnectorPane Height="40" Id="cc2da939de3f48289f3df27a4a0d2f9e" ListViewHeight="40" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-			<ConnectorPaneTerminal />
+		<ConnectorPane Height="40" Id="cc2da939de3f48289f3df27a4a0d2f9e" ListViewHeight="55" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+			<ConnectorPaneTerminal ListViewHotspot="0 35" Parameter="6765ae905ed445ebafe3a452fc61c71b" />
 			<ConnectorPaneTerminal Hotspot="0 15" />
 			<ConnectorPaneTerminal Hotspot="0 25" />
 			<ConnectorPaneTerminal Hotspot="0 35" />
@@ -33,43 +35,65 @@
 			<ConnectorPaneTerminal Hotspot="25 40" />
 		</ConnectorPane>
 		<DiagramUnplacedItems Id="60da740a356448fcada35de8adc7e10b" xmlns="http://www.ni.com/MocCommon" />
-		<FrontPanelUnplacedItems Id="df92bd805fdb4661a87b7b8b8de0731f" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
+		<FrontPanelUnplacedItems Id="df92bd805fdb4661a87b7b8b8de0731f" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0">
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="1dd3a848385b4521acb7ea491c09c144" IsReadOnly="[bool]False" Left="[float]0" Name="[string]name" TabIndex="[int]0" Text="{DataItemBinding Id=6765ae905ed445ebafe3a452fc61c71b}" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+		</FrontPanelUnplacedItems>
 		<BlockDiagram Id="44011845cce2468caee043e225eb5bd1">
-			<MethodCall Bounds="925 -60 40 40" Id="81720e9e697043cca051346e6429bf32" ResolveFailedHint="InspectPanelValues" Signature="@1c54085a9c0244c094f5a15041e65576" Target="WebVIDebugger::Support::WebVIDebugger.jsli::InspectPanelValues" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="920 -70 40 40" Id="81720e9e697043cca051346e6429bf32" ResolveFailedHint="InspectPanelValues" Signature="@66e5ede085c247cfb9f6fd051e033976" Target="WebVIDebugger::Support::WebVIDebugger.jsli::InspectPanelValues" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="callChainJSON" />
+						<Parameter Id="L0" Desc="name" />
+						<Parameter Id="L1" Desc="callChainJSON" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="String" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<CallChain Bounds="710 -60 30 30" Id="a362b58d6bc04953bf0d38c3933af392" />
 			<FlattenToJson Bounds="790 -60 40 40" Id="1b0e50887b9740639eb645648ac8341a" />
 			<Wire Id="65d62454b2e42a38fda4dcc76b4ecdf" Joints="N(a362b58d6bc04953bf0d38c3933af392:callchain)|(740,-55) N(1b0e50887b9740639eb645648ac8341a:anything)|(790,-55)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="f609473a7cfa4a728c7ac3cc75b01f5e" Joints="N(1b0e50887b9740639eb645648ac8341a:JSON string)|(830,-55) N(81720e9e697043cca051346e6429bf32:L0)|(925,-55)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Comment Bounds="745 -125 185 15" Id="db505ab9f694787a7f52a4af41f3eab" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>This VI must not be reentrant</p.Text>
+			</Comment>
+			<Wire Id="422a1b14ef6f46ceb571c7a5e86d65bb" Joints="N(1b0e50887b9740639eb645648ac8341a:JSON string)|(830,-55) N(81720e9e697043cca051346e6429bf32:L1)|(920,-55)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="850 -85 40 15" DataItem="6765ae905ed445ebafe3a452fc61c71b" Id="74c016a4562f4d2396011ba7aa37cbcb" Label="6e96146075054071a7e4257d1231be66" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="74c016a4562f4d2396011ba7aa37cbcb" Bounds="814 -85 31 14" Id="6e96146075054071a7e4257d1231be66" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>name</p.Text>
+			</NodeLabel>
+			<Wire Id="5070b0bc3c3d47cd9ce5f4bc52e3ea62" Joints="N(74c016a4562f4d2396011ba7aa37cbcb:Value)|(890,-80) h(5) v(15) N(81720e9e697043cca051346e6429bf32:L0)|(920,-65)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel AllowMaximize="[bool]False" EnforceMaximumSize="[bool]True" Height="[float]1600" HtmlPanel="[bool]False" Id="aa00b54d442446e5acbdd9d7f253dfb7" Left="[float]0" MaxHeight="[float]1600" MaxWidth="[float]2000" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000" WindowTitleOption="[WindowTitleOption]None">
 			<PanelExecutionWindow Id="2c265a2f2683438c92f4dec96e5bb257" />
 		</NativeFrontPanel>
+		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="String" Id="6765ae905ed445ebafe3a452fc61c71b" Name="name" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
+		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="1c54085a9c0244c094f5a15041e65576">
-			<Attributed AttributedType="@a2e9326415924f2bba7b65d0010156c6">
+		<p.TypeReference TypeId="66e5ede085c247cfb9f6fd051e033976">
+			<Attributed AttributedType="@30b73e81308e4eeead943c8786063951">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="a2e9326415924f2bba7b65d0010156c6">
+		<p.TypeReference TypeId="30b73e81308e4eeead943c8786063951">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="InspectPanelValues" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@7d6b517914a14cdf91f9629117944385">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]name" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@069cf77559a645a087566635e390a7da">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]callChainJSON" />
 						</AttributeValues>
@@ -89,6 +113,9 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="7d6b517914a14cdf91f9629117944385">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="069cf77559a645a087566635e390a7da">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />

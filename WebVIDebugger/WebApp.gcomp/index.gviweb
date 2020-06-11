@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="68A8C08E1B7A3EAFB745F18277D32C90D249D141D67732ADD64CCC449D58ABA71A89E1E15F363C1D95C5F30E960ED378A1B8AD0A9DFD1AE672EC56E73ED823B6" Timestamp="1D6396CDF9A3594" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="BE1537B3022142B4F409F12A5C53BCABD5F00EFD5041C9A81455CB696772A433B4B57567CD0405EEBD9872F9AC7FBAC402F8B81113F133DE280CD8304BC0178F" Timestamp="1D63FAC61EC97F4" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -71,15 +71,25 @@
 				<NodeLabel AttachedTo="b3992ec45f4549b9bd6879f018535bfb" Bounds="45 23 66 14" Id="32eeb73079044c469332b54780f9344a" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>Game State</p.Text>
 				</NodeLabel>
-				<Wire Id="d090748e3bba45359a6d8f144f8cd6d1" Joints="N(972286cf3bd4438db47152b263786de8:i0)|(4,45) h(26) B(1) N(b3992ec45f4549b9bd6879f018535bfb:Value)|(48,45) B(1) v(55) N(a073ca33e9984f128d035c1ae965f6f4:L0)|(75,100)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="75 95 40 40" Id="a073ca33e9984f128d035c1ae965f6f4" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebVIDebugger\\WebVIDebugger.gcomp\\Probe.gvi&quot;" Signature="@52eab6e1dae941859f8a1b88e0446fd4" Target="WebVIDebugger::Probe.gvi" xmlns="http://www.ni.com/MocCommon">
+				<Wire Id="d090748e3bba45359a6d8f144f8cd6d1" Joints="N(972286cf3bd4438db47152b263786de8:i0)|(4,45) h(26) B(1) N(b3992ec45f4549b9bd6879f018535bfb:Value)|(48,45) B(1) v(50) N(a073ca33e9984f128d035c1ae965f6f4:L1)|(155,95)" xmlns="http://www.ni.com/PlatformFramework" />
+				<MethodCall Bounds="155 80 40 40" Id="a073ca33e9984f128d035c1ae965f6f4" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\WebVIDebugger\\WebVIDebugger.gcomp\\Probe.gvi&quot;" Signature="@37dd9bc27c5c4253b176de77fffe6746" Target="WebVIDebugger::Probe.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-							<Parameter Id="L0" Desc="probe in" />
+							<Parameter Id="L0" Desc="name" />
+							<Parameter Id="L1" Desc="probe" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
-					<Terminal DataType="@bd2232353db34e3ebe062acdcac878ce" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@bd2232353db34e3ebe062acdcac878ce" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
+				<Literal Bounds="50 70 80 15" DataType="String" Id="f0b755d2195d45a99c6dc19c8c107547" Label="e62b8d1ee0a45ff908b6c600a58c5de" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>game state</p.Data>
+					<StringBehavior TextDisplayMode="Default" />
+				</Literal>
+				<NodeLabel AttachedTo="f0b755d2195d45a99c6dc19c8c107547" Bounds="50 52 30 15" Id="e62b8d1ee0a45ff908b6c600a58c5de" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>name</p.Text>
+				</NodeLabel>
+				<Wire Id="2f0ee9b477654b90a5e6e565b78aab22" Joints="N(f0b755d2195d45a99c6dc19c8c107547:Out)|(130,75) h(5) v(10) N(a073ca33e9984f128d035c1ae965f6f4:L0)|(155,85)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopTunnel Bounds="-4 45 13 10" Docking="Left" Id="972286cf3bd4438db47152b263786de8" Terminals="o0=7b00e05f51094c80879ef5c730c2230b, i0=d090748e3bba45359a6d8f144f8cd6d1" />
 			</WhileLoop>
 			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
@@ -312,8 +322,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="52eab6e1dae941859f8a1b88e0446fd4">
-			<Attributed AttributedType="@775e91da0db24d30b25158daa4db4f40">
+		<p.TypeReference TypeId="37dd9bc27c5c4253b176de77fffe6746">
+			<Attributed AttributedType="@19f2b738843b459098b396a7eaa3ed42">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -401,12 +411,17 @@
 		<p.TypeReference TypeId="709aefbbdbb645348782ae3ed124a0e9">
 			<Typedef TypedefName="Game State.gtype" UnderlyingType="@a8f59312b3f941ff968c382362001ee1" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="775e91da0db24d30b25158daa4db4f40">
+		<p.TypeReference TypeId="19f2b738843b459098b396a7eaa3ed42">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Probe.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@a2b535f5141a47619d6b078acb359663">
+					<Attributed AttributedType="@f6353861de3f4f0fa49ef5397179a04b">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]probe in" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]name" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@b5374e3e4bff4661a783fcde3b494e7d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]probe" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
@@ -446,8 +461,11 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="a2b535f5141a47619d6b078acb359663">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@bd2232353db34e3ebe062acdcac878ce" />
+		<p.TypeReference TypeId="f6353861de3f4f0fa49ef5397179a04b">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b5374e3e4bff4661a783fcde3b494e7d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@bd2232353db34e3ebe062acdcac878ce" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="7423eba18b3f491b91674dbbe7b60e32">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
