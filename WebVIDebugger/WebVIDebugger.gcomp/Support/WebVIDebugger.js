@@ -1,13 +1,13 @@
 (function () {
     'use strict';
 
-    const inspectPanelValues = function (name, callChainJSON) {
+    const probeValue = function (name, callChainJSON) {
         // static references
         const webAppElement = document.querySelector('ni-web-application');
 
         const isNXG5 = webAppElement && webAppElement.vireoInstance && webAppElement.vireoHelpers;
         if (!isNXG5) {
-            console.log('WebVIDebugger not supported in this version of NXG. Only');
+            console.log('WebVIDebugger not supported in this version of NXG.');
             return;
         }
 
@@ -20,22 +20,16 @@
         // input processing
         const callChain = JSON.parse(callChainJSON);
 
-        // Skip the zeroth item in the call chain as it is the Inspect Panel Values VI
-        const viName = callChain[1];
+        // The zeroth item in the call chain is Probe.gvi
+        const viName = callChain[0];
         const viNameEncoded = vireoHelpers.staticHelpers.encodeIdentifier(viName);
-        const viRef = vireo.eggShell.findValueRef(viNameEncoded, '');
+        const valueRef = vireo.eggShell.findValueRef(viNameEncoded, 'dataItem_Probeout');
 
         // read dataspace
-        const dataSpaceJSON = vireo.eggShell.readJSON(viRef);
-        const dataSpace = JSON.parse(dataSpaceJSON);
-        const dataItemNames = Object.keys(dataSpace).filter(key => key.indexOf('dataItem_') !== -1);
-        const dataItems = dataItemNames.reduce(function (obj, dataItemName) {
-            obj[dataItemName] = dataSpace[dataItemName];
-            return obj;
-        }, {});
-
+        const probeJSON = vireo.eggShell.readJSON(valueRef);
+        const probe = JSON.parse(probeJSON);
         const inspectPanelResult = {
-            [name]: dataItems
+            [name]: probe
         };
         console.log(inspectPanelResult);
         const inspectPanelResultJSON = JSON.stringify(inspectPanelResult);
@@ -46,5 +40,5 @@
         webAppElement.dispatchEvent(event);
     };
 
-    window.WebVIDebugger = {inspectPanelValues};
+    window.WebVIDebugger = {probeValue};
 }());
