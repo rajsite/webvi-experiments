@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="F03334B360EB86AF9D609FA81965F1ED6FCE073BF305E6468B778A45CD438D3895B5C1EE8B16F6624D0D7E53846E5AB82B608A9131EAC7A87D79C16F9B0AD86A" Timestamp="1D6407929E08448" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D1B4D0EB3D1B8FE8DE9A5C0CE741CE4CEC1580F79E7358E77E63EF8C6873BEF8E188865BAF365BB929F7E3485CBC74642F01B467E2F60EEC32299A8F452CEEA7" Timestamp="1D642DBDCBB56FE" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
 	</SourceModelFeatureSet>
@@ -38,27 +36,28 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<WhileLoop Bounds="285 110 541 355" DiagramId="17" Id="16">
-				<LoopIteration Bounds="5 325 15 15" Id="18" />
-				<LoopCondition Bounds="475 320 15 15" Id="19" />
-				<Literal Bounds="420 320 25 15" DataType="Boolean" Id="20" Label="21" xmlns="http://www.ni.com/MocCommon">
+			<WhileLoop Bounds="260 110 566 355" DiagramId="17" Id="16">
+				<LoopIteration Bounds="30 325 15 15" Id="18" />
+				<LoopCondition Bounds="500 320 15 15" Id="19" />
+				<Literal Bounds="445 320 25 15" DataType="Boolean" Id="20" Label="21" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>False</p.Data>
 					<BooleanBehavior />
 				</Literal>
-				<NodeLabel AttachedTo="20" Bounds="385 320 30 15" Id="21" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="20" Bounds="410 320 30 15" Id="21" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>stop</p.Text>
 				</NodeLabel>
-				<Wire Id="22" Joints="N(20:Out)|(445,325) N(19:Input)|(475,325)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wait Bounds="450 265 40 40" Id="23" />
-				<Literal Bounds="400 280 40 15" DataType="UInt32" Id="24" Label="25" xmlns="http://www.ni.com/MocCommon">
-					<p.Data>100</p.Data>
+				<Wire Id="22" Joints="N(20:Out)|(470,325) N(19:Input)|(500,325)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wait Bounds="475 265 40 40" Id="23" />
+				<Literal Bounds="420 280 45 15" DataType="UInt32" Id="24" Label="25" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>1000</p.Data>
 					<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
 				</Literal>
-				<NodeLabel AttachedTo="24" Bounds="365 280 30 15" Id="25" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="24" Bounds="385 280 30 15" Id="25" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
-				<Wire Id="26" Joints="N(24:Out)|(440,285) N(23:time to wait)|(450,285)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="165 290 40 40" Id="3a2cdd113aef4e448451f1c9c9f21dd6" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\DebugLog\\DebugLog.gcomp\\Debug Log.gvi&quot;" Signature="@2e90b3a5856841a5bd4cde057c2f2d95" Target="DebugLog::Debug Log.gvi" xmlns="http://www.ni.com/MocCommon">
+				<Wire Id="26" Joints="N(24:Out)|(465,285) N(23:time to wait)|(475,285)" xmlns="http://www.ni.com/PlatformFramework" />
+				<MethodCall Bounds="220 145 40 40" Id="1ae29046eca84123b6cf5d887ab8d1c6" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\DebugLog\\WebApp.gcomp\\My SubVI.gvi&quot;" Signature="@ba42691de6f54a8fa20c5dcc0144f418" Target="WebApp::My SubVI.gvi" xmlns="http://www.ni.com/MocCommon" />
+				<MethodCall Bounds="125 280 40 40" Id="1c185966320a4d47ba369f2be2a5950d" ResolveFailedHint="&quot;D:\\dev\\GitHub\\webvi-experiments\\DebugLog\\DebugLog.gcomp\\Debug Log.gvi&quot;" Signature="@2e90b3a5856841a5bd4cde057c2f2d95" Target="DebugLog::Debug Log.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="L0" Desc="prefix" />
@@ -68,39 +67,30 @@
 					<Terminal DataType="String" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="@bd2232353db34e3ebe062acdcac878ce" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
-				<Wire Id="a7fd380f48824e67820ae6836fff15c1" Joints="N(18:Output)|(20,330) h(5) v(-25) B(2) N(3a2cdd113aef4e448451f1c9c9f21dd6:L1)|(165,305) B(2) v(-75) N(5508370e23e34b1c8d900f823b356e59:Value)|(58,230)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="55 225 40 15" DataItem="ba40965588104a5a950b92231b1345ef" Id="5508370e23e34b1c8d900f823b356e59" Label="12060b029c9745aa985fb94893667ef3" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="5508370e23e34b1c8d900f823b356e59" Bounds="100 225 74 14" Id="12060b029c9745aa985fb94893667ef3" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>loop iteration</p.Text>
-				</NodeLabel>
-				<Literal Bounds="70 285 55 15" DataType="String" Id="fbf9d56507da42108069a56fc53e7584" Label="e2bb1ad096b34bf7add6d16a164bd63a" xmlns="http://www.ni.com/MocCommon">
-					<p.Data>[hello]</p.Data>
+				<Wire Id="c9a331e4b4884e609bf6ccd8db44c3a5" Joints="N(18:Output)|(45,330) h(6) v(-35) N(1c185966320a4d47ba369f2be2a5950d:L1)|(125,295)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Literal Bounds="15 260 85 15" DataType="String" Id="99595664e5714642b6529ebacf06098a" Label="c9d394c293764d96b042c5a72dbfab09" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>[increment]</p.Data>
 					<StringBehavior TextDisplayMode="Default" />
 				</Literal>
-				<NodeLabel AttachedTo="fbf9d56507da42108069a56fc53e7584" Bounds="70 267 30 15" Id="e2bb1ad096b34bf7add6d16a164bd63a" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="99595664e5714642b6529ebacf06098a" Bounds="15 242 30 15" Id="c9d394c293764d96b042c5a72dbfab09" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>prefix</p.Text>
 				</NodeLabel>
-				<Wire Id="dc18586ea45641b585ebc9cdd719f162" Joints="N(fbf9d56507da42108069a56fc53e7584:Out)|(125,290) h(5) v(5) N(3a2cdd113aef4e448451f1c9c9f21dd6:L0)|(165,295)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="acfc3b1285e641ea9c07cbc5155eee45" Joints="N(99595664e5714642b6529ebacf06098a:Out)|(100,265) h(5) v(20) N(1c185966320a4d47ba369f2be2a5950d:L0)|(125,285)" xmlns="http://www.ni.com/PlatformFramework" />
 			</WhileLoop>
-			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
-				<p.Text>Top-Level WebVIs usually contain a While Loop that never stops so that they can continue running as long as the web page is open in the user's web browser.</p.Text>
-			</Comment>
-			<Comment Bounds="80 230 170 90" Id="29" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
-				<p.Text>Place setup code before the loop. For example, perform initial data communication and wire the results into the loop.</p.Text>
-			</Comment>
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<Text BaseName="[string]Text" Height="[float]32" Id="36" Left="[float]180" MinHeight="[float]11" MinWidth="[float]11" Text="[string]On the WebVI Panel, place controls and indicators to respond to user input and display data.&#xD;&#xA;These controls will appear on the web page that is created when you build this Web Application." TextWrapping="[TextWrapping]Wrap" Top="[float]132" Width="[float]516" xmlns="http://www.ni.com/PlatformFramework" />
-			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="a5ddf1596e9f42449b83b7570965c6e2" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]e8d535d3b4934a2c9bc2d2fd7ac83195" Left="[float]84" RadixBase="[RadixBase]Decimal" TabIndex="[int]0" Top="[float]244" Value="{DataItemBinding Id=ba40965588104a5a950b92231b1345ef}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="e8d535d3b4934a2c9bc2d2fd7ac83195" LabelOwner="[UIModel]a5ddf1596e9f42449b83b7570965c6e2" Left="[float]84" Text="[string]loop iteration" Top="[float]224" Width="[float]72" xmlns="http://www.ni.com/PanelCommon" />
 		</HtmlFrontPanel>
-		<DataItem AdaptToDiagramType="True" DataType="Int32" Id="ba40965588104a5a950b92231b1345ef" Name="loop iteration" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>0</p.DefaultValue>
-		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="ba42691de6f54a8fa20c5dcc0144f418">
+			<Attributed AttributedType="@29efa994f249497294183e246f28eb62">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="2e90b3a5856841a5bd4cde057c2f2d95">
 			<Attributed AttributedType="@504834a227964137a26dcb96c4932207">
 				<AttributeValues>
@@ -111,6 +101,9 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="bd2232353db34e3ebe062acdcac878ce">
 			<Composite Id="1" Name="Variant" Sealed="" GenericTypeDefinition="Void" BaseType="Void" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="29efa994f249497294183e246f28eb62">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="My SubVI.gvi" ReturnType="Void" GenericTypeDefinition="Void" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="504834a227964137a26dcb96c4932207">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Debug Log.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -136,7 +129,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="DebugLog::Debug Log.gvi">
+		<p.IconModel Target="WebApp::My SubVI.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -144,10 +137,33 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Debug Log" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="9" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]My SubVI" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="9.75" />
 								</FileNameText>
 							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="DebugLog::Debug Log.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Banner" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+							</IconTemplate>
+							<Image BaseName="[string]Image" Height="[float]18" Left="[float]3" MinHeight="[float]15" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;black&quot; width=&quot;18px&quot; height=&quot;18px&quot;&gt;&lt;path d=&quot;M0 0h24v24H0V0z&quot; fill=&quot;none&quot;/&gt;&lt;path d=&quot;M19 8h-1.81c-.45-.78-1.07-1.45-1.82-1.96l.93-.93c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-1.47 1.47C12.96 5.06 12.49 5 12 5s-.96.06-1.41.17L9.11 3.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l.92.93C7.88 6.55 7.26 7.22 6.81 8H5c-.55 0-1 .45-1 1s.45 1 1 1h1.09c-.05.33-.09.66-.09 1v1H5c-.55 0-1 .45-1 1s.45 1 1 1h1v1c0 .34.04.67.09 1H5c-.55 0-1 .45-1 1s.45 1 1 1h1.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H19c.55 0 1-.45 1-1s-.45-1-1-1h-1.09c.05-.33.09-.66.09-1v-1h1c.55 0 1-.45 1-1s-.45-1-1-1h-1v-1c0-.34-.04-.67-.09-1H19c.55 0 1-.45 1-1s-.45-1-1-1zm-6 8h-2c-.55 0-1-.45-1-1s.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1zm0-4h-2c-.55 0-1-.45-1-1s.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1z&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]19" Width="[float]16" />
+							<Text Foreground="[SMColor]#ffffffff" Height="[float]11" Left="[float]1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]debug log" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]37">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<Image BaseName="[string]Image" Height="[float]15" Left="[float]22" MinWidth="[float]15" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot;&gt;&lt;path d=&quot;M0 0h24v24H0V0z&quot; fill=&quot;none&quot;/&gt;&lt;path d=&quot;M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 9c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1 4h-2v-2h2v2z&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]14" Width="[float]15" />
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DebugLog.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
