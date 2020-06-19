@@ -21,7 +21,7 @@
         const vireoHelpers = webAppElement.vireoHelpers;
 
         // Read value from dataspace
-        const viName = 'DebugLog::Debug Log.gvi';
+        const viName = 'DebugTools::Debug Log.gvi';
         const viNameEncoded = vireoHelpers.staticHelpers.encodeIdentifier(viName);
         const valueRef = vireo.eggShell.findValueRef(viNameEncoded, 'dataItem_Valueout');
         const variantValueJSON = vireo.eggShell.readJSON(valueRef);
@@ -45,5 +45,5 @@
         }
     };
 
-    window.WebVIDebugLog = {debugLog};
+    window.WebVIDebugTools = {debugLog};
 }());

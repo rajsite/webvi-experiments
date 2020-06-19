@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="90F012F8051AA12D8943ED84F59A3C16CF4BA25393A4B28FB7AAFFA68646A993E3376DFB0721A728D78693388FF359DFC5EDC9B029650DFA2F4A2DCDC8384FE0" Timestamp="1D642DE4E78DB4D" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="872A2FFF1730A114DAD7403FB4E2C0BEC01A39ADBB21D59C0319C57F4D65B241B280B45EB64865C2BCFFF4335ECDED8A8F667DFCED9F779B9C8D81D173890AE2" Timestamp="1D645DEA3D9300E" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -63,7 +63,13 @@
 					<Wire Id="d1ddd04aeabe4bb092b5eac029f489a8" Joints="N(144113843edb46cda322525574a0ef05:f43c48984d0a41d7ad8fe1d7c7e78d00)|(4,30) N(619770e54634421bb9b47ccbd0d5efbd:Value)|(33,30)" xmlns="http://www.ni.com/PlatformFramework" />
 				</FlatSequence.Frame>
 				<FlatSequence.Frame Bounds="254 10 144 75" Id="d41b22649c9949a1b3976ee45a23a4fc">
-					<MethodCall Bounds="101 25 40 40" Id="b0d941f4dc2e421b879e463e866bbf14" ResolveFailedHint="DebugLog" Signature="@7929add4be0c44eca4d342bcfdd9c919" Target="DebugLog::Support::DebugLog.jsli::DebugLog" xmlns="http://www.ni.com/MocCommon">
+					<DataAccessor Bounds="46 25 40 15" DataItem="4fcd9881dfc4631b0f774df59f03c77" Id="e97e9ec1e1414226bbf75f8921ff2561" Label="5a7fd3d30e584ae980388ae5b9dcd8c6" xmlns="http://www.ni.com/MocCommon">
+						<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+					</DataAccessor>
+					<NodeLabel AttachedTo="e97e9ec1e1414226bbf75f8921ff2561" Bounds="9 25 32 14" Id="5a7fd3d30e584ae980388ae5b9dcd8c6" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>prefix</p.Text>
+					</NodeLabel>
+					<MethodCall Bounds="96 25 40 40" Id="dc1e4dcc31e45e1bc1d058f48e14bd0" ResolveFailedHint="DebugLog" Signature="@7929add4be0c44eca4d342bcfdd9c919" Target="DebugTools::Support::DebugTools.jsli::DebugLog" xmlns="http://www.ni.com/MocCommon">
 						<p.MethodDeclaration>
 							<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 								<Parameter Id="L0" Desc="prefix" />
@@ -75,18 +81,12 @@
 						<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 						<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 					</MethodCall>
-					<DataAccessor Bounds="46 25 40 15" DataItem="4fcd9881dfc4631b0f774df59f03c77" Id="e97e9ec1e1414226bbf75f8921ff2561" Label="5a7fd3d30e584ae980388ae5b9dcd8c6" xmlns="http://www.ni.com/MocCommon">
-						<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-					</DataAccessor>
-					<NodeLabel AttachedTo="e97e9ec1e1414226bbf75f8921ff2561" Bounds="9 25 32 14" Id="5a7fd3d30e584ae980388ae5b9dcd8c6" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>prefix</p.Text>
-					</NodeLabel>
-					<Wire Id="d52201c1f89d4d5dbd8c67554f4f51ae" Joints="N(e97e9ec1e1414226bbf75f8921ff2561:Value)|(86,30) N(b0d941f4dc2e421b879e463e866bbf14:L0)|(101,30)" xmlns="http://www.ni.com/PlatformFramework" />
+					<Wire Id="754020f4f3dd43d2bf25727fd936796a" Joints="N(e97e9ec1e1414226bbf75f8921ff2561:Value)|(86,30) N(dc1e4dcc31e45e1bc1d058f48e14bd0:L0)|(96,30)" xmlns="http://www.ni.com/PlatformFramework" />
 				</FlatSequence.Frame>
 				<FlatSequence.Tunnel Bounds="107 35 13 10" Docking="VerticalSplitter" Id="144113843edb46cda322525574a0ef05" Terminals="f43c48984d0a41d7ad8fe1d7c7e78d00=d1ddd04aeabe4bb092b5eac029f489a8, a68eb7217370471397fe77f28ddd0cf9=d4a526eef00842c099b02a8a0c927f64" />
 			</FlatSequence>
-			<Comment Bounds="155 90 470 55" Id="e5b41076fa7b4a5aa6960ef831fab5f1" xmlns="http://www.ni.com/MocCommon">
-				<p.Text>"Requirements:\r\n- valueout must not be wired to connector pane and name must be unchanged\r\n- VI must be in the "DebugLog" namespace and must be named "Debug Log.gvi"\r\n- VI must be non reentrant"</p.Text>
+			<Comment Bounds="155 90 455 55" Id="e5b41076fa7b4a5aa6960ef831fab5f1" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>"Requirements:\r\n- valueout must not be wired to connector pane and name must be unchanged\r\n- VI must be named "Debug Log.gvi" and be in the "DebugTools" namespace\r\n- VI must be non reentrant"</p.Text>
 			</Comment>
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="307446d4de8340a0a4af21e6c88b6dad" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
@@ -163,7 +163,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="DebugLog::Support::DebugLog.jsli::DebugLog">
+		<p.IconModel Target="DebugTools::Support::DebugTools.jsli::DebugLog">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -175,8 +175,8 @@
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DebugLog.gcomp" Top="[float]0" Width="[float]40" />
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;DebugLog.jsli&gt;" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DebugTools.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;DebugTools.jsli&gt;" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
