@@ -23,7 +23,7 @@
         // Read value from dataspace
         const viName = 'DebugTools::Debug Log.gvi';
         const viNameEncoded = vireoHelpers.staticHelpers.encodeIdentifier(viName);
-        const valueRef = vireo.eggShell.findValueRef(viNameEncoded, 'dataItem_Valueout');
+        const valueRef = vireo.eggShell.findValueRef(viNameEncoded, 'dataItem_Valueprobe');
         const variantValueJSON = vireo.eggShell.readJSON(valueRef);
         const variantValue = JSON.parse(variantValueJSON);
         const variantDataName = '_data';
