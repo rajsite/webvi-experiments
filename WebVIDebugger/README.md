@@ -1,6 +1,8 @@
 # WebVI Debugger
 
-Incredibly experimental. Major security issues (see TODOs below). 🔥
+**Note: You are probably looking for the [DebugTools](https://bit.ly/debugtools) project instead of this one.**
+
+This project is Incredibly experimental. Major security issues (see TODOs below). 🔥
 
 Only supports NXG 5.
 
