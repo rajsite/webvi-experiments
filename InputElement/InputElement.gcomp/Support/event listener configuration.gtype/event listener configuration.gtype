@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="E3D557F6F63E0A9763BC447A82D9899649068B0ECA33065C6BCCF59B055D389EDDAFDBD71779FD79E65042A42D98B4D46BAF1D3F77B17C9699431E918DA184D7" Timestamp="1D6483C3F925C43" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
+	</SourceModelFeatureSet>
+	<TypeDefinition DataType="@cfc5ccb92bb44c97959e52cfe82d580b" Id="b1cec20f5fab4b30859164d0634f3711" xmlns="http://www.ni.com/MocCommon">
+		<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+			<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
+		</p.TypeDefinitionTargets>
+		<Icon Id="c122e7390b85407d8c808cc73adc6559" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="ce8049561bb442328beed050762f3e54" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="cdf46fc3b9414416b14ce54f2ff6458c" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<DataItem DataType="@cfc5ccb92bb44c97959e52cfe82d580b" Id="deaa67a40b474d29a0e25ca5bd29822c" Name="event listener configuration">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>0</Field1>
+					<Field2>0</Field2>
+					<Field3>
+						<Cluster>
+							<Field1>False</Field1>
+							<Field2>0</Field2>
+							<Field3>""</Field3>
+						</Cluster>
+					</Field3>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
+			</p.TypeDefinitionTargets>
+		</DataItem>
+	</TypeDefinition>
+	<EnvoyManagerFile Id="bc47689695ba48c3a419db10fafc9da5" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="7199fbfaca8e4298986fc35e379297a9" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="50baafa8d34a456db15df23a4c70aa5c" Name="event listener configuration.gtype" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Bindings="{http://www.ni.com/PlatformFramework}NeverLazy" Id="d3c837daea214188b90a7a76788728ae" ModelDefinitionType="{http://www.ni.com/MocCommon}ControlDefinition" Name="ControlDefinition">
+				<ControlDefinition DefaultDirection="Control" Id="a4179ee3b48442ebb94f29a3eecf0af9" xmlns="http://www.ni.com/MocCommon">
+					<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@cfc5ccb92bb44c97959e52cfe82d580b" Height="[float]342" Id="cafe0ec2834143179737933a5c23b529" Label="[UIModel]3c9a27b701e4bb197a86508396d7af6" Left="[float]357" TabIndex="[int]0" Top="[float]243" Value="{DataItemBinding Id=deaa67a40b474d29a0e25ca5bd29822c}" Width="[float]205" xmlns="http://www.ni.com/PanelCommon">
+						<OpaqueRefnum BaseName="[string]event stream reader" Height="[float]24" Id="c3a017ff3d44013893aacd1690f5268" Label="[UIModel]7a407ea797584ac49864c73094a3f4c0" Left="[float]14" RefnumType="[Type]@7daba7cc969c478fbb1943d69641e981" TabIndex="[int]0" Top="[float]26" Value="{ClusterBinding FieldName=event\ stream\ reader}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<Label Height="[float]16" Id="7a407ea797584ac49864c73094a3f4c0" LabelOwner="[UIModel]c3a017ff3d44013893aacd1690f5268" Left="[float]14" Text="[string]event stream reader" Top="[float]6" Width="[float]106" />
+						<OpaqueRefnum BaseName="[string]OpaqueRefnum" Height="[float]24" Id="2c8c1b60f8d74ee28bfb125b75ce545b" Label="[UIModel]6cfb55ebae1c4673af2318eea5a739f2" Left="[float]15" RefnumType="[Type]@f78d8a5db2094e48a1e5e0805b40ae8c" TabIndex="[int]1" Top="[float]85" Value="{ClusterBinding FieldName=change\ user\ event}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<Label Height="[float]16" Id="6cfb55ebae1c4673af2318eea5a739f2" LabelOwner="[UIModel]2c8c1b60f8d74ee28bfb125b75ce545b" Left="[float]15" Text="[string]change user event" Top="[float]65" Width="[float]97" />
+						<Cluster BaseName="[string]Error In" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="ca75c38a69a742d0901b8eb712eb4b09" Label="[UIModel]51a1a633e8b0431f9c44347368fd82af" Left="[float]12" TabIndex="[int]2" Top="[float]146" Value="{ClusterBinding FieldName=error\ in}" Width="[float]176" p7:ControlDefinitionChecksum="J+f/EiASvnzghyjtgi4nEE7z+0udh8Z1+KU2hWC1ppw=" xmlns:p7="http://www.ni.com/PanelCommon">
+							<p7:p.TypeDefinitionTargets>
+								<p7:TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype::ControlDefinition" />
+							</p7:p.TypeDefinitionTargets>
+							<LVCheckBox Content="[string]" ContentVisibility="[Visibility]Collapsed" Height="[float]22" Id="b4b1b56adcbb44ecb1f03ed771dd599a" Label="[UIModel]442862c47c9a4dd6a373fd7ad965dbd7" Left="[float]3" TabIndex="[int]0" Top="[float]24" Value="{ClusterBinding FieldName=status}" Width="[float]22" p9:DisplayAsErrorStatus="True" xmlns:p9="http://www.ni.com/Controls.LabVIEW.Design" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<p7:Label Height="[float]16" Id="442862c47c9a4dd6a373fd7ad965dbd7" LabelOwner="[UIModel]b4b1b56adcbb44ecb1f03ed771dd599a" Left="[float]3" Text="[string]status" Top="[float]4" Width="[float]31" />
+							<NumericText Height="[float]24" Id="24fc8ee3d34c4a5591c8e1038f36a2f3" Label="[UIModel]367f7aff81bb4500bfd043230d798e8b" Left="[float]54" RadixVisibility="[SMVisibility]Visible" TabIndex="[int]1" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]LV:G6" ValueType="[Type]Int32" Width="[float]111" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<p7:Label Height="[float]16" Id="367f7aff81bb4500bfd043230d798e8b" LabelOwner="[UIModel]24fc8ee3d34c4a5591c8e1038f36a2f3" Left="[float]54" Text="[string]code" Top="[float]4" Width="[float]26" />
+							<StringControl AcceptsReturn="[bool]True" Height="[float]95" Id="9dd262d8c4464d77ba4c23b6b9cb6c6e" Label="[UIModel]a31f97a2cfa64075aea4ae10db5966f5" Left="[float]3" TabIndex="[int]2" Text="{ClusterBinding FieldName=source}" Top="[float]70" Width="[float]162" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<p7:Label Height="[float]16" Id="a31f97a2cfa64075aea4ae10db5966f5" LabelOwner="[UIModel]9dd262d8c4464d77ba4c23b6b9cb6c6e" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
+						</Cluster>
+						<Label Height="[float]16" Id="51a1a633e8b0431f9c44347368fd82af" LabelOwner="[UIModel]ca75c38a69a742d0901b8eb712eb4b09" Left="[float]12" Text="[string]error in" Top="[float]126" Width="[float]39" />
+					</Cluster>
+					<Label Height="[float]16" Id="3c9a27b701e4bb197a86508396d7af6" LabelOwner="[UIModel]cafe0ec2834143179737933a5c23b529" Left="[float]357" Text="[string]event listener configuration" Top="[float]223" Width="[float]145" xmlns="http://www.ni.com/PanelCommon" />
+				</ControlDefinition>
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="cfc5ccb92bb44c97959e52cfe82d580b">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="event stream reader" DataType="@7daba7cc969c478fbb1943d69641e981" />
+					<Field FieldAccessPolicy="ReadWrite" Name="change user event" DataType="@f78d8a5db2094e48a1e5e0805b40ae8c" />
+					<Field FieldAccessPolicy="ReadWrite" Name="error in" DataType="Error" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7daba7cc969c478fbb1943d69641e981">
+			<Attributed AttributedType="@88a6b52ebce04b399d897f46b4c969cc">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f78d8a5db2094e48a1e5e0805b40ae8c">
+			<Attributed AttributedType="@264fbf058cf845efa9505664fa3f24f0">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="88a6b52ebce04b399d897f46b4c969cc">
+			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="264fbf058cf845efa9505664fa3f24f0">
+			<Event Id="1" Name="change" GenericTypeDefinition="Void">
+				<Parameters>
+					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="String" />
+				</Parameters>
+			</Event>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+</SourceFile>

@@ -8,6 +8,10 @@
     };
 
     const validateEventStreamReader = function (eventStreamReader) {
+        // NXG 5 does not include the ReadableStreamDefaultReader in the global scope so skip validation
+        if (window.ReadableStreamDefaultReader === undefined) {
+            return;
+        }
         if (eventStreamReader instanceof window.ReadableStreamDefaultReader === false) {
             throw new Error('Input is not a valid event stream reader');
         }
