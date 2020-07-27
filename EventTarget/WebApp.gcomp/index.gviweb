@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="221B4D5AEC9AE1AC035373990C0FBA6E85F59CB3701AF2EF0AECCD96E51EEEF9D50484A91628A070441F399C41ECEC90516EAD5ECB6E13E24D0CA55EE6CBD58F" Timestamp="1D663DDE4BE963B" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="E149FD5E2A8877B725757099C001C0226E823450F59782D6E86738763BBC99AA62849154D92634229B9C43697C8A405252C4B6B97E5429C9089FB03783B02149" Timestamp="1D663E7B90845F7" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -45,156 +45,30 @@
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<MethodCall Bounds="300 70 40 40" Id="255b08a6258046989192feba670fba8a" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Add Keyboard Event Listener.gvi&quot;" Signature="@e9563d808c2240d6943283614f752905" Target="EventTarget::Keyboard::Add Keyboard Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="260 70 40 40" Id="255b08a6258046989192feba670fba8a" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Add Keyboard Event Listener.gvi&quot;" Signature="@c936325216e0418cb0759f2145d598f3" Target="EventTarget::Keyboard::Add Keyboard Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="target" />
+						<Parameter Id="L0" Desc="target in" />
 						<Parameter Id="L1" Desc="keyboard event type" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="prevent default" />
-						<Parameter Id="R0" Desc="event manager reference" />
+						<Parameter Id="B1" Desc="keyboard user event" />
+						<Parameter Id="R0" Desc="target out" />
 						<Parameter Id="R3" Desc="error out" />
+						<Parameter Id="T1" Desc="event listener configuration out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@dad47e88709f45d889e88352ed044abb" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@17aacb151fe84edda11de629a5d0dde1" Direction="Output" Hotspot="25 40" Id="B1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@8afad088fd2f4f2fb3ed0e14aec4a5d9" Direction="Output" Hotspot="25 0" Id="T1" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="5c7cea96239418db97abaa370510e41" Joints="N(a21d150b86a948f8a02752d053378e5f:Out)|(285,85) N(255b08a6258046989192feba670fba8a:L1)|(300,85)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="410 30 410 195" DiagramId="2bc34c09c35c4461bb2b6e255ab393ca" Id="91082ff79a9444fcb8c5fbf1649952ce">
-				<LoopIteration Bounds="5 165 15 15" Id="e37cb1fafc52478a969f71c00aa820ab" />
-				<LoopCondition Bounds="380 165 15 15" Id="f988aa3ac372445fb76d47841f8522c1" />
-				<MethodCall Bounds="30 35 40 40" Id="d8f0c3d0feca49b08a934b693eb9546e" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Listen For Keyboard Events.gvi&quot;" Signature="@218160138d1b42e0a3e061591a4944d7" Target="EventTarget::Keyboard::Listen For Keyboard Events.gvi" xmlns="http://www.ni.com/MocCommon">
-					<p.MethodDeclaration>
-						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-							<Parameter Id="L0" Desc="event manager reference in" />
-							<Parameter Id="L3" Desc="error in" />
-							<Parameter Id="R0" Desc="event manager reference out" />
-							<Parameter Id="R1" Desc="code" />
-							<Parameter Id="R2" Desc="key" />
-							<Parameter Id="R3" Desc="error out" />
-						</MethodDeclaration>
-					</p.MethodDeclaration>
-					<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="String" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="String" Direction="Output" Hotspot="40 25" Id="R2" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-				</MethodCall>
-				<Wire Id="d6e2e7622d3c452aa32e7019e82682cc" Joints="N(3be66c32f6f4b81a50e30f83855ab32:i0)|(4,40) N(d8f0c3d0feca49b08a934b693eb9546e:L0)|(30,40)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="2b2a4ac10afe4af796f5daed7a48da14" Joints="N(58cb39819e1d43a38a2f0d22f134aa5b:i0)|(4,70) N(d8f0c3d0feca49b08a934b693eb9546e:L3)|(30,70)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="49674a5ecd1a4852b7ed120e85537250" Joints="N(d8f0c3d0feca49b08a934b693eb9546e:R3)|(70,70) h(285) B(1) N(8d3263d902924f1b8e1159c8765ddb75:2bc34c09c35c4461bb2b6e255ab393ca)|(396,70) B(1) v(100) N(f988aa3ac372445fb76d47841f8522c1:Input)|(380,170)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="2e7de3736e1a4844956af39c8098dea2" Joints="N(d8f0c3d0feca49b08a934b693eb9546e:R0)|(70,40) N(db70034d0b8f4500827903a3374666fe:i0)|(396,40)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="160 90 40 15" DataItem="f106bbda1354a68b67382c51846f4bd" Id="a9e0e9e15c624893b009e7acf77ae53d" Label="3610db68bcd44ce99cb4af30951b6697" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="a9e0e9e15c624893b009e7acf77ae53d" Bounds="205 90 26 14" Id="3610db68bcd44ce99cb4af30951b6697" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>code</p.Text>
-				</NodeLabel>
-				<Wire Id="787f870007014e658fb50adb70b3a7c8" Joints="N(d8f0c3d0feca49b08a934b693eb9546e:R1)|(70,50) h(85) v(45) N(a9e0e9e15c624893b009e7acf77ae53d:Value)|(163,95)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="145 115 40 15" DataItem="ef6cbf7e8fcc4fbeaf0937d82ea23cc6" Id="5a79ada2fef144489d7457fcabca75a5" Label="948d57382e6640ce90e52fff46588b41" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="5a79ada2fef144489d7457fcabca75a5" Bounds="190 115 20 14" Id="948d57382e6640ce90e52fff46588b41" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>key</p.Text>
-				</NodeLabel>
-				<Wire Id="30d4e317709442b39029854a10315800" Joints="N(d8f0c3d0feca49b08a934b693eb9546e:R2)|(70,60) h(70) v(60) N(5a79ada2fef144489d7457fcabca75a5:Value)|(148,120)" xmlns="http://www.ni.com/PlatformFramework" />
-				<RightShiftRegister Bounds="401 70 13 10" Docking="Right" Id="8d3263d902924f1b8e1159c8765ddb75" Terminals="91082ff79a9444fcb8c5fbf1649952ce=b0afdf0b079423a99ec83b2f3e937b3, 2bc34c09c35c4461bb2b6e255ab393ca=49674a5ecd1a4852b7ed120e85537250" />
-				<LeftShiftRegister Bounds="-4 70 13 10" Docking="Left" Id="58cb39819e1d43a38a2f0d22f134aa5b" RightRegister="8d3263d902924f1b8e1159c8765ddb75" Terminals="o0=2840785290854d10aa4dd0fd7b50f7c8, i0=2b2a4ac10afe4af796f5daed7a48da14" />
-				<LoopTunnel Bounds="-4 40 13 10" Docking="Left" Id="3be66c32f6f4b81a50e30f83855ab32" Terminals="o0=2d6f7bfe0b9c4ac1a380d19e09796cfb, i0=d6e2e7622d3c452aa32e7019e82682cc" />
-				<LoopTunnel Bounds="401 40 13 10" Docking="Right" Id="db70034d0b8f4500827903a3374666fe" Terminals="o0=85f01d195a3e4aed9e55fde66a4e5d25, i0=2e7de3736e1a4844956af39c8098dea2" />
-			</WhileLoop>
-			<MethodCall Bounds="850 70 40 40" Id="965c4293af18491fbf73a257c1965720" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Remove Event Listener.gvi&quot;" Signature="@0d025b5c41524fa784349348fae589b8" Target="EventTarget::Remove Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="event manager reference" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<Wire Id="b0afdf0b079423a99ec83b2f3e937b3" Joints="N(8d3263d902924f1b8e1159c8765ddb75:91082ff79a9444fcb8c5fbf1649952ce)|(824,105) N(965c4293af18491fbf73a257c1965720:L3)|(850,105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="85f01d195a3e4aed9e55fde66a4e5d25" Joints="N(db70034d0b8f4500827903a3374666fe:o0)|(824,75) N(965c4293af18491fbf73a257c1965720:L0)|(850,75)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="980 100 40 15" DataItem="9375f3ab850d406ca71a2bafb5618080" Id="df05f5d153ba49fe8b8ca6c6e1139bd5" Label="478b8720f61f4f7f89799ba25e1ad7b3" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="df05f5d153ba49fe8b8ca6c6e1139bd5" Bounds="1025 100 50 14" Id="478b8720f61f4f7f89799ba25e1ad7b3" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>error out</p.Text>
-			</NodeLabel>
-			<Wire Id="2840785290854d10aa4dd0fd7b50f7c8" Joints="N(255b08a6258046989192feba670fba8a:R3)|(340,105) N(58cb39819e1d43a38a2f0d22f134aa5b:o0)|(406,105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="2d6f7bfe0b9c4ac1a380d19e09796cfb" Joints="N(255b08a6258046989192feba670fba8a:R0)|(340,75) N(3be66c32f6f4b81a50e30f83855ab32:o0)|(406,75)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="410 270 410 195" DiagramId="1046e303cd9c4249a5016b4d306b0877" Id="9d3c4d54d2bd4e4d99eb74ab52cedaa3">
-				<LoopIteration Bounds="5 165 15 15" Id="b1975131ecf744dbae779fe1f605479f" />
-				<LoopCondition Bounds="380 165 15 15" Id="62ee62b5dcc54fab959a9e5e01a73cac" />
-				<MethodCall Bounds="30 35 40 40" Id="9385116ae124a74a7a7919a101e79d4" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Listen For Keyboard Events.gvi&quot;" Signature="@218160138d1b42e0a3e061591a4944d7" Target="EventTarget::Keyboard::Listen For Keyboard Events.gvi" xmlns="http://www.ni.com/MocCommon">
-					<p.MethodDeclaration>
-						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-							<Parameter Id="L0" Desc="event manager reference in" />
-							<Parameter Id="L3" Desc="error in" />
-							<Parameter Id="R0" Desc="event manager reference out" />
-							<Parameter Id="R1" Desc="code" />
-							<Parameter Id="R2" Desc="key" />
-							<Parameter Id="R3" Desc="error out" />
-						</MethodDeclaration>
-					</p.MethodDeclaration>
-					<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="String" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="String" Direction="Output" Hotspot="40 25" Id="R2" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-				</MethodCall>
-				<Wire Id="ee5a635c38ed433fa77246e47f79d830" Joints="N(e277316b5cc46308d7584a311e332be:i0)|(4,40) N(9385116ae124a74a7a7919a101e79d4:L0)|(30,40)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="8655d69d4e134d9e9c6eca4b4978f1c7" Joints="N(ca05d190d944481bb887cc92b46bbb28:i0)|(4,70) N(9385116ae124a74a7a7919a101e79d4:L3)|(30,70)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="970f1f5ab30f45cfae525c5401173a64" Joints="N(9385116ae124a74a7a7919a101e79d4:R3)|(70,70) h(285) B(1) N(d834ab93dd874b06990ad349392f5620:1046e303cd9c4249a5016b4d306b0877)|(396,70) B(1) v(100) N(62ee62b5dcc54fab959a9e5e01a73cac:Input)|(380,170)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="37a20f65697b4ef6ae273583c3690626" Joints="N(9385116ae124a74a7a7919a101e79d4:R0)|(70,40) N(7afc7de5891d411cb0c49d86a599f21c:i0)|(396,40)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="160 90 40 15" DataItem="28e3f0664cfd4b3c94fca55992fafe53" Id="a83b517bc4934958aab60d1c0306b4f0" Label="5a77561b671d48db96bff95333a5cc25" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="a83b517bc4934958aab60d1c0306b4f0" Bounds="205 90 119 14" Id="5a77561b671d48db96bff95333a5cc25" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>code specific element</p.Text>
-				</NodeLabel>
-				<Wire Id="832de97f96c94f399fe0fd0e55340e36" Joints="N(9385116ae124a74a7a7919a101e79d4:R1)|(70,50) h(85) v(45) N(a83b517bc4934958aab60d1c0306b4f0:Value)|(163,95)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="145 115 40 15" DataItem="31db9de3670345f396da3dae419a1916" Id="5348af862f054ea296086a187e29dfb4" Label="ce399f5e4913412a95379416357f5a93" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="5348af862f054ea296086a187e29dfb4" Bounds="190 115 113 14" Id="ce399f5e4913412a95379416357f5a93" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>key specific element</p.Text>
-				</NodeLabel>
-				<Wire Id="c5b3c443cfd74601aa96d3fa8067bb1d" Joints="N(9385116ae124a74a7a7919a101e79d4:R2)|(70,60) h(70) v(60) N(5348af862f054ea296086a187e29dfb4:Value)|(148,120)" xmlns="http://www.ni.com/PlatformFramework" />
-				<RightShiftRegister Bounds="401 70 13 10" Docking="Right" Id="d834ab93dd874b06990ad349392f5620" Terminals="9d3c4d54d2bd4e4d99eb74ab52cedaa3=3bf442d64ed742faa296e0afc0a8ee92, 1046e303cd9c4249a5016b4d306b0877=970f1f5ab30f45cfae525c5401173a64" />
-				<LeftShiftRegister Bounds="-4 70 13 10" Docking="Left" Id="ca05d190d944481bb887cc92b46bbb28" RightRegister="d834ab93dd874b06990ad349392f5620" Terminals="o0=9f649299d00a4220b2b77f6c45eb1fd4, i0=8655d69d4e134d9e9c6eca4b4978f1c7" />
-				<LoopTunnel Bounds="-4 40 13 10" Docking="Left" Id="e277316b5cc46308d7584a311e332be" Terminals="o0=3d52f44cc32342bd90edeb7bf2316d4a, i0=ee5a635c38ed433fa77246e47f79d830" />
-				<LoopTunnel Bounds="401 40 13 10" Docking="Right" Id="7afc7de5891d411cb0c49d86a599f21c" Terminals="o0=e41ea8ce5cef4af0b60e6e8214926310, i0=37a20f65697b4ef6ae273583c3690626" />
-			</WhileLoop>
-			<MethodCall Bounds="850 310 40 40" Id="60817421680c46b981abddf081bd8761" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Remove Event Listener.gvi&quot;" Signature="@0d025b5c41524fa784349348fae589b8" Target="EventTarget::Remove Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="event manager reference" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<Wire Id="3bf442d64ed742faa296e0afc0a8ee92" Joints="N(d834ab93dd874b06990ad349392f5620:9d3c4d54d2bd4e4d99eb74ab52cedaa3)|(824,345) N(60817421680c46b981abddf081bd8761:L3)|(850,345)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="e41ea8ce5cef4af0b60e6e8214926310" Joints="N(7afc7de5891d411cb0c49d86a599f21c:o0)|(824,315) N(60817421680c46b981abddf081bd8761:L0)|(850,315)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="980 340 40 15" DataItem="fc7bf16118114c36856339f683134a86" Id="44817135bc3e4a0fbe7715055d47edd7" Label="cb17f88ba7ca4f06a48a5c61dd12ca63" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="44817135bc3e4a0fbe7715055d47edd7" Bounds="1025 340 143 14" Id="cb17f88ba7ca4f06a48a5c61dd12ca63" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>error out specific element</p.Text>
-			</NodeLabel>
-			<Literal Bounds="200 80 85 15" DataType="@dad47e88709f45d889e88352ed044abb" Id="a21d150b86a948f8a02752d053378e5f" Label="1db09848851c4412976819d72ab936c3" p4:ControlDefinitionChecksum="Z5tc3ZJ/brjD+7mouKrlQMzRZhOnpmEV8sYeeM9+BO0=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="5c7cea96239418db97abaa370510e41" Joints="N(a21d150b86a948f8a02752d053378e5f:Out)|(245,85) N(255b08a6258046989192feba670fba8a:L1)|(260,85)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="160 80 85 15" DataType="@dad47e88709f45d889e88352ed044abb" Id="a21d150b86a948f8a02752d053378e5f" Label="1db09848851c4412976819d72ab936c3" p4:ControlDefinitionChecksum="Z5tc3ZJ/brjD+7mouKrlQMzRZhOnpmEV8sYeeM9+BO0=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>0</p.Data>
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="EventTarget::Keyboard::keyboard event type.gtype" />
@@ -202,10 +76,10 @@
 				</p4:p.TypeDefinitionTargets>
 				<EnumBehavior />
 			</Literal>
-			<NodeLabel AttachedTo="a21d150b86a948f8a02752d053378e5f" Bounds="200 62 30 15" Id="1db09848851c4412976819d72ab936c3" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="a21d150b86a948f8a02752d053378e5f" Bounds="160 62 30 15" Id="1db09848851c4412976819d72ab936c3" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>keyboard event type</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="135 70 40 40" Id="3cb98060d04a45b2b91d928aa411e3ee" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Shared\\Get Target - Document.gvi&quot;" Signature="@e0e48fd8da9548a49d9cc4cc3ce5bb3f" Target="EventTarget::Get Target::Get Target - Document.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="105 70 40 40" Id="3cb98060d04a45b2b91d928aa411e3ee" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Get Target\\Get Target - Document.gvi&quot;" Signature="@e0e48fd8da9548a49d9cc4cc3ce5bb3f" Target="EventTarget::Get Target::Get Target - Document.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L3" Desc="error in" />
@@ -217,43 +91,96 @@
 				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="1037d09d5fe4faca8c4069566371348" Joints="N(3cb98060d04a45b2b91d928aa411e3ee:R3)|(175,105) N(255b08a6258046989192feba670fba8a:L3)|(300,105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="55c61f7681c74d1e9bb051fadf129b09" Joints="N(3cb98060d04a45b2b91d928aa411e3ee:R0)|(175,75) h(70) B(1) N(255b08a6258046989192feba670fba8a:L0)|(300,75) B(1) v(-70) h(669) v(70) N(ef7f9bfd0f934bec9c91eafb6667a4ac:reference)|(920,75)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="335 310 40 40" Id="43375346f320452aa28eae575d967d10" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Add Keyboard Event Listener.gvi&quot;" Signature="@e9563d808c2240d6943283614f752905" Target="EventTarget::Keyboard::Add Keyboard Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="target" />
-						<Parameter Id="L1" Desc="keyboard event type" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="T0" Desc="prevent default" />
-						<Parameter Id="R0" Desc="event manager reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@dad47e88709f45d889e88352ed044abb" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<Wire Id="1412165710234eceb8c967a2462886f9" Joints="N(374f63ced8664729bd7e5c96dd2136fe:Out)|(320,325) N(43375346f320452aa28eae575d967d10:L1)|(335,325)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Literal Bounds="235 320 85 15" DataType="@dad47e88709f45d889e88352ed044abb" Id="374f63ced8664729bd7e5c96dd2136fe" Label="75faf4e45c9c4572a626612f4e0be8c1" p4:ControlDefinitionChecksum="Z5tc3ZJ/brjD+7mouKrlQMzRZhOnpmEV8sYeeM9+BO0=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>0</p.Data>
-				<p4:p.TypeDefinitionTargets>
-					<p4:TypeDefinitionTarget TargetName="EventTarget::Keyboard::keyboard event type.gtype" />
-					<p4:TypeDefinitionTarget TargetName="EventTarget::Keyboard::keyboard event type.gtype::ControlDefinition" />
-				</p4:p.TypeDefinitionTargets>
-				<EnumBehavior />
-			</Literal>
-			<Wire Id="5cf646182f3047f1a0c778857f488b5e" Joints="N(463ecb61c495401194074e98ed005094:R3)|(215,345) N(43375346f320452aa28eae575d967d10:L3)|(335,345)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="c4c8cc4fda674090a9ad04295bbdf33e" Joints="N(463ecb61c495401194074e98ed005094:R0)|(215,315) h(65) B(1) N(43375346f320452aa28eae575d967d10:L0)|(335,315) B(1) v(-60) h(634) v(60) N(85a338ab456f41d2bdba25cc8c81ab09:reference)|(920,315)" xmlns="http://www.ni.com/PlatformFramework" />
-			<NodeLabel AttachedTo="374f63ced8664729bd7e5c96dd2136fe" Bounds="235 302 30 15" Id="75faf4e45c9c4572a626612f4e0be8c1" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>keyboard event type</p.Text>
-			</NodeLabel>
-			<Wire Id="3d52f44cc32342bd90edeb7bf2316d4a" Joints="N(43375346f320452aa28eae575d967d10:R0)|(375,315) N(e277316b5cc46308d7584a311e332be:o0)|(406,315)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="9f649299d00a4220b2b77f6c45eb1fd4" Joints="N(43375346f320452aa28eae575d967d10:R3)|(375,345) N(ca05d190d944481bb887cc92b46bbb28:o0)|(406,345)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="175 310 40 40" Id="463ecb61c495401194074e98ed005094" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Shared\\Get Target - Selector.gvi&quot;" Signature="@047ae5cb0f8049778e64d6911c736e65" Target="EventTarget::Get Target::Get Target - Selector.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="1037d09d5fe4faca8c4069566371348" Joints="N(3cb98060d04a45b2b91d928aa411e3ee:R3)|(145,105) N(255b08a6258046989192feba670fba8a:L3)|(260,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<WhileLoop Bounds="595 25 400 230" DiagramId="b5a1c6631eaf4cf3a8bbb7ca51c1c5a1" Id="4cf2e598633c49b5b84f656ec8909da0">
+				<LoopIteration Bounds="5 200 15 15" Id="826ce36a9fd04c3f9e7f245dd7f1cfad" />
+				<LoopCondition Bounds="355 90 15 15" Id="641fa1ba5b7c455ca2bcb9023a3fde43" />
+				<EventStructure Bounds="82 12 252 200" Id="c30d0e9a46744ed184a5d3ff98b42d5c" Selected="7b733d0d40ec4abe9620744d7721ba18" UserSelectorBounds="20 0 212 17">
+					<EventStructure.EventCase Bounds="21 18 210 174" Id="c696b27b334b4f91b5ef280c1f611ce8">
+						<EventStructure.EventData Bounds="0 82 62 35" HasErrorTerminals="False" Id="db61932daeda4664912c5c6ceb443efc" InstanceDataType="@9ffd885f9f28456091a710dc14b4ea54" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index">
+							<EventPropertyItemTerminal DataType="UInt32" Hotspot="62 15" Id="c0t0v" Path="Time" PathElementMemberKinds="Field" Usage="Optional" />
+						</EventStructure.EventData>
+						<EventStructure.AttachedEvent EventId="{DF1EFEBC-BF4C-4B72-8E78-D711B1FAC11A}" EventIndex="1073741825" EventSourceType="Application" SourceContent="c30d0e9a46744ed184a5d3ff98b42d5c" SourceName="Timeout" />
+						<Wire Id="8a024a3f124e44d6abc7aa03c783653c" Joints="N(f18e45d67d804bd988e5deb3954281c4:c696b27b334b4f91b5ef280c1f611ce8)|(2,45) N(4d03006b75ad4485807fba9f34c8ad2b:c696b27b334b4f91b5ef280c1f611ce8)|(208,45)" xmlns="http://www.ni.com/PlatformFramework" />
+					</EventStructure.EventCase>
+					<EventStructure.Tunnel Bounds="-2 58 25 10" Docking="Left" Id="f18e45d67d804bd988e5deb3954281c4" Terminals="c30d0e9a46744ed184a5d3ff98b42d5c=a398c05a95824a30a68ef1c159c1a614, c696b27b334b4f91b5ef280c1f611ce8=8a024a3f124e44d6abc7aa03c783653c, 7b733d0d40ec4abe9620744d7721ba18=3f826bcfa40144128c705f2cf01e5bcf, 85f43b7f8fd64b6fa4fd94f29ad2a699=72f7833916f4c77b9800368286e61ff" />
+					<EventStructure.EventTimeout Bounds="-2 72 25 25" Docking="Left" Id="f91d39d6833c4b0182e4851a71acfaca" Terminals="c30d0e9a46744ed184a5d3ff98b42d5c=a70a94e0b97a47749a37b96a194f8d70, c696b27b334b4f91b5ef280c1f611ce8, 7b733d0d40ec4abe9620744d7721ba18, 85f43b7f8fd64b6fa4fd94f29ad2a699" />
+					<EventStructure.Tunnel Bounds="229 58 25 10" DefaultIfUnwired="False" Docking="Right" Id="4d03006b75ad4485807fba9f34c8ad2b" Terminals="c30d0e9a46744ed184a5d3ff98b42d5c=b214ddd660b45e186b577576741349b, c696b27b334b4f91b5ef280c1f611ce8=8a024a3f124e44d6abc7aa03c783653c, 7b733d0d40ec4abe9620744d7721ba18=3f826bcfa40144128c705f2cf01e5bcf, 85f43b7f8fd64b6fa4fd94f29ad2a699=72f7833916f4c77b9800368286e61ff" />
+					<EventStructure.LeftDynamicEventRegistration Bounds="-2 38 25 20" Docking="Left" DynamicEventsType="@173405b8e97c459084724fb81c74bfce" Id="fa5b45da3b7c443c8e36117d72c0b871" Terminals="c30d0e9a46744ed184a5d3ff98b42d5c=725a7ae6ae644edda1c0110e0ab385e8, c696b27b334b4f91b5ef280c1f611ce8, 7b733d0d40ec4abe9620744d7721ba18, 85f43b7f8fd64b6fa4fd94f29ad2a699" />
+					<EventStructure.RightDynamicEventRegistration Bounds="229 38 25 20" Docking="Right" Id="5e03a7fe49d947c2b4ef6b0afc5dfd07" Terminals="c30d0e9a46744ed184a5d3ff98b42d5c, c696b27b334b4f91b5ef280c1f611ce8, 7b733d0d40ec4abe9620744d7721ba18, 85f43b7f8fd64b6fa4fd94f29ad2a699" />
+					<EventStructure.Tunnel Bounds="-2 28 25 10" Docking="Left" Id="c46e9e5d41fb41e5a08a63cdd657a590" Terminals="c30d0e9a46744ed184a5d3ff98b42d5c=1e4c52a0a0364416b0acd11668c01053, c696b27b334b4f91b5ef280c1f611ce8, 7b733d0d40ec4abe9620744d7721ba18, 85f43b7f8fd64b6fa4fd94f29ad2a699" />
+					<EventStructure.EventCase Bounds="21 18 210 174" Id="7b733d0d40ec4abe9620744d7721ba18">
+						<EventStructure.EventData Bounds="0 112 60 50" HasErrorTerminals="False" Id="c599bf3d5534411b8287394fdfa119d3" InstanceDataType="@6a9f25d4a8844267b5c23520ba6aa688" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,UsrEvtRef,code,key">
+							<EventPropertyItemTerminal DataType="String" Hotspot="60 15" Id="c0t0v" Path="code" PathElementMemberKinds="Field" Usage="Optional" />
+							<EventPropertyItemTerminal DataType="String" Hotspot="60 30" Id="c1t0v" Path="key" PathElementMemberKinds="Field" Usage="Optional" />
+						</EventStructure.EventData>
+						<EventStructure.AttachedEvent EventId="UE0" EventIndex="0" EventSourceType="Dynamic" EventType="@3152e4e87f4447668c248568a464bf63" SourceContent="fa5b45da3b7c443c8e36117d72c0b871" SourceName="Dynamic" />
+						<DataAccessor Bounds="90 122 40 15" DataItem="a532ebddb89545d490b7fc3120b0deb0" Id="8259596a09f24e8f8d3441834a2a48f3" Label="4ec2e20128f343e1be08b4712b3e04f0" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="8259596a09f24e8f8d3441834a2a48f3" Bounds="135 122 26 14" Id="4ec2e20128f343e1be08b4712b3e04f0" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>code</p.Text>
+						</NodeLabel>
+						<Wire Id="7605ab35ae9b42ba885b614768b17955" Joints="N(c599bf3d5534411b8287394fdfa119d3:c0t0v)|(60,127) N(8259596a09f24e8f8d3441834a2a48f3:Value)|(93,127)" xmlns="http://www.ni.com/PlatformFramework" />
+						<DataAccessor Bounds="90 137 40 15" DataItem="5b0f887aed444c0bb9ee98df7929471" Id="2e6333e17c25498ab3618744a80f3439" Label="ac516e9aeb444c2f863ef32474c1a871" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="2e6333e17c25498ab3618744a80f3439" Bounds="135 137 20 14" Id="ac516e9aeb444c2f863ef32474c1a871" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>key</p.Text>
+						</NodeLabel>
+						<Wire Id="def60b295b3f4eac834e6008d7dce0b3" Joints="N(c599bf3d5534411b8287394fdfa119d3:c1t0v)|(60,142) N(2e6333e17c25498ab3618744a80f3439:Value)|(93,142)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="3f826bcfa40144128c705f2cf01e5bcf" Joints="N(f18e45d67d804bd988e5deb3954281c4:7b733d0d40ec4abe9620744d7721ba18)|(2,45) N(4d03006b75ad4485807fba9f34c8ad2b:7b733d0d40ec4abe9620744d7721ba18)|(208,45)" xmlns="http://www.ni.com/PlatformFramework" />
+					</EventStructure.EventCase>
+					<EventStructure.EventCase Bounds="21 18 210 174" Id="85f43b7f8fd64b6fa4fd94f29ad2a699">
+						<EventStructure.EventData Bounds="0 112 60 50" HasErrorTerminals="False" Id="a9d40d75c7604da5a64094008cfc9b4a" InstanceDataType="@6a9f25d4a8844267b5c23520ba6aa688" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,UsrEvtRef,code,key">
+							<EventPropertyItemTerminal DataType="String" Hotspot="60 15" Id="c0t0v" Path="code" PathElementMemberKinds="Field" Usage="Optional" />
+							<EventPropertyItemTerminal DataType="String" Hotspot="60 30" Id="c1t0v" Path="key" PathElementMemberKinds="Field" Usage="Optional" />
+						</EventStructure.EventData>
+						<EventStructure.AttachedEvent EventId="UE1" EventIndex="1" EventSourceType="Dynamic" EventType="@3152e4e87f4447668c248568a464bf63" SourceContent="fa5b45da3b7c443c8e36117d72c0b871" SourceName="Dynamic" />
+						<DataAccessor Bounds="90 122 40 15" DataItem="bd7ad89044c6470bb90a9d72f781d3a8" Id="aa61499ac7434cfd83d294c8c4ac07dd" Label="34b27c6010f8413bb96f6a9d21c1a3e9" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="aa61499ac7434cfd83d294c8c4ac07dd" Bounds="135 122 75 14" Id="34b27c6010f8413bb96f6a9d21c1a3e9" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>element code</p.Text>
+						</NodeLabel>
+						<Wire Id="6b672f28ad47473589940a2f11938547" Joints="N(a9d40d75c7604da5a64094008cfc9b4a:c0t0v)|(60,127) N(aa61499ac7434cfd83d294c8c4ac07dd:Value)|(93,127)" xmlns="http://www.ni.com/PlatformFramework" />
+						<DataAccessor Bounds="90 137 40 15" DataItem="8897b4cdb78a46eb8bc33bdaefde9653" Id="d55c9940a5aa474794542102e6037224" Label="e0f94f5ae6ec4a5c8067cabaa0eaf72c" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="String" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="d55c9940a5aa474794542102e6037224" Bounds="135 137 69 14" Id="e0f94f5ae6ec4a5c8067cabaa0eaf72c" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>element key</p.Text>
+						</NodeLabel>
+						<Wire Id="8c687d95d583499f99c39138b79e4a87" Joints="N(a9d40d75c7604da5a64094008cfc9b4a:c1t0v)|(60,142) N(d55c9940a5aa474794542102e6037224:Value)|(93,142)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="72f7833916f4c77b9800368286e61ff" Joints="N(f18e45d67d804bd988e5deb3954281c4:85f43b7f8fd64b6fa4fd94f29ad2a699)|(2,45) N(4d03006b75ad4485807fba9f34c8ad2b:85f43b7f8fd64b6fa4fd94f29ad2a699)|(208,45)" xmlns="http://www.ni.com/PlatformFramework" />
+					</EventStructure.EventCase>
+				</EventStructure>
+				<Wire Id="a398c05a95824a30a68ef1c159c1a614" Joints="N(52f1d0ef78544d518c2e1f5105551341:i0)|(4,75) N(f18e45d67d804bd988e5deb3954281c4:c30d0e9a46744ed184a5d3ff98b42d5c)|(80,75)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Literal Bounds="10 84 40 15" DataType="Int32" Id="e68f738e198648eda000955ff7987748" Label="b922ea890c7b4754b37b2514159f8c6a" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>100</p.Data>
+					<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
+				</Literal>
+				<NodeLabel AttachedTo="e68f738e198648eda000955ff7987748" Bounds="10 66 30 15" Id="b922ea890c7b4754b37b2514159f8c6a" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>timeout</p.Text>
+				</NodeLabel>
+				<Wire Id="a70a94e0b97a47749a37b96a194f8d70" Joints="N(e68f738e198648eda000955ff7987748:Out)|(50,89) N(f91d39d6833c4b0182e4851a71acfaca:c30d0e9a46744ed184a5d3ff98b42d5c)|(80,89)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="b214ddd660b45e186b577576741349b" Joints="N(4d03006b75ad4485807fba9f34c8ad2b:c30d0e9a46744ed184a5d3ff98b42d5c)|(336,75) h(14) B(1) N(5114527751594a748dbb2c2d4e3d08a9:b5a1c6631eaf4cf3a8bbb7ca51c1c5a1)|(386,75) B(1) v(20) N(641fa1ba5b7c455ca2bcb9023a3fde43:Input)|(355,95)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="725a7ae6ae644edda1c0110e0ab385e8" Joints="N(327725624fa940f8ad27a8ba7a9832a3:i0)|(4,60) h(58) v(-5) N(fa5b45da3b7c443c8e36117d72c0b871:c30d0e9a46744ed184a5d3ff98b42d5c)|(80,55)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="1e4c52a0a0364416b0acd11668c01053" Joints="N(f667c2102ea94df18ccb3f8bc282329e:i0)|(4,45) N(c46e9e5d41fb41e5a08a63cdd657a590:c30d0e9a46744ed184a5d3ff98b42d5c)|(80,45)" xmlns="http://www.ni.com/PlatformFramework" />
+				<RightShiftRegister Bounds="391 75 13 10" Docking="Right" Id="5114527751594a748dbb2c2d4e3d08a9" Terminals="4cf2e598633c49b5b84f656ec8909da0=de5237ad72704b88bac3ce774e17442b, b5a1c6631eaf4cf3a8bbb7ca51c1c5a1=b214ddd660b45e186b577576741349b" />
+				<LeftShiftRegister Bounds="-4 75 13 10" Docking="Left" Id="52f1d0ef78544d518c2e1f5105551341" RightRegister="5114527751594a748dbb2c2d4e3d08a9" Terminals="o0=a43777f850ca4f678d9a7b0759f1f267, i0=a398c05a95824a30a68ef1c159c1a614" />
+				<LoopTunnel Bounds="-4 60 13 10" Docking="Left" Id="327725624fa940f8ad27a8ba7a9832a3" Terminals="o0=618cdd6d50eb4ee4bc3134a5cdf5e24a, i0=725a7ae6ae644edda1c0110e0ab385e8" />
+				<LoopTunnel Bounds="-4 45 13 10" Docking="Left" Id="f667c2102ea94df18ccb3f8bc282329e" Terminals="o0=e335ad160299423ab553afe0764785a3, i0=1e4c52a0a0364416b0acd11668c01053" />
+			</WhileLoop>
+			<RegisterForEvents Bounds="450 85 130 70" Id="ef3545a406d142dabf79a22cd7179669">
+				<EventSourceTerminal DataType="@17aacb151fe84edda11de629a5d0dde1" Direction="Input" Hotspot="0 35" Id="c0t0v" SelectedEventName="keyboard event" Usage="Required" />
+				<EventSourceTerminal DataType="@17aacb151fe84edda11de629a5d0dde1" Direction="Input" Hotspot="0 50" Id="c1t0v" SelectedEventName="keyboard event" />
+			</RegisterForEvents>
+			<Wire Id="a43777f850ca4f678d9a7b0759f1f267" Joints="N(ef3545a406d142dabf79a22cd7179669:error out)|(580,105) N(52f1d0ef78544d518c2e1f5105551341:o0)|(591,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="618cdd6d50eb4ee4bc3134a5cdf5e24a" Joints="N(ef3545a406d142dabf79a22cd7179669:event registration refnum out)|(580,90) N(327725624fa940f8ad27a8ba7a9832a3:o0)|(591,90)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="e335ad160299423ab553afe0764785a3" Joints="N(255b08a6258046989192feba670fba8a:R0)|(300,75) N(f667c2102ea94df18ccb3f8bc282329e:o0)|(591,75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="6df53e9cfe194f179ca08257767a22ee" Joints="N(255b08a6258046989192feba670fba8a:B1)|(285,110) v(10) N(ef3545a406d142dabf79a22cd7179669:c0t0v)|(450,120)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="c6bc585fe02440d1a1f6af7f16f1b2f0" Joints="N(3cb98060d04a45b2b91d928aa411e3ee:R0)|(145,75) N(255b08a6258046989192feba670fba8a:L0)|(260,75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="105 210 40 40" Id="f6bc0ad8cfb64024953262dc6dece987" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Get Target\\Get Target - Selector.gvi&quot;" Signature="@047ae5cb0f8049778e64d6911c736e65" Target="EventTarget::Get Target::Get Target - Selector.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="selector" />
@@ -267,99 +194,124 @@
 				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Literal Bounds="55 310 90 15" DataType="String" Id="7c074cc0c77e4a54b503864a9f8d8552" Label="663762b52d11445f882bca05b4dd4692" xmlns="http://www.ni.com/MocCommon">
+			<Literal Bounds="-15 210 90 15" DataType="String" Id="1a431fd4c71347fda66a1d38e050b733" Label="479109920ff9456cad8b9bff3b0ee85a" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>.my-element</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<NodeLabel AttachedTo="7c074cc0c77e4a54b503864a9f8d8552" Bounds="55 292 30 15" Id="663762b52d11445f882bca05b4dd4692" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="1a431fd4c71347fda66a1d38e050b733" Bounds="-15 192 30 15" Id="479109920ff9456cad8b9bff3b0ee85a" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>selector</p.Text>
 			</NodeLabel>
-			<Wire Id="dc931a49df774028b8d6ee4b5b4408dc" Joints="N(7c074cc0c77e4a54b503864a9f8d8552:Out)|(145,315) N(463ecb61c495401194074e98ed005094:L0)|(175,315)" xmlns="http://www.ni.com/PlatformFramework" />
-			<CloseReference Bounds="920 70 40 40" Id="ef7f9bfd0f934bec9c91eafb6667a4ac" />
-			<Wire Id="da1554dd93884301a01afc8fbf251ca1" Joints="N(965c4293af18491fbf73a257c1965720:R3)|(890,105) N(ef7f9bfd0f934bec9c91eafb6667a4ac:error in)|(920,105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="32b901ccef0b43bca2e4de2a21b17415" Joints="N(ef7f9bfd0f934bec9c91eafb6667a4ac:error out)|(960,105) N(df05f5d153ba49fe8b8ca6c6e1139bd5:Value)|(983,105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<CloseReference Bounds="920 310 40 40" Id="85a338ab456f41d2bdba25cc8c81ab09" />
-			<Wire Id="e47d0dffe36444afb04fc986601f6d38" Joints="N(60817421680c46b981abddf081bd8761:R3)|(890,345) N(85a338ab456f41d2bdba25cc8c81ab09:error in)|(920,345)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="c6f08feca2a54496be415c541a34aa9b" Joints="N(85a338ab456f41d2bdba25cc8c81ab09:error out)|(960,345) N(44817135bc3e4a0fbe7715055d47edd7:Value)|(983,345)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="24e8c41c73d04dd0b7fa18e45bbaed9a" Joints="N(1a431fd4c71347fda66a1d38e050b733:Out)|(75,215) N(f6bc0ad8cfb64024953262dc6dece987:L0)|(105,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="260 210 40 40" Id="cdef4ca0484f4568b1e7619320530adc" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Add Keyboard Event Listener.gvi&quot;" Signature="@c936325216e0418cb0759f2145d598f3" Target="EventTarget::Keyboard::Add Keyboard Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="target in" />
+						<Parameter Id="L1" Desc="keyboard event type" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="T0" Desc="prevent default" />
+						<Parameter Id="B1" Desc="keyboard user event" />
+						<Parameter Id="R0" Desc="target out" />
+						<Parameter Id="R3" Desc="error out" />
+						<Parameter Id="T1" Desc="event listener configuration out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@dad47e88709f45d889e88352ed044abb" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@17aacb151fe84edda11de629a5d0dde1" Direction="Output" Hotspot="25 40" Id="B1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@8afad088fd2f4f2fb3ed0e14aec4a5d9" Direction="Output" Hotspot="25 0" Id="T1" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="bdcfd213cb6f44fea8560358b590b89f" Joints="N(182fbee8ad644e108fa0d146d2dcc8d7:Out)|(245,225) N(cdef4ca0484f4568b1e7619320530adc:L1)|(260,225)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="160 220 85 15" DataType="@dad47e88709f45d889e88352ed044abb" Id="182fbee8ad644e108fa0d146d2dcc8d7" Label="9f27b4715be4bb981441422c64046bd" p4:ControlDefinitionChecksum="Z5tc3ZJ/brjD+7mouKrlQMzRZhOnpmEV8sYeeM9+BO0=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="EventTarget::Keyboard::keyboard event type.gtype" />
+					<p4:TypeDefinitionTarget TargetName="EventTarget::Keyboard::keyboard event type.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<EnumBehavior />
+			</Literal>
+			<NodeLabel AttachedTo="182fbee8ad644e108fa0d146d2dcc8d7" Bounds="160 202 30 15" Id="9f27b4715be4bb981441422c64046bd" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>keyboard event type</p.Text>
+			</NodeLabel>
+			<Wire Id="ebc390eac3f9450480140cf8fc220d5d" Joints="N(f6bc0ad8cfb64024953262dc6dece987:R0)|(145,215) N(cdef4ca0484f4568b1e7619320530adc:L0)|(260,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="5f0dda5c3ff44fa8a770ebc2cb424569" Joints="N(f6bc0ad8cfb64024953262dc6dece987:R3)|(145,245) N(cdef4ca0484f4568b1e7619320530adc:L3)|(260,245)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MergeErrors Bounds="385 100 30 20" Id="713bc36913034d19ae2dbb4ba3bb2811" Terminals="error out=ae1a0a4c943a4de0821e5e91560d7f6d, c0t0v=b8808dab9fac4ca38d5afde48478732f, c1t0v=106a807f46404bef8ff5224988145b96" />
+			<Wire Id="b8808dab9fac4ca38d5afde48478732f" Joints="N(255b08a6258046989192feba670fba8a:R3)|(300,105) N(713bc36913034d19ae2dbb4ba3bb2811:c0t0v)|(385,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="ae1a0a4c943a4de0821e5e91560d7f6d" Joints="N(713bc36913034d19ae2dbb4ba3bb2811:error out)|(415,105) N(ef3545a406d142dabf79a22cd7179669:error in)|(450,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="106a807f46404bef8ff5224988145b96" Joints="N(cdef4ca0484f4568b1e7619320530adc:R3)|(300,245) h(75) v(-130) N(713bc36913034d19ae2dbb4ba3bb2811:c1t0v)|(385,115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="be48291234ec4a05a8685b1462b12361" Joints="N(cdef4ca0484f4568b1e7619320530adc:B1)|(285,250) v(5) h(154) v(-120) N(ef3545a406d142dabf79a22cd7179669:c1t0v)|(450,135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="1015 100 71 35" HasErrorTerminals="False" Id="e76418561b254068b19159528928618f" InstanceDataType="Error" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+					<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
+				</p.TypeDefinitionTargets>
+				<PropertyItemTerminal DataType="String" Hotspot="71 15" Id="c0t0v" Path="source" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<OneButtonDialog Bounds="1095 110 40 40" Id="9342740243924ba08955b926c1678e98" />
+			<Wire Id="d29b2f69adc54cea93b4e4f232c9f189" Joints="N(e76418561b254068b19159528928618f:c0t0v)|(1086,115) N(9342740243924ba08955b926c1678e98:message)|(1095,115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="de5237ad72704b88bac3ce774e17442b" Joints="N(5114527751594a748dbb2c2d4e3d08a9:4cf2e598633c49b5b84f656ec8909da0)|(999,105) N(e76418561b254068b19159528928618f:instance in)|(1015,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="310 10 40 40" Id="8336a009393b4297a917825d3e38a5f7" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Listen For Keyboard Events.gvi&quot;" Signature="@093bdb7920cd421f8b6cf92977b04da5" Target="EventTarget::Keyboard::Listen For Keyboard Events.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="event listener configuration" />
+						<Parameter Id="R3" Desc="error out (warning: blocking)" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@8afad088fd2f4f2fb3ed0e14aec4a5d9" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="82dc6c3da7a34bd18095d802da5dde77" Joints="N(255b08a6258046989192feba670fba8a:T1)|(285,70) v(-55) N(8336a009393b4297a917825d3e38a5f7:L0)|(310,15)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="315 160 40 40" Id="e8ce3c25a4834c9991a29b70d022b395" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\EventTarget\\EventTarget.gcomp\\Keyboard\\Listen For Keyboard Events.gvi&quot;" Signature="@093bdb7920cd421f8b6cf92977b04da5" Target="EventTarget::Keyboard::Listen For Keyboard Events.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="event listener configuration" />
+						<Parameter Id="R3" Desc="error out (warning: blocking)" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@8afad088fd2f4f2fb3ed0e14aec4a5d9" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="246e941b1661412b9800d2ff37b8cbbb" Joints="N(cdef4ca0484f4568b1e7619320530adc:T1)|(285,210) v(-45) N(e8ce3c25a4834c9991a29b70d022b395:L0)|(315,165)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="349b33e566e4071b2f7d0b6304fa58b" Label="[UIModel]e5bf603462e0425b847d3c6bbd6f36a7" Left="[float]740" TabIndex="[int]0" Top="[float]52" Value="{DataItemBinding Id=9375f3ab850d406ca71a2bafb5618080}" Width="[float]176" xmlns="http://www.ni.com/PanelCommon">
-				<LED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="d41c2b678c324214a1ca65e8a3afdbbd" IsReadOnly="[bool]True" Label="[UIModel]e56e95416c264459ae7b5934a133a1b7" Left="[float]8" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="e56e95416c264459ae7b5934a133a1b7" LabelOwner="[UIModel]d41c2b678c324214a1ca65e8a3afdbbd" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]32" />
-				<NumericText Height="[float]24" Id="5efa9c511e454100a3ccbeb212773c58" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]ee6238313c014850a21adb1c2116779d" Left="[float]64" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="ee6238313c014850a21adb1c2116779d" LabelOwner="[UIModel]5efa9c511e454100a3ccbeb212773c58" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]26" />
-				<StringControl AcceptsReturn="[bool]True" Height="[float]96" Id="a95ab3d53077446d882c31b5e37f59e4" IsReadOnly="[bool]True" Label="[UIModel]1dcf1779e1214091b24b6bdf44101cff" Left="[float]8" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="1dcf1779e1214091b24b6bdf44101cff" LabelOwner="[UIModel]a95ab3d53077446d882c31b5e37f59e4" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]35" />
-			</Cluster>
-			<Label Height="[float]16" Id="e5bf603462e0425b847d3c6bbd6f36a7" LabelOwner="[UIModel]349b33e566e4071b2f7d0b6304fa58b" Left="[float]740" Text="[string]error out" Top="[float]32" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
-			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="97db8dd0ea244c3b886e8e34d79e49a4" IsReadOnly="[bool]True" Label="[UIModel]c188c2be294941eca40dd1fd7acc12cc" Left="[float]52" TabIndex="[int]1" Text="{DataItemBinding Id=f106bbda1354a68b67382c51846f4bd}" Top="[float]52" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]136" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="c188c2be294941eca40dd1fd7acc12cc" LabelOwner="[UIModel]97db8dd0ea244c3b886e8e34d79e49a4" Left="[float]52" Text="[string]code" Top="[float]32" Width="[float]26" xmlns="http://www.ni.com/PanelCommon" />
-			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="2c627c9ad36c42b0abdb5e081cf95dd9" IsReadOnly="[bool]True" Label="[UIModel]2f013eb0968d47eca613551e6efb6990" Left="[float]52" TabIndex="[int]2" Text="{DataItemBinding Id=ef6cbf7e8fcc4fbeaf0937d82ea23cc6}" Top="[float]180" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]136" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="2f013eb0968d47eca613551e6efb6990" LabelOwner="[UIModel]2c627c9ad36c42b0abdb5e081cf95dd9" Left="[float]52" Text="[string]key" Top="[float]160" Width="[float]19" xmlns="http://www.ni.com/PanelCommon" />
 			<Text BaseName="[string]Text" Height="[float]32" Id="431e47cadf474db5b24e7fa2cfacb540" Left="[float]52" Text="[string]Note: code represents the physical key on the keyboard.&#xD;&#xA;code is empty string in the editor but has a correct value when run in browser. See JS file for more details." TextWrapping="[TextWrapping]Wrap" Top="[float]100" Width="[float]565" xmlns="http://www.ni.com/PlatformFramework" />
 			<Text BaseName="[string]Text" Height="[float]32" Id="6a3efbedc37e4715a00318a410064725" Left="[float]52" Text="[string]Note: key represents the interpretted value of the key that was pressed.&#xD;&#xA;It accounts for modifiers like shift, etc and language specific layouts." TextWrapping="[TextWrapping]Wrap" Top="[float]228" Width="[float]385" xmlns="http://www.ni.com/PlatformFramework" />
-			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="b204282e2df747ffa9f8073337661869" IsReadOnly="[bool]True" Label="[UIModel]f2678ffde783402fbea442d0bd204fed" Left="[float]324" TabIndex="[int]4" Text="{DataItemBinding Id=28e3f0664cfd4b3c94fca55992fafe53}" Top="[float]388" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]136" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="f2678ffde783402fbea442d0bd204fed" LabelOwner="[UIModel]b204282e2df747ffa9f8073337661869" Left="[float]324" Text="[string]code specific element" Top="[float]368" Width="[float]115" xmlns="http://www.ni.com/PanelCommon" />
-			<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="8f3de83505d245ef9e975fa9bbf693f9" Label="[UIModel]197c4f5436134c93bbeb9bb91f7aa308" Left="[float]740" TabIndex="[int]5" Top="[float]376" Value="{DataItemBinding Id=fc7bf16118114c36856339f683134a86}" Width="[float]176" xmlns="http://www.ni.com/PanelCommon">
-				<LED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="45fe762592d1424dac47d64274845f9a" IsReadOnly="[bool]True" Label="[UIModel]75cbe612c102486183e039207237da58" Left="[float]8" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="75cbe612c102486183e039207237da58" LabelOwner="[UIModel]45fe762592d1424dac47d64274845f9a" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]32" />
-				<NumericText Height="[float]24" Id="7d6538fc3132439db31012bd66042844" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]130af9d4d851491ebf914fe0c8f3fb2e" Left="[float]64" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="130af9d4d851491ebf914fe0c8f3fb2e" LabelOwner="[UIModel]7d6538fc3132439db31012bd66042844" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]26" />
-				<StringControl AcceptsReturn="[bool]True" Height="[float]96" Id="d42de0dbdad04a0c958e2eba5832fae4" IsReadOnly="[bool]True" Label="[UIModel]3acca369d5fb4f65aaba91a1e1a8a798" Left="[float]8" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="3acca369d5fb4f65aaba91a1e1a8a798" LabelOwner="[UIModel]d42de0dbdad04a0c958e2eba5832fae4" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]35" />
-			</Cluster>
-			<Label Height="[float]16" Id="197c4f5436134c93bbeb9bb91f7aa308" LabelOwner="[UIModel]8f3de83505d245ef9e975fa9bbf693f9" Left="[float]740" Text="[string]error out specific element" Top="[float]356" Width="[float]136" xmlns="http://www.ni.com/PanelCommon" />
-			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="7ab354bc9b834cb4bf2748d41013174a" IsReadOnly="[bool]True" Label="[UIModel]d7dd0fdb8e94551805f79c4853e5829" Left="[float]324" TabIndex="[int]6" Text="{DataItemBinding Id=31db9de3670345f396da3dae419a1916}" Top="[float]452" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]136" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="d7dd0fdb8e94551805f79c4853e5829" LabelOwner="[UIModel]7ab354bc9b834cb4bf2748d41013174a" Left="[float]324" Text="[string]key specific element" Top="[float]432" Width="[float]107" xmlns="http://www.ni.com/PanelCommon" />
-			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]120" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="40fd84153277441b9c0c7b7657c13932" IsReadOnly="[bool]False" IsTabStop="[bool]True" Label="[UIModel]dcdc38c353934cbba60e43fe7a1c2aff" LabelLinked="[bool]True" Left="[float]36" TabIndex="[int]3" Text="{DataItemBinding Id=b3cbb2bf27fc4d66a2d09f8691a66ece}" Top="[float]388" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]216" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]120" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="40fd84153277441b9c0c7b7657c13932" IsReadOnly="[bool]False" IsTabStop="[bool]True" Label="[UIModel]dcdc38c353934cbba60e43fe7a1c2aff" LabelLinked="[bool]True" Left="[float]36" TabIndex="[int]0" Text="{DataItemBinding Id=b3cbb2bf27fc4d66a2d09f8691a66ece}" Top="[float]388" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]216" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<HtmlBehavior ClassAttributes="my-element" xmlns="http://www.ni.com/PlatformFramework" />
 			</StringControl>
 			<Label Height="[float]16" Id="dcdc38c353934cbba60e43fe7a1c2aff" LabelOwner="[UIModel]40fd84153277441b9c0c7b7657c13932" Left="[float]36" Text="[string]Keyboard event on specific elements" Top="[float]368" Width="[float]194" xmlns="http://www.ni.com/PanelCommon" />
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e913b7c99f6949008eb04aec432deb6b" IsReadOnly="[bool]True" Label="[UIModel]4fa327c3c7b24a31b5faa1157f9fe9f8" Left="[float]100" TabIndex="[int]1" Text="{DataItemBinding Id=a532ebddb89545d490b7fc3120b0deb0}" Top="[float]180" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="4fa327c3c7b24a31b5faa1157f9fe9f8" LabelOwner="[UIModel]e913b7c99f6949008eb04aec432deb6b" Left="[float]100" Text="[string]code" Top="[float]160" Width="[float]26" xmlns="http://www.ni.com/PanelCommon" />
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e12756b74ed047ed810e3d0fb10de092" IsReadOnly="[bool]True" Label="[UIModel]6c46c7f934024eb6adc4fa6b911e06f5" Left="[float]228" TabIndex="[int]2" Text="{DataItemBinding Id=bd7ad89044c6470bb90a9d72f781d3a8}" Top="[float]180" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="6c46c7f934024eb6adc4fa6b911e06f5" LabelOwner="[UIModel]e12756b74ed047ed810e3d0fb10de092" Left="[float]228" Text="[string]element code" Top="[float]160" Width="[float]73" xmlns="http://www.ni.com/PanelCommon" />
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="133c4b1ee7974ccda209576a634aeef2" IsReadOnly="[bool]True" Label="[UIModel]6b94a36fd7ca41d9bea4bafba4e0f7fe" Left="[float]228" TabIndex="[int]3" Text="{DataItemBinding Id=8897b4cdb78a46eb8bc33bdaefde9653}" Top="[float]292" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="6b94a36fd7ca41d9bea4bafba4e0f7fe" LabelOwner="[UIModel]133c4b1ee7974ccda209576a634aeef2" Left="[float]228" Text="[string]element key" Top="[float]272" Width="[float]65" xmlns="http://www.ni.com/PanelCommon" />
+			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="8c0c082e28aa46dd909dd9733caa3baa" IsReadOnly="[bool]True" Label="[UIModel]bade30304d764de690a7d6853966a702" Left="[float]100" TabIndex="[int]4" Text="{DataItemBinding Id=5b0f887aed444c0bb9ee98df7929471}" Top="[float]292" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="bade30304d764de690a7d6853966a702" LabelOwner="[UIModel]8c0c082e28aa46dd909dd9733caa3baa" Left="[float]100" Text="[string]key" Top="[float]272" Width="[float]19" xmlns="http://www.ni.com/PanelCommon" />
 		</HtmlFrontPanel>
-		<DataItem AdaptToDiagramType="True" DataType="String" Id="f106bbda1354a68b67382c51846f4bd" Name="code" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>""</p.DefaultValue>
-		</DataItem>
-		<DataItem AdaptToDiagramType="True" DataType="String" Id="ef6cbf7e8fcc4fbeaf0937d82ea23cc6" Name="key" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>""</p.DefaultValue>
-		</DataItem>
-		<DataItem DataType="Error" Id="9375f3ab850d406ca71a2bafb5618080" Name="error out" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>
-				<Cluster>
-					<Field1>False</Field1>
-					<Field2>0</Field2>
-					<Field3>""</Field3>
-				</Cluster>
-			</p.DefaultValue>
-			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
-			</p.TypeDefinitionTargets>
-		</DataItem>
 		<DataItem AdaptToDiagramType="True" DataType="String" Id="b3cbb2bf27fc4d66a2d09f8691a66ece" Name="Keyboard event on specific elements" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
-		<DataItem AdaptToDiagramType="True" DataType="String" Id="28e3f0664cfd4b3c94fca55992fafe53" Name="code specific element" xmlns="http://www.ni.com/MocCommon">
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="a532ebddb89545d490b7fc3120b0deb0" Name="code" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
-		<DataItem AdaptToDiagramType="True" DataType="String" Id="31db9de3670345f396da3dae419a1916" Name="key specific element" xmlns="http://www.ni.com/MocCommon">
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="5b0f887aed444c0bb9ee98df7929471" Name="key" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
-		<DataItem DataType="Error" Id="fc7bf16118114c36856339f683134a86" Name="error out specific element" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>
-				<Cluster>
-					<Field1>False</Field1>
-					<Field2>0</Field2>
-					<Field3>""</Field3>
-				</Cluster>
-			</p.DefaultValue>
-			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
-			</p.TypeDefinitionTargets>
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="bd7ad89044c6470bb90a9d72f781d3a8" Name="element code" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="8897b4cdb78a46eb8bc33bdaefde9653" Name="element key" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>""</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="e9563d808c2240d6943283614f752905">
-			<Attributed AttributedType="@f18b031a548c4654a0bdff3090daa735">
+		<p.TypeReference TypeId="c936325216e0418cb0759f2145d598f3">
+			<Attributed AttributedType="@6fbc89106d7b43a999be4015c5c6a673">
 				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
@@ -379,27 +331,17 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="27257e8cedd74b8a8a70fe64b84b6f5b">
-			<Attributed AttributedType="@20435b49690f42bb9d5e29428668bcc1">
+		<p.TypeReference TypeId="17aacb151fe84edda11de629a5d0dde1">
+			<Attributed AttributedType="@f06a31f5730e4670ab322391ee6d7008">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]EventTarget::Support" />
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="218160138d1b42e0a3e061591a4944d7">
-			<Attributed AttributedType="@e0e5d1a2ceea408b8cd12521fb934f99">
+		<p.TypeReference TypeId="8afad088fd2f4f2fb3ed0e14aec4a5d9">
+			<Attributed AttributedType="@dce40f9af4f94fee990040573ae15234">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="0d025b5c41524fa784349348fae589b8">
-			<Attributed AttributedType="@b93f706f7e9e4ead811b7f5be2a8c527">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]EventTarget::Keyboard" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -411,6 +353,44 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
+		<p.TypeReference TypeId="9ffd885f9f28456091a710dc14b4ea54">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="Source" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Type" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Time" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Index" DataType="UInt32" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="173405b8e97c459084724fb81c74bfce">
+			<Attributed AttributedType="@25538d8eb0fa4ecf97561d8a10e46d32">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="6a9f25d4a8844267b5c23520ba6aa688">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="Source" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Type" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Time" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Index" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="UsrEvtRef" DataType="@17aacb151fe84edda11de629a5d0dde1" />
+					<Field FieldAccessPolicy="ReadWrite" Name="code" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="key" DataType="String" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3152e4e87f4447668c248568a464bf63">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="code" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="key" DataType="String" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
 		<p.TypeReference TypeId="047ae5cb0f8049778e64d6911c736e65">
 			<Attributed AttributedType="@fca07225cd064668b975e7ba258d5426">
 				<AttributeValues>
@@ -419,12 +399,20 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="f18b031a548c4654a0bdff3090daa735">
+		<p.TypeReference TypeId="093bdb7920cd421f8b6cf92977b04da5">
+			<Attributed AttributedType="@6815b0bc5e4f4dacb9f10faa528da963">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="6fbc89106d7b43a999be4015c5c6a673">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Add Keyboard Event Listener.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@a4eeaecc25be4aee87675677217cd35c">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]target" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]target in" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c6410692612f4e288ba5a52c36ea2688">
@@ -442,14 +430,24 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]prevent default" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@07e86a4f3b8f4fd2a08fb2bd85addf30">
+					<Attributed AttributedType="@1a47974f3e00445dafc3e64e25cd5e59">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]keyboard user event" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@02ee94edd56d425b99659ee9bc27df13">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]target out" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@ddd72e4d3da843a099101fcb7d6ddaad">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event listener configuration out" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
@@ -461,65 +459,15 @@
 		<p.TypeReference TypeId="90ba4956c97c499d87193547dba00757">
 			<Typedef TypedefName="keyboard event type.gtype" UnderlyingType="@f1cf7ffc7cf14171a471dfd957521f51" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="20435b49690f42bb9d5e29428668bcc1">
-			<Typedef TypedefName="event manager reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="e0e5d1a2ceea408b8cd12521fb934f99">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Listen For Keyboard Events.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="f06a31f5730e4670ab322391ee6d7008">
+			<Event Id="1" Name="keyboard event" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@58eb71968b354f83af46e3f54feb2e40">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@07e86a4f3b8f4fd2a08fb2bd85addf30">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference out" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@9bed476d8921432ca1d414ab7240ae7c">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]code" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@ff78ec7c74664fe7abbaef553e757165">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]key" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
-						</AttributeValues>
-					</Attributed>
+					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@3152e4e87f4447668c248568a464bf63" />
 				</Parameters>
-			</Function>
+			</Event>
 		</p.TypeReference>
-		<p.TypeReference TypeId="b93f706f7e9e4ead811b7f5be2a8c527">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Remove Event Listener.gvi" ReturnType="Void" GenericTypeDefinition="Void">
-				<Parameters>
-					<Attributed AttributedType="@58eb71968b354f83af46e3f54feb2e40">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]event manager reference" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
-						</AttributeValues>
-					</Attributed>
-				</Parameters>
-			</Function>
+		<p.TypeReference TypeId="dce40f9af4f94fee990040573ae15234">
+			<Typedef TypedefName="event listener configuration.gtype" UnderlyingType="@03ad2fe980944493b5b852e0f0617099" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="4b8c9b12259a4795879894057a25c6b3">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Target - Document.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -541,6 +489,14 @@
 					</Attributed>
 				</Parameters>
 			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="25538d8eb0fa4ecf97561d8a10e46d32">
+			<Composite Id="1" Name="CoreRuntime.EventRegistrationRefnum" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="keyboard event" DataType="@17aacb151fe84edda11de629a5d0dde1" />
+					<Field FieldAccessPolicy="ReadWrite" Name="keyboard event_0" DataType="@17aacb151fe84edda11de629a5d0dde1" />
+				</Members>
+			</Composite>
 		</p.TypeReference>
 		<p.TypeReference TypeId="fca07225cd064668b975e7ba258d5426">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Target - Selector.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -568,6 +524,22 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
+		<p.TypeReference TypeId="6815b0bc5e4f4dacb9f10faa528da963">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Listen For Keyboard Events.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@2a2dd469c24a484db422f0e08c1c31b1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]event listener configuration" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out (warning: blocking)" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
 		<p.TypeReference TypeId="a4eeaecc25be4aee87675677217cd35c">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@7daba7cc969c478fbb1943d69641e981" />
 		</p.TypeReference>
@@ -580,11 +552,17 @@
 		<p.TypeReference TypeId="1960baf9df4047b5b0392bc55faf761a">
 			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="Boolean" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="07e86a4f3b8f4fd2a08fb2bd85addf30">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" />
+		<p.TypeReference TypeId="1a47974f3e00445dafc3e64e25cd5e59">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="B1" DataType="@17aacb151fe84edda11de629a5d0dde1" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="02ee94edd56d425b99659ee9bc27df13">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@7daba7cc969c478fbb1943d69641e981" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="ddd72e4d3da843a099101fcb7d6ddaad">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="T1" DataType="@8afad088fd2f4f2fb3ed0e14aec4a5d9" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="f1cf7ffc7cf14171a471dfd957521f51">
 			<Enumeration>
@@ -595,20 +573,20 @@
 				<DataType>UInt16</DataType>
 			</Enumeration>
 		</p.TypeReference>
-		<p.TypeReference TypeId="58eb71968b354f83af46e3f54feb2e40">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@27257e8cedd74b8a8a70fe64b84b6f5b" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="9bed476d8921432ca1d414ab7240ae7c">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="String" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="ff78ec7c74664fe7abbaef553e757165">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R2" DataType="String" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="02ee94edd56d425b99659ee9bc27df13">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@7daba7cc969c478fbb1943d69641e981" />
+		<p.TypeReference TypeId="03ad2fe980944493b5b852e0f0617099">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="event stream reader" DataType="@7daba7cc969c478fbb1943d69641e981" />
+					<Field FieldAccessPolicy="ReadWrite" Name="keyboard user event" DataType="@17aacb151fe84edda11de629a5d0dde1" />
+					<Field FieldAccessPolicy="ReadWrite" Name="error in" DataType="Error" />
+				</Members>
+			</Composite>
 		</p.TypeReference>
 		<p.TypeReference TypeId="63ca935ef4df4ea7bde7b7c11ca85f3d">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="2a2dd469c24a484db422f0e08c1c31b1">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@8afad088fd2f4f2fb3ed0e14aec4a5d9" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
@@ -622,42 +600,6 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Add Keyboard Event Listener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]EventTarget.gcomp" Top="[float]0" Width="[float]40" />
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
-		<p.IconModel Target="EventTarget::Keyboard::Listen For Keyboard Events.gvi">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Listen For Keyboard Events" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]EventTarget.gcomp" Top="[float]0" Width="[float]40" />
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
-		<p.IconModel Target="EventTarget::Remove Event Listener.gvi">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Remove Event Listener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]EventTarget.gcomp" Top="[float]0" Width="[float]40" />
@@ -694,6 +636,24 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Target - Selector" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]EventTarget.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="EventTarget::Keyboard::Listen For Keyboard Events.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Listen For Keyboard Events" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]EventTarget.gcomp" Top="[float]0" Width="[float]40" />
