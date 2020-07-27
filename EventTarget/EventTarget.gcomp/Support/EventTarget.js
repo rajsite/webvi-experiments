@@ -1,6 +1,23 @@
 (function () {
     'use strict';
 
+    const getTargetDocument = function () {
+        return document;
+    };
+
+    const getTargetWindow = function () {
+        return window;
+    };
+
+    const getTargetSelector = function (selector) {
+        const elements = document.querySelectorAll(selector);
+        if (elements.length !== 1) {
+            throw new Error(`Expected to find one element with selector (${selector}). Instead found ${elements.length}.`);
+        }
+        const element = elements[0];
+        return element;
+    };
+
     const validateEventStreamReader = function (eventStreamReader) {
         // NXG 5 does not include the ReadableStreamDefaultReader in the global scope so skip validation
         if (window.ReadableStreamDefaultReader === undefined) {
@@ -62,28 +79,6 @@
         return typeof value === 'string' ? value : '';
     };
 
-    const querySelector = function (selector) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Expected to find one element with selector (${selector}). Instead found ${elements.length}.`);
-        }
-        const element = elements[0];
-        return element;
-    };
-
-    const getTarget = function (type, selector) {
-        switch (type) {
-        case 'document':
-            return document;
-        case 'window':
-            return window;
-        case 'selector':
-            return querySelector(selector);
-        default:
-            throw new Error(`Unsupported type target type: ${type}`);
-        }
-    };
-
     // KeyboardEvent specific
     const addKeyboardEventListener = function (target, eventName, preventDefault) {
         validateEventName(['keydown', 'keyup'], eventName);
@@ -116,12 +111,16 @@
     };
 
     window.WebVIEventTarget = {
+        // Find Target
+        getTargetDocument,
+        getTargetWindow,
+        getTargetSelector,
+
         // Keyboard Events
         addKeyboardEventListener,
         waitForKeyboardEvent,
 
         // Shared
-        getTarget,
         removeEventListener
     };
 }());
