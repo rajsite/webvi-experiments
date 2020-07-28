@@ -55,7 +55,13 @@
 
         const defaultPort = 3000;
         const port = process.env.PORT || defaultPort;
-        app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+        // Bind to 0.0.0.0 to avoid timeouts in heroku https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error
+        const host = '0.0.0.0';
+        const options = {
+            port,
+            host
+        };
+        app.listen(options, () => console.log(`Example app listening on port ${port} host ${host}!`));
 
         console.log('Discovered Routes:');
         endpointConfigs.forEach(endpointConfig => console.log(`${endpointConfig.route} - ${endpointConfig.method}`));
