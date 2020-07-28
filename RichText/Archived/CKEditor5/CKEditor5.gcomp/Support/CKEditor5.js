@@ -1,14 +1,7 @@
 (function () {
     'use strict';
 
-    const create = async function (selector) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Expected a single element with selector ${selector} but found ${elements.length}`);
-        }
-        const element = elements[0];
-        element.innerHTML = '';
-
+    const create = async function (element) {
         const ckeditorContainer = document.createElement('div');
         ckeditorContainer.classList.add('webvi-ckeditor-container');
         const textarea = document.createElement('textarea');
