@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="F5C5C1D0D80D8E1EF60138C16DC7B2F01614ADCA57940BEDB6EBCB67F149EDE250662195AEF777DDEDC63950C25DF0249925AD5E282F350BB13995C85FAE8E32" Timestamp="1D633E5D447C79D" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="B8024FA3DC22A54AADC92245442CBC8D51171B1DFCD11784E7BED10FFE2F094AAC91B42ED2FE4425E1CFBBCB3709E46F0B105194DE98EB73074106FC18EBA71F" Timestamp="1D6651D8A019E01" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -45,9 +45,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="67e83509251b49dfb4f2bea50b835034" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="4b373ae3dd9e470b89f1b2f4adda85f5" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="8133a3c4c4a4accb5079071b54ba4ed" IsReturnParameter="True" Name="modelReference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="db34aa7a3a40400db6889ce4be6b61b4" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="15a168dfa6d4416397fa6e7ff18f5ecb" Name="modelReference" />
+					<JavaScriptLibraryParameter Id="8133a3c4c4a4accb5079071b54ba4ed" IsReturnParameter="True" Name="model">
+						<JavaScriptType ActualDataType="@04818213b5764c2b947f8080aae7d37d" Id="1567a12f0eef4aec939c87e1b820e9cb" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="15a168dfa6d4416397fa6e7ff18f5ecb" Name="model" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
@@ -81,15 +81,15 @@
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="6135f2d69c54d75853045b9653747fe" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="4e08e7cd04c847a1b3f61fbf4fe8f70d" IsError="True" Name="error out" />
 					<JavaScriptLibraryParameter Id="f716fd3cb3541a6bc62d5683ce0f22f" IsReturnParameter="True" Name="resultsJSON">
-						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="e7d7dc476cb74a59a589408c73894ab7" />
+						<JavaScriptType ActualDataType="@6290d7ebaa60406f97e6c0d355b86f3d" Id="e7d7dc476cb74a59a589408c73894ab7" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="b394edb81576443eadc53d3265609e42" Name="resultsJSON" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="24b105af0fe4fd89e25ca2f24e3109e" Name="modelReference">
-						<JavaScriptType ActualDataType="@dd3fd85a6fdd451c9c068b1446f04dd8" Id="f9cff1a425fb4159b8e24ea311e4fcd5" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="538dd8c90fae4120af52d58f72a9e39f" Name="modelReference" />
+					<JavaScriptLibraryParameter Id="24b105af0fe4fd89e25ca2f24e3109e" Name="model">
+						<JavaScriptType ActualDataType="@04818213b5764c2b947f8080aae7d37d" Id="fa2203b9eb1d4888a0f69e6331bbdc99" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="538dd8c90fae4120af52d58f72a9e39f" Name="model" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="ba673ea16d0d4d92ba0f5f73fa901cf7" Name="fileReference">
-						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="2e9ecf50a6eb49188df05383ebf2d244" />
+						<JavaScriptType ActualDataType="@04818213b5764c2b947f8080aae7d37d" Id="2e9ecf50a6eb49188df05383ebf2d244" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="9a654ff9725f437bb24574313c65e2f9" Name="fileReference" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
@@ -97,29 +97,22 @@
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="dd3fd85a6fdd451c9c068b1446f04dd8">
-			<Attributed AttributedType="Int32">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="7a0d745212ea43e8a195a3e0a8f4fb9a">
-			<Attributed AttributedType="String">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="8e39b3e51f424325880b3db570786c0a">
-			<Attributed AttributedType="@d5cc76c39163420cb65dd0e1a0e0eb64">
+		<p.TypeReference TypeId="04818213b5764c2b947f8080aae7d37d">
+			<Attributed AttributedType="@88a6b52ebce04b399d897f46b4c969cc">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d5cc76c39163420cb65dd0e1a0e0eb64">
+		<p.TypeReference TypeId="6290d7ebaa60406f97e6c0d355b86f3d">
+			<Attributed AttributedType="String">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="88a6b52ebce04b399d897f46b4c969cc">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>

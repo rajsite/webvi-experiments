@@ -1,29 +1,6 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
-        }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
-
     const imageLoad = function (img, src) {
         return new Promise(function (resolve) {
             const loadHandler = function () {
@@ -38,14 +15,9 @@
     const helperImage = document.createElement('img');
     const load = async function () {
         const model = await window.mobilenet.load();
-        const modelReference = referenceManager.createReference(model);
-        return modelReference;
+        return model;
     };
-    const classify = async function (modelReference, fileReference) {
-        const model = referenceManager.getObject(modelReference);
-        if (model === undefined) {
-            throw new Error('Expected model reference');
-        }
+    const classify = async function (model, fileReference) {
         const src = URL.createObjectURL(fileReference);
         await imageLoad(helperImage, src);
         const results = await model.classify(helperImage);
