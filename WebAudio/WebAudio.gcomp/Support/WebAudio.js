@@ -13,45 +13,19 @@
         };
     }());
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
-        }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
-
     // Sources
     const createMediaStreamAudioSourceNode = async function () {
         const stream = await navigator.mediaDevices.getUserMedia({audio: true});
         const audioContext = getAudioContext();
         const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
-        const mediaStreamAudioSourceNodeReference = referenceManager.createReference(mediaStreamAudioSourceNode);
-        return mediaStreamAudioSourceNodeReference;
+        return mediaStreamAudioSourceNode;
     };
 
     // AudioNodes
-    const validateAudioNode = function (sourceReference) {
-        const source = referenceManager.getObject(sourceReference);
+    const validateAudioNode = function (source) {
         if (source instanceof AudioNode === false) {
             throw new Error('Expected a valid AudioNode.');
         }
-        return source;
     };
 
     class Analyser {
@@ -75,29 +49,26 @@
         }
     }
 
-    const validateAnalyser = function (analyserReference) {
-        const analyser = referenceManager.getObject(analyserReference);
+    const validateAnalyser = function (analyser) {
         if (analyser instanceof Analyser === false) {
             throw new Error('Expected a valid Analyser.');
         }
+    };
+
+    const createAnalyser = function (source) {
+        validateAudioNode(source);
+        const analyser = new Analyser(source);
         return analyser;
     };
 
-    const createAnalyser = function (sourceReference) {
-        const source = validateAudioNode(sourceReference);
-        const analyser = new Analyser(source);
-        const analyserReference = referenceManager.createReference(analyser);
-        return analyserReference;
-    };
-
-    const getFloatTimeDomainData = function (analyserReference) {
-        const analyser = validateAnalyser(analyserReference);
+    const getFloatTimeDomainData = function (analyser) {
+        validateAnalyser(analyser);
         const floatTimeDomainData = analyser.getFloatTimeDomainData();
         return floatTimeDomainData;
     };
 
-    const getFloatFrequencyData = function (analyserReference) {
-        const analyser = validateAnalyser(analyserReference);
+    const getFloatFrequencyData = function (analyser) {
+        validateAnalyser(analyser);
         const floatFrequencyData = analyser.getFloatFrequencyData();
         return floatFrequencyData;
     };
