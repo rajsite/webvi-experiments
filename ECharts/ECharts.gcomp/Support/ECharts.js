@@ -52,42 +52,11 @@
         return result;
     };
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
-        }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
-
-    const createEChart = function (selector) {
-        const parents = document.querySelectorAll(selector);
-        if (parents.length !== 1) {
-            throw new Error(`Expected to find one element with selector ${selector}, instead found ${parents.length}`);
-        }
-        const parent = parents[0];
-        parent.innerHTML = '';
-
+    const createEChart = function (container) {
         const element = document.createElement('div');
         element.style.width = '100%';
         element.style.height = '100%';
-
-        parent.appendChild(element);
+        container.appendChild(element);
         const echart = echarts.init(element);
         if (window.ResizeObserver) {
             const resizeObserver = new ResizeObserver(() => {
@@ -95,24 +64,17 @@
             });
             resizeObserver.observe(element);
         }
-        const echartReference = referenceManager.createReference(echart);
-        return echartReference;
+
+        return echart;
     };
 
-    const destroyEChart = function (echartReference) {
-        const echart = referenceManager.getObject(echartReference);
+    const destroyEChart = function (echart) {
         if (echart !== undefined) {
-            referenceManager.closeReference(echartReference);
             echarts.dispose(echart);
         }
     };
 
-    const updateEChart = function (echartReference, optionsArrayJSON) {
-        const echart = referenceManager.getObject(echartReference);
-        if (echart === undefined) {
-            throw new Error('Invalid echarts reference.');
-        }
-
+    const updateEChart = function (echart, optionsArrayJSON) {
         // The optionsArrayJSON is a string that represents a JSON array of JSON objects of structure: [{"path": [string], "propertiesJSON": string}, ...]
         // The propertiesJSON is a string that represents a JSON object of arbitrary structure
         const optionsArray = JSON.parse(optionsArrayJSON);
