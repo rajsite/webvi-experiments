@@ -1,28 +1,11 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
+    const validateQuill = function (quill) {
+        if (quill instanceof window.Quill === false) {
+            throw new Error('Expected valid quill reference.');
         }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
+    };
 
     const validateKatex = function () {
         if (window.katex === undefined) {
@@ -113,15 +96,8 @@
         quill.options.bounds.classList.toggle('webvi-quill-disable', disabled);
     };
 
-    const createQuill = function (selector, formatsJSON, disabled) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Expected to find one element with selector ${selector}, but found ${elements.length}`);
-        }
+    const createQuill = function (element, formatsJSON, disabled) {
         const formats = JSON.parse(formatsJSON);
-        const element = elements[0];
-        element.innerHTML = '';
-
         if (formats.includes('formula')) {
             validateKatex();
         }
@@ -146,43 +122,29 @@
 
         const quill = new window.Quill(editor, config);
         setDisabledHelper(quill, disabled);
-        const quillReference = referenceManager.createReference(quill);
-        return quillReference;
+        return quill;
     };
 
-    const destroyQuill = function (quillReference) {
-        const quill = referenceManager.getObject(quillReference);
-        if (quill instanceof window.Quill === false) {
-            return;
-        }
-        referenceManager.closeReference(quillReference);
+    const destroyQuill = function (quill) {
+        validateQuill(quill);
         quill.options.bounds.parentNode.removeChild(quill.options.bounds);
     };
 
-    const getContents = function (quillReference) {
-        const quill = referenceManager.getObject(quillReference);
-        if (quill instanceof window.Quill === false) {
-            throw new Error('Expected instance of Quill object');
-        }
+    const getContents = function (quill) {
+        validateQuill(quill);
         const deltas = quill.getContents();
         const deltasJSON = JSON.stringify(deltas);
         return deltasJSON;
     };
 
-    const setContents = function (quillReference, deltasJSON) {
-        const quill = referenceManager.getObject(quillReference);
-        if (quill instanceof window.Quill === false) {
-            throw new Error('Expected instance of Quill object');
-        }
+    const setContents = function (quill, deltasJSON) {
+        validateQuill(quill);
         const deltas = JSON.parse(deltasJSON);
         quill.setContents(deltas);
     };
 
-    const setDisabled = function (quillReference, disabled) {
-        const quill = referenceManager.getObject(quillReference);
-        if (quill instanceof window.Quill === false) {
-            throw new Error('Expected instance of Quill object');
-        }
+    const setDisabled = function (quill, disabled) {
+        validateQuill(quill);
         setDisabledHelper(quill, disabled);
     };
 
