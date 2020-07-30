@@ -1,28 +1,11 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
+    const validateTrix = function (trix) {
+        if (trix && trix.trixContainer && trix.trixEditor === false) {
+            throw new Error('Expected valid trix reference.');
         }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
+    };
 
     const setDisableHelper = function (trix, disabled) {
         const {trixContainer, trixEditor} = trix;
@@ -33,14 +16,7 @@
         trixContainer.classList.toggle('webvi-trix-disable', disabled);
     };
 
-    const create = function (selector, disabled) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Expected to find one element with selector ${selector}, but found ${elements.length}`);
-        }
-        const element = elements[0];
-        element.innerHTML = '';
-
+    const create = function (element, disabled) {
         const trixContainer = document.createElement('div');
         trixContainer.classList.add('webvi-trix-container');
 
@@ -56,45 +32,30 @@
         };
 
         setDisableHelper(trix, disabled);
-
-        const trixReference = referenceManager.createReference(trix);
-        return trixReference;
+        return trix;
     };
 
-    const destroy = function (trixReference) {
-        const trix = referenceManager.getObject(trixReference);
-        if (trix === undefined) {
-            return;
-        }
+    const destroy = function (trix) {
+        validateTrix(trix);
         const {trixContainer} = trix;
         trixContainer.parentNode.removeChild(trixContainer);
-        referenceManager.closeReference(trixReference);
     };
 
-    const getContent = function (trixReference) {
-        const trix = referenceManager.getObject(trixReference);
-        if (trix === undefined) {
-            throw new Error('Expected instance of Trix object');
-        }
+    const getContent = function (trix) {
+        validateTrix(trix);
         const {trixEditor} = trix;
         const content = trixEditor.value;
         return content;
     };
 
-    const setContent = function (trixReference, content) {
-        const trix = referenceManager.getObject(trixReference);
-        if (trix === undefined) {
-            throw new Error('Expected instance of Trix object');
-        }
+    const setContent = function (trix, content) {
+        validateTrix(trix);
         const {trixEditor} = trix;
         trixEditor.value = content;
     };
 
-    const setDisabled = function (trixReference, disabled) {
-        const trix = referenceManager.getObject(trixReference);
-        if (trix === undefined) {
-            throw new Error('Expected instance of Trix object');
-        }
+    const setDisabled = function (trix, disabled) {
+        validateTrix(trix);
         setDisableHelper(trix, disabled);
     };
 
