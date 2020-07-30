@@ -2,7 +2,7 @@
     'use strict';
 
     const validateRooster = function (rooster) {
-        if (!(rooster && rooster.roosterContainer && rooster.roosterEditor)) {
+        if (rooster && rooster.roosterContainer && rooster.roosterEditor === false) {
             throw new Error('Expected valid Rooster reference.');
         }
     };
