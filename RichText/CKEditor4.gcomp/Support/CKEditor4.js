@@ -1,28 +1,11 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
+    const validateCKEditor = function (editor) {
+        if (editor instanceof window.CKEDITOR.editor === false) {
+            throw new Error('Expected valid CKEditor reference.');
         }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
+    };
 
     const ckeditorLoaded = function () {
         return new Promise(function (resolve) {
@@ -47,14 +30,7 @@
         });
     };
 
-    const create = async function (selector, disabled) {
-        const parents = document.querySelectorAll(selector);
-        if (parents.length !== 1) {
-            throw new Error(`Expected to find one element with selector ${selector}, instead found ${parents.length}`);
-        }
-        const parent = parents[0];
-        parent.innerHTML = '';
-
+    const create = async function (element, disabled) {
         await ckeditorLoaded();
         const config = {
             language: 'en',
@@ -64,27 +40,19 @@
             removePlugins: 'wsc,scayt,sourcearea,about,elementspath',
             extraPlugins: 'sourcedialog'
         };
-        const editor = window.CKEDITOR.appendTo(parent, config);
+        const editor = window.CKEDITOR.appendTo(element, config);
         await ckeditorInstanceReady(editor);
         editor.container.addClass('webvi-ckeditor-container');
-        const editorReference = referenceManager.createReference(editor);
-        return editorReference;
+        return editor;
     };
 
-    const destroy = function (editorReference) {
-        const editor = referenceManager.getObject(editorReference);
-        if (editor === undefined) {
-            return;
-        }
-        referenceManager.closeReference(editorReference);
+    const destroy = function (editor) {
+        validateCKEditor(editor);
         editor.destroy();
     };
 
-    const getContent = function (editorReference) {
-        const editor = referenceManager.getObject(editorReference);
-        if (editor === undefined) {
-            throw new Error('Expected instance of CKEditor object.');
-        }
+    const getContent = function (editor) {
+        validateCKEditor(editor);
         return editor.getData();
     };
 
@@ -94,21 +62,13 @@
         });
     };
 
-    const setContent = async function (editorReference, content) {
-        const editor = referenceManager.getObject(editorReference);
-        if (editor === undefined) {
-            throw new Error('Expected instance of CKEditor object.');
-        }
-
+    const setContent = async function (editor, content) {
+        validateCKEditor(editor);
         await ckeditorSetData(editor, content);
     };
 
-    const setDisabled = function (editorReference, disabled) {
-        const editor = referenceManager.getObject(editorReference);
-        if (editor === undefined) {
-            throw new Error('Expected instance of CKEditor object.');
-        }
-
+    const setDisabled = function (editor, disabled) {
+        validateCKEditor(editor);
         editor.setReadOnly(disabled);
     };
 
