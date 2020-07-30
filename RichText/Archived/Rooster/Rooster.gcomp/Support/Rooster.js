@@ -1,28 +1,11 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
+    const validateRooster = function (rooster) {
+        if (!(rooster && rooster.roosterContainer && rooster.roosterEditor)) {
+            throw new Error('Expected valid Rooster reference.');
         }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
+    };
 
     const setDisabledHelper = function (rooster, disabled) {
         const {roosterContainer} = rooster;
@@ -32,14 +15,7 @@
         roosterContainer.contentEditable = enabled;
     };
 
-    const create = function (selector, disabled) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length !== 1) {
-            throw new Error(`Expected to find one element with selector ${selector}, but found ${elements.length}`);
-        }
-        const element = elements[0];
-        element.innerHTML = '';
-
+    const create = function (element, disabled) {
         const roosterContainer = document.createElement('div');
         roosterContainer.classList.add('webvi-rooster-container');
 
@@ -51,45 +27,31 @@
             roosterEditor
         };
         setDisabledHelper(rooster, disabled);
-        const roosterReference = referenceManager.createReference(rooster);
-        return roosterReference;
+        return rooster;
     };
 
-    const destroy = function (roosterReference) {
-        const rooster = referenceManager.getObject(roosterReference);
-        if (rooster === undefined) {
-            return;
-        }
-        referenceManager.closeReference(roosterReference);
+    const destroy = function (rooster) {
+        validateRooster(rooster);
         const {roosterContainer, roosterEditor} = rooster;
         roosterEditor.dispose();
         roosterContainer.parentNode.removeChild(roosterContainer);
     };
 
-    const getContent = function (roosterReference) {
-        const rooster = referenceManager.getObject(roosterReference);
-        if (rooster === undefined) {
-            throw new Error('Expected instance of Rooster object');
-        }
+    const getContent = function (rooster) {
+        validateRooster(rooster);
         const {roosterEditor} = rooster;
         const content = roosterEditor.getContent();
         return content;
     };
 
-    const setContent = function (roosterReference, content) {
-        const rooster = referenceManager.getObject(roosterReference);
-        if (rooster === undefined) {
-            throw new Error('Expected instance of Rooster object');
-        }
+    const setContent = function (rooster, content) {
+        validateRooster(rooster);
         const {roosterEditor} = rooster;
         roosterEditor.setContent(content);
     };
 
-    const setDisabled = function (roosterReference, disabled) {
-        const rooster = referenceManager.getObject(roosterReference);
-        if (rooster === undefined) {
-            throw new Error('Expected instance of Rooster object');
-        }
+    const setDisabled = function (rooster, disabled) {
+        validateRooster(rooster);
         setDisabledHelper(rooster, disabled);
     };
 
