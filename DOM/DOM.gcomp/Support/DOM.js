@@ -1,29 +1,6 @@
 (function () {
     'use strict';
 
-    class ReferenceManager {
-        constructor () {
-            this._nextReference = 1;
-            this.references = new Map();
-        }
-
-        createReference (obj) {
-            const reference = this._nextReference;
-            this._nextReference += 1;
-            this.references.set(reference, obj);
-            return reference;
-        }
-
-        getObject (reference) {
-            return this.references.get(reference);
-        }
-
-        closeReference (reference) {
-            this.references.delete(reference);
-        }
-    }
-    const referenceManager = new ReferenceManager();
-
     // We use el.nodeType instead of instanceof checks to handle iframe and document fragments
     const DOCUMENT_NODE = 'DOCUMENT_NODE';
     const DOCUMENT_FRAGMENT_NODE = 'DOCUMENT_FRAGMENT_NODE';
@@ -38,73 +15,43 @@
         if (typeof obj !== 'object' || obj === null) {
             throw new Error('Invalid object. Expected a DOM Object.');
         }
-
         const nodeTypeName = nodeTypeNames.find(nodeTypeName => obj.nodeType === NODE_TYPE_NAMES[nodeTypeName]);
         if (nodeTypeName === undefined) {
             throw new Error(`Invalid object. Expected an instance of one of the following: ${nodeTypeNames.join(',')}`);
         }
     };
 
-    // Closing a DOM reference does not remove it from the DOM
-    const closeDOMReferences = function (domReferencesTypedArray) {
-        const domReferences = Array.from(domReferencesTypedArray);
-        domReferences.forEach(domReference => referenceManager.closeReference(domReference));
-    };
-
-    const getDOMTargetOrGlobalDocument = function (domTargetReference, ...allowedDOMTypes) {
-        const domTargetInitial = referenceManager.getObject(domTargetReference);
-        const globalDocument = window.document;
-        const domTarget = domTargetInitial === undefined ? globalDocument : domTargetInitial;
-        validateDOMObject(domTarget, ...allowedDOMTypes);
-        return domTarget;
-    };
-
-    const querySelectors = function (domTargetReference, selectorsJSON) {
-        const domTarget = getDOMTargetOrGlobalDocument(domTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
+    const querySelectors = function (domTarget, selectorsJSON) {
+        validateDOMObject(domTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
         const selectors = JSON.parse(selectorsJSON);
-        const elementReferences = selectors.map(function (selector) {
+        const elements = selectors.map(function (selector) {
             const elements = domTarget.querySelectorAll(selector);
             if (elements.length !== 1) {
                 throw new Error(`Expected 1 element with selector ${selector} but found ${elements.length}`);
             }
-            const element = elements[0];
+            const [element] = elements;
             return element;
-        }).map(element => referenceManager.createReference(element));
-        const elementReferencesTypedArray = new Int32Array(elementReferences);
-        return elementReferencesTypedArray;
-    };
-
-    const querySelectorAll = function (domTargetReference, selector) {
-        const domTarget = getDOMTargetOrGlobalDocument(domTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
-        const elements = Array.from(domTarget.querySelectorAll(selector));
-        const elementReferences = elements.map(element => referenceManager.createReference(element));
-        const elementReferencesTypedArray = new Int32Array(elementReferences);
-        return elementReferencesTypedArray;
-    };
-
-    const appendChildren = function (parentReference, childReferencesTypedArray, clearParentContent) {
-        const parent = referenceManager.getObject(parentReference);
-        validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-        const childReferences = Array.from(childReferencesTypedArray);
-        const children = childReferences.map(function (childReference) {
-            const child = referenceManager.getObject(childReference);
-            validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
-            return child;
         });
+        return elements;
+    };
 
+    const querySelectorAll = function (domTarget, selector) {
+        validateDOMObject(domTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE, ELEMENT_NODE);
+        const elements = Array.from(domTarget.querySelectorAll(selector));
+        return elements;
+    };
+
+    const appendChildren = function (parent, children, clearParentContent) {
+        validateDOMObject(parent, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+        children.forEach(child => validateDOMObject(child, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE));
         if (clearParentContent) {
             parent.innerHTML = '';
         }
         children.forEach(child => parent.appendChild(child));
     };
 
-    const removeChildren = function (childReferencesTypedArray) {
-        const childReferences = Array.from(childReferencesTypedArray);
-        const children = childReferences.map(function (childReference) {
-            const child = referenceManager.getObject(childReference);
-            validateDOMObject(child, ELEMENT_NODE);
-            return child;
-        });
+    const removeChildren = function (children) {
+        children.forEach(child => validateDOMObject(child, ELEMENT_NODE));
         children.forEach(function (child) {
             if (child.parentNode !== null) {
                 child.parentNode.removeChild(child);
@@ -168,24 +115,20 @@
         return elements;
     };
 
-    const createElements = function (documentTargetReference, tagNamesJSON, isInert) {
-        const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+    const createElements = function (documentTarget, tagNamesJSON, isInert) {
+        validateDOMObject(documentTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const tagNames = JSON.parse(tagNamesJSON);
         const elements = isInert ? createElementsInert(documentTarget, tagNames) : createElementsLive(documentTarget, tagNames);
-        const elementReferences = elements.map(element => referenceManager.createReference(element));
-        const elementReferencesTypedArray = new Int32Array(elementReferences);
-        return elementReferencesTypedArray;
+        return elements;
     };
 
-    const createDocumentFragment = function (documentTargetReference, content, isInert) {
-        const documentTarget = getDOMTargetOrGlobalDocument(documentTargetReference, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
+    const createDocumentFragment = function (documentTarget, content, isInert) {
+        validateDOMObject(documentTarget, DOCUMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const documentFragment = createDocumentFragmentInertable(documentTarget, content, isInert);
-        const documentFragmentReference = referenceManager.createReference(documentFragment);
-        return documentFragmentReference;
+        return documentFragment;
     };
 
-    const getAttributes = function (elementReference, attributeNamesJSON) {
-        const element = referenceManager.getObject(elementReference);
+    const getAttributes = function (element, attributeNamesJSON) {
         validateDOMObject(element, ELEMENT_NODE);
         const attributeNamesInitial = JSON.parse(attributeNamesJSON);
         const attributeNames = attributeNamesInitial.length === 0 ? element.getAttributeNames() : attributeNamesInitial;
@@ -264,8 +207,7 @@
         throw new Error(`Unexpected property value type ${type}`);
     };
 
-    const getProperties = function (elementReference, propertyNamesJSON) {
-        const element = referenceManager.getObject(elementReference);
+    const getProperties = function (element, propertyNamesJSON) {
         validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const propertyNames = JSON.parse(propertyNamesJSON);
         const domValues = createPropertyDomValues(element, propertyNames);
@@ -273,8 +215,7 @@
         return domValuesJSON;
     };
 
-    const setDomValues = function (elementReference, domValuesJSON) {
-        const element = referenceManager.getObject(elementReference);
+    const setDomValues = function (element, domValuesJSON) {
         validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
 
         const domValues = JSON.parse(domValuesJSON);
@@ -294,30 +235,25 @@
         });
     };
 
-    const getReferences = function (elementReference, propertyNamesJSON) {
-        const element = referenceManager.getObject(elementReference);
+    const getReferences = function (element, propertyNamesJSON) {
         validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const propertyNames = JSON.parse(propertyNamesJSON);
-        const references = propertyNames.map(function (name) {
+        const values = propertyNames.map(function (name) {
             const nameParts = name.split('.');
             // Mutates array by removing the last name part
             const lastNamePart = nameParts.pop();
             const target = lookupTarget(element, nameParts);
             const value = target[lastNamePart];
-            const reference = referenceManager.createReference(value);
-            return reference;
+            return value;
         });
-        const referencesTypedArray = new Int32Array(references);
-        return referencesTypedArray;
+        return values;
     };
 
-    const setReferences = function (elementReference, propertyNamesJSON, referencesTypedArray) {
-        const element = referenceManager.getObject(elementReference);
+    const setReferences = function (element, propertyNamesJSON, values) {
         validateDOMObject(element, ELEMENT_NODE, DOCUMENT_FRAGMENT_NODE);
         const propertyNames = JSON.parse(propertyNamesJSON);
         propertyNames.forEach(function (name, index) {
-            const reference = referencesTypedArray[index];
-            const value = ReferenceManager.getObject(reference);
+            const value = values[index];
             const nameParts = name.split('.');
             // Mutates array by removing the last name part
             const lastNamePart = nameParts.pop();
@@ -326,8 +262,7 @@
         });
     };
 
-    const invokeElementMethod = async function (elementReference, methodName, parameterDomValuesJSON) {
-        const element = referenceManager.getObject(elementReference);
+    const invokeElementMethod = async function (element, methodName, parameterDomValuesJSON) {
         validateDOMObject(element, ELEMENT_NODE);
         const methodNameParts = methodName.split('.');
         // Mutates array by removing the last name part
@@ -347,117 +282,49 @@
         return returnDomValuesJSON;
     };
 
-    class DataQueue {
-        constructor () {
-            this.queue = [];
-            this.pendingResolve = undefined;
-            this.pendingReject = undefined;
+    const validateEventStreamReader = function (eventStreamReader) {
+        // NXG 5 does not include the ReadableStreamDefaultReader in the global scope so skip validation
+        if (window.ReadableStreamDefaultReader === undefined) {
+            return;
         }
-
-        enqueue (data) {
-            if (this.queue === undefined) {
-                throw new Error(`The queue has already been destroyed, cannot enqueue new data: ${data}`);
-            }
-
-            this.queue.push(data);
-
-            if (this.pendingResolve !== undefined) {
-                this.pendingResolve(this.queue.shift());
-                this.pendingResolve = undefined;
-                this.pendingReject = undefined;
-            }
-        }
-
-        dequeue () {
-            if (this.queue === undefined) {
-                throw new Error('The queue has already been destroyed, cannot dequeue any data.');
-            }
-
-            if (this.pendingResolve !== undefined) {
-                throw new Error('A pending dequeue operation already exists. Only one pending dequeue operation allowed at a time.');
-            }
-
-            if (this.queue.length === 0) {
-                return new Promise((resolve, reject) => {
-                    this.pendingResolve = resolve;
-                    this.pendingReject = reject;
-                });
-            }
-
-            return this.queue.shift();
-        }
-
-        destroy () {
-            if (this.pendingResolve !== undefined) {
-                this.pendingReject(new Error('Pending dequeue operation failed due to queue destruction.'));
-                this.pendingResolve = undefined;
-                this.pendingReject = undefined;
-            }
-            this.pendingResolve = undefined;
-
-            const remaining = this.queue;
-            this.queue = undefined;
-            return remaining;
-        }
-    }
-
-    class EventManager {
-        constructor (element, eventName, propertyNames) {
-            this._element = element;
-            this._eventName = eventName;
-            this._queue = new DataQueue();
-            this._handler = (event) => {
-                const domValues = createPropertyDomValues(event, propertyNames);
-                this._queue.enqueue(domValues);
-            };
-            this._element.addEventListener(this._eventName, this._handler);
-        }
-
-        read () {
-            return this._queue.dequeue();
-        }
-
-        stop () {
-            this._element.removeEventListener(this._eventName, this._handler);
-            this._handler = undefined;
-            this._queue.destroy();
-            this._queue = undefined;
-            this._eventName = undefined;
-            this._element = undefined;
-        }
-    }
-
-    const validateObject = function (obj, ...constructorFunctions) {
-        const constructorFunction = constructorFunctions.find(constructorFunction => obj instanceof constructorFunction);
-        if (constructorFunction === undefined) {
-            const names = constructorFunctions.map(constructorFunction => constructorFunction.name === '' ? 'UNKNOWN_NAME' : constructorFunction.name).join(',');
-            const expectedNameMessage = names === '' ? '' : ` Expected an instance of one of the following: ${names}.`;
-            throw new Error('Invalid object.' + expectedNameMessage);
+        if (eventStreamReader instanceof window.ReadableStreamDefaultReader === false) {
+            throw new Error('Input is not a valid event stream reader');
         }
     };
 
-    const addEventListener = function (elementReference, eventName, propertyNamesJSON) {
-        const element = referenceManager.getObject(elementReference);
-        validateDOMObject(element, ELEMENT_NODE);
+    const addEventListener = function (eventTarget, eventName, propertyNamesJSON) {
         const propertyNames = JSON.parse(propertyNamesJSON);
-        const eventManager = new EventManager(element, eventName, propertyNames);
-        const eventManagerReference = referenceManager.createReference(eventManager);
-        return eventManagerReference;
+        let eventHandler;
+        const eventStream = new window.ReadableStream({
+            start (controller) {
+                eventHandler = function (event) {
+                    const domValues = createPropertyDomValues(event, propertyNames);
+                    controller.enqueue(domValues);
+                };
+                eventTarget.addEventListener(eventName, eventHandler);
+            },
+            cancel () {
+                eventTarget.removeEventListener(eventName, eventHandler);
+            }
+        });
+        const eventStreamReader = eventStream.getReader();
+        return eventStreamReader;
     };
 
-    const removeEventListener = function (eventManagerReference) {
-        const eventManager = referenceManager.getObject(eventManagerReference);
-        validateObject(eventManager, EventManager);
-        referenceManager.closeReference(eventManagerReference);
-        eventManager.stop();
+    const removeEventListener = async function (eventStreamReader) {
+        validateEventStreamReader(eventStreamReader);
+        await eventStreamReader.cancel();
     };
 
-    const waitForEvent = async function (eventManagerReference) {
-        const eventManager = referenceManager.getObject(eventManagerReference);
-        validateObject(eventManager, EventManager);
-        const domValues = await eventManager.read();
-        const domValuesJSON = JSON.stringify(domValues);
+    const waitForEvent = async function (eventStreamReader) {
+        validateEventStreamReader(eventStreamReader);
+        const {value} = await eventStreamReader.read();
+        const domValuesJSON = JSON.stringify(value);
         return domValuesJSON;
+    };
+
+    const getGlobalDocument = function () {
+        return window.document;
     };
 
     window.WebVIDOM = {
@@ -487,6 +354,6 @@
         querySelectors,
 
         // Shared
-        closeDOMReferences
+        getGlobalDocument
     };
 }());
