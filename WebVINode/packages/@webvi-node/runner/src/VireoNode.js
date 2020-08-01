@@ -1,31 +1,35 @@
 (function () {
     'use strict';
 
-    // TODO switch to vireo.javaScriptInvoke.registerCustomGlobal()
     const webviWebsockets = require('webvi-websockets');
     const w3cwebsocket = require('websocket').w3cwebsocket;
-    global.NationalInstrumentsWebSockets = webviWebsockets(w3cwebsocket);
-
     const xhr2 = require('xhr2');
     const vireoHelpers = require('vireo');
     class VireoNode {
-        constructor (viaWithEnqueue) {
+        constructor (viaWithEnqueue, customGlobal) {
             const enqueueRegex = /^enqueue\s*\((\S*)\)$/m;
             const via = viaWithEnqueue.replace(enqueueRegex, '');
             const viName = viaWithEnqueue.match(enqueueRegex)[1];
+            const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(global) : Object.create(customGlobal);
+            customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(w3cwebsocket);
             this._via = via;
             this._viName = viName;
-            this._vireo = undefined;
+            this._customGlobal = customGlobalWithBuiltins;
+            this._vireoInstance = undefined;
+            this._vireoHelpers = vireoHelpers;
         }
 
-        get vireo () {
-            return this._vireo;
+        get vireoInstance () {
+            return this._vireoInstance;
+        }
+
+        get vireoHelpers () {
+            return this._vireoHelpers;
         }
 
         async initialize () {
-            // TODO pass the viaWithEnqueue into initialize so it doesn't have to be cached
             const vireo = await vireoHelpers.createInstance();
-
+            vireo.javaScriptInvoke.registerCustomGlobal(this._customGlobal);
             vireo.httpClient.setXMLHttpRequestImplementation(xhr2);
 
             const notSupportedError = () => {
@@ -48,7 +52,7 @@
                 InvokeControlFunction: notSupportedError
             });
             vireo.eggShell.loadVia(this._via);
-            this._vireo = vireo;
+            this._vireoInstance = vireo;
             return vireo;
         }
 
@@ -57,7 +61,7 @@
         }
 
         enqueueVI () {
-            this._vireo.eggShell.loadVia(`enqueue(${this._viName})`);
+            this._vireoInstance.eggShell.loadVia(`enqueue(${this._viName})`);
         }
     }
     module.exports = VireoNode;

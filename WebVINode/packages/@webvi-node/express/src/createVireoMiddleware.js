@@ -3,15 +3,39 @@
 
     const {performance} = require('perf_hooks');
     const genericPool = require('generic-pool');
-    const VireoMiddlewareRuntime = require('./VireoMiddlewareRuntime.js');
+    const {VireoNode} = require('@webvi-node/runner');
 
-    const createVireoMiddleware = function ({viaWithEnqueue}) {
+    class VireoMiddleware {
+        constructor (viaWithEnqueue, customGlobal) {
+            this._vireoNode = new VireoNode(viaWithEnqueue, customGlobal);
+            this._serverValueRef = undefined;
+        }
+        async initialize () {
+            await this._vireoNode.initialize();
+            const vireo = this._vireoNode.vireoInstance;
+            const viName = this._vireoNode.getVIName();
+            this._serverValueRef = vireo.eggShell.findValueRef(viName, 'dataItem_Server');
+        }
+        async runRequest ({req, res}) {
+            const vireo = this._vireoNode.vireoInstance;
+            try {
+                // enqueue needs to be called before writing to memory? seems to reset values if after..
+                this._vireoNode.enqueueVI();
+                vireo.eggShell.writeJavaScriptRefNum(this._serverValueRef, {req, res});
+                await vireo.eggShell.executeSlicesUntilClumpsFinished();
+            } finally {
+                vireo.eggShell.clearJavaScriptRefNum(this._serverValueRef);
+            }
+        }
+    }
+
+    const createVireoMiddleware = function (viaWithEnqueue, customGlobal) {
         const create = async function () {
             try {
                 console.log('making vireo instance');
-                const vireoMiddlewareRuntime = new VireoMiddlewareRuntime();
-                await vireoMiddlewareRuntime.initialize(viaWithEnqueue);
-                return vireoMiddlewareRuntime;
+                const vireoMiddleware = new VireoMiddleware(viaWithEnqueue, customGlobal);
+                await vireoMiddleware.initialize();
+                return vireoMiddleware;
             } catch (ex) {
                 console.error('Failed to create vireo middleware instance');
                 console.error(ex);
@@ -30,23 +54,19 @@
             (async function () {
                 // TODO listen for req.on('close') to cancel the current vireo execution. Need to figure out a cleanup strategy in that case.
                 const start = performance.now();
-                let vireoMiddlewareRuntime;
+                let vireoMiddleware;
                 try {
-                    vireoMiddlewareRuntime = await pool.acquire();
-                    // enqueue needs to be called before writing to memory? seems to reset values if after..
-                    vireoMiddlewareRuntime.vireoNode.enqueueVI();
-                    vireoMiddlewareRuntime.vireoNode.vireo.eggShell.writeJavaScriptRefNum(vireoMiddlewareRuntime.serverValueRef, {req, res});
-                    await vireoMiddlewareRuntime.vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
+                    vireoMiddleware = await pool.acquire();
+                    await vireoMiddleware.runRequest({req, res});
                 } catch (ex) {
                     console.error(ex);
-                    pool.destroy(vireoMiddlewareRuntime);
+                    pool.destroy(vireoMiddleware);
                     throw ex;
                 } finally {
-                    vireoMiddlewareRuntime.vireoNode.vireo.eggShell.clearJavaScriptRefNum(vireoMiddlewareRuntime.serverValueRef);
-                    pool.release(vireoMiddlewareRuntime);
+                    pool.release(vireoMiddleware);
                     console.log(`Request took ${performance.now() - start}ms`);
                 }
-            }()).catch(ex => next(ex));
+            }()).then(() => next()).catch(ex => next(ex));
         };
         return runVireoMiddleware;
     };

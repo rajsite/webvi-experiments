@@ -16,36 +16,60 @@
     const express = require('express');
     const createVireoMiddleware = require('./createVireoMiddleware.js');
 
+    class Endpoint {
+        constructor (serverPath, viaPath) {
+            const {dir, name} = path.parse(viaPath);
+
+            this._method = name.substring(0, name.indexOf('.'));
+            // TODO change to /blah/* so ids, etc can be handled in the request
+            this._route = '/' + dir;
+            this._viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
+            const htmlFileName = `${dir}/${this._method}.html`;
+            this._htmlPath = path.join(serverPath, htmlFileName);
+            this._customGlobal = undefined;
+        }
+
+        loadDependencies () {
+            const customGlobal = Object.create(global);
+            const dependencies = htmlRequire(this._htmlPath);
+            dependencies.forEach((dependency, globalName) => (customGlobal[globalName] = dependency));
+            this._customGlobal = customGlobal;
+        }
+
+        createRoute (app) {
+            if (this._customGlobal === undefined) {
+                throw new Error('Load dependencies before using endpoint.');
+            }
+            app[this._method](this._route, createVireoMiddleware(this._viaWithEnqueue, this._customGlobal));
+        }
+
+        get route () {
+            return this._route;
+        }
+
+        get method () {
+            return this._method;
+        }
+    }
+
     const runExpressApplication = async function (serverPath, clientPath) {
         console.log('Searching for routes');
         const viaPaths = glob.sync('**/@(get|post|put|all).via.txt', {cwd: serverPath});
-        const endpointConfigs = viaPaths.map(function (viaPath) {
-            const {dir, name} = path.parse(viaPath);
+        const endpoints = viaPaths.map(viaPath => new Endpoint(serverPath, viaPath));
 
-            const method = name.substring(0, name.indexOf('.'));
-            const route = '/' + dir;
-            const viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
-            const htmlFileName = `${dir}/${method}.html`;
-            const htmlPath = path.join(serverPath, htmlFileName);
-
-            return {method, route, viaWithEnqueue, htmlPath};
-        });
         console.log('Finished searching for routes.');
         console.log('Discovered endpoints:');
-        endpointConfigs.forEach(endpointConfig => console.log(`${endpointConfig.route} - ${endpointConfig.method}`));
+        endpoints.forEach(endpoint => console.log(`${endpoint.route} - ${endpoint.method}`));
 
         console.log('Loading route html require dependencies');
-        endpointConfigs.forEach(endpointConfig => htmlRequire(endpointConfig.htmlPath));
+        endpoints.forEach(endpoint => endpoint.loadDependencies());
         console.log('Finished loading route html require dependencies');
 
         console.log('Configuring express');
         const app = express();
 
         console.log('Configuring express vireo middleware');
-        endpointConfigs.forEach(function (endpointConfig) {
-            const {method, route, viaWithEnqueue} = endpointConfig;
-            app[method](route, createVireoMiddleware({viaWithEnqueue}));
-        });
+        endpoints.forEach(endpoint => endpoint.createRoute(app));
 
         // TODO should just make a path.resolve node that is user facing instead
         const staticAssets = path.normalize(clientPath);
@@ -63,7 +87,7 @@
         app.listen(options, () => console.log(`Example app listening on port ${port} host ${host}!`));
 
         console.log('Discovered Routes:');
-        endpointConfigs.forEach(endpointConfig => console.log(`${endpointConfig.route} - ${endpointConfig.method}`));
+        endpoints.forEach(endpoint => console.log(`${endpoint.route} - ${endpoint.method}`));
     };
 
     const writeJSONResponse = function (server, jsonResponse) {

@@ -25,7 +25,7 @@
             if (htmlPaths.length !== 1) {
                 throw new Error(`Expected to find exactly one Main VI HTML (main.html). Found ${htmlPaths.length}`);
             }
-            const htmlPath = htmlPaths[0];
+            const [htmlPath] = htmlPaths;
             console.log('Finished searching for Main VI HTML');
 
             console.log('Discoverd Main VI HTML:');
@@ -36,7 +36,7 @@
             if (viaPaths.length !== 1) {
                 throw new Error(`Expected to find exactly one WebVINode Main VI (main.via.txt). Found ${viaPaths.length}`);
             }
-            const viaPath = viaPaths[0];
+            const [viaPath] = viaPaths;
             console.log('Finished searching for WebVINode Main VI.');
 
             console.log('Discoverd WebVINode Main VI:');
@@ -44,12 +44,14 @@
 
             // htmlRequire for main should always be synchronous with node startup for dependencies that have to run at that time
             console.log('Loading Main VI HTML WebVINode require attributes');
-            htmlRequire(htmlPath);
+            const customGlobal = Object.create(global);
+            const dependencies = htmlRequire(htmlPath);
+            dependencies.forEach((dependency, globalName) => (customGlobal[globalName] = dependency));
             console.log('Finished loading Main VI HTML WebVINode require attributes');
 
             console.log('Loading Main VI via');
             const viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
-            const vireoNode = new VireoNode(viaWithEnqueue);
+            const vireoNode = new VireoNode(viaWithEnqueue, customGlobal);
             console.log('Finished loading Main VI via');
 
             const webviNodeMainFileLoadEnd = performance.now();
@@ -69,7 +71,7 @@
             console.log('Running WebVINode Main VI...');
             console.log('---------------------------');
             this._vireoNode.enqueueVI();
-            await this._vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
+            await this._vireoNode.vireoInstance.eggShell.executeSlicesUntilClumpsFinished();
             console.log('----------------------------------');
             console.log('Finished running WebVINode Main VI.');
             const webviNodeEnd = performance.now();

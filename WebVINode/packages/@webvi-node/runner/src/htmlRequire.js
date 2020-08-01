@@ -32,10 +32,13 @@
         dependencyPaths.forEach((dependencyPath, globalName) => console.log(`${globalName} - ${dependencyPath}`));
 
         console.log('Loading node dependencies...');
+        const dependencies = new Map();
         dependencyPaths.forEach((dependencyPath, globalName) => {
-            global[globalName] = require(dependencyPath);
+            const dependency = require(dependencyPath);
+            dependencies.set(globalName, dependency);
         });
         console.log('Finished loading node dependencies.');
+        return dependencies;
     };
 
     module.exports = htmlRequire;
