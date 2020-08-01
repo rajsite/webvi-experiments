@@ -2,7 +2,6 @@
     'use strict';
 
     const {performance} = require('perf_hooks');
-    const {sharedReferenceManager} = require('@webvi-node/runner');
     const genericPool = require('generic-pool');
     const VireoMiddlewareRuntime = require('./VireoMiddlewareRuntime.js');
 
@@ -32,21 +31,18 @@
                 // TODO listen for req.on('close') to cancel the current vireo execution. Need to figure out a cleanup strategy in that case.
                 const start = performance.now();
                 let vireoMiddlewareRuntime;
-                let serverReference;
                 try {
                     vireoMiddlewareRuntime = await pool.acquire();
-                    serverReference = sharedReferenceManager.createReference({req, res});
-                    const {serverValueRef, vireoNode} = vireoMiddlewareRuntime;
                     // enqueue needs to be called before writing to memory? seems to reset values if after..
-                    vireoNode.enqueueVI();
-                    vireoNode.vireo.eggShell.writeDouble(serverValueRef, serverReference);
-                    await vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
+                    vireoMiddlewareRuntime.vireoNode.enqueueVI();
+                    vireoMiddlewareRuntime.vireoNode.vireo.eggShell.writeJavaScriptRefNum(vireoMiddlewareRuntime.serverValueRef, {req, res});
+                    await vireoMiddlewareRuntime.vireoNode.vireo.eggShell.executeSlicesUntilClumpsFinished();
                 } catch (ex) {
                     console.error(ex);
                     pool.destroy(vireoMiddlewareRuntime);
                     throw ex;
                 } finally {
-                    sharedReferenceManager.closeReference(serverReference);
+                    vireoMiddlewareRuntime.vireoNode.vireo.eggShell.clearJavaScriptRefNum(vireoMiddlewareRuntime.serverValueRef);
                     pool.release(vireoMiddlewareRuntime);
                     console.log(`Request took ${performance.now() - start}ms`);
                 }

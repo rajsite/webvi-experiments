@@ -3,7 +3,6 @@
 
     const mime = require('mime-types');
     const path = require('path');
-    const {sharedReferenceManager} = require('@webvi-node/runner');
     const electron = require('electron');
 
     const scheme = 'webvi-node';
@@ -82,8 +81,7 @@
 
         // and load the index.html of the app.
         browserWindow.loadURL(`${root}index.html`);
-        const browserWindowReference = sharedReferenceManager.createReference(browserWindow);
-        return browserWindowReference;
+        return browserWindow;
     };
 
     module.exports = {

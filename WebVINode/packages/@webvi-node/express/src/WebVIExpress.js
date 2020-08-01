@@ -7,12 +7,11 @@
     // Each endpoint has a resource pool with a single vireo instance
     // Requests to a specific endpoint are blocked based on the single vireo instance pool
     // The top-level VI is enqueued when an endpoint is run. The VI is not rebooted so state persists between executions of an endpoint per endpoint.
-    // The ReferenceManager is shared across all instances so need to be careful about references shared between instances (none yet?)
 
     const fs = require('fs');
     const path = require('path');
     const process = require('process');
-    const {htmlRequire, sharedReferenceManager} = require('@webvi-node/runner');
+    const {htmlRequire} = require('@webvi-node/runner');
     const glob = require('glob');
     const express = require('express');
     const createVireoMiddleware = require('./createVireoMiddleware.js');
@@ -68,7 +67,7 @@
     };
 
     const writeJSONResponse = function (server, jsonResponse) {
-        const {res} = sharedReferenceManager.getObject(server);
+        const {res} = server;
         res.json(JSON.parse(jsonResponse));
     };
 
