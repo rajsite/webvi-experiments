@@ -6,22 +6,20 @@
     const {VireoNode} = require('@webvi-node/runner');
 
     class VireoMiddleware {
-        constructor (viaWithEnqueue, customGlobal) {
-            this._vireoNode = new VireoNode(viaWithEnqueue, customGlobal);
+        constructor () {
+            this._vireoNode = new VireoNode();
             this._serverValueRef = undefined;
         }
-        async initialize () {
-            await this._vireoNode.initialize();
-            const vireo = this._vireoNode.vireoInstance;
-            const viName = this._vireoNode.getVIName();
-            this._serverValueRef = vireo.eggShell.findValueRef(viName, 'dataItem_Server');
+        async initialize (viaWithEnqueue, customGlobal) {
+            const vireo = await this._vireoNode.initialize(viaWithEnqueue, customGlobal);
+            this._serverValueRef = vireo.eggShell.findValueRef(this._vireoNode.viName, 'dataItem_Server');
         }
-        async runRequest ({req, res}) {
+        async runRequest (server) {
             const vireo = this._vireoNode.vireoInstance;
             try {
-                // enqueue needs to be called before writing to memory? seems to reset values if after..
+                // enqueue needs to be called before writing to memory (resets values if after)
                 this._vireoNode.enqueueVI();
-                vireo.eggShell.writeJavaScriptRefNum(this._serverValueRef, {req, res});
+                vireo.eggShell.writeJavaScriptRefNum(this._serverValueRef, server);
                 await vireo.eggShell.executeSlicesUntilClumpsFinished();
             } finally {
                 vireo.eggShell.clearJavaScriptRefNum(this._serverValueRef);
@@ -33,8 +31,8 @@
         const create = async function () {
             try {
                 console.log('making vireo instance');
-                const vireoMiddleware = new VireoMiddleware(viaWithEnqueue, customGlobal);
-                await vireoMiddleware.initialize();
+                const vireoMiddleware = new VireoMiddleware();
+                await vireoMiddleware.initialize(viaWithEnqueue, customGlobal);
                 return vireoMiddleware;
             } catch (ex) {
                 console.error('Failed to create vireo middleware instance');
@@ -57,7 +55,8 @@
                 let vireoMiddleware;
                 try {
                     vireoMiddleware = await pool.acquire();
-                    await vireoMiddleware.runRequest({req, res});
+                    const server = {req, res};
+                    await vireoMiddleware.runRequest(server);
                 } catch (ex) {
                     console.error(ex);
                     pool.destroy(vireoMiddleware);

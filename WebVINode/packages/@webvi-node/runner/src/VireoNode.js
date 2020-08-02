@@ -6,30 +6,21 @@
     const xhr2 = require('xhr2');
     const vireoHelpers = require('vireo');
     class VireoNode {
-        constructor (viaWithEnqueue, customGlobal) {
+        constructor () {
+            this._viName = undefined;
+            this._vireoInstance = undefined;
+            this._vireoHelpers = vireoHelpers;
+        }
+
+        async initialize (viaWithEnqueue, customGlobal) {
             const enqueueRegex = /^enqueue\s*\((\S*)\)$/m;
             const via = viaWithEnqueue.replace(enqueueRegex, '');
             const viName = viaWithEnqueue.match(enqueueRegex)[1];
             const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(global) : Object.create(customGlobal);
             customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(w3cwebsocket);
-            this._via = via;
-            this._viName = viName;
-            this._customGlobal = customGlobalWithBuiltins;
-            this._vireoInstance = undefined;
-            this._vireoHelpers = vireoHelpers;
-        }
 
-        get vireoInstance () {
-            return this._vireoInstance;
-        }
-
-        get vireoHelpers () {
-            return this._vireoHelpers;
-        }
-
-        async initialize () {
             const vireo = await vireoHelpers.createInstance();
-            vireo.javaScriptInvoke.registerCustomGlobal(this._customGlobal);
+            vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
             vireo.httpClient.setXMLHttpRequestImplementation(xhr2);
 
             const notSupportedError = () => {
@@ -51,12 +42,21 @@
                 LogLabVIEWError: logLabVIEWError,
                 InvokeControlFunction: notSupportedError
             });
-            vireo.eggShell.loadVia(this._via);
+            vireo.eggShell.loadVia(via);
+            this._viName = viName;
             this._vireoInstance = vireo;
             return vireo;
         }
 
-        getVIName () {
+        get vireoInstance () {
+            return this._vireoInstance;
+        }
+
+        get vireoHelpers () {
+            return this._vireoHelpers;
+        }
+
+        get viName () {
             return this._viName;
         }
 

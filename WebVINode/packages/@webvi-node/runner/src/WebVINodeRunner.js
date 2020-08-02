@@ -51,13 +51,14 @@
 
             console.log('Loading Main VI via');
             const viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
-            const vireoNode = new VireoNode(viaWithEnqueue, customGlobal);
             console.log('Finished loading Main VI via');
 
             const webviNodeMainFileLoadEnd = performance.now();
             console.log(`WebVINode Main File load took ${(webviNodeMainFileLoadEnd - webviNodeMainFileLoadStart) / MILLISECOND_PER_SECOND} seconds to run.`);
 
-            this._vireoNode = vireoNode;
+            this._vireoNode = new VireoNode();
+            this._viaWithEnqueue = viaWithEnqueue;
+            this._customGlobal = customGlobal;
         }
 
         async run () {
@@ -65,13 +66,13 @@
             console.log('Starting WebVINode main execution');
             const webviNodeStart = performance.now();
             console.log('Instancing Vireo runtime for Main VI...');
-            await this._vireoNode.initialize();
+            const vireo = await this._vireoNode.initialize(this._viaWithEnqueue, this._customGlobal);
             console.log('Finished instancing Vireo runtime for Main VI.');
 
             console.log('Running WebVINode Main VI...');
             console.log('---------------------------');
             this._vireoNode.enqueueVI();
-            await this._vireoNode.vireoInstance.eggShell.executeSlicesUntilClumpsFinished();
+            await vireo.eggShell.executeSlicesUntilClumpsFinished();
             console.log('----------------------------------');
             console.log('Finished running WebVINode Main VI.');
             const webviNodeEnd = performance.now();
