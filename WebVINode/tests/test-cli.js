@@ -2,7 +2,7 @@
     'use strict';
     const path = require('path');
     const {WebVINodeRunner} = require('@webvi-node/runner');
-    const webviNodeRunner = new WebVINodeRunner({cwd: path.resolve(__dirname, 'Builds/TestRobot_robot')});
+    const webviNodeRunner = new WebVINodeRunner({cwd: path.resolve(__dirname, '../Builds/TestCLI_cli')});
     await webviNodeRunner.run();
 }()).catch(function (ex) {
     'use strict';
