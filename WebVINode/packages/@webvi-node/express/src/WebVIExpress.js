@@ -17,15 +17,15 @@
     const createVireoMiddleware = require('./createVireoMiddleware.js');
 
     class Endpoint {
-        constructor (serverPath, viaPath) {
-            const {dir, name} = path.parse(viaPath);
+        constructor (serverPath, relativeViaPath) {
+            const {dir, name} = path.parse(relativeViaPath);
 
             this._method = name.substring(0, name.indexOf('.'));
             // TODO change to /blah/* so ids, etc can be handled in the request
             this._route = '/' + dir;
-            this._viaWithEnqueue = fs.readFileSync(viaPath, 'utf8');
-            const htmlFileName = `${dir}/${this._method}.html`;
-            this._htmlPath = path.join(serverPath, htmlFileName);
+            this._viaWithEnqueue = fs.readFileSync(path.join(serverPath, relativeViaPath), 'utf8');
+            const relativeHtmlFilePath = `${dir}/${this._method}.html`;
+            this._htmlPath = path.join(serverPath, relativeHtmlFilePath);
             this._customGlobal = undefined;
         }
 
@@ -40,7 +40,7 @@
             if (this._customGlobal === undefined) {
                 throw new Error('Load dependencies before using endpoint.');
             }
-            app[this._method](this._route, createVireoMiddleware(this._viaWithEnqueue, this._customGlobal));
+            app[this._method](this._route, express.text({type: '*/*'}), createVireoMiddleware(this._viaWithEnqueue, this._customGlobal));
         }
 
         get route () {
@@ -53,9 +53,12 @@
     }
 
     const runExpressApplication = async function (serverPath, clientPath) {
+        console.log('Running express application');
+        console.log(`server path: ${serverPath}`);
+        console.log(`client path: ${clientPath}`);
         console.log('Searching for routes');
-        const viaPaths = glob.sync('**/@(get|post|put|all).via.txt', {cwd: serverPath});
-        const endpoints = viaPaths.map(viaPath => new Endpoint(serverPath, viaPath));
+        const relativeViaPaths = glob.sync('**/@(get|post|put|all).via.txt', {cwd: serverPath});
+        const endpoints = relativeViaPaths.map(relativeViaPath => new Endpoint(serverPath, relativeViaPath));
 
         console.log('Finished searching for routes.');
         console.log('Discovered endpoints:');

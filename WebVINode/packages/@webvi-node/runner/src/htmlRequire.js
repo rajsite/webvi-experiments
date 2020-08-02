@@ -21,7 +21,7 @@
             if (typeof globalName !== 'string' || globalName === '') {
                 throw new Error(`expected attribute ${htmlRequireAttributeName} to have non-empty string value, but found: ${globalName}`);
             }
-            // Seems to be formatted with windows path format
+            // Seems to be formatted with windows path format TODO fixed in nxg 5?
             const srcNormalized = src.replace(/\\/g, '/');
             const dependencyPath = path.resolve(resolvedHtmlDir, srcNormalized);
             dependencyPaths.set(globalName, dependencyPath);
