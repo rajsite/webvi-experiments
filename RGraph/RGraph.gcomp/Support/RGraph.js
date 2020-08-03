@@ -10,11 +10,11 @@
     const createdClass = `${prefix}-created`;
 
     let currentUniqueDOMID = 0;
-    function createUniqueDOMID () {
+    const createUniqueDOMID = function () {
         const uniqueDOMID = `${prefix}-instance-${currentUniqueDOMID}`;
-        currentUniqueDOMID++;
+        currentUniqueDOMID += 1;
         return uniqueDOMID;
-    }
+    };
 
     let nextRefnum = 1;
     class RefnumManager {
@@ -40,7 +40,7 @@
 
     const refnumManager = new RefnumManager();
 
-    function findPlaceholderElement (placeholderText) {
+    const findPlaceholderElement = function (placeholderText) {
         if (placeholderText.indexOf(prefix) !== 0) {
             throw new Error(`A valid placeholder text control must start with the text ${prefix}. For example: ${prefix}-myexample1. Instead given ${placeholderText}.`);
         }
@@ -50,9 +50,9 @@
             throw new Error(`Found ${placeholderElements.length} placeholder text control with contents ${placeholderText}. Duplicate controls with the same placeholder text are not allowed.`);
         }
         return placeholderElements[0];
-    }
+    };
 
-    function findGlobalFunction (globalFunctionName) {
+    const findGlobalFunction = function (globalFunctionName) {
         const names = globalFunctionName.split('.');
 
         let context = window;
@@ -71,7 +71,7 @@
 
         // Return a new function that has globalFunction bound to its context so it can be invoked correctly (ie console.log must be bound to console object)
         return globalFunction.bind(context);
-    }
+    };
 
     const clusterToPoint = function (cluster) {
         const point = [cluster.x, cluster.y];
@@ -90,7 +90,7 @@
         }
     };
 
-    function transformValueProperties (valuePropertiesUntransformed) {
+    const transformValueProperties = function (valuePropertiesUntransformed) {
         return Object.assign({}, ...Object.keys(valuePropertiesUntransformed).map(prop => {
             if (transforms[prop]) {
                 return transforms[prop](valuePropertiesUntransformed[prop]);
@@ -99,18 +99,18 @@
                 [prop]: valuePropertiesUntransformed[prop]
             };
         }));
-    }
+    };
 
-    function destroyRGraph (rgraphRefnum) {
+    const destroyRGraph = function (rgraphRefnum) {
         const rgraph = refnumManager.getObject(rgraphRefnum);
         if (rgraph === undefined) {
             return;
         }
         refnumManager.closeRefnum(rgraphRefnum);
-        RGraph.reset(rgraph.canvas);
-    }
+        window.RGraph.reset(rgraph.canvas);
+    };
 
-    function updateRGraph (rgraphRefnum, valuePropertiesJSON, optionsJSON, effect) {
+    const updateRGraph = function (rgraphRefnum, valuePropertiesJSON, optionsJSON, effect) {
         const rgraph = refnumManager.getObject(rgraphRefnum);
         if (rgraph === undefined) {
             throw new Error(`No exisiting RGraph exists with refnum: ${rgraphRefnum}`);
@@ -119,7 +119,7 @@
         const valueProperties = transformValueProperties(valuePropertiesUntransformed);
         const options = JSON.parse(optionsJSON || '{}');
 
-        RGraph.clear(rgraph.canvas);
+        window.RGraph.clear(rgraph.canvas);
 
         // Set non-options config such as data, value, min, max, etc
         Object.assign(rgraph, valueProperties);
@@ -131,9 +131,9 @@
         if (effect) {
             rgraph[effect]();
         }
-    }
+    };
 
-    function createCanvasOrRetrieveCanvasID (placeholderElement) {
+    const createCanvasOrRetrieveCanvasID = function (placeholderElement) {
         if (!(placeholderElement.firstElementChild instanceof HTMLCanvasElement)) {
             // Canvas elements are unique in that you must set width and height to exact values to scale correctly
             // For other elements you can instead set width and height to 100% in a stylesheet instead
@@ -153,9 +153,9 @@
             placeholderElement.classList.add(createdClass);
         }
         return placeholderElement.firstElementChild.id;
-    }
+    };
 
-    function createRGraph (placeholderText, rgraphConstructorName, valuePropertiesJSON, optionsJSON, effect) {
+    const createRGraph = function (placeholderText, rgraphConstructorName, valuePropertiesJSON, optionsJSON, effect) {
         const placeholderElement = findPlaceholderElement(placeholderText);
         const RGraphConstructor = findGlobalFunction(rgraphConstructorName);
         const valuePropertiesUntransformed = JSON.parse(valuePropertiesJSON || '{}');
@@ -178,7 +178,7 @@
 
         // Save and return the refnum
         return refnumManager.createRefnum(rgraph);
-    }
+    };
 
     // Create one namespace to prevent collisions in global scope
     window.WebVIRGraph = {
