@@ -181,7 +181,7 @@
     }
 
     // Create one namespace to prevent collisions in global scope
-    window.RGraphJSLI = {
+    window.WebVIRGraph = {
         createRGraph,
         updateRGraph,
         destroyRGraph

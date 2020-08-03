@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="DA94997F7D604A14333ED57C4CE654F461827F37CE4A23F7EBD1FB22C9FF57E5FB4718C218541B6EB042149B41A4AFCD4CCEA2233CEEEFBEB6DEC6C7C4336102" Timestamp="1D66952FCF4F7F1" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="EFE0E798CC84D340991949FF965351A0A63527A38997651E11887CA8A33A742F746E5D410A67FC0B33776D89154F078DD8C2202C7B86701215D4AA51C59903E8" Timestamp="1D669594530E225" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -46,7 +46,7 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<Literal Bounds="-30 375 85 15" DataType="String" Id="18" Label="30" xmlns="http://www.ni.com/MocCommon">
+			<Literal Bounds="-25 375 80 15" DataType="String" Id="18" Label="30" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>RGraph.Pie</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
@@ -59,7 +59,7 @@
 			<DataAccessor Bounds="-10 415 40 15" DataItem="38" Id="29" Label="34" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@e29101be653844d080809a0937372f27" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="18" Bounds="-30 358 143 14" Id="30" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="18" Bounds="-25 358 143 14" Id="30" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>RGraph constructor name</p.Text>
 			</NodeLabel>
 			<NodeLabel AttachedTo="26" Bounds="-25 395 90 14" Id="31" xmlns="http://www.ni.com/PlatformFramework">
@@ -71,7 +71,48 @@
 			<NodeLabel AttachedTo="29" Bounds="-40 415 25 14" Id="34" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>data</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="165 440 40 40" Id="58" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\WebApp.gcomp\\RGraph Core API\\Create RGraph.gviweb&quot;" Signature="@8070bddae0e5439094c6468d5ca95254" Target="WebApp::RGraph Core API::Create RGraph.gviweb" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="59" Joints="N(18:Out)|(55,380) h(135) N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:T1)|(190,440)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="60" Joints="N(26:Value)|(110,400) h(30) v(45) N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:L0)|(165,445)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="-10 535 40 15" DataItem="63" Id="73" Label="74" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="73" Bounds="-57 535 42 14" Id="74" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>error in</p.Text>
+			</NodeLabel>
+			<Wire Id="75" Joints="N(73:Value)|(30,540) h(90) v(-65) N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:L3)|(165,475)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="76" Joints="N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:R3)|(205,475) N(28:Value)|(238,475)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="-10 460 40 15" DataItem="112" Id="117" Label="118" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="String[]" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="117" Bounds="-73 460 58 14" Id="118" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>plot colors</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="-10 480 40 15" DataItem="121" Id="125" Label="126" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="125" Bounds="-80 480 65 14" Id="126" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>show labels</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="-10 500 40 15" DataItem="128" Id="132" Label="133" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="132" Bounds="-79 500 64 14" Id="133" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>show sticks</p.Text>
+			</NodeLabel>
+			<Wire Id="150" Joints="N(29:Value)|(30,420) h(30) B(1) N(9c022f045a6f48a995d6c5f0bdce80aa:L0)|(70,420) B(1) v(45) N(eaed26ee28ac46c7af3ef8001839d816:L0)|(70,465)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="151" Joints="N(9c022f045a6f48a995d6c5f0bdce80aa:R0)|(110,420) h(20) v(35) N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:L1)|(165,455)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="154" Joints="N(117:Value)|(30,465) h(20) v(10) N(eaed26ee28ac46c7af3ef8001839d816:L1)|(70,475)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="155" Joints="N(125:Value)|(30,485) N(eaed26ee28ac46c7af3ef8001839d816:L2)|(70,485)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="156" Joints="N(132:Value)|(30,505) h(30) v(-10) N(eaed26ee28ac46c7af3ef8001839d816:L3)|(70,495)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="180" Joints="N(eaed26ee28ac46c7af3ef8001839d816:R0)|(110,465) N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:L2)|(165,465)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="235 440 40 15" DataItem="223" Id="227" Label="228" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="227" Bounds="280 440 85 14" Id="228" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>RGraph refnum</p.Text>
+			</NodeLabel>
+			<Wire Id="229" Joints="N(e6ac1c5fc8ca4f47bcbed43c906aa7a6:R0)|(205,445) N(227:Value)|(238,445)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="165 440 40 40" Id="e6ac1c5fc8ca4f47bcbed43c906aa7a6" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Create RGraph.gvi&quot;" Signature="@60aabfa6c1674ae6b05252e35b7c7209" Target="RGraph::Create RGraph.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="placeholder text" />
@@ -93,35 +134,7 @@
 				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="59" Joints="N(18:Out)|(55,380) h(135) N(58:T1)|(190,440)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="60" Joints="N(26:Value)|(110,400) h(30) v(45) N(58:L0)|(165,445)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="-10 535 40 15" DataItem="63" Id="73" Label="74" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="73" Bounds="-57 535 42 14" Id="74" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>error in</p.Text>
-			</NodeLabel>
-			<Wire Id="75" Joints="N(73:Value)|(30,540) h(90) v(-65) N(58:L3)|(165,475)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="76" Joints="N(58:R3)|(205,475) N(28:Value)|(238,475)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="-10 460 40 15" DataItem="112" Id="117" Label="118" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="String[]" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="117" Bounds="-73 460 58 14" Id="118" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>plot colors</p.Text>
-			</NodeLabel>
-			<DataAccessor Bounds="-10 480 40 15" DataItem="121" Id="125" Label="126" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="125" Bounds="-80 480 65 14" Id="126" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>show labels</p.Text>
-			</NodeLabel>
-			<DataAccessor Bounds="-10 500 40 15" DataItem="128" Id="132" Label="133" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="132" Bounds="-79 500 64 14" Id="133" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>show sticks</p.Text>
-			</NodeLabel>
-			<MethodCall Bounds="70 415 40 40" Id="149" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\WebApp.gcomp\\RGraph Pie API\\SubVIs\\Format Pie Data.gviweb&quot;" Signature="@52678cffe3dd43418192e730466050fd" Target="WebApp::RGraph Pie API::SubVIs::Format Pie Data.gviweb" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="70 415 40 40" Id="9c022f045a6f48a995d6c5f0bdce80aa" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Pie\\SubVIs\\Format Pie Data.gviweb&quot;" Signature="@52678cffe3dd43418192e730466050fd" Target="RGraph::Pie::SubVIs::Format Pie Data.gviweb" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="data" />
@@ -131,9 +144,7 @@
 				<Terminal DataType="@e29101be653844d080809a0937372f27" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="150" Joints="N(29:Value)|(30,420) h(30) B(1) N(149:L0)|(70,420) B(1) v(45) N(152:L0)|(70,465)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="151" Joints="N(149:R0)|(110,420) h(20) v(35) N(58:L1)|(165,455)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="70 460 40 40" Id="152" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\WebApp.gcomp\\RGraph Pie API\\SubVIs\\Format Pie Options.gviweb&quot;" Signature="@4257bd7941394c90a2fa550c012ba567" Target="WebApp::RGraph Pie API::SubVIs::Format Pie Options.gviweb" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="70 460 40 40" Id="eaed26ee28ac46c7af3ef8001839d816" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Pie\\SubVIs\\Format Pie Options.gviweb&quot;" Signature="@4257bd7941394c90a2fa550c012ba567" Target="RGraph::Pie::SubVIs::Format Pie Options.gviweb" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="data" />
@@ -149,17 +160,6 @@
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="0 35" Id="L3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="154" Joints="N(117:Value)|(30,465) h(20) v(10) N(152:L1)|(70,475)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="155" Joints="N(125:Value)|(30,485) N(152:L2)|(70,485)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="156" Joints="N(132:Value)|(30,505) h(30) v(-10) N(152:L3)|(70,495)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="180" Joints="N(152:R0)|(110,465) N(58:L2)|(165,465)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="235 440 40 15" DataItem="223" Id="227" Label="228" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-			</DataAccessor>
-			<NodeLabel AttachedTo="227" Bounds="280 440 85 14" Id="228" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>RGraph refnum</p.Text>
-			</NodeLabel>
-			<Wire Id="229" Joints="N(58:R0)|(205,445) N(227:Value)|(238,445)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="39" IsReadOnly="[bool]False" Label="[UIModel]54" Left="[float]100" TabIndex="[int]0" Text="{DataItemBinding Id=35}" Top="[float]116" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]184" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
@@ -179,18 +179,18 @@
 			</ArrayViewer>
 			<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="41" Label="[UIModel]57" Left="[float]772" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]1" Top="[float]484" Value="{DataItemBinding Id=37}" Width="[float]176" xmlns="http://www.ni.com/PanelCommon">
 				<LED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="42" IsReadOnly="[bool]False" Label="[UIModel]43" Left="[float]8" MinHeight="[float]16" MinWidth="[float]16" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="43" LabelOwner="[UIModel]42" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]38" />
+				<Label Height="[float]16" Id="43" LabelOwner="[UIModel]42" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]32" />
 				<NumericText Height="[float]24" Id="44" Interval="[int]1" IsReadOnly="[bool]False" Label="[UIModel]45" Left="[float]64" MinHeight="[float]16" MinWidth="[float]36" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Visible" Top="[float]24" Value="{ClusterBinding FieldName=code}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="45" LabelOwner="[UIModel]44" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]33" />
+				<Label Height="[float]16" Id="45" LabelOwner="[UIModel]44" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]26" />
 				<StringControl AcceptsReturn="[bool]True" Height="[float]96" Id="46" IsReadOnly="[bool]False" Label="[UIModel]47" Left="[float]8" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="47" LabelOwner="[UIModel]46" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]42" />
+				<Label Height="[float]16" Id="47" LabelOwner="[UIModel]46" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]35" />
 			</Cluster>
-			<Label Height="[float]16" Id="54" LabelOwner="[UIModel]39" Left="[float]100" Text="[string]placeholder text" Top="[float]96" Width="[float]92" xmlns="http://www.ni.com/PanelCommon" />
-			<Label Height="[float]16" Id="55" LabelOwner="[UIModel]48" Left="[float]100" Text="[string]data" Top="[float]176" Width="[float]30" xmlns="http://www.ni.com/PanelCommon" />
-			<Label Height="[float]16" Id="57" LabelOwner="[UIModel]41" Left="[float]772" Text="[string]error out" Top="[float]464" Width="[float]54" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="54" LabelOwner="[UIModel]39" Left="[float]100" Text="[string]placeholder text" Top="[float]96" Width="[float]86" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="55" LabelOwner="[UIModel]48" Left="[float]100" Text="[string]data" Top="[float]176" Width="[float]24" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="57" LabelOwner="[UIModel]41" Left="[float]772" Text="[string]error out" Top="[float]464" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
 			<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="64" Label="[UIModel]71" Left="[float]100" MinHeight="[float]24" MinWidth="[float]24" TabIndex="[int]3" Top="[float]484" Value="{DataItemBinding Id=63}" Width="[float]176" xmlns="http://www.ni.com/PanelCommon">
 				<LED ContentVisibility="[Visibility]Collapsed" Height="[float]24" Id="65" IsReadOnly="[bool]False" Label="[UIModel]66" Left="[float]8" MinHeight="[float]16" MinWidth="[float]16" Shape="[LEDShape]Round" Top="[float]24" TrueBackground="[SMSolidColorBrush]#ffff0000" Value="{ClusterBinding FieldName=status}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="66" LabelOwner="[UIModel]65" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]38">
+				<Label Height="[float]16" Id="66" LabelOwner="[UIModel]65" Left="[float]8" Text="[string]status" Top="[float]4" Width="[float]32">
 					<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
 						<p.ElementAttributes>
 							<Attribute Name="text" Value="status" />
@@ -205,7 +205,7 @@
 						</p.ElementAttributes>
 					</HtmlBehavior>
 				</NumericText>
-				<Label Height="[float]16" Id="68" LabelOwner="[UIModel]67" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]33">
+				<Label Height="[float]16" Id="68" LabelOwner="[UIModel]67" Left="[float]64" Text="[string]code" Top="[float]4" Width="[float]26">
 					<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
 						<p.ElementAttributes>
 							<Attribute Name="text" Value="code" />
@@ -213,7 +213,7 @@
 					</HtmlBehavior>
 				</Label>
 				<StringControl AcceptsReturn="[bool]True" Height="[float]96" Id="69" IsReadOnly="[bool]False" Label="[UIModel]70" Left="[float]8" Text="{ClusterBinding FieldName=source}" Top="[float]72" Width="[float]160" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<Label Height="[float]16" Id="70" LabelOwner="[UIModel]69" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]42">
+				<Label Height="[float]16" Id="70" LabelOwner="[UIModel]69" Left="[float]8" Text="[string]source" Top="[float]52" Width="[float]35">
 					<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
 						<p.ElementAttributes>
 							<Attribute Name="text" Value="source" />
@@ -221,7 +221,7 @@
 					</HtmlBehavior>
 				</Label>
 			</Cluster>
-			<Label Height="[float]16" Id="71" LabelOwner="[UIModel]64" Left="[float]100" Text="[string]error in" Top="[float]464" Width="[float]46" xmlns="http://www.ni.com/PanelCommon">
+			<Label Height="[float]16" Id="71" LabelOwner="[UIModel]64" Left="[float]100" Text="[string]error in" Top="[float]464" Width="[float]39" xmlns="http://www.ni.com/PanelCommon">
 				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
 					<p.ElementAttributes>
 						<Attribute Name="text" Value="error in" />
@@ -232,13 +232,13 @@
 				<p.DefaultElementValue>""</p.DefaultElementValue>
 				<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="114" IsReadOnly="[bool]False" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 			</ArrayViewer>
-			<Label Height="[float]16" Id="115" LabelOwner="[UIModel]113" Left="[float]420" Text="[string]plot colors" Top="[float]96" Width="[float]63" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="115" LabelOwner="[UIModel]113" Left="[float]420" Text="[string]plot colors" Top="[float]96" Width="[float]57" xmlns="http://www.ni.com/PanelCommon" />
 			<LVCheckBox BaseName="[string]Checkbox" Content="[string]show labels" Height="[float]23" Id="122" IsReadOnly="[bool]False" Label="[UIModel]123" Left="[float]420" MinHeight="[float]16" MinWidth="[float]16" TabIndex="[int]5" Top="[float]500" Value="{DataItemBinding Id=121}" Width="[float]88" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="123" LabelOwner="[UIModel]122" Left="[float]420" Text="[string]show labels" Top="[float]480" Width="[float]68" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="123" LabelOwner="[UIModel]122" Left="[float]420" Text="[string]show labels" Top="[float]480" Width="[float]62" xmlns="http://www.ni.com/PanelCommon" />
 			<LVCheckBox BaseName="[string]Checkbox" Content="[string]show sticks" Height="[float]23" Id="129" IsReadOnly="[bool]False" Label="[UIModel]130" Left="[float]596" MinHeight="[float]16" MinWidth="[float]16" TabIndex="[int]6" Top="[float]500" Value="{DataItemBinding Id=128}" Width="[float]88" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="130" LabelOwner="[UIModel]129" Left="[float]596" Text="[string]show sticks" Top="[float]480" Width="[float]67" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="130" LabelOwner="[UIModel]129" Left="[float]596" Text="[string]show sticks" Top="[float]480" Width="[float]60" xmlns="http://www.ni.com/PanelCommon" />
 			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="224" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]225" Left="[float]772" MinHeight="[float]24" RadixBase="[RadixBase]Decimal" TabIndex="[int]7" Top="[float]116" Value="{DataItemBinding Id=223}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="225" LabelOwner="[UIModel]224" Left="[float]772" Text="[string]RGraph refnum" Top="[float]96" Width="[float]88" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="225" LabelOwner="[UIModel]224" Left="[float]772" Text="[string]RGraph refnum" Top="[float]96" Width="[float]81" xmlns="http://www.ni.com/PanelCommon" />
 		</HtmlFrontPanel>
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="String" Id="35" Name="placeholder text" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>rgraph-webvi-pie</p.DefaultValue>
@@ -291,8 +291,8 @@
 		<p.TypeReference TypeId="e29101be653844d080809a0937372f27">
 			<VariableArray DereferenceType="@696e038434344ba48158bc54d3aa0da7" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="8070bddae0e5439094c6468d5ca95254">
-			<Attributed AttributedType="@ce894ebd29324e4cb279e0d2e163a613">
+		<p.TypeReference TypeId="60aabfa6c1674ae6b05252e35b7c7209">
+			<Attributed AttributedType="@7e20c2c6713f4202975f316aa1853d72">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -323,8 +323,8 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="ce894ebd29324e4cb279e0d2e163a613">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create RGraph.gviweb" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="7e20c2c6713f4202975f316aa1853d72">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create RGraph.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@63ca935ef4df4ea7bde7b7c11ca85f3d">
 						<AttributeValues>
@@ -457,26 +457,25 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="WebApp::RGraph Core API::Create RGraph.gviweb">
+		<p.IconModel Target="RGraph::Create RGraph.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create RGraph" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="7.5" />
+								</FileNameText>
 							</IconTemplate>
-							<Text Height="[float]11" Left="[float]5" SizeMode="[TextModelSizeMode]Fixed" Text="[string]RGraph" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]4" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]30">
-								<FontSetting FontFamily="Verdana" FontSize="6" />
-							</Text>
-							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]11" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]17" Width="[float]17.984" />
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]RGraph.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="WebApp::RGraph Pie API::SubVIs::Format Pie Data.gviweb">
+		<p.IconModel Target="RGraph::Pie::SubVIs::Format Pie Data.gviweb">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -488,13 +487,13 @@
 									<FontSetting FontFamily="Verdana" FontSize="6.75" />
 								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]RGraph.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="WebApp::RGraph Pie API::SubVIs::Format Pie Options.gviweb">
+		<p.IconModel Target="RGraph::Pie::SubVIs::Format Pie Options.gviweb">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -506,7 +505,7 @@
 									<FontSetting FontFamily="Verdana" FontSize="6.75" />
 								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]RGraph.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
