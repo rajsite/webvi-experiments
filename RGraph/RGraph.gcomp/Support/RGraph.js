@@ -1,55 +1,11 @@
-// Wrapper code for RGraph to call from the JavaScript Library Interface
-// For more information on preparing JavaScript code see: http://www.ni.com/documentation/en/labview-web-module/3.0/manual/prepare-your-js-code/
-
-// Surround code in an immediately-invoked function expression (IIFE) to allow for private variables that should not be shared in the global scope
 (function () {
-    // Enable strict mode to improve error handling
     'use strict';
-
-    const prefix = 'rgraph-webvi';
-    const createdClass = `${prefix}-created`;
 
     let currentUniqueDOMID = 0;
     const createUniqueDOMID = function () {
-        const uniqueDOMID = `${prefix}-instance-${currentUniqueDOMID}`;
+        const uniqueDOMID = `webvi-rgraph-instance-${currentUniqueDOMID}`;
         currentUniqueDOMID += 1;
         return uniqueDOMID;
-    };
-
-    let nextRefnum = 1;
-    class RefnumManager {
-        constructor () {
-            this.refnums = new Map();
-        }
-
-        createRefnum (obj) {
-            let refnum = nextRefnum;
-            nextRefnum += 1;
-            this.refnums.set(refnum, obj);
-            return refnum;
-        }
-
-        getObject (refnum) {
-            return this.refnums.get(refnum);
-        }
-
-        closeRefnum (refnum) {
-            this.refnums.delete(refnum);
-        }
-    }
-
-    const refnumManager = new RefnumManager();
-
-    const findPlaceholderElement = function (placeholderText) {
-        if (placeholderText.indexOf(prefix) !== 0) {
-            throw new Error(`A valid placeholder text control must start with the text ${prefix}. For example: ${prefix}-myexample1. Instead given ${placeholderText}.`);
-        }
-
-        const placeholderElements = document.querySelectorAll(`ni-text[text="${placeholderText}"`);
-        if (placeholderElements.length !== 1) {
-            throw new Error(`Found ${placeholderElements.length} placeholder text control with contents ${placeholderText}. Duplicate controls with the same placeholder text are not allowed.`);
-        }
-        return placeholderElements[0];
     };
 
     const findGlobalFunction = function (globalFunctionName) {
@@ -101,20 +57,11 @@
         }));
     };
 
-    const destroyRGraph = function (rgraphRefnum) {
-        const rgraph = refnumManager.getObject(rgraphRefnum);
-        if (rgraph === undefined) {
-            return;
-        }
-        refnumManager.closeRefnum(rgraphRefnum);
+    const destroy = function (rgraph) {
         window.RGraph.reset(rgraph.canvas);
     };
 
-    const updateRGraph = function (rgraphRefnum, valuePropertiesJSON, optionsJSON, effect) {
-        const rgraph = refnumManager.getObject(rgraphRefnum);
-        if (rgraph === undefined) {
-            throw new Error(`No exisiting RGraph exists with refnum: ${rgraphRefnum}`);
-        }
+    const update = function (rgraph, valuePropertiesJSON, optionsJSON, effect) {
         const valuePropertiesUntransformed = JSON.parse(valuePropertiesJSON || '{}');
         const valueProperties = transformValueProperties(valuePropertiesUntransformed);
         const options = JSON.parse(optionsJSON || '{}');
@@ -133,36 +80,32 @@
         }
     };
 
-    const createCanvasOrRetrieveCanvasID = function (placeholderElement) {
-        if (!(placeholderElement.firstElementChild instanceof HTMLCanvasElement)) {
+    const createCanvasOrRetrieveCanvasID = function (container) {
+        if (!(container.firstElementChild instanceof HTMLCanvasElement)) {
             // Canvas elements are unique in that you must set width and height to exact values to scale correctly
             // For other elements you can instead set width and height to 100% in a stylesheet instead
-            const placeholderWidth = placeholderElement.offsetWidth;
-            const placeholderHeight = placeholderElement.offsetHeight;
+            const placeholderWidth = container.offsetWidth;
+            const placeholderHeight = container.offsetHeight;
             const devicePixelRatio = window.devicePixelRatio;
-            placeholderElement.innerHTML = '';
+            container.innerHTML = '';
             const canvas = document.createElement('canvas');
             canvas.id = createUniqueDOMID();
             canvas.width = placeholderWidth * devicePixelRatio;
             canvas.height = placeholderHeight * devicePixelRatio;
             canvas.style.width = `${placeholderWidth}px`;
             canvas.style.height = `${placeholderHeight}px`;
-            placeholderElement.appendChild(canvas);
-
-            // Add a class to the placeholder element when it is created to target from CSS
-            placeholderElement.classList.add(createdClass);
+            container.appendChild(canvas);
         }
-        return placeholderElement.firstElementChild.id;
+        return container.firstElementChild.id;
     };
 
-    const createRGraph = function (placeholderText, rgraphConstructorName, valuePropertiesJSON, optionsJSON, effect) {
-        const placeholderElement = findPlaceholderElement(placeholderText);
+    const create = function (container, rgraphConstructorName, valuePropertiesJSON, optionsJSON, effect) {
         const RGraphConstructor = findGlobalFunction(rgraphConstructorName);
         const valuePropertiesUntransformed = JSON.parse(valuePropertiesJSON || '{}');
         const valueProperties = transformValueProperties(valuePropertiesUntransformed);
         const options = JSON.parse(optionsJSON || '{}');
 
-        const canvasID = createCanvasOrRetrieveCanvasID(placeholderElement);
+        const canvasID = createCanvasOrRetrieveCanvasID(container);
 
         // Update the config to point to the new canvas object
         valueProperties.id = canvasID;
@@ -177,13 +120,13 @@
         }
 
         // Save and return the refnum
-        return refnumManager.createRefnum(rgraph);
+        return rgraph;
     };
 
     // Create one namespace to prevent collisions in global scope
     window.WebVIRGraph = {
-        createRGraph,
-        updateRGraph,
-        destroyRGraph
+        create,
+        update,
+        destroy
     };
 }());

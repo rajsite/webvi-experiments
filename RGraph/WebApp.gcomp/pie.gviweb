@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="620416F6A20CCCD6D90BC2D81029E70092C9CA3104230C52820C90BBC7578AB31C832EF790DBE07D63117235CA67B196226B51ED80043D37B099BD184893E27A" Timestamp="1D66A0BF88FD245" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D62903DFF5D0DB71E0DD16B377B119C3D00BE043F6551E8393F8E2E90C8778783F1BCF32E1FF97459B726130230DC947CED5CFC2AC17A29BA221493CBD4BA164" Timestamp="1D66A0F832DF531" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -45,14 +45,7 @@
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<Literal Bounds="310 325 115 15" DataType="String" Id="34" Label="86" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>rgraph-webvi-pie</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="34" Bounds="310 308 90 14" Id="86" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>placeholder text</p.Text>
-			</NodeLabel>
-			<Wire Id="332" Joints="N(34:Out)|(425,330) N(375f01a684f742e09f6dc4a571e0859f:L0)|(450,330)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="332" Joints="N(cdd26e2368774a2c936fa41cf8f7c696:control reference)|(415,330) N(375f01a684f742e09f6dc4a571e0859f:L0)|(450,330)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Literal Bounds="390 375 25 15" DataType="Boolean" Id="438" Label="439" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>True</p.Data>
 				<BooleanBehavior />
@@ -72,13 +65,13 @@
 			</Comment>
 			<Wire Id="469" Joints="N(438:Out)|(415,380) h(50) N(375f01a684f742e09f6dc4a571e0859f:B0)|(465,365)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="470" Joints="N(444:Out)|(415,405) h(60) N(375f01a684f742e09f6dc4a571e0859f:B1)|(475,365)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="180 360 40 15" DataItem="18" Id="19" Label="24" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="390 355 40 15" DataItem="18" Id="19" Label="24" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@e29101be653844d080809a0937372f27" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="19" Bounds="150 360 25 14" Id="24" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="19" Bounds="360 355 25 14" Id="24" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>data</p.Text>
 			</NodeLabel>
-			<Wire Id="559" Joints="N(19:Value)|(220,365) h(219) v(-25) N(375f01a684f742e09f6dc4a571e0859f:L1)|(450,340)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="559" Joints="N(19:Value)|(430,360) h(9) v(-20) N(375f01a684f742e09f6dc4a571e0859f:L1)|(450,340)" xmlns="http://www.ni.com/PlatformFramework" />
 			<WhileLoop Bounds="540 255 495 210" DiagramId="562" Id="561">
 				<LoopIteration Bounds="5 180 15 15" Id="563" />
 				<LoopCondition Bounds="465 180 15 15" Id="564" />
@@ -95,18 +88,20 @@
 						<Wire Id="573" Joints="N(e035c38bc92c43b1bd2d9cf064f3bc16:R3)|(184,72) N(574:566)|(371,72)" xmlns="http://www.ni.com/PlatformFramework" />
 						<Wire Id="576" Joints="N(567:c0t0v)|(92,102) h(42) v(-50) N(e035c38bc92c43b1bd2d9cf064f3bc16:L1)|(144,52)" xmlns="http://www.ni.com/PlatformFramework" />
 						<Wire Id="581" Joints="N(578:566)|(2,42) N(e035c38bc92c43b1bd2d9cf064f3bc16:L0)|(144,42)" xmlns="http://www.ni.com/PlatformFramework" />
-						<MethodCall Bounds="144 37 40 40" Id="e035c38bc92c43b1bd2d9cf064f3bc16" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Pie\\Update Pie.gvi&quot;" Signature="@de5246caf2e64685b44e4ac077c07d10" Target="RGraph::Pie::Update Pie.gvi" xmlns="http://www.ni.com/MocCommon">
+						<MethodCall Bounds="144 37 40 40" Id="e035c38bc92c43b1bd2d9cf064f3bc16" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Pie\\Update Pie.gvi&quot;" Signature="@d03f65dce18242229a3ef96e4910a7e2" Target="RGraph::Pie::Update Pie.gvi" xmlns="http://www.ni.com/MocCommon">
 							<p.MethodDeclaration>
 								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-									<Parameter Id="L0" Desc="RGraph refnum" />
+									<Parameter Id="L0" Desc="rgraph reference in" />
 									<Parameter Id="L1" Desc="data" />
 									<Parameter Id="L3" Desc="error in" />
+									<Parameter Id="R0" Desc="rgraph reference out" />
 									<Parameter Id="R3" Desc="error out" />
 								</MethodDeclaration>
 							</p.MethodDeclaration>
-							<Terminal DataType="Int32" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="@06873e32232e4e50b70e6dc13cbaa6d2" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 							<Terminal DataType="@e29101be653844d080809a0937372f27" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="@06873e32232e4e50b70e6dc13cbaa6d2" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 						</MethodCall>
 					</EventStructure.EventCase>
@@ -122,31 +117,31 @@
 			</WhileLoop>
 			<Wire Id="568" Joints="N(375f01a684f742e09f6dc4a571e0859f:R3)|(490,360) N(570:o0)|(536,360)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="577" Joints="N(375f01a684f742e09f6dc4a571e0859f:R0)|(490,330) N(579:o0)|(536,330)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="450 325 40 40" Id="375f01a684f742e09f6dc4a571e0859f" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Pie\\Create Pie.gvi&quot;" Signature="@e98a3d76721048c9b400a0100b0ddceb" Target="RGraph::Pie::Create Pie.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="450 325 40 40" Id="375f01a684f742e09f6dc4a571e0859f" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\RGraph\\RGraph.gcomp\\Pie\\Create Pie.gvi&quot;" Signature="@a117cb1b36f74eccb7cf29757aaba406" Target="RGraph::Pie::Create Pie.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="B0" Desc="show labels" />
 						<Parameter Id="B1" Desc="show sticks" />
-						<Parameter Id="L0" Desc="placeholder text" />
+						<Parameter Id="L0" Desc="container" />
 						<Parameter Id="L1" Desc="data" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="plot colors" />
-						<Parameter Id="R0" Desc="RGraph refnum" />
+						<Parameter Id="R0" Desc="rgraph reference" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="15 40" Id="B0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Boolean" Direction="Input" Hotspot="25 40" Id="B1" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@e29101be653844d080809a0937372f27" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="String[]" Direction="Input" Hotspot="15 0" Id="T0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@06873e32232e4e50b70e6dc13cbaa6d2" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
+			<ControlReference Bounds="335 325 80 20" Id="cdd26e2368774a2c936fa41cf8f7c696" SourceControl="210faf5f1c82446a8a23e7dc579779c9" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]600" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" UpdatedRootPage="[string]&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&#xA;    &lt;head&gt;&#xA;        &lt;meta charset=&quot;utf-8&quot;&gt;&#xA;        &lt;!---Read only section. Source panel edits to these document properties will not be persisted--&gt;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xA;        &lt;title&gt;pie&lt;/title&gt;&#xA;        &lt;!---End read only section. Additional scripts or document properties can be added outside this section--&gt;&#xA;        &lt;style ni-autogenerated-style-id=&quot;&quot;&gt;&#xA;            /* Edits to the content of this style tag will not be persisted. To add additional styles, add a new style tag before or after this one */&#xA;        &lt;/style&gt;&#xA;    &lt;/head&gt;&#xA;&#xA;    &lt;body&gt;&#xA;        &lt;div id=&quot;ni-outdated-browser-message&quot; style=&quot;display:none&quot;&gt;This browser is missing features needed to run this web application. Open this web application in a supported browser.&lt;/div&gt;&#xA;        &lt;div id=&quot;ni-failed-to-load-vireo-source&quot; style=&quot;display:none&quot;&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-title&quot;&gt;&#xA;                Unable to load resource file&#xA;            &lt;/div&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-body&quot;&gt;&#xA;                Verify all WebVI files are available and served using an HTTP server or use a browser that can load files directly from the file system. See &lt;a href=&quot;http://digital.ni.com/express.nsf/bycode/HOSTWEBAPP&quot;&gt;Hosting a Web Application on a Server&lt;/a&gt;                for more information.&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;ni-front-panel-wrapper&quot; vi-ref=&quot;&quot; ni-control-id=&quot;FrontPanelWrapper&quot;&gt;&#xA;            &lt;ni-front-panel control-resize-mode='fixed' layout='absolute' ni-control-id='2'&gt;&#xA;&#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &lt;/ni-front-panel&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/body&gt;&#xA;&#xA;&lt;/html&gt;" Width="[float]755" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<Text BaseName="[string]Text" Height="[float]312" Id="16" Left="[float]244" MinHeight="[float]11" MinWidth="[float]11" SizeMode="[TextModelSizeMode]Fixed" Text="[string]rgraph-webvi-pie" TextWrapping="[TextWrapping]Wrap" Top="[float]260" Width="[float]472" xmlns="http://www.ni.com/PlatformFramework" />
 			<Text BaseName="[string]Text" Height="[float]16" Id="17" Left="[float]20" MinHeight="[float]11" MinWidth="[float]11" Text="[string]This WebVI demonstrates how to use the RGraph library's pie chart." TextWrapping="[TextWrapping]Wrap" Top="[float]36" Width="[float]363" xmlns="http://www.ni.com/PlatformFramework" />
 			<LVDataGrid BaseName="[string]Data Grid" ColumnSizeMode="[DataGridColumnSizeMode]StretchSingleColumn" Height="[float]120" Id="20" Label="[UIModel]23" Left="[float]20" MinHeight="[float]100" MinWidth="[float]125" RowHeaderVisibility="[Visibility]Collapsed" RowHeight="[double]22" ShowAddRowsToolBar="[bool]False" TabIndex="[int]0" Top="[float]260" Type="[Type]@e29101be653844d080809a0937372f27" Value="{DataItemBinding Id=18}" Width="[float]172" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<LVDataGridColumn ColumnElement="[UIModel]22" Header="[string]Label" Id="21" Index="[int]0" Width="[DataViewerLength]*">
@@ -170,6 +165,8 @@
 			<Label Height="[float]16" Id="466" LabelOwner="[UIModel]465" Left="[float]20" Text="[string]More information about RGraph:" Top="[float]64" Width="[float]174" xmlns="http://www.ni.com/PanelCommon">
 				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</Label>
+			<HtmlContainer BaseName="[string]HTML Container" Height="[float]312" Id="210faf5f1c82446a8a23e7dc579779c9" Label="[UIModel]db98e99c7df54431b15b009b7c403dcf" Left="[float]244" Top="[float]260" Width="[float]472" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="db98e99c7df54431b15b009b7c403dcf" LabelOwner="[UIModel]210faf5f1c82446a8a23e7dc579779c9" Left="[float]244" Text="[string]pie chart" Top="[float]240" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
 		</HtmlFrontPanel>
 		<DataItem DataType="@e29101be653844d080809a0937372f27" Id="18" Name="data" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>
@@ -209,16 +206,24 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="de5246caf2e64685b44e4ac077c07d10">
-			<Attributed AttributedType="@aa53fb68a8fe4815acba12f762e4f132">
+		<p.TypeReference TypeId="d03f65dce18242229a3ef96e4910a7e2">
+			<Attributed AttributedType="@646b8cf1a0064ecfb50ae96ee2e7f072">
 				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="e98a3d76721048c9b400a0100b0ddceb">
-			<Attributed AttributedType="@e819a77857e645159ad5c50c2bf48fb4">
+		<p.TypeReference TypeId="06873e32232e4e50b70e6dc13cbaa6d2">
+			<Attributed AttributedType="@565fc08492534a289b54a8b03146c98a">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]RGraph::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a117cb1b36f74eccb7cf29757aaba406">
+			<Attributed AttributedType="@6a2f6ffbe7304c52a72f9ff333fe33bb">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -240,12 +245,12 @@
 				</Parameters>
 			</Event>
 		</p.TypeReference>
-		<p.TypeReference TypeId="aa53fb68a8fe4815acba12f762e4f132">
+		<p.TypeReference TypeId="646b8cf1a0064ecfb50ae96ee2e7f072">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Update Pie.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@fb836169fc674cc8ad35bdb63c6293e9">
+					<Attributed AttributedType="@8ba577268c204531bdf9b5a2c7e25a58">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]RGraph refnum" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]rgraph reference in" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@8e4d7e829c4f4cf989c9061a1548193f">
@@ -258,6 +263,11 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
+					<Attributed AttributedType="@b1c4b4307faa40c6ace6ffdab0f68ce6">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]rgraph reference out" />
+						</AttributeValues>
+					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
@@ -266,7 +276,10 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="e819a77857e645159ad5c50c2bf48fb4">
+		<p.TypeReference TypeId="565fc08492534a289b54a8b03146c98a">
+			<Typedef TypedefName="rgraph reference.gtype" UnderlyingType="@74a8df5df5444df6a887aef527af20f0" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6a2f6ffbe7304c52a72f9ff333fe33bb">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Pie.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@32c3735e3b9543c794f9e92dba7b6329">
@@ -279,9 +292,9 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]show sticks" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@63ca935ef4df4ea7bde7b7c11ca85f3d">
+					<Attributed AttributedType="@96c27aade66e46368770680dc100461d">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]placeholder text" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]container" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@8e4d7e829c4f4cf989c9061a1548193f">
@@ -299,9 +312,9 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]plot colors" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@8e34e67e59f94f5fb6e8f2e3d64d2bd8">
+					<Attributed AttributedType="@b1c4b4307faa40c6ace6ffdab0f68ce6">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]RGraph refnum" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]rgraph reference" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
@@ -322,8 +335,8 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="fb836169fc674cc8ad35bdb63c6293e9">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Int32" />
+		<p.TypeReference TypeId="8ba577268c204531bdf9b5a2c7e25a58">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@06873e32232e4e50b70e6dc13cbaa6d2" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="8e4d7e829c4f4cf989c9061a1548193f">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@e29101be653844d080809a0937372f27" />
@@ -331,8 +344,18 @@
 		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="b1c4b4307faa40c6ace6ffdab0f68ce6">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@06873e32232e4e50b70e6dc13cbaa6d2" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="74a8df5df5444df6a887aef527af20f0">
+			<Attributed AttributedType="@ba9e40be8d444b5f85515f612e72ebf0">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
 		<p.TypeReference TypeId="32c3735e3b9543c794f9e92dba7b6329">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="B0" DataType="Boolean" />
@@ -340,14 +363,14 @@
 		<p.TypeReference TypeId="ccd970163a3d4af09d312e142f1905b2">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="B1" DataType="Boolean" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="63ca935ef4df4ea7bde7b7c11ca85f3d">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		<p.TypeReference TypeId="96c27aade66e46368770680dc100461d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="1ec9f5e6c80141a0a1ba96fcab43a595">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="String[]" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="8e34e67e59f94f5fb6e8f2e3d64d2bd8">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
+		<p.TypeReference TypeId="ba9e40be8d444b5f85515f612e72ebf0">
+			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
