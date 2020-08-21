@@ -19,6 +19,7 @@
 - [MachineLearning](https://rajsite.github.io/webvi-experiments/MachineLearning/)
 - [RichText](https://rajsite.github.io/webvi-experiments/RichText/)
 - [SweetAlert](https://rajsite.github.io/webvi-experiments/SweetAlert/)
+- [VideoJS](https://rajsite.github.io/webvi-experiments/VideoJS/)
 - [WebAudio](https://rajsite.github.io/webvi-experiments/WebAudio/)
 - WebBluetooth
     - [BatteryLevel](https://rajsite.github.io/webvi-experiments/WebBluetooth/BatteryLevel.html)

@@ -52,6 +52,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\RichText" -ProjectFileName "Rich
 Write-Host "Build SweetAlert project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "SweetAlert.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build VideoJS project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\VideoJS" -ProjectFileName "VideoJS.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build WebAudio project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\WebAudio" -ProjectFileName "WebAudio.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
