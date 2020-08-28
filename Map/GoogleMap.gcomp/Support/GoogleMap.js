@@ -73,8 +73,6 @@
         marker.addListener('click', function () {
             showMarkerIfPossible(marker);
         });
-        window.testMarker = marker;
-        window.testInfoWindow = infoWindow;
         return marker;
     };
 
