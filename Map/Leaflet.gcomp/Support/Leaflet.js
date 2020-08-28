@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    const mapCreate = function (placeholder, latitude, longitude, zoomLevel) {
+    const createMap = function (placeholder, latitude, longitude, zoomLevel) {
         return new Promise(function (resolve) {
             const map = L.map(placeholder).setView([latitude, longitude], zoomLevel);
             map.whenReady(function () {
@@ -19,37 +19,48 @@
         map.addLayer(tileLayer);
     };
 
-    const mapDestroy = function (map) {
+    const destroyMap = function (map) {
         map.remove();
     };
 
-    const markerCreate = function (map, latitude, longitude, text, iconUrl) {
+    const createMarker = function (map, latitude, longitude, text, iconUrl) {
         const options = {};
         if (iconUrl !== '') {
             options.icon = L.icon({iconUrl});
         }
         const marker = L.marker([latitude, longitude], options);
-        if (text.length !== 0) {
+        if (text !== '') {
             marker.bindPopup(text);
         }
         map.addLayer(marker);
         return marker;
     };
 
-    const markerPopupShow = function (marker) {
+    const showMarker = function (marker) {
         marker.openPopup();
     };
 
-    const markerDestroy = function (marker) {
+    const destroyMarker = function (marker) {
         marker.remove();
     };
 
+    const updateMarkerText = function (marker, text) {
+        if (text !== '') {
+            if (marker.getPopup()) {
+                marker.setPopupContent(text);
+            } else {
+                marker.bindPopup(text);
+            }
+        }
+    };
+
     window.WebVILeaflet = {
-        mapCreate,
-        mapDestroy,
         addTileLayer,
-        markerCreate,
-        markerDestroy,
-        markerPopupShow
+        createMap,
+        destroyMap,
+        createMarker,
+        destroyMarker,
+        showMarker,
+        updateMarkerText
     };
 }());

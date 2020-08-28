@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="4D576D44C4CAE433D9A3F26C8875523A88EACC62907387D9CFF8D524B0710929413DF21C520CEF879D34EDFB0385C120EA1184108C21B0B19E94BAF63067BA11" Timestamp="1D60A4572E2D7C6" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="75D4B5CDD9D007FD3A332304536081E59121B7638CEA26EBBBC29DE22AC9F245B26350F238AD308A3EBA43C3A9495C627D85AB55BCBCB554BDA5DBD874CA6410" Timestamp="1D67CE7ECDE3DF2" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
-		<ApplicationVersionInfo Build="7.1.0.50148" Name="LabVIEW NXG" Version="4.0.0" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
 	</SourceModelFeatureSet>
 	<VirtualInstrument Id="ac5b8478df2f4a6ebc509645070b38f8" xmlns="http://www.ni.com/LabVIEW.VI">
 		<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Destroys a marker and removes it from the map&lt;/p&gt;</p.UserDescription>
@@ -40,17 +40,17 @@
 		<BlockDiagram Id="45507f3a23f440b1b7d072d12fa0f8be">
 			<Wire Id="813afc1d87534d86b450dba60181893f" Joints="N(91b4ddab41c74600acd488dfd64f4ebc:Value)|(450,220) N(d6d92d8b3d43486281b481fced70c9e9:L0)|(485,220)" xmlns="http://www.ni.com/PlatformFramework" />
 			<DataAccessor Bounds="410 215 40 15" DataItem="16e3f4a29f8842e281334ecfedc91eee" Id="91b4ddab41c74600acd488dfd64f4ebc" Label="a35e617522564c2a9acee0a95c5eac2e" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@45edbecdf2c146fcae607c4dfba76e2f" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@ee2c35b1b9e447bd97d4662cd8190951" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<MethodCall Bounds="485 215 40 40" Id="d6d92d8b3d43486281b481fced70c9e9" ResolveFailedHint="MarkerDestroy" Signature="@0f28f40b67144d5eb939d06640096e55" Target="Leaflet::Support::Leaflet.jsli::MarkerDestroy" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="485 215 40 40" Id="d6d92d8b3d43486281b481fced70c9e9" ResolveFailedHint="DestroyMarker" Signature="@2c4fd4fdf88e47eaa3fe9e2f28b89442" Target="Leaflet::Support::Leaflet.jsli::DestroyMarker" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="marker reference" />
+						<Parameter Id="L0" Desc="marker" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="Int32" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@fc5abbec8a9d49caa9c6c0052a9532cc" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
@@ -76,11 +76,11 @@
 		</BlockDiagram>
 		<NativeFrontPanel AllowMaximize="[bool]False" EnforceMaximumSize="[bool]True" Height="[float]1600" HtmlPanel="[bool]False" Id="4712ac9ca99745db89f4ef714740526d" Left="[float]0" MaxHeight="[float]1600" MaxWidth="[float]2000" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000" WindowTitleOption="[WindowTitleOption]None">
 			<PanelExecutionWindow Id="2228e41e09174f768794fa71f8d052ed" />
-			<NumericText BaseName="[string]marker reference" Height="[float]24" Id="999ba55a46294f84bfbfe5e2d8982e15" Interval="[int]1" IsTabStop="[bool]True" Label="[UIModel]ffce17c6f0ba480ebd95683c2a1f9db9" LabelLinked="[bool]True" Left="[float]420" TabIndex="[int]1" Top="[float]244" Value="{DataItemBinding Id=16e3f4a29f8842e281334ecfedc91eee}" ValueFormatter="[string]LV:0" ValueType="[Type]@45edbecdf2c146fcae607c4dfba76e2f" Width="[float]72" p4:ControlDefinitionChecksum="h5EQ/9GcgCtKRzW1yhQPZ24guJCgE0GXjs6da2vAnjI=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<OpaqueRefnum BaseName="[string]marker reference" Height="[float]24" Id="999ba55a46294f84bfbfe5e2d8982e15" IsTabStop="[bool]True" Label="[UIModel]ffce17c6f0ba480ebd95683c2a1f9db9" LabelLinked="[bool]True" Left="[float]420" RefnumType="[Type]@ee2c35b1b9e447bd97d4662cd8190951" TabIndex="[int]1" Top="[float]244" Value="{DataItemBinding Id=16e3f4a29f8842e281334ecfedc91eee}" Width="[float]24" p4:ControlDefinitionChecksum="xwmCKlDPQnOU4HNTk31EyXdyM25EbuOIm1MrADtXcfs=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="Leaflet::Marker::marker reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
-			</NumericText>
+			</OpaqueRefnum>
 			<Label Height="[float]16" Id="ffce17c6f0ba480ebd95683c2a1f9db9" LabelOwner="[UIModel]999ba55a46294f84bfbfe5e2d8982e15" Left="[float]420" Text="[string]marker reference" Top="[float]224" Width="[float]90" xmlns="http://www.ni.com/PanelCommon" />
 			<Cluster BaseName="[string]Error" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="d7184dfe65bf4e57a65455c16fed7a4a" IsTabStop="[bool]True" Label="[UIModel]7f70c9f196d49d08dbc00cee0e028b6" LabelLinked="[bool]True" Left="[float]324" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]0" Top="[float]388" Value="{DataItemBinding Id=d457b090defd4b7e87ecafa9c06a0dd9}" Width="[float]176" p4:ControlDefinitionChecksum="J+f/EiASvnzghyjtgi4nEE7z+0udh8Z1+KU2hWC1ppw=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
@@ -107,7 +107,7 @@
 			</Cluster>
 			<Label Height="[float]16" Id="3151b1933fca4add81baccb915070818" LabelOwner="[UIModel]d15d16de4c1146d0bfd18ec35081a4cf" Left="[float]612" Text="[string]error out" Top="[float]368" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
-		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@45edbecdf2c146fcae607c4dfba76e2f" Id="16e3f4a29f8842e281334ecfedc91eee" Name="marker reference" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="0" CallUsage="Required" DataType="@ee2c35b1b9e447bd97d4662cd8190951" Id="16e3f4a29f8842e281334ecfedc91eee" Name="marker reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 				<TypeDefinitionTarget TargetName="Leaflet::Marker::marker reference.gtype" />
@@ -139,15 +139,15 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="45edbecdf2c146fcae607c4dfba76e2f">
-			<Attributed AttributedType="@04b77bddbe6a4eb7b1893d6df9093e81">
+		<p.TypeReference TypeId="ee2c35b1b9e447bd97d4662cd8190951">
+			<Attributed AttributedType="@204fe1c253f1406dbeeb54917596c229">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Leaflet::Marker" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0f28f40b67144d5eb939d06640096e55">
-			<Attributed AttributedType="@28a2ea3b1e3247b4a50e49950a789f3a">
+		<p.TypeReference TypeId="2c4fd4fdf88e47eaa3fe9e2f28b89442">
+			<Attributed AttributedType="@7e78ed2305fb47bc9319ad0cb2a5c2be">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -155,15 +155,22 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="04b77bddbe6a4eb7b1893d6df9093e81">
-			<Typedef TypedefName="marker reference.gtype" UnderlyingType="Int32" />
+		<p.TypeReference TypeId="fc5abbec8a9d49caa9c6c0052a9532cc">
+			<Attributed AttributedType="@56d53ab649e6404299b51e82c31760af">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="28a2ea3b1e3247b4a50e49950a789f3a">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="MarkerDestroy" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="204fe1c253f1406dbeeb54917596c229">
+			<Typedef TypedefName="marker reference.gtype" UnderlyingType="@fc5abbec8a9d49caa9c6c0052a9532cc" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="7e78ed2305fb47bc9319ad0cb2a5c2be">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="DestroyMarker" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@fd0a27fc224449e2ac062435708c4ab0">
+					<Attributed AttributedType="@4f68b7fa27d8412cb6a2862e63a55f3b">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]marker reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]marker" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -179,8 +186,11 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="fd0a27fc224449e2ac062435708c4ab0">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Int32" />
+		<p.TypeReference TypeId="56d53ab649e6404299b51e82c31760af">
+			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="4f68b7fa27d8412cb6a2862e63a55f3b">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@fc5abbec8a9d49caa9c6c0052a9532cc" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
@@ -190,7 +200,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Leaflet::Support::Leaflet.jsli::MarkerDestroy">
+		<p.IconModel Target="Leaflet::Support::Leaflet.jsli::DestroyMarker">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -198,7 +208,7 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]MarkerDestroy" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DestroyMarker" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Verdana" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
