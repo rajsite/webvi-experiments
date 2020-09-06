@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-    const mime = require('mime-types');
     const path = require('path');
     const electron = require('electron');
 
@@ -13,7 +12,9 @@
     // TODO registerSchemeAsPrivileged should be moved to plugin pattern
     // Can only configure pre app ready behavior from cli
     (function () {
-        const {protocol} = electron;
+        const {app, protocol} = electron;
+        // To disable CORS in the render process https://github.com/electron/electron/issues/23664
+        app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
         protocol.registerSchemesAsPrivileged([{
             scheme,
             privileges: {
@@ -31,16 +32,8 @@
                     const url = request.url.substr(root.length);
                     const calcpath = path.normalize(`${path.resolve(clientPath)}/${url}`);
                     console.log(`---- ${clientPath}  and  ${calcpath}`);
-                    const contentType = mime.contentType(path.extname(calcpath));
-                    const headers = {};
-                    if (contentType) {
-                        headers['Content-Type'] = contentType;
-                    }
-                    // Currently need 'unsafe-eval' to support wasm in Chrome https://github.com/WebAssembly/content-security-policy/issues/7
-                    headers['Content-Security-Policy'] = `script-src 'self' 'unsafe-eval'; object-src 'self';`;
                     callback({
-                        path: calcpath,
-                        headers
+                        path: calcpath
                     });
                 } catch (ex) {
                     // Net error codes: https://cs.chromium.org/chromium/src/net/base/net_error_list.h
