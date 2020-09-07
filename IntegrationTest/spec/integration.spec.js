@@ -22,8 +22,8 @@ describe('The WebVI Application', function () {
         return server;
     };
 
-    const readValue = async function (page, label) {
-        const readValueInPage = function (label) {
+    const readTerminal = async function (page, label) {
+        const readTerminalValueInPage = function (label) {
             const labelElement = document.querySelector(`ni-label[text="${label}"]`);
             if (labelElement === null) {
                 throw new Error(`Unable to find control with label: ${label}`);
@@ -42,7 +42,7 @@ describe('The WebVI Application', function () {
             const value = JSON.parse(valueJSON);
             return value;
         };
-        const result = await page.evaluate(readValueInPage, label);
+        const result = await page.evaluate(readTerminalValueInPage, label);
         return result;
     };
 
@@ -58,11 +58,11 @@ describe('The WebVI Application', function () {
                 cleanup();
             };
             cleanup = function () {
+                resolve();
                 page.off('pageerror', pageErrorHandler);
                 page.off('requestfailed', requestFailedHandler);
             };
             stop = function () {
-                resolve();
                 cleanup();
                 return promise;
             };
@@ -70,8 +70,8 @@ describe('The WebVI Application', function () {
             page.on('requestfailed', requestFailedHandler);
         });
         return {
-            stop,
-            cleanup
+            cleanup,
+            stop
         };
     };
 
@@ -110,7 +110,7 @@ describe('The WebVI Application', function () {
 
     it('can run a loop ten times', async function () {
         const page = await runWebVI(server, browser, 'WebApp_Web Server/index.html');
-        const result = await readValue(page, 'loop iteration');
+        const result = await readTerminal(page, 'loop iteration');
         const expected = 10;
         expect(result).toBe(expected);
 
