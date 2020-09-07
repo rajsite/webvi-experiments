@@ -1,5 +1,5 @@
 (function () {
     'use strict';
 
-    module.exports = require('@webvi-node/express').WebVIExpress;
+    module.exports = require('@webvi-node/express');
 }());
