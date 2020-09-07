@@ -2,7 +2,7 @@
 (async function () {
     'use strict';
     const path = require('path');
-    const {WebVINodeRunner} = require('@webvi-node/runner');
+    const WebVINodeRunner = require('@webvi-node/runner');
     const webviNodeRunner = new WebVINodeRunner({cwd: path.resolve(__dirname, 'Builds/TestElectronMain_electron')});
     await webviNodeRunner.run();
 }()).catch(function (ex) {

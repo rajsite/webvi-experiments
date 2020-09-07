@@ -11,7 +11,7 @@
     const fs = require('fs');
     const path = require('path');
     const process = require('process');
-    const {htmlRequire} = require('@webvi-node/runner');
+    const htmlRequire = require('@webvi-node/html-require');
     const glob = require('glob');
     const express = require('express');
     const createVireoMiddleware = require('./createVireoMiddleware.js');

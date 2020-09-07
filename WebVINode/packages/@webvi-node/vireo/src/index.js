@@ -5,21 +5,15 @@
     const w3cwebsocket = require('websocket').w3cwebsocket;
     const xhr2 = require('xhr2');
     const vireoHelpers = require('vireo');
-    class VireoNode {
-        constructor () {
-            this._viName = undefined;
-            this._vireoInstance = undefined;
-            this._vireoHelpers = vireoHelpers;
-        }
+    const ViaHelpers = require('./ViaHelpers.js');
 
-        async initialize (viaWithEnqueue, customGlobal) {
-            const enqueueRegex = /^enqueue\s*\((\S*)\)$/m;
-            const via = viaWithEnqueue.replace(enqueueRegex, '');
-            const viName = viaWithEnqueue.match(enqueueRegex)[1];
+    class VireoNode {
+        static async createInstance (customGlobal) {
             const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(global) : Object.create(customGlobal);
             customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(w3cwebsocket);
 
             const vireo = await vireoHelpers.createInstance();
+
             vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
             vireo.httpClient.setXMLHttpRequestImplementation(xhr2);
 
@@ -42,26 +36,15 @@
                 LogLabVIEWError: logLabVIEWError,
                 InvokeControlFunction: notSupportedError
             });
-            vireo.eggShell.loadVia(via);
-            this._viName = viName;
-            this._vireoInstance = vireo;
             return vireo;
         }
 
-        get vireoInstance () {
-            return this._vireoInstance;
+        static get vireoHelpers () {
+            return vireoHelpers;
         }
 
-        get vireoHelpers () {
-            return this._vireoHelpers;
-        }
-
-        get viName () {
-            return this._viName;
-        }
-
-        enqueueVI () {
-            this._vireoInstance.eggShell.loadVia(`enqueue(${this._viName})`);
+        static createViaHelpers (viaWithEnqueue) {
+            return new ViaHelpers(viaWithEnqueue);
         }
     }
     module.exports = VireoNode;

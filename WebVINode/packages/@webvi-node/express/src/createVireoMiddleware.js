@@ -3,22 +3,27 @@
 
     const {performance} = require('perf_hooks');
     const genericPool = require('generic-pool');
-    const {VireoNode} = require('@webvi-node/runner');
+    const VireoNode = require('@webvi-node/vireo');
 
     class VireoMiddleware {
         constructor () {
-            this._vireoNode = new VireoNode();
+            this._vireo = undefined;
             this._serverValueRef = undefined;
         }
         async initialize (viaWithEnqueue, customGlobal) {
-            const vireo = await this._vireoNode.initialize(viaWithEnqueue, customGlobal);
-            this._serverValueRef = vireo.eggShell.findValueRef(this._vireoNode.viName, 'dataItem_Server');
+            const vireo = await VireoNode.createInstance(customGlobal);
+            const viaHelpers = VireoNode.createViaHelpers(viaWithEnqueue);
+            vireo.eggShell.loadVia(viaHelpers.via);
+            this._serverValueRef = vireo.eggShell.findValueRef(viaHelpers.viName, 'dataItem_Server');
+            this._vireo = vireo;
+            this._viaHelpers = viaHelpers;
         }
         async runRequest (server) {
-            const vireo = this._vireoNode.vireoInstance;
+            const vireo = this._vireo;
+            const viaHelpers = this._viaHelpers;
             try {
                 // enqueue needs to be called before writing to memory (resets values if after)
-                this._vireoNode.enqueueVI();
+                vireo.eggShell.loadVia(viaHelpers.enqueueInstruction);
                 vireo.eggShell.writeJavaScriptRefNum(this._serverValueRef, server);
                 await vireo.eggShell.executeSlicesUntilClumpsFinished();
             } finally {
