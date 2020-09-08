@@ -1,2 +1,3 @@
-# WebVI CLI Electron
+# @webvi-node/electron
+
 WIP

@@ -1,2 +1,3 @@
-# WebVI CLI robotjs API
+# @webvi-node/robot
+
 WIP

@@ -1,2 +1,3 @@
-# WebVI CLI
+# @webvi-node/vireo
+
 WIP
