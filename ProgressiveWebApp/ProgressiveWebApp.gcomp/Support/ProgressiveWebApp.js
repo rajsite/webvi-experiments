@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    // Path to generated service worker file relative to WebWapp root
+    // Path to generated service worker file relative to Webapp root
     const serviceWorkerRelativePath = './sw.js';
 
     // Helps calculate URLs relative to the WebApp root.
@@ -30,5 +30,5 @@
         // Intentionally empty, relying on script being included in page at load time
     };
 
-    window.WebVIServiceWorker = {register};
+    window.WebVIProgressiveWebApp = {register};
 }());

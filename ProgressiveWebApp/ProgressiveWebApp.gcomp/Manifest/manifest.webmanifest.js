@@ -1,22 +1,22 @@
 {
     "short_name": "NI Values",
     "name": "NI Values Reference",
-    "description": "A reference guide to NI Styles",
+    "description": "A reference guide to NI Values and Visual Styles",
     "icons": [
         {
-            "src": "images/icons-192.png",
+            "src": "Images/icons-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "images/icons-512.png",
+            "src": "Images/icons-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
-    "start_url": "../../",
+    "start_url": "../../index.html",
     "scope": "../../",
-    "background_color": "#3367D6",
+    "background_color": "#03B585",
     "display": "standalone",
-    "theme_color": "#3367D6"
+    "theme_color": "#03B585"
 }
