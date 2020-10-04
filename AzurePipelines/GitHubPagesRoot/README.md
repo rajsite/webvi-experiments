@@ -16,6 +16,7 @@
     - [VirtualReality](https://rajsite.github.io/webvi-experiments/VirtualReality/)
 - [JSONParser](https://rajsite.github.io/webvi-experiments/JSONParser/)
 - [MachineLearning](https://rajsite.github.io/webvi-experiments/MachineLearning/)
+- [PlotToolDemo](https://rajsite.github.io/webvi-experiments/PlotToolDemo/)
 - [Map](https://rajsite.github.io/webvi-experiments/Leaflet/)
 - [RichText](https://rajsite.github.io/webvi-experiments/RichText/)
 - [SweetAlert](https://rajsite.github.io/webvi-experiments/SweetAlert/)
