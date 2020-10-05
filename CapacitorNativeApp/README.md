@@ -24,8 +24,10 @@ These are steps you can follow to set up and build a Capacitor application that 
 1. Using NXG, create the WebVI containing your user interface and communication logic.
    1. See *WebVI Best Practices* below for some tips on structuring this application.
 1. Build the Web Application that contains your WebVI and locate the build output directory.
-   1. To build, open the `.gcomp` containing your WebVI and click the Build icon in its toolbar.
+   1. To build, open the `.gcomp` containing your WebVI and click the Build icon in its toolbar. 
+         - ![Build](img/buildIcon.png)
    1. To locate the build output, open the Build Queue pane and click the Locate icon in its toolbar.
+         - ![Locate](img/locateIcon.png)
    1. You will use this build output to initialize your Capacitor application below.
 1. Set up the directory for your Capacitor project.
    1. Create a new directory. It can live next to your WebVI source or elsewhere.
@@ -34,8 +36,7 @@ These are steps you can follow to set up and build a Capacitor application that 
       1. `npm init` will prompt you for basic configuration. This information is not used by Capacitor and it's ok to enter any values you like if you don't plan to publish the source to NPM. See `capacitor/package.json` in this repo for sample values.
 1. Copy the WebVI build output from above to a new directory called `www` within your project folder.
 1. Install Capacitor and initialize a project.
-   1. Follow the instructions for [Adding Capacitor to an existing web app](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-an-existing-web-app).
-   1. Follow the instructions to install whichever desired native platforms you need (iOS, Android).
+   1. Follow the instructions for [Adding Capacitor to an existing web app](https://capacitorjs.com/docs/getting-started#adding-capacitor-to-an-existing-web-app). Install whichever desired native platforms you need (iOS, Android).
    1. When this step is complete, your application should look similar to the `capacitor` directory in this repository.
 1. Build iOS and Android applications.
    1. Run the steps in [Opening Native Projects](https://capacitorjs.com/docs/basics/opening-native-projects) to launch Xcode or Android Studio with your application.
@@ -50,8 +51,6 @@ Follow these steps to make changes to the WebVI after setting up the project.
 1. Copy the files from the build output directory to the `www` directory.
 1. From the command line, run the copy commands for your platform as described in [Building your App](https://capacitorjs.com/docs/basics/building-your-app).
 
-
-1. Call native APIs using JSLI
 
 # WebVI Best Practices
 ## Connecting to data
@@ -73,11 +72,14 @@ For more details on this topic, see [Communicating Data with a Web Application](
 Since the WebVI panel may be presented on screens of different sizes, you should strongly consider setting the WebVI panel to use Flexible Layout. This will automatically adjust the size and position of objects on the panel in response to the size of the screen on which it's displayed.
 
 
+# Additional Options
+These are some additional capabilities that should be possible with this approach but aren't covered in this example. If you try these out and find success please [contribute](../CONTRIBUTING.md) what you learned to this document!
 
-using their APIs
-Investigate cloud service from ioniq
-Cordova serve from server. Maybe call APIs
-electron
-rajsite? ni? self hosted?
-need additional experience. this is an example
-disable web security in browser within app. https://ionicframework.com/docs/troubleshooting/cors
+## Calling Native APIs
+Capacitor provides [an SDK](https://capacitorjs.com/docs/apis) which provides a JavaScript API for calling native Android and iOS APIs. This would allow access to features like the camera, file system, and notifications. To use these features in a WebVI you would use a [JavaScript Library Interface](https://www.ni.com/documentation/en/labview-web-module/latest/manual/calling-js-functions-web-app/) to wrap the calls to the native API. 
+
+## Building applications for other platforms
+The Capacitor community offers plugins for building desktop applications using Electron. You can find more information in their [documentation](https://capacitor-community-electron-docs-site.vercel.app/).
+
+## Building applications using a cloud service
+If you don't have access to a Mac but want to build an iOS application, you may try a third-party cloud service like [Ionic App Flow](https://ionicframework.com/appflow). These services should allow you to upload your built WebVI to their site and they'll build and publish it to the app store for you.
