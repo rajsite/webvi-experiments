@@ -25,6 +25,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Boo
 Write-Host "Build ECharts project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build IFrame project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\IFrame" -ProjectFileName "IFrame.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build ImmersiveWeb projects: AugmentedReality"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "ImmersiveWeb.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
