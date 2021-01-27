@@ -1,6 +1,7 @@
 (function () {
     'use strict';
 
+    // Helpers
     const getAudioContext = (function () {
         // Create a single AudioContext for the page
         // https://developers.google.com/web/updates/2012/01/Web-Audio-FAQ#q_how_many_audio_contexts_should_i_have
@@ -13,12 +14,28 @@
         };
     }());
 
-    // Sources
-    const createMediaStreamAudioSourceNode = async function () {
-        const stream = await navigator.mediaDevices.getUserMedia({audio: true});
+    // Buffers
+    const decodeAudioDataFromArrayBuffer = async function (arrayBuffer) {
         const audioContext = getAudioContext();
-        const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
-        return mediaStreamAudioSourceNode;
+        return new Promise((resolve, reject) => {
+            audioContext.decodeAudioData(arrayBuffer, resolve, reject);
+        });
+    };
+
+    const createAudioBufferFromUrl = async function (url) {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        // AudioBuffer adopts ArrayBuffer, so no point making it external
+        const audioBuffer = await decodeAudioDataFromArrayBuffer(arrayBuffer);
+        return audioBuffer;
+    };
+
+    const playAudioBuffer = function (audioBuffer, destination) {
+        const audioContext = getAudioContext();
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(destination);
+        source.start();
     };
 
     // AudioNodes
@@ -28,6 +45,20 @@
         }
     };
 
+    const createMediaStreamAudioSourceNode = async function () {
+        const stream = await navigator.mediaDevices.getUserMedia({audio: true});
+        const audioContext = getAudioContext();
+        const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
+        return mediaStreamAudioSourceNode;
+    };
+
+    const getAudioDestinationNode = function () {
+        const audioContext = getAudioContext();
+        const audioDestinationNode = audioContext.destination;
+        return audioDestinationNode;
+    };
+
+    // Analyser
     class Analyser {
         constructor (source) {
             const audioContext = getAudioContext();
@@ -73,16 +104,24 @@
         return floatFrequencyData;
     };
 
+    // AudioContextState
     const getSampleRate = function () {
         const audioContext = getAudioContext();
         return audioContext.sampleRate;
     };
 
     window.WebVIWebAudio = {
+        // Buffers
+        createAudioBufferFromUrl,
+        playAudioBuffer,
+        // AudioNodes
         createMediaStreamAudioSourceNode,
+        getAudioDestinationNode,
+        // Analyser
         createAnalyser,
         getFloatTimeDomainData,
         getFloatFrequencyData,
+        // AudioContextState
         getSampleRate
     };
 }());
