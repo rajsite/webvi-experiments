@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="F8EC7C85E5AE25806C8987F522283340DA5C50642A2BA62F10B370D6D86DE0DAAE4ED7C6E54E1F47DA127A1C20CD740E92E64CBA1DB07D538EE7B00D7DE8A862" Timestamp="1D6F46D4BD49B7A" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="4EAF8B4D0F05F2DFA7712BDC21FED4C6F0BE8BCA5C73C1672C71BC9CDF50297A692D1B4CC2722B863336B9E052820A954B32B38DDE9F08D144BED479B0A6F3C1" Timestamp="1D6F47FEE85D52A" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -38,7 +38,7 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<WhileLoop Bounds="825 205 750 245" DiagramId="45" Id="44">
+			<WhileLoop Bounds="935 205 750 245" DiagramId="45" Id="44">
 				<LoopIteration Bounds="5 215 15 15" Id="46" />
 				<LoopCondition Bounds="680 210 15 15" Id="47" />
 				<Wire Id="55" Joints="N(71a7beb1ea1f4468b48ce105038cb962:R3)|(440,200) h(235) B(1) N(51:45)|(736,200) B(1) v(15) N(47:Input)|(680,215)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -133,69 +133,10 @@
 				<Wire Id="f3f0ef5118e842e99e72db095b006e49" Joints="N(3b25e88bf9d84ca08f76d515e4d20f6d:o)|(500,65) h(34) v(-10) N(b80e7cf937874e0786f155e08caf84be:dt)|(545,55)" xmlns="http://www.ni.com/PlatformFramework" />
 				<RightShiftRegister Bounds="741 200 13 10" Docking="Right" Id="51" Terminals="44=676c7fe864c249ce9c855e7c945b7f82, 45=55" />
 				<LeftShiftRegister Bounds="-4 200 13 10" Docking="Left" Id="52" RightRegister="51" Terminals="o0=f7b3a9eb767a41b9a31b26223e02c383, i0=f29728bcdd1241d490cdb2a42a755dec" />
-				<LoopTunnel Bounds="-4 145 13 10" Docking="Left" Id="7f0415520df430b980dbe1d2bcbf002" Terminals="o0=1de9c10d8098418d9379556f52867869, i0=225d2fc543f94385bcbc4d735aeb3ded" />
+				<LoopTunnel Bounds="-4 145 13 10" Docking="Left" Id="7f0415520df430b980dbe1d2bcbf002" Terminals="o0=a6b73d746bbf43d1bf1b6e87cdc1d485, i0=225d2fc543f94385bcbc4d735aeb3ded" />
 				<LoopTunnel Bounds="-4 85 13 10" Docking="Left" Id="a1f773c6464641d8a6398fadbc78a294" Terminals="o0=210fa7237bc249cd91d938de28087f41, i0=6531a163f82f49b5bf98e0411591d57d" />
 			</WhileLoop>
-			<FlatSequence Bounds="180 310 445 170" Id="347">
-				<FlatSequence.Frame Bounds="5 10 185 150" Id="348">
-					<WhileLoop Bounds="10 20 170 95" DiagramId="146" Id="145">
-						<LoopIteration Bounds="5 65 15 15" Id="147" />
-						<LoopCondition Bounds="140 65 15 15" Id="148" />
-						<DataAccessor Bounds="85 65 40 15" DataItem="341" Id="342" Label="345" xmlns="http://www.ni.com/MocCommon">
-							<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-						</DataAccessor>
-						<NodeLabel AttachedTo="342" Bounds="43 65 37 14" Id="345" xmlns="http://www.ni.com/PlatformFramework">
-							<p.Text>Button</p.Text>
-						</NodeLabel>
-						<Wire Id="346" Joints="N(342:Value)|(125,70) N(148:Input)|(140,70)" xmlns="http://www.ni.com/PlatformFramework" />
-						<Wait Bounds="75 10 40 40" Id="413" />
-						<Literal Bounds="5 25 40 15" DataType="UInt32" Id="414" Label="415" xmlns="http://www.ni.com/MocCommon">
-							<p.Data>500</p.Data>
-							<NumericBehavior Interpretation="Exact" ValueFormatter="LV:0" />
-						</Literal>
-						<NodeLabel AttachedTo="414" Bounds="5 7 30 15" Id="415" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-							<p.Text>milliseconds to wait</p.Text>
-						</NodeLabel>
-						<Wire Id="416" Joints="N(414:Out)|(45,30) N(413:time to wait)|(75,30)" xmlns="http://www.ni.com/PlatformFramework" />
-					</WhileLoop>
-				</FlatSequence.Frame>
-				<FlatSequence.Frame Bounds="195 10 245 150" Id="349">
-					<MethodCall Bounds="45 55 40 40" Id="d520dea3ed184c6c933678ece9a63be8" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioNodes\\Create Media Stream Audio Source Node.gvi&quot;" Signature="@0a52573d1bd945f186f9eddcd44c9fc8" Target="WebAudio::AudioNodes::Create Media Stream Audio Source Node.gvi" xmlns="http://www.ni.com/MocCommon">
-						<p.MethodDeclaration>
-							<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-								<Parameter Id="L3" Desc="error in" />
-								<Parameter Id="R0" Desc="audio node reference" />
-								<Parameter Id="R3" Desc="error out" />
-							</MethodDeclaration>
-						</p.MethodDeclaration>
-						<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-						<Terminal DataType="@152c6ee109a54830a2d538d48c0fb89b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-						<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-					</MethodCall>
-					<MethodCall Bounds="105 55 40 40" Id="57fe5d32aec144cfa9bfe321fb0366a1" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Analyser\\Create Analyzer.gvi&quot;" Signature="@2cf3a5d1636d464088e516284d7e4888" Target="WebAudio::Analyser::Create Analyzer.gvi" xmlns="http://www.ni.com/MocCommon">
-						<p.MethodDeclaration>
-							<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-								<Parameter Id="L0" Desc="audio node reference" />
-								<Parameter Id="L3" Desc="error in" />
-								<Parameter Id="R0" Desc="analyser reference" />
-								<Parameter Id="R3" Desc="error out" />
-							</MethodDeclaration>
-						</p.MethodDeclaration>
-						<Terminal DataType="@152c6ee109a54830a2d538d48c0fb89b" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-						<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-						<Terminal DataType="@44ab41b9171c42089afcdc9e8160603e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-						<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-					</MethodCall>
-					<Wire Id="8a330912079749c7be1c1065eb1545c7" Joints="N(d520dea3ed184c6c933678ece9a63be8:R0)|(85,60) N(57fe5d32aec144cfa9bfe321fb0366a1:L0)|(105,60)" xmlns="http://www.ni.com/PlatformFramework" />
-					<Wire Id="a6279017b0eb44dca4c445e8fafe60a6" Joints="N(d520dea3ed184c6c933678ece9a63be8:R3)|(85,90) N(57fe5d32aec144cfa9bfe321fb0366a1:L3)|(105,90)" xmlns="http://www.ni.com/PlatformFramework" />
-					<Wire Id="c7416905dba24a13b9bd693f2e0b4e04" Joints="N(57fe5d32aec144cfa9bfe321fb0366a1:R3)|(145,90) N(411:349)|(241,90)" xmlns="http://www.ni.com/PlatformFramework" />
-					<Wire Id="a6b73d746bbf43d1bf1b6e87cdc1d485" Joints="N(57fe5d32aec144cfa9bfe321fb0366a1:R0)|(145,60) h(91) v(-25) N(51ea7f5cfd404ee185a162e650b3ce40:349)|(241,35)" xmlns="http://www.ni.com/PlatformFramework" />
-				</FlatSequence.Frame>
-				<FlatSequence.Tunnel Bounds="436 95 13 10" Docking="Right" Id="411" Terminals="347=2f97e519d1dc451199d3fef15405771f, 349=c7416905dba24a13b9bd693f2e0b4e04" />
-				<FlatSequence.Tunnel Bounds="436 40 13 10" Docking="Right" Id="51ea7f5cfd404ee185a162e650b3ce40" Terminals="347=1de9c10d8098418d9379556f52867869, 349=a6b73d746bbf43d1bf1b6e87cdc1d485" />
-			</FlatSequence>
-			<Wire Id="1de9c10d8098418d9379556f52867869" Joints="N(51ea7f5cfd404ee185a162e650b3ce40:347)|(629,355) N(7f0415520df430b980dbe1d2bcbf002:o0)|(821,355)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="655 375 40 40" Id="16d7da88c8b04c3fbb98d0acc341b688" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioContextState\\Get Sample Rate.gvi&quot;" Signature="@7d9847568c49495a8ac1e2087e964331" Target="WebAudio::AudioContextState::Get Sample Rate.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="765 375 40 40" Id="16d7da88c8b04c3fbb98d0acc341b688" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioContextState\\Get Sample Rate.gvi&quot;" Signature="@7d9847568c49495a8ac1e2087e964331" Target="WebAudio::AudioContextState::Get Sample Rate.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L3" Desc="error in" />
@@ -207,154 +148,20 @@
 				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="2f97e519d1dc451199d3fef15405771f" Joints="N(411:347)|(629,410) N(16d7da88c8b04c3fbb98d0acc341b688:L3)|(655,410)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="f7b3a9eb767a41b9a31b26223e02c383" Joints="N(16d7da88c8b04c3fbb98d0acc341b688:R3)|(695,410) N(52:o0)|(821,410)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="210fa7237bc249cd91d938de28087f41" Joints="N(16d7da88c8b04c3fbb98d0acc341b688:R0)|(695,380) h(6) v(-85) N(a1f773c6464641d8a6398fadbc78a294:o0)|(821,295)" xmlns="http://www.ni.com/PlatformFramework" />
-			<OneButtonDialog Bounds="1700 415 40 40" Id="2dac47dd7b174bb692b1b80808f5ade8" />
-			<PropertyNode Bounds="1609 405 71 35" HasErrorTerminals="False" Id="4b0a72c53be24e138307778a14e599db" InstanceDataType="Error" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="f7b3a9eb767a41b9a31b26223e02c383" Joints="N(16d7da88c8b04c3fbb98d0acc341b688:R3)|(805,410) N(52:o0)|(931,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="210fa7237bc249cd91d938de28087f41" Joints="N(16d7da88c8b04c3fbb98d0acc341b688:R0)|(805,380) h(6) v(-85) N(a1f773c6464641d8a6398fadbc78a294:o0)|(931,295)" xmlns="http://www.ni.com/PlatformFramework" />
+			<OneButtonDialog Bounds="1810 415 40 40" Id="2dac47dd7b174bb692b1b80808f5ade8" />
+			<PropertyNode Bounds="1719 405 71 35" HasErrorTerminals="False" Id="4b0a72c53be24e138307778a14e599db" InstanceDataType="Error" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 					<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal DataType="String" Hotspot="71 15" Id="c0t0v" Path="source" PathElementMemberKinds="Field" Usage="Optional" />
 			</PropertyNode>
-			<Wire Id="676c7fe864c249ce9c855e7c945b7f82" Joints="N(51:44)|(1579,410) N(4b0a72c53be24e138307778a14e599db:instance in)|(1609,410)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="4c9bf990e6894625ab00f98481508990" Joints="N(4b0a72c53be24e138307778a14e599db:c0t0v)|(1680,420) N(2dac47dd7b174bb692b1b80808f5ade8:message)|(1700,420)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="190 615 40 40" Id="f1fd9e1fe667416299b010a846e1970f" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="url" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="audio buffer reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<Literal Bounds="-195 660 360 15" DataType="String" Id="d444abbc0547442b901ebbf3ecc3bbfc" Label="1a914f5109454c47886ed5c3326b7c8b" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>Support/270319__littlerobotsoundfactory__jingle-win-01.wav</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="d444abbc0547442b901ebbf3ecc3bbfc" Bounds="-195 642 30 15" Id="1a914f5109454c47886ed5c3326b7c8b" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>url</p.Text>
-			</NodeLabel>
-			<Literal Bounds="-200 705 365 15" DataType="String" Id="423a27fb8aa8418489ffce3035d8119a" Label="e9cc016a481b4b6195b0f8691b48c554" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>Support/270329__littlerobotsoundfactory__jingle-lose-00.wav</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="423a27fb8aa8418489ffce3035d8119a" Bounds="-200 687 30 15" Id="e9cc016a481b4b6195b0f8691b48c554" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>url</p.Text>
-			</NodeLabel>
-			<Literal Bounds="-250 840 415 15" DataType="String" Id="cc6c0b53db924c9a8cb92806d7da13ab" Label="e4dc3120b9814a60b90162b633b90a99" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>Support/270330__littlerobotsoundfactory__jingle-achievement-01.wav</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="cc6c0b53db924c9a8cb92806d7da13ab" Bounds="-250 822 30 15" Id="e4dc3120b9814a60b90162b633b90a99" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>url</p.Text>
-			</NodeLabel>
-			<Literal Bounds="-250 795 415 15" DataType="String" Id="afce4d19dfea4623adbc5444e5a2854e" Label="99e0c4bcc4234639b8f332ceeee92a81" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>Support/270331__littlerobotsoundfactory__jingle-achievement-00.wav</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="afce4d19dfea4623adbc5444e5a2854e" Bounds="-250 777 30 15" Id="99e0c4bcc4234639b8f332ceeee92a81" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>url</p.Text>
-			</NodeLabel>
-			<Literal Bounds="-195 615 360 15" DataType="String" Id="dd79e4ddcbe47a0909dfa72fcdbf141" Label="f2628bfecd7e40daaca743ff6e3588c0" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>Support/270333__littlerobotsoundfactory__jingle-win-00.wav</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="dd79e4ddcbe47a0909dfa72fcdbf141" Bounds="-195 597 30 15" Id="f2628bfecd7e40daaca743ff6e3588c0" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>url</p.Text>
-			</NodeLabel>
-			<Literal Bounds="-200 750 365 15" DataType="String" Id="99e5b17989ef4d5ba2eba75d9c560a32" Label="91272576bc0c44b9b1bdc41af183d03c" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>Support/270334__littlerobotsoundfactory__jingle-lose-01.wav</p.Data>
-				<StringBehavior TextDisplayMode="Default" />
-			</Literal>
-			<NodeLabel AttachedTo="99e5b17989ef4d5ba2eba75d9c560a32" Bounds="-200 732 30 15" Id="91272576bc0c44b9b1bdc41af183d03c" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>url</p.Text>
-			</NodeLabel>
-			<MethodCall Bounds="190 660 40 40" Id="9a731168d78a4efaa1b497283ce38a88" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="url" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="audio buffer reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<MethodCall Bounds="190 705 40 40" Id="89126aa8b85843159adcfe848777dd23" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="url" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="audio buffer reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<MethodCall Bounds="190 750 40 40" Id="45c0dbef2b364658b7fc0b4fc2a76dc6" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="url" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="audio buffer reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<MethodCall Bounds="190 795 40 40" Id="67933eab35d44cb1974bd3c7b54cbf02" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="url" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="audio buffer reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<MethodCall Bounds="190 840 40 40" Id="52a65ae299b147afb431df1280d5fe15" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L0" Desc="url" />
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="audio buffer reference" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
-			<BuildArray Bounds="295 615 40 60" Id="78db6172799d457284ae7b2cb2d9772a" Terminals="outArray=e9195c3ff8f34d7c89b723bd572b9e6a, c0t0v=422333d50a1e46d0afd771d123024a75, c1t0v=6ff42938ba044271931ea27f679ee0b9, c2t0v=1e742c5edf514799a3a441de28b092be, c3t0v=fe754d6665724feb920815f1dfd60361, c4t0v=4389db3d9df84783a5c9e827198d1958, c5t0v=cae1aa267fae4b7baeb1392496e7800f" VerticalChunkCount="6" />
-			<Wire Id="422333d50a1e46d0afd771d123024a75" Joints="N(f1fd9e1fe667416299b010a846e1970f:R0)|(230,620) N(78db6172799d457284ae7b2cb2d9772a:c0t0v)|(295,620)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="6ff42938ba044271931ea27f679ee0b9" Joints="N(9a731168d78a4efaa1b497283ce38a88:R0)|(230,665) h(10) v(-35) N(78db6172799d457284ae7b2cb2d9772a:c1t0v)|(295,630)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="1e742c5edf514799a3a441de28b092be" Joints="N(89126aa8b85843159adcfe848777dd23:R0)|(230,710) h(20) v(-70) N(78db6172799d457284ae7b2cb2d9772a:c2t0v)|(295,640)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="fe754d6665724feb920815f1dfd60361" Joints="N(45c0dbef2b364658b7fc0b4fc2a76dc6:R0)|(230,755) h(30) v(-105) N(78db6172799d457284ae7b2cb2d9772a:c3t0v)|(295,650)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="4389db3d9df84783a5c9e827198d1958" Joints="N(67933eab35d44cb1974bd3c7b54cbf02:R0)|(230,800) h(40) v(-140) N(78db6172799d457284ae7b2cb2d9772a:c4t0v)|(295,660)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="cae1aa267fae4b7baeb1392496e7800f" Joints="N(52a65ae299b147afb431df1280d5fe15:R0)|(230,845) h(50) v(-175) N(78db6172799d457284ae7b2cb2d9772a:c5t0v)|(295,670)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="415 550 555 230" DiagramId="b602692c2ce3423b97f87ba2b5ee38df" Id="2dfcfe52ad3f407588d41dc382c3b866">
+			<Wire Id="676c7fe864c249ce9c855e7c945b7f82" Joints="N(51:44)|(1689,410) N(4b0a72c53be24e138307778a14e599db:instance in)|(1719,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="4c9bf990e6894625ab00f98481508990" Joints="N(4b0a72c53be24e138307778a14e599db:c0t0v)|(1790,420) N(2dac47dd7b174bb692b1b80808f5ade8:message)|(1810,420)" xmlns="http://www.ni.com/PlatformFramework" />
+			<WhileLoop Bounds="525 550 585 230" DiagramId="b602692c2ce3423b97f87ba2b5ee38df" Id="2dfcfe52ad3f407588d41dc382c3b866">
 				<LoopIteration Bounds="5 200 15 15" Id="3db1f07f69f144eeac00deb094512d10" />
-				<LoopCondition Bounds="525 200 15 15" Id="1b697d9351bf4349aacd490bc425d492" />
+				<LoopCondition Bounds="560 195 15 15" Id="1b697d9351bf4349aacd490bc425d492" />
 				<EventStructure Bounds="20 10 518 173" Id="4958cfa0db0046b4b9d49e4f50771fb6" Selected="d17e5c3d495453d84adf891c4af99a8" UserSelectorBounds="20 0 478 17">
 					<EventStructure.EventCase Bounds="21 18 476 147" Id="d17e5c3d495453d84adf891c4af99a8">
 						<EventStructure.EventData Bounds="0 42 66 35" HasErrorTerminals="False" Id="728cfdf4c9a2440d9d9cef150725e767" InstanceDataType="@b908925083b044bfa2ebedcd63a09603" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
@@ -425,34 +232,23 @@
 						<NodeLabel AttachedTo="127d54802fc1473f851b80cae36e0471" Bounds="283 92 26 14" Id="7d4fe9e97e734f46ac516d5179500105" xmlns="http://www.ni.com/PlatformFramework">
 							<p.Text>win2</p.Text>
 						</NodeLabel>
+						<Wire Id="40765545fcf543cc915b2e8f29fbf36a" Joints="N(a4dc97017a8542a2b21349e73c0807fb:R3)|(204,122) N(3f703ad70af34bfba915bcf342be73f6:d17e5c3d495453d84adf891c4af99a8)|(474,122)" xmlns="http://www.ni.com/PlatformFramework" />
 					</EventStructure.EventCase>
 					<EventStructure.Tunnel Bounds="-2 50 25 10" Docking="Left" Id="5542ed7e6cf64e19962fb2d6b90b08cb" Terminals="4958cfa0db0046b4b9d49e4f50771fb6=25cf39fa7c8a452e97eb34b39cfa3240, d17e5c3d495453d84adf891c4af99a8=aa06a06c94a545b8b8b1133e6b042ed8" />
 					<EventStructure.Tunnel Bounds="-2 135 25 10" Docking="Left" Id="5a3dd081d41144d6ab149a6a33576963" Terminals="4958cfa0db0046b4b9d49e4f50771fb6=f6d95cefb636462187dd993c42f7c62a, d17e5c3d495453d84adf891c4af99a8=b15a7ba527d64012a44050bc4874a771" />
 					<EventStructure.Tunnel Bounds="-2 105 25 10" Docking="Left" Id="279e8dd49b5f4574805b376e19a0052f" Terminals="4958cfa0db0046b4b9d49e4f50771fb6=873282d5426841d0bf4da0e095df9391, d17e5c3d495453d84adf891c4af99a8=e3b4f480527c4d15902b67df9acc298f" />
+					<EventStructure.Tunnel Bounds="495 135 25 10" Docking="Right" Id="3f703ad70af34bfba915bcf342be73f6" Terminals="4958cfa0db0046b4b9d49e4f50771fb6=fd165a77b55347348cc808705afd22ce, d17e5c3d495453d84adf891c4af99a8=40765545fcf543cc915b2e8f29fbf36a" />
 				</EventStructure>
 				<Wire Id="25cf39fa7c8a452e97eb34b39cfa3240" Joints="N(3efb2323b8814b6a9827e8892adb15d2:i0)|(4,65) N(5542ed7e6cf64e19962fb2d6b90b08cb:4958cfa0db0046b4b9d49e4f50771fb6)|(18,65)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="f6d95cefb636462187dd993c42f7c62a" Joints="N(f80b4b899c1344dd950defe7445a31af:i0)|(4,150) N(5a3dd081d41144d6ab149a6a33576963:4958cfa0db0046b4b9d49e4f50771fb6)|(18,150)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="f6d95cefb636462187dd993c42f7c62a" Joints="N(7ccee01e3c274373bc1213efc64c3707:i0)|(4,150) N(5a3dd081d41144d6ab149a6a33576963:4958cfa0db0046b4b9d49e4f50771fb6)|(18,150)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wire Id="873282d5426841d0bf4da0e095df9391" Joints="N(eb377499cd674a0bb457793b7a49cbaf:i0)|(4,120) N(279e8dd49b5f4574805b376e19a0052f:4958cfa0db0046b4b9d49e4f50771fb6)|(18,120)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Literal Bounds="470 200 25 15" DataType="Boolean" Id="b81b7d08c2014a0e867a7b1c08bcb98a" Label="27dd5f7a97354d2387c1048d0ef54069" xmlns="http://www.ni.com/MocCommon">
-					<p.Data>False</p.Data>
-					<BooleanBehavior />
-				</Literal>
-				<NodeLabel AttachedTo="b81b7d08c2014a0e867a7b1c08bcb98a" Bounds="470 182 30 15" Id="27dd5f7a97354d2387c1048d0ef54069" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>stop</p.Text>
-				</NodeLabel>
-				<Wire Id="c0d2c49f04b54f5c9dffe36e66f2eea3" Joints="N(b81b7d08c2014a0e867a7b1c08bcb98a:Out)|(495,205) N(1b697d9351bf4349aacd490bc425d492:Input)|(525,205)" xmlns="http://www.ni.com/PlatformFramework" />
-				<LoopTunnel Bounds="-4 65 13 10" Docking="Left" Id="3efb2323b8814b6a9827e8892adb15d2" Terminals="o0=e9195c3ff8f34d7c89b723bd572b9e6a, i0=25cf39fa7c8a452e97eb34b39cfa3240" />
-				<LoopTunnel Bounds="-4 150 13 10" Docking="Left" Id="f80b4b899c1344dd950defe7445a31af" Terminals="o0=55830292a2e2427ea8ba840cf6e2c33e, i0=f6d95cefb636462187dd993c42f7c62a" />
+				<Wire Id="fd165a77b55347348cc808705afd22ce" Joints="N(3f703ad70af34bfba915bcf342be73f6:4958cfa0db0046b4b9d49e4f50771fb6)|(540,150) h(14) B(1) N(6b4488e9f1074ca98a210f8efac78198:b602692c2ce3423b97f87ba2b5ee38df)|(571,150) B(1) v(50) N(1b697d9351bf4349aacd490bc425d492:Input)|(560,200)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopTunnel Bounds="-4 65 13 10" Docking="Left" Id="3efb2323b8814b6a9827e8892adb15d2" Terminals="o0=9bc150a8ca0d4af3a0bcf56552128985, i0=25cf39fa7c8a452e97eb34b39cfa3240" />
 				<LoopTunnel Bounds="-4 120 13 10" Docking="Left" Id="eb377499cd674a0bb457793b7a49cbaf" Terminals="o0=7030621ea334407bbd11ac8a76b34eed, i0=873282d5426841d0bf4da0e095df9391" />
+				<RightShiftRegister Bounds="576 150 13 10" Docking="Right" Id="6b4488e9f1074ca98a210f8efac78198" Terminals="2dfcfe52ad3f407588d41dc382c3b866=f06b1fde374f4de3a6d7078671c17d01, b602692c2ce3423b97f87ba2b5ee38df=fd165a77b55347348cc808705afd22ce" />
+				<LeftShiftRegister Bounds="-4 150 13 10" Docking="Left" Id="7ccee01e3c274373bc1213efc64c3707" RightRegister="6b4488e9f1074ca98a210f8efac78198" Terminals="o0=55830292a2e2427ea8ba840cf6e2c33e, i0=f6d95cefb636462187dd993c42f7c62a" />
 			</WhileLoop>
-			<Wire Id="41d110ea4efa46928e525b9a77c15ddf" Joints="N(dd79e4ddcbe47a0909dfa72fcdbf141:Out)|(165,620) N(f1fd9e1fe667416299b010a846e1970f:L0)|(190,620)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="c093c5076df448ef8f92ba2b97a5484b" Joints="N(d444abbc0547442b901ebbf3ecc3bbfc:Out)|(165,665) N(9a731168d78a4efaa1b497283ce38a88:L0)|(190,665)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="34dfe8cd39f945f4a99322441ef2231d" Joints="N(423a27fb8aa8418489ffce3035d8119a:Out)|(165,710) N(89126aa8b85843159adcfe848777dd23:L0)|(190,710)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="7d25387775034ed8ae2b329485395588" Joints="N(99e5b17989ef4d5ba2eba75d9c560a32:Out)|(165,755) N(45c0dbef2b364658b7fc0b4fc2a76dc6:L0)|(190,755)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="f9cf3545072041ae92beb004d7590e5d" Joints="N(afce4d19dfea4623adbc5444e5a2854e:Out)|(165,800) N(67933eab35d44cb1974bd3c7b54cbf02:L0)|(190,800)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="8fd51f27c2c34d5f8dba87b1f82eebf2" Joints="N(cc6c0b53db924c9a8cb92806d7da13ab:Out)|(165,845) N(52a65ae299b147afb431df1280d5fe15:L0)|(190,845)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="e9195c3ff8f34d7c89b723bd572b9e6a" Joints="N(78db6172799d457284ae7b2cb2d9772a:outArray)|(335,620) N(3efb2323b8814b6a9827e8892adb15d2:o0)|(411,620)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="365 670 40 40" Id="40f418a939ef4195901ce8eb6965a75a" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioNodes\\Get Audio Destination Node.gvi&quot;" Signature="@9c178013bd314f2fba29387f2ca1edab" Target="WebAudio::AudioNodes::Get Audio Destination Node.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="475 670 40 40" Id="40f418a939ef4195901ce8eb6965a75a" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioNodes\\Get Audio Destination Node.gvi&quot;" Signature="@9c178013bd314f2fba29387f2ca1edab" Target="WebAudio::AudioNodes::Get Audio Destination Node.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L3" Desc="error in" />
@@ -464,10 +260,218 @@
 				<Terminal DataType="@152c6ee109a54830a2d538d48c0fb89b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="55830292a2e2427ea8ba840cf6e2c33e" Joints="N(40f418a939ef4195901ce8eb6965a75a:R3)|(405,705) N(f80b4b899c1344dd950defe7445a31af:o0)|(411,705)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="7030621ea334407bbd11ac8a76b34eed" Joints="N(40f418a939ef4195901ce8eb6965a75a:R0)|(405,675) N(eb377499cd674a0bb457793b7a49cbaf:o0)|(411,675)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="55830292a2e2427ea8ba840cf6e2c33e" Joints="N(40f418a939ef4195901ce8eb6965a75a:R3)|(515,705) N(7ccee01e3c274373bc1213efc64c3707:o0)|(521,705)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="7030621ea334407bbd11ac8a76b34eed" Joints="N(40f418a939ef4195901ce8eb6965a75a:R0)|(515,675) N(eb377499cd674a0bb457793b7a49cbaf:o0)|(521,675)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="610 375 40 40" Id="57fe5d32aec144cfa9bfe321fb0366a1" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Analyser\\Create Analyzer.gvi&quot;" Signature="@2cf3a5d1636d464088e516284d7e4888" Target="WebAudio::Analyser::Create Analyzer.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="audio node reference" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="analyser reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@152c6ee109a54830a2d538d48c0fb89b" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@44ab41b9171c42089afcdc9e8160603e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="8a330912079749c7be1c1065eb1545c7" Joints="N(4d06ee3052f24281b75a58ac69a2d055:8124b3fb198f40339c24f1aff3f872ec)|(594,380) N(57fe5d32aec144cfa9bfe321fb0366a1:L0)|(610,380)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="a6279017b0eb44dca4c445e8fafe60a6" Joints="N(f816f3485f0d4d7491d88d3630ff5fa2:8124b3fb198f40339c24f1aff3f872ec)|(594,410) N(57fe5d32aec144cfa9bfe321fb0366a1:L3)|(610,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="c7416905dba24a13b9bd693f2e0b4e04" Joints="N(57fe5d32aec144cfa9bfe321fb0366a1:R3)|(650,410) N(16d7da88c8b04c3fbb98d0acc341b688:L3)|(765,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="a6b73d746bbf43d1bf1b6e87cdc1d485" Joints="N(57fe5d32aec144cfa9bfe321fb0366a1:R0)|(650,380) h(71) v(-25) N(7f0415520df430b980dbe1d2bcbf002:o0)|(931,355)" xmlns="http://www.ni.com/PlatformFramework" />
+			<EventStructure Bounds="354 332 238 153" Id="8124b3fb198f40339c24f1aff3f872ec" Selected="dfac9a81a2f14b0c96d7570c8f070d63" UserSelectorBounds="20 0 198 17">
+				<EventStructure.EventCase Bounds="21 18 196 127" Id="dfac9a81a2f14b0c96d7570c8f070d63">
+					<EventStructure.EventData Bounds="0 82 92 35" HasErrorTerminals="False" Id="78940b94aad3495ca25efe2829d2a927" InstanceDataType="@b908925083b044bfa2ebedcd63a09603" Mode="InstanceProperties" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
+						<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+							<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+						</p.TypeDefinitionTargets>
+						<EventPropertyItemTerminal DataType="Boolean" Hotspot="92 15" Id="c0t0v" Path="New Value" PathElementMemberKinds="Field" Usage="Optional" />
+					</EventStructure.EventData>
+					<MethodCall Bounds="125 25 40 40" Id="d520dea3ed184c6c933678ece9a63be8" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioNodes\\Create Media Stream Audio Source Node.gvi&quot;" Signature="@0a52573d1bd945f186f9eddcd44c9fc8" Target="WebAudio::AudioNodes::Create Media Stream Audio Source Node.gvi" xmlns="http://www.ni.com/MocCommon">
+						<p.MethodDeclaration>
+							<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+								<Parameter Id="L3" Desc="error in" />
+								<Parameter Id="R0" Desc="audio node reference" />
+								<Parameter Id="R3" Desc="error out" />
+							</MethodDeclaration>
+						</p.MethodDeclaration>
+						<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+						<Terminal DataType="@152c6ee109a54830a2d538d48c0fb89b" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+						<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+					</MethodCall>
+					<DataAccessor Bounds="70 55 40 15" DataItem="341" Id="342" Label="345" xmlns="http://www.ni.com/MocCommon">
+						<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+					</DataAccessor>
+					<NodeLabel AttachedTo="342" Bounds="39 55 26 14" Id="345" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>start</p.Text>
+					</NodeLabel>
+					<Wire Id="5080ebbca7b4f8c8f0d2e7fb15815e6" Joints="N(d520dea3ed184c6c933678ece9a63be8:R0)|(165,30) N(4d06ee3052f24281b75a58ac69a2d055:dfac9a81a2f14b0c96d7570c8f070d63)|(194,30)" xmlns="http://www.ni.com/PlatformFramework" />
+					<Wire Id="160e7a7805924c1ea28739df79c648e4" Joints="N(d520dea3ed184c6c933678ece9a63be8:R3)|(165,60) N(f816f3485f0d4d7491d88d3630ff5fa2:dfac9a81a2f14b0c96d7570c8f070d63)|(194,60)" xmlns="http://www.ni.com/PlatformFramework" />
+					<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventSourceType="Content" EventType="@5e68113184964f72a3ae77b4cf519df9" SourceContent="343" SourceName="start" />
+				</EventStructure.EventCase>
+				<EventStructure.Tunnel Bounds="215 43 25 10" Docking="Right" Id="4d06ee3052f24281b75a58ac69a2d055" Terminals="8124b3fb198f40339c24f1aff3f872ec=8a330912079749c7be1c1065eb1545c7, dfac9a81a2f14b0c96d7570c8f070d63=5080ebbca7b4f8c8f0d2e7fb15815e6" />
+				<EventStructure.Tunnel Bounds="215 73 25 10" Docking="Right" Id="f816f3485f0d4d7491d88d3630ff5fa2" Terminals="8124b3fb198f40339c24f1aff3f872ec=a6279017b0eb44dca4c445e8fafe60a6, dfac9a81a2f14b0c96d7570c8f070d63=160e7a7805924c1ea28739df79c648e4" />
+			</EventStructure>
+			<MethodCall Bounds="155 615 40 40" Id="f1fd9e1fe667416299b010a846e1970f" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="audio buffer reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="-230 660 360 15" DataType="String" Id="d444abbc0547442b901ebbf3ecc3bbfc" Label="1a914f5109454c47886ed5c3326b7c8b" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/270319__littlerobotsoundfactory__jingle-win-01.wav</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Literal Bounds="-235 705 365 15" DataType="String" Id="423a27fb8aa8418489ffce3035d8119a" Label="e9cc016a481b4b6195b0f8691b48c554" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/270329__littlerobotsoundfactory__jingle-lose-00.wav</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Literal Bounds="-285 840 415 15" DataType="String" Id="cc6c0b53db924c9a8cb92806d7da13ab" Label="e4dc3120b9814a60b90162b633b90a99" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/270330__littlerobotsoundfactory__jingle-achievement-01.wav</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Literal Bounds="-285 795 415 15" DataType="String" Id="afce4d19dfea4623adbc5444e5a2854e" Label="99e0c4bcc4234639b8f332ceeee92a81" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/270331__littlerobotsoundfactory__jingle-achievement-00.wav</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Literal Bounds="-230 615 360 15" DataType="String" Id="dd79e4ddcbe47a0909dfa72fcdbf141" Label="f2628bfecd7e40daaca743ff6e3588c0" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/270333__littlerobotsoundfactory__jingle-win-00.wav</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Literal Bounds="-235 750 365 15" DataType="String" Id="99e5b17989ef4d5ba2eba75d9c560a32" Label="91272576bc0c44b9b1bdc41af183d03c" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/270334__littlerobotsoundfactory__jingle-lose-01.wav</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<MethodCall Bounds="155 660 40 40" Id="9a731168d78a4efaa1b497283ce38a88" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="audio buffer reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="155 705 40 40" Id="89126aa8b85843159adcfe848777dd23" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="audio buffer reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="155 750 40 40" Id="45c0dbef2b364658b7fc0b4fc2a76dc6" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="audio buffer reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="155 795 40 40" Id="67933eab35d44cb1974bd3c7b54cbf02" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="audio buffer reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="155 840 40 40" Id="52a65ae299b147afb431df1280d5fe15" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\Buffers\\Create Audio Buffer From URL.gvi&quot;" Signature="@380de97e230e4aada70aae4e977d4207" Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="audio buffer reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@0ed6d715a10d4e2ebde85fc2a809895d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<BuildArray Bounds="370 615 40 60" Id="78db6172799d457284ae7b2cb2d9772a" Terminals="outArray=9bc150a8ca0d4af3a0bcf56552128985, c0t0v=422333d50a1e46d0afd771d123024a75, c1t0v=6ff42938ba044271931ea27f679ee0b9, c2t0v=1e742c5edf514799a3a441de28b092be, c3t0v=fe754d6665724feb920815f1dfd60361, c4t0v=4389db3d9df84783a5c9e827198d1958, c5t0v=cae1aa267fae4b7baeb1392496e7800f" VerticalChunkCount="6" />
+			<NodeLabel AttachedTo="d444abbc0547442b901ebbf3ecc3bbfc" Bounds="-230 642 30 15" Id="1a914f5109454c47886ed5c3326b7c8b" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="423a27fb8aa8418489ffce3035d8119a" Bounds="-235 687 30 15" Id="e9cc016a481b4b6195b0f8691b48c554" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="cc6c0b53db924c9a8cb92806d7da13ab" Bounds="-285 822 30 15" Id="e4dc3120b9814a60b90162b633b90a99" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="afce4d19dfea4623adbc5444e5a2854e" Bounds="-285 777 30 15" Id="99e0c4bcc4234639b8f332ceeee92a81" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="dd79e4ddcbe47a0909dfa72fcdbf141" Bounds="-230 597 30 15" Id="f2628bfecd7e40daaca743ff6e3588c0" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="99e5b17989ef4d5ba2eba75d9c560a32" Bounds="-235 732 30 15" Id="91272576bc0c44b9b1bdc41af183d03c" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<MergeErrors Bounds="280 545 30 60" Id="18512ac8b354470f837b0bddbe6223e5" Terminals="error out=9798541c0cf94cd9afc1cdb34f7fdf06, c0t0v=9a3cd15668444c6d9058917c594a542b, c1t0v=d65c60c12d164f1280818ec75baa375c, c2t0v=9ad19d8b43414ff5acebfb23ef1f74da, c3t0v=2f74419185ee409b855f6e986a68dac6, c4t0v=c9d68742e40f429d99d996940e555382, c5t0v=fd2ac61a69eb49148f52768792fc0106" VerticalChunkCount="6" />
+			<Wire Id="9bc150a8ca0d4af3a0bcf56552128985" Joints="N(78db6172799d457284ae7b2cb2d9772a:outArray)|(410,620) N(3efb2323b8814b6a9827e8892adb15d2:o0)|(521,620)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="41d110ea4efa46928e525b9a77c15ddf" Joints="N(dd79e4ddcbe47a0909dfa72fcdbf141:Out)|(130,620) N(f1fd9e1fe667416299b010a846e1970f:L0)|(155,620)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="422333d50a1e46d0afd771d123024a75" Joints="N(f1fd9e1fe667416299b010a846e1970f:R0)|(195,620) N(78db6172799d457284ae7b2cb2d9772a:c0t0v)|(370,620)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="c093c5076df448ef8f92ba2b97a5484b" Joints="N(d444abbc0547442b901ebbf3ecc3bbfc:Out)|(130,665) N(9a731168d78a4efaa1b497283ce38a88:L0)|(155,665)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="34dfe8cd39f945f4a99322441ef2231d" Joints="N(423a27fb8aa8418489ffce3035d8119a:Out)|(130,710) N(89126aa8b85843159adcfe848777dd23:L0)|(155,710)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="8fd51f27c2c34d5f8dba87b1f82eebf2" Joints="N(cc6c0b53db924c9a8cb92806d7da13ab:Out)|(130,845) N(52a65ae299b147afb431df1280d5fe15:L0)|(155,845)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f9cf3545072041ae92beb004d7590e5d" Joints="N(afce4d19dfea4623adbc5444e5a2854e:Out)|(130,800) N(67933eab35d44cb1974bd3c7b54cbf02:L0)|(155,800)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="7d25387775034ed8ae2b329485395588" Joints="N(99e5b17989ef4d5ba2eba75d9c560a32:Out)|(130,755) N(45c0dbef2b364658b7fc0b4fc2a76dc6:L0)|(155,755)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="6ff42938ba044271931ea27f679ee0b9" Joints="N(9a731168d78a4efaa1b497283ce38a88:R0)|(195,665) h(120) v(-35) N(78db6172799d457284ae7b2cb2d9772a:c1t0v)|(370,630)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1e742c5edf514799a3a441de28b092be" Joints="N(89126aa8b85843159adcfe848777dd23:R0)|(195,710) h(130) v(-70) N(78db6172799d457284ae7b2cb2d9772a:c2t0v)|(370,640)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="fe754d6665724feb920815f1dfd60361" Joints="N(45c0dbef2b364658b7fc0b4fc2a76dc6:R0)|(195,755) h(140) v(-105) N(78db6172799d457284ae7b2cb2d9772a:c3t0v)|(370,650)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="4389db3d9df84783a5c9e827198d1958" Joints="N(67933eab35d44cb1974bd3c7b54cbf02:R0)|(195,800) h(150) v(-140) N(78db6172799d457284ae7b2cb2d9772a:c4t0v)|(370,660)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="cae1aa267fae4b7baeb1392496e7800f" Joints="N(52a65ae299b147afb431df1280d5fe15:R0)|(195,845) h(160) v(-175) N(78db6172799d457284ae7b2cb2d9772a:c5t0v)|(370,670)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9a3cd15668444c6d9058917c594a542b" Joints="N(f1fd9e1fe667416299b010a846e1970f:R3)|(195,650) h(10) v(-100) N(18512ac8b354470f837b0bddbe6223e5:c0t0v)|(280,550)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d65c60c12d164f1280818ec75baa375c" Joints="N(9a731168d78a4efaa1b497283ce38a88:R3)|(195,695) h(20) v(-135) N(18512ac8b354470f837b0bddbe6223e5:c1t0v)|(280,560)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9ad19d8b43414ff5acebfb23ef1f74da" Joints="N(89126aa8b85843159adcfe848777dd23:R3)|(195,740) h(30) v(-170) N(18512ac8b354470f837b0bddbe6223e5:c2t0v)|(280,570)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2f74419185ee409b855f6e986a68dac6" Joints="N(45c0dbef2b364658b7fc0b4fc2a76dc6:R3)|(195,785) h(40) v(-205) N(18512ac8b354470f837b0bddbe6223e5:c3t0v)|(280,580)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="c9d68742e40f429d99d996940e555382" Joints="N(67933eab35d44cb1974bd3c7b54cbf02:R3)|(195,830) h(50) v(-240) N(18512ac8b354470f837b0bddbe6223e5:c4t0v)|(280,590)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="fd2ac61a69eb49148f52768792fc0106" Joints="N(52a65ae299b147afb431df1280d5fe15:R3)|(195,875) h(60) v(-275) N(18512ac8b354470f837b0bddbe6223e5:c5t0v)|(280,600)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9798541c0cf94cd9afc1cdb34f7fdf06" Joints="N(18512ac8b354470f837b0bddbe6223e5:error out)|(310,550) h(134) v(155) N(40f418a939ef4195901ce8eb6965a75a:L3)|(475,705)" xmlns="http://www.ni.com/PlatformFramework" />
+			<OneButtonDialog Bounds="1225 710 40 40" Id="a0e44424e31489995582ec1cad477f3" />
+			<PropertyNode Bounds="1134 700 71 35" HasErrorTerminals="False" Id="6ba35b98723043018dacd6ab5eafe46e" InstanceDataType="Error" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+					<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
+				</p.TypeDefinitionTargets>
+				<PropertyItemTerminal DataType="String" Hotspot="71 15" Id="c0t0v" Path="source" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<Wire Id="71f4ed817b8d4e33965a5bdc138272a4" Joints="N(6ba35b98723043018dacd6ab5eafe46e:c0t0v)|(1205,715) N(a0e44424e31489995582ec1cad477f3:message)|(1225,715)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f06b1fde374f4de3a6d7078671c17d01" Joints="N(6b4488e9f1074ca98a210f8efac78198:2dfcfe52ad3f407588d41dc382c3b866)|(1114,705) N(6ba35b98723043018dacd6ab5eafe46e:instance in)|(1134,705)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]700" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" UpdatedRootPage="[string]&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&#xA;    &lt;head&gt;&#xA;        &lt;script src=&quot;WebAudio.js&quot;&gt;&lt;/script&gt;&#xA;        &lt;meta charset=&quot;utf-8&quot;&gt;&#xA;        &lt;!---Read only section. Source panel edits to these document properties will not be persisted--&gt;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xA;        &lt;title&gt;Main&lt;/title&gt;&#xA;        &lt;!---End read only section. Additional scripts or document properties can be added outside this section--&gt;&#xA;        &lt;style ni-autogenerated-style-id=&quot;&quot;&gt;&#xA;            /* Read only section. Source panel edits to the content of this style tag will not be persisted */&#xA;            &#xA;            ni-front-panel[ni-control-id='FrontPanelCanvas'] {&#xA;                width: 320px;&#xA;                height: 480px;&#xA;            }&#xA;            &#xA;            ni-cartesian-graph[ni-control-id='63'] {&#xA;                left: 4px;&#xA;                top: 4px;&#xA;                width: 312px;&#xA;                height: 200px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                color: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            ni-cartesian-axis[ni-control-id='64'] {&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cartesian-axis[ni-control-id='65'] {&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cartesian-plot[ni-control-id='66'] {&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-scale-legend[ni-control-id='70'] {&#xA;                left: 314px;&#xA;                top: 142px;&#xA;                width: 145px;&#xA;                height: 62px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-plot-legend[ni-control-id='71'] {&#xA;                left: 314px;&#xA;                top: 4px;&#xA;                width: 145px;&#xA;                height: 28px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cursor-legend[ni-control-id='72'] {&#xA;                left: 4px;&#xA;                top: 249px;&#xA;                width: 320px;&#xA;                height: 200px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-graph-tools[ni-control-id='73'] {&#xA;                left: 4px;&#xA;                top: 209px;&#xA;                width: 150px;&#xA;                height: 35px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='74'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 4px;&#xA;                top: -16px;&#xA;                width: 39px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cluster[ni-control-id='78'] {&#xA;                left: 4px;&#xA;                top: 516px;&#xA;                width: 176px;&#xA;                height: 176px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-led[ni-control-id='79'] {&#xA;                left: 8px;&#xA;                top: 24px;&#xA;                width: 24px;&#xA;                height: 24px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-led[ni-control-id='79'] .jqx-true-content-container {&#xA;                background-color: rgba(255, 0, 0, 1);&#xA;                color: rgba(255, 255, 255, 1);&#xA;            }&#xA;            &#xA;            jqx-led[ni-control-id='79'] .jqx-false-content-container {&#xA;                background-image: ;&#xA;                color: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='80'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 8px;&#xA;                top: 4px;&#xA;                width: 38px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-numeric-text-box[ni-control-id='81'] {&#xA;                left: 64px;&#xA;                top: 24px;&#xA;                width: 104px;&#xA;                height: 24px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-numeric-text-box[ni-control-id='81'] input.jqx-numeric-text-box-component {&#xA;                text-align: right;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='82'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 64px;&#xA;                top: 4px;&#xA;                width: 33px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-multiline-text-box[ni-control-id='83'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 96px;&#xA;                left: 8px;&#xA;                --text-align: left;&#xA;                top: 72px;&#xA;                width: 160px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='84'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 8px;&#xA;                top: 52px;&#xA;                width: 42px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='89'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 4px;&#xA;                top: 496px;&#xA;                width: 74px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cartesian-graph[ni-control-id='108'] {&#xA;                left: 4px;&#xA;                top: 212px;&#xA;                width: 312px;&#xA;                height: 200px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                color: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            ni-cartesian-axis[ni-control-id='109'] {&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cartesian-axis[ni-control-id='110'] {&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cartesian-plot[ni-control-id='111'] {&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='119'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 4px;&#xA;                top: 192px;&#xA;                width: 51px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-scale-legend[ni-control-id='115'] {&#xA;                left: 314px;&#xA;                top: 350px;&#xA;                width: 145px;&#xA;                height: 62px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-plot-legend[ni-control-id='116'] {&#xA;                left: 314px;&#xA;                top: 212px;&#xA;                width: 145px;&#xA;                height: 28px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-cursor-legend[ni-control-id='117'] {&#xA;                left: 4px;&#xA;                top: 457px;&#xA;                width: 320px;&#xA;                height: 200px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            ni-graph-tools[ni-control-id='118'] {&#xA;                left: 4px;&#xA;                top: 417px;&#xA;                width: 150px;&#xA;                height: 35px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            &#xA;            jqx-toggle-button[ni-control-id='343'] {&#xA;                left: 64px;&#xA;                top: 428px;&#xA;                width: 200px;&#xA;                height: 40px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;                color: rgba(43, 48, 51, 1);&#xA;                --true-foreground: rgba(255, 255, 255, 1);&#xA;                --false-foreground: rgba(43, 48, 51, 1);&#xA;            }&#xA;            &#xA;            jqx-toggle-button[ni-control-id='343'] button.jqx-button {&#xA;                text-align: center;&#xA;            }&#xA;            &#xA;            ni-label[ni-control-id='344'] {&#xA;                color: rgba(43, 48, 51, 1);&#xA;                height: 16px;&#xA;                left: 64px;&#xA;                top: 408px;&#xA;                width: 43px;&#xA;                font-size: 12px;&#xA;                font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;&#xA;                font-style: normal;&#xA;                font-weight: normal;&#xA;                text-decoration: none;&#xA;            }&#xA;            /* End read only section. To add additional styles, add a new style tag after this one. */&#xA;        &lt;/style&gt;&#xA;&#xA;    &lt;/head&gt;&#xA;&#xA;    &lt;body&gt;&#xA;        &lt;div id=&quot;ni-outdated-browser-message&quot; style=&quot;display:none&quot;&gt;This browser is missing features needed to run this web application. Open this web application in a supported browser.&lt;/div&gt;&#xA;        &lt;div id=&quot;ni-failed-to-load-vireo-source&quot; style=&quot;display:none&quot;&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-title&quot;&gt;&#xA;                Unable to load resource file&#xA;            &lt;/div&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-body&quot;&gt;&#xA;                Verify all WebVI files are available and served using an HTTP server or use a browser that can load files directly from the file system. See &lt;a href=&quot;http://digital.ni.com/express.nsf/bycode/HOSTWEBAPP&quot;&gt;Hosting a Web Application on a Server&lt;/a&gt;                for more information.&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;ni-front-panel-wrapper&quot; vi-ref=&quot;&quot; ni-control-id=&quot;FrontPanelWrapper&quot;&gt;&#xA;            &lt;ni-front-panel&gt;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;                &#xA;&#xA;            &lt;/ni-front-panel&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/body&gt;&#xA;&#xA;&lt;/html&gt;" Width="[float]320" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+		<HtmlFrontPanel Height="[float]700" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" UpdatedRootPage="[string]&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&#xA;    &lt;head&gt;&#xA;        &lt;meta charset=&quot;utf-8&quot;&gt;&#xA;        &lt;!---Read only section. Source panel edits to these document properties will not be persisted--&gt;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&#xA;        &lt;title&gt;index&lt;/title&gt;&#xA;        &lt;!---End read only section. Additional scripts or document properties can be added outside this section--&gt;&#xA;        &lt;style ni-autogenerated-style-id=&quot;&quot;&gt;&#xA;            /* Edits to the content of this style tag will not be persisted. To add additional styles, add a new style tag before or after this one */&#xA;        &lt;/style&gt;&#xA;&#xA;    &lt;/head&gt;&#xA;&#xA;    &lt;body&gt;&#xA;        &lt;div id=&quot;ni-outdated-browser-message&quot; style=&quot;display:none&quot;&gt;This browser is missing features needed to run this web application. Open this web application in a supported browser.&lt;/div&gt;&#xA;        &lt;div id=&quot;ni-failed-to-load-vireo-source&quot; style=&quot;display:none&quot;&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-title&quot;&gt;&#xA;                Unable to load resource file&#xA;            &lt;/div&gt;&#xA;            &lt;div id=&quot;ni-failed-to-load-vireo-message-body&quot;&gt;&#xA;                Verify all WebVI files are available and served using an HTTP server or use a browser that can load files directly from the file system. See &lt;a href=&quot;http://digital.ni.com/express.nsf/bycode/HOSTWEBAPP&quot;&gt;Hosting a Web Application on a Server&lt;/a&gt;                for more information.&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;ni-front-panel-wrapper&quot; vi-ref=&quot;&quot; ni-control-id=&quot;FrontPanelWrapper&quot;&gt;&#xA;            &lt;ni-front-panel control-resize-mode='fixed' layout='absolute' ni-control-id='2'&gt;&#xA;&#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &lt;/ni-front-panel&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/body&gt;&#xA;&#xA;&lt;/html&gt;" Width="[float]320" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<Graph DataSource="{DataItemBinding Id=61}" DataSourceType="[Type]Wfm(Single)" Height="[float]200" Id="63" Label="[UIModel]74" Left="[float]4" TabIndex="[int]0" Top="[float]4" Width="[float]312" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<Axis Adjuster="[RangeAdjuster]FitExactly" Id="64" Label="[string]Time (ms)" MajorDivisions="[UIModel]67" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
 					<RangeLabeledDivisions Id="67">
@@ -484,39 +488,19 @@
 				</Plot>
 			</Graph>
 			<ScaleLegend Graph="[UIModel]63" Height="[float]62" Id="70" Left="[float]314" MinWidth="[float]145" Top="[float]142" Visible="[bool]False" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="63" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</ScaleLegend>
 			<PlotLegend Graph="[UIModel]63" Height="[float]28" Id="71" Left="[float]314" MinWidth="[float]145" Top="[float]4" Visible="[bool]False" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="63" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</PlotLegend>
 			<CursorLegend Graph="[UIModel]63" Height="[float]200" Id="72" Left="[float]4" MinWidth="[float]320" Top="[float]249" Visible="[bool]False" Width="[float]320" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="63" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</CursorLegend>
 			<GraphTools Graph="[UIModel]63" Height="[float]35" Id="73" Left="[float]4" Top="[float]209" Visible="[bool]False" Width="[float]150" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="63" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</GraphTools>
 			<Label Height="[float]16" Id="74" LabelOwner="[UIModel]63" Left="[float]4" Text="[string]time" Top="[float]-16" Visible="[bool]False" Width="[float]24" xmlns="http://www.ni.com/PanelCommon">
-				<HtmlBehavior ClassAttributes="ni-hidden" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="text" Value="Graph" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</Label>
 			<Graph DataSource="{DataItemBinding Id=107}" DataSourceType="[Type]Wfm(Single)" Height="[float]200" Id="108" Label="[UIModel]119" Left="[float]4" TabIndex="[int]1" Top="[float]212" Width="[float]312" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<Axis Adjuster="[RangeAdjuster]FitLoosely" Id="109" Label="[string]Frequency (Hz)" MajorDivisions="[UIModel]112" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
@@ -534,60 +518,36 @@
 				</Plot>
 			</Graph>
 			<Label Height="[float]16" Id="119" LabelOwner="[UIModel]108" Left="[float]4" Text="[string]frequency" Top="[float]192" Visible="[bool]False" Width="[float]53" xmlns="http://www.ni.com/PanelCommon">
-				<HtmlBehavior ClassAttributes="ni-hidden" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="text" Value="Graph_2" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</Label>
 			<ScaleLegend Graph="[UIModel]108" Height="[float]62" Id="115" Left="[float]314" MinWidth="[float]145" Top="[float]350" Visible="[bool]False" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="108" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</ScaleLegend>
 			<PlotLegend Graph="[UIModel]108" Height="[float]28" Id="116" Left="[float]314" MinWidth="[float]145" Top="[float]212" Visible="[bool]False" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="108" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</PlotLegend>
 			<CursorLegend Graph="[UIModel]108" Height="[float]200" Id="117" Left="[float]4" MinWidth="[float]320" Top="[float]457" Visible="[bool]False" Width="[float]320" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="108" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</CursorLegend>
 			<GraphTools Graph="[UIModel]108" Height="[float]35" Id="118" Left="[float]4" Top="[float]417" Visible="[bool]False" Width="[float]150" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="graph-ref" Value="108" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</GraphTools>
 			<Button BaseName="[string]Button" Content="[string]Start Capture" Glyph="[int]61744" Height="[float]40" Id="343" Label="[UIModel]344" Left="[float]64" MinHeight="[float]13" MinWidth="[float]13" TabIndex="[int]2" TextAlignment="[TextAlignment]Center" Top="[float]428" Value="{DataItemBinding Id=341}" Width="[float]200" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]16" Id="344" LabelOwner="[UIModel]343" Left="[float]64" Text="[string]Button" Top="[float]408" Visible="[bool]False" Width="[float]36" xmlns="http://www.ni.com/PanelCommon">
-				<HtmlBehavior ClassAttributes="ni-hidden" xmlns="http://www.ni.com/PlatformFramework">
-					<p.ElementAttributes>
-						<Attribute Name="text" Value="Button" />
-					</p.ElementAttributes>
-				</HtmlBehavior>
+			<Label Height="[float]16" Id="344" LabelOwner="[UIModel]343" Left="[float]64" Text="[string]start" Top="[float]408" Visible="[bool]False" Width="[float]24" xmlns="http://www.ni.com/PanelCommon">
+				<HtmlBehavior ClassAttributes="" xmlns="http://www.ni.com/PlatformFramework" />
 			</Label>
 			<Button BaseName="[string]Button" Content="[string]Win 1" Height="[float]28" Id="859990ffb85b4be790c1061e3b07e8ec" Label="[UIModel]5847ac9f76784245b903313d4e4662d8" Left="[float]20" TabIndex="[int]3" Top="[float]516" Value="{DataItemBinding Id=187ba33576d4f989e6b2fab76f005ea}" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]0" Id="5847ac9f76784245b903313d4e4662d8" LabelOwner="[UIModel]859990ffb85b4be790c1061e3b07e8ec" Left="[float]20" Text="[string]win1" Top="[float]496" Visible="[bool]False" Width="[float]0" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="5847ac9f76784245b903313d4e4662d8" LabelOwner="[UIModel]859990ffb85b4be790c1061e3b07e8ec" Left="[float]20" Text="[string]win1" Top="[float]496" Visible="[bool]False" Width="[float]25" xmlns="http://www.ni.com/PanelCommon" />
 			<Button BaseName="[string]Button" Content="[string]Win 2" Height="[float]28" Id="e058060966a1406f8724654e2823103c" Label="[UIModel]45ea0753143b452f8bf7b7e4c68f0bfe" Left="[float]196" TabIndex="[int]4" Top="[float]516" Value="{DataItemBinding Id=27a667e45e164fcda5153e621507f054}" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]0" Id="45ea0753143b452f8bf7b7e4c68f0bfe" LabelOwner="[UIModel]e058060966a1406f8724654e2823103c" Left="[float]196" Text="[string]win2" Top="[float]496" Visible="[bool]False" Width="[float]0" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="45ea0753143b452f8bf7b7e4c68f0bfe" LabelOwner="[UIModel]e058060966a1406f8724654e2823103c" Left="[float]196" Text="[string]win2" Top="[float]496" Visible="[bool]False" Width="[float]25" xmlns="http://www.ni.com/PanelCommon" />
 			<Button BaseName="[string]Button" Content="[string]Lose 1" Height="[float]28" Id="293dd7b1c5ba425899cb06cbcee2d500" Label="[UIModel]73a90f7915e348feaaa9b491af841b87" Left="[float]20" TabIndex="[int]5" Top="[float]564" Value="{DataItemBinding Id=ada8bf73cc88442db39c5abefee680cb}" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]0" Id="73a90f7915e348feaaa9b491af841b87" LabelOwner="[UIModel]293dd7b1c5ba425899cb06cbcee2d500" Left="[float]20" Text="[string]lose1" Top="[float]544" Visible="[bool]False" Width="[float]0" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="73a90f7915e348feaaa9b491af841b87" LabelOwner="[UIModel]293dd7b1c5ba425899cb06cbcee2d500" Left="[float]20" Text="[string]lose1" Top="[float]544" Visible="[bool]False" Width="[float]28" xmlns="http://www.ni.com/PanelCommon" />
 			<Button BaseName="[string]Button" Content="[string]Lose 2" Height="[float]28" Id="500919b2bf5a47629176e56183412350" Label="[UIModel]b0acea7763d5422e9c7218a9300e1c01" Left="[float]196" TabIndex="[int]6" Top="[float]564" Value="{DataItemBinding Id=47d8ad7428444bc817417d9d935b9ef}" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]0" Id="b0acea7763d5422e9c7218a9300e1c01" LabelOwner="[UIModel]500919b2bf5a47629176e56183412350" Left="[float]196" Text="[string]lose2" Top="[float]544" Visible="[bool]False" Width="[float]0" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="b0acea7763d5422e9c7218a9300e1c01" LabelOwner="[UIModel]500919b2bf5a47629176e56183412350" Left="[float]196" Text="[string]lose2" Top="[float]544" Visible="[bool]False" Width="[float]28" xmlns="http://www.ni.com/PanelCommon" />
 			<Button BaseName="[string]Button" Content="[string]Achievment 1" Height="[float]28" Id="f283ddeac62a49eeb3007d14eeb65fe7" Label="[UIModel]e5609044909b4f6b8d39608ebd4af676" Left="[float]20" TabIndex="[int]7" Top="[float]612" Value="{DataItemBinding Id=ee7aa74f6c2c49c68bd67322e92cb750}" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]0" Id="e5609044909b4f6b8d39608ebd4af676" LabelOwner="[UIModel]f283ddeac62a49eeb3007d14eeb65fe7" Left="[float]20" Text="[string]achievment1" Top="[float]592" Visible="[bool]False" Width="[float]0" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="e5609044909b4f6b8d39608ebd4af676" LabelOwner="[UIModel]f283ddeac62a49eeb3007d14eeb65fe7" Left="[float]20" Text="[string]achievment1" Top="[float]592" Visible="[bool]False" Width="[float]68" xmlns="http://www.ni.com/PanelCommon" />
 			<Button BaseName="[string]Button" Content="[string]Achievment 2" Height="[float]28" Id="a099f5caaf4f4c6a9b894a68a80a4b1f" Label="[UIModel]ac56d62e1a9c4762bbb5baed1cb97de9" Left="[float]196" TabIndex="[int]8" Top="[float]612" Value="{DataItemBinding Id=b9e49429ccdc4381800cce91c7e2de47}" Width="[float]104" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			<Label Height="[float]0" Id="ac56d62e1a9c4762bbb5baed1cb97de9" LabelOwner="[UIModel]a099f5caaf4f4c6a9b894a68a80a4b1f" Left="[float]196" Text="[string]achievment2" Top="[float]592" Visible="[bool]False" Width="[float]0" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="ac56d62e1a9c4762bbb5baed1cb97de9" LabelOwner="[UIModel]a099f5caaf4f4c6a9b894a68a80a4b1f" Left="[float]196" Text="[string]achievment2" Top="[float]592" Visible="[bool]False" Width="[float]68" xmlns="http://www.ni.com/PanelCommon" />
 			<Text BaseName="[string]Text" Height="[float]16" Id="77d26224165c42d8801646bc0a9e38bb" Left="[float]120" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Sound board" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]484" Width="[float]88" xmlns="http://www.ni.com/PlatformFramework" />
 			<Text BaseName="[string]Text" Height="[float]32" Id="293ee35136dc421ba8ab88ab2b105a82" Left="[float]4" SizeMode="[TextModelSizeMode]Fixed" Text="[string]8-Bit Sound Effects Library by LittleRobotSoundFactory / CC BY" TextWrapping="[TextWrapping]Wrap" Top="[float]660" Width="[float]312" xmlns="http://www.ni.com/PlatformFramework" />
 		</HtmlFrontPanel>
@@ -613,7 +573,7 @@
 				</Waveform>
 			</p.DefaultValue>
 		</DataItem>
-		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="341" IsLatched="True" Name="Button" xmlns="http://www.ni.com/MocCommon">
+		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="341" IsLatched="True" Name="start" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
 		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="187ba33576d4f989e6b2fab76f005ea" IsLatched="True" Name="win1" xmlns="http://www.ni.com/MocCommon">
@@ -659,49 +619,11 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0a52573d1bd945f186f9eddcd44c9fc8">
-			<Attributed AttributedType="@31ca8642989346409a7697670cafef42">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="152c6ee109a54830a2d538d48c0fb89b">
-			<Attributed AttributedType="@f6ad65b6b27a4c3baaa4f144f41a63f6">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebAudio::Support" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="2cf3a5d1636d464088e516284d7e4888">
-			<Attributed AttributedType="@b22e85bca5b449a48a3207eeee03f378">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
 		<p.TypeReference TypeId="7d9847568c49495a8ac1e2087e964331">
 			<Attributed AttributedType="@d9e4b69b20ef49049fa3ed95cd1c05ef">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="380de97e230e4aada70aae4e977d4207">
-			<Attributed AttributedType="@3a2ddd0549094c349581834ce47ab6c2">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="0ed6d715a10d4e2ebde85fc2a809895d">
-			<Attributed AttributedType="@964bb895ea31497bba2f26ec22d73d85">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebAudio::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -734,8 +656,46 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
+		<p.TypeReference TypeId="0ed6d715a10d4e2ebde85fc2a809895d">
+			<Attributed AttributedType="@964bb895ea31497bba2f26ec22d73d85">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebAudio::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="152c6ee109a54830a2d538d48c0fb89b">
+			<Attributed AttributedType="@f6ad65b6b27a4c3baaa4f144f41a63f6">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebAudio::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="9c178013bd314f2fba29387f2ca1edab">
 			<Attributed AttributedType="@1a82f9fd2caa461eb88638c6c56325fa">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2cf3a5d1636d464088e516284d7e4888">
+			<Attributed AttributedType="@b22e85bca5b449a48a3207eeee03f378">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="0a52573d1bd945f186f9eddcd44c9fc8">
+			<Attributed AttributedType="@31ca8642989346409a7697670cafef42">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="380de97e230e4aada70aae4e977d4207">
+			<Attributed AttributedType="@3a2ddd0549094c349581834ce47ab6c2">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -797,17 +757,17 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="31ca8642989346409a7697670cafef42">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Media Stream Audio Source Node.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="d9e4b69b20ef49049fa3ed95cd1c05ef">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Sample Rate.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@8078274fd7304620ba3ee3c15dfcb44b">
+					<Attributed AttributedType="@f0725b2f4b324378b7d9aa9fcf3a5311">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]audio node reference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]sample rate" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
@@ -818,8 +778,65 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
+		<p.TypeReference TypeId="d50df5b336fb4ca1978447e27f14bf7c">
+			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
+				<Parameters>
+					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@30b8c81a2a52459e8aa6a9adb360bca1" />
+				</Parameters>
+			</Event>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c7e8884b9e6b46d7afafba7e92f5dbbd">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Play Audio Buffer.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@d5b35ea194604673823ce5954f57f34f">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]audio buffer reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@f05c3ec9ac544247a8c7c2e8674e0326">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]destination audio node reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="964bb895ea31497bba2f26ec22d73d85">
+			<Typedef TypedefName="audio buffer reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="f6ad65b6b27a4c3baaa4f144f41a63f6">
 			<Typedef TypedefName="audio node reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1a82f9fd2caa461eb88638c6c56325fa">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Audio Destination Node.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@8078274fd7304620ba3ee3c15dfcb44b">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]destination audio node reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
 		</p.TypeReference>
 		<p.TypeReference TypeId="b22e85bca5b449a48a3207eeee03f378">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Analyzer.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -847,17 +864,17 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d9e4b69b20ef49049fa3ed95cd1c05ef">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Sample Rate.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="31ca8642989346409a7697670cafef42">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Media Stream Audio Source Node.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@f0725b2f4b324378b7d9aa9fcf3a5311">
+					<Attributed AttributedType="@8078274fd7304620ba3ee3c15dfcb44b">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]sample rate" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]audio node reference" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
@@ -894,63 +911,6 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="964bb895ea31497bba2f26ec22d73d85">
-			<Typedef TypedefName="audio buffer reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="d50df5b336fb4ca1978447e27f14bf7c">
-			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
-				<Parameters>
-					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@30b8c81a2a52459e8aa6a9adb360bca1" />
-				</Parameters>
-			</Event>
-		</p.TypeReference>
-		<p.TypeReference TypeId="c7e8884b9e6b46d7afafba7e92f5dbbd">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Play Audio Buffer.gvi" ReturnType="Void" GenericTypeDefinition="Void">
-				<Parameters>
-					<Attributed AttributedType="@d5b35ea194604673823ce5954f57f34f">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]audio buffer reference" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@f05c3ec9ac544247a8c7c2e8674e0326">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]destination audio node reference" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
-						</AttributeValues>
-					</Attributed>
-				</Parameters>
-			</Function>
-		</p.TypeReference>
-		<p.TypeReference TypeId="1a82f9fd2caa461eb88638c6c56325fa">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Audio Destination Node.gvi" ReturnType="Void" GenericTypeDefinition="Void">
-				<Parameters>
-					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@8078274fd7304620ba3ee3c15dfcb44b">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]destination audio node reference" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
-						</AttributeValues>
-					</Attributed>
-				</Parameters>
-			</Function>
-		</p.TypeReference>
 		<p.TypeReference TypeId="3f2f07aaa8d144fbbd70857402c71630">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@44ab41b9171c42089afcdc9e8160603e" />
 		</p.TypeReference>
@@ -970,23 +930,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="8078274fd7304620ba3ee3c15dfcb44b">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@152c6ee109a54830a2d538d48c0fb89b" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="ce9db4617d084db69dfdffcd474999d2">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@152c6ee109a54830a2d538d48c0fb89b" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="df1e935c607941d8bb2883f168b2d792">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@44ab41b9171c42089afcdc9e8160603e" />
-		</p.TypeReference>
 		<p.TypeReference TypeId="f0725b2f4b324378b7d9aa9fcf3a5311">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="b0e1a371f57a4da78efcbb46be4c3663">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="571b776a89a34246b821f3a58c850ccd">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@0ed6d715a10d4e2ebde85fc2a809895d" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="30b8c81a2a52459e8aa6a9adb360bca1">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
@@ -1003,6 +948,21 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="f05c3ec9ac544247a8c7c2e8674e0326">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@152c6ee109a54830a2d538d48c0fb89b" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="8078274fd7304620ba3ee3c15dfcb44b">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@152c6ee109a54830a2d538d48c0fb89b" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="ce9db4617d084db69dfdffcd474999d2">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@152c6ee109a54830a2d538d48c0fb89b" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="df1e935c607941d8bb2883f168b2d792">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@44ab41b9171c42089afcdc9e8160603e" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b0e1a371f57a4da78efcbb46be4c3663">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="571b776a89a34246b821f3a58c850ccd">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@0ed6d715a10d4e2ebde85fc2a809895d" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="88a6b52ebce04b399d897f46b4c969cc">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
@@ -1045,42 +1005,6 @@
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="WebAudio::AudioNodes::Create Media Stream Audio Source Node.gvi">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Media Stream Audio Source Node" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
-		<p.IconModel Target="WebAudio::Analyser::Create Analyzer.gvi">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Analyzer" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
 		<p.IconModel Target="WebAudio::AudioContextState::Get Sample Rate.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
@@ -1091,24 +1015,6 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Sample Rate" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
-		<p.IconModel Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Audio Buffer From URL" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
@@ -1144,6 +1050,60 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Audio Destination Node" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebAudio::Analyser::Create Analyzer.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Analyzer" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebAudio::AudioNodes::Create Media Stream Audio Source Node.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Media Stream Audio Source Node" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebAudio::Buffers::Create Audio Buffer From URL.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Audio Buffer From URL" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>

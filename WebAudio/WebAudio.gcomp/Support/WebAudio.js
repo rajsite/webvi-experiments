@@ -1,22 +1,40 @@
 (function () {
     'use strict';
 
-    // Helpers
-    const getAudioContext = (function () {
-        // Create a single AudioContext for the page
-        // https://developers.google.com/web/updates/2012/01/Web-Audio-FAQ#q_how_many_audio_contexts_should_i_have
-        let audioContext;
-        return function () {
-            if (audioContext === undefined) {
-                audioContext = new AudioContext();
+    // Create a single AudioContext for the page
+    // https://developers.google.com/web/updates/2012/01/Web-Audio-FAQ#q_how_many_audio_contexts_should_i_have
+    const audioContextPromise = new Promise(function (resolve) {
+        document.addEventListener('click', function createAudioContext () {
+            document.removeEventListener('click', createAudioContext);
+            const audioContext = new AudioContext();
+            // iOS audio context workaround https://gist.github.com/kus/3f01d60569eeadefe3a1#file-fixiosaudiocontext-js-L10
+            // Create empty buffer
+            const sampleRate = 22050;
+            const buffer = audioContext.createBuffer(1, 1, sampleRate);
+            const source = audioContext.createBufferSource();
+            source.buffer = buffer;
+            // Connect to output (speakers)
+            source.connect(audioContext.destination);
+            // Play sound
+            if (source.start) {
+                source.start(0);
+            } else if (source.play) {
+                source.play(0);
+            } else if (source.noteOn) {
+                source.noteOn(0);
             }
-            return audioContext;
-        };
-    }());
+            resolve(audioContext);
+        });
+    });
+
+    // Helpers
+    const getAudioContext = async function () {
+        return await audioContextPromise;
+    };
 
     // Buffers
     const decodeAudioDataFromArrayBuffer = async function (arrayBuffer) {
-        const audioContext = getAudioContext();
+        const audioContext = await getAudioContext();
         return new Promise((resolve, reject) => {
             audioContext.decodeAudioData(arrayBuffer, resolve, reject);
         });
@@ -30,8 +48,8 @@
         return audioBuffer;
     };
 
-    const playAudioBuffer = function (audioBuffer, destination) {
-        const audioContext = getAudioContext();
+    const playAudioBuffer = async function (audioBuffer, destination) {
+        const audioContext = await getAudioContext();
         const source = audioContext.createBufferSource();
         source.buffer = audioBuffer;
         source.connect(destination);
@@ -47,21 +65,21 @@
 
     const createMediaStreamAudioSourceNode = async function () {
         const stream = await navigator.mediaDevices.getUserMedia({audio: true});
-        const audioContext = getAudioContext();
+        const audioContext = await getAudioContext();
         const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
         return mediaStreamAudioSourceNode;
     };
 
-    const getAudioDestinationNode = function () {
-        const audioContext = getAudioContext();
+    const getAudioDestinationNode = async function () {
+        const audioContext = await getAudioContext();
         const audioDestinationNode = audioContext.destination;
         return audioDestinationNode;
     };
 
     // Analyser
     class Analyser {
-        constructor (source) {
-            const audioContext = getAudioContext();
+        async init (source) {
+            const audioContext = await getAudioContext();
             const analyser = audioContext.createAnalyser();
             this._analyser = analyser;
             this._floatTimeDomainData = new Float32Array(analyser.fftSize);
@@ -86,9 +104,10 @@
         }
     };
 
-    const createAnalyser = function (source) {
+    const createAnalyser = async function (source) {
         validateAudioNode(source);
-        const analyser = new Analyser(source);
+        const analyser = new Analyser();
+        await analyser.init(source);
         return analyser;
     };
 
@@ -105,8 +124,8 @@
     };
 
     // AudioContextState
-    const getSampleRate = function () {
-        const audioContext = getAudioContext();
+    const getSampleRate = async function () {
+        const audioContext = await getAudioContext();
         return audioContext.sampleRate;
     };
 
