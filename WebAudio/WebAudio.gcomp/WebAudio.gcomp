@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="52DC4CE7586E2E599078098961DCC6DB4ECD01D9FAAB84B3DFF2030E417BBA184FD5CEDAA4E6BD308729FF7D0D4D402EA361A964560A6FF10E449702685ABC9F" Timestamp="1D6F465ED2B73F2" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="05C7F631B510B51EB8F4656171E71CF9C23B28B43881211C9C52C7C8FD486BE9A0FEAE800C117E32D620CC2B5B345346F51FEA40B0F12E3EB220529806C6F374" Timestamp="1D6F52171B7BB63" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -16,9 +16,7 @@
 		<ComponentConfiguration Id="1b5bf02b83564a3aa8bcf8a3ac7cfe28" Name="Configuration1">
 			<CompilerSymbolTable Id="a70e22b8c7544f1ba04742f9a713bd25" xmlns="http://www.ni.com/PlatformFramework" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="228127c25bb5434f8e370c1128f09cec" Id="a1d55ec177ca4e8b968b2aec9f03a57b" />
-			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="96960bd16c9f45d79a194acfa15976eb" Id="ff0f4cfa02694109907f538037b0a2fe" />
 			<GLibraryProperties Id="91adcf4abd6941feb5024852e7e8f817" />
-			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="40dbf921fe6245058a9160fb9808184f" Id="88cd89f85b574adca7edb13fb83525c4" />
 			<ComponentItemProperties AssociatedEnvoyId="b7c54d9aef714b919d3a1c56371956d6" Exported="True" Id="d4ff54d4e85749fbb95c2a87ea94e89b" />
 			<ComponentItemProperties AssociatedEnvoyId="9702e5ef89b74088adafa33487c3714c" Exported="True" Id="e204429c8051459aac95d8e8df9947ad" />
 			<ComponentItemProperties AssociatedEnvoyId="8f7191a875594c2ba4003f4e8d7c1c35" Exported="True" Id="22e9c95e96c410488b10ee678f88f07" />
@@ -30,6 +28,7 @@
 			<ComponentItemProperties AssociatedEnvoyId="83cd1f417e364db3abca8b96ba8db886" Exported="True" Id="8a595b54965241798bbd7cde61c3c88a" />
 			<ComponentItemProperties AssociatedEnvoyId="24aa478fefa44a8d8da2801a0813c4c5" Exported="True" Id="3f0a4ca4059642ed854a7e2ce4e453fa" />
 			<ComponentItemProperties AssociatedEnvoyId="8b05f2361c3f4d2885cf61ae12e240dc" Exported="True" Id="fead78a762ff4d94b443fb55278bcade" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="d8dfc3b022034dfea358df4a1379de05" Id="5a25df957124b2d9f81278f349497e6" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="9a5ec055aa7a4fb6ae4d5e242bbb15cb" xmlns="http://www.ni.com/PlatformFramework">
@@ -42,11 +41,10 @@
 					<FileReference Bindings=".js" Id="228127c25bb5434f8e370c1128f09cec" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="WebAudio.js" StoragePath="Support\WebAudio.js" />
 					<SourceFileReference Bindings="EnvoyManager" Id="9702e5ef89b74088adafa33487c3714c" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="audio node reference.gtype" StoragePath="Support\audio node reference.gtype\audio node reference.gtype" />
 					<SourceFileReference Bindings="EnvoyManager" Id="b7c54d9aef714b919d3a1c56371956d6" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="analyser reference.gtype" StoragePath="Support\analyser reference.gtype\analyser reference.gtype" />
-					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="2aef52ec16074719bce430c196429fc8" Name="ThirdParty">
-						<FileReference Bindings=".js" Id="96960bd16c9f45d79a194acfa15976eb" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="AudioContextMonkeyPatch.js" StoragePath="Support\ThirdParty\AudioContextMonkeyPatch.js" />
-						<FileReference Bindings=".js" Id="40dbf921fe6245058a9160fb9808184f" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="get-float-time-domain-data.js" StoragePath="Support\ThirdParty\get-float-time-domain-data.js" />
-					</NameScopingEnvoy>
 					<SourceFileReference Bindings="EnvoyManager" Id="3894c9f21ebb4d39a9645e8bffe69a6a" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="audio buffer reference.gtype" StoragePath="Support\audio buffer reference.gtype\audio buffer reference.gtype" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="ab583582645d4abe9972e5c680a004cf" Name="dist">
+						<FileReference Bindings=".js" Id="d8dfc3b022034dfea358df4a1379de05" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="bundle.js" StoragePath="Support\dist\bundle.js" />
+					</NameScopingEnvoy>
 				</NameScopingEnvoy>
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="9f398bb1f83b4885a18e275fb514015e" Name="Buffers">
 					<SourceFileReference Id="8f7191a875594c2ba4003f4e8d7c1c35" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Audio Buffer From URL.gvi" StoragePath="Buffers\Create Audio Buffer From URL.gvi" />
