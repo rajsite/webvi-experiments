@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="544C967B3A0EE74014F9476035DBBC48A9C048BABB41BE6AC214FFE6FF254A46CA90E1809908E289D3408D66C376B00089361D0F1A384183AA50CBD33B029EF6" Timestamp="1D5EF8B5DE320ED" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="AC63476EB923A43C2909934B372EC547BE9CAEF2EE89EBCE56D05D735733F86779015CD9E1BEB2FC5AB48909A38ED4FBE2EC6F9226120804EB3871B4F5047525" Timestamp="1D6F524F4406932" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
-		<ApplicationVersionInfo Build="7.1.0.50148" Name="LabVIEW NXG" Version="4.0.0" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.1.0.50414" Name="LabVIEW NXG" Version="5.0.0" />
 	</SourceModelFeatureSet>
 	<VirtualInstrument Id="5840cc1d035c4895bd08a6b3cedcd77a" xmlns="http://www.ni.com/LabVIEW.VI">
 		<Icon Id="ef609c3e3bb4c20a9800536a07d692a" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -37,56 +37,88 @@
 		<DiagramUnplacedItems Id="3c205ad8b7e740c4837a18ef79d4883d" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="2e2780271512401db3114cdc8c9a7e72" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="2570468e573d4dfca4a29cc50080a735">
-			<MethodCall Bounds="510 240 40 40" Id="994b48d5764147e4937554d22112cacf" ResolveFailedHint="GetFloatFrequencyData" Signature="@45ea93fa314f4a7c8651996c7cac0c38" Target="WebAudio::Support::WebAudio.jsli::GetFloatFrequencyData" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="655 240 40 40" Id="994b48d5764147e4937554d22112cacf" ResolveFailedHint="GetFloatFrequencyData" Signature="@b6774b693b8f46fab586e137791bacdd" Target="WebAudio::Support::WebAudio.jsli::GetFloatFrequencyData" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L1" Desc="analyserReference" />
+						<Parameter Id="L1" Desc="analyser" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R0" Desc="floatFrequencyData" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
-				<Terminal DataType="Int32" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@7daba7cc969c478fbb1943d69641e981" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Single[]" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<DataAccessor Bounds="580 270 40 15" DataItem="8287030e11524c5e868086eede1f6c94" Id="21d5e8fb451244389805ac18b78a8af5" Label="479d822509404312a39d2f60be37be57" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="865 270 40 15" DataItem="8287030e11524c5e868086eede1f6c94" Id="21d5e8fb451244389805ac18b78a8af5" Label="479d822509404312a39d2f60be37be57" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="21d5e8fb451244389805ac18b78a8af5" Bounds="625 270 50 14" Id="479d822509404312a39d2f60be37be57" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="21d5e8fb451244389805ac18b78a8af5" Bounds="910 270 50 14" Id="479d822509404312a39d2f60be37be57" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>error out</p.Text>
 			</NodeLabel>
-			<Wire Id="e78ebba3b2ba48ac92362b42a1414e87" Joints="N(994b48d5764147e4937554d22112cacf:R3)|(550,275) N(21d5e8fb451244389805ac18b78a8af5:Value)|(583,275)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="440 270 40 15" DataItem="ac3bfb023b4547c5bbd234053b936c5f" Id="6b68b5dee4a943eea08980f8825ab0c3" Label="a88524d3660942e3b332c9fbd555faff" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="e78ebba3b2ba48ac92362b42a1414e87" Joints="N(994b48d5764147e4937554d22112cacf:R3)|(695,275) N(21d5e8fb451244389805ac18b78a8af5:Value)|(868,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="375 270 40 15" DataItem="ac3bfb023b4547c5bbd234053b936c5f" Id="6b68b5dee4a943eea08980f8825ab0c3" Label="a88524d3660942e3b332c9fbd555faff" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="6b68b5dee4a943eea08980f8825ab0c3" Bounds="393 270 42 14" Id="a88524d3660942e3b332c9fbd555faff" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="6b68b5dee4a943eea08980f8825ab0c3" Bounds="328 270 42 14" Id="a88524d3660942e3b332c9fbd555faff" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>error in</p.Text>
 			</NodeLabel>
-			<Wire Id="a10b1aeebe734f978adfab3c913209dd" Joints="N(6b68b5dee4a943eea08980f8825ab0c3:Value)|(480,275) N(994b48d5764147e4937554d22112cacf:L3)|(510,275)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="440 250 40 15" DataItem="2c5e235591d5487a815fcf39dcdd5bbd" Id="129eb32178f844869d12f86c53a7b6d2" Label="177be3f9a6ae4d919d592b4e89dd6cda" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@1e1e60c7610c4691b09be79b7a690a21" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="600 250 40 15" DataItem="2c5e235591d5487a815fcf39dcdd5bbd" Id="129eb32178f844869d12f86c53a7b6d2" Label="177be3f9a6ae4d919d592b4e89dd6cda" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="@44ab41b9171c42089afcdc9e8160603e" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="129eb32178f844869d12f86c53a7b6d2" Bounds="332 250 103 14" Id="177be3f9a6ae4d919d592b4e89dd6cda" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="129eb32178f844869d12f86c53a7b6d2" Bounds="492 250 103 14" Id="177be3f9a6ae4d919d592b4e89dd6cda" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>analyser reference</p.Text>
 			</NodeLabel>
-			<Wire Id="f7e3705cd95449fda6bd50ece08ab004" Joints="N(129eb32178f844869d12f86c53a7b6d2:Value)|(480,255) N(994b48d5764147e4937554d22112cacf:L1)|(510,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<DataAccessor Bounds="580 240 40 15" DataItem="3bd98bd314c94b009a0d8a08ea84d803" Id="9daa8b7dcfbb4db7b386332178f7c300" Label="f0a286daa2b64bc1ad3461a3c1caf2b0" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="Single[]" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f7e3705cd95449fda6bd50ece08ab004" Joints="N(129eb32178f844869d12f86c53a7b6d2:Value)|(640,255) N(994b48d5764147e4937554d22112cacf:L1)|(655,255)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="990 180 40 15" DataItem="3bd98bd314c94b009a0d8a08ea84d803" Id="9daa8b7dcfbb4db7b386332178f7c300" Label="f0a286daa2b64bc1ad3461a3c1caf2b0" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Wfm(Double)" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="9daa8b7dcfbb4db7b386332178f7c300" Bounds="625 240 83 14" Id="f0a286daa2b64bc1ad3461a3c1caf2b0" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="9daa8b7dcfbb4db7b386332178f7c300" Bounds="1035 180 83 14" Id="f0a286daa2b64bc1ad3461a3c1caf2b0" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>frequency data</p.Text>
 			</NodeLabel>
-			<Wire Id="780f794c5ed4ca7a42a5c6ea889b61d" Joints="N(994b48d5764147e4937554d22112cacf:R0)|(550,245) N(9daa8b7dcfbb4db7b386332178f7c300:Value)|(583,245)" xmlns="http://www.ni.com/PlatformFramework" />
+			<BuildWaveformNode Bounds="925 180 40 40" Id="183ca2467eea4479afc3b24a058f7c25" />
+			<ArraySize Bounds="740 205 40 20" Id="d8bc79903ba94443af0140efbb9c600d" />
+			<Divide Bounds="835 200 30 30" Id="ab380ffa95c34198be0fdf27829130cf" />
+			<Wire Id="5c0ddc93c37c46709fec2adcdd236b4e" Joints="N(343cea252b2744df8578ad638bdf7e9f:x/y)|(660,165) h(160) v(40) N(ab380ffa95c34198be0fdf27829130cf:x)|(835,205)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="991f45c41dc544408345e50dc253348c" Joints="N(ab380ffa95c34198be0fdf27829130cf:x/y)|(865,215) h(5) v(-20) N(183ca2467eea4479afc3b24a058f7c25:dt)|(925,195)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="4b3f179853a34d1795c5fd3e789cfa3b" Joints="N(449eec28d5284c28b49685f2628b76de:double precision float)|(830,220) N(ab380ffa95c34198be0fdf27829130cf:y)|(835,220)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ToDoublePrecisionFloat Bounds="800 215 30 10" Id="449eec28d5284c28b49685f2628b76de" />
+			<Wire Id="8e2672a33bf04096a6e42b1ce8cf45af" Joints="N(d8bc79903ba94443af0140efbb9c600d:size(s\))|(780,220) N(449eec28d5284c28b49685f2628b76de:number)|(803,220)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Divide Bounds="630 150 30 30" Id="343cea252b2744df8578ad638bdf7e9f" />
+			<Literal Bounds="575 165 40 15" DataType="Double" Id="ac31d46051f94ccaa17e700f4ae6ecbf" Label="90866259b9d948afb757d6236dfe2de3" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0x4000000000000000</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+			</Literal>
+			<Wire Id="d8e6e9010eb546b28be7ed85ccc76d25" Joints="N(ac31d46051f94ccaa17e700f4ae6ecbf:Out)|(615,170) N(343cea252b2744df8578ad638bdf7e9f:y)|(630,170)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="ac31d46051f94ccaa17e700f4ae6ecbf" Bounds="575 147 30 15" Id="90866259b9d948afb757d6236dfe2de3" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>y</p.Text>
+			</NodeLabel>
+			<MethodCall Bounds="445 240 40 40" Id="87651ae4c5054d2081d568f4e1705c12" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\WebAudio\\WebAudio.gcomp\\AudioContextState\\Get Sample Rate.gvi&quot;" Signature="@7d9847568c49495a8ac1e2087e964331" Target="WebAudio::AudioContextState::Get Sample Rate.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="sample rate" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="15a61d3124f840c6b559e36f95c3550c" Joints="N(6b68b5dee4a943eea08980f8825ab0c3:Value)|(415,275) N(87651ae4c5054d2081d568f4e1705c12:L3)|(445,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="6fa72d51fdaa49cfa22d5153847657f5" Joints="N(87651ae4c5054d2081d568f4e1705c12:R3)|(485,275) N(994b48d5764147e4937554d22112cacf:L3)|(655,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="83f8977c2f824e168c877d6dcf5a722f" Joints="N(87651ae4c5054d2081d568f4e1705c12:R0)|(485,245) h(5) v(-90) N(343cea252b2744df8578ad638bdf7e9f:x)|(630,155)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="a3d1b3cd8f6f47c3811304b9c6caf30c" Joints="N(994b48d5764147e4937554d22112cacf:R0)|(695,245) h(6) v(-35) B(2) N(d8bc79903ba94443af0140efbb9c600d:array)|(740,210) B(2) v(-25) N(183ca2467eea4479afc3b24a058f7c25:Y)|(925,185)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9b196eecce23470b8763e3cd781c182a" Joints="N(183ca2467eea4479afc3b24a058f7c25:output waveform)|(965,185) N(9daa8b7dcfbb4db7b386332178f7c300:Value)|(993,185)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="76250f4afdfe418692945f9d2cb623f7" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
 			<PanelExecutionWindow Id="d95cdf7256714145a5cfbfd45b4d8a98" />
-			<NumericText BaseName="[string]analyser reference" Height="[float]24" Id="f57b3b6dbc4c4b3aa8fae56a1c12c4a7" Interval="[int]1" IsReadOnly="[bool]False" Label="[UIModel]bfff253a2de54f64bc2682d4ffe34d60" Left="[float]452" TabIndex="[int]0" Top="[float]148" Value="{DataItemBinding Id=2c5e235591d5487a815fcf39dcdd5bbd}" ValueFormatter="[string]LV:0" ValueType="[Type]@1e1e60c7610c4691b09be79b7a690a21" Width="[float]72" p4:ControlDefinitionChecksum="dmAHYojckcPZ2ln6Qtu3OwE9s13Te39FbrpXawe6hWo=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+			<OpaqueRefnum BaseName="[string]analyser reference" Height="[float]24" Id="f57b3b6dbc4c4b3aa8fae56a1c12c4a7" IsTabStop="[bool]True" Label="[UIModel]bfff253a2de54f64bc2682d4ffe34d60" LabelLinked="[bool]True" Left="[float]452" RefnumType="[Type]@44ab41b9171c42089afcdc9e8160603e" TabIndex="[int]0" Top="[float]148" Value="{DataItemBinding Id=2c5e235591d5487a815fcf39dcdd5bbd}" Width="[float]24" p4:ControlDefinitionChecksum="h2akKQhlVsSK7DHcDXdXnUvDe+ggT5CemDURVlElBbo=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="WebAudio::Support::analyser reference.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
-			</NumericText>
+			</OpaqueRefnum>
 			<Label Height="[float]16" Id="bfff253a2de54f64bc2682d4ffe34d60" LabelOwner="[UIModel]f57b3b6dbc4c4b3aa8fae56a1c12c4a7" Left="[float]452" Text="[string]analyser reference" Top="[float]128" Width="[float]97" xmlns="http://www.ni.com/PanelCommon" />
 			<Cluster BaseName="[null]" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="43a3f89af07427c84552f920b475997" Label="[UIModel]7906b922136549c1b402cab9b629f738" Left="[float]452" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]1" Top="[float]324" Value="{DataItemBinding Id=ac3bfb023b4547c5bbd234053b936c5f}" Width="[float]176" p4:ControlDefinitionChecksum="J+f/EiASvnzghyjtgi4nEE7z+0udh8Z1+KU2hWC1ppw=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
@@ -112,11 +144,8 @@
 				<p4:Label Height="[float]16" Id="a9a4f6cbe3e544828dd13fe1d07d945d" LabelOwner="[UIModel]80c3b336d3ca4c6b845698810684c898" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
 			<Label Height="[float]16" Id="f1611bcb1e4747d38210fd4daddcb17b" LabelOwner="[UIModel]16fdb5a8a09a4a1e9935b97e0f985a6c" Left="[float]692" Text="[string]error out" Top="[float]304" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
-			<ArrayViewer ArrayElement="[UIModel]abe7fc251141487984e48f94e78e6de4" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]120" Id="5423e4a75d68474ab8db1fd5c65dae33" IndexVisibility="[Visibility]Collapsed" IsFixedSize="[bool]False" Label="[UIModel]cbb91de5ef9e490a9e48afb4b1809bc4" Left="[float]692" Orientation="[SMOrientation]Vertical" Rows="[int]4" TabIndex="[int]3" Top="[float]148" Value="{DataItemBinding Id=3bd98bd314c94b009a0d8a08ea84d803}" VerticalScrollBarVisibility="[ScrollBarVisibility]Visible" Width="[float]104" xmlns="http://www.ni.com/PanelCommon">
-				<p.DefaultElementValue>0x0</p.DefaultElementValue>
-				<NumericText BaseName="[string]Numeric" Height="[float]24" Id="abe7fc251141487984e48f94e78e6de4" Interval="[float]1" IsReadOnly="[bool]True" ValueFormatter="[string]LV:G6" ValueType="[Type]Single" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-			</ArrayViewer>
-			<Label Height="[float]16" Id="cbb91de5ef9e490a9e48afb4b1809bc4" LabelOwner="[UIModel]5423e4a75d68474ab8db1fd5c65dae33" Left="[float]692" Text="[string]frequency data" Top="[float]128" Width="[float]80" xmlns="http://www.ni.com/PanelCommon" />
+			<Waveform BaseName="[string]Waveform" Height="[float]136" Id="639b27df422340549bd275a5dde49125" IsReadOnly="[bool]True" IsTabStop="[bool]True" Label="[UIModel]3425881d274c4eedb72cdc50ff56c0d1" LabelLinked="[bool]True" Left="[float]692" TabIndex="[int]3" Top="[float]148" WaveformData="{DataItemBinding Id=3bd98bd314c94b009a0d8a08ea84d803}" WaveformDataType="[Type]Double" Width="[float]280" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Height="[float]16" Id="3425881d274c4eedb72cdc50ff56c0d1" LabelOwner="[UIModel]639b27df422340549bd275a5dde49125" Left="[float]692" Text="[string]frequency data" Top="[float]128" Width="[float]80" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem CallDirection="Output" CallIndex="1" DataType="Error" Id="8287030e11524c5e868086eede1f6c94" Name="error out" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>
@@ -142,19 +171,27 @@
 				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
-		<DataItem CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="@1e1e60c7610c4691b09be79b7a690a21" Id="2c5e235591d5487a815fcf39dcdd5bbd" Name="analyser reference" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="@44ab41b9171c42089afcdc9e8160603e" Id="2c5e235591d5487a815fcf39dcdd5bbd" Name="analyser reference" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 				<TypeDefinitionTarget TargetName="WebAudio::Support::analyser reference.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
-		<DataItem AdaptToDiagramType="True" CallDirection="Output" CallIndex="0" DataType="Single[]" Id="3bd98bd314c94b009a0d8a08ea84d803" Name="frequency data" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>null</p.DefaultValue>
+		<DataItem CallDirection="Output" CallIndex="0" DataType="Wfm(Double)" Id="3bd98bd314c94b009a0d8a08ea84d803" Name="frequency data" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>
+				<Waveform>
+					<Timestamp>60052752000;0;Utc</Timestamp>
+					<Interval>0x3FF0000000000000</Interval>
+					<Data>
+						<Array Lengths="0" />
+					</Data>
+				</Waveform>
+			</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="45ea93fa314f4a7c8651996c7cac0c38">
-			<Attributed AttributedType="@60ecc0b95a044b95a57d37ad3d8ff3a3">
+		<p.TypeReference TypeId="b6774b693b8f46fab586e137791bacdd">
+			<Attributed AttributedType="@2f8beaa84a4b40e4a5eed3c7a4c108c6">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -162,22 +199,37 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="1e1e60c7610c4691b09be79b7a690a21">
-			<Attributed AttributedType="@9b552ed99c7c482da1242c3b7035ab9a">
+		<p.TypeReference TypeId="7daba7cc969c478fbb1943d69641e981">
+			<Attributed AttributedType="@88a6b52ebce04b399d897f46b4c969cc">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="44ab41b9171c42089afcdc9e8160603e">
+			<Attributed AttributedType="@8a057feea9984c0293c5027829f1c335">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]WebAudio::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="60ecc0b95a044b95a57d37ad3d8ff3a3">
+		<p.TypeReference TypeId="7d9847568c49495a8ac1e2087e964331">
+			<Attributed AttributedType="@d9e4b69b20ef49049fa3ed95cd1c05ef">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2f8beaa84a4b40e4a5eed3c7a4c108c6">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GetFloatFrequencyData" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@ca60bb9527fc410cbee98a0146191fce">
+					<Attributed AttributedType="@f5b393bfcaa7457f943319b1335db925">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]analyserReference" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]analyser" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@dc2e46da1c6245fcb1c4ea72622bf253">
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
@@ -187,7 +239,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]floatFrequencyData" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@62e2d8a22c8944a9a7c8057d4fa81655">
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
@@ -195,20 +247,47 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9b552ed99c7c482da1242c3b7035ab9a">
-			<Typedef TypedefName="analyser reference.gtype" UnderlyingType="Int32" />
+		<p.TypeReference TypeId="88a6b52ebce04b399d897f46b4c969cc">
+			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="ca60bb9527fc410cbee98a0146191fce">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
+		<p.TypeReference TypeId="8a057feea9984c0293c5027829f1c335">
+			<Typedef TypedefName="analyser reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="dc2e46da1c6245fcb1c4ea72622bf253">
+		<p.TypeReference TypeId="d9e4b69b20ef49049fa3ed95cd1c05ef">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Sample Rate.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@f0725b2f4b324378b7d9aa9fcf3a5311">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]sample rate" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f5b393bfcaa7457f943319b1335db925">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@7daba7cc969c478fbb1943d69641e981" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="ac19a95443e84ec4bc6e3a2616d69084">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Single[]" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="62e2d8a22c8944a9a7c8057d4fa81655">
+		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="f0725b2f4b324378b7d9aa9fcf3a5311">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="Int32" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
@@ -226,6 +305,24 @@
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;WebAudio.jsli&gt;" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebAudio::AudioContextState::Get Sample Rate.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Get Sample Rate" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebAudio.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
