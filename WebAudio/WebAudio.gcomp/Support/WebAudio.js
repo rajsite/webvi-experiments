@@ -3,10 +3,21 @@ import {AudioContext} from './dist/bundle.js';
 // Create a single AudioContext for the page
 // https://developers.google.com/web/updates/2012/01/Web-Audio-FAQ#q_how_many_audio_contexts_should_i_have
 const audioContextPromise = new Promise(function (resolve) {
-    document.addEventListener('click', function createAudioContext () {
-        document.removeEventListener('click', createAudioContext);
+    // User event interactions from https://developers.google.com/web/updates/2018/11/web-audio-autoplay
+    // An array of various user interaction events we should listen for
+    const userInputEventNames = [
+        'click', 'contextmenu', 'auxclick', 'dblclick', 'mousedown',
+        'mouseup', 'pointerup', 'touchend', 'keydown', 'keyup'
+    ];
+    const createContext = function () {
+        userInputEventNames.forEach(eventName => {
+            document.removeEventListener(eventName, createContext);
+        });
         const audioContext = new AudioContext();
         resolve(audioContext);
+    };
+    userInputEventNames.forEach(eventName => {
+        document.addEventListener(eventName, createContext);
     });
 });
 
