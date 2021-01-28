@@ -9,7 +9,7 @@ The following projects have been shared on the LabVIEW Community 🥰:
 - [DebugTools 🐛](https://bit.ly/debugtools) - Advanced debugging tools for WebVIs.
 - [IFrame 🍱](https://forums.ni.com/t5/Example-Code/IFrame-for-WebVI/ta-p/4110725) - Embed pages in a WebVI inside an IFrame.
 - [Map 🗺](https://forums.ni.com/t5/Example-Code/Maps-for-WebVI-Google-Maps-and-Open-Street-Maps/ta-p/4106124) - APIs for using Google Maps and OpenStreetMap.
-- [SweetAlert 🍩](https://forums.ni.com/t5/Example-Programs/SweetAlert-Highly-configurable-popups-for-WebVIs-in-LabVIEW-NXG/ta-p/4011222) - Highly configurable popups for WebVIs in LabVIEW NXG.
+- [SweetAlert 🍩](https://forums.ni.com/t5/Example-Programs/SweetAlert-Highly-configurable-popups-for-WebVIs-in-LabVIEW-NXG/ta-p/4011222) - Highly configurable popups for WebVIs.
 
 Please ask questions on the LabVIEW Community / use the downloads attached to pages in the LabVIEW Community. If you find the examples from the LabVIEW Community useful, make sure and share the [awesome WebVIs](https://github.com/rajsite/awesome-webvis) you make! 🏄‍♀️.
 
