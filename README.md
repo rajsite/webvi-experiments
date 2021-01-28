@@ -17,4 +17,4 @@ Please ask questions on the LabVIEW Community / use the downloads attached to pa
 
 Warning: The other projects in this repository that are not shared on the LabVIEW Community or projects that are on the LabVIEW Community but have corresponding updates in this repository that are not published to the LabVIEW Community yet are experimental and NOT yet considered suitable for use ⚠.
 
-Experiments may have breaking changes, be non-functional prototypes, or be removed altogether without notice. The software is provided "AS IS", without warranty of any kind (see license).
+Experiments may have breaking changes, be non-functional prototypes, or be removed altogether without notice. The software is provided "AS IS", without warranty of any kind (see `LICENSE`).
