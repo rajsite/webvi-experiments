@@ -324,7 +324,7 @@ const isConstructible = (constructible) => {
         const proxy = new Proxy(constructible, handler);
         new proxy(); // tslint:disable-line:no-unused-expression
     }
-    catch {
+    catch(e) {
         return false;
     }
     return true;
@@ -821,7 +821,7 @@ const testAudioBufferCopyChannelMethodsOutOfBoundsSupport = (nativeAudioBuffer) 
     try {
         nativeAudioBuffer.copyToChannel(new Float32Array(1), 0, -1);
     }
-    catch {
+    catch(e) {
         return false;
     }
     return true;
@@ -2748,7 +2748,7 @@ const createCacheTestResult = (ongoingTests, testResults) => {
             testResults.set(tester, synchronousTestResult);
             return synchronousTestResult;
         }
-        catch {
+        catch(e) {
             testResults.set(tester, false);
             return false;
         }
@@ -3147,7 +3147,7 @@ const createDecodeAudioData = (audioBufferStore, cacheTestResult, createDataClon
         try {
             detachedArrayBuffers.add(audioData);
         }
-        catch {
+        catch(e) {
             // Ignore errors.
         }
         // Bug #21: Safari does not support promises yet.
@@ -3168,7 +3168,7 @@ const createDecodeAudioData = (audioBufferStore, cacheTestResult, createDataClon
                 try {
                     detachArrayBuffer(audioData);
                 }
-                catch {
+                catch(e) {
                     // Ignore errors.
                 }
             };
@@ -3614,7 +3614,7 @@ const createFetchSource = (createAbortError) => {
                 return [await response.text(), response.url];
             }
         }
-        catch {
+        catch(e) {
             // Ignore errors.
         } // tslint:disable-line:no-empty
         throw createAbortError();
@@ -4274,7 +4274,7 @@ const testPromiseSupport = (nativeContext) => {
         });
         return true;
     }
-    catch {
+    catch(e) {
         // Ignore errors.
     }
     return false;
@@ -4575,7 +4575,7 @@ const createNativeAudioDestinationNodeFactory = (createNativeGainNode, overwrite
             try {
                 nativeAudioDestinationNode.channelCount = channelCount;
             }
-            catch {
+            catch(e) {
                 // Bug #169: Safari throws an error on each attempt to change the channelCount.
             }
         }
@@ -7245,7 +7245,7 @@ const createTestAudioBufferConstructorSupport = (nativeAudioBufferConstructor) =
         try {
             new nativeAudioBufferConstructor({ length: 1, sampleRate: 44100 }); // tslint:disable-line:no-unused-expression
         }
-        catch {
+        catch(e) {
             return false;
         }
         return true;
@@ -7271,7 +7271,7 @@ const createTestAudioBufferCopyChannelMethodsSubarraySupport = (nativeOfflineAud
         try {
             nativeAudioBuffer.copyFromChannel(source, 0, 0);
         }
-        catch {
+        catch(e) {
             return false;
         }
         return true;
@@ -7292,7 +7292,7 @@ const createTestAudioContextCloseMethodSupport = (nativeAudioContextConstructor)
         try {
             audioContext.close();
         }
-        catch {
+        catch(e) {
             // Ignore errors.
         }
         return isAudioContextClosable;
@@ -7349,7 +7349,7 @@ const createTestAudioContextOptionsSupport = (nativeAudioContextConstructor) => 
         try {
             audioContext = new nativeAudioContextConstructor({ latencyHint: 'balanced' });
         }
-        catch {
+        catch(e) {
             return false;
         }
         audioContext.close();
@@ -7402,7 +7402,7 @@ const createTestAudioWorkletProcessorNoOutputsSupport = (nativeAudioWorkletNodeC
                 await new Promise((resolve) => setTimeout(resolve, 5));
             }
         }
-        catch {
+        catch(e) {
             // Ignore errors.
         }
         finally {
@@ -7438,7 +7438,7 @@ const createTestAudioWorkletProcessorPostMessageSupport = (nativeAudioWorkletNod
             oscillator.connect(audioWorkletNode);
             await offlineAudioContext.startRendering();
         }
-        catch {
+        catch(e) {
             // Ignore errors.
         }
         finally {
@@ -7468,7 +7468,7 @@ const createTestChannelMergerNodeChannelCountSupport = (nativeOfflineAudioContex
         try {
             nativeChannelMergerNode.channelCount = 2;
         }
-        catch {
+        catch(e) {
             return true;
         }
         return false;
@@ -7506,7 +7506,7 @@ const createTestConvolverNodeBufferReassignabilitySupport = (nativeOfflineAudioC
         try {
             nativeConvolverNode.buffer = offlineAudioContext.createBuffer(1, 1, offlineAudioContext.sampleRate);
         }
-        catch {
+        catch(e) {
             return false;
         }
         return true;
@@ -7524,7 +7524,7 @@ const createTestConvolverNodeChannelCountSupport = (nativeOfflineAudioContextCon
         try {
             nativeConvolverNode.channelCount = 1;
         }
-        catch {
+        catch(e) {
             return false;
         }
         return true;
@@ -7874,7 +7874,7 @@ const testAudioBufferSourceNodeStartMethodConsecutiveCallsSupport = (nativeConte
     try {
         nativeAudioBufferSourceNode.start();
     }
-    catch {
+    catch(e) {
         return true;
     }
     return false;
@@ -7887,7 +7887,7 @@ const testAudioBufferSourceNodeStartMethodOffsetClampingSupport = (nativeContext
     try {
         nativeAudioBufferSourceNode.start(0, 1);
     }
-    catch {
+    catch(e) {
         return false;
     }
     return true;
@@ -7899,7 +7899,7 @@ const testAudioBufferSourceNodeStopMethodNullifiedBufferSupport = (nativeContext
     try {
         nativeAudioBufferSourceNode.stop();
     }
-    catch {
+    catch(e) {
         return false;
     }
     return true;
@@ -7926,7 +7926,7 @@ const testAudioScheduledSourceNodeStopMethodConsecutiveCallsSupport = (nativeCon
         nativeAudioBufferSourceNode.stop();
         return true;
     }
-    catch {
+    catch(e) {
         return false;
     }
 };
@@ -7976,7 +7976,7 @@ const testDomExceptionConstructorSupport = () => {
     try {
         new DOMException(); // tslint:disable-line:no-unused-expression
     }
-    catch {
+    catch(e) {
         return false;
     }
     return true;
@@ -8026,7 +8026,7 @@ const wrapAudioScheduledSourceNodeStopMethodConsecutiveCalls = (nativeAudioSched
                 try {
                     stop.call(nativeAudioScheduledSourceNode, when);
                 }
-                catch {
+                catch(e) {
                     nativeGainNode.gain.setValueAtTime(0, when);
                 }
             }
