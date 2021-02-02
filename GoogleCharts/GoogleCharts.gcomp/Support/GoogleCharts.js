@@ -17,31 +17,11 @@
         return geoChartReference;
     };
 
-    const plotGeoChartData = function (geoChartReference) {
-        const data = window.google.visualization.arrayToDataTable([
-            ['Country', 'Popularity'],
-            ['South America',
-                // eslint-disable-next-line no-magic-numbers
-                600
-            ],
-            ['Canada',
-                // eslint-disable-next-line no-magic-numbers
-                500
-            ],
-            ['France',
-                // eslint-disable-next-line no-magic-numbers
-                600
-            ],
-            ['Russia',
-                // eslint-disable-next-line no-magic-numbers
-                700
-            ],
-            ['Australia',
-                // eslint-disable-next-line no-magic-numbers
-                600
-            ]
-        ]);
-
+    const plotGeoChartData = function (geoChartReference, columnsJSON, rowsJSON) {
+        const columns = JSON.parse(columnsJSON);
+        const rows = JSON.parse(rowsJSON);
+        rows.unshift(columns);
+        const data = window.google.visualization.arrayToDataTable(rows);
         const options = {displayMode: 'text'};
         geoChartReference.draw(data, options);
     };
