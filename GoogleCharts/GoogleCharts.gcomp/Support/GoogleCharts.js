@@ -20,8 +20,8 @@
     const plotGeoChartData = function (geoChartReference, columnsJSON, rowsJSON) {
         const columns = JSON.parse(columnsJSON);
         const rows = JSON.parse(rowsJSON);
-        rows.unshift(columns);
-        const data = window.google.visualization.arrayToDataTable(rows);
+        const array = [columns, ...rows];
+        const data = window.google.visualization.arrayToDataTable(array);
         const options = {displayMode: 'text'};
         geoChartReference.draw(data, options);
     };
