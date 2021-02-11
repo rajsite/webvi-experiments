@@ -50,6 +50,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Web Server" 
 Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
 
+Write-Host "Copy File build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
+
 Write-Host "Copy GoogleCharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\GoogleCharts" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\GoogleCharts"
 

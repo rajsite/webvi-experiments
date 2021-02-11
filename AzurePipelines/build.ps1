@@ -25,6 +25,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Boo
 Write-Host "Build ECharts project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build File project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\File" -ProjectFileName "File.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build GoogleCharts project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\GoogleCharts" -ProjectFileName "GoogleCharts.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
