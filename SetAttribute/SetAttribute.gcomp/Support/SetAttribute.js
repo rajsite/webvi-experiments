@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    window.setAttributeOnSelectedElements = function (selector, attributeName, attributeValue) {
+    const setAttribute = function (selector, attributeName, attributeValue) {
         const elements = document.querySelectorAll(selector);
 
         if (elements.length <= 0) {
@@ -12,4 +12,5 @@
             elements[i].setAttribute(attributeName, attributeValue);
         }
     };
+    window.WebVISetAttribute = {setAttribute};
 }());
