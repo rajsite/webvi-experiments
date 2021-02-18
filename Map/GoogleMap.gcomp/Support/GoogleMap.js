@@ -1,8 +1,44 @@
 (function () {
     'use strict';
 
-    let infoWindow;
-    const initialize = function (key) {
+    const authFailure = new Promise((resolve, reject) => {
+        const originalGMAuthFailure = window.gm_authFailure;
+        window.gm_authFailure = function (...args) {
+            reject(new Error('Google Maps Authentication Failure, see browser console for more details'));
+            if (typeof originalGMAuthFailure === 'function') {
+                originalGMAuthFailure.call(window, ...args);
+            }
+        };
+    });
+
+    const tryAuthCheck = async function () {
+        await Promise.race([authFailure, Promise.resolve()]);
+    };
+
+    const mapInfoWindows = new WeakMap();
+    const getOrCreateInfoWindow = function (map) {
+        if (mapInfoWindows.has(map)) {
+            const infoWindow = mapInfoWindows.get(map);
+            return infoWindow;
+        }
+        const infoWindow = new window.google.maps.InfoWindow();
+        mapInfoWindows.set(map, infoWindow);
+        return infoWindow;
+    };
+
+    const markerTitles = new WeakMap();
+    const markerMaps = new WeakMap();
+    const showMarkerIfPossible = function (marker) {
+        if (markerTitles.has(marker)) {
+            const title = markerTitles.get(marker);
+            const map = markerMaps.get(marker);
+            const infoWindow = getOrCreateInfoWindow(map);
+            infoWindow.setContent(title);
+            infoWindow.open(map, marker);
+        }
+    };
+
+    const loadGoogleMapScript = function (key) {
         return new Promise(function (resolve, reject) {
             if ((window.google && window.google.maps) || window.WebVIGoogleMapLoaded) {
                 throw new Error('Google Maps has already been initialized or is initializing');
@@ -14,7 +50,6 @@
 
             window.WebVIGoogleMapLoaded = function () {
                 window.WebVIGoogleMapLoaded = undefined;
-                infoWindow = new window.google.maps.InfoWindow();
                 resolve();
             };
             script.addEventListener('error', function () {
@@ -25,7 +60,16 @@
         });
     };
 
-    const createMap = function (placeholder, lat, lng, zoom) {
+    // public functions
+    const initialize = async function (key) {
+        await Promise.race([
+            authFailure,
+            loadGoogleMapScript(key)
+        ]);
+    };
+
+    const createMap = async function (placeholder, lat, lng, zoom) {
+        await tryAuthCheck();
         if ((window.google && window.google.maps) === false) {
             throw new Error('Google Maps not loaded. Must call initialize before using Google Maps.');
         }
@@ -42,22 +86,14 @@
         return map;
     };
 
-    const destroyMap = function (map) {
+    const destroyMap = async function (map) {
+        mapInfoWindows.delete(map);
         const mapElement = map.getDiv();
         mapElement.parentNode.removeChild(mapElement);
     };
 
-    const markerTitles = new WeakMap();
-    const showMarkerIfPossible = function (marker) {
-        if (markerTitles.has(marker)) {
-            const title = markerTitles.get(marker);
-            infoWindow.setContent(title);
-            const map = marker.getMap();
-            infoWindow.open(map, marker);
-        }
-    };
-
-    const createMarker = function (map, lat, lng, title, iconUrl) {
+    const createMarker = async function (map, lat, lng, title, iconUrl) {
+        await tryAuthCheck();
         const options = {
             position: {lat, lng},
             map,
@@ -67,6 +103,7 @@
             options.icon = iconUrl;
         }
         const marker = new window.google.maps.Marker(options);
+        markerMaps.set(marker, map);
         if (title !== '') {
             markerTitles.set(marker, title);
         }
@@ -76,20 +113,25 @@
         return marker;
     };
 
-    const showMarker = function (marker) {
+    const showMarker = async function (marker) {
+        await tryAuthCheck();
         showMarkerIfPossible(marker);
     };
 
-    const destroyMarker = function (marker) {
+    const destroyMarker = async function (marker) {
+        markerMaps.delete(marker);
         markerTitles.delete(marker);
         window.google.maps.event.clearInstanceListeners(marker);
         marker.setMap(null);
     };
 
-    const updateMarkerText = function (marker, title) {
+    const updateMarkerText = async function (marker, title) {
+        await tryAuthCheck();
         if (title !== '') {
             markerTitles.set(marker, title);
             marker.setTitle(title);
+            const map = markerMaps.get(marker);
+            const infoWindow = getOrCreateInfoWindow(map);
             if (infoWindow.getAnchor() === marker) {
                 infoWindow.setContent(title);
             }
