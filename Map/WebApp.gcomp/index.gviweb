@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="70AA0958E6435125FAEDBE0CD0D85AEF42C9BC13B3E4C3A001B2886B6F48E8169EC23C94AE5CC242EA29581181AA50883A3C3DAEAA0EBB15B571EE1DF125AE38" Timestamp="1D7068376541CCD" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="A635D29F6ADC97348F4488AD35E7AEA52C1098EC54447B6049CA8E371D9C6E8762F28D05677C72345B7FE6B5DD0AD725264DE2A3D8CD29BBF8C8A3E44836754F" Timestamp="1D706D9C3BFE32E" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -178,7 +178,7 @@
 						</Cluster>
 					</p.DefaultElementValue>
 				</ArrayBehavior>
-				<ClusterLiteral Bounds="282.3 2.1 76 121" DataType="@177f8ae8de4647939cd56f031a3d73d7" Id="e3ab986f65b44bd896b8d0cea954169">
+				<ClusterLiteral Bounds="126 2 76 121" DataType="@177f8ae8de4647939cd56f031a3d73d7" Id="e3ab986f65b44bd896b8d0cea954169">
 					<ClusterBehavior AutoArrange="ArrangeVertically" />
 					<Literal Bounds="2 20 40 15" DataType="Double" Id="af5ce212ef63430f8a0281727d7ba980" Label="5f9c7177c7384506ad13dd8f34e7433c">
 						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
@@ -660,7 +660,7 @@
 			</MethodCall>
 			<WhileLoop Bounds="1155 710 335 140" DiagramId="1bc99a588464404c879e56afd8e9feb1" Id="61f16aed46e24c5cad54b0a3f46e02dd">
 				<LoopIteration Bounds="5 110 15 15" Id="1c3663eddb0a415fae623d08d47ad277" />
-				<LoopCondition Bounds="115 95 15 15" Id="6f39edc4b144d71a93e90e3a69c0bd5" />
+				<LoopCondition Bounds="295 95 15 15" Id="6f39edc4b144d71a93e90e3a69c0bd5" />
 				<MethodCall Bounds="40 50 40 40" Id="a938d9ae079245649726343d18ff7f83" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Map\\Leaflet.gcomp\\Marker\\Events\\Wait for Marker Event.gvi&quot;" Signature="@9a898ba572e747f0b4c8330cf5857f2f" Target="Leaflet::Marker::Events::Wait for Marker Event.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
@@ -677,16 +677,19 @@
 				</MethodCall>
 				<Wire Id="517bd7d05ef642e48fd439d0f5cfe78e" Joints="N(4790c62598f435eaaec59f188fc5871:i0)|(4,55) N(a938d9ae079245649726343d18ff7f83:L0)|(40,55)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wire Id="86d7fda8614c4a13b9576fd26fae0132" Joints="N(68ab25ed1aaf4808b2ff7e1c488ec4ce:i0)|(4,85) N(a938d9ae079245649726343d18ff7f83:L3)|(40,85)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="e3949872d88043ad820edb3aadb3b864" Joints="N(a938d9ae079245649726343d18ff7f83:R3)|(80,85) h(30) B(1) N(28f15fd7c1b149398e594ec50e7f2c80:1bc99a588464404c879e56afd8e9feb1)|(321,85) B(1) v(15) N(6f39edc4b144d71a93e90e3a69c0bd5:Input)|(115,100)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="115 60 40 15" DataItem="6136bcb773f3477b83791eff1186fadd" Id="efeedfa0041a40c88720fed7942d0d96" Label="10850abc79434731a656e931ab56c7fc" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="efeedfa0041a40c88720fed7942d0d96" Bounds="160 60 153 14" Id="10850abc79434731a656e931ab56c7fc" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>leaflet clicked marker index</p.Text>
-				</NodeLabel>
-				<Wire Id="590ffc5e2e1f4ab987f722af191948be" Joints="N(a938d9ae079245649726343d18ff7f83:R1)|(80,65) N(efeedfa0041a40c88720fed7942d0d96:Value)|(118,65)" xmlns="http://www.ni.com/PlatformFramework" />
+				<ControlReference Bounds="40 20 120 20" Id="98c0b4d10dcc4e0dbfa5c56eedabd2bc" SourceControl="775c6deb9b934e778c7367dfd3ac6bf5" />
+				<PropertyNode Bounds="175 70 98 45" Id="673d0611baca453abedcff5d628c5377" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+						<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+					</p.TypeDefinitionTargets>
+					<PropertyItemTerminal Action="Write" DataType="Int32" Hotspot="0 25" Id="c0t0v" Path="Value" PathElementMemberKinds="Property" Usage="Required" />
+				</PropertyNode>
+				<Wire Id="774ee7073042465c8e58a0d1f866d08e" Joints="N(98c0b4d10dcc4e0dbfa5c56eedabd2bc:control reference)|(160,25) h(5) v(50) N(673d0611baca453abedcff5d628c5377:instance in)|(175,75)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="48299e0fa9a74a1c8a2e65d532c4c650" Joints="N(673d0611baca453abedcff5d628c5377:error out)|(273,85) h(17) B(1) N(28f15fd7c1b149398e594ec50e7f2c80:1bc99a588464404c879e56afd8e9feb1)|(321,85) B(1) v(15) N(6f39edc4b144d71a93e90e3a69c0bd5:Input)|(295,100)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="4815b8b89bf47bb856b8021c384f3e6" Joints="N(a938d9ae079245649726343d18ff7f83:R3)|(80,85) N(673d0611baca453abedcff5d628c5377:error in)|(175,85)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="df25bcea2e314726b472b811fd56021d" Joints="N(a938d9ae079245649726343d18ff7f83:R1)|(80,65) h(6) v(30) N(673d0611baca453abedcff5d628c5377:c0t0v)|(175,95)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopTunnel Bounds="-4 55 13 10" Docking="Left" Id="4790c62598f435eaaec59f188fc5871" Terminals="o0=3fb55e21125d4da7a6d23db459f68d55, i0=517bd7d05ef642e48fd439d0f5cfe78e" />
-				<RightShiftRegister Bounds="326 85 13 10" Docking="Right" Id="28f15fd7c1b149398e594ec50e7f2c80" Terminals="61f16aed46e24c5cad54b0a3f46e02dd=4747acd468ba4663adf6dc0f98aa0b72, 1bc99a588464404c879e56afd8e9feb1=e3949872d88043ad820edb3aadb3b864" />
+				<RightShiftRegister Bounds="326 85 13 10" Docking="Right" Id="28f15fd7c1b149398e594ec50e7f2c80" Terminals="61f16aed46e24c5cad54b0a3f46e02dd=4747acd468ba4663adf6dc0f98aa0b72, 1bc99a588464404c879e56afd8e9feb1=48299e0fa9a74a1c8a2e65d532c4c650" />
 				<LeftShiftRegister Bounds="-4 85 13 10" Docking="Left" Id="68ab25ed1aaf4808b2ff7e1c488ec4ce" RightRegister="28f15fd7c1b149398e594ec50e7f2c80" Terminals="o0=8b5b5c05a0444b02a5cf81093f15c4d0, i0=86d7fda8614c4a13b9576fd26fae0132" />
 			</WhileLoop>
 			<Wire Id="3fb55e21125d4da7a6d23db459f68d55" Joints="N(2cfa9f3f9a8d48f9b02278da0c6cb68e:R0)|(1110,770) N(4790c62598f435eaaec59f188fc5871:o0)|(1151,770)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -705,10 +708,10 @@
 				<Terminal DataType="@22ccec5e4c8245c59547fc40dd4b1f58" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<WhileLoop Bounds="1175 1615 394 140" DiagramId="acc80f5eb781474895d67e342044b2a8" Id="90bdea380384419fb5c2aedd393f3a3d">
-				<LoopIteration Bounds="5 110 15 15" Id="a0d79845262846e28b00480d675eabcb" />
-				<LoopCondition Bounds="350 95 15 15" Id="e78e1a1431bb40caba78d3c2e0f494ed" />
-				<MethodCall Bounds="75 45 40 40" Id="fcd7ea5760a74a618c2cfa72e29c26c1" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Events\\Wait for Marker Event.gvi&quot;" Signature="@bd514e17fb244ef1899bbcb953c2c4ae" Target="GoogleMap::Marker::Events::Wait for Marker Event.gvi" xmlns="http://www.ni.com/MocCommon">
+			<WhileLoop Bounds="1175 1605 394 150" DiagramId="acc80f5eb781474895d67e342044b2a8" Id="90bdea380384419fb5c2aedd393f3a3d">
+				<LoopIteration Bounds="5 120 15 15" Id="a0d79845262846e28b00480d675eabcb" />
+				<LoopCondition Bounds="350 105 15 15" Id="e78e1a1431bb40caba78d3c2e0f494ed" />
+				<MethodCall Bounds="75 55 40 40" Id="fcd7ea5760a74a618c2cfa72e29c26c1" ResolveFailedHint="&quot;C:\\dev\\Github\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Events\\Wait for Marker Event.gvi&quot;" Signature="@bd514e17fb244ef1899bbcb953c2c4ae" Target="GoogleMap::Marker::Events::Wait for Marker Event.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="L0" Desc="event stream reader" />
@@ -722,19 +725,22 @@
 					<Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
-				<Wire Id="77e6273e1c16400db4ce254e8be1412f" Joints="N(ea7f3bf6fbb745159a33fcbf68770a1e:i0)|(4,80) N(fcd7ea5760a74a618c2cfa72e29c26c1:L3)|(75,80)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="36b41c3691d345369a15c4db9163b5b2" Joints="N(cb7fbee50aa43f996baa249d3abadf3:i0)|(4,50) N(fcd7ea5760a74a618c2cfa72e29c26c1:L0)|(75,50)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="34942ec9b266496fac1d43e040909ec8" Joints="N(fcd7ea5760a74a618c2cfa72e29c26c1:R3)|(115,80) h(225) B(1) N(a793e82d5b5c47cda952161e17b03df4:acc80f5eb781474895d67e342044b2a8)|(380,80) B(1) v(20) N(e78e1a1431bb40caba78d3c2e0f494ed:Input)|(350,100)" xmlns="http://www.ni.com/PlatformFramework" />
-				<DataAccessor Bounds="145 55 40 15" DataItem="694925d50aed45108591f3289abe7037" Id="c77caf440127411da88271c59a2737fc" Label="3432762c31c94316978d5fa2f69a60ee" xmlns="http://www.ni.com/MocCommon">
-					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-				</DataAccessor>
-				<NodeLabel AttachedTo="c77caf440127411da88271c59a2737fc" Bounds="190 55 184 14" Id="3432762c31c94316978d5fa2f69a60ee" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>google map clicked marker index</p.Text>
-				</NodeLabel>
-				<Wire Id="b7538362b62745c9bcb3905d7dcf4afb" Joints="N(fcd7ea5760a74a618c2cfa72e29c26c1:R1)|(115,60) N(c77caf440127411da88271c59a2737fc:Value)|(148,60)" xmlns="http://www.ni.com/PlatformFramework" />
-				<RightShiftRegister Bounds="385 80 13 10" Docking="Right" Id="a793e82d5b5c47cda952161e17b03df4" Terminals="90bdea380384419fb5c2aedd393f3a3d=af6c4d5b491460ca9ffdce0aeb90557, acc80f5eb781474895d67e342044b2a8=34942ec9b266496fac1d43e040909ec8" />
-				<LeftShiftRegister Bounds="-4 80 13 10" Docking="Left" Id="ea7f3bf6fbb745159a33fcbf68770a1e" RightRegister="a793e82d5b5c47cda952161e17b03df4" Terminals="o0=6282ea81e61f4bddaf223f16429d64f4, i0=77e6273e1c16400db4ce254e8be1412f" />
-				<LoopTunnel Bounds="-4 50 13 10" Docking="Left" Id="cb7fbee50aa43f996baa249d3abadf3" Terminals="o0=c7df9dcebdf64015b70efc7512d9b5c5, i0=36b41c3691d345369a15c4db9163b5b2" />
+				<Wire Id="77e6273e1c16400db4ce254e8be1412f" Joints="N(ea7f3bf6fbb745159a33fcbf68770a1e:i0)|(4,90) N(fcd7ea5760a74a618c2cfa72e29c26c1:L3)|(75,90)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="36b41c3691d345369a15c4db9163b5b2" Joints="N(cb7fbee50aa43f996baa249d3abadf3:i0)|(4,60) N(fcd7ea5760a74a618c2cfa72e29c26c1:L0)|(75,60)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="b7538362b62745c9bcb3905d7dcf4afb" Joints="N(fcd7ea5760a74a618c2cfa72e29c26c1:R1)|(115,70) h(33) v(30) N(fa7774bee8994ce290c895442d29a473:c0t0v)|(190,100)" xmlns="http://www.ni.com/PlatformFramework" />
+				<PropertyNode Bounds="190 75 98 45" Id="fa7774bee8994ce290c895442d29a473" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" Mode="InstanceProperties" xmlns="http://www.ni.com/MocCommon">
+					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+						<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+					</p.TypeDefinitionTargets>
+					<PropertyItemTerminal Action="Write" DataType="Int32" Hotspot="0 25" Id="c0t0v" Path="Value" PathElementMemberKinds="Property" Usage="Required" />
+				</PropertyNode>
+				<ControlReference Bounds="15 20 150 20" Id="6eec939ffa05413d85f767fc95e8c4b1" SourceControl="f2076b2214084847b915460f2bf89e37" />
+				<Wire Id="9175fce81e9d469b811cbf3c04e46fe5" Joints="N(6eec939ffa05413d85f767fc95e8c4b1:control reference)|(165,25) h(15) v(55) N(fa7774bee8994ce290c895442d29a473:instance in)|(190,80)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="a46beaae835e47eca634887a2b8f4065" Joints="N(fa7774bee8994ce290c895442d29a473:error out)|(288,90) h(52) B(1) N(a793e82d5b5c47cda952161e17b03df4:acc80f5eb781474895d67e342044b2a8)|(380,90) B(1) v(20) N(e78e1a1431bb40caba78d3c2e0f494ed:Input)|(350,110)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="c7921c9689b0499d8ee5b7d737f0a282" Joints="N(fcd7ea5760a74a618c2cfa72e29c26c1:R3)|(115,90) N(fa7774bee8994ce290c895442d29a473:error in)|(190,90)" xmlns="http://www.ni.com/PlatformFramework" />
+				<RightShiftRegister Bounds="385 90 13 10" Docking="Right" Id="a793e82d5b5c47cda952161e17b03df4" Terminals="90bdea380384419fb5c2aedd393f3a3d=af6c4d5b491460ca9ffdce0aeb90557, acc80f5eb781474895d67e342044b2a8=a46beaae835e47eca634887a2b8f4065" />
+				<LeftShiftRegister Bounds="-4 90 13 10" Docking="Left" Id="ea7f3bf6fbb745159a33fcbf68770a1e" RightRegister="a793e82d5b5c47cda952161e17b03df4" Terminals="o0=6282ea81e61f4bddaf223f16429d64f4, i0=77e6273e1c16400db4ce254e8be1412f" />
+				<LoopTunnel Bounds="-4 60 13 10" Docking="Left" Id="cb7fbee50aa43f996baa249d3abadf3" Terminals="o0=c7df9dcebdf64015b70efc7512d9b5c5, i0=36b41c3691d345369a15c4db9163b5b2" />
 			</WhileLoop>
 			<Wire Id="6282ea81e61f4bddaf223f16429d64f4" Joints="N(89fcdb85657841ef93dfdc16139e3b4b:R3)|(1135,1700) N(ea7f3bf6fbb745159a33fcbf68770a1e:o0)|(1171,1700)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="c7df9dcebdf64015b70efc7512d9b5c5" Joints="N(89fcdb85657841ef93dfdc16139e3b4b:R0)|(1135,1670) N(cb7fbee50aa43f996baa249d3abadf3:o0)|(1171,1670)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -774,15 +780,11 @@
 				</FlexibleLayoutWrapper>
 				<FlexibleLayoutWrapper FlexGrow="[double]0.4618644118309021" Height="[float]365" Id="29383b744ca4b5db2444e23a56e6602" Left="[float]736" Top="[float]0" Width="[float]228">
 					<FlexibleLayoutContainer Direction="[FlexibleLayoutDirection]Column" Height="[float]349" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Center" Id="7b86ec5f9bdd407cbde09fcba0fcaccf" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Center" Width="[float]212">
-						<FlexibleLayoutComponent Height="[float]236" Id="b514551b08f476cac399bfb425a3b98" Left="[float]14" Top="[float]31" Width="[float]184">
+						<FlexibleLayoutComponent Height="[float]236" Id="b514551b08f476cac399bfb425a3b98" Left="[float]14" Top="[float]57" Width="[float]184">
 							<ListBoxSelector BaseName="[string]Listbox" Height="[float]216" Id="775c6deb9b934e778c7367dfd3ac6bf5" Label="[UIModel]d9c6b9b85d654cfaaab3fd42a357164d" Left="[float]0" MinHeight="[float]40" MinWidth="[float]50" SelectionMode="[SMListBoxSelectionMode]ZeroOrOne" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=803f9da216bd474b9dd219012edebed9}" ValueType="[Type]Int32" Width="[float]184" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 								<ListBoxSelectorInfo DisplayValue="[string]loading..." DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]0" ValueType="[Type]Int32" />
 							</ListBoxSelector>
 							<Label Height="[float]16" Id="d9c6b9b85d654cfaaab3fd42a357164d" LabelOwner="[UIModel]775c6deb9b934e778c7367dfd3ac6bf5" Left="[float]0" Text="[string]leaflet locations" Top="[float]0" Width="[float]84" />
-						</FlexibleLayoutComponent>
-						<FlexibleLayoutComponent Height="[float]44" Id="ef957dcb1ca24881bca4150c3abb2388" Left="[float]34" Top="[float]275" Width="[float]144">
-							<NumericText BaseName="[string]Numeric" Height="[float]24" Id="67a0577f4e1e426daa632371472099a8" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]26851719f529493285449f894fd11c8d" Left="[float]0" RadixBase="[RadixBase]Decimal" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=6136bcb773f3477b83791eff1186fadd}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<Label Height="[float]16" Id="26851719f529493285449f894fd11c8d" LabelOwner="[UIModel]67a0577f4e1e426daa632371472099a8" Left="[float]0" Text="[string]leaflet clicked marker index" Top="[float]0" Width="[float]144" />
 						</FlexibleLayoutComponent>
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
@@ -806,15 +808,11 @@
 				</FlexibleLayoutWrapper>
 				<FlexibleLayoutWrapper FlexGrow="[double]0.4618644118309021" Height="[float]389" Id="67b5b34aa2bf44fbafbf04ea2cb9a8e9" Left="[float]736" Top="[float]0" Width="[float]228">
 					<FlexibleLayoutContainer Direction="[FlexibleLayoutDirection]Column" Height="[float]373" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Center" Id="24ef1542c4884692bb6fca7d2d4ebb62" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Center" Width="[float]212">
-						<FlexibleLayoutComponent Height="[float]268" Id="7a65a833bbb8429ba44ff4ce3fe9240d" Left="[float]14" Top="[float]27" Width="[float]184">
+						<FlexibleLayoutComponent Height="[float]268" Id="7a65a833bbb8429ba44ff4ce3fe9240d" Left="[float]14" Top="[float]53" Width="[float]184">
 							<ListBoxSelector BaseName="[string]Listbox" Height="[float]248" Id="f2076b2214084847b915460f2bf89e37" Label="[UIModel]4f38afbdbecb49c3a5f8353d0d43952c" Left="[float]0" MinHeight="[float]40" MinWidth="[float]50" SelectionMode="[SMListBoxSelectionMode]ZeroOrOne" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=c7de0d7644d54f5ab6d24bc59d052d24}" ValueType="[Type]Int32" Width="[float]184" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 								<ListBoxSelectorInfo DisplayValue="[string]loading..." DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]0" ValueType="[Type]Int32" />
 							</ListBoxSelector>
 							<Label Height="[float]16" Id="4f38afbdbecb49c3a5f8353d0d43952c" LabelOwner="[UIModel]f2076b2214084847b915460f2bf89e37" Left="[float]0" Text="[string]google map locations" Top="[float]0" Width="[float]115" />
-						</FlexibleLayoutComponent>
-						<FlexibleLayoutComponent Height="[float]44" Id="c15972778e75419ca593c9cb34b3be4f" Left="[float]18" Top="[float]303" Width="[float]176">
-							<NumericText BaseName="[string]Numeric" Height="[float]24" Id="ac7ed52ef4e54cf5b0b0663cf5bcf5a8" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]220496d966504faa9233b8d50aafe777" Left="[float]0" RadixBase="[RadixBase]Decimal" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=694925d50aed45108591f3289abe7037}" ValueFormatter="[string]Decimal, Uppercase, Signed" ValueType="[Type]Int32" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<Label Height="[float]16" Id="220496d966504faa9233b8d50aafe777" LabelOwner="[UIModel]ac7ed52ef4e54cf5b0b0663cf5bcf5a8" Left="[float]0" Text="[string]google map clicked marker index" Top="[float]0" Width="[float]176" />
 						</FlexibleLayoutComponent>
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
@@ -824,12 +822,6 @@
 			<p.DefaultValue>-1</p.DefaultValue>
 		</DataItem>
 		<DataItem DataType="Int32" Id="c7de0d7644d54f5ab6d24bc59d052d24" Name="google map locations" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>-1</p.DefaultValue>
-		</DataItem>
-		<DataItem AdaptToDiagramType="True" DataType="Int32" Id="6136bcb773f3477b83791eff1186fadd" Name="leaflet clicked marker index" xmlns="http://www.ni.com/MocCommon">
-			<p.DefaultValue>-1</p.DefaultValue>
-		</DataItem>
-		<DataItem AdaptToDiagramType="True" DataType="Int32" Id="694925d50aed45108591f3289abe7037" Name="google map clicked marker index" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>-1</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
@@ -1671,14 +1663,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Block" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
-								<Path Data="[PathGeometry]M 18,18 L 0,18 L 0,2 C 0,0.896000028 0.896000028,0 2,0 L 18,0 L 18,18 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]18" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]18" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
-							<Image BaseName="[string]Image" Height="[float]16" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]3" Width="[float]13" />
-							<Path Data="[PathGeometry]M 10.3049297,0.103060402 C 15.14431,0.103060402 19.0674,3.70211291 19.0674,8.14176846 C 19.0674,12.5814199 15.14431,16.180479 10.3049297,16.180479 C 8.49016762,16.180479 6.8042531,15.6743603 5.40575409,14.8075895 L 5.3342638,14.7621298 L 5.33391809,14.7698402 C 5.33391809,14.7698402 5.48548603,14.9437399 0.093286939,19.0924606 C -0.0307774097,19.1879196 0.242254898,18.8061008 1.99470699,10.7526999 L 2.00059891,10.7424297 L 2.00286198,10.7200098 C 1.70432997,9.91069603 1.54246402,9.04357338 1.54246402,8.14176846 C 1.54246402,3.70211291 5.46555614,0.103060402 10.3049297,0.103060402 L 10.3049297,0.103060402 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]20" Left="[float]18" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]17" Width="[float]20" />
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]3" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]20" Width="[float]13" />
+							<Path Data="[PathGeometry]M 7.5931077,0.0759392455 C 11.158968,0.0759392455 14.0496664,2.72787285 14.0496664,5.99919844 C 14.0496664,9.27052021 11.158968,11.9224586 7.5931077,11.9224586 C 6.25591421,11.9224586 5.01366138,11.5495291 3.98318815,10.9108562 L 3.930511,10.8773594 L 3.93025637,10.8830414 C 3.93025637,10.8830414 4.04193783,11.0111771 0.0687377602,14.0681295 C -0.0226780958,14.1384678 0.178503647,13.8571281 1.46978438,7.92304277 L 1.47412586,7.91547489 L 1.47579336,7.89895535 C 1.25582242,7.3026185 1.13655269,6.66368628 1.13655269,5.99919844 C 1.13655269,2.72787285 4.02725267,0.0759392455 7.5931077,0.0759392455 L 7.5931077,0.0759392455 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]14" Left="[float]20" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]17" Width="[float]14" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1689,14 +1687,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Block" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
-								<Path Data="[PathGeometry]M 18,18 L 0,18 L 0,2 C 0,0.896000028 0.896000028,0 2,0 L 18,0 L 18,18 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]18" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]18" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
-							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]18" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]19" Width="[float]17.984" />
-							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]3" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]3" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]20" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]16" Width="[float]17.984" />
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]21" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1707,14 +1711,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Block" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
-								<Path Data="[PathGeometry]M 18,18 L 0,18 L 0,2 C 0,0.896000028 0.896000028,0 2,0 L 18,0 L 18,18 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]18" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]18" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
-							<Path Data="[PathGeometry]M 11.3140001,2 L 7.65799999,5.65600014 L 11.3140001,9 L 9.19299984,11 L 5.65799999,7.77799988 L 2.12299991,11 L 0,9 L 3.65700006,5.65600014 L 0,2 L 2.12299991,0 L 5.65799999,3.53500009 L 9.19299984,0 L 11.3140001,2 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]23" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]23" Width="[float]11.314" />
-							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]4" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Path Data="[PathGeometry]M 11.3140001,2 L 7.65799999,5.65600014 L 11.3140001,9 L 9.19299984,11 L 5.65799999,7.77799988 L 2.12299991,11 L 0,9 L 3.65700006,5.65600014 L 0,2 L 2.12299991,0 L 5.65799999,3.53500009 L 9.19299984,0 L 11.3140001,2 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]18" Width="[float]11.314" />
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]21" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1725,25 +1735,31 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Block" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
-								<Path Data="[PathGeometry]M 18,18 L 0,18 L 0,2 C 0,0.896000028 0.896000028,0 2,0 L 18,0 L 18,18 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]18" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]18" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
-							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]4" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]27" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]32" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]27" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]32" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]32" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]32" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]27" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]32" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]22" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]32" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]22" Width="[float]4" />
-							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]22" Width="[float]4" />
-							<Text Left="[float]20" Text="[string]OSM" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]6" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]19">
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]21" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<Text Height="[float]11" Left="[float]19" Text="[string]OSM" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]13" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]19">
 								<FontSetting FontFamily="Verdana" FontSize="6" />
 							</Text>
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]23" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]23" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]32" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]23" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]32" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]22" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]33" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]27" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]33" Width="[float]4" />
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]4" Left="[float]32" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]33" Width="[float]4" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1754,14 +1770,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]Block" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#ffffffff" Top="[float]0" />
-								<Path Data="[PathGeometry]M 18,18 L 0,18 L 0,2 C 0,0.896000028 0.896000028,0 2,0 L 18,0 L 18,18 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]18" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]18" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
-							<Image BaseName="[string]Image" Height="[float]16" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]3" Width="[float]13" />
-							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]17" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]19" Width="[float]17.984" />
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]3" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]20" Width="[float]13" />
+							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]18" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]16" Width="[float]17.984" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1772,14 +1794,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Map" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="9" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]20" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]17.984" />
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]20" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1790,14 +1818,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Marker" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="8.25" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]19" Width="[float]13" />
+							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]19" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]17.984" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1811,11 +1845,20 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Initialize Map" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]20" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<Path Data="[PathGeometry]M 17,2.4000001 L 17,3.60000014 L 16.3928566,4.20000029 L 5.46428585,4.20000029 C 4.99557114,5.25839996 4.02353573,6 2.77950001,6 C 1.53546429,6 0.468714297,5.25839996 0,4.20000029 L 3.03571439,4.20000029 C 3.03571439,4.20000029 3.64285707,3.60000014 3.64285707,3 C 3.64285707,2.4000001 3.03571439,1.80000007 3.03571439,1.80000007 L 0,1.80000007 C 0.468714297,0.741000056 1.53546429,0 2.77950001,0 C 4.02353573,0 4.99557114,0.741000056 5.46428585,1.80000007 L 16.3928566,1.80000007 L 17,2.4000001 Z M 16.3928566,3 C 16.3928566,2.66820002 16.1208572,2.4000001 15.7857141,2.4000001 C 15.450572,2.4000001 15.1785717,2.66820002 15.1785717,3 C 15.1785717,3.33120012 15.450572,3.60000014 15.7857141,3.60000014 C 16.1208572,3.60000014 16.3928566,3.33120012 16.3928566,3" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]6" Left="[float]20" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]27" Width="[float]17" />
+							<Text Height="[float]11" Left="[float]22" Text="[string]API" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]16" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]12">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1826,14 +1869,21 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Update Marker Popup Text" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]3" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]20" Width="[float]13" />
+							<Path Data="[PathGeometry]M 5.42364788,0.0542423241 C 7.97069073,0.0542423241 10.0354757,1.94848084 10.0354757,4.28514242 C 10.0354757,6.6218009 7.97069073,8.51604271 5.42364788,8.51604271 C 4.46850967,8.51604271 3.58118653,8.24966431 2.84513426,7.79346943 L 2.80750775,7.76954317 L 2.80732584,7.77360201 C 2.80732584,7.77360201 2.88709831,7.86512709 0.0490983985,10.048665 C -0.0161986388,10.0989065 0.12750259,9.89795017 1.04984593,5.65931702 L 1.05294693,5.65391111 L 1.05413806,5.64211178 C 0.897015989,5.21615648 0.811823308,4.75977659 0.811823308,4.28514242 C 0.811823308,1.94848084 2.87660885,0.0542423241 5.42364788,0.0542423241 L 5.42364788,0.0542423241 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Left="[float]21" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]25" />
+							<Path Data="[PathGeometry]M 9.41304874,0.111045271 C 9.73919392,-0.180116475 10.4524078,0.0977623388 11.2197161,0.977623403 C 11.9880743,1.85695302 12.1718922,2.60770416 11.8462715,2.8988657 L 10.4681625,4.13045883 L 8.03546524,1.34157562 L 9.41304874,0.111045271 Z M 2.03197479,9.71619511 L 5.00247097,8.30342293 L 3.52457571,8.56058025 L 3.58917451,7.08458138 L 3.10862231,7.33695745 L 3.2651298,6.31204653 L 1.51098263,9.11899471 L 2.03197479,9.71619511 Z M 5.35067463,8.70191097 L 0,10.9998569 L 2.91692638,5.91408968 L 6.06651354,3.10023499 L 8.49973679,5.88805532 L 5.35067463,8.70191097 Z M 9.64360809,4.79035425 L 7.2103858,2.00253391 C 7.03287029,1.79903948 7.4320178,1.4536835 7.60375595,1.6502707 L 10.0375042,4.43862295 C 10.2129183,4.63999176 9.8137722,4.98534822 9.64360809,4.79035425 M 8.86106968,5.49913168 L 6.42784739,2.7113111 C 6.2503314,2.50781631 6.64895344,2.16246057 6.82121706,2.36011028 L 9.25444031,5.14739943 C 9.43037987,5.34876919 9.03070736,5.6941247 8.86106968,5.49913168" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]20" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]14" Width="[float]12" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1844,14 +1894,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Show Marker Popup" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]19" Width="[float]13" />
+							<Path Data="[PathGeometry]M 7.0507431,0.0705150217 C 10.3618994,0.0705150217 13.0461187,2.53302526 13.0461187,5.57068491 C 13.0461187,8.60834122 10.3618994,11.0708561 7.0507431,11.0708561 C 5.80906391,11.0708561 4.65554285,10.7245646 3.69867468,10.1315107 L 3.64976048,10.1004066 L 3.64952374,10.1056824 C 3.64952374,10.1056824 3.75322819,10.2246666 0.0638279244,13.0632658 C -0.0210582335,13.1285791 0.165753394,12.8673344 1.36479986,7.35711193 L 1.36883116,7.35008478 L 1.37037969,7.33474541 C 1.16612089,6.78100395 1.05537045,6.18770933 1.05537045,5.57068491 C 1.05537045,2.53302526 3.73959208,0.0705150217 7.0507431,0.0705150217 L 7.0507431,0.0705150217 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]13" Left="[float]21" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]17" Width="[float]13" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1862,14 +1918,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Destroy Map" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="7.5" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 11.3140001,2 L 7.65799999,5.65600014 L 11.3140001,9 L 9.19299984,11 L 5.65799999,7.77799988 L 2.12299991,11 L 0,9 L 3.65700006,5.65600014 L 0,2 L 2.12299991,0 L 5.65799999,3.53500009 L 9.19299984,0 L 11.3140001,2 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]23" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]18" Width="[float]11.314" />
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]20" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1880,14 +1942,21 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Update Marker Popup Text" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]19" Width="[float]13" />
+							<Path Data="[PathGeometry]M 5.42364836,0.0542423278 C 7.9706912,0.0542423278 10.0354757,1.94848108 10.0354757,4.28514242 C 10.0354757,6.62180138 7.9706912,8.51604366 5.42364836,8.51604366 C 4.46851015,8.51604366 3.58118653,8.24966526 2.84513426,7.79347038 L 2.80750775,7.76954365 L 2.80732584,7.77360201 C 2.80732584,7.77360201 2.88709855,7.86512852 0.0490983985,10.048666 C -0.0161986407,10.0989075 0.127502605,9.89795017 1.04984605,5.65931749 L 1.05294704,5.65391159 L 1.05413818,5.64211178 C 0.897015989,5.21615744 0.811823368,4.75977659 0.811823368,4.28514242 C 0.811823368,1.94848108 2.87660909,0.0542423278 5.42364836,0.0542423278 L 5.42364836,0.0542423278 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Left="[float]25" MinHeight="[float]1" MinWidth="[float]1" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]27" />
+							<Path Data="[PathGeometry]M 9.41305065,0.111045271 C 9.73919582,-0.18011649 10.4524088,0.0977623388 11.219718,0.977623403 C 11.9880753,1.85695302 12.1718931,2.60770416 11.8462725,2.89886594 L 10.4681635,4.13045883 L 8.03546619,1.34157562 L 9.41305065,0.111045271 Z M 2.03197503,9.71619511 L 5.00247145,8.30342293 L 3.52457595,8.56058025 L 3.58917499,7.08458138 L 3.10862255,7.33695745 L 3.26513052,6.31204653 L 1.51098287,9.11899471 L 2.03197503,9.71619511 Z M 5.35067511,8.70191097 L 0,10.9998569 L 2.91692662,5.91409016 L 6.06651449,3.10023499 L 8.49973774,5.88805532 L 5.35067511,8.70191097 Z M 9.64361,4.79035425 L 7.21038628,2.00253391 C 7.03287077,1.7990396 7.43201876,1.4536835 7.6037569,1.65027082 L 10.0375051,4.43862295 C 10.2129202,4.63999224 9.81377316,4.98534822 9.64361,4.79035425 M 8.86107063,5.49913168 L 6.42784786,2.7113111 C 6.25033188,2.50781655 6.64895439,2.16246057 6.82121801,2.36011028 L 9.25444126,5.14739943 C 9.43038082,5.34876919 9.03070831,5.69412518 8.86107063,5.49913168" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]24" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]12" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1898,14 +1967,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Add Marker Event Listener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]3" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]20" Width="[float]13" />
+							<Path Data="[PathGeometry]M 11,5.99900007 L 0,12 L 0,0 L 11,5.99900007 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]12" Left="[float]22" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]11" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1916,14 +1991,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Wait for Marker Event" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]3" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]20" Width="[float]13" />
+							<Path Data="[PathGeometry]M 7.65779924,10.5401602 L 6.08820009,8.86592007 C 5.97119999,8.92672062 5.8392005,8.96000004 5.70000029,8.96000004 C 5.20319986,8.96000004 4.80000019,8.52992058 4.80000019,8 C 4.80000019,7.4700799 5.20319986,7.03999996 5.70000029,7.03999996 C 5.8392005,7.03999996 5.97119999,7.07328033 6.08820009,7.13280058 L 7.05779934,6.09984064 C 7.37579966,5.76000071 7.79999971,5.76000071 7.79999971,5.76000071 C 7.79999971,5.76000071 7.79999971,6.21248007 7.48140001,6.55168056 L 6.51300001,7.58591986 C 6.56879997,7.71136045 6.5999999,7.85152006 6.5999999,8 C 6.5999999,8.14848042 6.56879997,8.28864002 6.51300001,8.41408062 L 8.08139992,10.0883207 C 8.40000057,10.4275198 8.40000057,10.8800011 8.40000057,10.8800011 C 8.40000057,10.8800011 7.97580051,10.8800011 7.65779924,10.5401602 M 5.70000029,3.23584032 C 3.23699999,3.23584032 1.2335999,5.37280083 1.2335999,8 C 1.2335999,10.6272001 3.23699999,12.7641611 5.70000029,12.7641611 C 8.16300011,12.7641611 10.1664,10.6272001 10.1664,8 C 10.1664,5.37280083 8.16300011,3.23584032 5.70000029,3.23584032 M 5.70000029,13.4041605 C 2.90160012,13.4041605 0.633599997,10.9849596 0.633599997,8 C 0.633599997,5.01503992 2.90160012,2.59584022 5.70000029,2.59584022 C 8.49839973,2.59584022 10.7663994,5.01503992 10.7663994,8 C 10.7663994,10.9849596 8.49839973,13.4041605 5.70000029,13.4041605 M 8.40000057,14.0799999 L 5.70000029,14.0799999 L 3,14.0799999 L 3,13.3548813 C 3.80400014,13.8169603 4.72320032,14.0799999 5.70000029,14.0799999 C 6.67679977,14.0799999 7.59599972,13.8169603 8.40000057,13.3548813 L 8.40000057,14.0799999 Z M 3,1.92000008 L 5.70000029,1.92000008 L 8.40000057,1.92000008 L 8.40000057,2.65216017 C 7.59599972,2.18815994 6.67859936,1.92000008 5.70000029,1.92000008 C 4.72320032,1.92000008 3.80400014,2.18304014 3,2.64511991 L 3,1.92000008 Z M 11.4000006,7.03999996 C 11.3729992,7.03999996 11.3501997,7.05280066 11.3244009,7.05664015 C 11.1245995,5.69344044 10.4982004,4.48383999 9.60000038,3.57888031 L 9.60000038,1.92000008 C 9.60000038,1.56800008 9.32999992,1.28000009 9,1.28000009 L 8.40000057,1.28000009 L 8.40000057,0 L 3,0 L 3,1.28000009 L 2.4000001,1.28000009 C 2.06999993,1.28000009 1.79999995,1.56800008 1.79999995,1.92000008 L 1.79999995,3.57440019 C 0.69419992,4.68351984 0,6.2534399 0,8 C 0,9.74656105 0.69419992,11.3164797 1.79999995,12.425601 L 1.79999995,14.0799999 C 1.79999995,14.4320002 2.06999993,14.7200012 2.4000001,14.7200012 L 3,14.7200012 L 3,16 L 8.40000057,16 L 8.40000057,14.7200012 L 9,14.7200012 C 9.32999992,14.7200012 9.60000038,14.4320002 9.60000038,14.0799999 L 9.60000038,12.425601 C 10.5018005,11.5212812 11.1227999,10.3072004 11.3232002,8.94336033 C 11.3496008,8.94720078 11.3729992,8.96000004 11.4000006,8.96000004 C 11.7299995,8.96000004 12,8.67200089 12,8.32000065 L 12,7.68000031 C 12,7.32800055 11.7299995,7.03999996 11.4000006,7.03999996" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]16" Left="[float]20" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]16" Width="[float]12" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1934,14 +2015,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Add Marker Event Listener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]19" Width="[float]13" />
+							<Path Data="[PathGeometry]M 11,5.99900007 L 0,12 L 0,0 L 11,5.99900007 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]12" Left="[float]24" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]11" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -1952,14 +2039,20 @@
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
 						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Wait for Marker Event" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6.75" />
-								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" Width="[float]40" />
+							<Image BaseName="[string]Image" Height="[float]16" Left="[float]5" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Fill" Top="[float]19" Width="[float]13" />
+							<Path Data="[PathGeometry]M 8.29594898,10.5401592 L 6.59555006,8.86592007 C 6.46879959,8.92671967 6.32579994,8.96000004 6.17499971,8.96000004 C 5.63679981,8.96000004 5.19999981,8.52991962 5.19999981,8 C 5.19999981,7.4700799 5.63679981,7.03999996 6.17499971,7.03999996 C 6.32579994,7.03999996 6.46879959,7.07327986 6.59555006,7.1328001 L 7.64594936,6.09984016 C 7.99044991,5.75999975 8.44999981,5.75999975 8.44999981,5.75999975 C 8.44999981,5.75999975 8.44999981,6.21247959 8.10484982,6.55168009 L 7.05574942,7.58591986 C 7.11619949,7.7113595 7.14999962,7.85151958 7.14999962,8 C 7.14999962,8.14848042 7.11619949,8.28864002 7.05574942,8.41407967 L 8.75484943,10.0883198 C 9.09999943,10.4275188 9.09999943,10.8800001 9.09999943,10.8800001 C 9.09999943,10.8800001 8.64044952,10.8800001 8.29594898,10.5401592 M 6.17499971,3.23584008 C 3.50674987,3.23584008 1.33639991,5.37280035 1.33639991,8 C 1.33639991,10.6271992 3.50674987,12.7641602 6.17499971,12.7641602 C 8.84324932,12.7641602 11.0135994,10.6271992 11.0135994,8 C 11.0135994,5.37280035 8.84324932,3.23584008 6.17499971,3.23584008 M 6.17499971,13.4041595 C 3.14339995,13.4041595 0.686399996,10.9849596 0.686399996,8 C 0.686399996,5.01503992 3.14339995,2.59583998 6.17499971,2.59583998 C 9.20659924,2.59583998 11.6636,5.01503992 11.6636,8 C 11.6636,10.9849596 9.20659924,13.4041595 6.17499971,13.4041595 M 9.09999943,14.0799999 L 6.17499971,14.0799999 L 3.25,14.0799999 L 3.25,13.3548803 C 4.12099981,13.8169603 5.11679983,14.0799999 6.17499971,14.0799999 C 7.23320007,14.0799999 8.22899914,13.8169603 9.09999943,13.3548803 L 9.09999943,14.0799999 Z M 3.25,1.91999996 L 6.17499971,1.91999996 L 9.09999943,1.91999996 L 9.09999943,2.65215993 C 8.22899914,2.18815994 7.23514938,1.91999996 6.17499971,1.91999996 C 5.11679983,1.91999996 4.12099981,2.1830399 3.25,2.64511991 L 3.25,1.91999996 Z M 12.3499994,7.03999996 C 12.3207493,7.03999996 12.2960491,7.05280018 12.2680998,7.05663967 C 12.05165,5.69343996 11.3730497,4.48383999 10.3999996,3.57887983 L 10.3999996,1.91999996 C 10.3999996,1.56799996 10.1075001,1.27999997 9.75,1.27999997 L 9.09999943,1.27999997 L 9.09999943,0 L 3.25,0 L 3.25,1.27999997 L 2.5999999,1.27999997 C 2.24250007,1.27999997 1.94999993,1.56799996 1.94999993,1.91999996 L 1.94999993,3.57439995 C 0.752049923,4.68351984 0,6.2534399 0,8 C 0,9.7465601 0.752049923,11.3164797 1.94999993,12.4256001 L 1.94999993,14.0799999 C 1.94999993,14.4319992 2.24250007,14.7199993 2.5999999,14.7199993 L 3.25,14.7199993 L 3.25,16 L 9.09999943,16 L 9.09999943,14.7199993 L 9.75,14.7199993 C 10.1075001,14.7199993 10.3999996,14.4319992 10.3999996,14.0799999 L 10.3999996,12.4256001 C 11.3769493,11.5212803 12.0496998,10.3071995 12.266799,8.94335938 C 12.2953997,8.94719982 12.3207493,8.96000004 12.3499994,8.96000004 C 12.7074995,8.96000004 13,8.67199993 13,8.31999969 L 13,7.67999983 C 13,7.32799959 12.7074995,7.03999996 12.3499994,7.03999996" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]16" Left="[float]22" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]15" Width="[float]13" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>
