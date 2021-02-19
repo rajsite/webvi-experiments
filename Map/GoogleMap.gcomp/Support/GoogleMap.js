@@ -87,6 +87,10 @@
             window.google.maps.event.clearInstanceListeners(this._marker);
             this._marker.setMap(null);
         }
+
+        addClickEventListener (callback) {
+            this._marker.addListener('click', () => callback());
+        }
     }
 
     const loadGoogleMapScript = function (key) {
@@ -156,6 +160,28 @@
         webVIMarker.setTitle(title);
     };
 
+    const addMarkerEventListener = async function (webVIMarkers) {
+        await tryAuthCheck();
+        const createEventListener = function (webVIMarker, index, controller) {
+            webVIMarker.addClickEventListener(() => controller.enqueue(index));
+        };
+
+        const eventStream = new ReadableStream({
+            start (controller) {
+                webVIMarkers.forEach((webviMarker, index) => createEventListener(webviMarker, index, controller));
+            }
+        });
+        const eventStreamReader = eventStream.getReader();
+        return eventStreamReader;
+    };
+
+    const waitForMarkerEvent = async function (eventStreamReader) {
+        await tryAuthCheck();
+        const {value} = await eventStreamReader.read();
+        const index = typeof value === 'number' ? value : -1;
+        return index;
+    };
+
     window.WebVIGoogleMap = {
         initialize,
         createMap,
@@ -163,6 +189,8 @@
         createMarker,
         destroyMarker,
         showMarker,
-        updateMarkerText
+        updateMarkerText,
+        addMarkerEventListener,
+        waitForMarkerEvent
     };
 }());

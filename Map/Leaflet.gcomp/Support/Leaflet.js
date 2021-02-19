@@ -54,6 +54,26 @@
         }
     };
 
+    const addMarkerEventListener = function (markers) {
+        const createEventListener = function (marker, index, controller) {
+            marker.on('click', () => controller.enqueue(index));
+        };
+
+        const eventStream = new ReadableStream({
+            start (controller) {
+                markers.forEach((marker, index) => createEventListener(marker, index, controller));
+            }
+        });
+        const eventStreamReader = eventStream.getReader();
+        return eventStreamReader;
+    };
+
+    const waitForMarkerEvent = async function (eventStreamReader) {
+        const {value} = await eventStreamReader.read();
+        const index = typeof value === 'number' ? value : -1;
+        return index;
+    };
+
     window.WebVILeaflet = {
         addTileLayer,
         createMap,
@@ -61,6 +81,8 @@
         createMarker,
         destroyMarker,
         showMarker,
-        updateMarkerText
+        updateMarkerText,
+        addMarkerEventListener,
+        waitForMarkerEvent
     };
 }());

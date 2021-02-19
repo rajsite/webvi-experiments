@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="5128FE87F88A88E1ACF6CA0DE46B06A28839CDB96DFCD38E5B6EB388C15EA7496D66D208B35D3DDEB161A7900D9ABEB3FFAB5F6D18FF95F24490119B2F7A78E3" Timestamp="1D67CE8A5B45C7D" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D522966261C3B8A9DC0B1793F9262DB8C54D12531C1746F2308F41EF15105810A9F2E04CEBA617558B614AD01B588CD43C87477D8592C07B76B6340D0622CD42" Timestamp="1D70681808019B3" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.1.0.50414" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -9,7 +9,7 @@
 	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="8d3f500c514a46f59e1e4d2a55a0fbb2" RootNamespaceId="ffef7bf20a144da597ef17ad8f1e5d61" xmlns="http://www.ni.com/GComponent.xsd">
 		<Icon Id="2d6197624e094735b76a368e82d36d43" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 			<IconPanel Height="[float]40" Id="c43d1f78c05840b296ef3200f7ac6ed1" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-				<IconTemplate Height="[float]40" Id="eaf265e5d0a648418d3fb5bae525a29b" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+				<IconTemplate Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Id="462886d082a44cc5a568014894a65c45" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40" />
 			</IconPanel>
 		</Icon>
 		<CompilerSymbolTable Id="e3d11eb1f8bb460684b6e925b41246a3" xmlns="http://www.ni.com/PlatformFramework" />
@@ -34,6 +34,9 @@
 			<ComponentItemProperties AssociatedEnvoyId="2c039ef80af64703ad373109c8f38844" Exported="True" Id="14b1d9a55643417885bed481d44f1a28" />
 			<ComponentItemProperties AssociatedEnvoyId="1c53365226b54cc7943c990bce7c80c0" Exported="True" Id="108a646e35d94589bcf9c0c409c8c4de" />
 			<ComponentItemProperties AssociatedEnvoyId="913cb6a36d41448c84b9275e8046b012" Exported="True" Id="4eb7b1fa4def4ac0a95bbf343f1d9d7c" />
+			<ComponentItemProperties AssociatedEnvoyId="63d892d65b814634a50f13c731096f72" Exported="True" Id="2cffe14048314047b82f1735c632f9d2" />
+			<ComponentItemProperties AssociatedEnvoyId="eecd974c1dad4280ae779d750339d5a8" Exported="True" Id="b024b1dcc3aa44fa810869b33eeaf858" />
+			<ComponentItemProperties AssociatedEnvoyId="2f919619ae774815bc1e7e8883ba3073" Exported="True" Id="927959c66e01405686eb55ea95d123ef" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="c3484fef73fa49f498f936230ed88178" xmlns="http://www.ni.com/PlatformFramework">
@@ -54,6 +57,11 @@
 					<SourceFileReference Id="64ec2561664a45bdad6de0bb7dfa03b0" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Destroy Marker.gvi" StoragePath="Marker\Destroy Marker.gvi" />
 					<SourceFileReference Id="ebcd226ad0e14bf782b8d79ce0419e0d" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Show Marker Popup.gvi" StoragePath="Marker\Show Marker Popup.gvi" />
 					<SourceFileReference Id="913cb6a36d41448c84b9275e8046b012" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Update Marker Popup Text.gvi" StoragePath="Marker\Update Marker Popup Text.gvi" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="bde310197be94401834fcbe7972d7d76" Name="Events">
+						<SourceFileReference Id="63d892d65b814634a50f13c731096f72" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Add Marker Event Listener.gvi" StoragePath="Marker\Events\Add Marker Event Listener.gvi" />
+						<SourceFileReference Bindings="EnvoyManager" Id="eecd974c1dad4280ae779d750339d5a8" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="event stream reader.gtype" StoragePath="Marker\Events\event stream reader.gtype\event stream reader.gtype" />
+						<SourceFileReference Id="2f919619ae774815bc1e7e8883ba3073" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Wait for Marker Event.gvi" StoragePath="Marker\Events\Wait for Marker Event.gvi" />
+					</NameScopingEnvoy>
 				</NameScopingEnvoy>
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="9d7e0207a5d84aa383445009260588fa" Name="Support">
 					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="8a722a1d309e499da7f264a2d0abffd3" Name="node_modules">
