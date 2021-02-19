@@ -12,31 +12,82 @@
     });
 
     const tryAuthCheck = async function () {
+        if ((window.google && window.google.maps) === false) {
+            throw new Error('Google Maps not loaded. Must call initialize before using Google Maps.');
+        }
         await Promise.race([authFailure, Promise.resolve()]);
     };
 
-    const mapInfoWindows = new WeakMap();
-    const getOrCreateInfoWindow = function (map) {
-        if (mapInfoWindows.has(map)) {
-            const infoWindow = mapInfoWindows.get(map);
-            return infoWindow;
+    class WebVIMap {
+        constructor (mapElement, lat, lng, zoom) {
+            const options = {
+                center: {lat, lng},
+                zoom
+            };
+            this._map = new window.google.maps.Map(mapElement, options);
+            this._infoWindow = new window.google.maps.InfoWindow();
         }
-        const infoWindow = new window.google.maps.InfoWindow();
-        mapInfoWindows.set(map, infoWindow);
-        return infoWindow;
-    };
 
-    const markerTitles = new WeakMap();
-    const markerMaps = new WeakMap();
-    const showMarkerIfPossible = function (marker) {
-        if (markerTitles.has(marker)) {
-            const title = markerTitles.get(marker);
-            const map = markerMaps.get(marker);
-            const infoWindow = getOrCreateInfoWindow(map);
-            infoWindow.setContent(title);
-            infoWindow.open(map, marker);
+        get map () {
+            return this._map;
         }
-    };
+
+        destroy () {
+            const mapElement = this._map.getDiv();
+            mapElement.parentNode.removeChild(mapElement);
+        }
+
+        showMarkerInfo (title, marker) {
+            if (title === '') {
+                return;
+            }
+            this._infoWindow.setContent(title);
+            this._infoWindow.open(this._map, marker);
+        }
+
+        updateMarkerInfoIfOpen (title, marker) {
+            if (title === '') {
+                return;
+            }
+            if (this._infoWindow.getAnchor() === marker) {
+                this._infoWindow.setContent(title);
+            }
+        }
+    }
+
+    class WebVIMarker {
+        constructor (webVIMap, lat, lng, title, iconUrl) {
+            const options = {
+                position: {lat, lng},
+                map: webVIMap.map,
+                title
+            };
+            if (iconUrl !== '') {
+                options.icon = iconUrl;
+            }
+            const marker = new window.google.maps.Marker(options);
+            marker.addListener('click', () => this.showMarkerInfo());
+
+            this._webVIMap = webVIMap;
+            this._title = title;
+            this._marker = marker;
+        }
+
+        setTitle (title) {
+            this._title = title;
+            this._marker.setTitle(title);
+            this._webVIMap.updateMarkerInfoIfOpen(this._title, this._marker);
+        }
+
+        showMarkerInfo () {
+            this._webVIMap.showMarkerInfo(this._title, this._marker);
+        }
+
+        destroy () {
+            window.google.maps.event.clearInstanceListeners(this._marker);
+            this._marker.setMap(null);
+        }
+    }
 
     const loadGoogleMapScript = function (key) {
         return new Promise(function (resolve, reject) {
@@ -70,72 +121,39 @@
 
     const createMap = async function (placeholder, lat, lng, zoom) {
         await tryAuthCheck();
-        if ((window.google && window.google.maps) === false) {
-            throw new Error('Google Maps not loaded. Must call initialize before using Google Maps.');
-        }
-
         const mapElement = document.createElement('div');
         mapElement.style.width = '100%';
         mapElement.style.height = '100%';
         placeholder.appendChild(mapElement);
 
-        const map = new window.google.maps.Map(mapElement, {
-            center: {lat, lng},
-            zoom
-        });
-        return map;
+        const webVIMap = new WebVIMap(mapElement, lat, lng, zoom);
+        return webVIMap;
     };
 
-    const destroyMap = async function (map) {
-        mapInfoWindows.delete(map);
-        const mapElement = map.getDiv();
-        mapElement.parentNode.removeChild(mapElement);
+    const destroyMap = async function (webVIMap) {
+        // No auth check, always cleanup
+        webVIMap.destroy();
     };
 
-    const createMarker = async function (map, lat, lng, title, iconUrl) {
+    const createMarker = async function (webVIMap, lat, lng, title, iconUrl) {
         await tryAuthCheck();
-        const options = {
-            position: {lat, lng},
-            map,
-            title
-        };
-        if (iconUrl !== '') {
-            options.icon = iconUrl;
-        }
-        const marker = new window.google.maps.Marker(options);
-        markerMaps.set(marker, map);
-        if (title !== '') {
-            markerTitles.set(marker, title);
-        }
-        marker.addListener('click', function () {
-            showMarkerIfPossible(marker);
-        });
-        return marker;
+        const webVIMarker = new WebVIMarker(webVIMap, lat, lng, title, iconUrl);
+        return webVIMarker;
     };
 
-    const showMarker = async function (marker) {
+    const showMarker = async function (webVIMarker) {
         await tryAuthCheck();
-        showMarkerIfPossible(marker);
+        webVIMarker.showMarkerInfo();
     };
 
-    const destroyMarker = async function (marker) {
-        markerMaps.delete(marker);
-        markerTitles.delete(marker);
-        window.google.maps.event.clearInstanceListeners(marker);
-        marker.setMap(null);
+    const destroyMarker = async function (webVIMarker) {
+        // No auth check, always cleanup
+        webVIMarker.destroy();
     };
 
-    const updateMarkerText = async function (marker, title) {
+    const updateMarkerText = async function (webVIMarker, title) {
         await tryAuthCheck();
-        if (title !== '') {
-            markerTitles.set(marker, title);
-            marker.setTitle(title);
-            const map = markerMaps.get(marker);
-            const infoWindow = getOrCreateInfoWindow(map);
-            if (infoWindow.getAnchor() === marker) {
-                infoWindow.setContent(title);
-            }
-        }
+        webVIMarker.setTitle(title);
     };
 
     window.WebVIGoogleMap = {
