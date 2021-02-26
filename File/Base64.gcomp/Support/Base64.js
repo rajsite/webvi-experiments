@@ -2,7 +2,10 @@
     'use strict';
 
     const encode = function (data) {
-        const binaryString = String.fromCharCode.apply(undefined, data);
+        let binaryString = '';
+        for (let i = 0; i < data.length; i++) {
+            binaryString += String.fromCharCode(data[i]);
+        }
         const encodedData = btoa(binaryString);
         return encodedData;
     };
