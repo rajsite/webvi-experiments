@@ -136,14 +136,4 @@ function Invoke-MinimizeWindows {
     $shell.minimizeall()
 }
 
-function Invoke-PrintFolderSizes {
-    Param ([string]$path)
-    $colItems = Get-ChildItem $path | Where-Object {$_.PSIsContainer -eq $true} | Sort-Object
-    foreach ($i in $colItems)
-    {
-        $subFolderItems = Get-ChildItem $i.FullName -recurse -force | Where-Object {$_.PSIsContainer -eq $false} | Measure-Object -property Length -sum | Select-Object Sum
-        $i.FullName + " -- " + "{0:N2}" -f ($subFolderItems.sum / 1MB) + " MB"
-    }
-}
-
-Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages, Invoke-MinimizeWindows, Invoke-PrintFolderSizes
+Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages, Invoke-MinimizeWindows
