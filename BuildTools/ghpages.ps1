@@ -22,7 +22,7 @@ Write-Host $err
 New-Item -Name $ghpagesbuilddir -ItemType directory | Out-Null
 
 Write-Host "Copying GitHubPagesRoot contents to ghpages output folder"
-Get-ChildItem ".\AzurePipelines\GitHubPagesRoot\*" | ForEach-Object {
+Get-ChildItem ".\BuildTools\GitHubPagesRoot\*" | ForEach-Object {
     Copy-Item $_.FullName "$ghpagesbuilddir" -Recurse
 }
 
