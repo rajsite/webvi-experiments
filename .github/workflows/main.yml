@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - name: Checkout repository
       uses: actions/checkout@v1
@@ -44,7 +44,7 @@ jobs:
   deploy:
     needs: build
     if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - name: Setup ruby
       uses: actions/setup-ruby@v1
@@ -56,8 +56,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: ghpagesarchive
-        path: ./ghpagesarchive/ghpages.zip
+    - run: ls -R
     - name: Extract GitHub Pages Output
-      run: unzip ./ghpagesarchive/ghpages.zip -d ./ghpagesout
+      run: unzip ./ghpages.zip -d ./ghpagesout
+    - run: ls -R
     - name: Deploy to GitHub Pages
       run: dpl --verbose --provider=pages --repo=rajsite/webvi-experiments --local_dir=ghpagesout --skip_cleanup --name=rajsite --email=rajsite@users.noreply.github.com --github-token=${{ secrets.GHPAGES_TOKEN }}
