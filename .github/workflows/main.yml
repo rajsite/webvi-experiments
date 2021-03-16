@@ -15,17 +15,17 @@ jobs:
       run: |
         npm ci
         npm test
-    # - name: Install LabVIEW NXG
-    #   run: powershell .\BuildTools\install.ps1
+    - name: Install LabVIEW NXG
+      run: powershell .\BuildTools\install.ps1
     - name: Start capturing screenshots
       working-directory: ./BuildTools/periodic-screenshot
       run: |
         npm ci
         npm run start
-    # - name: Build LabVIEW Projects
-    #   run: powershell .\BuildTools\build.ps1 -usemonitor
-    #   timeout-minutes: 60
-    #   continue-on-error: true
+    - name: Build LabVIEW Projects
+      run: powershell .\BuildTools\build.ps1 -usemonitor
+      timeout-minutes: 60
+      continue-on-error: true
     - name: Stop capturing screenshots
       working-directory: ./BuildTools/periodic-screenshot
       run: npm run stop
@@ -56,9 +56,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: ghpagesarchive
-    - run: ls -R
     - name: Extract GitHub Pages Output
       run: unzip ./ghpages.zip -d ./ghpagesout
-    - run: ls -R
     - name: Deploy to GitHub Pages
       run: dpl --verbose --provider=pages --repo=rajsite/webvi-experiments --local_dir=ghpagesout --skip_cleanup --name=rajsite --email=rajsite@users.noreply.github.com --github-token=${{ secrets.GHPAGES_TOKEN }}
