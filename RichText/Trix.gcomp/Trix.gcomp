@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="456E68CEB74C1B937FEC4C7AE665B8FF0CA03770E56C8F8DEE8A9BCB7DAE025701A6F8EEACCD5230C0DEBF58508AE1C1930C28540A74E1B22C430918BCFC633D" Timestamp="1D5B94327379359" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="0EC0E6D114F9AAE5BC02FEDF2DC88AF105ECCED19696461ECF9C58651D2252DA45146772607A4FC171D0815AAD624145EE0E498131C2EED1326D1729AFD3FC60" Timestamp="1D71A08968FF945" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="6.1.0.1" Version="6.2.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="6.4.1.50844" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="6.2.0.49154" Version="6.2.0.49154" />
-		<ApplicationVersionInfo Build="6.4.1.50844" Name="LabVIEW NXG" Version="3.1.0" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.4.0.49575" Name="LabVIEW NXG" Version="5.1.0" />
 	</SourceModelFeatureSet>
 	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="8a43b24cab8b47d68774e2c84a7c1ad0" RootNamespaceId="35788d701b3c4a298eb5f9c5911a8f34" xmlns="http://www.ni.com/GComponent.xsd">
 		<Icon Id="6dbb71369f4c4856aa0dac2bc5e4836c" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -26,10 +26,12 @@
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="28cbb9423c564e8d8cc4f1671e5a2e62" Id="e8aca8a482ff43879352ef2ab9ead58e" />
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="e8d52ce4a89946ea8697d76cc7bdfe06" Id="254817f40799488ebfe9489969110730" />
 			<ComponentItemProperties AssociatedEnvoyId="aa17ef1d46dc4c8abc4eb5f7275efc71" Exported="True" Id="d2e30e0a7b964438b5048fefd147f5bd" />
+			<GLibraryProperties Id="b62ffdbaf6b74519bd02e1b02e4e8c8d" />
+			<ComponentItemProperties AssociatedEnvoyId="8f089ac1c1ab409e8c3df15a4acd88a5" Exported="True" Id="192c34ae46324490ba641c8c497c82fb" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="fc9e3a15a6ed491d8e07503dc70d7838" xmlns="http://www.ni.com/PlatformFramework">
-		<ProjectSettings Id="d2b4d134390b43ecbc1b7a37fa334bcc" ModelDefinitionType="ProjectSettings" Name="ZProjectSettings" />
+		<EnvoyManagerRootEnvoy Id="d2b4d134390b43ecbc1b7a37fa334bcc" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
 		<EmbeddedDefinitionReference Id="9370a97f7aa14019b4644965660a30de" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
 			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
 			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="35788d701b3c4a298eb5f9c5911a8f34" Name="Trix">
@@ -38,40 +40,16 @@
 					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="3c358683283b49869fddde1ffc4bccbc" Name="node_modules">
 						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="b1c173b23953480b9899e60d5763a175" Name="trix">
 							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="4be5607dbb348ac9e43d287b0fb2446" Name="dist">
-								<EmbeddedDefinitionReference Id="6c37aa30b4874114a4d5fc56703762cc" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="trix.css">
-									<ExternalFile>
-										<p.StoragePath>"Support\\node_modules\\trix\\dist\\trix.css"</p.StoragePath>
-									</ExternalFile>
-								</EmbeddedDefinitionReference>
-								<EmbeddedDefinitionReference Id="28cbb9423c564e8d8cc4f1671e5a2e62" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="trix-core.js">
-									<ExternalFile>
-										<p.StoragePath>"Support\\node_modules\\trix\\dist\\trix-core.js"</p.StoragePath>
-									</ExternalFile>
-								</EmbeddedDefinitionReference>
+								<FileReference Bindings=".css" Id="6c37aa30b4874114a4d5fc56703762cc" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="trix.css" StoragePath="Support\node_modules\trix\dist\trix.css" />
+								<FileReference Bindings=".js" Id="28cbb9423c564e8d8cc4f1671e5a2e62" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="trix-core.js" StoragePath="Support\node_modules\trix\dist\trix-core.js" />
 							</NameScopingEnvoy>
-							<EmbeddedDefinitionReference Id="50d798f001864d419156fe5a949ba2d8" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="LICENSE">
-								<ExternalFile>
-									<p.StoragePath>"Support\\node_modules\\trix\\LICENSE"</p.StoragePath>
-								</ExternalFile>
-							</EmbeddedDefinitionReference>
-							<EmbeddedDefinitionReference Id="ebf29d75609a4181b49731d80db98367" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="README.md">
-								<ExternalFile>
-									<p.StoragePath>"Support\\node_modules\\trix\\README.md"</p.StoragePath>
-								</ExternalFile>
-							</EmbeddedDefinitionReference>
+							<FileReference Bindings="" Id="50d798f001864d419156fe5a949ba2d8" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="LICENSE" StoragePath="Support\node_modules\trix\LICENSE" />
+							<FileReference Bindings=".md" Id="ebf29d75609a4181b49731d80db98367" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="README.md" StoragePath="Support\node_modules\trix\README.md" />
 						</NameScopingEnvoy>
 					</NameScopingEnvoy>
-					<EmbeddedDefinitionReference Id="ec2c6bc7a5b9450fa0f0d71da848927b" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Trix.js">
-						<ExternalFile>
-							<p.StoragePath>"Support\\Trix.js"</p.StoragePath>
-						</ExternalFile>
-					</EmbeddedDefinitionReference>
+					<FileReference Bindings=".js" Id="ec2c6bc7a5b9450fa0f0d71da848927b" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="Trix.js" StoragePath="Support\Trix.js" />
 					<SourceFileReference Bindings="EnvoyManager" Id="8f089ac1c1ab409e8c3df15a4acd88a5" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="trix reference.gtype" StoragePath="Support\trix reference.gtype\trix reference.gtype" />
-					<EmbeddedDefinitionReference Id="e8d52ce4a89946ea8697d76cc7bdfe06" ModelDefinitionType="NationalInstruments.ProjectExplorer.ExternalFileSupport.Modeling.ExternalFileType" Name="Trix.css">
-						<ExternalFile>
-							<p.StoragePath>"Support\\Trix.css"</p.StoragePath>
-						</ExternalFile>
-					</EmbeddedDefinitionReference>
+					<FileReference Bindings=".css" Id="e8d52ce4a89946ea8697d76cc7bdfe06" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="Trix.css" StoragePath="Support\Trix.css" />
 				</NameScopingEnvoy>
 				<SourceFileReference Id="835344d02812424ab0d78421b13afdb9" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Trix.gvi" StoragePath="Create Trix.gvi" />
 				<SourceFileReference Id="50cf053b85044ba3983caf0f817c7533" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Destroy Trix.gvi" StoragePath="Destroy Trix.gvi" />
@@ -80,8 +58,7 @@
 				<SourceFileReference Id="aa17ef1d46dc4c8abc4eb5f7275efc71" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Set Trix Disabled.gvi" StoragePath="Set Trix Disabled.gvi" />
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
-		<NameScopingEnvoy Id="359a6113a5ae4f1480c81b5f62053c71" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="Trix.gcomp" NameTracksFileName="True">
-			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />
+		<NameScopingEnvoy Id="359a6113a5ae4f1480c81b5f62053c71" Name="Trix.gcomp" NameTracksFileName="True">
 			<ContentReference ContentIdentifier="cd26f1bdb8164251b2d51de73d0c9f14" Id="cc113c9504304807ae07645720988e6c" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
