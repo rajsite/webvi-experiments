@@ -43,7 +43,7 @@ jobs:
         path: ./ghpagesarchive/ghpages.zip
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-18.04
     steps:
     - name: Setup ruby
