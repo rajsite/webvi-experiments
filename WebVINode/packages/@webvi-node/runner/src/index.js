@@ -46,7 +46,9 @@
             console.log('Loading Main VI HTML WebVINode require attributes');
             const customGlobal = Object.create(global);
             const dependencies = htmlRequire(htmlPath);
-            dependencies.forEach((dependency, globalName) => (customGlobal[globalName] = dependency));
+            dependencies.forEach((dependency, globalName) => {
+                customGlobal[globalName] = dependency;
+            });
             console.log('Finished loading Main VI HTML WebVINode require attributes');
 
             console.log('Loading Main VI via');

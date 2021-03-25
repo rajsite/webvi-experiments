@@ -1,4 +1,3 @@
-/* globals module */
 module.exports = {
     globDirectory: 'Builds/WebApp_Web Server/',
     globPatterns: [

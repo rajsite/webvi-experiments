@@ -12,7 +12,7 @@
         }
         const textareas = element.querySelectorAll('textarea');
         if (textareas.length !== 1) {
-            throw new Error(`Unexpected ni-string-control structure. This VI has only been tested with NXG 5.`);
+            throw new Error('Unexpected ni-string-control structure. This VI has only been tested with NXG 5.');
         }
         const [textarea] = textareas;
         return textarea.value;

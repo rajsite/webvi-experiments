@@ -44,7 +44,8 @@
                     return obj[obj.length - 1];
                 }
                 return obj[pathSegment];
-            } else if (isObject(obj)) {
+            }
+            if (isObject(obj)) {
                 return obj[pathSegment];
             }
             throw new Error(`Cannot find value at path: ${pathSegments.join('.')}`);

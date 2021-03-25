@@ -5,7 +5,7 @@
     let messageHandler;
     const eventStream = new ReadableStream({
         start (controller) {
-            messageHandler = (value) => {
+            messageHandler = value => {
                 if (typeof value === 'string') {
                     controller.enqueue(value);
                 }

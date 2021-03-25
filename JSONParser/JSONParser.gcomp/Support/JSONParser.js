@@ -191,15 +191,20 @@
     visitValue = function (value) {
         if (value === null) {
             return visitNull();
-        } else if (typeof value === 'number') {
+        }
+        if (typeof value === 'number') {
             return visitDouble(value);
-        } else if (typeof value === 'string') {
+        }
+        if (typeof value === 'string') {
             return visitString(value);
-        } else if (typeof value === 'boolean') {
+        }
+        if (typeof value === 'boolean') {
             return visitBoolean(value);
-        } else if (Array.isArray(value)) {
+        }
+        if (Array.isArray(value)) {
             return visitArray(value);
-        } else if (typeof value === 'object' && value !== null) {
+        }
+        if (typeof value === 'object' && value !== null) {
             return visitObject(value);
         }
         throw new Error(`Unknown type for value ${value}`);

@@ -195,12 +195,15 @@
         if (type === 'undefined') {
             const propertyValue = undefined;
             return propertyValue;
-        } else if (type === 'number') {
+        }
+        if (type === 'number') {
             const propertyValue = Number(value);
             return propertyValue;
-        } else if (type === 'string') {
+        }
+        if (type === 'string') {
             return value;
-        } else if (type === 'boolean') {
+        }
+        if (type === 'boolean') {
             const propertyValue = Boolean(value);
             return propertyValue;
         }

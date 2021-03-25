@@ -10,6 +10,7 @@
             this._vireo = undefined;
             this._serverValueRef = undefined;
         }
+
         async initialize (viaWithEnqueue, customGlobal) {
             const vireo = await VireoNode.createInstance(customGlobal);
             const viaHelpers = VireoNode.createViaHelpers(viaWithEnqueue);
@@ -18,6 +19,7 @@
             this._vireo = vireo;
             this._viaHelpers = viaHelpers;
         }
+
         async runRequest (server) {
             const vireo = this._vireo;
             const viaHelpers = this._viaHelpers;

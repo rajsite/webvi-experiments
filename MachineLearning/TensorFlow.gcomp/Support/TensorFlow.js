@@ -2,7 +2,7 @@
     'use strict';
 
     const includeTensorFlow = function () {
-        return;
+        // intentionally blank
     };
     window.WebVITensorFlow = {includeTensorFlow};
 }());

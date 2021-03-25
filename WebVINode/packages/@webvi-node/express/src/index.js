@@ -32,7 +32,9 @@
         loadDependencies () {
             const customGlobal = Object.create(global);
             const dependencies = htmlRequire(this._htmlPath);
-            dependencies.forEach((dependency, globalName) => (customGlobal[globalName] = dependency));
+            dependencies.forEach((dependency, globalName) => {
+                customGlobal[globalName] = dependency;
+            });
             this._customGlobal = customGlobal;
         }
 
