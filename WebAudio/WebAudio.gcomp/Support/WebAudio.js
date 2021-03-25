@@ -30,7 +30,7 @@ const getAudioContext = async function () {
 const decodeAudioDataFromArrayBuffer = async function (arrayBuffer) {
     const audioContext = await getAudioContext();
     return new Promise((resolve, reject) => {
-        audioContext.decodeAudioData(arrayBuffer, resolve, reject);
+        audioContext.decodeAudioData(arrayBuffer, result => resolve(result), err => reject(err));
     });
 };
 

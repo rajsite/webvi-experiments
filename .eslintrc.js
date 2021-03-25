@@ -1,13 +1,13 @@
 module.exports = {
-    'extends': 'eslint:recommended',
-    'env': {
-        'browser': true,
-        'es6': true
+    extends: 'eslint:recommended',
+    env: {
+        browser: true,
+        es6: true
     },
-    'parserOptions': {
-        'ecmaVersion': 2018
+    parserOptions: {
+        ecmaVersion: 2018
     },
-    'rules': {
+    rules: {
         'no-console': 'off',
 
         // Possible Errors
@@ -47,7 +47,7 @@ module.exports = {
         'no-labels': 'error',
         'no-lone-blocks': 'error',
         'no-loop-func': 'error',
-        'no-magic-numbers': ['error', { 'ignore': [-1, 0, 1], 'ignoreArrayIndexes': true}],
+        'no-magic-numbers': ['error', {ignore: [-1, 0, 1], ignoreArrayIndexes: true}],
         'no-multi-spaces': 'error',
         'no-multi-str': 'error',
         'no-new-func': 'error',
@@ -96,7 +96,7 @@ module.exports = {
         'func-names': ['error', 'never'],
         'func-style': 'error',
         'id-blacklist': 'error',
-        'id-length': ['error', { 'exceptions': ['i'] }],
+        'id-length': ['error', {exceptions: ['i']}],
         'id-match': 'error',
         'indent': 'error',
         'jsx-quotes': 'error',
@@ -111,8 +111,8 @@ module.exports = {
         'max-params': 'off',
         'max-statements-per-line': 'off',
         'max-statements': 'off',
-        'multiline-ternary': ["error", "always-multiline"],
-        'new-cap': ["error", { "properties": false }],
+        'multiline-ternary': ['error', 'always-multiline'],
+        'new-cap': ['error', {properties: false}],
         'new-parens': 'error',
         'newline-after-var': 'off',
         'newline-before-return': 'off',
@@ -128,24 +128,24 @@ module.exports = {
         'no-negated-condition': 'error',
         'no-nested-ternary': 'error',
         'no-new-object': 'error',
-        'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
+        'no-plusplus': ['error', {allowForLoopAfterthoughts: true}],
         'no-restricted-syntax': 'error',
         'no-tabs': 'error',
         'no-ternary': 'off',
         'no-trailing-spaces': 'error',
-        'no-underscore-dangle': ["error", { "allowAfterThis": true }],
+        'no-underscore-dangle': ['error', {allowAfterThis: true}],
         'no-unneeded-ternary': 'error',
         'no-whitespace-before-property': 'error',
-        'object-curly-newline': ["error", { "consistent": true }],
+        'object-curly-newline': ['error', {consistent: true}],
         'object-curly-spacing': 'error',
-        'object-property-newline': ["error", { "allowAllPropertiesOnSameLine": true }],
+        'object-property-newline': ['error', {allowAllPropertiesOnSameLine: true}],
         'one-var-declaration-per-line': 'error',
         'one-var': 'off',
         'operator-assignment': 'error',
         'operator-linebreak': ['error', 'after'],
         'padded-blocks': ['error', 'never'],
         'quote-props': ['error', 'consistent-as-needed'],
-        'quotes': ["error", "single", { "allowTemplateLiterals": true }],
+        'quotes': ['error', 'single', {allowTemplateLiterals: true}],
         'require-jsdoc': 'error',
         'semi-spacing': 'error',
         'semi': 'error',
@@ -159,5 +159,11 @@ module.exports = {
         'spaced-comment': 'error',
         'unicode-bom': 'error',
         'wrap-regex': 'error'
-    }
+    },
+    overrides: [{
+        files: ['.eslintrc.js'],
+        env: {
+            node: true
+        }
+    }]
 };

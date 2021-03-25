@@ -1,12 +1,12 @@
 module.exports = {
-    "overrides": [
+    overrides: [
         {
-            "files": ["**/*.js"],
-            "env": {
-                "browser": false
+            files: ['**/*.js'],
+            env: {
+                browser: false
             },
-            "globals": {
-                "window": true
+            globals: {
+                window: true
             }
         }
     ]
