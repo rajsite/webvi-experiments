@@ -33,6 +33,26 @@
         });
     };
 
+    const filterOptions = function (options) {
+        if (options.input === 'select') {
+            options.inputOptions = options.inputOptionsArray.reduce((inputOptions, option) => {
+                inputOptions[option.value] = option.displayValue;
+                return inputOptions;
+            }, {});
+            if ((options.inputOptions[options.inputValue] === undefined)) {
+                throw new Error(`select default value: ${options.inputValue} does not exist in options array`);
+            }
+        }
+    };
+
+    const filterResults = function (options, results) {
+        if (options.input === 'select') {
+            if (options.inputOptions[results.value] === undefined) {
+                results.value = '';
+            }
+        }
+    };
+
     let pendingPromise;
     const fire = async function (optionsArrayJSON) {
         const optionsArray = JSON.parse(optionsArrayJSON).map(option => JSON.parse(option.propertiesJSON));
@@ -44,6 +64,7 @@
         if (pendingPromise !== undefined) {
             throw new Error('SweetAlert dialog already open, cannot open new dialog');
         }
+        filterOptions(options);
         pendingPromise = window.Swal.fire(options);
         let results;
         try {
@@ -51,6 +72,7 @@
         } finally {
             pendingPromise = undefined;
         }
+        filterResults(options, results);
         const dismissUnfiltered = results.dismiss === undefined ? 'success' : results.dismiss;
         const dismiss = ['success', 'backdrop', 'cancel', 'close', 'esc', 'timer'].includes(dismissUnfiltered) ? dismissUnfiltered : 'unknown';
         const value = results.value === undefined ? '' : String(results.value);

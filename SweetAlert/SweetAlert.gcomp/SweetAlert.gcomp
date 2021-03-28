@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="80BFC78E8EA18256AAA38694DA12EA15EE42F7B31A3A2F0639C81C86AF69E8E7565437982314C7B1583854E4D7D9215F85249E203702F48970CE984900C95EB3" Timestamp="1D5D8BA6638682E" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="564E5E6DC8F67C4E32DC598FA3D22A1C7582C8D1B1F27BEC28501B9ABC8B2FD9E8BA69FBB01C59713CB3F2B6C52B15C8CDD03C36A05D2C1A6317FF815B2B0059" Timestamp="1D723A6422106BA" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
-		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
-		<ApplicationVersionInfo Build="7.1.0.50148" Name="LabVIEW NXG" Version="4.0.0" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.4.0.49575" Name="LabVIEW NXG" Version="5.1.0" />
 	</SourceModelFeatureSet>
 	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="24f7be6d78514e9fbc5d00928a1be65d" RootNamespaceId="4de94d9b243745088a103ee972ce5dfe" xmlns="http://www.ni.com/GComponent.xsd">
 		<Icon Id="d03dae2a2f2540e7b3845cf31d1fb99f" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -33,6 +33,8 @@
 			<ComponentItemProperties AssociatedEnvoyId="bfc620389e8048dd8d2bb9470582c2a9" Exported="True" Id="15c50986ccb49048289e250c7d9c250" />
 			<ComponentItemProperties AssociatedEnvoyId="d815ed01550442c2b0cd0dec6a4cdb40" Exported="True" Id="e07f92f9ce94489e8a656f73e3093e01" />
 			<ComponentItemProperties AssociatedEnvoyId="64e060793794a029e42be83c2ab4b17" Exported="True" Id="f1352a0ada914547a8c4d2469ac55d18" />
+			<GLibraryProperties Id="69a37fedf21f49b9a5f9986edeb03d35" />
+			<ComponentItemProperties AssociatedEnvoyId="813f0ebc12084b4499d417214e5ab6aa" Exported="True" Id="65f0d5e0c2bb42ad8febe1145fb7626b" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="db0a726c15f54290b685e9687552968b" xmlns="http://www.ni.com/PlatformFramework">
@@ -74,6 +76,7 @@
 						<SourceFileReference Id="ba72b599812e4675acdd355d4c8f572d" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Progress Steps Options.gvi" StoragePath="Advanced\Configure\Progress Steps Options.gvi" />
 						<SourceFileReference Id="6bc6d06841e44ddb4bad55712db8ebf" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Custom Class Options.gvi" StoragePath="Advanced\Configure\Custom Class Options.gvi" />
 						<SourceFileReference Id="bfc620389e8048dd8d2bb9470582c2a9" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Modal Window Options.gvi" StoragePath="Advanced\Configure\Modal Window Options.gvi" />
+						<SourceFileReference Id="813f0ebc12084b4499d417214e5ab6aa" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Input Select Options.gvi" StoragePath="Advanced\Configure\Input Select Options.gvi" />
 					</NameScopingEnvoy>
 					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="3aba8228b2b04eb5810027d69194732b" Name="Operate">
 						<SourceFileReference Id="6c8a82f896346cfa478ea0b25d6a575" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Open Sweet Alert.gvi" StoragePath="Advanced\Operate\Open Sweet Alert.gvi" />
@@ -81,8 +84,7 @@
 				</NameScopingEnvoy>
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
-		<NameScopingEnvoy Id="46f78511d71a4a63b72409416921c651" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionContentReferenceRoot" Name="SweetAlert.gcomp" NameTracksFileName="True">
-			<ComponentDefinitionContentReferenceRoot xmlns="http://www.ni.com/GComponent.xsd" />
+		<NameScopingEnvoy Id="46f78511d71a4a63b72409416921c651" Name="SweetAlert.gcomp" NameTracksFileName="True">
 			<ContentReference ContentIdentifier="58be455de83d4437952a2fb29a669d58" Id="efb5b54470ce44b7ba5d41032f622015" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
