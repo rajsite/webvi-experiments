@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="6FD5121DDC6639D14E928E4E2D94A1E70DE19AA3873D94857D851D0ED6999CFCA936677CF9BAE0CFEFFC4BC91B0DA86CB8A4FFA6CBBBE1467DC9E3269FF56503" Timestamp="1D72414D819A9DD" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="8C1CCD8B605B613FB7DDFAACA15892C2F77927BC709EB06EFF2FB877836068E6C490DE14822E1FA8C2538D8CFA498F6756A4ACE9C4A6DF3355CA4C70B0CD5D02" Timestamp="1D72520019BFD8B" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -11,19 +11,19 @@
 				<IconTemplate Height="[float]40" Id="b77b8cafd4ea4010bca13905f1faa951" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="8bbdf47189a54805bca92c669d7f040d" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;DataGridCellStyle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
+		<DependenciesTextBox Id="8bbdf47189a54805bca92c669d7f040d" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;DeclarativeStyle.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="c619b5742ff44f83b402ec2500df616d" xmlns="http://www.ni.com/PlatformFramework">
 		<EnvoyManagerRootEnvoy Id="7d10a193e730442482972501563904e7" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
-		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="35c845daef8a4aefbb9d707d26c94ffa" Name="DataGridCellStyle.jsli" NameTracksFileName="True">
-			<EmbeddedDefinitionReference Id="e6067751cbab49ffaceaa0e16554265f" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CreateStyle">
-				<JavaScriptLibraryEntryPoint Id="c6e0eafc321841f3914daa85672dd0d6" Symbol="WebVIDataGridCellStyle.createStyle" xmlns="http://www.ni.com/JavaScriptLibrary">
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="35c845daef8a4aefbb9d707d26c94ffa" Name="DeclarativeStyle.jsli" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Id="e6067751cbab49ffaceaa0e16554265f" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DataGridStringColumnValueBasedBackgroundColor">
+				<JavaScriptLibraryEntryPoint Id="c6e0eafc321841f3914daa85672dd0d6" Symbol="WebVIDeclarativeStyle.dataGridStringColumnValueBasedBackgroundColor" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="95f71962027f42db80fb2124f517a53e" ListViewIconCrop="0 0 40 50" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]50" Id="8bce0ffebee54c8e95940e50a0fbf814" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]50" Id="27be15b3c1b64868ad0574c100d5273b" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="de713559193d4544a6d9d48473c3ebc5" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="810d537c79e142a7b809f0a0765988b6" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Height="[float]46" Id="b7ce54ffa58448ea93014fb342de1cef" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateStyle" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Height="[float]46" Id="b7ce54ffa58448ea93014fb342de1cef" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DataGridStringColumnValueBasedBackgroundColor" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="787b0a0459cb49dd915665d5d0ac6a19" />
 								</FileNameText>
 							</IconTemplate>
@@ -66,41 +66,6 @@
 					<JavaScriptLibraryParameter Id="5432004d1de945fbb60692fae0f325ab" Name="color">
 						<JavaScriptType ActualDataType="@92fa81f6cce141d082e59b2283f476da" Id="4bc34425ff1944e185d370b203cb87d9" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="a77e835c6a734a03ba549f3502118e11" Name="color" />
-					</JavaScriptLibraryParameter>
-				</JavaScriptLibraryEntryPoint>
-			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="d78347e7993d45dabf439ca92e1ec32e" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="RemoveStyle">
-				<JavaScriptLibraryEntryPoint Id="4ca4df37d9f541158caed32c1a7f0cff" Symbol="WebVIDataGridCellStyle.removeStyle" xmlns="http://www.ni.com/JavaScriptLibrary">
-					<Icon Id="8511cb55da9d4a5ea4a9eb5b2cbae1c1" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
-						<IconPanel Height="[float]40" Id="650b15319fdd4112866b313fa4279eeb" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="d0b42641cfee4dcca07b701862ef3184" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="c00e695e85634d27a24fcdc9b72cc1ae" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="efb315dd748b4a279a0b61e5644127de" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Id="abe3436bffba404287d49c5e47f34dee" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]RemoveStyle" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="26c8470369c54fa1bfa3b160d6456018" />
-								</FileNameText>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-					<ConnectorPane Height="40" Id="4a6718926d58425abbfa58a99727ca5e" ListViewHeight="70" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
-						<ConnectorPaneTerminal />
-						<ConnectorPaneTerminal Hotspot="0 15" />
-						<ConnectorPaneTerminal Hotspot="0 25" />
-						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="6c7d00116bb44a748d501e8132ed44b3" />
-						<ConnectorPaneTerminal Hotspot="15 0" />
-						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" />
-						<ConnectorPaneTerminal Hotspot="40 15" />
-						<ConnectorPaneTerminal Hotspot="40 25" />
-						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="f2f61784e2e44a8d9f23bf715a7a1fc4" />
-						<ConnectorPaneTerminal Hotspot="15 40" />
-						<ConnectorPaneTerminal Hotspot="25 40" />
-					</ConnectorPane>
-					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="6c7d00116bb44a748d501e8132ed44b3" IsError="True" Name="error in" />
-					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="f2f61784e2e44a8d9f23bf715a7a1fc4" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="faa94c3a739e42debb38e38d47fb032a" IsReturnParameter="True" Name="return">
-						<JavaScriptType ActualDataType="@944905d42fe342679bc16a8700965d81" Id="e58c39e220c5443094ff5e3686dcd7b4" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="af9c163df92b442fb9b40fcb69b29060" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
