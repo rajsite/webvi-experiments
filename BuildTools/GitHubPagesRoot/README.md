@@ -7,6 +7,7 @@
     - [Reflex 👉](https://rajsite.github.io/webvi-experiments/Reflex/)
     - [Snake 🐍](https://rajsite.github.io/webvi-experiments/Snake/)
 - [Bootstrap](https://rajsite.github.io/webvi-experiments/Bootstrap/)
+- [DeclarativeStyle](https://rajsite.github.io/webvi-experiments/DeclarativeStyle/)
 - [ECharts](https://rajsite.github.io/webvi-experiments/ECharts/)
 - [Express](https://webvicli-express.herokuapp.com/)
 - [File](https://rajsite.github.io/webvi-experiments/File/)

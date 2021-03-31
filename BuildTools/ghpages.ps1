@@ -47,6 +47,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Web S
 Write-Host "Copy Bootstrap build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Bootstrap"
 
+Write-Host "Copy DeclarativeStyle build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\DeclarativeStyle" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DeclarativeStyle"
+
 Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
 
