@@ -33,7 +33,7 @@
         });
     };
 
-    const filterOptions = function (options) {
+    const postProcessOptions = function (options) {
         if (options.input === 'select') {
             options.inputOptions = options.inputOptionsArray.reduce((inputOptions, option) => {
                 inputOptions[option.value] = option.displayValue;
@@ -45,10 +45,31 @@
         }
     };
 
-    const filterResults = function (options, results) {
+    const validDismiss = function (dismiss) {
+        return ['success', 'backdrop', 'cancel', 'close', 'esc', 'timer'].includes(dismiss);
+    };
+
+    const coerceDismiss = function (dismiss) {
+        if (dismiss === undefined) {
+            return 'success';
+        }
+        if (validDismiss(dismiss)) {
+            return dismiss;
+        }
+        return 'unknown';
+    };
+
+    const coerceValue = function (value) {
+        return value === undefined ? '' : String(value);
+    };
+
+    const postProcessResults = function (options, results) {
         if (options.input === 'select') {
             if (options.inputOptions[results.value] === undefined) {
                 results.value = '';
+                if (results.dismiss === 'success') {
+                    results.dismiss = 'unknown';
+                }
             }
         }
     };
@@ -64,19 +85,20 @@
         if (pendingPromise !== undefined) {
             throw new Error('SweetAlert dialog already open, cannot open new dialog');
         }
-        filterOptions(options);
+        postProcessOptions(options);
         pendingPromise = window.Swal.fire(options);
-        let results;
+        let resultsInitial;
         try {
-            results = await pendingPromise;
+            resultsInitial = await pendingPromise;
         } finally {
             pendingPromise = undefined;
         }
-        filterResults(options, results);
-        const dismissUnfiltered = results.dismiss === undefined ? 'success' : results.dismiss;
-        const dismiss = ['success', 'backdrop', 'cancel', 'close', 'esc', 'timer'].includes(dismissUnfiltered) ? dismissUnfiltered : 'unknown';
-        const value = results.value === undefined ? '' : String(results.value);
-        const resultsJSON = JSON.stringify({dismiss, value});
+        const results = {
+            dismiss: coerceDismiss(resultsInitial.dismiss),
+            value: coerceValue(resultsInitial.value)
+        };
+        postProcessResults(options, results);
+        const resultsJSON = JSON.stringify(results);
         return resultsJSON;
     };
 
