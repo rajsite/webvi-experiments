@@ -89,6 +89,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\PlotToolDemo" -TargetName "Web Serve
 Write-Host "Copy RichText build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\RichText"
 
+Write-Host "Copy SelectElement build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\SelectElement" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SelectElement"
+
 Write-Host "Copy SweetAlert build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SweetAlert"
 

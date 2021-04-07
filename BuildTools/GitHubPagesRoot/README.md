@@ -23,6 +23,7 @@
 - [PlotToolDemo](https://rajsite.github.io/webvi-experiments/PlotToolDemo/)
 - [Map](https://rajsite.github.io/webvi-experiments/Leaflet/)
 - [RichText](https://rajsite.github.io/webvi-experiments/RichText/)
+- [SelectElement](https://rajsite.github.io/webvi-experiments/SelectElement/)
 - [SweetAlert](https://rajsite.github.io/webvi-experiments/SweetAlert/)
 - [VideoJS](https://rajsite.github.io/webvi-experiments/VideoJS/)
 - [WebAudio](https://rajsite.github.io/webvi-experiments/WebAudio/)

@@ -64,6 +64,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\PlotToolDemo" -ProjectFileName "
 Write-Host "Build RichText project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\RichText" -ProjectFileName "RichText.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build SelectElement project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\SelectElement" -ProjectFileName "SelectElement.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build SweetAlert project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "SweetAlert.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
