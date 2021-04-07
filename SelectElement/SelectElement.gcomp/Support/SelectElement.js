@@ -83,8 +83,12 @@
 
         // Deselect current options and enable new selection
         const selectedOptions = Array.from(selectElement.selectedOptions);
-        selectedOptions.forEach(selectedOption => selectedOption.selected = false);
-        selectedIndexes.forEach(selectedIndex => optionElements[selectedIndex].selected = true);
+        selectedOptions.forEach(selectedOption => {
+            selectedOption.selected = false;
+        });
+        selectedIndexes.forEach(selectedIndex => {
+            optionElements[selectedIndex].selected = true;
+        });
     };
 
     const getOptions = function (selectElement) {
