@@ -48,10 +48,9 @@
             throw new Error(`String column not found at column index ${index} for data grid.`);
         }
 
-        // +1 as NXG is zero-indexed while css nth-child is one-indexed
-        // +1 as the first column is for row header (even when not visible)
-        const colIndex = index + 2;
-        return `div[role="row"] > div[role="gridcell"]:nth-child(${colIndex}) ni-string-control`;
+        // Count from end of gridcells because the datagrid inserts extra gridcells at the start for row headers and grouping
+        const colIndexFromEnd = fieldLength - index;
+        return `div[role="row"] > div[role="gridcell"]:nth-last-child(${colIndexFromEnd}) ni-string-control`;
     };
 
     const dataGridStringColumnTextMatch = function (config) {
