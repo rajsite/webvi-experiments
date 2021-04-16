@@ -2,6 +2,7 @@
 
 - Arcade 🕹️
     - [Avalanche 🌠](https://rajsite.github.io/webvi-experiments/Avalanche/)
+    - [DigitalClock ⏰](https://rajsite.github.io/webvi-experiments/DigitalClock/)
     - [DrEmoji 💊](https://rajsite.github.io/webvi-experiments/DrEmoji/)
     - [Fire 🔥](https://rajsite.github.io/webvi-experiments/build/Fire/)
     - [Reflex 👉](https://rajsite.github.io/webvi-experiments/Reflex/)

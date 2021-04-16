@@ -29,6 +29,9 @@ Get-ChildItem ".\BuildTools\GitHubPagesRoot\*" | ForEach-Object {
 Write-Host "Copy Arcade projects: Avalanche build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Avalanche\nxg" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Avalanche"
 
+Write-Host "Copy Arcade projects: DigitalClock build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DigitalClock" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DigitalClock"
+
 Write-Host "Copy Arcade projects: DrEmoji build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DrEmoji\nxg" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DrEmoji"
 

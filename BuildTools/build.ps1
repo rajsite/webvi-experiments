@@ -7,6 +7,9 @@ Write-Host "Use cli monitor?: $usemonitor"
 Write-Host "Build Arcade projects: Avalanche"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Avalanche\nxg" -ProjectFileName "Avalanche.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build Arcade projects: DigitalClock"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\DigitalClock" -ProjectFileName "DigitalClock.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build Arcade projects: DrEmoji"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\DrEmoji\nxg" -ProjectFileName "DrEmoji.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
