@@ -56,10 +56,9 @@
     }
 
     class WebVIMarker {
-        constructor (webVIMap, lat, lng, title, iconUrl) {
+        constructor (lat, lng, title, iconUrl) {
             const options = {
                 position: {lat, lng},
-                map: webVIMap.map,
                 title
             };
             if (iconUrl !== '') {
@@ -68,22 +67,34 @@
             const marker = new window.google.maps.Marker(options);
             marker.addListener('click', () => this.showMarkerInfo());
 
-            this._webVIMap = webVIMap;
+            this._webVIMap = undefined;
             this._title = title;
             this._marker = marker;
         }
 
+        addMarkerToMap (webVIMap) {
+            this._webVIMap = webVIMap;
+            this._marker.setMap(webVIMap.map);
+        }
+
         setTitle (title) {
+            if (this._webVIMap === undefined) {
+                throw new Error('Marker must be attached to map.');
+            }
             this._title = title;
             this._marker.setTitle(title);
             this._webVIMap.updateMarkerInfoIfOpen(this._title, this._marker);
         }
 
         showMarkerInfo () {
+            if (this._webVIMap === undefined) {
+                throw new Error('Marker must be attached to map.');
+            }
             this._webVIMap.showMarkerInfo(this._title, this._marker);
         }
 
         destroy () {
+            this._webVIMap = undefined;
             window.google.maps.event.clearInstanceListeners(this._marker);
             this._marker.setMap(null);
         }
@@ -139,9 +150,14 @@
         webVIMap.destroy();
     };
 
-    const createMarker = async function (webVIMap, lat, lng, title, iconUrl) {
+    const addMarkersToMap = async function (webVIMap, webVIMarkers) {
         await tryAuthCheck();
-        const webVIMarker = new WebVIMarker(webVIMap, lat, lng, title, iconUrl);
+        webVIMarkers.map(webVIMarker => webVIMarker.addMarkerToMap(webVIMap));
+    };
+
+    const createMarker = async function (lat, lng, title, iconUrl) {
+        await tryAuthCheck();
+        const webVIMarker = new WebVIMarker(lat, lng, title, iconUrl);
         return webVIMarker;
     };
 
@@ -186,6 +202,7 @@
         initialize,
         createMap,
         destroyMap,
+        addMarkersToMap,
         createMarker,
         destroyMarker,
         showMarker,

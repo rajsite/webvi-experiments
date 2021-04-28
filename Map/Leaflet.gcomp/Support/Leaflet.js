@@ -23,7 +23,11 @@
         map.remove();
     };
 
-    const createMarker = function (map, latitude, longitude, text, iconUrl) {
+    const addMarkersToMap = function (map, markers) {
+        markers.forEach(marker => map.addLayer(marker));
+    };
+
+    const createMarker = function (latitude, longitude, text, iconUrl) {
         const options = {};
         if (iconUrl !== '') {
             options.icon = L.icon({iconUrl});
@@ -32,7 +36,6 @@
         if (text !== '') {
             marker.bindPopup(text);
         }
-        map.addLayer(marker);
         return marker;
     };
 
@@ -78,6 +81,7 @@
         addTileLayer,
         createMap,
         destroyMap,
+        addMarkersToMap,
         createMarker,
         destroyMarker,
         showMarker,
