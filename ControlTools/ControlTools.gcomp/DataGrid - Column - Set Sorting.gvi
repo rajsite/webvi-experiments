@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="6E19A12F47E383F6D7691CB155E69DDA0C8B29C25D02E3219207CE637E3C1E15C5B4C3721655C6AE6C77D0E17535FD3CE87ACD495B48A586B66E3AD3CD5B7974" Timestamp="1D73AECD7DC077E" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="EE53C5CB7411C531154C2B90232128B01CD2903B8613BD3946BD2E1811B11F5D49AF18C6633D519B0B0977643D3371168A142DC54D09ADDD00104075C9E61097" Timestamp="1D73C4546A891CB" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -14,8 +14,8 @@
 				<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="d36ff347272d43c89b4f020d18edca8d" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 					<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="fc0ed120c0e14f509d77fbb9b70d023f" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 					<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="9c3e859370bd470cabd47a4a08d1cda4" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-					<FileNameText Attached="[bool]True" Id="7968c140649c4a65a6225cd490527ee5" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Sort Column" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-						<FontSetting FontFamily="Segoe UI" FontSize="7.5" Id="ae932943c3c64b25828c70db99fc30bf" />
+					<FileNameText Attached="[bool]True" Id="7968c140649c4a65a6225cd490527ee5" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DataGrid - Column - Set Sorting" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+						<FontSetting FontFamily="Segoe UI" FontSize="6" Id="ae932943c3c64b25828c70db99fc30bf" />
 					</FileNameText>
 				</IconTemplate>
 			</IconPanel>
@@ -37,7 +37,7 @@
 		<DiagramUnplacedItems Id="61a39738a006401ab75d9de5ce681504" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="d6d6e3bebfab46448885f89902e46d62" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="ad2fae9349304b76853f92c8f3fd41f4">
-			<MethodCall Bounds="380 245 40 40" Id="e7cd81deee0a47959c560a982061ead8" ResolveFailedHint="SortColumn" Signature="@8f810966c93a44909622d38f981ee7c2" Target="DataGridTools::Support::DataGridTools.jsli::SortColumn" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="380 245 40 40" Id="e7cd81deee0a47959c560a982061ead8" ResolveFailedHint="DataGridSortColumn" Signature="@af8b2e34695a49a3975cd72bb0b015e4" Target="ControlTools::Support::ControlTools.jsli::DataGridSortColumn" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="selector" />
@@ -68,7 +68,7 @@
 			</NodeLabel>
 			<Wire Id="59ce86133e984efba5f45da6a651b7cc" Joints="N(3c50742c30574e8ca2a6e8d443c33558:Value)|(335,240) h(10) v(20) N(e7cd81deee0a47959c560a982061ead8:L1)|(380,260)" xmlns="http://www.ni.com/PlatformFramework" />
 			<DataAccessor Bounds="225 305 40 15" DataItem="75e755783d4e42b58caeb05142b63f74" Id="b6c7831f5e844417b4e548af35f7ce33" Label="3990f2eb0efe4bef9996be529595c4a2" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@f1bd10f017724edfa0773a2029405dd0" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@cfb4bbd8a9e04d42a18759a5e854d73d" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="b6c7831f5e844417b4e548af35f7ce33" Bounds="198 305 22 14" Id="3990f2eb0efe4bef9996be529595c4a2" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>sort</p.Text>
@@ -124,7 +124,7 @@
 			<Label Height="[float]16" Id="47857571fe7b4f238a5c75d394d9854d" LabelOwner="[UIModel]5896c729c7b74ab084c7542c2fc57411" Left="[float]276" Text="[string]selector" Top="[float]192" Width="[float]42" xmlns="http://www.ni.com/PanelCommon" />
 			<EnumSelector AllowUndefinedValueEntry="[bool]False" BaseName="[string]sort" Height="[float]24" Id="60a3828109b4f9e9e28bb1936ae5670" InteractionMode="[SelectorInteractionModes]ArrowKeys, Keyboard, MouseClick, ScrollWheel, ButtonClicks" IsTypeAheadEnabled="[bool]True" Label="[UIModel]cfc0e09109b34bf5ab69bea1fbf8ffc5" Left="[float]276" TabIndex="[int]4" Top="[float]356" Value="{DataItemBinding Id=75e755783d4e42b58caeb05142b63f74}" ValueType="[Type]UInt16" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]72" p4:ControlDefinitionChecksum="Awm+gZZJ12rCKrGmfKBP+w9LL6Z3SswfvQ00HIthUWo=_v1" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<p4:p.TypeDefinitionTargets>
-					<p4:TypeDefinitionTarget TargetName="DataGridTools::Support::sort.gtype::ControlDefinition" />
+					<p4:TypeDefinitionTarget TargetName="ControlTools::Support::sort.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
 				<EnumSelectorInfo DisplayValue="[string]none" DisplayValueOverride="[string]" Id="26" IsEnabled="[bool]True" Value="[ushort]0" ValueType="[Type]UInt16" />
 				<EnumSelectorInfo DisplayValue="[string]ascending" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[ushort]1" ValueType="[Type]UInt16" />
@@ -138,10 +138,10 @@
 		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="1" CallUsage="Required" DataType="Int32" Id="18ed9ba9b2c480899fc922463f3d08c" Name="column index" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
 		</DataItem>
-		<DataItem CallDirection="Input" CallIndex="2" DataType="@f1bd10f017724edfa0773a2029405dd0" Id="75e755783d4e42b58caeb05142b63f74" Name="sort" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Input" CallIndex="2" DataType="@cfb4bbd8a9e04d42a18759a5e854d73d" Id="75e755783d4e42b58caeb05142b63f74" Name="sort" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>1</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="DataGridTools::Support::sort.gtype" />
+				<TypeDefinitionTarget TargetName="ControlTools::Support::sort.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 		<DataItem CallDirection="Input" CallIndex="3" DataType="Error" Id="37a45f41109042b8ad67a2de04e6da2f" Name="error in" xmlns="http://www.ni.com/MocCommon">
@@ -170,8 +170,8 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="8f810966c93a44909622d38f981ee7c2">
-			<Attributed AttributedType="@20185ff0e9814e1ca443352536641dda">
+		<p.TypeReference TypeId="af8b2e34695a49a3975cd72bb0b015e4">
+			<Attributed AttributedType="@7c73aea7439e49ccbb1470fafbe90fc9">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|3|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -179,15 +179,15 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="f1bd10f017724edfa0773a2029405dd0">
+		<p.TypeReference TypeId="cfb4bbd8a9e04d42a18759a5e854d73d">
 			<Attributed AttributedType="@5ab032d4583c4fa5a6d31066f06fd837">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DataGridTools::Support" />
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]ControlTools::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="20185ff0e9814e1ca443352536641dda">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="SortColumn" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="7c73aea7439e49ccbb1470fafbe90fc9">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="DataGridSortColumn" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@9405b466fb184c17bd4510d587caeb29">
 						<AttributeValues>
@@ -247,7 +247,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="DataGridTools::Support::DataGridTools.jsli::SortColumn">
+		<p.IconModel Target="ControlTools::Support::ControlTools.jsli::DataGridSortColumn">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -255,11 +255,11 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]SortColumn" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DataGridSortColumn" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DataGridTools.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]ControlTools.gcomp" Top="[float]0" Width="[float]40" />
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;DataGridTools.jsli&gt;" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>

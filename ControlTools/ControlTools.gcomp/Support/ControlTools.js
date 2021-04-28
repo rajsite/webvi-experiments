@@ -25,7 +25,7 @@
         }
     };
 
-    const sortColumn = function (selector, indexNum, sort) {
+    const dataGridSortColumn = function (selector, indexNum, sort) {
         const element = findControl(selector, 'NI-DATA-GRID');
         validateAllowsSorting(element);
         const index = String(indexNum);
@@ -43,5 +43,5 @@
         }
     };
 
-    window.WebVIDataGridTools = {sortColumn};
+    window.WebVIControlTools = {dataGridSortColumn};
 }());
