@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="95667F50AE99CB4F20EF279D702161D3A34C5A88C80361557BFC644F7B95EEAC74382F65E594AAFB1F8E5FA340E7FD7974E3A15B9234124B1BB44FA76D3992FB" Timestamp="1D73BD88B2E453B" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="4E1656C2F70217E337423B39C372D4D3B78ECB7E92811B9AD51D502C633A0F51A2F60E8231E0D0B6C23F2C8F429F4B77AC60E7DF94A0D6C980941D49D7532BF1" Timestamp="1D73CBA80BBA43B" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -11,7 +11,7 @@
 				<IconTemplate Height="[float]40" Id="ead61e5c661942feb95a544b9653d7a7" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
 			</IconPanel>
 		</Icon>
-		<DependenciesTextBox Id="5e629ee30daf466f966d211bb4fbcb90" ScriptAndLinkDependencies="&quot;&amp;lt;script src=&amp;quot;GoogleMap.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
+		<DependenciesTextBox Id="5e629ee30daf466f966d211bb4fbcb90" ScriptAndLinkDependencies="&quot;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;GoogleMap.css&amp;quot;&amp;gt;\r\n&amp;lt;script src=&amp;quot;https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&amp;lt;script src=&amp;quot;GoogleMap.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;\r\n&quot;" />
 	</JavaScriptLibrary>
 	<EnvoyManagerFile Id="7d3803e034954a96bdfa677963e6e787" xmlns="http://www.ni.com/PlatformFramework">
 		<EnvoyManagerRootEnvoy Id="9beeb81cd7554c47848760914961f326" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
@@ -445,6 +445,88 @@
 					<JavaScriptLibraryParameter Id="bfd418b95c464acb9bed611a671bc7c4" Name="markers">
 						<JavaScriptType ActualDataType="@d3131056450146e6a40458260a6a4811" Id="1224b33d4f664a8496f206ef54e8780b" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="df5ea2ca67df4367bda81fd176fe6acc" Name="markers" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="d5e0a137fee4498ba5e71d3ac1358e11" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CreateMarkerGroup">
+				<JavaScriptLibraryEntryPoint Id="c5dad629824b48a28442a92ac5486b10" Symbol="WebVIGoogleMap.createMarkerGroup" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="d79a8559744e469e88c390d1ef074d84" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="d0888f8a3ccf44b9839396212ffef5f2" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="ce0ae71e52c341e7a7db5bbb98bc2664" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="2d45b557ad0143a8a0def811c0d93283" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="54ddb507824a4730a8caf6cdb7dd6952" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Id="97706f6103f84eafa8612e7b39fc5e85" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateMarkerGroup" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="452d882a4a4144e5ae9f08fc426e066c" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="5d22de6dc76b4655a3bd56633c8bb6d8" ListViewHeight="115" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal />
+						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="5936f62a83e947fab6b915db684ea1a9" />
+						<ConnectorPaneTerminal Hotspot="0 25" ListViewHotspot="0 95" Parameter="d6d12556ef094c889c4987bb248ecf99" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="7b302ec3485d42dab96373259223448b" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="d00c0b667c6d49f19390f100b62bced9" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="918989aa35ba4f428a1f88f67a489ba9" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="7b302ec3485d42dab96373259223448b" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="918989aa35ba4f428a1f88f67a489ba9" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="4c3088a333c44e5d8c75ea98ccb99a88" IsReturnParameter="True" Name="markerGroup">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="397a893436ae4fbda8c6215b42f216a6" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="d00c0b667c6d49f19390f100b62bced9" Name="markerGroup" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="dd524090c1284dbbb6815ee0418241e0" Name="map">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="9cc63710d0d0429988f6f1af58cc4c1a" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="5936f62a83e947fab6b915db684ea1a9" Name="map" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="c9e407a292044c8a5c8b9f2159a4c24" Name="markers">
+						<JavaScriptType ActualDataType="@d3131056450146e6a40458260a6a4811" Id="e7aac6e782d6445eba71ac20da293a28" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="d6d12556ef094c889c4987bb248ecf99" Name="markers" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="247b8567bfa74521afce47198e49fc6e" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="DestroyMarkerGroup">
+				<JavaScriptLibraryEntryPoint Id="f1dc34d7dddd4d8bbc14682d4bb6862f" Symbol="WebVIGoogleMap.destroyMarkerGroup" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="be3fcf571824448a86baf99f8dc5e014" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="16c3a44926d64a1aaedf517c62618c37" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="30acd12367294cc086ee4f4571c5f9ba" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="6fe78540d435405dbe05b50537d5d722" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="8f5d54b3abaa4d839d1469c777765954" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Id="4dba770768394400a232f2922ef51a0b" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]DestroyMarkerGroup" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="b65c65582aa5482a8e98f1c6d7b7255d" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="7ba03b3bd3fb40f3b1ff66007ceff506" ListViewHeight="85" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 65" Parameter="bf44a9532f9422990d006d535b2b255" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="c6d14a36bece4dc3bda266da5ff1e1eb" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="ffe25463694e4757a817f7c845a33990" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="c6d14a36bece4dc3bda266da5ff1e1eb" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="ffe25463694e4757a817f7c845a33990" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="5539dae3ba734f419152baa774baca70" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="9fdd299ce87241bdbffcb0b45372d892" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2218d2fabf594facadb9fd01b52130df" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="51a96aaedd1c4e8ba1dda8618fcc8ac3" Name="markerGroup">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="bd045bb944bf4958be8386a7d5f204d9" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="bf44a9532f9422990d006d535b2b255" Name="markerGroup" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>

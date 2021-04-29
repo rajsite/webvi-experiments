@@ -1,4 +1,3 @@
-/* global L:false */
 (function () {
     'use strict';
 
@@ -57,6 +56,18 @@
         }
     };
 
+    const createMarkerGroup = function (map, markers) {
+        const markerGroup = L.markerClusterGroup();
+        markerGroup.addLayers(markers);
+        map.addLayer(markerGroup);
+        return markerGroup;
+    };
+
+    const destroyMarkerGroup = function (markerGroup) {
+        markerGroup.clearLayers();
+        markerGroup.remove();
+    };
+
     const addMarkerEventListener = function (markers) {
         const createEventListener = function (marker, index, controller) {
             marker.on('click', () => controller.enqueue(index));
@@ -86,6 +97,8 @@
         destroyMarker,
         showMarker,
         updateMarkerText,
+        createMarkerGroup,
+        destroyMarkerGroup,
         addMarkerEventListener,
         waitForMarkerEvent
     };

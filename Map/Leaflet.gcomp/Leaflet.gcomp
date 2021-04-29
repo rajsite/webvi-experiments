@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="435D96A156895F3917F8E2BB464A516EE1772ECD7154C2EEAE2FDFDD0F53716E778B0877F433D13C4442A9B190C466257D0FCBAB8AF0CF6E127BB3CED8CAC930" Timestamp="1D73BD9D524EECB" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="23D8E8CC70CA4534748205F846E0523360C2A2DCEBCA8ED56C6C5707A73E2E161FEED2DADB7C63D550A496D699DAD7EA47098451CDECBE7964F1B8E4BA4C1E11" Timestamp="1D73CAF4017A387" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -45,6 +45,12 @@
 			<ComponentItemProperties AssociatedEnvoyId="eecd974c1dad4280ae779d750339d5a8" Exported="True" Id="b024b1dcc3aa44fa810869b33eeaf858" />
 			<ComponentItemProperties AssociatedEnvoyId="2f919619ae774815bc1e7e8883ba3073" Exported="True" Id="927959c66e01405686eb55ea95d123ef" />
 			<ComponentItemProperties AssociatedEnvoyId="4926a8989f694f1f98c21e3bbf38e971" Exported="True" Id="7528259d16614bbb9ee4e14824cbd24b" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="8c1c2cc264c043ad93d0e8b746d3dd8c" Id="ffda764cf0e04e0fb3a07704d3b8f6be" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="7b045b21bbc54e31b873c60e4135cdc5" Id="d874d0a4c37b495b916fdbb632db13c3" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="c8e4332b6f341cfbaed4e3e8729f3b3" Id="b9ad66062c3e46b88c96a1d9a88543ed" />
+			<ComponentItemProperties AssociatedEnvoyId="29edb231f8e54a739f1bb374c2a8e9ea" Exported="True" Id="71fec75d971946eaa1a986bb38f132b2" />
+			<ComponentItemProperties AssociatedEnvoyId="560e1d5af41a4b14ac950909cd185928" Exported="True" Id="390d0f6ba44241bcdc4145c7b731ad" />
+			<ComponentItemProperties AssociatedEnvoyId="f65d7f1e321b479c93a1bdd2d6cd6698" Exported="True" Id="1d2a437cff5745efb08c687d9871f7ac" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="c3484fef73fa49f498f936230ed88178" xmlns="http://www.ni.com/PlatformFramework">
@@ -87,9 +93,21 @@
 								<FileReference Bindings=".js" Id="420390963cf64770b862b4003e8412ea" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="leaflet.js" StoragePath="Support\node_modules\leaflet\dist\leaflet.js" />
 							</NameScopingEnvoy>
 						</NameScopingEnvoy>
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="ee7852b14270416ba99258879722c9ae" Name="leaflet_markercluster">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="4290b1a11c264cdeb557e45e5ee883a4" Name="dist">
+								<FileReference Bindings=".js" Id="8c1c2cc264c043ad93d0e8b746d3dd8c" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="leaflet.markercluster.js" StoragePath="Support\node_modules\leaflet_markercluster\dist\leaflet.markercluster.js" />
+								<FileReference Bindings=".css" Id="7b045b21bbc54e31b873c60e4135cdc5" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="MarkerCluster.css" StoragePath="Support\node_modules\leaflet_markercluster\dist\MarkerCluster.css" />
+								<FileReference Bindings=".css" Id="c8e4332b6f341cfbaed4e3e8729f3b3" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="MarkerCluster.Default.css" StoragePath="Support\node_modules\leaflet_markercluster\dist\MarkerCluster.Default.css" />
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
 					</NameScopingEnvoy>
 					<FileReference Bindings=".js" Id="cedde56389aa4ebd8a68cbde61de220d" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="Leaflet.js" StoragePath="Support\Leaflet.js" />
 					<SourceFileReference Bindings="EnvoyManager" Id="d98054d5ec684670a6a76a377c9b0736" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Leaflet.jsli" StoragePath="Support\Leaflet.jsli" />
+				</NameScopingEnvoy>
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="4c4c214a2e20495dabcd6d269bd31f1b" Name="Marker Group">
+					<SourceFileReference Id="29edb231f8e54a739f1bb374c2a8e9ea" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Add Marker Group to Map.gvi" StoragePath="Marker Group\Add Marker Group to Map.gvi" />
+					<SourceFileReference Bindings="EnvoyManager" Id="560e1d5af41a4b14ac950909cd185928" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="marker group reference.gtype" StoragePath="Marker Group\marker group reference.gtype\marker group reference.gtype" />
+					<SourceFileReference Id="f65d7f1e321b479c93a1bdd2d6cd6698" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Destroy Marker Group.gvi" StoragePath="Marker Group\Destroy Marker Group.gvi" />
 				</NameScopingEnvoy>
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>

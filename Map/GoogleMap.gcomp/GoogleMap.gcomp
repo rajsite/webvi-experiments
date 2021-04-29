@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="B444D4CEA2E0FE9FED006C1BBDD5816D3594E96D1391409D77808781EFFA823815B1005EC50726DA3687A26DDDEB441B9EA1B56EE4803C0F45B3B10B30E4B99A" Timestamp="1D73BD94A32BB49" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="A9B5BCF1BBF335817D0501207A9D72C63CDB5B59651E0019B5C1F491694FCDB49C9BB76EFC2D230543027839FEA83219EC77641D28B27810B9CF1BFA108CA4E6" Timestamp="1D73CBA80BB7CE7" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
@@ -37,6 +37,10 @@
 			<ComponentItemProperties AssociatedEnvoyId="7ff0157347eb48caa4bc938fe2705557" Exported="True" Id="2e1a4747e1b044298777cc12055d6e1a" />
 			<ComponentItemProperties AssociatedEnvoyId="910f1e44037b42ba86818b7fc170682a" Exported="True" Id="67a109adb7424073a8c5d23dd0d91b8e" />
 			<ComponentItemProperties AssociatedEnvoyId="d34379ed431b4214a7004ffc78f2af35" Exported="True" Id="1ced0519d6d94b80916e3243a5c18e7d" />
+			<ComponentItemProperties AssociatedEnvoyId="d49a304f46f941c28f1572c65e6ae177" Exported="True" Id="ace84c37664f4eec8c292baf1d0ded73" />
+			<ComponentItemProperties AssociatedEnvoyId="60ff28296daf4b6a8d09e44fd841b4ee" Exported="True" Id="832ff585b0b14576bd897acb9cce8633" />
+			<ComponentItemProperties AssociatedEnvoyId="caf2f4db56a64b28a0c8951217b5b717" Exported="True" Id="9e222515e86744978814b3b5e083a0d2" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="cd445566707a493997130574a8e40311" Id="d290eef98e13488e9d3e6c3c96f8b044" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="eed9fb00b81247ddb5f9c2a0c55a2c89" xmlns="http://www.ni.com/PlatformFramework">
@@ -47,6 +51,7 @@
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="65d05d284f7b4d5fa91ff44bf56ede0f" Name="Support">
 					<SourceFileReference Bindings="EnvoyManager" Id="ab61b67f04964b48995a4562c9ddabe3" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="GoogleMap.jsli" StoragePath="Support\GoogleMap.jsli" />
 					<FileReference Bindings=".js" Id="624f2f660f08485e913a1dff77df8cb8" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="GoogleMap.js" StoragePath="Support\GoogleMap.js" />
+					<FileReference Bindings=".css" Id="cd445566707a493997130574a8e40311" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="GoogleMap.css" StoragePath="Support\GoogleMap.css" />
 				</NameScopingEnvoy>
 				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="3b5c40246b774551842eb4a3833f762c" Name="Map">
 					<SourceFileReference Id="b56339daf3c443af8a4460b1f6236b1f" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Create Map.gvi" StoragePath="Map\Create Map.gvi" />
@@ -66,6 +71,11 @@
 						<SourceFileReference Bindings="EnvoyManager" Id="7ff0157347eb48caa4bc938fe2705557" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="event stream reader.gtype" StoragePath="Marker\Events\event stream reader.gtype\event stream reader.gtype" />
 						<SourceFileReference Id="910f1e44037b42ba86818b7fc170682a" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Wait for Marker Event.gvi" StoragePath="Marker\Events\Wait for Marker Event.gvi" />
 					</NameScopingEnvoy>
+				</NameScopingEnvoy>
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="2d0c42ba3a864c6395a9cafa66b5501e" Name="Marker Group">
+					<SourceFileReference Id="d49a304f46f941c28f1572c65e6ae177" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Add Marker Group to Map.gvi" StoragePath="Marker Group\Add Marker Group to Map.gvi" />
+					<SourceFileReference Bindings="EnvoyManager" Id="60ff28296daf4b6a8d09e44fd841b4ee" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="marker group reference.gtype" StoragePath="Marker Group\marker group reference.gtype\marker group reference.gtype" />
+					<SourceFileReference Id="caf2f4db56a64b28a0c8951217b5b717" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="Destroy Marker Group.gvi" StoragePath="Marker Group\Destroy Marker Group.gvi" />
 				</NameScopingEnvoy>
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>

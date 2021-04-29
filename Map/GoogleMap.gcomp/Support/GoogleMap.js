@@ -72,6 +72,10 @@
             this._marker = marker;
         }
 
+        get marker () {
+            return this._marker;
+        }
+
         addMarkerToMap (webVIMap) {
             this._webVIMap = webVIMap;
             this._marker.setMap(webVIMap.map);
@@ -176,6 +180,40 @@
         webVIMarker.setTitle(title);
     };
 
+    const createMarkerGroup = async function (webVIMap, webVIMarkers) {
+        await tryAuthCheck();
+        const markers = webVIMarkers.map(webviMarker => {
+            webviMarker.addMarkerToMap(webVIMap);
+            return webviMarker.marker;
+        });
+
+        const markerGroup = new window.MarkerClusterer(webVIMap.map, markers, {
+            styles: [
+                {
+                    width: 30,
+                    height: 30,
+                    className: 'custom-clustericon-1',
+                },
+                {
+                    width: 40,
+                    height: 40,
+                    className: 'custom-clustericon-2',
+                },
+                {
+                    width: 50,
+                    height: 50,
+                    className: 'custom-clustericon-3',
+                }
+            ],
+            clusterClass: 'custom-clustericon'
+        });
+        return markerGroup;
+    };
+
+    const destroyMarkerGroup = async function (webVIMarkerGroup) {
+        await tryAuthCheck();
+    };
+
     const addMarkerEventListener = async function (webVIMarkers) {
         await tryAuthCheck();
         const createEventListener = function (webVIMarker, index, controller) {
@@ -207,6 +245,8 @@
         destroyMarker,
         showMarker,
         updateMarkerText,
+        createMarkerGroup,
+        destroyMarkerGroup,
         addMarkerEventListener,
         waitForMarkerEvent
     };
