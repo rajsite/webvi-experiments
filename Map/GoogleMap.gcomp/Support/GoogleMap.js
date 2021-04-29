@@ -210,7 +210,7 @@
         return markerGroup;
     };
 
-    const destroyMarkerGroup = async function (webVIMarkerGroup) {
+    const destroyMarkerGroup = async function (/* webVIMarkerGroup */) {
         await tryAuthCheck();
     };
 
