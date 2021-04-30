@@ -192,26 +192,28 @@
                 {
                     width: 30,
                     height: 30,
-                    className: 'custom-clustericon-1',
+                    className: 'webvi-marker-group-1',
                 },
                 {
                     width: 40,
                     height: 40,
-                    className: 'custom-clustericon-2',
+                    className: 'webvi-marker-group-2',
                 },
                 {
                     width: 50,
                     height: 50,
-                    className: 'custom-clustericon-3',
+                    className: 'webvi-marker-group-3',
                 }
             ],
-            clusterClass: 'custom-clustericon'
+            clusterClass: 'webvi-marker-group'
         });
         return markerGroup;
     };
 
-    const destroyMarkerGroup = async function (/* webVIMarkerGroup */) {
-        await tryAuthCheck();
+    const destroyMarkerGroup = async function (webVIMarkerGroup) {
+        // No auth check, always cleanup
+        webVIMarkerGroup.clearMarkers();
+        webVIMarkerGroup.setMap(null);
     };
 
     const addMarkerEventListener = async function (webVIMarkers) {

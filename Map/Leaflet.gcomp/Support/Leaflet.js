@@ -58,6 +58,7 @@
 
     const createMarkerGroup = function (map, markers) {
         const markerGroup = L.markerClusterGroup();
+        markers.forEach(marker => marker.remove());
         markerGroup.addLayers(markers);
         map.addLayer(markerGroup);
         return markerGroup;
