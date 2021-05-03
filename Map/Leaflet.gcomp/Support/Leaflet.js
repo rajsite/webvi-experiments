@@ -64,6 +64,12 @@
         return markerGroup;
     };
 
+    const zoomToMarkerInMarkerGroup = async function (markerGroup, marker) {
+        return new Promise(resolve => {
+            markerGroup.zoomToShowLayer(marker, () => resolve());
+        });
+    };
+
     const destroyMarkerGroup = function (markerGroup) {
         markerGroup.clearLayers();
         markerGroup.remove();
@@ -100,6 +106,7 @@
         updateMarkerText,
         createMarkerGroup,
         destroyMarkerGroup,
+        zoomToMarkerInMarkerGroup,
         addMarkerEventListener,
         waitForMarkerEvent
     };
