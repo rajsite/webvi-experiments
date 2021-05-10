@@ -43,5 +43,34 @@
         }
     };
 
-    window.WebVIControlTools = {dataGridSortColumn};
+    const itemTooltipObserver = Symbol('Listbox title update observer');
+    const validateListboxTitleUnobserved = function (element) {
+        if (element[itemTooltipObserver] !== undefined) {
+            throw new Error('Listbox item tooltip has already been enabled.');
+        }
+    };
+
+    const listboxItemTooltip = function (selector) {
+        const element = findControl(selector, 'JQX-LIST-BOX');
+        validateListboxTitleUnobserved(element);
+
+        const observer = new MutationObserver(events => {
+            events.forEach(event => {
+                const listItem = event.target;
+                if (listItem.tagName === 'JQX-LIST-ITEM') {
+                    const value = listItem.label;
+                    if (typeof value === 'string') {
+                        listItem.title = value;
+                    }
+                }
+            });
+        });
+        observer.observe(element, {
+            attributeFilter: ['hover'],
+            subtree: true
+        });
+        element[itemTooltipObserver] = observer;
+    };
+
+    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip};
 }());

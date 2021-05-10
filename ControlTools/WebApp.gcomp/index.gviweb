@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="9C10F975F9F3AD38C35AB82F0E276B2E58F13C252016C88532AA454191A67F006CE88710D8FF0379AAD48E596DD3058774D684A1DCFDD4293DB8AC88915DCEE8" Timestamp="1D73C4519AA1E2A" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="ACBADC651031C0745DCB126A45138E41281D1E70B148543E13855E28924C3CA104AF29E45C66CA6505FC5282000F7AF5A98540C02CE397CFB76CEC6FFEB8AF1F" Timestamp="1D745F12124141E" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -35,22 +35,29 @@
 			<ConnectorPaneTerminal Hotspot="15 40" />
 			<ConnectorPaneTerminal Hotspot="25 40" />
 		</ConnectorPane>
-		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
+		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="610 45 40 15" DataItem="17972c144eb4439eb5e36750811a2d01" Id="61f6ed73bd984e359469358afe65c43c" Label="25cc43dc5a244120aaec0e9614d139bf">
+				<Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="61f6ed73bd984e359469358afe65c43c" Bounds="565 45 40 14" Id="25cc43dc5a244120aaec0e9614d139bf" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Listbox</p.Text>
+			</NodeLabel>
+		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<WhileLoop Bounds="475 110 505 355" DiagramId="8b13f987b3104351a09c1ed2b42ecbc5" Id="94f83536d549299fc55b92155b2010">
+			<WhileLoop Bounds="475 110 565 355" DiagramId="8b13f987b3104351a09c1ed2b42ecbc5" Id="94f83536d549299fc55b92155b2010">
 				<LoopIteration Bounds="5 325 15 15" Id="4a343bb11eea4502975f29f9e3c4b7a5" />
-				<LoopCondition Bounds="475 325 15 15" Id="da505990ef240e388a43d2425d498af" />
-				<EventStructure Bounds="20 10 455 305" Id="f26408ed51334c55ad16f5560f35240b" Selected="7e01039ca82d46d489857c6d34bda957" UserSelectorBounds="20 0 415 17">
-					<EventStructure.EventCase Bounds="21 18 413 279" Id="7e01039ca82d46d489857c6d34bda957">
-						<EventStructure.EventData Bounds="0 122 92 35" Id="3cc2b14611734816abf4e404dca52627" InstanceDataType="@a0c93cbff9724f8fb641afaab84f1d5a" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
+				<LoopCondition Bounds="525 325 15 15" Id="da505990ef240e388a43d2425d498af" />
+				<EventStructure Bounds="39 12 503 305" Id="f26408ed51334c55ad16f5560f35240b" Selected="7e01039ca82d46d489857c6d34bda957" UserSelectorBounds="20 0 463 17">
+					<EventStructure.EventCase Bounds="21 18 461 279" Id="7e01039ca82d46d489857c6d34bda957">
+						<EventStructure.EventData Bounds="0 122 92 35" Id="3cc2b14611734816abf4e404dca52627" InstanceDataType="@a0c93cbff9724f8fb641afaab84f1d5a" PropertyPathsInSemanticOrder="Source,Type,Time,Index,Ref Id,Control Reference,Old Value,New Value">
 							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
 							</p.TypeDefinitionTargets>
 							<EventPropertyItemTerminal DataType="@12b3d1398eb34940b2670ea038364e4b" Hotspot="92 15" Id="c0t0v" Path="New Value" PathElementMemberKinds="Field" Usage="Optional" />
 						</EventStructure.EventData>
 						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventSourceType="Content" EventType="@c4a83c50e4f04bb2aded53431491fb36" SourceContent="7ca41744e7934974830079f6d317079f" SourceName="sort" />
-						<MethodCall Bounds="199 87 40 40" Id="f84e0283c01e435bbc9af9db08ff2959" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlTools\\ControlTools.gcomp\\DataGrid - Column - Set Sorting.gvi&quot;" Signature="@b766a60b81d14a14b8225747acb992b7" Target="ControlTools::DataGrid - Column - Set Sorting.gvi" xmlns="http://www.ni.com/MocCommon">
+						<MethodCall Bounds="199 87 40 40" Id="f84e0283c01e435bbc9af9db08ff2959" Label="52bd280967334200bd194ad2a7cecde2" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlTools\\ControlTools.gcomp\\DataGrid - Column - Set Sorting.gvi&quot;" Signature="@b766a60b81d14a14b8225747acb992b7" Target="ControlTools::DataGrid - Column - Set Sorting.gvi" xmlns="http://www.ni.com/MocCommon">
 							<p.MethodDeclaration>
 								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 									<Parameter Id="L0" Desc="selector" />
@@ -92,7 +99,7 @@
 						</MethodCall>
 						<Wire Id="243b42d614ad4a068909e80157f012ce" Joints="N(f84e0283c01e435bbc9af9db08ff2959:R3)|(239,122) N(566381fdf5b4dfbb36dfef281995108:L0)|(259,122)" xmlns="http://www.ni.com/PlatformFramework" />
 						<Comment Bounds="19 172 360 60" Id="51f5805547f74953a87e31385cbc5daf" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
-							<p.Text>For instructions configuring the selector input follwo the Choosing a control in the page portion of: https://forums.ni.com/t5/Example-Code/Declarative-Style-for-WebVI/ta-p/4141973</p.Text>
+							<p.Text>For instructions configuring the selector input follow the Choosing a control in the page portion of: https://forums.ni.com/t5/Example-Code/Declarative-Style-for-WebVI/ta-p/4141973</p.Text>
 						</Comment>
 						<Wire Id="c68fe6dda62d40d1b7f28749c6260911" Joints="N(3cc2b14611734816abf4e404dca52627:c0t0v)|(92,137) h(96) v(-25) N(f84e0283c01e435bbc9af9db08ff2959:L2)|(199,112)" xmlns="http://www.ni.com/PlatformFramework" />
 						<DataAccessor Bounds="24 32 40 15" DataItem="8dddc1eabf5d47d7a15ad35eba9cda31" Id="8fabb7f2d98b4fecac9cab2969c49129" Label="2eb9b0a6727a4bf8b1c6b82b11638b99" xmlns="http://www.ni.com/MocCommon">
@@ -101,16 +108,80 @@
 						<NodeLabel AttachedTo="8fabb7f2d98b4fecac9cab2969c49129" Bounds="24 15 22 14" Id="2eb9b0a6727a4bf8b1c6b82b11638b99" xmlns="http://www.ni.com/PlatformFramework">
 							<p.Text>sort</p.Text>
 						</NodeLabel>
+						<NodeLabel AttachedTo="f84e0283c01e435bbc9af9db08ff2959" Bounds="199 70 179 14" Id="52bd280967334200bd194ad2a7cecde2" IsReadOnly="True" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>DataGrid - Column - Set Sorting</p.Text>
+						</NodeLabel>
 					</EventStructure.EventCase>
+					<EventStructure.EventCase Bounds="21 18 461 279" Id="96f7b2bca17f4e4b83db1072fa2dded0">
+						<EventStructure.EventData Bounds="0 25 87 35" Id="7703d0e08cc64ffa9bca8d22fc0faa65" InstanceDataType="@045cbf855cdb4a2ab131ce278ccd0aaf" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
+							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+							</p.TypeDefinitionTargets>
+							<EventPropertyItemTerminal DataType="Boolean" Hotspot="87 15" Id="c0t0v" Path="Old Value" PathElementMemberKinds="Field" Usage="Optional" />
+						</EventStructure.EventData>
+						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventSourceType="Content" EventType="@b227f3ede95d4c37b40ac3d30b9ca6d4" SourceContent="2c4453922b7640f58c451aabd045e663" SourceName="update listbox" />
+						<DataAccessor Bounds="100 5 40 15" DataItem="1f69c2319a12424cb51b3c042a521863" Id="fd3a58074703490c9ea62d1d70d4ea9c" Label="47ffde8efd7416590bd9203c2e66f3f" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="fd3a58074703490c9ea62d1d70d4ea9c" Bounds="16 5 79 14" Id="47ffde8efd7416590bd9203c2e66f3f" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>update listbox</p.Text>
+						</NodeLabel>
+						<ControlReference Bounds="255 35 70 20" Id="50d6329ad66d43409e1dd308d94caca5" SourceControl="967275249dca4dfd873331cc3996bd64" />
+						<PropertyNode Bounds="340 35 98 45" Id="d82648feee3c4c4f831b6236785105cc" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" xmlns="http://www.ni.com/MocCommon">
+							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+							</p.TypeDefinitionTargets>
+							<PropertyItemTerminal Action="Write" DataType="String[]" Hotspot="0 25" Id="c0t0v" Path="Items" PathElementMemberKinds="Property" Usage="Required" />
+						</PropertyNode>
+						<Wire Id="7ec488e70fa44ad480349c0f12ea8adc" Joints="N(50d6329ad66d43409e1dd308d94caca5:control reference)|(325,40) N(d82648feee3c4c4f831b6236785105cc:instance in)|(340,40)" xmlns="http://www.ni.com/PlatformFramework" />
+						<ForLoop Bounds="93 100 228 171" DiagramId="b75e29c98b8544ed8b89aef127f2a0b5" Id="8d19ed744fcf47dda918fab3801b6029">
+							<LoopIteration Bounds="35 80 15 15" Id="e983c7d34b91413abd0a805fbbdaaa14" />
+							<FormatIntoString Bounds="170 58 40 60" Id="be49f3f012f64f07a32392a09aec53b4" Terminals="formatString=ed3929ddf4ab45c38afbad5305b9914a, outString=e712a3730049478381a07ee588682a70, c0t0v=269a8146eaa5456d8b1c3e499a13f66f, c1t0v=48d4a18789ef49f39607353f4fbab76f, c2t0v=54c3b72d534c42e2b0ac20ff4db4758a" VerticalChunkCount="3" />
+							<Wire Id="269a8146eaa5456d8b1c3e499a13f66f" Joints="N(e983c7d34b91413abd0a805fbbdaaa14:Output)|(50,85) h(25) v(8) N(be49f3f012f64f07a32392a09aec53b4:c0t0v)|(170,93)" xmlns="http://www.ni.com/PlatformFramework" />
+							<Literal Bounds="10 13 100 15" DataType="String" Id="571f39077af24c6e832d25605a7a3409" Label="22002c7c1eed4049bcc3db1f65467e36" xmlns="http://www.ni.com/MocCommon">
+								<p.Data>%d - %d - %s</p.Data>
+								<StringBehavior TextDisplayMode="Default" />
+							</Literal>
+							<NodeLabel AttachedTo="571f39077af24c6e832d25605a7a3409" Bounds="10 -5 30 15" Id="22002c7c1eed4049bcc3db1f65467e36" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+								<p.Text>format string</p.Text>
+							</NodeLabel>
+							<Wire Id="ed3929ddf4ab45c38afbad5305b9914a" Joints="N(571f39077af24c6e832d25605a7a3409:Out)|(110,18) h(85) N(be49f3f012f64f07a32392a09aec53b4:formatString)|(195,58)" xmlns="http://www.ni.com/PlatformFramework" />
+							<Wire Id="48d4a18789ef49f39607353f4fbab76f" Joints="N(d0641edd200d4f5d95eff7c780c1ae8d:i0)|(6,103) N(be49f3f012f64f07a32392a09aec53b4:c1t0v)|(170,103)" xmlns="http://www.ni.com/PlatformFramework" />
+							<Literal Bounds="20 108 90 50" DataType="String" Id="4635dd9c5bdc4fe5920b058fc3de106e" Label="22947e89fa12431b814c893aa1c8c99d" xmlns="http://www.ni.com/MocCommon">
+								<p.Data>"a long string that needs a tooltip "</p.Data>
+								<StringBehavior SizeToContent="False" TextDisplayMode="Default" />
+							</Literal>
+							<NodeLabel AttachedTo="4635dd9c5bdc4fe5920b058fc3de106e" Bounds="20 90 30 15" Id="22947e89fa12431b814c893aa1c8c99d" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+								<p.Text>input 3</p.Text>
+							</NodeLabel>
+							<Wire Id="54c3b72d534c42e2b0ac20ff4db4758a" Joints="N(4635dd9c5bdc4fe5920b058fc3de106e:Out)|(110,113) N(be49f3f012f64f07a32392a09aec53b4:c2t0v)|(170,113)" xmlns="http://www.ni.com/PlatformFramework" />
+							<Wire Id="e712a3730049478381a07ee588682a70" Joints="N(be49f3f012f64f07a32392a09aec53b4:outString)|(210,63) N(6e68a55f1824626a083e79431df5b1c:i0)|(216,63)" xmlns="http://www.ni.com/PlatformFramework" />
+							<LoopCount Bounds="1 1 15 15" Docking="Left" Id="f4708c3bfea0424f9535b7b90a85ced9" Terminals="8d19ed744fcf47dda918fab3801b6029=dd5d5617046942d6850aaa1cac2cde3a, b75e29c98b8544ed8b89aef127f2a0b5" />
+							<LoopTunnel Bounds="-5 100 13 10" Docking="Left" Id="d0641edd200d4f5d95eff7c780c1ae8d" Terminals="o0=da95459e9c5b4171bcbf170ff52044c0, i0=48d4a18789ef49f39607353f4fbab76f" />
+							<LoopTunnel AutoIndex="True" Bounds="218 60 13 10" Docking="Right" Id="6e68a55f1824626a083e79431df5b1c" Terminals="o0=cce5fdd94be3488ebc7f788206dccd3f, i0=e712a3730049478381a07ee588682a70" TunnelMode="0" />
+						</ForLoop>
+						<Literal Bounds="40 75 40 15" DataType="Int32" Id="c862b62914bb4ce4a492f397f4fdeba3" Label="b78646b0ef9046229f328fcb9438de33" xmlns="http://www.ni.com/MocCommon">
+							<p.Data>100</p.Data>
+							<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=0:DigitDisplayType=DigitsOfPrecision:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+						</Literal>
+						<NodeLabel AttachedTo="c862b62914bb4ce4a492f397f4fdeba3" Bounds="40 57 30 15" Id="b78646b0ef9046229f328fcb9438de33" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>loop count</p.Text>
+						</NodeLabel>
+						<Wire Id="dd5d5617046942d6850aaa1cac2cde3a" Joints="N(c862b62914bb4ce4a492f397f4fdeba3:Out)|(80,80) h(10) v(27) N(f4708c3bfea0424f9535b7b90a85ced9:8d19ed744fcf47dda918fab3801b6029)|(94,107)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="da95459e9c5b4171bcbf170ff52044c0" Joints="N(d398464e7ac04d938cc3aa62a88acdd3:96f7b2bca17f4e4b83db1072fa2dded0)|(2,205) N(d0641edd200d4f5d95eff7c780c1ae8d:o0)|(88,205)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="cce5fdd94be3488ebc7f788206dccd3f" Joints="N(6e68a55f1824626a083e79431df5b1c:o0)|(324,165) h(7) v(-105) N(d82648feee3c4c4f831b6236785105cc:c0t0v)|(340,60)" xmlns="http://www.ni.com/PlatformFramework" />
+					</EventStructure.EventCase>
+					<EventStructure.Tunnel Bounds="-2 218 25 10" Docking="Left" Id="d398464e7ac04d938cc3aa62a88acdd3" Terminals="f26408ed51334c55ad16f5560f35240b=14cab508e607493392ed53692d06ae93, 7e01039ca82d46d489857c6d34bda957, 96f7b2bca17f4e4b83db1072fa2dded0=da95459e9c5b4171bcbf170ff52044c0" />
 				</EventStructure>
-				<Literal Bounds="420 325 25 15" DataType="Boolean" Id="791493702cb5493d8f925d320e07557b" Label="2b9380eff0ba4d19855b71afcc832f66" xmlns="http://www.ni.com/MocCommon">
+				<Literal Bounds="470 325 25 15" DataType="Boolean" Id="791493702cb5493d8f925d320e07557b" Label="2b9380eff0ba4d19855b71afcc832f66" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>False</p.Data>
 					<BooleanBehavior />
 				</Literal>
-				<NodeLabel AttachedTo="791493702cb5493d8f925d320e07557b" Bounds="420 307 30 15" Id="2b9380eff0ba4d19855b71afcc832f66" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<NodeLabel AttachedTo="791493702cb5493d8f925d320e07557b" Bounds="470 307 30 15" Id="2b9380eff0ba4d19855b71afcc832f66" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 					<p.Text>stop</p.Text>
 				</NodeLabel>
-				<Wire Id="72765a3465a74818b9c201fd7c23859c" Joints="N(791493702cb5493d8f925d320e07557b:Out)|(445,330) N(da505990ef240e388a43d2425d498af:Input)|(475,330)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="72765a3465a74818b9c201fd7c23859c" Joints="N(791493702cb5493d8f925d320e07557b:Out)|(495,330) N(da505990ef240e388a43d2425d498af:Input)|(525,330)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="14cab508e607493392ed53692d06ae93" Joints="N(4a343bb11eea4502975f29f9e3c4b7a5:Output)|(20,330) h(9) v(-95) N(d398464e7ac04d938cc3aa62a88acdd3:f26408ed51334c55ad16f5560f35240b)|(37,235)" xmlns="http://www.ni.com/PlatformFramework" />
 			</WhileLoop>
 			<DataAccessor Bounds="370 95 40 15" DataItem="a52f1f438f1488fbede83063eff75a8" Id="11342d556935494cb0cdf48624ecea7e" Label="2b534e75c5964b35acedae3a40e0bd13" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@20e8f180058b48ea97ecb36080bad8ef" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
@@ -135,7 +206,7 @@
 						</Cluster>
 					</p.DefaultElementValue>
 				</ArrayBehavior>
-				<ClusterLiteral Bounds="48 260 126 84" DataType="@930aa5759a534ec78dc98085de05c785" Id="9f6d6da2e0194978a45e9ddec926c629">
+				<ClusterLiteral Bounds="48 2 126 84" DataType="@930aa5759a534ec78dc98085de05c785" Id="9f6d6da2e0194978a45e9ddec926c629">
 					<ClusterBehavior AutoArrange="ArrangeVertically" />
 					<Literal Bounds="2 20 40 15" DataType="String" Id="18dfdb6ceabf427ab3b671d2de237c9d" Label="f8037951eabb49c49a74ec29f2830d61">
 						<StringBehavior TextDisplayMode="Default" />
@@ -155,23 +226,35 @@
 				<p.Text>Data Grid</p.Text>
 			</NodeLabel>
 			<Wire Id="8a815316289e49b5887d0480d4ae987b" Joints="N(97aa7b06fbb44dbb8c27ad1bfff76025:Out)|(345,100) N(11342d556935494cb0cdf48624ecea7e:Value)|(373,100)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="400 -120 40 40" Id="f77808480e9d4e1f97ada0b61b13e1a9" Label="ca5e2948c4a046ba88c141431a13cd72" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlTools\\ControlTools.gcomp\\Listbox - Item - Enable Tooltip.gvi&quot;" Signature="@6a4aab223b2745b3bfaef1c676836904" Target="ControlTools::Listbox - Item - Enable Tooltip.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="selector" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="String" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="290 -120 80 15" DataType="String" Id="cb7a62242bc84de8a3dbc438715216c8" Label="a93f9175bab44893acf733fefba024e9" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>.my-listbox</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="cb7a62242bc84de8a3dbc438715216c8" Bounds="290 -138 30 15" Id="a93f9175bab44893acf733fefba024e9" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>selector</p.Text>
+			</NodeLabel>
+			<Wire Id="fe30052782034d7d8b4870f4a1422aca" Joints="N(cb7a62242bc84de8a3dbc438715216c8:Out)|(370,-115) N(f77808480e9d4e1f97ada0b61b13e1a9:L0)|(400,-115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Comment Bounds="215 -70 360 60" Id="eaeeaef3237a4100894a5c67a937b03b" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>For instructions configuring the selector input follow the Choosing a control in the page portion of: https://forums.ni.com/t5/Example-Code/Declarative-Style-for-WebVI/ta-p/4141973</p.Text>
+			</Comment>
+			<NodeLabel AttachedTo="f77808480e9d4e1f97ada0b61b13e1a9" Bounds="400 -137 168 14" Id="ca5e2948c4a046ba88c141431a13cd72" IsReadOnly="True" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>Listbox - Item - Enable Tooltip</p.Text>
+			</NodeLabel>
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<FlexibleLayoutGroup Height="[float]72" Id="b23b4bb0d1c41119930510c2ef3b48f" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
-				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]72" Id="9c15f95a55044808aeb84b04c7ce28c5" Left="[float]0" Top="[float]0" Width="[float]964">
-					<FlexibleLayoutContainer Height="[float]56" Id="73e58bc2a441455b8e9bbe0394191ed7" Left="[float]8" Top="[float]8" Width="[float]948">
-						<FlexibleLayoutComponent Height="[float]44" Id="75d17e275bef459fb89ddfd3c3203cf3" Left="[float]14" Top="[float]6" Width="[float]152">
-							<EnumSelector AllowUndefinedValueEntry="[bool]False" BaseName="[string]Enum" Height="[float]24" Id="7ca41744e7934974830079f6d317079f" InteractionMode="[SelectorInteractionModes]ArrowKeys, Keyboard, MouseClick, ScrollWheel, ButtonClicks" IsTypeAheadEnabled="[bool]True" Label="[UIModel]c635bed6d2de4cb9b1848344cccb125b" Left="[float]0" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=8dddc1eabf5d47d7a15ad35eba9cda31}" ValueType="[Type]UInt16" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]152" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-								<EnumSelectorInfo DisplayValue="[string]none" Value="[ushort]0" ValueType="[Type]UInt16" />
-								<EnumSelectorInfo DisplayValue="[string]ascending" Value="[ushort]1" ValueType="[Type]UInt16" />
-								<EnumSelectorInfo DisplayValue="[string]descending" Value="[ushort]2" ValueType="[Type]UInt16" />
-							</EnumSelector>
-							<Label Height="[float]16" Id="c635bed6d2de4cb9b1848344cccb125b" LabelOwner="[UIModel]7ca41744e7934974830079f6d317079f" Left="[float]0" Text="[string]sort" Top="[float]0" Width="[float]21" />
-						</FlexibleLayoutComponent>
-					</FlexibleLayoutContainer>
-				</FlexibleLayoutWrapper>
-			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]298" Id="c61d15e040d24594a3e9e6731b81bb4d" Left="[float]30" Top="[float]102" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]298" Id="c61d15e040d24594a3e9e6731b81bb4d" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]298" Id="b0cef21923eb4af1a07bbab68a7df1dc" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]282" Id="f05b36c190ea40e0b6394baf42d03b56" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]270" Id="d35b08d44cab426a8b3cda02f5a00576" Left="[float]14" Top="[float]6" Width="[float]250">
@@ -186,6 +269,56 @@
 							</LVDataGrid>
 							<Label Height="[float]16" Id="42b5d2a13fb4dd6bea56ef0cf186e38" LabelOwner="[UIModel]9805101959364548bd554c105c2d73ed" Left="[float]0" Text="[string]Data Grid" Top="[float]0" Width="[float]51" />
 						</FlexibleLayoutComponent>
+						<FlexibleLayoutComponent Height="[float]44" Id="19091bc674884bc38199d6045f9e4396" Left="[float]272" Top="[float]6" Width="[float]152">
+							<EnumSelector AllowUndefinedValueEntry="[bool]False" BaseName="[string]Enum" Height="[float]24" Id="7ca41744e7934974830079f6d317079f" InteractionMode="[SelectorInteractionModes]ArrowKeys, Keyboard, MouseClick, ScrollWheel, ButtonClicks" IsTypeAheadEnabled="[bool]True" Label="[UIModel]c635bed6d2de4cb9b1848344cccb125b" Left="[float]0" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=8dddc1eabf5d47d7a15ad35eba9cda31}" ValueType="[Type]UInt16" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]152" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+								<EnumSelectorInfo DisplayValue="[string]none" Value="[ushort]0" ValueType="[Type]UInt16" />
+								<EnumSelectorInfo DisplayValue="[string]ascending" Value="[ushort]1" ValueType="[Type]UInt16" />
+								<EnumSelectorInfo DisplayValue="[string]descending" Value="[ushort]2" ValueType="[Type]UInt16" />
+							</EnumSelector>
+							<Label Height="[float]16" Id="c635bed6d2de4cb9b1848344cccb125b" LabelOwner="[UIModel]7ca41744e7934974830079f6d317079f" Left="[float]0" Text="[string]sort" Top="[float]0" Width="[float]21" />
+						</FlexibleLayoutComponent>
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
+			<FlexibleLayoutGroup Height="[float]296" Id="befc12656c00431cbaa5aa415aba266a" Left="[float]30" Top="[float]328" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]296" Id="e60294b0a66437fb7ad9f01e94ef656" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]280" Id="688588a3506d44f5a10d875971bf31f0" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]268" Id="300d1a8139844068a778a22c3ae78677" Left="[float]14" Top="[float]6" Width="[float]136">
+							<ListBoxSelector BaseName="[string]Listbox" Height="[float]248" Id="967275249dca4dfd873331cc3996bd64" Label="[UIModel]b92bd91cdcb0417884bac77c77e5d227" Left="[float]0" SelectionMode="[SMListBoxSelectionMode]ZeroOrOne" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=17972c144eb4439eb5e36750811a2d01}" ValueType="[Type]Int32" Width="[float]136" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+								<ListBoxSelectorInfo DisplayValue="[string]a long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]0" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]b long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]1" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]c long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]2" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]d long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]3" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]e long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]4" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]f long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]5" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]g long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]6" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]h long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]7" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]i long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]8" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]j long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]9" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]k long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]10" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]l long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]11" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]m long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]12" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]n long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]13" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]o long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]14" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]p long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]15" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]q long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]16" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]r long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]17" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]s long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]18" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]t long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]19" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]u long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]20" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]v long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]21" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]w long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]22" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]x long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]23" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]y long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]24" ValueType="[Type]Int32" />
+								<ListBoxSelectorInfo DisplayValue="[string]z long string that needs a tooltip" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[int]25" ValueType="[Type]Int32" />
+								<HtmlBehavior ClassAttributes="my-listbox" xmlns="http://www.ni.com/PlatformFramework" />
+							</ListBoxSelector>
+							<Label Height="[float]16" Id="b92bd91cdcb0417884bac77c77e5d227" LabelOwner="[UIModel]967275249dca4dfd873331cc3996bd64" Left="[float]0" Text="[string]Listbox" Top="[float]0" Width="[float]38" />
+						</FlexibleLayoutComponent>
+						<FlexibleLayoutComponent Height="[float]28" Id="115a48556a324d1795b511153a4ee8ea" Left="[float]158" Top="[float]6" Width="[float]136">
+							<Button BaseName="[string]Button" Content="[string]Update listbox" Height="[float]28" Id="2c4453922b7640f58c451aabd045e663" Label="[UIModel]c851d3b97fab4afbb6c725aeb0ca5015" Left="[float]0" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=1f69c2319a12424cb51b3c042a521863}" Width="[float]136" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<Label Height="[float]16" Id="c851d3b97fab4afbb6c725aeb0ca5015" LabelOwner="[UIModel]2c4453922b7640f58c451aabd045e663" Left="[float]0" Text="[string]update listbox" Top="[float]-20" Visible="[bool]False" Width="[float]76" />
+						</FlexibleLayoutComponent>
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
@@ -195,6 +328,12 @@
 		</DataItem>
 		<DataItem DataType="@20e8f180058b48ea97ecb36080bad8ef" Id="a52f1f438f1488fbede83063eff75a8" Name="Data Grid" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>null</p.DefaultValue>
+		</DataItem>
+		<DataItem DataType="Int32" Id="17972c144eb4439eb5e36750811a2d01" Name="Listbox" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>-1</p.DefaultValue>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="1f69c2319a12424cb51b3c042a521863" IsLatched="True" Name="update listbox" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
@@ -252,6 +391,27 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
+		<p.TypeReference TypeId="045cbf855cdb4a2ab131ce278ccd0aaf">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="Source" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Type" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Time" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Index" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Ref Id" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Control Reference" DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Old Value" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="New Value" DataType="Boolean" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b227f3ede95d4c37b40ac3d30b9ca6d4">
+			<Attributed AttributedType="@cf4800332f2b4fdbbf8529ba38ca6200">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="20e8f180058b48ea97ecb36080bad8ef">
 			<VariableArray DereferenceType="@930aa5759a534ec78dc98085de05c785" />
 		</p.TypeReference>
@@ -263,6 +423,14 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
+		<p.TypeReference TypeId="6a4aab223b2745b3bfaef1c676836904">
+			<Attributed AttributedType="@cd9554408e6543af8554b272d9f2db84">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
 		<p.TypeReference TypeId="84f7464d427c4e19b5741866230d73d9">
 			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
 				<Parameters>
@@ -273,12 +441,12 @@
 		<p.TypeReference TypeId="aec768136b9949f1b3bb649e59fed101">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="DataGrid - Column - Set Sorting.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@005614e6871c4166a75776a75d9e9d8b">
+					<Attributed AttributedType="@8e9fd4e289ce4c30b7d1d23ffcb8f608">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@995f88ad884d4405b0ae3458b9c1dee9">
+					<Attributed AttributedType="@86168b72c2034e528b10a5d4b1ddd8db">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]column index" />
 						</AttributeValues>
@@ -288,12 +456,12 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]sort" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
@@ -307,9 +475,37 @@
 		<p.TypeReference TypeId="13693607e5b24e608c4aa6d1ddbfe5f1">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Show Error Dialog.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@a43ae3f9001c408981bfd31abab1d1c0">
+					<Attributed AttributedType="@e6d044f992fc4bbb90cf36afa5b9f6c3">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="cf4800332f2b4fdbbf8529ba38ca6200">
+			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
+				<Parameters>
+					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@b5cd97f44f674724875de86d4d5ae7a1" />
+				</Parameters>
+			</Event>
+		</p.TypeReference>
+		<p.TypeReference TypeId="cd9554408e6543af8554b272d9f2db84">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Listbox - Item - Enable Tooltip.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@8e9fd4e289ce4c30b7d1d23ffcb8f608">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
 					</Attributed>
 				</Parameters>
@@ -325,23 +521,33 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="005614e6871c4166a75776a75d9e9d8b">
+		<p.TypeReference TypeId="8e9fd4e289ce4c30b7d1d23ffcb8f608">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="995f88ad884d4405b0ae3458b9c1dee9">
+		<p.TypeReference TypeId="86168b72c2034e528b10a5d4b1ddd8db">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Int32" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="6863236f601142e6aac9c44cda7cca7e">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="@cfb4bbd8a9e04d42a18759a5e854d73d" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
+		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
+		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="a43ae3f9001c408981bfd31abab1d1c0">
+		<p.TypeReference TypeId="e6d044f992fc4bbb90cf36afa5b9f6c3">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b5cd97f44f674724875de86d4d5ae7a1">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="Ref Id" DataType="UInt32" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Control Reference" DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Old Value" DataType="Boolean" />
+					<Field FieldAccessPolicy="ReadWrite" Name="New Value" DataType="Boolean" />
+				</Members>
+			</Composite>
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
@@ -357,7 +563,7 @@
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]DataGridTools.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]ControlTools.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>
@@ -375,6 +581,24 @@
 							<Path Data="[PathGeometry]M 6.50837803,0.0650907904 C 9.56482887,0.0650907904 12.0425701,2.33817697 12.0425701,5.14217043 C 12.0425701,7.94616127 9.56482887,10.2192516 6.50837803,10.2192516 C 5.36221218,10.2192516 4.29742384,9.89959717 3.41416121,9.35216331 L 3.36900949,9.323452 L 3.36879086,9.32832146 C 3.36879086,9.32832146 3.46451807,9.43815327 0.0589180775,12.0583982 C -0.0194383673,12.1186886 0.153003126,11.8775396 1.2598151,6.79117966 L 1.26353645,6.78469372 L 1.26496565,6.77053404 C 1.07641912,6.25938845 0.97418797,5.71173191 0.97418797,5.14217043 C 0.97418797,2.33817697 3.45193076,0.0650907904 6.50837803,0.0650907904 L 6.50837803,0.0650907904 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]12" Left="[float]4" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]4" Width="[float]12" />
 							<Path Data="[PathGeometry]M 2.73099732,2.52352643 L 0.390142441,3.45220399 L 0.390142441,2.52352643 L 2.73099732,2.52352643 Z M 0,0.995851815 L 3.42076874,1.96012855 L 1.03543818,0.0325037129 L 0,0.995851815 Z M 4.25996494,5 L 5.96956921,5 L 5.96956921,4.11373186 L 4.25996494,4.11373186 L 4.25996494,5 Z M 4.23070526,0 L 4.42538643,3.55931163 L 5.80531979,3.55931163 L 6,0 L 4.23070526,0 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]5" Left="[float]7" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]7" Width="[float]6" />
 							<IconTemplate Height="[float]20" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]20" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="ControlTools::Listbox - Item - Enable Tooltip.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Listbox - Item - Enable Tooltip" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]ControlTools.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>

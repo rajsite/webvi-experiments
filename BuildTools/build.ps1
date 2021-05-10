@@ -25,6 +25,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileNa
 Write-Host "Build Bootstrap project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootstrap.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build ControlTools project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\ControlTools" -ProjectFileName "ControlTools.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build DeclarativeStyle project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\DeclarativeStyle" -ProjectFileName "DeclarativeStyle.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
