@@ -29,6 +29,7 @@
         options.forEach((option, index) => {
             const optionElement = document.createElement('option');
             optionElement.textContent = option;
+            optionElement.title = option;
             optionElement.value = index;
             fragment.appendChild(optionElement);
         });
