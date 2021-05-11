@@ -12,6 +12,17 @@
         return element;
     };
 
+    const findAncestorByTagname = function (element, tagName) {
+        let selectedElement;
+        for (let currentElement = element; currentElement !== null; currentElement = currentElement.parentElement) {
+            if (currentElement.tagName === tagName) {
+                selectedElement = currentElement;
+                break;
+            }
+        }
+        return selectedElement;
+    };
+
     const validateAllowsSorting = function (element) {
         if (element.allowSorting === false) {
             throw new Error('DataGrid Sorted View option must be enabled in NXG to programmatically change the sort order');
@@ -43,34 +54,35 @@
         }
     };
 
-    const itemTooltipObserver = Symbol('Listbox title update observer');
-    const validateListboxTitleUnobserved = function (element) {
-        if (element[itemTooltipObserver] !== undefined) {
-            throw new Error('Listbox item tooltip has already been enabled.');
-        }
-    };
-
     const listboxItemTooltip = function (selector) {
         const element = findControl(selector, 'JQX-LIST-BOX');
-        validateListboxTitleUnobserved(element);
-
-        const observer = new MutationObserver(events => {
-            events.forEach(event => {
-                const listItem = event.target;
-                if (listItem.tagName === 'JQX-LIST-ITEM') {
-                    const value = listItem.label;
-                    if (typeof value === 'string') {
-                        listItem.title = value;
-                    }
+        element.addEventListener('mouseover', event => {
+            const listItem = findAncestorByTagname(event.target, 'JQX-LIST-ITEM');
+            if (listItem !== undefined) {
+                const labelElements = listItem.querySelectorAll('.jqx-content-label');
+                if (labelElements.length === 1) {
+                    const [labelElement] = labelElements;
+                    const title = labelElement.textContent;
+                    listItem.title = title;
                 }
-            });
+            }
         });
-        observer.observe(element, {
-            attributeFilter: ['hover'],
-            subtree: true
-        });
-        element[itemTooltipObserver] = observer;
     };
 
-    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip};
+    const treeGridCellTooltip = function (selector) {
+        const element = findControl(selector, 'NI-TREE-GRID');
+        element.addEventListener('mouseover', event => {
+            const gridCell = findAncestorByTagname(event.target, 'JQX-GRID-CELL');
+            if (gridCell !== undefined) {
+                const labelElements = gridCell.querySelectorAll('.jqx-label');
+                if (labelElements.length === 1) {
+                    const [labelElement] = labelElements;
+                    const title = labelElement.textContent;
+                    gridCell.title = title;
+                }
+            }
+        });
+    };
+
+    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip, treeGridCellTooltip};
 }());
