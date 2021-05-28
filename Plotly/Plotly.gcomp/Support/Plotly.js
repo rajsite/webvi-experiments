@@ -43,7 +43,7 @@
             container.appendChild(graphDiv);
 
             // traces docs: https://plotly.com/javascript/reference/
-            const data = [];
+            const traces = [];
 
             // layout docs: https://plotly.com/javascript/reference/layout/
             const layout = {
@@ -56,7 +56,7 @@
             };
 
             // Function docs https://plotly.com/javascript/plotlyjs-function-reference/#plotlynewplot
-            window.Plotly.newPlot(graphDiv, data, layout, config);
+            window.Plotly.newPlot(graphDiv, traces, layout, config);
 
             // Create ResizeObserver https://github.com/plotly/plotly.js/issues/3984#issuecomment-506098853
             const resizeObserver = new ResizeObserver(() => {
@@ -81,11 +81,13 @@
         return webviPlotly;
     };
 
-    const setLayout = function () {
+    const setTraces = function () {
+        deepMerge();
     };
 
-    const setTraces = function () {
-
+    // Updates both the config and layout
+    // config has to be se twith Plotly.plot https://community.plotly.com/t/update-config-function/9057/2
+    const updateConfig = function () {
     };
 
     const destroy = function (webviPlotly) {
@@ -94,8 +96,8 @@
 
     window.WebVIPlotly = {
         create,
-        setLayout,
         setTraces,
+        updateConfig,
         destroy
     };
 }());

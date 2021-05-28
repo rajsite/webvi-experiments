@@ -64,6 +64,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Map" -ProjectFileName "Map.lvpro
 Write-Host "Build MachineLearning project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\MachineLearning" -ProjectFileName "MachineLearning.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build Plotly project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Plotly" -ProjectFileName "Plotly.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build PlotToolDemo project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\PlotToolDemo" -ProjectFileName "PlotToolDemo.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 

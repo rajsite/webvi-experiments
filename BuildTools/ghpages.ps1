@@ -89,6 +89,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Map" -TargetName "Web Server" -Compo
 Write-Host "Copy MachineLearning build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\MachineLearning"
 
+Write-Host "Copy Plotly build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Plotly" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Plotly"
+
 Write-Host "Copy PlotToolDemo build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\PlotToolDemo" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\PlotToolDemo"
 
