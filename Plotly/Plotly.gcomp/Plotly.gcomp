@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="B601FF8AB5443DA9C475FE9872B4B66745ACD104513C7608230514874501901DF4540D5A240BA21D0ED9B95966C7E0A1CA5C647A0F00F52138C3F6CF3FC6447E" Timestamp="1D753FBFAA5656C" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="8.4.0.49575" Name="LabVIEW NXG" Version="5.1.0" />
+	</SourceModelFeatureSet>
+	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="351813a42a494fb096cd27b09ae28c0d" RootNamespaceId="50821f107132437baf2942fcebae84a8" xmlns="http://www.ni.com/GComponent.xsd">
+		<Icon Id="89346a8780594fb8aa4b3701b8433d30" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="5f18a0afc49144b6bef406120ec29a62" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="23eaf6a3d7064098b9569670956b8759" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<CompilerSymbolTable Id="445b988a8bf34625960a758d80db1c26" xmlns="http://www.ni.com/PlatformFramework" />
+		<ComponentConfiguration Id="c04cf252954047c0b71a129593ffe0f3" Name="Configuration1">
+			<CompilerSymbolTable Id="83eaf9df468342be8b39a3b7d31d2475" xmlns="http://www.ni.com/PlatformFramework" />
+			<GLibraryProperties Id="2fe2e566021948d896439372a2425a15" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="b4b60212def74e6aafa16df487152c89" Id="c4abfbd2d8c5431294c8b311f70773ff" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="5f88f6377b8641a8b7c5edc231631602" Id="a59e4101fd864f01b17aa94ff51c3e80" />
+		</ComponentConfiguration>
+	</ComponentDefinition>
+	<EnvoyManagerFile Id="30cde0af6bec46229e0490984a0bebc8" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="142ad5e8147d4a94b0741853d9a08435" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<EmbeddedDefinitionReference Id="b7ec866ee8ba41c7a98fa69e0c5fb7e6" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
+			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
+			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="50821f107132437baf2942fcebae84a8" Name="Plotly">
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="7c46d28ea7714b9ea1353680052d0367" Name="Support">
+					<SourceFileReference Bindings="EnvoyManager" Id="ad833637de4493ae4fb0d389131ea5" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Plotly.jsli" StoragePath="Support\Plotly.jsli" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="20125df8dc3a48c4afa1c829b98e6923" Name="node_modules">
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="fc93eeaf762439bad62bb9056c24e07" Name="plotly_js-dist-min">
+							<FileReference Bindings=".js" Id="b4b60212def74e6aafa16df487152c89" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="plotly.min.js" StoragePath="Support\node_modules\plotly_js-dist-min\plotly.min.js" />
+						</NameScopingEnvoy>
+					</NameScopingEnvoy>
+					<FileReference Bindings=".js" Id="5f88f6377b8641a8b7c5edc231631602" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="Plotly.js" StoragePath="Support\Plotly.js" />
+				</NameScopingEnvoy>
+			</NameScopingEnvoy>
+		</EmbeddedDefinitionReference>
+		<NameScopingEnvoy Id="3750499bc50f423b8b10f15a845905f6" Name="Plotly.gcomp" NameTracksFileName="True">
+			<ContentReference ContentIdentifier="c04cf252954047c0b71a129593ffe0f3" Id="4dee2f86bfe7468084ae84b96f695819" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+</SourceFile>
