@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="90836FB5501437FBEBE51FE32CE1F0A7D933AABA560100A7DA828A4056D6A858797FC817F73E8D45B21914F9B89E16ACE4B0F9821DDAAF495A4FECD245073D65" Timestamp="1D73FB43B766D67" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D8615F6D85DFBF6F9D18AB628F7C0631B387AD80DE7D0C74C8024506DB4243066DD1AE0B94D821C90E9B43B293E3031C20EE468A29B43A975ADDC82654A036F9" Timestamp="1D7551BBB9FB0EF" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -63,7 +63,7 @@
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<WhileLoop Bounds="1215 25 845 340" DiagramId="17" Id="16">
+			<WhileLoop Bounds="1630 25 845 340" DiagramId="17" Id="16">
 				<LoopIteration Bounds="15 310 15 15" Id="18" />
 				<LoopCondition Bounds="805 250 15 15" Id="19" />
 				<EventStructure Bounds="69 17 723 300" Id="cf396649090945289e3350482afbbe27" Selected="9bc0ba22a8b3413abe4b56e2766955fd" UserSelectorBounds="20 0 683 17">
@@ -290,16 +290,15 @@
 				<RightShiftRegister Bounds="836 230 13 10" Docking="Right" Id="4f980b486257415a88c5e289b35d3de6" Terminals="16=5d24fb8f11f1426fbd103b8b3c72bbee, 17=2d666771900a4e45a7901feab4690dd9" />
 				<LeftShiftRegister Bounds="-4 230 13 10" Docking="Left" Id="de975ff975bc4e6b99a7f6d90ab942d4" RightRegister="4f980b486257415a88c5e289b35d3de6" Terminals="o0=4612ea2e83d141a0b1fbf410f810dabb, i0=fa607b98b02b475c8d81ce86e810ce83" />
 				<LoopTunnel Bounds="-4 200 13 10" Docking="Left" Id="e8e2c9a0f344f15a88da8d884608e37" Terminals="o0=4a536838d0e14a2098f66a2a3863eff8, i0=c9518f17a39b44349528317a2116a43c" />
-				<LoopTunnel Bounds="-4 185 13 10" Docking="Left" Id="45fc5e3e84d410ab1938d2cbd88c6af" Terminals="o0=cefa6af001409c86cc3ad1f49e1ed9, i0=f8fd30d8b20e4fe3966a73465681d709" />
+				<LoopTunnel Bounds="-4 185 13 10" Docking="Left" Id="45fc5e3e84d410ab1938d2cbd88c6af" Terminals="o0=6b07340f5ccf4f00b5eb8371a73ffd58, i0=f8fd30d8b20e4fe3966a73465681d709" />
 				<RightShiftRegister Bounds="836 210 13 10" Docking="Right" Id="ea0878dbe00944d88d17717ed611c54d" Terminals="16, 17=3d8449a82961420ab44c63509062c27a" />
 				<LeftShiftRegister Bounds="-4 210 13 10" Docking="Left" Id="a8347d658bd849a1952e6683383540f8" RightRegister="ea0878dbe00944d88d17717ed611c54d" Terminals="o0, i0=a05c0ad7718044409c33c606fc0c87a6" />
 			</WhileLoop>
-			<MethodCall Bounds="330 225 40 40" Id="cf96aa99ab7e49f88adbbc23770a2564" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Create Map.gvi&quot;" Signature="@ca03c3e667a145438f151bf06c70119e" Target="Leaflet::Map::Create Map.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="330 225 40 40" Id="cf96aa99ab7e49f88adbbc23770a2564" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Create Map.gvi&quot;" Signature="@b04b2e357d6444f7b782fcf1b5a3f93f" Target="Leaflet::Map::Create Map.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="placeholder reference" />
-						<Parameter Id="L1" Desc="latitude (austin, tx)" />
-						<Parameter Id="L2" Desc="longitude (austin, tx)" />
+						<Parameter Id="L1" Desc="center coordinate" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="zoom level (from 0-18)" />
 						<Parameter Id="R0" Desc="map reference" />
@@ -307,15 +306,13 @@
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Double" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Double" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@90ead61e649d404b823e754ab02f3634" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Int32" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@54e8f04597f44b9dadd8a5007d3e02df" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="5cd4e317ac7f4ad3980cd3f049d99c6e" Joints="N(cf96aa99ab7e49f88adbbc23770a2564:R3)|(370,260) N(b7ea89bb75794b56bac645a6896dd23d:L3)|(495,260)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="495 225 40 40" Id="b7ea89bb75794b56bac645a6896dd23d" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Add Open Street Map Tile Layer.gvi&quot;" Signature="@323d9fef9ff24751840591c2284e4784" Target="Leaflet::Map::Add Open Street Map Tile Layer.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="390 225 40 40" Id="b7ea89bb75794b56bac645a6896dd23d" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Add Open Street Map Tile Layer.gvi&quot;" Signature="@323d9fef9ff24751840591c2284e4784" Target="Leaflet::Map::Add Open Street Map Tile Layer.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="map reference in" />
@@ -329,64 +326,23 @@
 				<Terminal DataType="@54e8f04597f44b9dadd8a5007d3e02df" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<ArrayLiteral Bounds="11 280 364 126" DataType="@24324e69115f40db98319ec437174c7b" Id="ec4aed5a07604ecbb7dd18564a69eadd" Label="a8cc4e2ec68b40af9a1e9ae2283f0188" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>
-					<Array Lengths="3" IsBinary="True" Compression="GZip">
-						<BinaryElements>H4sIAAAAAAAEAM1VzW7TQBB2cOLYSUoIP1LFBZ9RZKXQ0PYQROUKqApNRdoKKYrCxhmqbTfryruucBHizo3H4IbEC/BMvADMOIkSpATlENSu5bE9uzvzfTPjHSNjGMZvHPSkUbqBornPNA8lE7tS6SgegNTK88MIqu4xRAqnGpteja6q68dCxxE0JMQ6YqLqHsQ9wYM9SA7DM5ANGQuRI+v1WUZ3mGbHTMSA9kWsNETPOYi+HwoBAS3P4k7rPelUTrIBqEL6cZicgyoHwy0+O2cB14lpmsaXTCtB3cCbmFDeC5AQ8cB7xZV+t9Zuz1iyS3NVd6CCMBK8NyG6vijR3sYGqwf1J2tbj9ehtrnV6XydhaXZO8XX12EfhPcGWL8pRTKZn0LX0hGXJ0uG9Gnx6FCIl+zdpuJyTBKUVyeHgkojS6rrlDnCY3U5ulK5ruKXYHcvhlZx5v48EO2ObTsWbjVHd5ZYXsMqSGMuELH5efGY/xckTp6gUB1cbWX+M+ErU37THNtTOc5TwodVTJrVecXhOFTxBRJFFIUsMb/q8M+njayQaGlEkkbe/otocSoozgrRSsVN4lZ2RiutR0e1h9/8p8/KhbHmx8df3w/Ctz8rxbGmjGJ1G09yLl0/lBfYGBCA6+MTosoYgnULhS2wh+i4D1aFnIlQngw/bxMsDR90llA8GGE7ktgVWhhNJvhl2n1ehqIPUfpvUutx0hVEobStFAx6ItnHJpMxMrZ1x5hkfifESELai+6i2FtiEjIUMQJt3ZtyOMx2ekiSw+IfjLSUGagHAAA=</BinaryElements>
-						<BinaryElements>H4sIAAAAAAAEAM1VzY4SQRAeHBhmgBXxJzFedh6ATHbj4u4eMG7YqJv9wci6MSEEm5laHG26N9M9xtnEePdifAPfwRfwGXwGTx69edKqAQImYDhgdptQMNXdVd/3VUEZGcMwfuOiT1qlK2iaR0yHUjC+J5SO4gEIrbyGjKDqnkCkcKu+5a3Rq+o2Yq7jCOoCYh0xXnWfxD0e+vuQHMvXIOoi5jxH0Wuzgu4yzU4YjwHj81hpiB6GwIOG5Bx8Op7Fm9Yp+VROsAGoQvpwnJyBKvvDKw12xvxQJ6ZpGh8yrQR9A28SQnmPQEAU+t5BqPSL9XZ7xpE92qu6A+XLiIe9CdGNRYn2NjdZza/dW9++uwFrW9udzqdZWJq9V/j1UAbAvafAgqbgyWR/Cl1LR6HoLxnSu8XVIYmXnN2m5nJMMlRXJ4eGWiNLrstUOcJjdUNMpXJdFZ6D3X0zjIo7d+aBaHds27Hwqjl6Z4nlJeyCVHOOiM33i2v+X5A4eYJCfXCxnfnPgq9M5U1rbE/VOE8FH3YxeW7Paw7HoY4vkCmiKWSJ+UXLP582skKipRFJWnn7L6LFKVGcFaKVmqvEreyMTlq/Pve//Gjcf1AujD0fv/9c/Saff60Ux54ymspO48A9lDJIXP0SmI6gMs5tXUNjcxweOg7AqlAWLkV/+Hid8Gh4q7OUfnUE6pnAcdBCGRkPz9Ox81jyAKL0R0kzx0lPEPbSjlIw6PHkCKdLxsjY1g1jUvJdiRJCOoRuotlfovoZkopAW7emEg7LnP47UsLiH/Vec++hBwAA</BinaryElements>
-						<BinaryElements>H4sIAAAAAAAEAM1V328SQRA+PDjugIr4IzF9kQcfydnGYtsHjAaiNtXSCDYmhODeMdbTvb1md894TdR3n/TJR/8T4z/i31JnDgiYgOEB0y5h4GZ3Z77vm4ExMoZhnOGiT1qlS2jaB0wHkWB8Tygt4xCEVm4zklCrHoFUuNXYcTfoVas2Y65jCQ0BsZaM16qHsccDfx+SbvQOREPEnOcoen1e0BbT7IjxGDA+j5UG+SgAPmxGnINPx7N403pNPpUTLARVSB+6yQmosj+60mQnzA90Ypqm8SXTSdAXutMQyn0MAmTgu08DpV9t9npzjuzRXq0aKj+SPPCmRLeWJeptb7O6X7+3uXt3CzZ2dvv9b/OwtL23+PVZNATuPgc2bAueTPdn0HW0DMTxiiF9XF4dknjF2W1qLsckQ3V1cmioNbLkukiVIzzWIMBUKjdQwSnYg/ejqLizvghEr2/bjoVXzfE7SywvYBekmnNEbH5eXvP/gsTJExTqg/PtzH8WfG0mb1pje6bGeSr4qIvJc3NRczgOdXyBTBFNIUvMz1v+xbSRFRItjUnSytt/ES3OiOKsEa3UXCZuZWd80vr5Y/3O79b9B+XCxHP7+9nXT9HLX5XixFNGUzlkkoVRLHS1+waYllCZ5LauoLE5Dg8dD8GqUBYeiePR41XCo+GDzlL6W2NQLwSOgw7KyHhwmo6dJxEfgkx/lDRznPQEYS89VApCjycHOF0yRsa2rhnTkrcilBDSIXQdzf4K1c+QVATaujGTcFTm9N+REhb/AOSm4i2hBwAA</BinaryElements>
-					</Array>
-				</p.Data>
-				<ArrayBehavior ElementType="@177f8ae8de4647939cd56f031a3d73d7" IndexEditorWidth="42" Orientation="Horizontal" VisibleColumns="4">
-					<p.DefaultElementValue>
-						<Cluster>
-							<Field1>0x0</Field1>
-							<Field2>0x0</Field2>
-							<Field3>""</Field3>
-						</Cluster>
-					</p.DefaultElementValue>
-				</ArrayBehavior>
-				<ClusterLiteral Bounds="282 2 76 121" DataType="@177f8ae8de4647939cd56f031a3d73d7" Id="e3ab986f65b44bd896b8d0cea954169">
-					<ClusterBehavior AutoArrange="ArrangeVertically" />
-					<Literal Bounds="2 20 40 15" DataType="Double" Id="af5ce212ef63430f8a0281727d7ba980" Label="5f9c7177c7384506ad13dd8f34e7433c">
-						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
-					</Literal>
-					<NodeLabel AttachedTo="af5ce212ef63430f8a0281727d7ba980" Bounds="2 2 45 15" Id="5f9c7177c7384506ad13dd8f34e7433c" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>latitude</p.Text>
-					</NodeLabel>
-					<Literal Bounds="2 57 40 15" DataType="Double" Id="ced48d3989e04f93a7b489990550f53d" Label="465fa2ccde2045ea830aa3820b3dcb34">
-						<NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
-					</Literal>
-					<NodeLabel AttachedTo="ced48d3989e04f93a7b489990550f53d" Bounds="2 39 55 15" Id="465fa2ccde2045ea830aa3820b3dcb34" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>longitude</p.Text>
-					</NodeLabel>
-					<Literal Bounds="2 94 40 15" DataType="String" Id="9ba71cb0e41045a8b71797e5b122734f" Label="282bc83915de4e14ba1bcecf9d0849c8">
-						<StringBehavior TextDisplayMode="Default" />
-					</Literal>
-					<NodeLabel AttachedTo="9ba71cb0e41045a8b71797e5b122734f" Bounds="2 76 25 15" Id="282bc83915de4e14ba1bcecf9d0849c8" xmlns="http://www.ni.com/PlatformFramework">
-						<p.Text>text</p.Text>
-					</NodeLabel>
-				</ClusterLiteral>
-			</ArrayLiteral>
-			<NodeLabel AttachedTo="ec4aed5a07604ecbb7dd18564a69eadd" Bounds="11 262 30 15" Id="a8cc4e2ec68b40af9a1e9ae2283f0188" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>Locations to set</p.Text>
-			</NodeLabel>
-			<ForLoop Bounds="548 168 305 185" DiagramId="6998e7789d3f43869f2a32f89a60edd4" Id="f728eafaa5d9426f8065b05e0f6a4bc5">
+			<ForLoop Bounds="963 168 305 185" DiagramId="6998e7789d3f43869f2a32f89a60edd4" Id="f728eafaa5d9426f8065b05e0f6a4bc5">
 				<LoopIteration Bounds="5 155 15 15" Id="e925f41eddcc4b9cb736f7ec6132ad2d" />
-				<PropertyNode Bounds="35 105 86 65" HasErrorTerminals="False" Id="f3608680fdf04e40a1c9fb9c3ff94c42" InstanceDataType="@177f8ae8de4647939cd56f031a3d73d7" xmlns="http://www.ni.com/MocCommon">
-					<PropertyItemTerminal DataType="Double" Hotspot="86 15" Id="c0t0v" Path="latitude" PathElementMemberKinds="Field" Usage="Optional" />
-					<PropertyItemTerminal DataType="Double" Hotspot="86 30" Id="c1t0v" Path="longitude" PathElementMemberKinds="Field" Usage="Optional" />
-					<PropertyItemTerminal DataType="String" Hotspot="86 45" Id="c2t0v" Path="text" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyNode Bounds="40 105 93 50" HasErrorTerminals="False" Id="f3608680fdf04e40a1c9fb9c3ff94c42" InstanceDataType="@f0759548110a4562a40a5ccd6e198907" xmlns="http://www.ni.com/MocCommon">
+					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+						<TypeDefinitionTarget TargetName="Leaflet::Support::coordinate.gtype" />
+					</p.TypeDefinitionTargets>
+					<PropertyItemTerminal DataType="@90ead61e649d404b823e754ab02f3634" Hotspot="93 15" Id="c0t0v" Path="coordinate" PathElementMemberKinds="Field" Usage="Optional" />
+					<PropertyItemTerminal DataType="String" Hotspot="93 30" Id="c1t0v" Path="text" PathElementMemberKinds="Field" Usage="Optional" />
 				</PropertyNode>
-				<Wire Id="34932ead32094d769de80b1480c0811f" Joints="N(99cd29ac675448439ef92f03214b2c3e:i0)|(6,110) N(f3608680fdf04e40a1c9fb9c3ff94c42:instance in)|(35,110)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="34932ead32094d769de80b1480c0811f" Joints="N(99cd29ac675448439ef92f03214b2c3e:i0)|(6,110) N(f3608680fdf04e40a1c9fb9c3ff94c42:instance in)|(40,110)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wire Id="8ad6b67b891a4760a50382cc9d5b80c4" Joints="N(349e8d617fc2402dac16f039b934f97f:R3)|(240,90) h(15) B(1) N(678c4db78aa345158cc825df2d555f83:6998e7789d3f43869f2a32f89a60edd4)|(293,90) B(1) v(30) N(57c8b4a625d24e02b9f121a00543fbfa:Input)|(275,120)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wire Id="bbf0311d9fb348a78a9e587a95b484a8" Joints="N(677f3d2f1db4429b8c249db8afd04de2:i0)|(6,90) N(349e8d617fc2402dac16f039b934f97f:L3)|(200,90)" xmlns="http://www.ni.com/PlatformFramework" />
-				<MethodCall Bounds="200 55 40 40" Id="349e8d617fc2402dac16f039b934f97f" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Marker\\Create Marker.gvi&quot;" Signature="@687a15a844fb4840afa5581d667dfb0d" Target="Leaflet::Marker::Create Marker.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="200 55 40 40" Id="349e8d617fc2402dac16f039b934f97f" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Marker\\Create Marker.gvi&quot;" Signature="@4f00a841c18f4ef088da0ea439e03640" Target="Leaflet::Marker::Create Marker.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="B0" Desc="text" />
-							<Parameter Id="L0" Desc="latitude" />
-							<Parameter Id="L1" Desc="longitude" />
+							<Parameter Id="L0" Desc="coordinate" />
 							<Parameter Id="L3" Desc="error in" />
 							<Parameter Id="T0" Desc="icon url (default icon)" />
 							<Parameter Id="R0" Desc="marker reference" />
@@ -394,15 +350,14 @@
 						</MethodDeclaration>
 					</p.MethodDeclaration>
 					<Terminal DataType="String" Direction="Input" Hotspot="15 40" Id="B0" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Double" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Double" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@90ead61e649d404b823e754ab02f3634" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="String" Direction="Input" Hotspot="15 0" Id="T0" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="@ee2c35b1b9e447bd97d4662cd8190951" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 				</MethodCall>
 				<Wire Id="47184159730946db94959b47a4539fa3" Joints="N(349e8d617fc2402dac16f039b934f97f:R0)|(240,60) N(1ee21437346944b5a6c74dafc697fb38:i0)|(293,60)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="b7ed1295bc504336bd5847c0c214ce6d" Joints="N(f3608680fdf04e40a1c9fb9c3ff94c42:c2t0v)|(121,150) h(94) B(1) N(ebe5bcd9476241e5a46e01f0a266f808:i0)|(293,150) B(1) N(349e8d617fc2402dac16f039b934f97f:B0)|(215,95)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="b7ed1295bc504336bd5847c0c214ce6d" Joints="N(f3608680fdf04e40a1c9fb9c3ff94c42:c1t0v)|(133,135) h(82) B(1) N(ebe5bcd9476241e5a46e01f0a266f808:i0)|(293,135) B(1) N(349e8d617fc2402dac16f039b934f97f:B0)|(215,95)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopCondition Bounds="275 115 15 15" Id="57c8b4a625d24e02b9f121a00543fbfa" />
 				<Literal Bounds="35 10 175 15" DataType="String" Id="249c35527d9c47329986ebdcfde0b8ab" Label="ee994ed2524c4304a72c4434dff9d2e6" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>Support/custom_marker.png</p.Data>
@@ -412,30 +367,27 @@
 					<p.Text>icon url (default icon)</p.Text>
 				</NodeLabel>
 				<Wire Id="e784daf551d64b8ab98770bdc5f207b6" Joints="N(249c35527d9c47329986ebdcfde0b8ab:Out)|(210,15) h(5) N(349e8d617fc2402dac16f039b934f97f:T0)|(215,55)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="c336d273b6a04eab92b8d764aea771ea" Joints="N(f3608680fdf04e40a1c9fb9c3ff94c42:c0t0v)|(121,120) h(29) v(-60) N(349e8d617fc2402dac16f039b934f97f:L0)|(200,60)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="18af474d2d5e46a596f2fe705396139b" Joints="N(f3608680fdf04e40a1c9fb9c3ff94c42:c1t0v)|(121,135) h(44) v(-65) N(349e8d617fc2402dac16f039b934f97f:L1)|(200,70)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="9e7030db37584ac08742ae42801315ea" Joints="N(f3608680fdf04e40a1c9fb9c3ff94c42:c0t0v)|(133,120) h(22) v(-60) N(349e8d617fc2402dac16f039b934f97f:L0)|(200,60)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopCount Bounds="1 1 15 15" Docking="Left" Id="eacacff24d1a4f619b9079276e4e665d" Terminals="f728eafaa5d9426f8065b05e0f6a4bc5, 6998e7789d3f43869f2a32f89a60edd4" />
-				<LoopTunnel AutoIndex="True" Bounds="-5 107 13 10" Docking="Left" Id="99cd29ac675448439ef92f03214b2c3e" Terminals="o0=b56db628a1174a449959d2590474cfaf, i0=34932ead32094d769de80b1480c0811f" TunnelMode="0" />
+				<LoopTunnel AutoIndex="True" Bounds="-5 107 13 10" Docking="Left" Id="99cd29ac675448439ef92f03214b2c3e" Terminals="o0=19137938437741e688f5d66b5a77441b, i0=34932ead32094d769de80b1480c0811f" TunnelMode="0" />
 				<RightShiftRegister Bounds="295 87 13 10" Docking="Right" Id="678c4db78aa345158cc825df2d555f83" Terminals="f728eafaa5d9426f8065b05e0f6a4bc5=ba2ec031cf2d45d89977b8a4bf1bafa8, 6998e7789d3f43869f2a32f89a60edd4=8ad6b67b891a4760a50382cc9d5b80c4" />
-				<LeftShiftRegister Bounds="-5 87 13 10" Docking="Left" Id="677f3d2f1db4429b8c249db8afd04de2" RightRegister="678c4db78aa345158cc825df2d555f83" Terminals="o0=3bb7e33da1294efb929480a369b5f797, i0=bbf0311d9fb348a78a9e587a95b484a8" />
+				<LeftShiftRegister Bounds="-5 87 13 10" Docking="Left" Id="677f3d2f1db4429b8c249db8afd04de2" RightRegister="678c4db78aa345158cc825df2d555f83" Terminals="o0=d447fb1d8a504fa5b53889c214835044, i0=bbf0311d9fb348a78a9e587a95b484a8" />
 				<LoopTunnel AutoIndex="True" Bounds="295 57 13 10" Docking="Right" Id="1ee21437346944b5a6c74dafc697fb38" Terminals="o0=4a536838d0e14a2098f66a2a3863eff8, i0=47184159730946db94959b47a4539fa3" TunnelMode="0" />
-				<LoopTunnel AutoIndex="True" Bounds="295 147 13 10" Docking="Right" Id="ebe5bcd9476241e5a46e01f0a266f808" Terminals="o0=1023ae6464e2449dbdfe0435b4b8bada, i0=b7ed1295bc504336bd5847c0c214ce6d" TunnelMode="0" />
+				<LoopTunnel AutoIndex="True" Bounds="295 132 13 10" Docking="Right" Id="ebe5bcd9476241e5a46e01f0a266f808" Terminals="o0=1023ae6464e2449dbdfe0435b4b8bada, i0=b7ed1295bc504336bd5847c0c214ce6d" TunnelMode="0" />
 			</ForLoop>
-			<Wire Id="3bb7e33da1294efb929480a369b5f797" Joints="N(b7ea89bb75794b56bac645a6896dd23d:R3)|(535,260) N(677f3d2f1db4429b8c249db8afd04de2:o0)|(543,260)" xmlns="http://www.ni.com/PlatformFramework" />
-			<ControlReference Bounds="735 375 120 20" Id="312a4ca3571046f1853cef88989e58a0" SourceControl="775c6deb9b934e778c7367dfd3ac6bf5" />
-			<PropertyNode Bounds="895 245 98 45" Id="badf7d08c1d6495fb666d0671db49f14" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" xmlns="http://www.ni.com/MocCommon">
+			<ControlReference Bounds="1150 375 120 20" Id="312a4ca3571046f1853cef88989e58a0" SourceControl="775c6deb9b934e778c7367dfd3ac6bf5" />
+			<PropertyNode Bounds="1310 245 98 45" Id="badf7d08c1d6495fb666d0671db49f14" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 					<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal Action="Write" DataType="String[]" Hotspot="0 25" Id="c0t0v" Path="Items" PathElementMemberKinds="Property" Usage="Required" />
 			</PropertyNode>
-			<Wire Id="ba2ec031cf2d45d89977b8a4bf1bafa8" Joints="N(678c4db78aa345158cc825df2d555f83:f728eafaa5d9426f8065b05e0f6a4bc5)|(856,260) h(24) B(1) N(badf7d08c1d6495fb666d0671db49f14:error in)|(895,260) B(1) v(255) B(3) N(593c5a0a53eb470c9602aea3a30b8db5:o0)|(1221,515) B(3) v(255) N(2cfa9f3f9a8d48f9b02278da0c6cb68e:L3)|(1160,770)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="385 1100 40 40" Id="44ab926ab98046fc91cd43f32799a5ec" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Map\\Create Map.gvi&quot;" Signature="@cba3c184746f40c79d49849d8fe2d068" Target="GoogleMap::Map::Create Map.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="ba2ec031cf2d45d89977b8a4bf1bafa8" Joints="N(678c4db78aa345158cc825df2d555f83:f728eafaa5d9426f8065b05e0f6a4bc5)|(1271,260) h(24) B(1) N(badf7d08c1d6495fb666d0671db49f14:error in)|(1310,260) B(1) v(255) B(3) N(593c5a0a53eb470c9602aea3a30b8db5:o0)|(1636,515) B(3) v(255) N(2cfa9f3f9a8d48f9b02278da0c6cb68e:L3)|(1575,770)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="385 1100 40 40" Id="44ab926ab98046fc91cd43f32799a5ec" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Map\\Create Map.gvi&quot;" Signature="@6096ef2ae24b4e5da988214454fd4dec" Target="GoogleMap::Map::Create Map.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="placeholder reference" />
-						<Parameter Id="L1" Desc="latitude (austin, tx)" />
-						<Parameter Id="L2" Desc="longitude (austin, tx)" />
+						<Parameter Id="L1" Desc="center coordinate (austin, tx)" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="T0" Desc="zoom level (from 0-18)" />
 						<Parameter Id="R0" Desc="map reference" />
@@ -443,21 +395,19 @@
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Double" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Double" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Int32" Direction="Input" Hotspot="15 0" Id="T0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="@61583cc69d8c4622ac3a1dcbe16da4fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<ForLoop Bounds="543 1043 316 186" DiagramId="79591ae5091c4db681d135304115172f" Id="435c862e2854baabfb3e5eeac35afd2">
+			<ForLoop Bounds="958 1043 316 186" DiagramId="79591ae5091c4db681d135304115172f" Id="435c862e2854baabfb3e5eeac35afd2">
 				<LoopIteration Bounds="5 155 15 15" Id="91cb98dd8f234eaa89fca444261c5eed" />
-				<MethodCall Bounds="215 55 40 40" Id="2bf19e0f0ff64b8583991cac23f81b00" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Create Marker.gvi&quot;" Signature="@0faf794c06224a648d3bc151ba55a98b" Target="GoogleMap::Marker::Create Marker.gvi" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="215 55 40 40" Id="2bf19e0f0ff64b8583991cac23f81b00" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Create Marker.gvi&quot;" Signature="@f40ea2880fc64312b83e8e8bb02f9e62" Target="GoogleMap::Marker::Create Marker.gvi" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 							<Parameter Id="B0" Desc="title" />
-							<Parameter Id="L0" Desc="latitude" />
-							<Parameter Id="L1" Desc="longitude" />
+							<Parameter Id="L0" Desc="coordinate" />
 							<Parameter Id="L3" Desc="error in" />
 							<Parameter Id="T0" Desc="icon url  (default icon)" />
 							<Parameter Id="R0" Desc="marker reference" />
@@ -465,8 +415,7 @@
 						</MethodDeclaration>
 					</p.MethodDeclaration>
 					<Terminal DataType="String" Direction="Input" Hotspot="15 40" Id="B0" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Double" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-					<Terminal DataType="Double" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+					<Terminal DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="String" Direction="Input" Hotspot="15 0" Id="T0" xmlns="http://www.ni.com/PlatformFramework" />
 					<Terminal DataType="@3f2d08bd3e51432fbd22ad686211d57f" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
@@ -475,13 +424,15 @@
 				<Wire Id="243e3f5888384373913c9de952d32c09" Joints="N(5db147d159d34a2fb5389a3f9e706a66:i0)|(6,90) N(2bf19e0f0ff64b8583991cac23f81b00:L3)|(215,90)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wire Id="cac58c3fd8474eb2b6adfc46e10d4e39" Joints="N(2bf19e0f0ff64b8583991cac23f81b00:R3)|(255,90) h(20) B(1) N(a3ad407bc4e34a61abb8689810110486:79591ae5091c4db681d135304115172f)|(304,90) B(1) v(25) N(edce2b4e2a8344efb6b46fa93f15aade:Input)|(285,115)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopCondition Bounds="285 110 15 15" Id="edce2b4e2a8344efb6b46fa93f15aade" />
-				<PropertyNode Bounds="90 105 86 65" HasErrorTerminals="False" Id="319533b61375435ebe2c42636b44b130" InstanceDataType="@177f8ae8de4647939cd56f031a3d73d7" xmlns="http://www.ni.com/MocCommon">
-					<PropertyItemTerminal DataType="Double" Hotspot="86 15" Id="c0t0v" Path="latitude" PathElementMemberKinds="Field" Usage="Optional" />
-					<PropertyItemTerminal DataType="Double" Hotspot="86 30" Id="c1t0v" Path="longitude" PathElementMemberKinds="Field" Usage="Optional" />
-					<PropertyItemTerminal DataType="String" Hotspot="86 45" Id="c2t0v" Path="text" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyNode Bounds="90 120 93 50" HasErrorTerminals="False" Id="319533b61375435ebe2c42636b44b130" InstanceDataType="@711b86595d1f4073be95021d2dfc74e3" xmlns="http://www.ni.com/MocCommon">
+					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+						<TypeDefinitionTarget TargetName="GoogleMap::Support::coordinate.gtype" />
+					</p.TypeDefinitionTargets>
+					<PropertyItemTerminal DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" Hotspot="93 15" Id="c0t0v" Path="coordinate" PathElementMemberKinds="Field" Usage="Optional" />
+					<PropertyItemTerminal DataType="String" Hotspot="93 30" Id="c1t0v" Path="text" PathElementMemberKinds="Field" Usage="Optional" />
 				</PropertyNode>
-				<Wire Id="8c80713f40a64470963f88ccc513bcee" Joints="N(2714625b13574911b7362d6f8d8e4c53:i0)|(6,110) N(319533b61375435ebe2c42636b44b130:instance in)|(90,110)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="66086cc9f6664c0f9195698bf865bb9c" Joints="N(319533b61375435ebe2c42636b44b130:c2t0v)|(176,150) h(54) B(1) N(aa4fb6ea7b8e4b7a87c3041a5bd01d6c:i0)|(304,150) B(1) N(2bf19e0f0ff64b8583991cac23f81b00:B0)|(230,95)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="8c80713f40a64470963f88ccc513bcee" Joints="N(2714625b13574911b7362d6f8d8e4c53:i0)|(6,125) N(319533b61375435ebe2c42636b44b130:instance in)|(90,125)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="66086cc9f6664c0f9195698bf865bb9c" Joints="N(319533b61375435ebe2c42636b44b130:c1t0v)|(183,150) h(47) B(1) N(aa4fb6ea7b8e4b7a87c3041a5bd01d6c:i0)|(304,150) B(1) N(2bf19e0f0ff64b8583991cac23f81b00:B0)|(230,95)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Literal Bounds="50 10 175 15" DataType="String" Id="f0001cd5cb044f24b7430b839ef4f87f" Label="b97ca6bf327c42a99750a40f57055264" xmlns="http://www.ni.com/MocCommon">
 					<p.Data>Support/custom_marker.png</p.Data>
 					<StringBehavior TextDisplayMode="Default" />
@@ -491,16 +442,14 @@
 				</NodeLabel>
 				<Wire Id="af420027b9145bd906e106db979d958" Joints="N(f0001cd5cb044f24b7430b839ef4f87f:Out)|(225,15) h(5) N(2bf19e0f0ff64b8583991cac23f81b00:T0)|(230,55)" xmlns="http://www.ni.com/PlatformFramework" />
 				<Wire Id="fa7cb0c617d44820b09e119896a67e9a" Joints="N(2bf19e0f0ff64b8583991cac23f81b00:R0)|(255,60) N(a62bec3166c54a81ac8e24de55c3bddc:i0)|(304,60)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="b3e90b9bcfeb4f82b18391b441ee41f8" Joints="N(319533b61375435ebe2c42636b44b130:c0t0v)|(176,120) h(9) v(-60) N(2bf19e0f0ff64b8583991cac23f81b00:L0)|(215,60)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="e56eab64df4741d5ad1426f21d7b9274" Joints="N(319533b61375435ebe2c42636b44b130:c1t0v)|(176,135) h(33) v(-65) N(2bf19e0f0ff64b8583991cac23f81b00:L1)|(215,70)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="4455d8c86422429c803a1a7b19c799d7" Joints="N(319533b61375435ebe2c42636b44b130:c0t0v)|(183,135) h(26) v(-75) N(2bf19e0f0ff64b8583991cac23f81b00:L0)|(215,60)" xmlns="http://www.ni.com/PlatformFramework" />
 				<LoopCount Bounds="1 1 15 15" Docking="Left" Id="feb487459e0340d88ddc3e9241fb0cf6" Terminals="435c862e2854baabfb3e5eeac35afd2, 79591ae5091c4db681d135304115172f" />
 				<RightShiftRegister Bounds="306 87 13 10" Docking="Right" Id="a3ad407bc4e34a61abb8689810110486" Terminals="435c862e2854baabfb3e5eeac35afd2=2bbd90e6e10245cdb89d9027dc292143, 79591ae5091c4db681d135304115172f=cac58c3fd8474eb2b6adfc46e10d4e39" />
-				<LeftShiftRegister Bounds="-5 87 13 10" Docking="Left" Id="5db147d159d34a2fb5389a3f9e706a66" RightRegister="a3ad407bc4e34a61abb8689810110486" Terminals="o0=aea7b0ecd7d543b283a2e604a47d4b4e, i0=243e3f5888384373913c9de952d32c09" />
-				<LoopTunnel AutoIndex="True" Bounds="-5 107 13 10" Docking="Left" Id="2714625b13574911b7362d6f8d8e4c53" Terminals="o0=b56db628a1174a449959d2590474cfaf, i0=8c80713f40a64470963f88ccc513bcee" TunnelMode="0" />
+				<LeftShiftRegister Bounds="-5 87 13 10" Docking="Left" Id="5db147d159d34a2fb5389a3f9e706a66" RightRegister="a3ad407bc4e34a61abb8689810110486" Terminals="o0=b2b6f26e1324956ace95958f1524b7b, i0=243e3f5888384373913c9de952d32c09" />
+				<LoopTunnel AutoIndex="True" Bounds="-5 122 13 10" Docking="Left" Id="2714625b13574911b7362d6f8d8e4c53" Terminals="o0=566c96a659d848e0b247f6b26902aa77, i0=8c80713f40a64470963f88ccc513bcee" TunnelMode="0" />
 				<LoopTunnel AutoIndex="True" Bounds="306 57 13 10" Docking="Right" Id="a62bec3166c54a81ac8e24de55c3bddc" Terminals="o0=f67d5c963b4244f3866f969b54558e5c, i0=fa7cb0c617d44820b09e119896a67e9a" TunnelMode="0" />
 				<LoopTunnel AutoIndex="True" Bounds="306 147 13 10" Docking="Right" Id="aa4fb6ea7b8e4b7a87c3041a5bd01d6c" Terminals="o0=58b47b6ea08046f88144e4842f09305a, i0=66086cc9f6664c0f9195698bf865bb9c" TunnelMode="0" />
 			</ForLoop>
-			<Wire Id="aea7b0ecd7d543b283a2e604a47d4b4e" Joints="N(44ab926ab98046fc91cd43f32799a5ec:R3)|(425,1135) N(5db147d159d34a2fb5389a3f9e706a66:o0)|(538,1135)" xmlns="http://www.ni.com/PlatformFramework" />
 			<MethodCall Bounds="205 1100 40 40" Id="ff8519336a394934968cb63fe8c83e1d" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Map\\Initialize Map.gvi&quot;" Signature="@d9092a2b838b4916805623dc047102ad" Target="GoogleMap::Map::Initialize Map.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
@@ -526,10 +475,10 @@
 			</Comment>
 			<ControlReference Bounds="215 225 95 20" Id="fe8d060e966946e0bb6137f31d08d362" SourceControl="f52978c94f9548a1a8b63a1f59a2a25e" />
 			<Wire Id="364267bfc4dc4a39a9c531283f25393f" Joints="N(fe8d060e966946e0bb6137f31d08d362:control reference)|(310,230) N(cf96aa99ab7e49f88adbbc23770a2564:L0)|(330,230)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="bb3d12906420497f9f5d128b4e15ffda" Joints="N(cf96aa99ab7e49f88adbbc23770a2564:R0)|(370,230) N(b7ea89bb75794b56bac645a6896dd23d:L0)|(495,230)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="bb3d12906420497f9f5d128b4e15ffda" Joints="N(cf96aa99ab7e49f88adbbc23770a2564:R0)|(370,230) N(b7ea89bb75794b56bac645a6896dd23d:L0)|(390,230)" xmlns="http://www.ni.com/PlatformFramework" />
 			<ControlReference Bounds="265 1080 95 20" Id="1820f03ba6c840d6ac6ab46c51d55809" SourceControl="faa5b8da6ecc4990a5d586a1cdc45366" />
 			<Wire Id="768427bee50e4fa0a8f03c38af0cdd19" Joints="N(1820f03ba6c840d6ac6ab46c51d55809:control reference)|(360,1085) h(20) v(20) N(44ab926ab98046fc91cd43f32799a5ec:L0)|(385,1105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="1225 380 360 285" DiagramId="942596e2858e4226a289f1c669c8ea5d" Id="23b6ab3b2941405dbbc2f19efb74faec">
+			<WhileLoop Bounds="1640 380 360 285" DiagramId="942596e2858e4226a289f1c669c8ea5d" Id="23b6ab3b2941405dbbc2f19efb74faec">
 				<LoopIteration Bounds="30 210 15 15" Id="d065c4f41c7b4e1ab73f453cacf3843c" />
 				<LoopCondition Bounds="330 155 15 15" Id="eb40a63adc045a6ba783e7f4c4e54bb" />
 				<Wire Id="567b27e53a448be975cca6beb10b116" Joints="N(e5f5659f2f4540f7b93d83a3f4dfaf23:i0)|(4,100) N(cc5b6ec9b26848a2b37efe8f266fe073:o0)|(58,100)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -575,7 +524,10 @@
 					<Wire Id="830fd90a48e34d2e824364aa93a8822f" Joints="N(34b53ca04dd441408754eeb436baeb91:R3)|(235,70) N(4992c2862e8f4ddc89e728de626db2e3:i0)|(238,70)" xmlns="http://www.ni.com/PlatformFramework" />
 					<Wire Id="ec962d3e3c0d41ed80f629f5713ca346" Joints="N(9d61e45b4b4edcb993db60e50ed144:outString)|(155,50) N(34b53ca04dd441408754eeb436baeb91:L1)|(195,50)" xmlns="http://www.ni.com/PlatformFramework" />
 					<Wire Id="225ccd54e71a4b37ad82340d29a3be2c" Joints="N(96fed892245047d8a8b0125567869b8a:Out)|(135,20) h(5) N(9d61e45b4b4edcb993db60e50ed144:formatString)|(140,45)" xmlns="http://www.ni.com/PlatformFramework" />
-					<PropertyNode Bounds="25 100 56 35" HasErrorTerminals="False" Id="36d0b753fcde4ca6afda00a749044cc9" InstanceDataType="@177f8ae8de4647939cd56f031a3d73d7" xmlns="http://www.ni.com/MocCommon">
+					<PropertyNode Bounds="25 100 56 35" HasErrorTerminals="False" Id="36d0b753fcde4ca6afda00a749044cc9" InstanceDataType="@f0759548110a4562a40a5ccd6e198907" xmlns="http://www.ni.com/MocCommon">
+						<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+							<TypeDefinitionTarget TargetName="Leaflet::Support::coordinate.gtype" />
+						</p.TypeDefinitionTargets>
 						<PropertyItemTerminal DataType="String" Hotspot="56 15" Id="c0t0v" Path="text" PathElementMemberKinds="Field" Usage="Optional" />
 					</PropertyNode>
 					<Wire Id="e15371e0eb704ee4a3ad9a1c5a539f66" Joints="N(de63de5ca4024a2c90663f413b163036:i0)|(6,50) h(5) v(55) N(36d0b753fcde4ca6afda00a749044cc9:instance in)|(25,105)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -592,24 +544,23 @@
 					<LoopTunnel Bounds="-5 67 13 10" Docking="Left" Id="a32c1d1efc454e7cac8644ad94a18f39" Terminals="o0=f11dead094f345cf8dfeb3dd12c2f932, i0=38cf9f281cd3411dbac54c65eff47078" />
 				</ForLoop>
 				<LoopTunnel Bounds="-4 100 13 10" Docking="Left" Id="e5f5659f2f4540f7b93d83a3f4dfaf23" Terminals="o0=4a536838d0e14a2098f66a2a3863eff8, i0=567b27e53a448be975cca6beb10b116" />
-				<LoopTunnel Bounds="-4 110 13 10" Docking="Left" Id="36824a0b127461595bf1a929bb0fd6f" Terminals="o0=b56db628a1174a449959d2590474cfaf, i0=107363e232e34b9ebddd3807b0dfb1a9" />
+				<LoopTunnel Bounds="-4 110 13 10" Docking="Left" Id="36824a0b127461595bf1a929bb0fd6f" Terminals="o0=19137938437741e688f5d66b5a77441b, i0=107363e232e34b9ebddd3807b0dfb1a9" />
 				<RightShiftRegister Bounds="351 130 13 10" Docking="Right" Id="9c2f30793394495f8d93d0af71628f21" Terminals="23b6ab3b2941405dbbc2f19efb74faec=ce8e92661d874e21adae2c1948695e4f, 942596e2858e4226a289f1c669c8ea5d=93525063bd4e4e679e919cfdcf844ec4" />
 				<LeftShiftRegister Bounds="-4 130 13 10" Docking="Left" Id="593c5a0a53eb470c9602aea3a30b8db5" RightRegister="9c2f30793394495f8d93d0af71628f21" Terminals="o0=ba2ec031cf2d45d89977b8a4bf1bafa8, i0=f11dead094f345cf8dfeb3dd12c2f932" />
 			</WhileLoop>
-			<Wire Id="b56db628a1174a449959d2590474cfaf" Joints="N(ec4aed5a07604ecbb7dd18564a69eadd:Out)|(375,285) h(115) B(1) v(-5) N(99cd29ac675448439ef92f03214b2c3e:o0)|(543,280) B(1) v(210) B(4) N(36824a0b127461595bf1a929bb0fd6f:o0)|(1221,495) B(4) v(660) B(6) N(2714625b13574911b7362d6f8d8e4c53:o0)|(538,1155) B(6) v(250) N(309fcf4fea774f3d9bf7d4fb4c94e9e8:o0)|(1241,1405)" xmlns="http://www.ni.com/PlatformFramework" />
-			<ControlReference Bounds="700 1245 150 20" Id="afc43f653a374a9494cec4fa025f909e" SourceControl="f2076b2214084847b915460f2bf89e37" />
-			<PropertyNode Bounds="915 1120 98 45" Id="a9fa6fae60784fbe914afbe9564eacc6" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" xmlns="http://www.ni.com/MocCommon">
+			<ControlReference Bounds="1115 1245 150 20" Id="afc43f653a374a9494cec4fa025f909e" SourceControl="f2076b2214084847b915460f2bf89e37" />
+			<PropertyNode Bounds="1330 1120 98 45" Id="a9fa6fae60784fbe914afbe9564eacc6" InstanceDataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
 					<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal Action="Write" DataType="String[]" Hotspot="0 25" Id="c0t0v" Path="Items" PathElementMemberKinds="Property" Usage="Required" />
 			</PropertyNode>
-			<Wire Id="4a222d2b0b404896af71c004edd74480" Joints="N(afc43f653a374a9494cec4fa025f909e:control reference)|(850,1250) h(25) v(-125) N(a9fa6fae60784fbe914afbe9564eacc6:instance in)|(915,1125)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="2bbd90e6e10245cdb89d9027dc292143" Joints="N(a3ad407bc4e34a61abb8689810110486:435c862e2854baabfb3e5eeac35afd2)|(862,1135) h(38) B(1) N(a9fa6fae60784fbe914afbe9564eacc6:error in)|(915,1135) B(1) v(290) B(3) N(f3b9024c4f8341bf8bd6a3a6e5a66850:o0)|(1241,1425) B(3) v(270) N(89fcdb85657841ef93dfdc16139e3b4b:L3)|(1170,1695)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="1240 950 505 300" DiagramId="490630d408e84edd9d7362a4d809b0b7" Id="763329c0248949abb213551d905668ea">
+			<Wire Id="4a222d2b0b404896af71c004edd74480" Joints="N(afc43f653a374a9494cec4fa025f909e:control reference)|(1265,1250) h(25) v(-125) N(a9fa6fae60784fbe914afbe9564eacc6:instance in)|(1330,1125)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="2bbd90e6e10245cdb89d9027dc292143" Joints="N(a3ad407bc4e34a61abb8689810110486:435c862e2854baabfb3e5eeac35afd2)|(1277,1135) h(38) B(1) N(a9fa6fae60784fbe914afbe9564eacc6:error in)|(1330,1135) B(1) v(290) B(3) N(f3b9024c4f8341bf8bd6a3a6e5a66850:o0)|(1656,1425) B(3) v(270) N(89fcdb85657841ef93dfdc16139e3b4b:L3)|(1585,1695)" xmlns="http://www.ni.com/PlatformFramework" />
+			<WhileLoop Bounds="1655 950 505 300" DiagramId="490630d408e84edd9d7362a4d809b0b7" Id="763329c0248949abb213551d905668ea">
 				<LoopIteration Bounds="10 270 15 15" Id="38a3f182fdff46c3a90d6cc6d296cb7b" />
 				<LoopCondition Bounds="475 200 15 15" Id="11f4cbbb3e014d8591b7f409afc94347" />
-				<EventStructure Bounds="50 17 410 261" Id="3375f3ed97d44f069e0e536233189c4f" Selected="13aacd025d454633b7158c2c33938635" UserSelectorBounds="20 0 370 17">
+				<EventStructure Bounds="50 17 410 261" Id="3375f3ed97d44f069e0e536233189c4f" Selected="7fc4d83d04a44b898bdcd1af5aa831fe" UserSelectorBounds="20 0 370 17">
 					<EventStructure.EventCase Bounds="21 18 368 235" Id="7fc4d83d04a44b898bdcd1af5aa831fe">
 						<EventStructure.EventData Bounds="0 165 92 35" Id="767403a4618d4df08517d2920192f719" InstanceDataType="@f3e37c5ba52e4dea838d2287e0bd5a47" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
 							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
@@ -788,9 +739,9 @@
 				<LoopTunnel Bounds="-4 150 13 10" Docking="Left" Id="d334c0f4b7e64ddba3adb20b0693193b" Terminals="o0=f67d5c963b4244f3866f969b54558e5c, i0=a057b723ec214662ad89ba62484f8a53" />
 				<RightShiftRegister Bounds="496 160 13 10" Docking="Right" Id="2e45efdcc4b244f5b74d6e14b9274b1a" Terminals="763329c0248949abb213551d905668ea, 490630d408e84edd9d7362a4d809b0b7=ebf5273f83684a4dac91a37df81342ee" />
 				<LeftShiftRegister Bounds="-4 160 13 10" Docking="Left" Id="6c6dc8e83abb480ea36950324739ccf4" RightRegister="2e45efdcc4b244f5b74d6e14b9274b1a" Terminals="o0, i0=bb8af7fb1ec44d069610018f0e83171e" />
-				<LoopTunnel Bounds="-4 140 13 10" Docking="Left" Id="d6e05754d5da441b8d0f2643023d0241" Terminals="o0=96d92a4e974d445eadf4e048c580540c, i0=acc8d76bc6f14fa281ba4e746664e9b8" />
+				<LoopTunnel Bounds="-4 140 13 10" Docking="Left" Id="d6e05754d5da441b8d0f2643023d0241" Terminals="o0=e76f6fb78e9e49ef8eaa19d3b2f8f6cf, i0=acc8d76bc6f14fa281ba4e746664e9b8" />
 			</WhileLoop>
-			<WhileLoop Bounds="1245 1290 360 285" DiagramId="9a7e459839024c949648462ba4c36ac7" Id="911a2cc273ae41518772373742a266bb">
+			<WhileLoop Bounds="1660 1290 360 285" DiagramId="9a7e459839024c949648462ba4c36ac7" Id="911a2cc273ae41518772373742a266bb">
 				<LoopIteration Bounds="30 210 15 15" Id="70b8ddb554c94f09878c8e038396fd6a" />
 				<LoopCondition Bounds="330 155 15 15" Id="dc242ad8d6c41be948a6be2d607b4b5" />
 				<Wire Id="6ee6733d15634d7ea2c36f8eb90a0aa7" Joints="N(73edee920ca74171ab1a8c9e70961d23:i0)|(4,100) N(64baf96866414a5bb11088a31b92378e:o0)|(58,100)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -819,7 +770,10 @@
 					</NodeLabel>
 					<Wire Id="f142b9a47f224345ba562c688bac5240" Joints="N(be500736df54826a7127cd68434473c:R3)|(235,70) N(14e352fbfb5143dcbe7e941a165d41ea:i0)|(238,70)" xmlns="http://www.ni.com/PlatformFramework" />
 					<Wire Id="3a0ce770eb34481593a1cb15b79e69d7" Joints="N(adfbb9c471d1405882fd985eb543e098:Out)|(120,10) h(20) N(b9751cc118df47c78c1e8675c130d797:formatString)|(140,45)" xmlns="http://www.ni.com/PlatformFramework" />
-					<PropertyNode Bounds="25 100 56 35" HasErrorTerminals="False" Id="24add80f5d5c4a1c860bbbb1524ef9f7" InstanceDataType="@177f8ae8de4647939cd56f031a3d73d7" xmlns="http://www.ni.com/MocCommon">
+					<PropertyNode Bounds="25 100 56 35" HasErrorTerminals="False" Id="24add80f5d5c4a1c860bbbb1524ef9f7" InstanceDataType="@711b86595d1f4073be95021d2dfc74e3" xmlns="http://www.ni.com/MocCommon">
+						<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+							<TypeDefinitionTarget TargetName="GoogleMap::Support::coordinate.gtype" />
+						</p.TypeDefinitionTargets>
 						<PropertyItemTerminal DataType="String" Hotspot="56 15" Id="c0t0v" Path="text" PathElementMemberKinds="Field" Usage="Optional" />
 					</PropertyNode>
 					<Wire Id="7d77ad313d540b38ce424ffb7260266" Joints="N(d294f4a92a8243d7945ebf29cb0df107:i0)|(6,50) h(5) v(55) N(24add80f5d5c4a1c860bbbb1524ef9f7:instance in)|(25,105)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -853,12 +807,12 @@
 					<LoopTunnel Bounds="-5 67 13 10" Docking="Left" Id="ef4c9307017a4194a57adb0216de9b34" Terminals="o0=54e8102156514eda8fb40cc1617f5a20, i0=d6d0098d2bd34e79b50c13d01b47c51e" />
 				</ForLoop>
 				<LoopTunnel Bounds="-4 100 13 10" Docking="Left" Id="73edee920ca74171ab1a8c9e70961d23" Terminals="o0=f67d5c963b4244f3866f969b54558e5c, i0=6ee6733d15634d7ea2c36f8eb90a0aa7" />
-				<LoopTunnel Bounds="-4 110 13 10" Docking="Left" Id="309fcf4fea774f3d9bf7d4fb4c94e9e8" Terminals="o0=b56db628a1174a449959d2590474cfaf, i0=8323e3c1239240f08defcf3d74d2f446" />
+				<LoopTunnel Bounds="-4 110 13 10" Docking="Left" Id="309fcf4fea774f3d9bf7d4fb4c94e9e8" Terminals="o0=566c96a659d848e0b247f6b26902aa77, i0=8323e3c1239240f08defcf3d74d2f446" />
 				<RightShiftRegister Bounds="351 130 13 10" Docking="Right" Id="4544d0f4aed44185ae057aacd78bd727" Terminals="911a2cc273ae41518772373742a266bb=f1ad9e9e224b4b2bb704d65bcea78900, 9a7e459839024c949648462ba4c36ac7=7aac06e071f94cc980b1cb5f2c4b433c" />
 				<LeftShiftRegister Bounds="-4 130 13 10" Docking="Left" Id="f3b9024c4f8341bf8bd6a3a6e5a66850" RightRegister="4544d0f4aed44185ae057aacd78bd727" Terminals="o0=2bbd90e6e10245cdb89d9027dc292143, i0=54e8102156514eda8fb40cc1617f5a20" />
 			</WhileLoop>
 			<Wire Id="b4128b41576f44c5855bb0e189935c7b" Joints="N(80714b58493b4acea7250a9bc6b64b4e:Out)|(175,1085) h(19) v(20) N(ff8519336a394934968cb63fe8c83e1d:L0)|(205,1105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1160 735 40 40" Id="2cfa9f3f9a8d48f9b02278da0c6cb68e" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Marker\\Events\\Add Marker Event Listener.gvi&quot;" Signature="@6ee7e8e1951d4f81aa6319951b55c0d8" Target="Leaflet::Marker::Events::Add Marker Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="1575 735 40 40" Id="2cfa9f3f9a8d48f9b02278da0c6cb68e" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Marker\\Events\\Add Marker Event Listener.gvi&quot;" Signature="@6ee7e8e1951d4f81aa6319951b55c0d8" Target="Leaflet::Marker::Events::Add Marker Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="markers" />
@@ -872,7 +826,7 @@
 				<Terminal DataType="@c4505523a13146d38c054d2ba9bc41a8" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<WhileLoop Bounds="1225 680 335 140" DiagramId="1bc99a588464404c879e56afd8e9feb1" Id="61f16aed46e24c5cad54b0a3f46e02dd">
+			<WhileLoop Bounds="1640 680 335 140" DiagramId="1bc99a588464404c879e56afd8e9feb1" Id="61f16aed46e24c5cad54b0a3f46e02dd">
 				<LoopIteration Bounds="5 110 15 15" Id="1c3663eddb0a415fae623d08d47ad277" />
 				<LoopCondition Bounds="295 95 15 15" Id="6f39edc4b144d71a93e90e3a69c0bd5" />
 				<MethodCall Bounds="40 50 40 40" Id="a938d9ae079245649726343d18ff7f83" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Marker\\Events\\Wait for Marker Event.gvi&quot;" Signature="@9a898ba572e747f0b4c8330cf5857f2f" Target="Leaflet::Marker::Events::Wait for Marker Event.gvi" xmlns="http://www.ni.com/MocCommon">
@@ -906,9 +860,9 @@
 				<RightShiftRegister Bounds="326 85 13 10" Docking="Right" Id="28f15fd7c1b149398e594ec50e7f2c80" Terminals="61f16aed46e24c5cad54b0a3f46e02dd=c6838aa66c0e4b8687197ae00dfdb85a, 1bc99a588464404c879e56afd8e9feb1=48299e0fa9a74a1c8a2e65d532c4c650" />
 				<LeftShiftRegister Bounds="-4 85 13 10" Docking="Left" Id="68ab25ed1aaf4808b2ff7e1c488ec4ce" RightRegister="28f15fd7c1b149398e594ec50e7f2c80" Terminals="o0=8b5b5c05a0444b02a5cf81093f15c4d0, i0=86d7fda8614c4a13b9576fd26fae0132" />
 			</WhileLoop>
-			<Wire Id="3fb55e21125d4da7a6d23db459f68d55" Joints="N(2cfa9f3f9a8d48f9b02278da0c6cb68e:R0)|(1200,740) N(4790c62598f435eaaec59f188fc5871:o0)|(1221,740)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="8b5b5c05a0444b02a5cf81093f15c4d0" Joints="N(2cfa9f3f9a8d48f9b02278da0c6cb68e:R3)|(1200,770) N(68ab25ed1aaf4808b2ff7e1c488ec4ce:o0)|(1221,770)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1170 1660 40 40" Id="89fcdb85657841ef93dfdc16139e3b4b" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Events\\Add Marker Event Listener.gvi&quot;" Signature="@4bec70737ff1490596ae8944c852bb5f" Target="GoogleMap::Marker::Events::Add Marker Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="3fb55e21125d4da7a6d23db459f68d55" Joints="N(2cfa9f3f9a8d48f9b02278da0c6cb68e:R0)|(1615,740) N(4790c62598f435eaaec59f188fc5871:o0)|(1636,740)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="8b5b5c05a0444b02a5cf81093f15c4d0" Joints="N(2cfa9f3f9a8d48f9b02278da0c6cb68e:R3)|(1615,770) N(68ab25ed1aaf4808b2ff7e1c488ec4ce:o0)|(1636,770)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="1585 1660 40 40" Id="89fcdb85657841ef93dfdc16139e3b4b" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Events\\Add Marker Event Listener.gvi&quot;" Signature="@4bec70737ff1490596ae8944c852bb5f" Target="GoogleMap::Marker::Events::Add Marker Event Listener.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="markers" />
@@ -922,7 +876,7 @@
 				<Terminal DataType="@22ccec5e4c8245c59547fc40dd4b1f58" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<WhileLoop Bounds="1240 1600 394 150" DiagramId="acc80f5eb781474895d67e342044b2a8" Id="90bdea380384419fb5c2aedd393f3a3d">
+			<WhileLoop Bounds="1655 1600 394 150" DiagramId="acc80f5eb781474895d67e342044b2a8" Id="90bdea380384419fb5c2aedd393f3a3d">
 				<LoopIteration Bounds="5 120 15 15" Id="a0d79845262846e28b00480d675eabcb" />
 				<LoopCondition Bounds="350 105 15 15" Id="e78e1a1431bb40caba78d3c2e0f494ed" />
 				<MethodCall Bounds="75 55 40 40" Id="fcd7ea5760a74a618c2cfa72e29c26c1" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Marker\\Events\\Wait for Marker Event.gvi&quot;" Signature="@bd514e17fb244ef1899bbcb953c2c4ae" Target="GoogleMap::Marker::Events::Wait for Marker Event.gvi" xmlns="http://www.ni.com/MocCommon">
@@ -956,18 +910,16 @@
 				<LeftShiftRegister Bounds="-4 90 13 10" Docking="Left" Id="ea7f3bf6fbb745159a33fcbf68770a1e" RightRegister="a793e82d5b5c47cda952161e17b03df4" Terminals="o0=6282ea81e61f4bddaf223f16429d64f4, i0=77e6273e1c16400db4ce254e8be1412f" />
 				<LoopTunnel Bounds="-4 60 13 10" Docking="Left" Id="cb7fbee50aa43f996baa249d3abadf3" Terminals="o0=c7df9dcebdf64015b70efc7512d9b5c5, i0=36b41c3691d345369a15c4db9163b5b2" />
 			</WhileLoop>
-			<Wire Id="6282ea81e61f4bddaf223f16429d64f4" Joints="N(89fcdb85657841ef93dfdc16139e3b4b:R3)|(1210,1695) N(ea7f3bf6fbb745159a33fcbf68770a1e:o0)|(1236,1695)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="c7df9dcebdf64015b70efc7512d9b5c5" Joints="N(89fcdb85657841ef93dfdc16139e3b4b:R0)|(1210,1665) N(cb7fbee50aa43f996baa249d3abadf3:o0)|(1236,1665)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="1023ae6464e2449dbdfe0435b4b8bada" Joints="N(ebe5bcd9476241e5a46e01f0a266f808:o0)|(856,320) h(19) v(-50) N(badf7d08c1d6495fb666d0671db49f14:c0t0v)|(895,270)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="58b47b6ea08046f88144e4842f09305a" Joints="N(aa4fb6ea7b8e4b7a87c3041a5bd01d6c:o0)|(862,1195) h(33) v(-50) N(a9fa6fae60784fbe914afbe9564eacc6:c0t0v)|(915,1145)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="f9b6e3f17ce41bdb31403c43c45d505" Joints="N(312a4ca3571046f1853cef88989e58a0:control reference)|(855,380) h(30) v(-130) N(badf7d08c1d6495fb666d0671db49f14:instance in)|(895,250)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="47b8979421ff44a9b6e21f073991c9f6" Joints="N(badf7d08c1d6495fb666d0671db49f14:error out)|(993,260) N(df1d4409fc0c4666b26ce9fdfd4bc091:L3)|(1035,260)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="cefa6af001409c86cc3ad1f49e1ed9" Joints="N(b7ea89bb75794b56bac645a6896dd23d:R0)|(535,230) h(5) v(-110) h(490) B(3) h(176) v(95) N(45fc5e3e84d410ab1938d2cbd88c6af:o0)|(1211,215) B(3) v(110) N(df1d4409fc0c4666b26ce9fdfd4bc091:L0)|(1035,230)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="4612ea2e83d141a0b1fbf410f810dabb" Joints="N(df1d4409fc0c4666b26ce9fdfd4bc091:R3)|(1075,260) N(de975ff975bc4e6b99a7f6d90ab942d4:o0)|(1211,260)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="f79fdff2467243c3b58db007f956e17c" Joints="N(a9fa6fae60784fbe914afbe9564eacc6:error out)|(1013,1135) N(358e5cd6088442659e83c3eff74ad5f4:L3)|(1045,1135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="9165877cd264691846739682c9a66ea" Joints="N(358e5cd6088442659e83c3eff74ad5f4:R3)|(1085,1135) N(6b620ced02e642408083d8b1b57fe038:o0)|(1236,1135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="96d92a4e974d445eadf4e048c580540c" Joints="N(44ab926ab98046fc91cd43f32799a5ec:R0)|(425,1105) h(95) v(-95) h(520) B(3) h(191) v(85) N(d6e05754d5da441b8d0f2643023d0241:o0)|(1236,1095) B(3) v(95) N(358e5cd6088442659e83c3eff74ad5f4:L0)|(1045,1105)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="2085 255 20 20" Id="246025ec578140dbaf695b9485953d84" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="6282ea81e61f4bddaf223f16429d64f4" Joints="N(89fcdb85657841ef93dfdc16139e3b4b:R3)|(1625,1695) N(ea7f3bf6fbb745159a33fcbf68770a1e:o0)|(1651,1695)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="c7df9dcebdf64015b70efc7512d9b5c5" Joints="N(89fcdb85657841ef93dfdc16139e3b4b:R0)|(1625,1665) N(cb7fbee50aa43f996baa249d3abadf3:o0)|(1651,1665)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1023ae6464e2449dbdfe0435b4b8bada" Joints="N(ebe5bcd9476241e5a46e01f0a266f808:o0)|(1271,305) h(19) v(-35) N(badf7d08c1d6495fb666d0671db49f14:c0t0v)|(1310,270)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="58b47b6ea08046f88144e4842f09305a" Joints="N(aa4fb6ea7b8e4b7a87c3041a5bd01d6c:o0)|(1277,1195) h(33) v(-50) N(a9fa6fae60784fbe914afbe9564eacc6:c0t0v)|(1330,1145)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f9b6e3f17ce41bdb31403c43c45d505" Joints="N(312a4ca3571046f1853cef88989e58a0:control reference)|(1270,380) h(30) v(-130) N(badf7d08c1d6495fb666d0671db49f14:instance in)|(1310,250)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="47b8979421ff44a9b6e21f073991c9f6" Joints="N(badf7d08c1d6495fb666d0671db49f14:error out)|(1408,260) N(df1d4409fc0c4666b26ce9fdfd4bc091:L3)|(1450,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="4612ea2e83d141a0b1fbf410f810dabb" Joints="N(df1d4409fc0c4666b26ce9fdfd4bc091:R3)|(1490,260) N(de975ff975bc4e6b99a7f6d90ab942d4:o0)|(1626,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f79fdff2467243c3b58db007f956e17c" Joints="N(a9fa6fae60784fbe914afbe9564eacc6:error out)|(1428,1135) N(358e5cd6088442659e83c3eff74ad5f4:L3)|(1460,1135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9165877cd264691846739682c9a66ea" Joints="N(358e5cd6088442659e83c3eff74ad5f4:R3)|(1500,1135) N(6b620ced02e642408083d8b1b57fe038:o0)|(1651,1135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="2500 255 20 20" Id="246025ec578140dbaf695b9485953d84" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="error in" />
@@ -975,8 +927,8 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="5d24fb8f11f1426fbd103b8b3c72bbee" Joints="N(4f980b486257415a88c5e289b35d3de6:16)|(2064,260) N(246025ec578140dbaf695b9485953d84:L0)|(2085,260)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1610 510 20 20" Id="29dba2cad85145318a14e4ea7f7c4728" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="5d24fb8f11f1426fbd103b8b3c72bbee" Joints="N(4f980b486257415a88c5e289b35d3de6:16)|(2479,260) N(246025ec578140dbaf695b9485953d84:L0)|(2500,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="2025 510 20 20" Id="29dba2cad85145318a14e4ea7f7c4728" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="error in" />
@@ -984,8 +936,8 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="ce8e92661d874e21adae2c1948695e4f" Joints="N(9c2f30793394495f8d93d0af71628f21:23b6ab3b2941405dbbc2f19efb74faec)|(1589,515) N(29dba2cad85145318a14e4ea7f7c4728:L0)|(1610,515)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1585 765 20 20" Id="c03f9c4703754780b716cf2c999d3382" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="ce8e92661d874e21adae2c1948695e4f" Joints="N(9c2f30793394495f8d93d0af71628f21:23b6ab3b2941405dbbc2f19efb74faec)|(2004,515) N(29dba2cad85145318a14e4ea7f7c4728:L0)|(2025,515)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="2000 765 20 20" Id="c03f9c4703754780b716cf2c999d3382" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="error in" />
@@ -993,8 +945,8 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="c6838aa66c0e4b8687197ae00dfdb85a" Joints="N(28f15fd7c1b149398e594ec50e7f2c80:61f16aed46e24c5cad54b0a3f46e02dd)|(1564,770) N(c03f9c4703754780b716cf2c999d3382:L0)|(1585,770)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1760 1130 20 20" Id="d99224be4d3149a8817751c0778fd64e" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="c6838aa66c0e4b8687197ae00dfdb85a" Joints="N(28f15fd7c1b149398e594ec50e7f2c80:61f16aed46e24c5cad54b0a3f46e02dd)|(1979,770) N(c03f9c4703754780b716cf2c999d3382:L0)|(2000,770)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="2175 1130 20 20" Id="d99224be4d3149a8817751c0778fd64e" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="error in" />
@@ -1002,8 +954,8 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="61c30e388c064f9d97b659de05c5b7ba" Joints="N(38ab32cf8d234ef08a1aafa6e55a4a5d:763329c0248949abb213551d905668ea)|(1749,1135) N(d99224be4d3149a8817751c0778fd64e:L0)|(1760,1135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1620 1420 20 20" Id="c191d32fc54c4e0596cefd414916a5ab" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="61c30e388c064f9d97b659de05c5b7ba" Joints="N(38ab32cf8d234ef08a1aafa6e55a4a5d:763329c0248949abb213551d905668ea)|(2164,1135) N(d99224be4d3149a8817751c0778fd64e:L0)|(2175,1135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="2035 1420 20 20" Id="c191d32fc54c4e0596cefd414916a5ab" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="error in" />
@@ -1011,8 +963,8 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="f1ad9e9e224b4b2bb704d65bcea78900" Joints="N(4544d0f4aed44185ae057aacd78bd727:911a2cc273ae41518772373742a266bb)|(1609,1425) N(c191d32fc54c4e0596cefd414916a5ab:L0)|(1620,1425)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1655 1690 20 20" Id="7746ca4a836f4f92b7cd91fb7c1596c9" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="f1ad9e9e224b4b2bb704d65bcea78900" Joints="N(4544d0f4aed44185ae057aacd78bd727:911a2cc273ae41518772373742a266bb)|(2024,1425) N(c191d32fc54c4e0596cefd414916a5ab:L0)|(2035,1425)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="2070 1690 20 20" Id="7746ca4a836f4f92b7cd91fb7c1596c9" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@82c383ea09094124aab2592c1ebac1ad" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="error in" />
@@ -1020,10 +972,10 @@
 				</p.MethodDeclaration>
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="3cebe96bc1464dd99b8bf00c8c5eb3fb" Joints="N(a793e82d5b5c47cda952161e17b03df4:90bdea380384419fb5c2aedd393f3a3d)|(1638,1695) N(7746ca4a836f4f92b7cd91fb7c1596c9:L0)|(1655,1695)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="4a536838d0e14a2098f66a2a3863eff8" Joints="N(1ee21437346944b5a6c74dafc697fb38:o0)|(856,230) h(154) B(1) v(-35) h(145) v(35) B(4) N(e8e2c9a0f344f15a88da8d884608e37:o0)|(1211,230) B(4) v(255) B(6) N(e5f5659f2f4540f7b93d83a3f4dfaf23:o0)|(1221,485) B(6) v(255) N(2cfa9f3f9a8d48f9b02278da0c6cb68e:L0)|(1160,740) B(1) v(10) N(df1d4409fc0c4666b26ce9fdfd4bc091:L1)|(1035,240)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="f67d5c963b4244f3866f969b54558e5c" Joints="N(a62bec3166c54a81ac8e24de55c3bddc:o0)|(862,1105) h(163) B(1) v(-25) h(100) v(25) h(40) B(5) N(d334c0f4b7e64ddba3adb20b0693193b:o0)|(1236,1105) B(5) v(290) B(7) N(73edee920ca74171ab1a8c9e70961d23:o0)|(1241,1395) B(7) v(270) N(89fcdb85657841ef93dfdc16139e3b4b:L0)|(1170,1665) B(1) v(10) N(358e5cd6088442659e83c3eff74ad5f4:L1)|(1045,1115)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="1045 1100 40 40" Id="358e5cd6088442659e83c3eff74ad5f4" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Map\\Add Markers to Map.gvi&quot;" Signature="@3271b6548efb46eda03b947eb634a0a8" Target="GoogleMap::Map::Add Markers to Map.gvi" xmlns="http://www.ni.com/MocCommon">
+			<Wire Id="3cebe96bc1464dd99b8bf00c8c5eb3fb" Joints="N(a793e82d5b5c47cda952161e17b03df4:90bdea380384419fb5c2aedd393f3a3d)|(2053,1695) N(7746ca4a836f4f92b7cd91fb7c1596c9:L0)|(2070,1695)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="4a536838d0e14a2098f66a2a3863eff8" Joints="N(1ee21437346944b5a6c74dafc697fb38:o0)|(1271,230) h(154) v(10) B(2) N(df1d4409fc0c4666b26ce9fdfd4bc091:L1)|(1450,240) B(2) v(70) h(145) B(5) v(-80) N(e8e2c9a0f344f15a88da8d884608e37:o0)|(1626,230) B(5) v(175) B(8) N(e5f5659f2f4540f7b93d83a3f4dfaf23:o0)|(1636,485) B(8) v(255) N(2cfa9f3f9a8d48f9b02278da0c6cb68e:L0)|(1575,740)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="f67d5c963b4244f3866f969b54558e5c" Joints="N(a62bec3166c54a81ac8e24de55c3bddc:o0)|(1277,1105) h(163) v(10) B(2) N(358e5cd6088442659e83c3eff74ad5f4:L1)|(1460,1115) B(2) v(120) h(140) B(5) v(-130) N(d334c0f4b7e64ddba3adb20b0693193b:o0)|(1651,1105) B(5) v(160) B(8) N(73edee920ca74171ab1a8c9e70961d23:o0)|(1656,1395) B(8) v(270) N(89fcdb85657841ef93dfdc16139e3b4b:L0)|(1585,1665)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="1460 1100 40 40" Id="358e5cd6088442659e83c3eff74ad5f4" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Map\\Add Markers to Map.gvi&quot;" Signature="@3271b6548efb46eda03b947eb634a0a8" Target="GoogleMap::Map::Add Markers to Map.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="map reference in" />
@@ -1039,7 +991,7 @@
 				<Terminal DataType="@61583cc69d8c4622ac3a1dcbe16da4fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<MethodCall Bounds="1035 225 40 40" Id="df1d4409fc0c4666b26ce9fdfd4bc091" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Add Markers to Map.gvi&quot;" Signature="@975d7575e697478e93b205c6ad113681" Target="Leaflet::Map::Add Markers to Map.gvi" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="1450 225 40 40" Id="df1d4409fc0c4666b26ce9fdfd4bc091" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Add Markers to Map.gvi&quot;" Signature="@975d7575e697478e93b205c6ad113681" Target="Leaflet::Map::Add Markers to Map.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="map reference in" />
@@ -1055,6 +1007,217 @@
 				<Terminal DataType="@54e8f04597f44b9dadd8a5007d3e02df" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
+			<Wire Id="19137938437741e688f5d66b5a77441b" Joints="N(d87f2df433124ad4aff99ee457bf57be:Out)|(365,495) h(98) B(1) h(442) B(2) N(36824a0b127461595bf1a929bb0fd6f:o0)|(1636,495) B(2) v(-215) N(99cd29ac675448439ef92f03214b2c3e:o0)|(958,280) B(1) v(-315) N(f30990a7329942fda755d833930ddc59:o0)|(468,180)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="566c96a659d848e0b247f6b26902aa77" Joints="N(dcc3b2fcc61449e79195d55d32b214d1:Out)|(335,1405) h(130) B(1) h(440) B(2) N(309fcf4fea774f3d9bf7d4fb4c94e9e8:o0)|(1656,1405) B(2) v(-235) N(2714625b13574911b7362d6f8d8e4c53:o0)|(953,1170) B(1) v(-340) N(3eeb62f195b44e678e0225d7f52fed0f:o0)|(503,1065)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ArrayLiteral Bounds="-224 1400 559 160" DataType="@672d83d7c23e4ec8b049a94b99b474a0" Id="dcc3b2fcc61449e79195d55d32b214d1" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Array Lengths="3" IsBinary="True" Compression="GZip">
+						<BinaryElements>H4sIAAAAAAAEAOVWzW7TQBBO4tixm4Y29MLRZ4isFPp7CAIZFUVAiZQSIYVQNs5QLd3sSrvr0sIBxNtwQ+IFeAveoy8AM8ZRI0SrHBoqgS3Pjr2fZ2e+b3ftQrFQKPzAg1o6FktoXuwyy5Vkoi2N1ekYpDVRRzD7WunxjmZjeKv0YSPsgTaIa21FTTobYZwKm2poSUitZqIRdtKh4MkjONlThyBbMhXCpaFe/mmErkp1Ak/UCETUodDGgkwgesAs6zGRQhc0Z4K/A30rFin26smTLFqshICEPCrC3cU8jZ8DjeOcFrsn6I6jM5yJHoLEEEn0GAd7tdrvXwBp/4bpWs3lQSMcm0RpwYdnfKzNysdwc5OtJ+sbq9t31qC5tT0YXHK477PUPA8tGuE859BgQAoHDpkymjJ5/6O+VLe3zzFd4+4bVMPfP/oVFXs+XUTIX6m2P/D9wMUcS/lVJrX+2Ul5vhpYdm8eFfWzhYAke9gUc5IrxHh2R2w7H698GgQVWqg+mlqp4k0nV96bByvZ5hDQcE69kpPiLRBRKDW36Qi8KkGEkgfZbd2foBbRLCRK6RGXzIJXoyQtHFuX4s0tW2+HgxiZKn6zkP62HMGxU/gw+372dPgGEZcsm5/xeG0iFzlXndL5K8zNlsHS1F6zvJRPsmCZ3qqjuXEf6ecyjJU8Qu3wtTDGFnStVCQQaRxcz3+FiuRQ0cHKdNSVPKrv3X7WvPk5vnvP976+P/3SUc+/1UrVn9bjYF1SCQAA</BinaryElements>
+						<BinaryElements>H4sIAAAAAAAEAOVWTW7TQBRO4tixm4Y29AB4T2S1oqXtIogqqCiiLZFSRUghhIn9GkwnM9LMuDRsQFyAK3AHLsAZ2HABViy7YwXvGUeNEK2yaKgEY/nNG8/z+/m+mbFz+Vwu9wMb9dQWCyieHjATS8F4U2ijkhEIo4MWZ+ZIqtGuYiN4JdVxze+A0mhX3wpW6ar5jYSbREFdQGIU4zW/lQx4HD6C8aE8BlEXCec2hXr2pwhtmagQ9mUEPGiRa21AhBA8YIZ1GE+gDSpmPH4N6naDJzirJk9Sbw3JOYSkURH2Aeap3cxQW9ZZvj1GdRSc2+ngIQh0EQZ7GOz5Wrd7iUnzN5u2UbEY1vyRDqXi8eAcj/VZ8RhsbrKNcOPu2vaddVjd2u71rtjdl1lqngcXNX+ea6jXI4Y9i0QRRZG0/5Ffqtvpx5iutvsa2XD7J7+84sy7ywD5K9V2e67r2ZhjIbuLxNY/uygvZgPL7syjom66ERBkB7t8BnKJEE9HhLb19tqXgVeijeqiqBRKznRyxcN5oJIeDh6Fs6qlDBRngYBCqmOTROCUyYRLMUyHVXditYhiIZRSRbFgBpwKJWng1Njkb27ZOrsx8EiX8ZuF8DdFBKdW7s3s59njwUu0uGLa3BTHGxO6SLnulC7eYXa6DZamzprlpWyRecv0VhVFdaex5+9LGY198wKYUVAp5GmWyPVuZv9AeVKoWm9l2t1K5s51vn8YfvzWuHffdd5/Pbv1WT75VCmUfwKKJn80SwkAAA==</BinaryElements>
+						<BinaryElements>H4sIAAAAAAAEAOVWzW7TQBBO4tixm4Y29MbJB25EphUtbQ+pKqUqioASKVGEFELYOEMx3exK+wMtB0A8ATeOvAniLTjxErxAmTGOGiFa5dBQCdby7Kx3PDvzfTtr5/K5XO4UG/XUFgsonhwwk0jBeFNoo+wYhNFRizPzXKrxvmJjeC3VUS3sgtJoV9+KVumqhQ3LjVVQF2CNYrwWtuyQJ/F9OOnIIxB1YTl3aamnf1qhLa2K4aEcAY9a5FobEDFEe8ywLuMW2qASxpM3oG41uMVZNXmSemtIziEmjZJwDzBO7WeG2nF+5NsnqI6jMzsd3QOBLuLoAS72bK3Xu8Ck+ZtN26hEHNbCsY6l4snwDI/1WfEYbm6yjXjj7tr2nXVY3dru9y/Z3bdZcp4HF7Vwnnuo3yeGA4dEEUWRtP+RX8rbGyQYrnYHGtnwB69+ecWZDxcB8ley7fV9P3AxxkJ2F4mtf3ZTns8Gpt2dR0a9tBAQZA+7fAZyiRBPR4S28/7Kt0FQokL1UVQKJW86uGJnHqikh0NAyznVUgaKt0BAIdWJsSPwymTCpThMh1V/YrWIYiGWUo0SwQx4FQrSwLFxyd/covX2E+AjXcZvFsLfFCM4dnLvZj/PHg1fosUl0+anOF6b0EXKVYd0foW5aRksTZ01y0vZJguW6a0qimqLYZFLK0zYeQHMKKgU8jRL5AbXs3+gPCmUbbAy7W4lc+d7Xz7fuP19b2fX925+Ov34Vj7+WimUfwIbU1mESwkAAA==</BinaryElements>
+					</Array>
+				</p.Data>
+				<ArrayBehavior ElementType="@711b86595d1f4073be95021d2dfc74e3" IndexEditorWidth="42" Orientation="Horizontal" VisibleColumns="3">
+					<p.DefaultElementValue>
+						<Cluster>
+							<Field1>0x0_0x0_</Field1>
+							<Field2>""</Field2>
+						</Cluster>
+					</p.DefaultElementValue>
+				</ArrayBehavior>
+				<ClusterLiteral Bounds="48 2 167 155" DataType="@711b86595d1f4073be95021d2dfc74e3" Id="2018f905119c40218d2a93f3583aad96">
+					<ClusterBehavior />
+					<ClusterLiteral Bounds="2 20 76 84" DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" Id="3b040b897276410cb3b58bfa5921e4d7" Label="363ee653e53f476ea7a3601a081f90da" p6:ControlDefinitionChecksum="aTJOdb92QXvVbUmjir13QXePGU9OTpEo2EhqJOVetOs=_v1" xmlns:p6="http://www.ni.com/PanelCommon">
+						<p6:p.TypeDefinitionTargets>
+							<p6:TypeDefinitionTarget TargetName="GoogleMap::Support::coordinate.gtype" />
+							<p6:TypeDefinitionTarget TargetName="GoogleMap::Support::coordinate.gtype::ControlDefinition" />
+						</p6:p.TypeDefinitionTargets>
+						<ClusterBehavior AutoArrange="ArrangeVertically" />
+						<Literal Bounds="2 20 40 15" DataType="Double" Id="1620f56d31744d00af52181f412436f3" Label="6c1e58b100b1439f8ff65a8b31412ee9">
+							<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=6:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+						</Literal>
+						<NodeLabel AttachedTo="1620f56d31744d00af52181f412436f3" Bounds="2 2 45 15" Id="6c1e58b100b1439f8ff65a8b31412ee9" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>latitude</p.Text>
+						</NodeLabel>
+						<Literal Bounds="2 57 40 15" DataType="Double" Id="ecae792625194c4ca9159a484b897372" Label="dc3177eeea0e4ce3803dcc247c8c6558">
+							<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=6:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+						</Literal>
+						<NodeLabel AttachedTo="ecae792625194c4ca9159a484b897372" Bounds="2 39 55 15" Id="dc3177eeea0e4ce3803dcc247c8c6558" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>longitude</p.Text>
+						</NodeLabel>
+					</ClusterLiteral>
+					<NodeLabel AttachedTo="3b040b897276410cb3b58bfa5921e4d7" Bounds="2 3 60 15" Id="363ee653e53f476ea7a3601a081f90da" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>coordinate</p.Text>
+					</NodeLabel>
+					<Literal Bounds="10 125 140 15" DataType="String" Id="b19b91bc7da642d49cef85a241387d43" Label="4c8605374a5a4e71987ea5e25ca0d28c">
+						<StringBehavior SizeToContent="False" TextDisplayMode="Default" />
+					</Literal>
+					<NodeLabel AttachedTo="b19b91bc7da642d49cef85a241387d43" Bounds="10 107 25 15" Id="4c8605374a5a4e71987ea5e25ca0d28c" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>text</p.Text>
+					</NodeLabel>
+				</ClusterLiteral>
+			</ArrayLiteral>
+			<Wire Id="6b07340f5ccf4f00b5eb8371a73ffd58" Joints="N(df1d4409fc0c4666b26ce9fdfd4bc091:R0)|(1490,230) h(15) v(-15) N(45fc5e3e84d410ab1938d2cbd88c6af:o0)|(1626,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="e76f6fb78e9e49ef8eaa19d3b2f8f6cf" Joints="N(358e5cd6088442659e83c3eff74ad5f4:R0)|(1500,1105) h(20) v(-10) N(d6e05754d5da441b8d0f2643023d0241:o0)|(1651,1095)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="815 1100 40 40" Id="850d3153d51749b9aaf072405a090d81" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Map\\Add Shapes to Map.gvi&quot;" Signature="@5345d685954d42069d766a1ae187798e" Target="GoogleMap::Map::Add Shapes to Map.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="map reference in" />
+						<Parameter Id="L1" Desc="shape references" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="map reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@61583cc69d8c4622ac3a1dcbe16da4fe" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@ba78e7c1d860416581a45e3177fd554a" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@61583cc69d8c4622ac3a1dcbe16da4fe" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="b2b6f26e1324956ace95958f1524b7b" Joints="N(850d3153d51749b9aaf072405a090d81:R3)|(855,1135) N(5db147d159d34a2fb5389a3f9e706a66:o0)|(953,1135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="8bd41c7098924017818ed28b932d2d67" Joints="N(44ab926ab98046fc91cd43f32799a5ec:R0)|(425,1105) h(15) v(-95) h(360) v(95) N(850d3153d51749b9aaf072405a090d81:L0)|(815,1105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="de84de5119a74d1a892e8b453494091e" Joints="N(850d3153d51749b9aaf072405a090d81:R0)|(855,1105) h(21) v(-95) h(569) v(95) N(358e5cd6088442659e83c3eff74ad5f4:L0)|(1460,1105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ForLoop Bounds="508 1023 136 101" DiagramId="c952a1c9698432698876ebec8b8ca6f" Id="2643365421e5473e8a9006a13430e0cb">
+				<LoopIteration Bounds="5 70 15 15" Id="4ed1fa0bab174c10872e12b5a5365630" />
+				<PropertyNode Bounds="25 35 93 35" HasErrorTerminals="False" Id="71f1cd876c6944c6997a5c74a34baf0c" InstanceDataType="@711b86595d1f4073be95021d2dfc74e3" xmlns="http://www.ni.com/MocCommon">
+					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+						<TypeDefinitionTarget TargetName="GoogleMap::Support::coordinate.gtype" />
+					</p.TypeDefinitionTargets>
+					<PropertyItemTerminal DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" Hotspot="93 15" Id="c0t0v" Path="coordinate" PathElementMemberKinds="Field" Usage="Optional" />
+				</PropertyNode>
+				<Wire Id="dd1eb89de6734e05b1b5e18c415293f2" Joints="N(3eeb62f195b44e678e0225d7f52fed0f:i0)|(6,40) N(71f1cd876c6944c6997a5c74a34baf0c:instance in)|(25,40)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="ffd4d2f9d92f44939b141856bccbeba1" Joints="N(71f1cd876c6944c6997a5c74a34baf0c:c0t0v)|(118,50) N(998434b3f80e470d9c6e44589312fdd4:i0)|(124,50)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopCount Bounds="1 1 15 15" Docking="Left" Id="7a65448419584625a250932e73a0206a" Terminals="2643365421e5473e8a9006a13430e0cb, c952a1c9698432698876ebec8b8ca6f" />
+				<LoopTunnel AutoIndex="True" Bounds="-5 37 13 10" Docking="Left" Id="3eeb62f195b44e678e0225d7f52fed0f" Terminals="o0=566c96a659d848e0b247f6b26902aa77, i0=dd1eb89de6734e05b1b5e18c415293f2" TunnelMode="0" />
+				<LoopTunnel AutoIndex="True" Bounds="126 47 13 10" Docking="Right" Id="998434b3f80e470d9c6e44589312fdd4" Terminals="o0=be282aa85ca94300b4b85ee05c0f5fe6, i0=ffd4d2f9d92f44939b141856bccbeba1" TunnelMode="0" />
+			</ForLoop>
+			<MethodCall Bounds="680 1100 40 40" Id="b40e84d54329422aaad679fa23403d07" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\GoogleMap.gcomp\\Shape\\Create Polyline Shape.gvi&quot;" Signature="@c7207f0b2e754911bb13e8c98951ce4d" Target="GoogleMap::Shape::Create Polyline Shape.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="coordinates" />
+						<Parameter Id="L1" Desc="stroke style" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="shape reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@b51f17c654f5428b81cd1f036578de4a" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@28a6bedea9204165a35a3d5b80746eb4" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@32e29bc290794d51a2285c4e83a28f75" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="be282aa85ca94300b4b85ee05c0f5fe6" Joints="N(998434b3f80e470d9c6e44589312fdd4:o0)|(647,1075) h(18) v(30) N(b40e84d54329422aaad679fa23403d07:L0)|(680,1105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="14541f00c1db46c1b4a17a50332b8f07" Joints="N(44ab926ab98046fc91cd43f32799a5ec:R3)|(425,1135) N(b40e84d54329422aaad679fa23403d07:L3)|(680,1135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="45acb87f39fa4aefaa3d967368ee5e6c" Joints="N(b40e84d54329422aaad679fa23403d07:R3)|(720,1135) N(850d3153d51749b9aaf072405a090d81:L3)|(815,1135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<BuildArray Bounds="745 1110 40 20" Id="a56c3886ffc4469c92d547a04b58d35d" Terminals="outArray=ba7030d148694fbfaa3eb75fe51fa090, c0t0v=60621cc78e494383885318ec3e4e57e4, c1t0v" />
+			<Wire Id="60621cc78e494383885318ec3e4e57e4" Joints="N(b40e84d54329422aaad679fa23403d07:R0)|(720,1105) h(14) v(10) N(a56c3886ffc4469c92d547a04b58d35d:c0t0v)|(745,1115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="ba7030d148694fbfaa3eb75fe51fa090" Joints="N(a56c3886ffc4469c92d547a04b58d35d:outArray)|(785,1115) N(850d3153d51749b9aaf072405a090d81:L1)|(815,1115)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ArrayLiteral Bounds="-194 490 559 160" DataType="@dde2938fe4864a809470d78347405149" Id="d87f2df433124ad4aff99ee457bf57be" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Array Lengths="3" IsBinary="True" Compression="GZip">
+						<BinaryElements>H4sIAAAAAAAEAOVWzW7TQBBO4tixm4Y29MLRZ4isFPp7CAIZFUVAiZQSIYVQNs5QLd3sSrvr0sIBxNtwQ+IFeAveoy8AM8ZRI0SrHBoqgS3Pjr2fZ2e+b3ftQrFQKPzAg1o6FktoXuwyy5Vkoi2N1ekYpDVRRzD7WunxjmZjeKv0YSPsgTaIa21FTTobYZwKm2poSUitZqIRdtKh4MkjONlThyBbMhXCpaFe/mmErkp1Ak/UCETUodDGgkwgesAs6zGRQhc0Z4K/A30rFin26smTLFqshICEPCrC3cU8jZ8DjeOcFrsn6I6jM5yJHoLEEEn0GAd7tdrvXwBp/4bpWs3lQSMcm0RpwYdnfKzNysdwc5OtJ+sbq9t31qC5tT0YXHK477PUPA8tGuE859BgQAoHDpkymjJ5/6O+VLe3zzFd4+4bVMPfP/oVFXs+XUTIX6m2P/D9wMUcS/lVJrX+2Ul5vhpYdm8eFfWzhYAke9gUc5IrxHh2R2w7H698GgQVWqg+mlqp4k0nV96bByvZ5hDQcE69kpPiLRBRKDW36Qi8KkGEkgfZbd2foBbRLCRK6RGXzIJXoyQtHFuX4s0tW2+HgxiZKn6zkP62HMGxU/gw+372dPgGEZcsm5/xeG0iFzlXndL5K8zNlsHS1F6zvJRPsmCZ3qqjuXEf6ecyjJU8Qu3wtTDGFnStVCQQaRxcz3+FiuRQ0cHKdNSVPKrv3X7WvPk5vnvP976+P/3SUc+/1UrVn9bjYF1SCQAA</BinaryElements>
+						<BinaryElements>H4sIAAAAAAAEAOVWTW7TQBRO4tixm4Y29AB4T2S1oqXtIogqqCiiLZFSRUghhIn9GkwnM9LMuDRsQFyAK3AHLsAZ2HABViy7YwXvGUeNEK2yaKgEY/nNG8/z+/m+mbFz+Vwu9wMb9dQWCyieHjATS8F4U2ijkhEIo4MWZ+ZIqtGuYiN4JdVxze+A0mhX3wpW6ar5jYSbREFdQGIU4zW/lQx4HD6C8aE8BlEXCec2hXr2pwhtmagQ9mUEPGiRa21AhBA8YIZ1GE+gDSpmPH4N6naDJzirJk9Sbw3JOYSkURH2Aeap3cxQW9ZZvj1GdRSc2+ngIQh0EQZ7GOz5Wrd7iUnzN5u2UbEY1vyRDqXi8eAcj/VZ8RhsbrKNcOPu2vaddVjd2u71rtjdl1lqngcXNX+ea6jXI4Y9i0QRRZG0/5Ffqtvpx5iutvsa2XD7J7+84sy7ywD5K9V2e67r2ZhjIbuLxNY/uygvZgPL7syjom66ERBkB7t8BnKJEE9HhLb19tqXgVeijeqiqBRKznRyxcN5oJIeDh6Fs6qlDBRngYBCqmOTROCUyYRLMUyHVXditYhiIZRSRbFgBpwKJWng1Njkb27ZOrsx8EiX8ZuF8DdFBKdW7s3s59njwUu0uGLa3BTHGxO6SLnulC7eYXa6DZamzprlpWyRecv0VhVFdaex5+9LGY198wKYUVAp5GmWyPVuZv9AeVKoWm9l2t1K5s51vn8YfvzWuHffdd5/Pbv1WT75VCmUfwKKJn80SwkAAA==</BinaryElements>
+						<BinaryElements>H4sIAAAAAAAEAOVWzW7TQBBO4tixm4Y29MbJB25EphUtbQ+pKqUqioASKVGEFELYOEMx3exK+wMtB0A8ATeOvAniLTjxErxAmTGOGiFa5dBQCdby7Kx3PDvzfTtr5/K5XO4UG/XUFgsonhwwk0jBeFNoo+wYhNFRizPzXKrxvmJjeC3VUS3sgtJoV9+KVumqhQ3LjVVQF2CNYrwWtuyQJ/F9OOnIIxB1YTl3aamnf1qhLa2K4aEcAY9a5FobEDFEe8ywLuMW2qASxpM3oG41uMVZNXmSemtIziEmjZJwDzBO7WeG2nF+5NsnqI6jMzsd3QOBLuLoAS72bK3Xu8Ck+ZtN26hEHNbCsY6l4snwDI/1WfEYbm6yjXjj7tr2nXVY3dru9y/Z3bdZcp4HF7Vwnnuo3yeGA4dEEUWRtP+RX8rbGyQYrnYHGtnwB69+ecWZDxcB8ley7fV9P3AxxkJ2F4mtf3ZTns8Gpt2dR0a9tBAQZA+7fAZyiRBPR4S28/7Kt0FQokL1UVQKJW86uGJnHqikh0NAyznVUgaKt0BAIdWJsSPwymTCpThMh1V/YrWIYiGWUo0SwQx4FQrSwLFxyd/covX2E+AjXcZvFsLfFCM4dnLvZj/PHg1fosUl0+anOF6b0EXKVYd0foW5aRksTZ01y0vZJguW6a0qimqLYZFLK0zYeQHMKKgU8jRL5AbXs3+gPCmUbbAy7W4lc+d7Xz7fuP19b2fX925+Ov34Vj7+WimUfwIbU1mESwkAAA==</BinaryElements>
+					</Array>
+				</p.Data>
+				<ArrayBehavior ElementType="@f0759548110a4562a40a5ccd6e198907" IndexEditorWidth="42" Orientation="Horizontal" VisibleColumns="3">
+					<p.DefaultElementValue>
+						<Cluster>
+							<Field1>0x0_0x0_</Field1>
+							<Field2>""</Field2>
+						</Cluster>
+					</p.DefaultElementValue>
+				</ArrayBehavior>
+				<ClusterLiteral Bounds="217 2 167 155" DataType="@f0759548110a4562a40a5ccd6e198907" Id="311691d0831a42ee960985ff91292fd8">
+					<ClusterBehavior />
+					<Literal Bounds="10 125 140 15" DataType="String" Id="d8990c09eca84935b3a892b8295563ad" Label="3dc90354e4be4b47b19d70a81629c1b7">
+						<StringBehavior SizeToContent="False" TextDisplayMode="Default" />
+					</Literal>
+					<NodeLabel AttachedTo="d8990c09eca84935b3a892b8295563ad" Bounds="10 107 25 15" Id="3dc90354e4be4b47b19d70a81629c1b7" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>text</p.Text>
+					</NodeLabel>
+					<ClusterLiteral Bounds="2 20 76 84" DataType="@90ead61e649d404b823e754ab02f3634" Id="fbccd57b8164aefa061b028e7c8f8c1" Label="46746fa176d9415687a2203e2de22640" p6:ControlDefinitionChecksum="aTJOdb92QXvVbUmjir13QXePGU9OTpEo2EhqJOVetOs=_v1" xmlns:p6="http://www.ni.com/PanelCommon">
+						<p6:p.TypeDefinitionTargets>
+							<p6:TypeDefinitionTarget TargetName="Leaflet::Support::coordinate.gtype" />
+							<p6:TypeDefinitionTarget TargetName="Leaflet::Support::coordinate.gtype::ControlDefinition" />
+						</p6:p.TypeDefinitionTargets>
+						<ClusterBehavior AutoArrange="ArrangeVertically" />
+						<Literal Bounds="2 20 40 15" DataType="Double" Id="96d96203421044f8b1af97b08d11ec44" Label="3cac05d39a544e51bb671dbd45375bb8">
+							<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=6:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+						</Literal>
+						<NodeLabel AttachedTo="96d96203421044f8b1af97b08d11ec44" Bounds="2 2 45 15" Id="3cac05d39a544e51bb671dbd45375bb8" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>latitude</p.Text>
+						</NodeLabel>
+						<Literal Bounds="2 57 40 15" DataType="Double" Id="33112c8ff04c4511a61ff3d21e5dc366" Label="c67cec4c162e46ee819d5ca4fc3bf496">
+							<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=6:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+						</Literal>
+						<NodeLabel AttachedTo="33112c8ff04c4511a61ff3d21e5dc366" Bounds="2 39 55 15" Id="c67cec4c162e46ee819d5ca4fc3bf496" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>longitude</p.Text>
+						</NodeLabel>
+					</ClusterLiteral>
+					<NodeLabel AttachedTo="fbccd57b8164aefa061b028e7c8f8c1" Bounds="2 2 60 15" Id="46746fa176d9415687a2203e2de22640" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>coordinate</p.Text>
+					</NodeLabel>
+				</ClusterLiteral>
+			</ArrayLiteral>
+			<Wire Id="6f5e9876bf2e4b4c85e29fa0e89cef06" Joints="N(cf96aa99ab7e49f88adbbc23770a2564:R3)|(370,260) N(b7ea89bb75794b56bac645a6896dd23d:L3)|(390,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ForLoop Bounds="473 143 166 81" DiagramId="caa187be8084426eb989528b0d2160e3" Id="bbfad644bd8342388cd7ec1015820299">
+				<LoopIteration Bounds="5 50 15 15" Id="5f04f89293bd40eb94c664de7a2dd4e6" />
+				<PropertyNode Bounds="36 30 93 35" HasErrorTerminals="False" Id="4e42e035bfcf4662aacb8a555eb226cf" InstanceDataType="@f0759548110a4562a40a5ccd6e198907" xmlns="http://www.ni.com/MocCommon">
+					<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+						<TypeDefinitionTarget TargetName="Leaflet::Support::coordinate.gtype" />
+					</p.TypeDefinitionTargets>
+					<PropertyItemTerminal DataType="@90ead61e649d404b823e754ab02f3634" Hotspot="93 15" Id="c0t0v" Path="coordinate" PathElementMemberKinds="Field" Usage="Optional" />
+				</PropertyNode>
+				<Wire Id="ec23585f5da1447ebabad312a155cb20" Joints="N(f30990a7329942fda755d833930ddc59:i0)|(6,35) N(4e42e035bfcf4662aacb8a555eb226cf:instance in)|(36,35)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="7b5cce340e844fc2b1b86882c24cbedb" Joints="N(4e42e035bfcf4662aacb8a555eb226cf:c0t0v)|(129,45) N(32f0b67da36c48bcbc8e46cee0315aef:i0)|(154,45)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopCount Bounds="1 1 15 15" Docking="Left" Id="7414c6137f8b48ceb6748aa977f419a2" Terminals="bbfad644bd8342388cd7ec1015820299, caa187be8084426eb989528b0d2160e3" />
+				<LoopTunnel AutoIndex="True" Bounds="-5 32 13 10" Docking="Left" Id="f30990a7329942fda755d833930ddc59" Terminals="o0=19137938437741e688f5d66b5a77441b, i0=ec23585f5da1447ebabad312a155cb20" TunnelMode="0" />
+				<LoopTunnel AutoIndex="True" Bounds="156 42 13 10" Docking="Right" Id="32f0b67da36c48bcbc8e46cee0315aef" Terminals="o0=4000c6827acb45b2b981ac47e8086c0a, i0=7b5cce340e844fc2b1b86882c24cbedb" TunnelMode="0" />
+			</ForLoop>
+			<MethodCall Bounds="675 225 40 40" Id="6d0f3c54deff4eadb0ddde3aaec901e4" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Shape\\Create Polyline Shape.gvi&quot;" Signature="@d0ce56d76d8340f0af617931d8c0616c" Target="Leaflet::Shape::Create Polyline Shape.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="coordinates" />
+						<Parameter Id="L1" Desc="stroke style" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="shape reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@118237d77d464318bf0bcfaa9a0e881c" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@daf30545822941cfae70215a36cfab02" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@9724a43addc447319ac49079767fa5aa" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="9b8bc7cb957147fdaf515465401f1dd9" Joints="N(b7ea89bb75794b56bac645a6896dd23d:R3)|(430,260) N(6d0f3c54deff4eadb0ddde3aaec901e4:L3)|(675,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="4000c6827acb45b2b981ac47e8086c0a" Joints="N(32f0b67da36c48bcbc8e46cee0315aef:o0)|(642,190) h(22) v(40) N(6d0f3c54deff4eadb0ddde3aaec901e4:L0)|(675,230)" xmlns="http://www.ni.com/PlatformFramework" />
+			<BuildArray Bounds="735 235 40 20" Id="4cc5a830867042deafe45b972ef12321" Terminals="outArray=62a9ca5571ba41fe98f1414caae949ca, c0t0v=6ffadee4792142bba0811bd24cafeee9, c1t0v" />
+			<Wire Id="6ffadee4792142bba0811bd24cafeee9" Joints="N(6d0f3c54deff4eadb0ddde3aaec901e4:R0)|(715,230) h(15) v(10) N(4cc5a830867042deafe45b972ef12321:c0t0v)|(735,240)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="790 225 40 40" Id="39d78254d01f46c6b65e0bf0ffe49954" ResolveFailedHint="&quot;C:\\dev\\GitHub\\webvi-experiments\\Map\\Leaflet.gcomp\\Map\\Add Shapes to Map.gvi&quot;" Signature="@7e469d9e47f7419c9bfcb637890a86fa" Target="Leaflet::Map::Add Shapes to Map.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="map reference in" />
+						<Parameter Id="L1" Desc="shape references" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="map reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@54e8f04597f44b9dadd8a5007d3e02df" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@64287e44a7194efb870d96d96504512f" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@54e8f04597f44b9dadd8a5007d3e02df" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="4d18a0f40aa34bf8a75967b659296da8" Joints="N(6d0f3c54deff4eadb0ddde3aaec901e4:R3)|(715,260) N(39d78254d01f46c6b65e0bf0ffe49954:L3)|(790,260)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="62a9ca5571ba41fe98f1414caae949ca" Joints="N(4cc5a830867042deafe45b972ef12321:outArray)|(775,240) N(39d78254d01f46c6b65e0bf0ffe49954:L1)|(790,240)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="dc0f5ff231df42e4b3ee8aefe907b34f" Joints="N(b7ea89bb75794b56bac645a6896dd23d:R0)|(430,230) h(15) v(-105) h(335) v(105) N(39d78254d01f46c6b65e0bf0ffe49954:L0)|(790,230)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="6edb082caef4e42914ac4bcadd7fd0e" Joints="N(39d78254d01f46c6b65e0bf0ffe49954:R0)|(830,230) h(10) v(-105) h(600) v(105) N(df1d4409fc0c4666b26ce9fdfd4bc091:L0)|(1450,230)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d447fb1d8a504fa5b53889c214835044" Joints="N(39d78254d01f46c6b65e0bf0ffe49954:R3)|(830,260) N(677f3d2f1db4429b8c249db8afd04de2:o0)|(958,260)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]814" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<FlexibleLayoutGroup Height="[float]365" Id="e1ca29722bc84dd3bcef2001262841a3" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
@@ -1243,11 +1406,18 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="ca03c3e667a145438f151bf06c70119e">
-			<Attributed AttributedType="@e91c284df6934a87ace266a6b3274fd5">
+		<p.TypeReference TypeId="b04b2e357d6444f7b782fcf1b5a3f93f">
+			<Attributed AttributedType="@94b8785f2e24463b80f23d21c235bbcf">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="90ead61e649d404b823e754ab02f3634">
+			<Attributed AttributedType="@e8e1c3c96df340b5b3d763af7ab7a2c7">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Leaflet::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -1260,31 +1430,34 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="24324e69115f40db98319ec437174c7b">
-			<VariableArray DereferenceType="@177f8ae8de4647939cd56f031a3d73d7" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="177f8ae8de4647939cd56f031a3d73d7">
+		<p.TypeReference TypeId="f0759548110a4562a40a5ccd6e198907">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
-					<Field FieldAccessPolicy="ReadWrite" Name="latitude" DataType="Double" />
-					<Field FieldAccessPolicy="ReadWrite" Name="longitude" DataType="Double" />
+					<Field FieldAccessPolicy="ReadWrite" Name="coordinate" DataType="@90ead61e649d404b823e754ab02f3634" />
 					<Field FieldAccessPolicy="ReadWrite" Name="text" DataType="String" />
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="687a15a844fb4840afa5581d667dfb0d">
-			<Attributed AttributedType="@4f33824ff9ee471e880fd93c77357885">
+		<p.TypeReference TypeId="4f00a841c18f4ef088da0ea439e03640">
+			<Attributed AttributedType="@d40f62b1c9f44315948be4e6383bebbc">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="cba3c184746f40c79d49849d8fe2d068">
-			<Attributed AttributedType="@f4b624c86c1c48baab502d1a5ddb8af0">
+		<p.TypeReference TypeId="6096ef2ae24b4e5da988214454fd4dec">
+			<Attributed AttributedType="@583ad3f0d10044308991fd0162ce3050">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="9a44025c7bce4c28a2c5ef4adc1bf7bb">
+			<Attributed AttributedType="@e8e1c3c96df340b5b3d763af7ab7a2c7">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]GoogleMap::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -1295,8 +1468,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="0faf794c06224a648d3bc151ba55a98b">
-			<Attributed AttributedType="@03caddf7f20d4dd2b33520f6832adf79">
+		<p.TypeReference TypeId="f40ea2880fc64312b83e8e8bb02f9e62">
+			<Attributed AttributedType="@740b3e8359f24cda86c5629ca561a16c">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -1309,6 +1482,14 @@
 					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]GoogleMap::Marker" />
 				</AttributeValues>
 			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="711b86595d1f4073be95021d2dfc74e3">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="coordinate" DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" />
+					<Field FieldAccessPolicy="ReadWrite" Name="text" DataType="String" />
+				</Members>
+			</Composite>
 		</p.TypeReference>
 		<p.TypeReference TypeId="d9092a2b838b4916805623dc047102ad">
 			<Attributed AttributedType="@4afbdd53fc2a4e1385dd1b9bfe6f93b7">
@@ -1434,6 +1615,86 @@
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]20" />
 				</AttributeValues>
 			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="672d83d7c23e4ec8b049a94b99b474a0">
+			<VariableArray DereferenceType="@711b86595d1f4073be95021d2dfc74e3" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5345d685954d42069d766a1ae187798e">
+			<Attributed AttributedType="@f4623c8844ca420694f8e1034264605b">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="ba78e7c1d860416581a45e3177fd554a">
+			<VariableArray DereferenceType="@32e29bc290794d51a2285c4e83a28f75" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c7207f0b2e754911bb13e8c98951ce4d">
+			<Attributed AttributedType="@3a8f7585f9b843129440e15a9c203cee">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="b51f17c654f5428b81cd1f036578de4a">
+			<VariableArray DereferenceType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="28a6bedea9204165a35a3d5b80746eb4">
+			<Attributed AttributedType="@8d4924c1803d42a78bb03eebc16270cf">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]GoogleMap::Shape" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="32e29bc290794d51a2285c4e83a28f75">
+			<Attributed AttributedType="@d2033143a43c4b0fa23d2d2d7893001f">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]GoogleMap::Shape" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="dde2938fe4864a809470d78347405149">
+			<VariableArray DereferenceType="@f0759548110a4562a40a5ccd6e198907" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="d0ce56d76d8340f0af617931d8c0616c">
+			<Attributed AttributedType="@95c6c30d61b04e16b37584a02e1ebf7f">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="118237d77d464318bf0bcfaa9a0e881c">
+			<VariableArray DereferenceType="@90ead61e649d404b823e754ab02f3634" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="daf30545822941cfae70215a36cfab02">
+			<Attributed AttributedType="@8d4924c1803d42a78bb03eebc16270cf">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Leaflet::Shape" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="9724a43addc447319ac49079767fa5aa">
+			<Attributed AttributedType="@d2033143a43c4b0fa23d2d2d7893001f">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Leaflet::Shape" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7e469d9e47f7419c9bfcb637890a86fa">
+			<Attributed AttributedType="@1b71e92b55b4470688748c2a50577d04">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="64287e44a7194efb870d96d96504512f">
+			<VariableArray DereferenceType="@9724a43addc447319ac49079767fa5aa" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="a20eb8b24bd24827999bcd35b7d2e6af">
 			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
@@ -1603,7 +1864,7 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="e91c284df6934a87ace266a6b3274fd5">
+		<p.TypeReference TypeId="94b8785f2e24463b80f23d21c235bbcf">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Map.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@0472339c75a9488fb570a80953283db6">
@@ -1611,14 +1872,9 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]placeholder reference" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@5c5c76514a304e1fb3bb18308a2facf2">
+					<Attributed AttributedType="@bb69194d89aa449eac88be2e1bbbd6db">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]latitude (austin, tx)" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@c4120b005718498da2c90af2b6d57b42">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]longitude (austin, tx)" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]center coordinate" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -1643,6 +1899,9 @@
 					</Attributed>
 				</Parameters>
 			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="e8e1c3c96df340b5b3d763af7ab7a2c7">
+			<Typedef TypedefName="coordinate.gtype" UnderlyingType="@f40247bb89914b8bb2cc0d2d1b5191dc" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="0bb154b918544d4697326b5379ea80f8">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Add Open Street Map Tile Layer.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -1670,7 +1929,7 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="4f33824ff9ee471e880fd93c77357885">
+		<p.TypeReference TypeId="d40f62b1c9f44315948be4e6383bebbc">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Marker.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@ae3b0d82d9ac4f99a11a4da93665b454">
@@ -1678,14 +1937,9 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]text" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@23d938da2fc74f44bdc1105ad00a3257">
+					<Attributed AttributedType="@406e52b6c2e64977835f565aacecd4e7">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]latitude" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@3755b10d86204c539ccb80b5cd03db8b">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]longitude" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]coordinate" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -1711,7 +1965,7 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="f4b624c86c1c48baab502d1a5ddb8af0">
+		<p.TypeReference TypeId="583ad3f0d10044308991fd0162ce3050">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Map.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@0472339c75a9488fb570a80953283db6">
@@ -1719,14 +1973,9 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]placeholder reference" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@5c5c76514a304e1fb3bb18308a2facf2">
+					<Attributed AttributedType="@d918d7ae7a6b43debb99a5a0c962ad98">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]latitude (austin, tx)" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@c4120b005718498da2c90af2b6d57b42">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]longitude (austin, tx)" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]center coordinate (austin, tx)" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -1752,7 +2001,7 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="03caddf7f20d4dd2b33520f6832adf79">
+		<p.TypeReference TypeId="740b3e8359f24cda86c5629ca561a16c">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Marker.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@ae3b0d82d9ac4f99a11a4da93665b454">
@@ -1760,14 +2009,9 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]title" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@23d938da2fc74f44bdc1105ad00a3257">
+					<Attributed AttributedType="@1a42a8980e05428cb19691d3842bc75b">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]latitude" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@3755b10d86204c539ccb80b5cd03db8b">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]longitude" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]coordinate" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
@@ -2108,6 +2352,136 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
+		<p.TypeReference TypeId="f4623c8844ca420694f8e1034264605b">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Add Shapes to Map.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@e2585e06ea504628833d51141cc84eab">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]map reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@0b0814b4953243c79b39385d44802938">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]shape references" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@35f94e7c82004da5ace0973f3a13d34f">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]map reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3a8f7585f9b843129440e15a9c203cee">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Polyline Shape.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@9933eced2250436e8194b2d5b94ff47d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]coordinates" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@2447d7d4db684a7fa7b662cd5383fba1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]stroke style" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@ba467bb943284e2aa6f9bdfb2c7b56dc">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]shape reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="8d4924c1803d42a78bb03eebc16270cf">
+			<Typedef TypedefName="stroke style.gtype" UnderlyingType="@875907f21f8e45189d2df9195ec5e11e" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="d2033143a43c4b0fa23d2d2d7893001f">
+			<Typedef TypedefName="shape reference.gtype" UnderlyingType="@7daba7cc969c478fbb1943d69641e981" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="95c6c30d61b04e16b37584a02e1ebf7f">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Polyline Shape.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@c1d71353ad12420891a7b2704e6a069d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]coordinates" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c68512a824ed493c9db6a894a9e2578d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]stroke style" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7944a1353f654cb4a89a82843a932349">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]shape reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1b71e92b55b4470688748c2a50577d04">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Add Shapes to Map.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@7a3b43358701456c80160d864b62408e">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]map reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@b4838231aeb045d19ba99f0f0e54f3c7">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]shape references" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@9fa88a3ef0bc46cd9a53bbf04dc71415">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]map reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
 		<p.TypeReference TypeId="9bf275c3fdc640369b690e63fdd6941a">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
@@ -2171,29 +2545,37 @@
 		<p.TypeReference TypeId="0472339c75a9488fb570a80953283db6">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="5c5c76514a304e1fb3bb18308a2facf2">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Double" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="c4120b005718498da2c90af2b6d57b42">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Double" />
+		<p.TypeReference TypeId="bb69194d89aa449eac88be2e1bbbd6db">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@90ead61e649d404b823e754ab02f3634" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="58edfd559057425db66e75615ee2cf6c">
 			<Parameter InputParameterPassingRule="Optional" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="Int32" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="f40247bb89914b8bb2cc0d2d1b5191dc">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="latitude" DataType="Double" />
+					<Field FieldAccessPolicy="ReadWrite" Name="longitude" DataType="Double" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
 		<p.TypeReference TypeId="ae3b0d82d9ac4f99a11a4da93665b454">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="B0" DataType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="23d938da2fc74f44bdc1105ad00a3257">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Double" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="3755b10d86204c539ccb80b5cd03db8b">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Double" />
+		<p.TypeReference TypeId="406e52b6c2e64977835f565aacecd4e7">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@90ead61e649d404b823e754ab02f3634" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="4c82107dca7a4fc6bba6ae02cd1acd36">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="String" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="d918d7ae7a6b43debb99a5a0c962ad98">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="35f94e7c82004da5ace0973f3a13d34f">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@61583cc69d8c4622ac3a1dcbe16da4fe" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1a42a8980e05428cb19691d3842bc75b">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@9a44025c7bce4c28a2c5ef4adc1bf7bb" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="7f21f50e48c843de87c60f732435f238">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@3f2d08bd3e51432fbd22ad686211d57f" />
@@ -2243,8 +2625,50 @@
 		<p.TypeReference TypeId="97c22d77361b48b6b2d652ed184006b4">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Error" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="0b0814b4953243c79b39385d44802938">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@ba78e7c1d860416581a45e3177fd554a" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="9933eced2250436e8194b2d5b94ff47d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@b51f17c654f5428b81cd1f036578de4a" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="2447d7d4db684a7fa7b662cd5383fba1">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@28a6bedea9204165a35a3d5b80746eb4" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="ba467bb943284e2aa6f9bdfb2c7b56dc">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@32e29bc290794d51a2285c4e83a28f75" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="875907f21f8e45189d2df9195ec5e11e">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="color" DataType="@bbb456d3e70c4e7590a19df3152e15f3" />
+					<Field FieldAccessPolicy="ReadWrite" Name="weight (px)" DataType="UInt32" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c1d71353ad12420891a7b2704e6a069d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@118237d77d464318bf0bcfaa9a0e881c" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c68512a824ed493c9db6a894a9e2578d">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@daf30545822941cfae70215a36cfab02" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="7944a1353f654cb4a89a82843a932349">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@9724a43addc447319ac49079767fa5aa" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="b4838231aeb045d19ba99f0f0e54f3c7">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@64287e44a7194efb870d96d96504512f" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="88a6b52ebce04b399d897f46b4c969cc">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="bbb456d3e70c4e7590a19df3152e15f3">
+			<Attributed AttributedType="@ba4d963eaf104b288620145bcdd4e1ca">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]NI::G Core::Color Picker" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="ba4d963eaf104b288620145bcdd4e1ca">
+			<Typedef TypedefName="Color.gtype" Encapsulated="" UnderlyingType="UInt32" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
@@ -2816,6 +3240,112 @@
 							<Path Data="[PathGeometry]M 6.50837803,0.0650907904 C 9.56482887,0.0650907904 12.0425701,2.33817697 12.0425701,5.14217043 C 12.0425701,7.94616127 9.56482887,10.2192516 6.50837803,10.2192516 C 5.36221218,10.2192516 4.29742384,9.89959717 3.41416121,9.35216331 L 3.36900949,9.323452 L 3.36879086,9.32832146 C 3.36879086,9.32832146 3.46451807,9.43815327 0.0589180775,12.0583982 C -0.0194383673,12.1186886 0.153003126,11.8775396 1.2598151,6.79117966 L 1.26353645,6.78469372 L 1.26496565,6.77053404 C 1.07641912,6.25938845 0.97418797,5.71173191 0.97418797,5.14217043 C 0.97418797,2.33817697 3.45193076,0.0650907904 6.50837803,0.0650907904 L 6.50837803,0.0650907904 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]12" Left="[float]4" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]4" Width="[float]12" />
 							<Path Data="[PathGeometry]M 2.73099732,2.52352643 L 0.390142441,3.45220399 L 0.390142441,2.52352643 L 2.73099732,2.52352643 Z M 0,0.995851815 L 3.42076874,1.96012855 L 1.03543818,0.0325037129 L 0,0.995851815 Z M 4.25996494,5 L 5.96956921,5 L 5.96956921,4.11373186 L 4.25996494,4.11373186 L 4.25996494,5 Z M 4.23070526,0 L 4.42538643,3.55931163 L 5.80531979,3.55931163 L 6,0 L 4.23070526,0 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]5" Left="[float]7" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]7" Width="[float]6" />
 							<IconTemplate Height="[float]20" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]20" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="GoogleMap::Map::Add Shapes to Map.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]20" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<Text Height="[float]16" Left="[float]29" Text="[string]+" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]10" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]11">
+								<FontSetting FontFamily="Segoe UI" FontSize="9" FontStyle="Bold" />
+							</Text>
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]9" Left="[float]29" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]9" />
+							<Ellipse EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#ff000000" Height="[float]9" Left="[float]19" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]9" />
+							<Path Data="[PathGeometry]M 6.75,3.82495236 L 4.5,-0.175047815 L 2.25,3.82495236 L 0,7.82495213 L 4.5,7.82495213 L 9,7.82495213 L 6.75,3.82495236 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#ff000000" Height="[float]8" Left="[float]24" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]18" Width="[float]9" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="GoogleMap::Shape::Create Polyline Shape.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]19" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]20" Width="[float]17.984" />
+							<Image BaseName="[string]Image" Height="[float]13" Left="[float]1" MinWidth="[float]21" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;24px&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24px&quot; fill=&quot;#000000&quot;&gt;&lt;path d=&quot;M0 0h24v24H0V0z&quot; fill=&quot;none&quot;/&gt;&lt;path d=&quot;M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99l1.5 1.5z&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]18" Width="[float]24" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]GoogleMap.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" Text="[string]GMaps" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]29">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Leaflet::Shape::Create Polyline Shape.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]19" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]20" Width="[float]17.984" />
+							<Image BaseName="[string]Image" Height="[float]13" Left="[float]1" MinWidth="[float]21" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;24px&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24px&quot; fill=&quot;#000000&quot;&gt;&lt;path d=&quot;M0 0h24v24H0V0z&quot; fill=&quot;none&quot;/&gt;&lt;path d=&quot;M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99l1.5 1.5z&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]18" Width="[float]24" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Leaflet::Map::Add Shapes to Map.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Image BaseName="[string]Image" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" Left="[float]4" MinHeight="[float]13" MinWidth="[float]13" Source="[EmbeddedDrawingImage]&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z&quot;/&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;/svg&gt;" Stretch="[SMStretch]Uniform" Top="[float]20" VerticalAlignment="[VerticalAlignment]Top" Width="[float]14" />
+							<Text Height="[float]16" Left="[float]29" Text="[string]+" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]10" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]11">
+								<FontSetting FontFamily="Segoe UI" FontSize="9" FontStyle="Bold" />
+							</Text>
+							<Rectangle EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]9" Left="[float]29" RadiusX="[float]0" RadiusY="[float]0" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]9" />
+							<Ellipse EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#ff000000" Height="[float]9" Left="[float]19" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]28" Width="[float]9" />
+							<Path Data="[PathGeometry]M 6.75,3.82495236 L 4.5,-0.175047815 L 2.25,3.82495236 L 0,7.82495213 L 4.5,7.82495213 L 9,7.82495213 L 6.75,3.82495236 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#ff000000" Height="[float]8" Left="[float]24" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]18" Width="[float]9" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Leaflet.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff8dc73d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Height="[float]13" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]6" Text="[string]Leaflet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]28">
+									<FontSetting FontFamily="Segoe UI" FontSize="7" />
+								</Text>
+							</IconTemplate>
 						</IconPanel>
 					</Icon>
 				</MergeItem>

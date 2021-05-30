@@ -26,6 +26,10 @@
         markers.forEach(marker => map.addLayer(marker));
     };
 
+    const addShapesToMap = function (map, shapes) {
+        shapes.forEach(shape => shape.addTo(map));
+    };
+
     const createMarker = function (latitude, longitude, text, iconUrl) {
         const options = {};
         if (iconUrl !== '') {
@@ -75,6 +79,25 @@
         markerGroup.remove();
     };
 
+    const createPolylineShape = function (coordinatesJSON, strokeJSON) {
+        const coordinates = JSON.parse(coordinatesJSON);
+        const path = coordinates.map(coordinate => ([
+            coordinate.latitude,
+            coordinate.longitude
+        ]));
+        const {color, opacity, weight} = JSON.parse(strokeJSON);
+        const polyline = window.L.polyline(path, {
+            color,
+            opacity,
+            weight
+        });
+        return polyline;
+    };
+
+    const destroyShape = function (shape) {
+        shape.remove();
+    };
+
     const addMarkerEventListener = function (markers) {
         const createEventListener = function (marker, index, controller) {
             marker.on('click', () => controller.enqueue(index));
@@ -100,12 +123,15 @@
         createMap,
         destroyMap,
         addMarkersToMap,
+        addShapesToMap,
         createMarker,
         destroyMarker,
         showMarker,
         updateMarkerText,
         createMarkerGroup,
         destroyMarkerGroup,
+        createPolylineShape,
+        destroyShape,
         zoomToMarkerInMarkerGroup,
         addMarkerEventListener,
         waitForMarkerEvent

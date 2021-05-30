@@ -149,14 +149,19 @@
         return webVIMap;
     };
 
-    const destroyMap = async function (webVIMap) {
+    const destroyMap = function (webVIMap) {
         // No auth check, always cleanup
         webVIMap.destroy();
     };
 
     const addMarkersToMap = async function (webVIMap, webVIMarkers) {
         await tryAuthCheck();
-        webVIMarkers.map(webVIMarker => webVIMarker.addMarkerToMap(webVIMap));
+        webVIMarkers.forEach(webVIMarker => webVIMarker.addMarkerToMap(webVIMap));
+    };
+
+    const addShapesToMap = async function (webVIMap, shapes) {
+        await tryAuthCheck();
+        shapes.forEach(shape => shape.setMap(webVIMap.map));
     };
 
     const createMarker = async function (lat, lng, title, iconUrl) {
@@ -170,7 +175,7 @@
         webVIMarker.showMarkerInfo();
     };
 
-    const destroyMarker = async function (webVIMarker) {
+    const destroyMarker = function (webVIMarker) {
         // No auth check, always cleanup
         webVIMarker.destroy();
     };
@@ -210,10 +215,32 @@
         return markerGroup;
     };
 
-    const destroyMarkerGroup = async function (webVIMarkerGroup) {
+    const destroyMarkerGroup = function (webVIMarkerGroup) {
         // No auth check, always cleanup
         webVIMarkerGroup.clearMarkers();
         webVIMarkerGroup.setMap(null);
+    };
+
+    const createPolylineShape = async function (coordinatesJSON, strokeJSON) {
+        await tryAuthCheck();
+        const coordinates = JSON.parse(coordinatesJSON);
+        const path = coordinates.map(coordinate => ({
+            lat: coordinate.latitude,
+            lng: coordinate.longitude
+        }));
+        const {color, opacity, weight} = JSON.parse(strokeJSON);
+        const polyline = new window.google.maps.Polyline({
+            path,
+            strokeColor: color,
+            strokeOpacity: opacity,
+            strokeWeight: weight
+        });
+        return polyline;
+    };
+
+    const destroyShape = function (shape) {
+        // No auth check, always cleanup
+        shape.setMap(null);
     };
 
     const addMarkerEventListener = async function (webVIMarkers) {
@@ -243,12 +270,15 @@
         createMap,
         destroyMap,
         addMarkersToMap,
+        addShapesToMap,
         createMarker,
         destroyMarker,
         showMarker,
         updateMarkerText,
         createMarkerGroup,
         destroyMarkerGroup,
+        createPolylineShape,
+        destroyShape,
         addMarkerEventListener,
         waitForMarkerEvent
     };
