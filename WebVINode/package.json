@@ -4,23 +4,17 @@
     "private": true,
     "scripts": {
         "start": "npm run start-express",
-        "start-cli": "cd Builds/TestCLI_cli && webvi",
-        "start-express": "cd Builds/TestExpressServer_express && webvi",
-        "start-electron": "electron .",
-        "start-robot": "cd Builds/TestRobot_robot && webvi",
-        "build": "electron-packager . --out=dist/ --overwrite --electron-version=10.1.1 --asar"
+        "start-cli": "npm start --workspace=webvinode-cli-example",
+        "start-express": "npm start --workspace=webvinode-express-example",
+        "start-electron": "npm start --workspace=webvinode-electron-example",
+        "start-robot": "npm start --workspace=webvinode-robot-example",
+        "build-electron": "npm run build --workspace=webvinode-electron-example"
     },
-    "dependencies": {
-        "@webvi-node/cli": "file:packages/@webvi-node/cli",
-        "@webvi-node/electron": "file:packages/@webvi-node/electron",
-        "@webvi-node/express": "file:packages/@webvi-node/express",
-        "@webvi-node/fs": "file:packages/@webvi-node/fs",
-        "@webvi-node/html-require": "file:packages/@webvi-node/html-require",
-        "@webvi-node/path": "file:packages/@webvi-node/path",
-        "@webvi-node/runner": "file:packages/@webvi-node/runner",
-        "@webvi-node/vireo": "file:packages/@webvi-node/vireo"
-    },
-    "optionalDependencies": {
-        "@webvi-node/robot": "file:packages/@webvi-node/robot"
+    "workspaces": [
+        "packages/@webvi-node/*",
+        "examples/*"
+    ],
+    "engines": {
+        "npm": "7.x"
     }
 }

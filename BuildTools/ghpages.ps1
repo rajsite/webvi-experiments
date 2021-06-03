@@ -114,9 +114,10 @@ Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 
 Write-Host "Copy WebVINode build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "express" -ComponentFileName "TestExpressServer.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\Builds\TestExpressServer_express"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "express" -ComponentFileName "TestExpressClient.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\Builds\TestExpressClient_express"
+Copy-item -Force -Recurse ".\WebVINode\examples" -Destination "$ghpagesbuilddir\WebVINode\examples"
 Copy-item -Force -Recurse ".\WebVINode\packages" -Destination "$ghpagesbuilddir\WebVINode\packages"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Web Server" -ComponentFileName "ExpressExample.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressExample_Web Server"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Web Server" -ComponentFileName "ExpressUI.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressUI_Web Server"
 Copy-Item ".\WebVINode\package.json" "$ghpagesbuilddir\WebVINode\package.json"
 Copy-Item ".\WebVINode\package-lock.json" "$ghpagesbuilddir\WebVINode\package-lock.json"
 

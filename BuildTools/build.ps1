@@ -89,5 +89,5 @@ Write-Host "Build WebBluetooth project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\WebBluetooth" -ProjectFileName "WebBluetooth.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 Write-Host "Build WebVINode project"
-Invoke-NXGBuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.lvproject" -TargetName "express" -ComponentFileName "TestExpressClient.gcomp" -usemonitor:$usemonitor
-Invoke-NXGBuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.lvproject" -TargetName "express" -ComponentFileName "TestExpressServer.gcomp" -usemonitor:$usemonitor
+Invoke-NXGBuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.lvproject" -TargetName "Web Server" -ComponentFileName "ExpressExample.gcomp" -usemonitor:$usemonitor
+Invoke-NXGBuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.lvproject" -TargetName "Web Server" -ComponentFileName "ExpressUI.gcomp" -usemonitor:$usemonitor
