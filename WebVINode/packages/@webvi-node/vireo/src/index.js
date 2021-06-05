@@ -21,7 +21,7 @@
                 throw new Error('Unsupported on this target');
             };
 
-            const logLabVIEWError = function (ignoreReturnValueRef, statusValueRef, codeValueRef, sourceValueRef) {
+            const logLabVIEWError = function (_ignoreReturnValueRef, _statusValueRef, codeValueRef, sourceValueRef) {
                 const code = vireo.eggShell.readDouble(codeValueRef);
                 const source = vireo.eggShell.readString(sourceValueRef);
                 throw new Error(`LabVIEW error ${code} occured at ${source === '' ? 'unknown location' : source}`);

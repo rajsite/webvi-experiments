@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const authFailure = new Promise((resolve, reject) => {
+    const authFailure = new Promise((_resolve, reject) => {
         const originalGMAuthFailure = window.gm_authFailure;
         window.gm_authFailure = function (...args) {
             reject(new Error('Google Maps Authentication Failure, see browser console for more details'));

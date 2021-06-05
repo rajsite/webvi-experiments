@@ -15,7 +15,7 @@
 
         console.log(`Finding require attributes in html file path ${resolvedHtmlPath}`);
         const dependencyPaths = new Map();
-        $$(`script[${htmlRequireAttributeName}]`).each(function (index, element) {
+        $$(`script[${htmlRequireAttributeName}]`).each(function (_index, element) {
             const src = $$(element).attr('src');
             const globalName = $$(element).attr(htmlRequireAttributeName);
             if (typeof globalName !== 'string' || globalName === '') {

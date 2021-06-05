@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
+    - name: Install npm 7
+      run: npm install --global npm@7
     - name: Checkout repository
       uses: actions/checkout@v1
     - name: Lint markdown
