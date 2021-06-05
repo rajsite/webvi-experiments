@@ -113,19 +113,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\WebAudio" -TargetName "Web Server" -
 Write-Host "Copy WebBluetooth build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
 
-Write-Host "Copy WebVINode build to ghpages output folder"
-Copy-item -Force -Recurse ".\WebVINode\examples\webvinode-express-example" -Destination "$ghpagesbuilddir\WebVINode\examples\webvinode-express-example"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\cli" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\cli"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\express" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\express"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\fs" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\fs"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\html-require" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\html-require"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\path" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\path"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\runner" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\runner"
-Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\vireo" -Destination "$ghpagesbuilddir\WebVINode\packages\@webvi-node\vireo"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Web Server" -ComponentFileName "ExpressExample.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressExample_Web Server"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Web Server" -ComponentFileName "ExpressUI.gcomp" -TargetDirectory "$ghpagesbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressUI_Web Server"
-Copy-Item ".\WebVINode\package.json" "$ghpagesbuilddir\WebVINode\package.json"
-
 Write-Host "Setting up ghpages archive output folder"
 Remove-Item $ghpagesarchivedir -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
 Write-Host $err

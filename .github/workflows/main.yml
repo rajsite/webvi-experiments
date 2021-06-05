@@ -43,6 +43,13 @@ jobs:
       with:
         name: ghpagesarchive
         path: ./ghpagesarchive/ghpages.zip
+    - name: Create Heroku Dist Output
+      run: powershell .\BuildTools\herokudist.ps1
+    - name: Upload Heroku Dist Output
+      uses: actions/upload-artifact@v2
+      with:
+        name: herokudistarchive
+        path: ./herokudistarchive/herokudist.zip
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main'
@@ -62,3 +69,11 @@ jobs:
       run: unzip ./ghpages.zip -d ./ghpagesout
     - name: Deploy to GitHub Pages
       run: dpl --verbose --provider=pages --repo=rajsite/webvi-experiments --local_dir=ghpagesout --skip_cleanup --name=rajsite --email=rajsite@users.noreply.github.com --github-token=${{ secrets.GHPAGES_TOKEN }}
+    - name: Download Heroku Dist Output
+      uses: actions/download-artifact@v2
+      with:
+        name: herokudistarchive
+    - name: Extract Heroku Dist Output
+      run: unzip ./herokudist.zip -d ./herokudistout
+    - name: Deploy to Heroku Dist
+      run: dpl --verbose --provider=pages --repo=rajsite/webvi-experiments --local_dir=herokudistout --target_branch=herokudist --skip_cleanup --name=rajsite --email=rajsite@users.noreply.github.com --github-token=${{ secrets.GHPAGES_TOKEN }}
