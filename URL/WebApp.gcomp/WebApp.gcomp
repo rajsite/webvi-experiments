@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="04E2E29E58FA26DAE5BE221DA41852413EE634291824299720BD4B22F4A06C5697BAE09BAE64B61684417745F48B7C7F1C51D1135C3B26760691D8C3F9508098" Timestamp="1D75DB3C7E3D8BA" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D1C1FE68983CCF24508911104A03BCB84F6A32BE4FAE829BEF35B21CDDC5F1ABF3B35B2E90AEDC210623CF398E11A2F79B9C10804E0BDC70A32B867785D661D5" Timestamp="1D75DB902C75DA9" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -19,6 +19,7 @@
 			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="7d231dda59c9497c89d454612528c3fc" Id="dc772284ca144eddadf23d2fd6ee167f" />
 			<ComponentItemProperties AssociatedEnvoyId="ea62d1e948b40e68acc67d1c244ab6d" Id="e510e815ed2a4d828773e116c670a851" TopLevel="True" />
 			<ComponentItemProperties AssociatedEnvoyId="f85d330e24ee4d499b465b4c5bdac77e" Id="b1c65c5407e94e9ca9c0c12066a9dfb3" TopLevel="True" />
+			<ComponentItemProperties AssociatedEnvoyId="7159a5e98de24c61966995ea1a6e4fe0" Id="fa9fcbe0e668407b879411675fa4e4d8" TopLevel="True" />
 		</ComponentConfiguration>
 	</ComponentDefinition>
 	<EnvoyManagerFile Id="6" xmlns="http://www.ni.com/PlatformFramework">
@@ -34,6 +35,12 @@
 					<SourceFileReference Id="ea62d1e948b40e68acc67d1c244ab6d" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="index.gviweb" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" StoragePath="playground\index.gviweb" />
 				</NameScopingEnvoy>
 				<SourceFileReference Id="f85d330e24ee4d499b465b4c5bdac77e" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="index.gviweb" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" StoragePath="index.gviweb" />
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="30767ec9c784fdd9bf1833333264fb0" Name="singlepage">
+					<SourceFileReference Id="7159a5e98de24c61966995ea1a6e4fe0" ModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Name="index.gviweb" OverridingModelDefinitionType="NationalInstruments.LabVIEW.VI.Modeling.HTMLVirtualInstrument" StoragePath="singlepage\index.gviweb" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="ed150d72fa924382a307efa2754f8cb8" Name="Support">
+						<SourceFileReference Bindings="EnvoyManager" Id="c11dc55e7a104c8e8223c831f87c6b10" ModelDefinitionType="NationalInstruments.MocCommon.Modeling.TypeDefinition" Name="pages.gtype" StoragePath="singlepage\Support\pages.gtype\pages.gtype" />
+					</NameScopingEnvoy>
+				</NameScopingEnvoy>
 			</NameScopingEnvoy>
 		</EmbeddedDefinitionReference>
 		<NameScopingEnvoy Id="9" Name="WebApp.gcomp" NameTracksFileName="True">
