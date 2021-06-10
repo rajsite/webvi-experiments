@@ -104,6 +104,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\SelectElement" -TargetName "Web Serv
 Write-Host "Copy SweetAlert build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SweetAlert"
 
+Write-Host "Copy URL build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\URL" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\URL"
+
 Write-Host "Copy VideoJS build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\VideoJS" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\VideoJS"
 

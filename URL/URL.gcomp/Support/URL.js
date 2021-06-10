@@ -106,30 +106,37 @@
         return result;
     };
 
+    const queryStringDeleteValue = function (queryString, trimHash, key) {
+        const urlSearchParams = parseQueryString(queryString, trimHash);
+        urlSearchParams.delete(key);
+        const result = urlSearchParams.toString();
+        return result;
+    };
+
     const getWindowLocation = function () {
         const url = window.location.href;
         return url;
     };
 
-    // Pushes a new history item onto the history stack and updates url bar.
-    // Causes the browser to navigate to the new URL.
-    // Triggers a popstate event
-    const setWindowLocation = function (url) {
-        window.location.href = url;
-    };
-
-    // Pushes a new history item into the history stack and updates url bar.
-    // Does not cause the browser to navigate / load a new URL.
-    // Does not trigger a popstate event
-    const pushWindowLocation = function (url) {
-        window.history.pushState({}, '', url);
-    };
-
-    // Replaces the current history item on the history stack and updates the url bar.
-    // Does not cause the browser to navigate / load to a new URL.
-    // Does not trigger a popstate event
-    const replaceWindowLocation = function (url) {
-        window.history.replaceState({}, '', url);
+    const setWindowLocation = function (action, url) {
+        if (action === 'set') {
+            // Pushes a new history item onto the history stack and updates url bar.
+            // Causes the browser to navigate to the new URL.
+            // Triggers a popstate event
+            window.location.href = url;
+        } else if (action === 'push') {
+            // Pushes a new history item into the history stack and updates url bar.
+            // Does not cause the browser to navigate / load a new URL.
+            // Does not trigger a popstate event
+            window.history.pushState({}, '', url);
+        } else if (action === 'replace') {
+            // Replaces the current history item on the history stack and updates the url bar.
+            // Does not cause the browser to navigate / load to a new URL.
+            // Does not trigger a popstate event
+            window.history.replaceState({}, '', url);
+        } else {
+            throw new Error(`Unexpected set window location action: ${action}`);
+        }
     };
 
     const reloadWindowLocation = function () {
@@ -178,10 +185,9 @@
         queryStringGetParts,
         queryStringGetValue,
         queryStringSetValue,
+        queryStringDeleteValue,
         getWindowLocation,
         setWindowLocation,
-        pushWindowLocation,
-        replaceWindowLocation,
         reloadWindowLocation,
         addLocationEventListener,
         listenForLocationEvents,

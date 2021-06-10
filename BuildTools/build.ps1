@@ -79,6 +79,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\SelectElement" -ProjectFileName 
 Write-Host "Build SweetAlert project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "SweetAlert.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build URL project"
+Invoke-NXGBuildApplication -ProjectDirectory ".\URL" -ProjectFileName "URL.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build VideoJS project"
 Invoke-NXGBuildApplication -ProjectDirectory ".\VideoJS" -ProjectFileName "VideoJS.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
