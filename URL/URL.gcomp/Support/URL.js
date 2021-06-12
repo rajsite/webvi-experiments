@@ -63,7 +63,7 @@
         return urlSearchParams;
     };
 
-    const queryStringFromParts = function (queryStringPartsJSON) {
+    const queryStringFromParameters = function (queryStringPartsJSON) {
         const queryStringParts = JSON.parse(queryStringPartsJSON);
         const params = queryStringParts.map(queryStringPart => {
             const {key, value} = queryStringPart;
@@ -75,7 +75,7 @@
         return queryString;
     };
 
-    const queryStringGetParts = function (queryString, trimHash) {
+    const queryStringGetParameters = function (queryString, trimHash) {
         const urlSearchParams = parseQueryString(queryString, trimHash);
         const params = Array.from(urlSearchParams);
         const queryStringParts = params.map(param => {
@@ -87,7 +87,7 @@
         return queryStringPartsJSON;
     };
 
-    const queryStringGetValue = function (queryString, trimHash, key) {
+    const queryStringGetParameter = function (queryString, trimHash, key) {
         const urlSearchParams = parseQueryString(queryString, trimHash);
         const exists = urlSearchParams.has(key);
         const value = urlSearchParams.get(key);
@@ -99,14 +99,14 @@
         return resultJSON;
     };
 
-    const queryStringSetValue = function (queryString, trimHash, key, value) {
+    const queryStringSetParameter = function (queryString, trimHash, key, value) {
         const urlSearchParams = parseQueryString(queryString, trimHash);
         urlSearchParams.set(key, value);
         const result = urlSearchParams.toString();
         return result;
     };
 
-    const queryStringDeleteValue = function (queryString, trimHash, key) {
+    const queryStringDeleteParameter = function (queryString, trimHash, key) {
         const urlSearchParams = parseQueryString(queryString, trimHash);
         urlSearchParams.delete(key);
         const result = urlSearchParams.toString();
@@ -181,11 +181,11 @@
         urlGetParts,
         urlSetPart,
         urlDownload,
-        queryStringFromParts,
-        queryStringGetParts,
-        queryStringGetValue,
-        queryStringSetValue,
-        queryStringDeleteValue,
+        queryStringFromParameters,
+        queryStringGetParameters,
+        queryStringGetParameter,
+        queryStringSetParameter,
+        queryStringDeleteParameter,
         getWindowLocation,
         setWindowLocation,
         reloadWindowLocation,
