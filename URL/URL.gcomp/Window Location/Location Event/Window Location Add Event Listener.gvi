@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="108C0422A18D7A3556BF0C4902130BB890F1A15A810233E545E9C32AA2814C530697CA5B4A0F2621E1388613CA5FA53A878EC9FFFF396238196DC9314FB2C499" Timestamp="1D75DBCFA9E4E91" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="DA1C2FC3C6AB1123E7CA87DB3D0EFC69A12F9E2A09F88263D9DAF711370D7C131141DFE8635576451E9ECE9BCDA217EB69C9549E7566DA4FAFFB9394B6094202" Timestamp="1D75FABC92F4DD5" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="8.4.0.49575" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -39,7 +39,7 @@
 			<OpaqueRefnum BaseName="[string]OpaqueRefnum" Height="[float]24" Id="7322506204614e6da7471f50eb4fef65" Left="[float]0" Name="[string]window location change user event" RefnumType="[Type]@59e0e26852e14a9f822276f2e03133a3" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=167da09c4c28480797c95d7b2ded107e}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 		</FrontPanelUnplacedItems>
 		<BlockDiagram Id="8814a0fbb61a438086295b3e7a27a796">
-			<MethodCall Bounds="180 220 40 40" Id="f8e20f4f6e84445ba93a90ddc90bfd60" ResolveFailedHint="AddLocationEventListener" Signature="@c258dd5e2d274c92afca157e58ac9f99" Target="URL::Support::URL.jsli::AddLocationEventListener" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="180 220 40 40" Id="f8e20f4f6e84445ba93a90ddc90bfd60" ResolveFailedHint="WindowLocationAddEventListener" Signature="@9b95bc29be57435fb8390534826e5c93" Target="URL::Support::URL.jsli::WindowLocationAddEventListener" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L3" Desc="error in" />
@@ -62,7 +62,7 @@
 			<NodeLabel AttachedTo="a0acc0d684754caca311d15c96357021" Bounds="305 203 242 14" Id="b0052f92819142a185fa7be11a7371d0" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>Create User Event: window location change</p.Text>
 			</NodeLabel>
-			<Literal Bounds="250 220 40 15" DataType="String" Id="457fb59b02a04730b6ab8de6403723f2" Label="43e0bd1395a048e0880d33a9fbc0509f" xmlns="http://www.ni.com/MocCommon">
+			<Literal Bounds="250 220 40 15" DataType="String" Id="457fb59b02a04730b6ab8de6403723f2" Label="43e0bd1395a048e0880d33a9fbc0509f" p4:ControlDefinitionChecksum="" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
 				<p.Data>url</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
@@ -71,9 +71,9 @@
 				<p.Text>url</p.Text>
 			</NodeLabel>
 			<Wire Id="940e6a937f6d4d009facc17b60ecd2c6" Joints="N(f8e20f4f6e84445ba93a90ddc90bfd60:R3)|(220,255) N(a0acc0d684754caca311d15c96357021:error in)|(305,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<PropertyNode Bounds="580 155 253 50" HasErrorTerminals="False" Id="99ac0decbae94c43adcaa6afdeed4bb2" InstanceDataType="@130e5048c5c843b48cb080080602aa0c" xmlns="http://www.ni.com/MocCommon">
+			<PropertyNode Bounds="580 155 253 50" HasErrorTerminals="False" Id="99ac0decbae94c43adcaa6afdeed4bb2" InstanceDataType="@be51dc26f1be42af87919fcdfe4d9de9" xmlns="http://www.ni.com/MocCommon">
 				<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-					<TypeDefinitionTarget TargetName="URL::Support::location event listener configuration.gtype" />
+					<TypeDefinitionTarget TargetName="URL::Support::window location event listener configuration.gtype" />
 				</p.TypeDefinitionTargets>
 				<PropertyItemTerminal Action="Write" DataType="@f0339782ce4245348acaaf0c922501e8" Hotspot="0 15" Id="c0t0v" Path="event stream reader" PathElementMemberKinds="Field" Usage="Required" />
 				<PropertyItemTerminal Action="Write" DataType="@59e0e26852e14a9f822276f2e03133a3" Hotspot="0 30" Id="c1t0v" Path="window location change user event" PathElementMemberKinds="Field" Usage="Required" />
@@ -88,43 +88,43 @@
 				<p.Text>error out</p.Text>
 			</NodeLabel>
 			<DataAccessor Bounds="845 155 40 15" DataItem="f362616b971c4b47912bb399f0cc5598" Id="5ece9cca2657401ea104ef3c109c8441" Label="cace80feb65f450d94cc280eddc0aefc" xmlns="http://www.ni.com/MocCommon">
-				<Terminal DataType="@130e5048c5c843b48cb080080602aa0c" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@be51dc26f1be42af87919fcdfe4d9de9" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
-			<NodeLabel AttachedTo="5ece9cca2657401ea104ef3c109c8441" Bounds="890 155 199 14" Id="cace80feb65f450d94cc280eddc0aefc" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>location event listener configuration</p.Text>
+			<NodeLabel AttachedTo="5ece9cca2657401ea104ef3c109c8441" Bounds="890 155 244 14" Id="cace80feb65f450d94cc280eddc0aefc" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>window location event listener configuration</p.Text>
 			</NodeLabel>
 			<Wire Id="a4b8d067ed414753b113fbfc8fa249ec" Joints="N(99ac0decbae94c43adcaa6afdeed4bb2:instance out)|(833,160) N(5ece9cca2657401ea104ef3c109c8441:Value)|(848,160)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="e3e25157783a41829b25906f90699207" Joints="N(a0acc0d684754caca311d15c96357021:error out)|(345,255) N(e3c04fd49d5847068ab398f3c8409445:Value)|(363,255)" xmlns="http://www.ni.com/PlatformFramework" />
-			<ClusterLiteral Bounds="230 65 216 82" DataType="@130e5048c5c843b48cb080080602aa0c" Id="4c068a378f944aa9939b76ab75c221db" Label="37f704667974362b26137ea421264b4" p4:ControlDefinitionChecksum="K8NeeB5b/rt9BGTZabbF8yGkuRkj9fOhh5/Z/AtI/0g=_v1" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>0_0_</p.Data>
-				<p4:p.TypeDefinitionTargets>
-					<p4:TypeDefinitionTarget TargetName="URL::Support::location event listener configuration.gtype" />
-					<p4:TypeDefinitionTarget TargetName="URL::Support::location event listener configuration.gtype::ControlDefinition" />
-				</p4:p.TypeDefinitionTargets>
-				<ClusterBehavior AutoArrange="ArrangeVertically" />
-				<Literal Bounds="2 19 40 15" DataType="@f0339782ce4245348acaaf0c922501e8" Id="f8181620b104610a1ad6b2188303ac7" Label="6296158a5a0844129904effb3c302bb1">
-					<p.Data>0</p.Data>
-					<JavaScriptReferenceBehavior />
-				</Literal>
-				<NodeLabel AttachedTo="f8181620b104610a1ad6b2188303ac7" Bounds="2 2 114 14" Id="6296158a5a0844129904effb3c302bb1" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>event stream reader</p.Text>
-				</NodeLabel>
-				<OpaqueRefnumLiteral Bounds="2 55 40 15" DataType="@59e0e26852e14a9f822276f2e03133a3" Id="d58d548f177a4352b7275802df2b8884" Label="3b808e96c23f495087ccd73994380e0c">
-					<p.Data>0</p.Data>
-					<OpaqueRefnumLiteralBehavior />
-				</OpaqueRefnumLiteral>
-				<NodeLabel AttachedTo="d58d548f177a4352b7275802df2b8884" Bounds="2 38 195 14" Id="3b808e96c23f495087ccd73994380e0c" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>window location change user event</p.Text>
-				</NodeLabel>
-			</ClusterLiteral>
-			<NodeLabel AttachedTo="4c068a378f944aa9939b76ab75c221db" Bounds="230 48 199 14" Id="37f704667974362b26137ea421264b4" xmlns="http://www.ni.com/PlatformFramework">
-				<p.Text>location event listener configuration</p.Text>
-			</NodeLabel>
 			<DataAccessor Bounds="365 230 40 15" DataItem="167da09c4c28480797c95d7b2ded107e" Id="5e6dc3fae0140b9b08c6da986cc625a" Label="7032cd39b40e424ea8a6afa72245682d" xmlns="http://www.ni.com/MocCommon">
 				<Terminal DataType="@59e0e26852e14a9f822276f2e03133a3" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
 			</DataAccessor>
 			<NodeLabel AttachedTo="5e6dc3fae0140b9b08c6da986cc625a" Bounds="410 230 195 14" Id="7032cd39b40e424ea8a6afa72245682d" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>window location change user event</p.Text>
+			</NodeLabel>
+			<ClusterLiteral Bounds="385 65 61 84" DataType="@be51dc26f1be42af87919fcdfe4d9de9" Id="4c068a378f944aa9939b76ab75c221db" Label="37f704667974362b26137ea421264b4" p4:ControlDefinitionChecksum="Gh1bFw4Al164eVxdx6ugveJ89N842halQUlVGbx+Dao=_v1" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>0_0_</p.Data>
+				<p4:p.TypeDefinitionTargets>
+					<p4:TypeDefinitionTarget TargetName="URL::Support::window location event listener configuration.gtype" />
+					<p4:TypeDefinitionTarget TargetName="URL::Support::window location event listener configuration.gtype::ControlDefinition" />
+				</p4:p.TypeDefinitionTargets>
+				<ClusterBehavior AutoArrange="ArrangeVertically" />
+				<Literal Bounds="2 20 15 15" DataType="@f0339782ce4245348acaaf0c922501e8" Id="31bde184b9a74b428675c11f02f2206f" Label="af3bc442634742be8c42c55cf281ae4c">
+					<p.Data>0</p.Data>
+					<JavaScriptReferenceBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="31bde184b9a74b428675c11f02f2206f" Bounds="2 2 30 15" Id="af3bc442634742be8c42c55cf281ae4c" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>event stream reader</p.Text>
+				</NodeLabel>
+				<OpaqueRefnumLiteral Bounds="2 57 40 15" DataType="@59e0e26852e14a9f822276f2e03133a3" Id="3d7d635b4a8740aaacc95de0a9bf0ece" Label="f6b263d4cda341ae8e3835f9cec88841">
+					<p.Data>0</p.Data>
+					<OpaqueRefnumLiteralBehavior />
+				</OpaqueRefnumLiteral>
+				<NodeLabel AttachedTo="3d7d635b4a8740aaacc95de0a9bf0ece" Bounds="2 39 30 15" Id="f6b263d4cda341ae8e3835f9cec88841" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>window location change user event</p.Text>
+				</NodeLabel>
+			</ClusterLiteral>
+			<NodeLabel AttachedTo="4c068a378f944aa9939b76ab75c221db" Bounds="385 47 30 15" Id="37f704667974362b26137ea421264b4" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>window location event listener configuration</p.Text>
 			</NodeLabel>
 		</BlockDiagram>
 		<NativeFrontPanel Height="[float]1600" HtmlPanel="[bool]False" Id="24c7e63b381d40df94994a22e0e2f46e" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000">
@@ -141,7 +141,7 @@
 				<p4:Label Height="[float]16" Id="f7b4fa9da7ae46b58e5820e5e9f7a82a" LabelOwner="[UIModel]b3d6e9c9cd5e4cd89ea03fbd05f3fa31" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
 			<Label Height="[float]16" Id="d002d224937243b98a69c5db4665f20e" LabelOwner="[UIModel]46e65d1f849343e792a1e5a581ddc3ea" Left="[float]164" Text="[string]error in" Top="[float]368" Width="[float]39" xmlns="http://www.ni.com/PanelCommon" />
-			<Cluster BaseName="[null]" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="2f49097a6e5e405991cde9dd38cc4b96" Label="[UIModel]f9a693e463d443da81195ca972406754" Left="[float]500" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]1" Top="[float]388" Value="{DataItemBinding Id=ff81fa7bf92d4ccaafcc2c76af676668}" Width="[float]176" p4:ControlDefinitionChecksum="J+f/EiASvnzghyjtgi4nEE7z+0udh8Z1+KU2hWC1ppw=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+			<Cluster BaseName="[null]" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]176" Id="2f49097a6e5e405991cde9dd38cc4b96" Label="[UIModel]f9a693e463d443da81195ca972406754" Left="[float]404" MinHeight="[float]128" MinWidth="[float]112" TabIndex="[int]1" Top="[float]388" Value="{DataItemBinding Id=ff81fa7bf92d4ccaafcc2c76af676668}" Width="[float]176" p4:ControlDefinitionChecksum="J+f/EiASvnzghyjtgi4nEE7z+0udh8Z1+KU2hWC1ppw=" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
 					<p4:TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
@@ -152,17 +152,17 @@
 				<StringControl AcceptsReturn="[bool]True" Height="[float]95" Id="b9e463edf4da4cdb871c13f3b94919d1" IsReadOnly="[bool]True" Label="[UIModel]d7baf70702fb4f4eb479c743f45f4835" Left="[float]3" TabIndex="[int]2" Text="{ClusterBinding FieldName=source}" Top="[float]70" Width="[float]162" WordWrap="[bool]True" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 				<p4:Label Height="[float]16" Id="d7baf70702fb4f4eb479c743f45f4835" LabelOwner="[UIModel]b9e463edf4da4cdb871c13f3b94919d1" Left="[float]3" Text="[string]source" Top="[float]50" Width="[float]35" />
 			</Cluster>
-			<Label Height="[float]16" Id="f9a693e463d443da81195ca972406754" LabelOwner="[UIModel]2f49097a6e5e405991cde9dd38cc4b96" Left="[float]500" Text="[string]error out" Top="[float]368" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
-			<Cluster BaseName="[string]location event listener configuration" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@130e5048c5c843b48cb080080602aa0c" Height="[float]107" Id="a6e9fec5be814f5c9560036dcce5d02e" IsTabStop="[bool]True" Label="[UIModel]7930fce60b634075919b647875a707dc" LabelLinked="[bool]True" Left="[float]404" TabIndex="[int]2" Top="[float]196" Value="{DataItemBinding Id=f362616b971c4b47912bb399f0cc5598}" Width="[float]201" p4:ControlDefinitionChecksum="K8NeeB5b/rt9BGTZabbF8yGkuRkj9fOhh5/Z/AtI/0g=_v1" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
+			<Label Height="[float]16" Id="f9a693e463d443da81195ca972406754" LabelOwner="[UIModel]2f49097a6e5e405991cde9dd38cc4b96" Left="[float]404" Text="[string]error out" Top="[float]368" Width="[float]47" xmlns="http://www.ni.com/PanelCommon" />
+			<Cluster BaseName="[string]window location event listener configuration" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@be51dc26f1be42af87919fcdfe4d9de9" Height="[float]107" Id="a6e9fec5be814f5c9560036dcce5d02e" IsTabStop="[bool]True" Label="[UIModel]7930fce60b634075919b647875a707dc" LabelLinked="[bool]True" Left="[float]404" TabIndex="[int]2" Top="[float]196" Value="{DataItemBinding Id=f362616b971c4b47912bb399f0cc5598}" Width="[float]201" p4:ControlDefinitionChecksum="Gh1bFw4Al164eVxdx6ugveJ89N842halQUlVGbx+Dao=_v1" xmlns:p4="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/PanelCommon">
 				<p4:p.TypeDefinitionTargets>
-					<p4:TypeDefinitionTarget TargetName="URL::Support::location event listener configuration.gtype::ControlDefinition" />
+					<p4:TypeDefinitionTarget TargetName="URL::Support::window location event listener configuration.gtype::ControlDefinition" />
 				</p4:p.TypeDefinitionTargets>
-				<OpaqueRefnum BaseName="[string]OpaqueRefnum" Height="[float]24" Id="cbac09a89c914237a08a59d79527f58c" Label="[UIModel]48bfb7aa65f14e1c81c5e312087cced2" Left="[float]4" RefnumType="[Type]@f0339782ce4245348acaaf0c922501e8" TabIndex="[int]0" Top="[float]24" Value="{ClusterBinding FieldName=event\ stream\ reader}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<p4:Label Height="[float]16" Id="48bfb7aa65f14e1c81c5e312087cced2" LabelOwner="[UIModel]cbac09a89c914237a08a59d79527f58c" Left="[float]4" Text="[string]event stream reader" Top="[float]4" Width="[float]106" />
-				<OpaqueRefnum BaseName="[string]OpaqueRefnum" Height="[float]24" Id="a98071e1e95e44299b663774de002363" Label="[UIModel]1fe92677d695425a8b16be41153c9637" Left="[float]6" RefnumType="[Type]@59e0e26852e14a9f822276f2e03133a3" TabIndex="[int]1" Top="[float]69" Value="{ClusterBinding FieldName=window\ location\ change\ user\ event}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-				<p4:Label Height="[float]16" Id="1fe92677d695425a8b16be41153c9637" LabelOwner="[UIModel]a98071e1e95e44299b663774de002363" Left="[float]6" Text="[string]window location change user event" Top="[float]49" Width="[float]187" />
+				<OpaqueRefnum BaseName="[string]OpaqueRefnum" Height="[float]24" Id="7aa660b737f145e5b18470e77e2a52e4" Label="[UIModel]eab32b507e0342ac81a030273d8825a9" Left="[float]4" RefnumType="[Type]@f0339782ce4245348acaaf0c922501e8" TabIndex="[int]0" Top="[float]24" Value="{ClusterBinding FieldName=event\ stream\ reader}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+				<p4:Label Height="[float]16" Id="eab32b507e0342ac81a030273d8825a9" LabelOwner="[UIModel]7aa660b737f145e5b18470e77e2a52e4" Left="[float]4" Text="[string]event stream reader" Top="[float]4" Width="[float]106" />
+				<OpaqueRefnum BaseName="[string]OpaqueRefnum" Height="[float]24" Id="45059900185c4a879a600421196a2563" Label="[UIModel]a384f9a2f94d498080d1d1ed3b2367c7" Left="[float]6" RefnumType="[Type]@59e0e26852e14a9f822276f2e03133a3" TabIndex="[int]1" Top="[float]69" Value="{ClusterBinding FieldName=window\ location\ change\ user\ event}" Width="[float]24" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+				<p4:Label Height="[float]16" Id="a384f9a2f94d498080d1d1ed3b2367c7" LabelOwner="[UIModel]45059900185c4a879a600421196a2563" Left="[float]6" Text="[string]window location change user event" Top="[float]49" Width="[float]187" />
 			</Cluster>
-			<Label Height="[float]16" Id="7930fce60b634075919b647875a707dc" LabelOwner="[UIModel]a6e9fec5be814f5c9560036dcce5d02e" Left="[float]404" Text="[string]location event listener configuration" Top="[float]176" Width="[float]191" xmlns="http://www.ni.com/PanelCommon" />
+			<Label Height="[float]16" Id="7930fce60b634075919b647875a707dc" LabelOwner="[UIModel]a6e9fec5be814f5c9560036dcce5d02e" Left="[float]404" Text="[string]window location event listener configuration" Top="[float]176" Width="[float]236" xmlns="http://www.ni.com/PanelCommon" />
 		</NativeFrontPanel>
 		<DataItem CallDirection="Input" CallIndex="0" DataType="Error" Id="667eba1059cd48e492531cbac590ccdb" Name="error in" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>
@@ -188,10 +188,10 @@
 				<TypeDefinitionTarget TargetName="NI::G Core::Error::Error.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
-		<DataItem CallDirection="Output" CallIndex="0" DataType="@130e5048c5c843b48cb080080602aa0c" Id="f362616b971c4b47912bb399f0cc5598" Name="location event listener configuration" xmlns="http://www.ni.com/MocCommon">
+		<DataItem CallDirection="Output" CallIndex="0" DataType="@be51dc26f1be42af87919fcdfe4d9de9" Id="f362616b971c4b47912bb399f0cc5598" Name="window location event listener configuration" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0_0_</p.DefaultValue>
 			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-				<TypeDefinitionTarget TargetName="URL::Support::location event listener configuration.gtype" />
+				<TypeDefinitionTarget TargetName="URL::Support::window location event listener configuration.gtype" />
 			</p.TypeDefinitionTargets>
 		</DataItem>
 		<DataItem CallDirection="Output" CallIndex="1" DataType="@59e0e26852e14a9f822276f2e03133a3" Id="167da09c4c28480797c95d7b2ded107e" Name="window location change user event" xmlns="http://www.ni.com/MocCommon">
@@ -206,8 +206,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="c258dd5e2d274c92afca157e58ac9f99">
-			<Attributed AttributedType="@7eb544e4fb3c4197a1803e659e56a6d9">
+		<p.TypeReference TypeId="9b95bc29be57435fb8390534826e5c93">
+			<Attributed AttributedType="@308b8abdfd42430e914b18ba9fa8bc64">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -222,8 +222,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="130e5048c5c843b48cb080080602aa0c">
-			<Attributed AttributedType="@e58cee52722a43cf94fd2ec6865557d4">
+		<p.TypeReference TypeId="be51dc26f1be42af87919fcdfe4d9de9">
+			<Attributed AttributedType="@d0c29ee74b7745baa48c63b39b1a6c57">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]URL::Support" />
 				</AttributeValues>
@@ -236,8 +236,8 @@
 				</Parameters>
 			</Event>
 		</p.TypeReference>
-		<p.TypeReference TypeId="7eb544e4fb3c4197a1803e659e56a6d9">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="AddLocationEventListener" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="308b8abdfd42430e914b18ba9fa8bc64">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="WindowLocationAddEventListener" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
 						<AttributeValues>
@@ -260,8 +260,8 @@
 		<p.TypeReference TypeId="e954979a712f445f984cd718323f5e1e">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="e58cee52722a43cf94fd2ec6865557d4">
-			<Typedef TypedefName="location event listener configuration.gtype" UnderlyingType="@0319d7c3b7fa4e4485a402bfe23759e6" />
+		<p.TypeReference TypeId="d0c29ee74b7745baa48c63b39b1a6c57">
+			<Typedef TypedefName="window location event listener configuration.gtype" UnderlyingType="@0319d7c3b7fa4e4485a402bfe23759e6" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
@@ -282,7 +282,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="URL::Support::URL.jsli::AddLocationEventListener">
+		<p.IconModel Target="URL::Support::URL.jsli::WindowLocationAddEventListener">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -290,7 +290,7 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]AddLocationEventListener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]WindowLocationAddEventListener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>

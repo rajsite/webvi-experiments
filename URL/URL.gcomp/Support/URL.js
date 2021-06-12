@@ -15,7 +15,7 @@
         return typeof val === 'string' ? val : '';
     };
 
-    const urlCalculateRelative = function (relativeURL, baseURL) {
+    const urlBuildRelativePath = function (baseURL, relativeURL) {
         const urlInstance = baseURL === '' ? new URL(relativeURL, window.location.href) : new URL(relativeURL, baseURL);
         return urlInstance.href;
     };
@@ -113,12 +113,12 @@
         return result;
     };
 
-    const getWindowLocation = function () {
+    const windowLocationGet = function () {
         const url = window.location.href;
         return url;
     };
 
-    const setWindowLocation = function (action, url) {
+    const windowLocationSet = function (action, url) {
         if (action === 'set') {
             // Pushes a new history item onto the history stack and updates url bar.
             // Causes the browser to navigate to the new URL.
@@ -139,11 +139,11 @@
         }
     };
 
-    const reloadWindowLocation = function () {
+    const windowLocationReload = function () {
         window.location.reload();
     };
 
-    const addLocationEventListener = function () {
+    const windowLocationAddEventListener = function () {
         let handler;
         const eventStream = new ReadableStream({
             start (controller) {
@@ -160,7 +160,7 @@
         return eventStreamReader;
     };
 
-    const listenForLocationEvents = async function (eventStreamReader) {
+    const windowLocationListenForEvents = async function (eventStreamReader) {
         validateEventStreamReader(eventStreamReader);
         const {value, done} = await eventStreamReader.read();
         const result = {
@@ -171,13 +171,13 @@
         return resultJSON;
     };
 
-    const removeLocationEventListener = async function (eventStreamReader) {
+    const windowLocationRemoveEventListener = async function (eventStreamReader) {
         validateEventStreamReader(eventStreamReader);
         await eventStreamReader.cancel();
     };
 
     window.WebVIURL = {
-        urlCalculateRelative,
+        urlBuildRelativePath,
         urlGetParts,
         urlSetPart,
         urlDownload,
@@ -186,11 +186,11 @@
         queryStringGetParameter,
         queryStringSetParameter,
         queryStringDeleteParameter,
-        getWindowLocation,
-        setWindowLocation,
-        reloadWindowLocation,
-        addLocationEventListener,
-        listenForLocationEvents,
-        removeLocationEventListener
+        windowLocationGet,
+        windowLocationSet,
+        windowLocationReload,
+        windowLocationAddEventListener,
+        windowLocationListenForEvents,
+        windowLocationRemoveEventListener
     };
 }());
