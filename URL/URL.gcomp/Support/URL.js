@@ -57,6 +57,16 @@
         document.body.removeChild(downloadElement);
     };
 
+    const urlComponentPercentEncode = function (unencoded) {
+        const encoded = encodeURIComponent(unencoded);
+        return encoded;
+    };
+
+    const urlComponentPercentDecode = function (encoded) {
+        const unencoded = decodeURIComponent(encoded);
+        return unencoded;
+    };
+
     const parseQueryString = function (queryString, trimHash) {
         const formattedQueryString = trimHash && queryString[0] === '#' ? queryString.substr(1) : queryString;
         const urlSearchParams = new URLSearchParams(formattedQueryString);
@@ -181,6 +191,8 @@
         urlGetParts,
         urlSetPart,
         urlDownload,
+        urlComponentPercentEncode,
+        urlComponentPercentDecode,
         queryStringFromParameters,
         queryStringGetParameters,
         queryStringGetParameter,
