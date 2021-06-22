@@ -41,6 +41,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Web Server
 Write-Host "Copy Arcade projects: Fire build to ghpages output folder duplicate"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\FireAgain"
 
+Write-Host "Copy Arcade projects: NICCC build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\NICCC" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\NICCC"
+
 Write-Host "Copy Arcade projects: Reflex build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Reflex"
 

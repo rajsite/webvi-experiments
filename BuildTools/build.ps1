@@ -16,6 +16,9 @@ Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\DrEmoji\nxg" -ProjectFile
 Write-Host "Build Arcade projects: Fire"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Fire" -ProjectFileName "LabVIEW PSX Doom Fire.lvproject" -TargetName "Web Server" -ComponentFileName "Application.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build Arcade projects: NICCC"
+Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\NICCC" -ProjectFileName "NICCC.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build Arcade projects: Reflex"
 Invoke-NXGBuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName "Reflex.lvproject" -TargetName "Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
