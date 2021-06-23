@@ -1,0 +1,12 @@
+#! /usr/bin/env node
+
+(async function () {
+    'use strict';
+
+    const WebVINodeRunner = require('@webvi-node/runner');
+    const webviNodeRunner = new WebVINodeRunner();
+    await webviNodeRunner.run();
+}()).catch(function (ex) {
+    'use strict';
+    console.error(ex);
+});
