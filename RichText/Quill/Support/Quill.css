@@ -1,0 +1,45 @@
+/* Workaround for toolbar size https://github.com/quilljs/quill/issues/1285 */
+
+/* container */
+.webvi-quill-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    white-space: initial;
+}
+
+/* toolbar */
+.webvi-quill-container .webvi-quill-toolbar {
+    width: 100%
+}
+
+.webvi-quill-container.webvi-quill-disable .webvi-quill-toolbar {
+    display: none;
+}
+
+.webvi-quill-spacer {
+    height: 24px;
+    padding: 3px 5px;
+    width: 10px;
+    float: left;
+}
+
+/* editor */
+.webvi-quill-container .webvi-quill-editor {
+    width: 100%;
+    flex: 1;
+    min-height: 0px;
+}
+
+.webvi-quill-container.webvi-quill-disable .webvi-quill-editor.ql-disabled {
+    border-top: 1px solid #ccc;
+}
+
+.webvi-quill-container .webvi-quill-editor .ql-tooltip[data-mode=formula]::before {
+    content: "Enter TeX formula:";
+}
+
+.webvi-quill-container .webvi-quill-editor blockquote {
+    margin: 0;
+}

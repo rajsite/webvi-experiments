@@ -1,0 +1,19 @@
+<!doctype HTML>
+<html>
+  <style>
+  .a-enter-vr {
+    display: none;
+  }
+  </style>
+<!-- ar system properties: https://github.com/jeromeetienne/AR.js/blob/master/aframe/src/system-arjs.js -->
+<script src="node_modules/aframe/dist/aframe-v1.0.4.js"></script>
+<script src="node_modules/aframe-extras/dist/aframe-extras.js"> </script>
+<script src="node_modules/aframe-text-geometry-component/dist/aframe-text-geometry-component.js"> </script>
+<script src="node_modules/ar_js/aframe/build/aframe-ar.js"> </script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs="debugUIEnabled: false; cameraParametersUrl: node_modules/ar_js/data/data/camera_para.dat">
+      <a-marker type="pattern" url="node_modules/ar_js/data/data/patt.hiro"></a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>

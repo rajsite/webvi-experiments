@@ -1,0 +1,73 @@
+.webvi-trix-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    white-space: initial;
+}
+
+.webvi-trix-container trix-toolbar {
+    width: 100%;
+}
+
+.webvi-trix-container trix-editor {
+    width: 100%;
+    flex: 1;
+    min-height: 0px;
+    overflow: auto;
+    overflow-wrap: normal;
+}
+
+.webvi-trix-container .trix-button-group--file-tools {
+    display: none;
+}
+
+.webvi-trix-container.webvi-trix-disable trix-toolbar {
+    display: none;
+}
+
+
+/*
+Try and reset the NI list styles
+Reset list styles using https://chromium.googlesource.com/chromium/src/third_party/+/master/blink/renderer/core/html/resources/html.css
+*/
+
+.webvi-trix-container li {
+    list-style: inherit;
+}
+
+.webvi-trix-container ul {
+    list-style: disc;
+    /* Edge does not support padding-inline-start */
+    /* padding-inline-start: 40px; */
+    padding-left: 40px;
+}
+
+.webvi-trix-container ol {
+    list-style: decimal;
+    /* Edge does not support padding-inline-start */
+    /* padding-inline-start: 40px; */
+    padding-left: 40px;
+}
+
+.webvi-trix-container ul ul,
+.webvi-trix-container ol ul {
+    list-style: circle
+}
+
+.webvi-trix-container ol ol ul,
+.webvi-trix-container ol ul ul,
+.webvi-trix-container ul ol ul,
+.webvi-trix-container ul ul ul {
+    list-style: square
+}
+
+/*
+ use the blockquote styling from the ".trix-content blockquote" selector in trix.css
+*/
+
+.webvi-trix-container blockquote {
+    margin: 0 0 0 0.3em;
+    padding: 0 0 0 0.6em;
+    border-left: 0.3em solid #ccc;
+}
