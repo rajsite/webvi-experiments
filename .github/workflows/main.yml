@@ -17,14 +17,14 @@ jobs:
       run: |
         npm ci
         npm test
-    - name: Install LabVIEW NXG
+    - name: Install Editor
       run: powershell .\BuildTools\install.ps1
     - name: Start capturing screenshots
       working-directory: ./BuildTools/periodic-screenshot
       run: |
         npm ci
         npm run start
-    - name: Build LabVIEW Projects
+    - name: Build Projects
       run: powershell .\BuildTools\build.ps1 -usemonitor
       timeout-minutes: 60
       continue-on-error: true

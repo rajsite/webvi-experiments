@@ -74,7 +74,7 @@ The rich text libraries I landed on and think are interesting enough to create e
 
 Additional notes (as of December 2019):
 
-- CKEditor 4 (started Mar 2011): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-). CKEditor 4 is pretty heavyweight so I decided not to mark it as a good comment editor. CKEditor 4 has a large footprint of about 3 MB build output and about 500 separate files. Had to ignore about 1000 localization files so that it can be included reliably in a Library Component in NXG without causing instability due to the number of files.
+- CKEditor 4 (started Mar 2011): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-). CKEditor 4 is pretty heavyweight so I decided not to mark it as a good comment editor. CKEditor 4 has a large footprint of about 3 MB build output and about 500 separate files. Had to ignore about 1000 localization files so that it can be included reliably in a Library Component without causing instability due to the number of files.
 
 - Quill (started July 2012): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
 

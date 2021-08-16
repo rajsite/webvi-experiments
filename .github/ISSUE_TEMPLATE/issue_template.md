@@ -14,7 +14,7 @@ For projects that are not available in the LabVIEW Community make sure to includ
 
 Project name:
 
-NXG version:
+Editor version:
 
 And of course the description, helpful screenshots (the [ScreenToGif](https://www.screentogif.com/) tool is fantastic), steps to reproduce, example code, etc.
 

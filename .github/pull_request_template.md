@@ -13,4 +13,4 @@ An overview of the change and why it was made.
 
 ## Testing
 
-How it was tested. For example, tested in the LabVIEW NXG editor, Chrome, Firefox, Edge, and Safari.
+How it was tested. For example, tested by running in the editor, Chrome, Firefox, Edge, and Safari.
