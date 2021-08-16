@@ -1,4 +1,6 @@
+# Order is significant
 Import-Module -Name "$PSScriptRoot\EditorTools" -Verbose -Force
+Import-Module -Name "$PSScriptRoot\SharedTools" -Verbose -Force
 
 $herokudistbuilddir = ".\herokudistbuild"
 $herokudistarchivedir = ".\herokudistarchive"
