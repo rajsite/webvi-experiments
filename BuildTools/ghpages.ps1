@@ -28,29 +28,29 @@ Get-ChildItem ".\BuildTools\GitHubPagesRoot\*" | ForEach-Object {
     Copy-Item $_.FullName "$ghpagesbuilddir" -Recurse
 }
 
-# Write-Host "Copy Arcade projects: Avalanche build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Avalanche\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Avalanche"
+Write-Host "Copy Arcade projects: Avalanche build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Avalanche\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Avalanche"
 
 Write-Host "Copy Arcade projects: DigitalClock build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DigitalClock" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DigitalClock"
 
-# Write-Host "Copy Arcade projects: DrEmoji build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DrEmoji\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DrEmoji"
+Write-Host "Copy Arcade projects: DrEmoji build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DrEmoji\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DrEmoji"
 
-# Write-Host "Copy Arcade projects: Fire build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Default Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\Fire"
+Write-Host "Copy Arcade projects: Fire build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Default Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\Fire"
 
-# Write-Host "Copy Arcade projects: Fire build to ghpages output folder duplicate"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Default Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\FireAgain"
+Write-Host "Copy Arcade projects: Fire build to ghpages output folder duplicate"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Default Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\FireAgain"
 
-# Write-Host "Copy Arcade projects: NICCC build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\NICCC" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\NICCC"
+Write-Host "Copy Arcade projects: NICCC build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\NICCC" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\NICCC"
 
-# Write-Host "Copy Arcade projects: Reflex build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Reflex"
+Write-Host "Copy Arcade projects: Reflex build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Reflex"
 
-# Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
+Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
 
 # Write-Host "Copy Bootstrap build to ghpages output folder"
 # Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Bootstrap"
