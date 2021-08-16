@@ -1,55 +1,4 @@
-function Assert-FileExists {
-    Param ([string]$path)
-    if (![System.IO.File]::Exists($path))
-    {
-        throw "Could not find file at $path resolved to ${Resolve-Path($path)}"
-    }
-    else 
-    {
-        Write-Host "Found file at $path"
-    }
-}
-
-function Assert-DirectoryExists {
-    Param ([string]$path)
-    if (![System.IO.Directory]::Exists($path))
-    {
-        throw "Could not find directory at $path"
-    }
-    else 
-    {
-        Write-Host "Found directory at $path"
-    }
-}
-
-function Assert-FileDoesNotExist {
-    Param ([string]$path)
-    if ([System.IO.File]::Exists($path))
-    {
-        throw "Found unexpected file at $path."
-    }
-    else 
-    {
-        Write-Host "$path not installed."
-    }
-}
-
-function Run {
-    Param ([string]$fileName, [string]$arguments, [string]$workingdirectory)
-    
-    $pinfo = New-Object System.Diagnostics.ProcessStartInfo
-    $pinfo.FileName = $fileName
-    $pinfo.UseShellExecute = $false
-    $pinfo.Arguments = $arguments
-    if ($workingdirectory) {
-        $pinfo.WorkingDirectory = $workingdirectory
-    }
-    $p = New-Object System.Diagnostics.Process
-    $p.StartInfo = $pinfo
-    $p.Start();
-    $p.WaitForExit();
-}
-
+Import-Module -Name "$PSScriptRoot\..\SharedTools" -Verbose -Force
 function Watch-TrialWindow
 {
     $autohotkey = "$Env:Programfiles\AutoHotkey\AutoHotkey.exe"
@@ -68,11 +17,11 @@ function Watch-TrialWindow
     Write-Host "AutoHotKey starting"
     return Start-Process -FilePath $autohotkey -Args "$PSScriptRoot\trial.ahk" -PassThru
 }
-function Invoke-NXGBuildApplication {
+function Invoke-BuildApplication {
     Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName, [switch]$usemonitor = $false)
-    Write-Host "Checking if LabVIEW NXG CLI is available"
-    $labviewnxgcli = "$Env:Programfiles\National Instruments\LabVIEW NXG 5.0\labviewnxgcli.exe"
-    Assert-FileExists($labviewnxgcli)
+    Write-Host "Checking if GWeb CLI is available"
+    $cli = "$Env:Programfiles\National Instruments\G Web Development Software 2021\gwebcli.exe"
+    Assert-FileExists($cli)
 
     $projectpath = Resolve-Path (Join-Path $ProjectDirectory $ProjectFileName)
     $buildapplicationcommand = 'build-application -n "{0}" -t "{1}" -p "{2}"' -f $ComponentFileName, $TargetName, $projectpath
@@ -84,7 +33,7 @@ function Invoke-NXGBuildApplication {
     }
 
     Write-Host "Running build command: $buildapplicationcommand"
-    Run $labviewnxgcli $buildapplicationcommand
+    Invoke-Run $cli $buildapplicationcommand
 
     if ($usemonitor) {
         try {
@@ -122,18 +71,4 @@ function Invoke-CopyBuildOutput {
     }
 }
 
-function Invoke-PrintDiskspace {
-    Get-WmiObject -Class Win32_logicaldisk
-}
-
-function Invoke-DeletePackages {
-    Remove-Item "$Env:Programdata\National Instruments\NI Package Manager\Packages" -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
-    Write-Host $err
-}
-
-function Invoke-MinimizeWindows {
-    $shell = New-Object -ComObject "Shell.Application"
-    $shell.minimizeall()
-}
-
-Export-ModuleMember -Function Assert-FileExists, Assert-FileDoesNotExist, Run, Invoke-NXGBuildApplication, Invoke-CopyBuildOutput, Invoke-PrintDiskspace, Invoke-DeletePackages, Invoke-MinimizeWindows
+Export-ModuleMember -Function Invoke-BuildApplication, Invoke-CopyBuildOutput
