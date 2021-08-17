@@ -22,8 +22,12 @@ Invoke-BuildApplication -ProjectDirectory ".\Arcade\NICCC" -ProjectFileName "NIC
 Write-Host "Build Arcade projects: Reflex"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName "Reflex.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+# TODO ShootStar
+
 Write-Host "Build Arcade projects: Snake"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "Snake.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
+# TODO Snek
 
 Write-Host "Build Bootstrap project"
 Invoke-BuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootstrap.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor

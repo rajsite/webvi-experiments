@@ -49,8 +49,12 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\NICCC" -TargetName "Default W
 Write-Host "Copy Arcade projects: Reflex build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Reflex"
 
+# TODO ShootStar
+
 Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
+
+# TODO Snek
 
 Write-Host "Copy Bootstrap build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Bootstrap"
