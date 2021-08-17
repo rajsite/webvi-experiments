@@ -52,74 +52,92 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Default 
 Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
 
-# Write-Host "Copy Bootstrap build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Bootstrap"
+Write-Host "Copy Bootstrap build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Bootstrap"
 
-# Write-Host "Copy ControlTools build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\ControlTools" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlTools"
+Write-Host "Copy ControlTools build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ControlTools" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlTools"
 
-# Write-Host "Copy DeclarativeStyle build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\DeclarativeStyle" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DeclarativeStyle"
+Write-Host "Copy DeclarativeStyle build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\DeclarativeStyle" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DeclarativeStyle"
 
-# Write-Host "Copy ECharts build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
+Write-Host "Copy ECharts build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
 
-# Write-Host "Copy File build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
+# TODO EventTarget
+# TODO Exorbitant
 
-# Write-Host "Copy GoogleCharts build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\GoogleCharts" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\GoogleCharts"
+Write-Host "Copy File build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
 
-# Write-Host "Copy IFrame build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\IFrame" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\IFrame"
+# TODO FileDropTarget
 
-# Write-Host "Copy ImmersiveWeb projects: AugmentedReality build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
+Write-Host "Copy GoogleCharts build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\GoogleCharts" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\GoogleCharts"
 
-# Write-Host "Copy ImmersiveWeb projects: HardwareDashboard build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "HardwareDashboard.gcomp" -TargetDirectory "$ghpagesbuilddir\HardwareDashboard"
+Write-Host "Copy IFrame build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\IFrame" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\IFrame"
 
-# Write-Host "Copy ImmersiveWeb projects: SecretBox build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
+Write-Host "Copy ImmersiveWeb projects: AugmentedReality build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedReality"
 
-# Write-Host "Copy ImmersiveWeb projects: VirtualReality build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "VirtualReality.gcomp" -TargetDirectory "$ghpagesbuilddir\VirtualReality"
+Write-Host "Copy ImmersiveWeb projects: HardwareDashboard build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "HardwareDashboard.gcomp" -TargetDirectory "$ghpagesbuilddir\HardwareDashboard"
 
-# Write-Host "Copy JSONParser build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
+Write-Host "Copy ImmersiveWeb projects: SecretBox build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "SecretBox.gcomp" -TargetDirectory "$ghpagesbuilddir\AugmentedRealitySecretBox"
 
-# Write-Host "Copy Leaflet build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Map" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Leaflet"
+Write-Host "Copy ImmersiveWeb projects: VirtualReality build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default Web Server" -ComponentFileName "VirtualReality.gcomp" -TargetDirectory "$ghpagesbuilddir\VirtualReality"
 
-# Write-Host "Copy MachineLearning build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\MachineLearning"
+# TODO InputElement
+# TODO IntegrationTest
 
-# Write-Host "Copy Plotly build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\Plotly" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Plotly"
+Write-Host "Copy JSONParser build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
 
-# Write-Host "Copy PlotToolDemo build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\PlotToolDemo" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\PlotToolDemo"
+Write-Host "Copy MachineLearning build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\MachineLearning"
 
-# Write-Host "Copy RichText build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\RichText"
+Write-Host "Copy Map build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Map" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Leaflet"
 
-# Write-Host "Copy SelectElement build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\SelectElement" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SelectElement"
+Write-Host "Copy PlotToolDemo build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\PlotToolDemo" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\PlotToolDemo"
 
-# Write-Host "Copy SweetAlert build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SweetAlert"
+Write-Host "Copy Plotly build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Plotly" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Plotly"
 
-# Write-Host "Copy URL build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\URL" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\URL"
+# TODO PreloadImage
+# TODO Prerender
+# TODO ProgressiveWebApp
+# TODO RGraph
 
-# Write-Host "Copy VideoJS build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\VideoJS" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\VideoJS"
+Write-Host "Copy RichText build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\RichText"
 
-# Write-Host "Copy WebAudio build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\WebAudio" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebAudio"
+Write-Host "Copy SelectElement build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\SelectElement" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SelectElement"
 
-# Write-Host "Copy WebBluetooth build to ghpages output folder"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
+# TODO SetAttribute
+# TODO SetInnerHtml
+
+Write-Host "Copy SweetAlert build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\SweetAlert" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\SweetAlert"
+
+Write-Host "Copy URL build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\URL" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\URL"
+
+Write-Host "Copy VideoJS build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\VideoJS" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\VideoJS"
+
+Write-Host "Copy WebAudio build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebAudio" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebAudio"
+
+Write-Host "Copy WebBluetooth build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebBluetooth" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\WebBluetooth"
+
+# TODO WebVIDebugger
 
 Write-Host "Setting up ghpages archive output folder"
 Remove-Item $ghpagesarchivedir -Recurse -Force -ErrorAction SilentlyContinue -ErrorVariable err
