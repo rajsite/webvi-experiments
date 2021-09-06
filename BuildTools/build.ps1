@@ -5,13 +5,13 @@ Import-Module -Name "$PSScriptRoot\EditorTools" -Verbose -Force
 Write-Host "Use cli monitor?: $usemonitor"
 
 Write-Host "Build Arcade projects: Avalanche"
-Invoke-BuildApplication -ProjectDirectory ".\Arcade\Avalanche\nxg" -ProjectFileName "Avalanche.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+Invoke-BuildApplication -ProjectDirectory ".\Arcade\Avalanche" -ProjectFileName "Avalanche.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 Write-Host "Build Arcade projects: DigitalClock"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\DigitalClock" -ProjectFileName "DigitalClock.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 Write-Host "Build Arcade projects: DrEmoji"
-Invoke-BuildApplication -ProjectDirectory ".\Arcade\DrEmoji\nxg" -ProjectFileName "DrEmoji.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+Invoke-BuildApplication -ProjectDirectory ".\Arcade\DrEmoji" -ProjectFileName "DrEmoji.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 Write-Host "Build Arcade projects: Fire"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\Fire" -ProjectFileName "LabVIEW PSX Doom Fire.gwebproject" -TargetName "Default Web Server" -ComponentFileName "Application.gcomp" -usemonitor:$usemonitor
@@ -25,7 +25,7 @@ Invoke-BuildApplication -ProjectDirectory ".\Arcade\Reflex" -ProjectFileName "Re
 # TODO ShootStar
 
 Write-Host "Build Arcade projects: Snake"
-Invoke-BuildApplication -ProjectDirectory ".\Arcade\Snake\nxg" -ProjectFileName "Snake.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+Invoke-BuildApplication -ProjectDirectory ".\Arcade\Snake" -ProjectFileName "Snake.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 # TODO Snek
 

@@ -29,13 +29,13 @@ Get-ChildItem ".\BuildTools\GitHubPagesRoot\*" | ForEach-Object {
 }
 
 Write-Host "Copy Arcade projects: Avalanche build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Avalanche\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Avalanche"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Avalanche" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Avalanche"
 
 Write-Host "Copy Arcade projects: DigitalClock build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DigitalClock" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DigitalClock"
 
 Write-Host "Copy Arcade projects: DrEmoji build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DrEmoji\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DrEmoji"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\DrEmoji" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DrEmoji"
 
 Write-Host "Copy Arcade projects: Fire build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Fire" -TargetName "Default Web Server" -ComponentFileName "Application.gcomp" -TargetDirectory "$ghpagesbuilddir\build\Fire"
@@ -52,7 +52,7 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Reflex" -TargetName "Default 
 # TODO ShootStar
 
 Write-Host "Copy Arcade projects: Snake build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake\nxg" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Snake"
 
 # TODO Snek
 
