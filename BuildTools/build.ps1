@@ -116,8 +116,8 @@ Invoke-BuildApplication -ProjectDirectory ".\WebBluetooth" -ProjectFileName "Web
 
 # TODO WebVIDebugger
 
-# Write-Host "Build WebVINode project"
-# Invoke-BuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.gwebproject" -TargetName "Default Web Server" -ComponentFileName "ExpressExample.gcomp" -usemonitor:$usemonitor
-# Invoke-BuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.gwebproject" -TargetName "Default Web Server" -ComponentFileName "ExpressUI.gcomp" -usemonitor:$usemonitor
+Write-Host "Build WebVINode project"
+Invoke-BuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.gwebproject" -TargetName "Default Web Server" -ComponentFileName "ExpressExample.gcomp" -usemonitor:$usemonitor
+Invoke-BuildApplication -ProjectDirectory ".\WebVINode" -ProjectFileName "WebVINode.gwebproject" -TargetName "Default Web Server" -ComponentFileName "ExpressUI.gcomp" -usemonitor:$usemonitor
 
 Write-Host "Done! :D"

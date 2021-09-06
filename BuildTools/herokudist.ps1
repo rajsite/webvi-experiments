@@ -37,8 +37,8 @@ Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\html-require" -Desti
 Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\path" -Destination "$herokudistbuilddir\WebVINode\packages\@webvi-node\path"
 Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\runner" -Destination "$herokudistbuilddir\WebVINode\packages\@webvi-node\runner"
 Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\vireo" -Destination "$herokudistbuilddir\WebVINode\packages\@webvi-node\vireo"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Default Web Server" -ComponentFileName "ExpressExample.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressExample_Default Web Server"
-# Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Default Web Server" -ComponentFileName "ExpressUI.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressUI_Default Web Server"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Default Web Server" -ComponentFileName "ExpressExample.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressExample_Default Web Server"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Default Web Server" -ComponentFileName "ExpressUI.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressUI_Default Web Server"
 Copy-Item ".\WebVINode\package.json" "$herokudistbuilddir\WebVINode\package.json"
 
 Write-Host "Setting up herokudist archive output folder"
