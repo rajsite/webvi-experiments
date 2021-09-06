@@ -1,5 +1,5 @@
 module.exports = {
-    globDirectory: 'Builds/WebApp_Web Server/',
+    globDirectory: 'Builds/WebApp_Default Web Server/',
     globPatterns: [
         '**/*'
     ],

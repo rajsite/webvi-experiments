@@ -109,7 +109,7 @@ describe('The WebVI Application', function () {
     });
 
     it('can run a loop ten times', async function () {
-        const page = await runWebVI(server, browser, 'WebApp_Web Server/index.html');
+        const page = await runWebVI(server, browser, 'WebApp_Default Web Server/index.html');
         const result = await readTerminal(page, 'loop iteration');
         const expected = 10;
         expect(result).toBe(expected);
