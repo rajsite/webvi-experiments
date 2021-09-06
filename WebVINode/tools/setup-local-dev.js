@@ -52,4 +52,5 @@ const path = require('path');
 })().catch(ex => {
     'use strict';
     console.error(ex);
+    process.exit(1);
 });

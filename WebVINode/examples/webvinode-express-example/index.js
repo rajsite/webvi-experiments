@@ -7,4 +7,5 @@
 }()).catch(function (ex) {
     'use strict';
     console.error(ex);
+    process.exit(1);
 });
