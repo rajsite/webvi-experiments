@@ -4,7 +4,7 @@ This example is archived and **not maintained**.
 
 ## History
 
-- This library started as a way to integrate CKEditor5 in LabVIEW NXG WebVI applications.
+- This library started as a way to integrate CKEditor5 in WebVIs.
 - During development came to realize that the CKEditor5 license may not be compatible with the goals of this repo (to make examples usable by as many WebVI users as possible).
 - All CKEditor5 source was removed and the example wrappers (this project) are available under MIT license.
 - This example can be used by those that wish to use the CKEditor5 Commercial / Open Source license, but will not be maintained itself.

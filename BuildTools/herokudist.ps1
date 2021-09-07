@@ -1,4 +1,6 @@
-Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
+# Order is significant
+Import-Module -Name "$PSScriptRoot\EditorTools" -Verbose -Force
+Import-Module -Name "$PSScriptRoot\SharedTools" -Verbose -Force
 
 $herokudistbuilddir = ".\herokudistbuild"
 $herokudistarchivedir = ".\herokudistarchive"
@@ -35,8 +37,8 @@ Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\html-require" -Desti
 Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\path" -Destination "$herokudistbuilddir\WebVINode\packages\@webvi-node\path"
 Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\runner" -Destination "$herokudistbuilddir\WebVINode\packages\@webvi-node\runner"
 Copy-item -Force -Recurse ".\WebVINode\packages\@webvi-node\vireo" -Destination "$herokudistbuilddir\WebVINode\packages\@webvi-node\vireo"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Web Server" -ComponentFileName "ExpressExample.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressExample_Web Server"
-Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Web Server" -ComponentFileName "ExpressUI.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressUI_Web Server"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Default Web Server" -ComponentFileName "ExpressExample.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressExample_Default Web Server"
+Invoke-CopyBuildOutput -ProjectDirectory ".\WebVINode" -TargetName "Default Web Server" -ComponentFileName "ExpressUI.gcomp" -TargetDirectory "$herokudistbuilddir\WebVINode\examples\webvinode-express-example\Builds\ExpressUI_Default Web Server"
 Copy-Item ".\WebVINode\package.json" "$herokudistbuilddir\WebVINode\package.json"
 
 Write-Host "Setting up herokudist archive output folder"
@@ -45,6 +47,6 @@ Write-Host $err
 New-Item -Name $herokudistarchivedir -ItemType directory | Out-Null
 
 Write-Host "Creating archive of all build output"
-Run $7zip "a $(Resolve-Path $herokudistarchivedir)\herokudist.zip" "$(Resolve-Path $herokudistbuilddir)"
+Invoke-Run $7zip "a $(Resolve-Path $herokudistarchivedir)\herokudist.zip" "$(Resolve-Path $herokudistbuilddir)"
 
 Write-Host "Done! :D"

@@ -25,36 +25,28 @@
     }());
 
     const registerFileProtocol = function (clientPath) {
-        return new Promise(function (resolve, reject) {
-            const {protocol} = electron;
-            const handler = function (request, callback) {
-                try {
-                    const url = request.url.substr(root.length);
-                    const calcpath = path.normalize(`${path.resolve(clientPath)}/${url}`);
-                    console.log(`---- ${clientPath}  and  ${calcpath}`);
-                    callback({
-                        path: calcpath
-                    });
-                } catch (ex) {
-                    // Net error codes: https://cs.chromium.org/chromium/src/net/base/net_error_list.h
-                    const failed = -2;
-                    callback(failed);
-                }
-            };
-            const completion = function (error) {
-                if (error) {
-                    reject(new Error(`Failed to register file protocol for scheme ${scheme}`));
-                }
-                resolve();
-            };
-            protocol.registerFileProtocol(scheme, handler, completion);
-        });
+        const {protocol} = electron;
+        const handler = function (request, callback) {
+            try {
+                const url = request.url.substr(root.length);
+                const calcpath = path.normalize(`${path.resolve(clientPath)}/${url}`);
+                console.log(`---- ${clientPath}  and  ${calcpath}`);
+                callback({
+                    path: calcpath
+                });
+            } catch (ex) {
+                // Net error codes: https://cs.chromium.org/chromium/src/net/base/net_error_list.h
+                const failed = -2;
+                callback(failed);
+            }
+        };
+        protocol.registerFileProtocol(scheme, handler);
     };
 
     const initializeElectron = async function (clientPath) {
         const {app} = electron;
         await app.whenReady();
-        await registerFileProtocol(clientPath);
+        registerFileProtocol(clientPath);
     };
 
     const createBrowserWindow = async function () {
@@ -67,7 +59,8 @@
                 // Disabling web security disables CORS for HTTP requests, should make configurable instead
                 webSecurity: false,
                 allowRunningInsecureContent: false,
-                nodeIntegration: true
+                nodeIntegration: true,
+                nativeWindowOpen: true
             }
         });
         browserWindow.webContents.openDevTools();

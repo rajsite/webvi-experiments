@@ -1,4 +1,4 @@
-Import-Module -Name "$PSScriptRoot\NXGBuildTools" -Verbose -Force
+Import-Module -Name "$PSScriptRoot\SharedTools" -Verbose -Force
 
 $rootDirectory = (Get-Location).Path
 Write-Host "Current directory $rootDirectory"
@@ -7,7 +7,7 @@ $nipm = "$Env:Programfiles\National Instruments\NI Package Manager\nipkg.exe"
 $install_NIPM = $true
 if ($install_NIPM)
 {
-    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager20.6.0.exe'
+    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager21.0.0.exe'
     $nipmInstaller = Join-Path -Path $rootDirectory -ChildPath 'install-nipm.exe'
     Assert-FileDoesNotExist($nipm)
     $time = (Get-Date).ToUniversalTime()
@@ -29,39 +29,30 @@ if ($install_NIPM)
 
 Assert-FileExists($nipm)
 
-$install_nxg = $true
-if ($install_nxg)
+$install_editor = $true
+if ($install_editor)
 {
-    $nxg = "$Env:Programfiles\National Instruments\LabVIEW NXG 5.0\LabVIEW NXG.exe"
-    Assert-FileDoesNotExist($nxg)
+    $editor = "$Env:Programfiles\National Instruments\G Web Development Software 2021\GWeb.exe"
+    Assert-FileDoesNotExist($editor)
 
-    Write-Host "Adding LabVIEW NXG feeds to NI Package Manager"
-    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-5.0.0/8.4/released'
-    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-5.0.0/8.4/released-critical'
-    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-5.0.0-web-module/8.4/released'
-    Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-l/ni-labview-nxg-5.0.0-web-module/8.4/released-critical'
-    Run $nipm 'update'
+    Write-Host "Adding Editor feeds to NI Package Manager"
+    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development-software-21.0.0/21.0/released'
+    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development-software-21.0.0/21.0/released-critical'
+    Invoke-Run $nipm 'update'
 
     Write-Host "Installing NI Certificates..."
     Invoke-PrintDiskspace
-    Run $nipm 'install ni-certificates --accept-eulas --assume-yes'
+    Invoke-Run $nipm 'install ni-certificates --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Invoke-PrintDiskspace
 
-    Write-Host "Installing LabVIEW NXG..."
+    Write-Host "Installing Editor..."
     Invoke-PrintDiskspace
-    Run $nipm 'install ni-labview-nxg-5.0.0 --accept-eulas --assume-yes'
+    Invoke-Run $nipm 'install ni-g-web-development-21.0.0 --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Invoke-PrintDiskspace
-
-    Write-Host "Installing LabVIEW NXG Web Module..."
-    Run $nipm 'install ni-labview-nxg-5.0.0-web-module --accept-eulas --assume-yes'
-    $time = (Get-Date).ToUniversalTime()
-    Write-Host "...done at UTC $time"
-    Invoke-PrintDiskspace
-    Assert-FileExists($nxg)
 }
 
-return
+Write-Host "Done! :D"
