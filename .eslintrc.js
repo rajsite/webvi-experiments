@@ -1,5 +1,5 @@
 module.exports = {
-    extends: '@ni',
+    extends: '@ni/eslint-config-javascript',
     env: {
         browser: true,
         es6: true
