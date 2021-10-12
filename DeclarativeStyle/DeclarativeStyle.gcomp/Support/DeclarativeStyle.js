@@ -73,9 +73,17 @@
         return rule;
     };
 
+    const buttonGlyph = function (config) {
+        const {selector} = config;
+        findControl(selector, 'JQX-TOGGLE-BUTTON');
+        const rule = `${selector} .ni-glyph::before`;
+        return rule;
+    };
+
     const types = {
         'datagrid-stringcolumn-textmatch': dataGridStringColumnTextMatch,
-        'datagrid-stringcolumn': dataGridStringColumn
+        'datagrid-stringcolumn': dataGridStringColumn,
+        'button-glyph': buttonGlyph
     };
 
     const createStyle = function (ruleSelectorJSON, rulePropertiesJSON) {
@@ -97,5 +105,12 @@
         style.parentNode.removeChild(style);
     };
 
-    window.WebVIDeclarativeStyle = {createStyle, removeStyle};
+    const createUrlImageValue = function (url) {
+        const resolvedUrlInstance = new URL(url, window.location.href);
+        const resolvedUrl = resolvedUrlInstance.href;
+        const urlImageValue = `url("${CSS.escape(resolvedUrl)}")`;
+        return urlImageValue;
+    };
+
+    window.WebVIDeclarativeStyle = {createStyle, removeStyle, createUrlImageValue};
 }());
