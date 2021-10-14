@@ -7,7 +7,7 @@
         }
         const [element] = elements;
         if (element.tagName !== tagName) {
-            throw new Error(`Expected selector (${selector}) to target a data grid but instead found ${element.tagName}`);
+            throw new Error(`Expected selector (${selector}) to target a ${tagName} but instead found ${element.tagName}`);
         }
         return element;
     };
@@ -84,5 +84,14 @@
         });
     };
 
-    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip, treeGridCellTooltip};
+    const treeColumnWidth = function (selector, index, width) {
+        const element = findControl(selector, 'NI-TREE-GRID');
+        const lastIndex = element.columns.length - 1;
+        if (index > lastIndex) {
+            throw new Error(`Attempted to set width of column at index ${index} but valid indexes are from 0-${lastIndex}`);
+        }
+        element.columns[index].width = width;
+    };
+
+    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip, treeGridCellTooltip, treeColumnWidth};
 }());
