@@ -70,10 +70,10 @@
 
             let cleanup;
             uppyConfig.core.onBeforeUpload = function (uppyFiles) {
-                const fileObjectUrls = Object.keys(uppyFiles)
+                const files = Object.keys(uppyFiles)
                     .map(fileId => uppyFiles[fileId])
                     .map(uppyFile => coerceToFile(uppyFile));
-                resolve(fileObjectUrls);
+                resolve(files);
 
                 // Clean-up the dialog and uppy state
                 cleanup();
