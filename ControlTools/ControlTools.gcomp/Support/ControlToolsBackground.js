@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-    // Assumptions: script is defer loaded so inline style tags (used by ni-front-panel to configure --ni-background) and DOM are ready
 
     const performExtendBackground = () => {
         const webAppElements = document.querySelectorAll('ni-web-application');
@@ -29,6 +28,17 @@
         document.body.style.setProperty('--webvi-control-tools-background', background);
     };
 
+    const ready = function (callback) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('readystatechange', function readyStateChangeHandler () {
+                document.removeEventListener('readystatechange', readyStateChangeHandler);
+                callback();
+            });
+        } else {
+            callback();
+        }
+    };
+
     let loadException;
 
     const extendBackground = () => {
@@ -37,11 +47,13 @@
         }
     };
 
-    try {
-        performExtendBackground();
-    } catch (ex) {
-        loadException = ex;
-    }
+    ready(() => {
+        try {
+            performExtendBackground();
+        } catch (ex) {
+            loadException = ex;
+        }
+    });
 
     window.WebVIControlToolsBackground = {extendBackground};
 }());
