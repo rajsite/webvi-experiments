@@ -63,8 +63,9 @@
 
     const updateSourceByUrl = async function (synchronousImage, url) {
         const img = new Image();
+        // Load image first so if fails and throws does not clear existing image
         await load(img, url);
-        // load image before checking natural dimensions
+        // Only check natural dimensions after image load
         synchronousImage.width = img.naturalWidth;
         synchronousImage.height = img.naturalHeight;
         const ctx = synchronousImage.getContext('2d');
