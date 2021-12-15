@@ -21,7 +21,12 @@
 
     const getImage = async function (selector, fileName) {
         const element = findElement(selector);
-        const blob = await window.htmlToImage.toBlob(element, {backgroundColor: 'white'});
+        // For some reason passing a direct reference to the selected element creates a weird offset
+        // in the resulting image.
+        // Workaround passes the direct child of ni controls instead.
+        const niControlId = element.niControlId;
+        const workaroundElement = (typeof niControlId === 'string' && niControlId !== '') ? element.firstElementChild : element;
+        const blob = await window.htmlToImage.toBlob(workaroundElement, {backgroundColor: 'white'});
         const file = coerceToFile(blob, fileName, 'image/png');
         return file;
     };
