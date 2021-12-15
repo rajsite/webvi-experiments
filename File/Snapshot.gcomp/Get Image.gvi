@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="4D4B5B81E905405CB45523E81C64E6E5DCED5EBBCD1515B378BCD26F0B561EF1DC674068F7846CDE44B5D5E678AC824D9B4C00081DF2BC7C5A7C9E5DC843371B" Timestamp="1D7DBF459662B1A" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C81D1832F8D7968EC914BF9A88E09B4C8ADBE81A90C9FC504B85F30503BDB5EF9BDA425E34BA0C3139A328E9E5AE2EFC61FE42D3CA2A222289D938DAFAF9B90D" Timestamp="1D7F159089B1FC2" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.1.0.50238" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.1.0.50238" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -9,6 +9,7 @@
 		<ApplicationVersionInfo Build="9.1.0.50238" Name="G Web Development Software" Version="21.0.0" />
 	</SourceModelFeatureSet>
 	<VirtualInstrument Id="d90ca68da32040ae8adeac1427743d28" xmlns="http://www.ni.com/LabVIEW.VI">
+		<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Note: This VI is not supported on Safari.&lt;/p&gt;</p.UserDescription>
 		<Icon Id="321d6340be0746c7b10a1a89add6335b" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 			<IconPanel Height="[float]40" Id="73e13628b74644e7b7d6267886cb257c" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 				<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Id="169b6d0a6eaf45c5b923593f1ff381de" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
@@ -38,7 +39,7 @@
 		<DiagramUnplacedItems Id="1149c3c6f1c145c0bc275cf054f72e89" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="2558e03778c943dfb8da1f9d3fbbf2b1" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="e187e7b43c5e44cfbc49e0ba1656c8ad">
-			<MethodCall Bounds="430 300 40 40" Id="b050ab83b45d4268bc76bb86c5141180" ResolveFailedHint="ToFile" Signature="@8c1371c63c6848b68dc7be18d566ea5e" Target="Snapshot::Support::HtmlToImage.jsli::ToFile" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="430 300 40 40" Id="b050ab83b45d4268bc76bb86c5141180" ResolveFailedHint="GetImage" Signature="@b3689e015d9748cf8c822fb7c8e9f9f1" Target="Snapshot::Support::Snapshot.jsli::GetImage" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L1" Desc="selector" />
@@ -158,8 +159,8 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="8c1371c63c6848b68dc7be18d566ea5e">
-			<Attributed AttributedType="@ea54f3c1253f442599171d92454eb747">
+		<p.TypeReference TypeId="b3689e015d9748cf8c822fb7c8e9f9f1">
+			<Attributed AttributedType="@ea66907bbbd6496d81d99da9e5c15ee8">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -174,20 +175,20 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="ea54f3c1253f442599171d92454eb747">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="ToFile" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="ea66907bbbd6496d81d99da9e5c15ee8">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GetImage" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@069cf77559a645a087566635e390a7da">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]selector" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@dd45eb16e9bb4f1a975656f78e262e15">
+					<Attributed AttributedType="@798d6f7b37494f79a4c6de225a021e9e">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]fileName" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
 						</AttributeValues>
@@ -197,7 +198,7 @@
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]file" />
 						</AttributeValues>
 					</Attributed>
-					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
 						</AttributeValues>
@@ -211,21 +212,21 @@
 		<p.TypeReference TypeId="069cf77559a645a087566635e390a7da">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="dd45eb16e9bb4f1a975656f78e262e15">
+		<p.TypeReference TypeId="798d6f7b37494f79a4c6de225a021e9e">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
+		<p.TypeReference TypeId="7ebe9db9b81b4243a45350ff812f4aea">
 			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="256a0f2b154e45d5b46334cac2ebc806">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@653ef4077a33432286c9b18f23200e31" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
+		<p.TypeReference TypeId="53891f63cfae4b43ac656ee8e64de405">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Snapshot::Support::HtmlToImage.jsli::ToFile">
+		<p.IconModel Target="Snapshot::Support::Snapshot.jsli::GetImage">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -233,8 +234,8 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]ToFile" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="10.5" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]GetImage" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Snapshot.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
@@ -245,7 +246,7 @@
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</Text>
 							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;HtmlToImage.jsli&gt;" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;Snapshot.jsli&gt;" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>

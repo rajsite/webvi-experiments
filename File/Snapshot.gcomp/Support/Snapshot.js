@@ -19,14 +19,14 @@
         return file;
     };
 
-    const toFile = async function (selector, fileName) {
+    const getImage = async function (selector, fileName) {
         const element = findElement(selector);
         const blob = await window.htmlToImage.toBlob(element, {backgroundColor: 'white'});
         const file = coerceToFile(blob, fileName, 'image/png');
         return file;
     };
 
-    window.WebVIHtmlToImage = {
-        toFile
+    window.WebVISnapshot = {
+        getImage
     };
 }());
