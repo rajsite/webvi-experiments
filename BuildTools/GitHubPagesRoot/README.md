@@ -29,6 +29,7 @@
 - [RichText](https://rajsite.github.io/webvi-experiments/RichText/)
 - [SelectElement](https://rajsite.github.io/webvi-experiments/SelectElement/)
 - [SweetAlert](https://rajsite.github.io/webvi-experiments/SweetAlert/)
+- [SynchronousImage](https://rajsite.github.io/webvi-experiments/SynchronousImage/)
 - [URL](https://rajsite.github.io/webvi-experiments/URL/)
 - [VideoJS](https://rajsite.github.io/webvi-experiments/VideoJS/)
 - [WebAudio](https://rajsite.github.io/webvi-experiments/WebAudio/)

@@ -102,6 +102,9 @@ Invoke-BuildApplication -ProjectDirectory ".\SelectElement" -ProjectFileName "Se
 Write-Host "Build SweetAlert project"
 Invoke-BuildApplication -ProjectDirectory ".\SweetAlert" -ProjectFileName "SweetAlert.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build SynchronousImage project"
+Invoke-BuildApplication -ProjectDirectory ".\SynchronousImage" -ProjectFileName "SynchronousImage.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build URL project"
 Invoke-BuildApplication -ProjectDirectory ".\URL" -ProjectFileName "URL.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
