@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="793B464431871202D1A2BD3C4F0466A67F48690E471AA54949E8420D3E867EF0B8F21D3B947DB17AD7A39A6947902F71B4A25D55BE7578787319BE181F2A865A" Timestamp="1D7F201A2CD4568" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="292F1FCC5E772F097BA09D054A5A1AF6C08A97DDDB232E8631F45824BCC3A3508B5242F16B914D3DD5BB16130A44BD452A59845DB1F9E4946983156B974A34F4" Timestamp="1D7F2154665BCCB" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.1.0.50238" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.1.0.50238" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -182,6 +182,63 @@
 			<Wire Id="ed6e05af491647ae8ca94ccb779e5b02" Joints="N(d2d38231ff7747b584e16dc6dab245bd:R3)|(135,180) N(fd10fb5582a45a0ab5d85145c27b7d8:o0)|(181,180)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="19abbb04afa64fe185f3bbf2be2e0201" Joints="N(955816ea8b084ff188e3d42d81499e89:16)|(830,180) N(b785e69dc9a64313b072987196ac413c:L3)|(840,180)" xmlns="http://www.ni.com/PlatformFramework" />
 			<Wire Id="7f75c2b3c6c2413eb6e646aa22602b2b" Joints="N(e33e586dba5a4585ad17952160a84048:16)|(830,150) N(b785e69dc9a64313b072987196ac413c:L0)|(840,150)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ControlReference Bounds="-40 685 195 20" Id="e3a40f725c704083b8dfd915b10d0217" SourceControl="b953a12a67be4c88af9bd438213b2639" />
+			<MethodCall Bounds="190 685 40 40" Id="8c80e8e2a3ee4edca733c65ed5c0ed83" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\SynchronousImage\\SynchronousImage.gcomp\\Create Synchronous Image.gvi&quot;" Signature="@6540c8d05a5d4b78bb751f358247cd56" Target="SynchronousImage::Create Synchronous Image.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="container" />
+						<Parameter Id="L1" Desc="stretch" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="synchronous image reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@31adea62e9a243e18198b8d3df1ad250" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@9d1d9460690b49b08913476feb216ebc" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="521611bcf7ba41c59335054c34190105" Joints="N(e3a40f725c704083b8dfd915b10d0217:control reference)|(155,690) N(8c80e8e2a3ee4edca733c65ed5c0ed83:L0)|(190,690)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="320 685 40 40" Id="a2025ed52f4242d3b2fa1729ce20b06e" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\SynchronousImage\\SynchronousImage.gcomp\\Update Source By Byte Array.gvi&quot;" Signature="@047f275076ec4dad8eb62da2a6f875ce" Target="SynchronousImage::Update Source By Byte Array.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="synchronous image reference in" />
+						<Parameter Id="L1" Desc="byte array" />
+						<Parameter Id="L2" Desc="type" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="T0" Desc="name" />
+						<Parameter Id="R0" Desc="synchronous image reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@9d1d9460690b49b08913476feb216ebc" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UInt8[]" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="15 0" Id="T0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@9d1d9460690b49b08913476feb216ebc" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="210 750 40 40" Id="a900e6d3eed846309638afac5eb2f459" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\SynchronousImage\\WebApp.gcomp\\Support\\example byte array png.gvi&quot;" Signature="@5ba24d0c8e704715883880dee5208c0d" Target="WebApp::Support::example byte array png.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="R0" Desc="byte array" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="UInt8[]" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="5643bee8eee845b4a532ef95ceea9b5c" Joints="N(8c80e8e2a3ee4edca733c65ed5c0ed83:R3)|(230,720) N(a2025ed52f4242d3b2fa1729ce20b06e:L3)|(320,720)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="205 800 80 15" DataType="String" Id="3162b3b821584e96aaf78d3e27401a38" Label="eb7be17cdcee4d3ca84013bb807f1938" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>image/png</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="3162b3b821584e96aaf78d3e27401a38" Bounds="205 782 30 15" Id="eb7be17cdcee4d3ca84013bb807f1938" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>type</p.Text>
+			</NodeLabel>
+			<Wire Id="cbd0eec8496148078073e334bbc98eed" Joints="N(3162b3b821584e96aaf78d3e27401a38:Out)|(285,805) h(5) v(-95) N(a2025ed52f4242d3b2fa1729ce20b06e:L2)|(320,710)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="ab951d5b073f4158b4b10fd4465a8d93" Joints="N(8c80e8e2a3ee4edca733c65ed5c0ed83:R0)|(230,690) N(a2025ed52f4242d3b2fa1729ce20b06e:L0)|(320,690)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="8b077076321f450c8339f2744d23ff79" Joints="N(a900e6d3eed846309638afac5eb2f459:R0)|(250,755) h(6) v(-55) N(a2025ed52f4242d3b2fa1729ce20b06e:L1)|(320,700)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<FlexibleLayoutGroup Height="[float]335" Id="b6cedc1f09f84d56b660305fcb1c2477" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
@@ -212,6 +269,16 @@
 						<FlexibleLayoutComponent Height="[float]44" Id="318add9af4bf45e49c8c17c21e2df4d8" Left="[float]14" Top="[float]6" Width="[float]280">
 							<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="33620b419daf495fb7400bcd13b2da11" IsReadOnly="[bool]True" Label="[UIModel]915e79c9979f456c8ef0f6dec9964ea0" Left="[float]0" TabIndex="[int]0" Text="{DataItemBinding Id=97fc8db5994048edac8c1d8627404323}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]280" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 							<Label Height="[float]16" Id="915e79c9979f456c8ef0f6dec9964ea0" LabelOwner="[UIModel]33620b419daf495fb7400bcd13b2da11" Left="[float]0" Text="[string]current url" Top="[float]0" Width="[float]55" />
+						</FlexibleLayoutComponent>
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
+			<FlexibleLayoutGroup Height="[float]232" Id="70982e84bb034f18b16698fcef19503e" Left="[float]30" Top="[float]453" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]232" Id="c5370358b5394ea5aa88c815c5aa2d0f" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]216" Id="3bf224a8e11940ebaec03497ed5d8c12" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]204" Id="d0fbb71537354f24a5cf22da521e4974" Left="[float]14" Top="[float]6" Width="[float]376">
+							<HtmlContainer BaseName="[string]HTML Container" Height="[float]184" Id="b953a12a67be4c88af9bd438213b2639" Label="[UIModel]3d818a56cba4d4eb3fd7b81c8473b25" Left="[float]0" Top="[float]20" Width="[float]376" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<Label Height="[float]16" Id="3d818a56cba4d4eb3fd7b81c8473b25" LabelOwner="[UIModel]b953a12a67be4c88af9bd438213b2639" Left="[float]0" Text="[string]Single image from byte array" Top="[float]0" Width="[float]154" />
 						</FlexibleLayoutComponent>
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
@@ -261,6 +328,23 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="adffc030193149d9a2d3cb7c0f256ce0">
 			<Attributed AttributedType="@1b2f8d0688c44464b353edae4d60d2cb">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="047f275076ec4dad8eb62da2a6f875ce">
+			<Attributed AttributedType="@98bbe77d02b94be0b1cef1e0e9506a94">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="5ba24d0c8e704715883880dee5208c0d">
+			<Attributed AttributedType="@1321d5b2a31844d598a4391f8c4be743">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
@@ -356,6 +440,58 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
+		<p.TypeReference TypeId="98bbe77d02b94be0b1cef1e0e9506a94">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Update Source By Byte Array.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@801c9a0e0ae3428f8ff5662b2afc0632">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]synchronous image reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a5a996731fb44ff7a53fcbf17af4df9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]byte array" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c818a1c3fac84065beedd59c9b17424c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]type" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@7ebe9db9b81b4243a45350ff812f4aea">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@2e41d4d50a7649d4b6769021ca2fa843">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]name" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@75b65963ce184654875dd8c0cef76596">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]synchronous image reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@53891f63cfae4b43ac656ee8e64de405">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="1321d5b2a31844d598a4391f8c4be743">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="example byte array png.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@5a3045dd3a8c4371b889fbe614b7db72">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]byte array" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
 		<p.TypeReference TypeId="801c9a0e0ae3428f8ff5662b2afc0632">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@9d1d9460690b49b08913476feb216ebc" />
 		</p.TypeReference>
@@ -394,6 +530,18 @@
 				</Members>
 				<DataType>UInt16</DataType>
 			</Enumeration>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a5a996731fb44ff7a53fcbf17af4df9c">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="UInt8[]" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c818a1c3fac84065beedd59c9b17424c">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="2e41d4d50a7649d4b6769021ca2fa843">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="T0" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5a3045dd3a8c4371b889fbe614b7db72">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="UInt8[]" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="d5cc76c39163420cb65dd0e1a0e0eb64">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
@@ -467,6 +615,48 @@
 									<FontSetting FontFamily="Segoe UI" FontSize="6" FontStyle="Bold" />
 								</Text>
 							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="SynchronousImage::Update Source By Byte Array.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Path Data="[PathGeometry]M 9.41304874,0.111045271 C 9.73919392,-0.180116475 10.4524078,0.0977623388 11.2197161,0.977623403 C 11.9880743,1.85695302 12.1718922,2.60770416 11.8462715,2.8988657 L 10.4681625,4.13045883 L 8.03546524,1.34157562 L 9.41304874,0.111045271 Z M 2.03197479,9.71619511 L 5.00247097,8.30342293 L 3.52457571,8.56058025 L 3.58917451,7.08458138 L 3.10862231,7.33695745 L 3.2651298,6.31204653 L 1.51098263,9.11899471 L 2.03197479,9.71619511 Z M 5.35067463,8.70191097 L 0,10.9998569 L 2.91692638,5.91408968 L 6.06651354,3.10023499 L 8.49973679,5.88805532 L 5.35067463,8.70191097 Z M 9.64360809,4.79035425 L 7.2103858,2.00253391 C 7.03287029,1.79903948 7.4320178,1.4536835 7.60375595,1.6502707 L 10.0375042,4.43862295 C 10.2129183,4.63999176 9.8137722,4.98534822 9.64360809,4.79035425 M 8.86106968,5.49913168 L 6.42784739,2.7113111 C 6.2503314,2.50781631 6.64895344,2.16246057 6.82121706,2.36011028 L 9.25444031,5.14739943 C 9.43037987,5.34876919 9.03070736,5.6941247 8.86106968,5.49913168" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]23" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]25" Width="[float]12" />
+							<Path Data="[PathGeometry]M 8,4 L 0,4 L 0,0 L 8,0 L 8,4 Z M 17,0 L 9,0 L 9,4 L 17,4 L 17,0 Z M 8,5 L 0,5 L 0,9 L 8,9 L 8,5 Z M 17,5 L 9,5 L 9,9 L 17,9 L 17,5 Z M 8,10 L 0,10 L 0,14 L 8,14 L 8,10 Z M 17,10 L 9,10 L 9,14 L 17,14 L 17,10 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]14" Left="[float]5" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]16" Width="[float]17" />
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]SynchronousImage.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff9e005d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#ff9e005d" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff9e005d" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Foreground="[SMColor]#ffffffff" Height="[float]14" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]-1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]&lt;img⚡&gt;" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]1" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]41">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" FontStyle="Bold" />
+								</Text>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebApp::Support::example byte array png.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]example byte array png" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>

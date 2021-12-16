@@ -73,9 +73,17 @@
         ctx.drawImage(img, 0, 0);
     };
 
+    const updateSourceByByteArray = async function (synchronousImage, byteArray, type, name) {
+        const file = new File([byteArray], name, {type});
+        const url = URL.createObjectURL(file);
+        await updateSourceByUrl(synchronousImage, url);
+        URL.revokeObjectURL(url);
+    };
+
     window.WebVISynchronousImage = {
         create,
         destroy,
-        updateSourceByUrl
+        updateSourceByUrl,
+        updateSourceByByteArray
     };
 }());
