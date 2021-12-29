@@ -1,41 +1,24 @@
 (function () {
     'use strict';
 
-    const createExorbitant = async function () {
-        return await window.exorbitantHelpers.createExorbitant();
+    const createExorbitant = async function (configurationJSON) {
+        const configuration = JSON.parse(configurationJSON);
+        const exorbitant = await window.exorbitant.createExorbitantRuntime().createExorbitant(configuration);
+        return exorbitant;
     };
 
-    const createSymbolTable = function (exorbitant) {
-        return exorbitant.createSymbolTable();
+    const exorbitantValue = async function (exorbitant) {
+        const result = await exorbitant.value();
+        return result;
     };
 
-    const createExpression = function (exorbitant) {
-        return exorbitant.createExpression();
-    };
-
-    const createParser = function (exorbitant) {
-        return exorbitant.createParser();
-    };
-
-    const expressionRegisterSymbolTable = function (expression, symbolTable) {
-        return expression.registerSymbolTable(symbolTable);
-    };
-
-    const parserCompile = function (parser, expressionStr, expression) {
-        return parser.compile(expressionStr, expression);
-    };
-
-    const expressionValue = function (expression) {
-        return expression.value();
+    const exorbitantGetVector = async function (exorbitant, name) {
+        return exorbitant.getVector(name);
     };
 
     window.WebVIExorbitant = {
         createExorbitant,
-        createSymbolTable,
-        createExpression,
-        createParser,
-        expressionRegisterSymbolTable,
-        parserCompile,
-        expressionValue
+        exorbitantValue,
+        exorbitantGetVector
     };
 }());
