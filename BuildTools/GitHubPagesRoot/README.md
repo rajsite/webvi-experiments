@@ -12,6 +12,7 @@
 - [ControlTools](https://rajsite.github.io/webvi-experiments/ControlTools/)
 - [DeclarativeStyle](https://rajsite.github.io/webvi-experiments/DeclarativeStyle/)
 - [ECharts](https://rajsite.github.io/webvi-experiments/ECharts/)
+- [Exorbitant](https://rajsite.github.io/webvi-experiments/Exorbitant/)
 - [Express](https://webvicli-express.herokuapp.com/)
 - [File](https://rajsite.github.io/webvi-experiments/File/)
 - [GoogleCharts](https://rajsite.github.io/webvi-experiments/GoogleCharts/)

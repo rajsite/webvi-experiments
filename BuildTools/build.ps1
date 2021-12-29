@@ -42,7 +42,9 @@ Write-Host "Build ECharts project"
 Invoke-BuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 # TODO EventTarget
-# TODO Exorbitant
+
+Write-Host "Build Exorbitant project"
+Invoke-BuildApplication -ProjectDirectory ".\Exorbitant" -ProjectFileName "Exorbitant.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
 Write-Host "Build File project"
 Invoke-BuildApplication -ProjectDirectory ".\File" -ProjectFileName "File.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor

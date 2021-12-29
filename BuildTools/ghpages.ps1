@@ -69,7 +69,9 @@ Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ECharts" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ECharts"
 
 # TODO EventTarget
-# TODO Exorbitant
+
+Write-Host "Copy Exorbitant build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Exorbitant" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Exorbitant"
 
 Write-Host "Copy File build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
