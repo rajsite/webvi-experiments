@@ -65,14 +65,14 @@
                     lat: config.coordinate.latitude,
                     lng: config.coordinate.longitude
                 },
-                title: config.popupText,
-                anchorPoint: new window.google.maps.Point(config.popupAnchor.x, config.popupAnchor.y)
+                title: config.popupText
             };
             if (config.iconUrl !== '') {
                 options.icon = {
                     url: config.iconUrl,
                     anchor: new window.google.maps.Point(config.iconAnchor.x, config.iconAnchor.y)
                 };
+                options.anchorPoint = new window.google.maps.Point(config.popupAnchor.x, config.popupAnchor.y);
             }
             const marker = new window.google.maps.Marker(options);
             marker.addListener('click', () => this.showMarkerInfo());
