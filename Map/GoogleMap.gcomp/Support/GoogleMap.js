@@ -42,7 +42,10 @@
                 return;
             }
             this._infoWindow.setContent(title);
-            this._infoWindow.open(this._map, marker);
+            this._infoWindow.open({
+                map: this._map,
+                anchor: marker
+            });
         }
 
         updateMarkerInfoIfOpen (title, marker) {
@@ -56,19 +59,26 @@
     }
 
     class WebVIMarker {
-        constructor (lat, lng, title, iconUrl) {
+        constructor (config) {
             const options = {
-                position: {lat, lng},
-                title
+                position: {
+                    lat: config.coordinate.latitude,
+                    lng: config.coordinate.longitude
+                },
+                title: config.popupText,
+                anchorPoint: new window.google.maps.Point(config.popupAnchor.x, config.popupAnchor.y)
             };
-            if (iconUrl !== '') {
-                options.icon = iconUrl;
+            if (config.iconUrl !== '') {
+                options.icon = {
+                    url: config.iconUrl,
+                    anchor: new window.google.maps.Point(config.iconAnchor.x, config.iconAnchor.y)
+                };
             }
             const marker = new window.google.maps.Marker(options);
             marker.addListener('click', () => this.showMarkerInfo());
 
             this._webVIMap = undefined;
-            this._title = title;
+            this._title = config.popupText;
             this._marker = marker;
         }
 
@@ -164,9 +174,10 @@
         shapes.forEach(shape => shape.setMap(webVIMap.map));
     };
 
-    const createMarker = async function (lat, lng, title, iconUrl) {
+    const createMarker = async function (configJSON) {
         await tryAuthCheck();
-        const webVIMarker = new WebVIMarker(lat, lng, title, iconUrl);
+        const config = JSON.parse(configJSON);
+        const webVIMarker = new WebVIMarker(config);
         return webVIMarker;
     };
 

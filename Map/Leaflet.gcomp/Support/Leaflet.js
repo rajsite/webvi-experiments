@@ -30,14 +30,19 @@
         shapes.forEach(shape => shape.addTo(map));
     };
 
-    const createMarker = function (latitude, longitude, text, iconUrl) {
+    const createMarker = function (configJSON) {
+        const config = JSON.parse(configJSON);
         const options = {};
-        if (iconUrl !== '') {
-            options.icon = L.icon({iconUrl});
+        if (config.iconUrl !== '') {
+            options.icon = L.icon({
+                iconUrl: config.iconUrl,
+                iconAnchor: L.point(config.iconAnchor.x, config.iconAnchor.y),
+                popupAnchor: L.point(config.popupAnchor.x, config.popupAnchor.y)
+            });
         }
-        const marker = L.marker([latitude, longitude], options);
-        if (text !== '') {
-            marker.bindPopup(text);
+        const marker = L.marker([config.coordinate.latitude, config.coordinate.longitude], options);
+        if (config.popupText !== '') {
+            marker.bindPopup(config.popupText);
         }
         return marker;
     };
