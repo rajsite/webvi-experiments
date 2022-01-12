@@ -93,5 +93,10 @@
         element.columns[index].width = width;
     };
 
-    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip, treeGridCellTooltip, treeColumnWidth};
+    const tabSelectorVisible = function (selector, visible) {
+        const element = findControl(selector, 'NI-TAB-CONTROL');
+        element.tabSelectorHidden = !visible;
+    };
+
+    window.WebVIControlTools = {dataGridSortColumn, listboxItemTooltip, treeGridCellTooltip, treeColumnWidth, tabSelectorVisible};
 }());
