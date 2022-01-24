@@ -10,9 +10,9 @@
         }
         const [webAppElement] = webAppElements;
 
-        const isSupportedNXG = webAppElement && webAppElement.vireoInstance && webAppElement.vireoHelpers;
-        if (!isSupportedNXG) {
-            console.log('WebVIDebugger not supported in this version of NXG.');
+        const isSupported = webAppElement && webAppElement.vireoInstance && webAppElement.vireoHelpers;
+        if (!isSupported) {
+            console.log('WebVIDebugger not supported in this version of G Web Development Software.');
             return;
         }
 
