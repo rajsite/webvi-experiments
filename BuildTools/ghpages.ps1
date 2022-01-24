@@ -59,6 +59,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Arcade\Snake" -TargetName "Default W
 Write-Host "Copy Bootstrap build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Bootstrap"
 
+Write-Host "Copy ControlExtensions build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\ControlExtensions" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlExtensions"
+
 Write-Host "Copy ControlTools build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ControlTools" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlTools"
 

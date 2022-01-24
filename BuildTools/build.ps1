@@ -32,6 +32,9 @@ Invoke-BuildApplication -ProjectDirectory ".\Arcade\Snake" -ProjectFileName "Sna
 Write-Host "Build Bootstrap project"
 Invoke-BuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootstrap.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build ControlExtensions project"
+Invoke-BuildApplication -ProjectDirectory ".\ControlExtensions" -ProjectFileName "ControlExtensions.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build ControlTools project"
 Invoke-BuildApplication -ProjectDirectory ".\ControlTools" -ProjectFileName "ControlTools.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 

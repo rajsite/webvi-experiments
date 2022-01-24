@@ -9,6 +9,7 @@
     - [Reflex 👉](https://rajsite.github.io/webvi-experiments/Reflex/)
     - [Snake 🐍](https://rajsite.github.io/webvi-experiments/Snake/)
 - [Bootstrap](https://rajsite.github.io/webvi-experiments/Bootstrap/)
+- [ControlExtensions](https://rajsite.github.io/webvi-experiments/ControlExtensions/)
 - [ControlTools](https://rajsite.github.io/webvi-experiments/ControlTools/)
 - [DeclarativeStyle](https://rajsite.github.io/webvi-experiments/DeclarativeStyle/)
 - [ECharts](https://rajsite.github.io/webvi-experiments/ECharts/)
