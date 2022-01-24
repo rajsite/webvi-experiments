@@ -4,10 +4,12 @@ CoordMode, Mouse, Client
 WinWait G Web Development Software 2021
 WinActivate G Web Development Software 2021
 WinWaitActive G Web Development Software 2021
+Sleep 4000
+WinWaitActive G Web Development Software 2021
 Click, 400, 340
 
 ; Click the second REMIND ME NEXT TIME button if it exists
-Sleep 2000
+Sleep 4000
 IfWinExist, G Web Development Software 2021
 {
     WinActivate
