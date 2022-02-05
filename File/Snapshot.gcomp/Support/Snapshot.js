@@ -21,12 +21,18 @@
 
     const getImage = async function (selector, fileName) {
         const element = findElement(selector);
-        // For some reason passing a direct reference to the selected element creates a weird offset
-        // in the resulting image.
-        // Workaround passes the direct child of ni controls instead.
-        const niControlId = element.niControlId;
-        const workaroundElement = (typeof niControlId === 'string' && niControlId !== '') ? element.firstElementChild : element;
-        const blob = await window.htmlToImage.toBlob(workaroundElement, {backgroundColor: 'white'});
+        const blob = await window.htmlToImage.toBlob(element, {
+            backgroundColor: 'white',
+
+            // Generated image has the correct height and width
+            // but position can push it out of rendered viewport.
+            // For absolutely positioned controls this will bring
+            // them back in the viewport.
+            // See: https://github.com/bubkoo/html-to-image/issues/48
+            style: {
+                position: 'static'
+            }
+        });
         const file = coerceToFile(blob, fileName, 'image/png');
         return file;
     };
