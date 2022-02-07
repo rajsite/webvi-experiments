@@ -7,7 +7,7 @@ $nipm = "$Env:Programfiles\National Instruments\NI Package Manager\nipkg.exe"
 $install_NIPM = $true
 if ($install_NIPM)
 {
-    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager21.0.0.exe'
+    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager21.3.0.exe'
     $nipmInstaller = Join-Path -Path $rootDirectory -ChildPath 'install-nipm.exe'
     Assert-FileDoesNotExist($nipm)
     $time = (Get-Date).ToUniversalTime()
@@ -32,12 +32,12 @@ Assert-FileExists($nipm)
 $install_editor = $true
 if ($install_editor)
 {
-    $editor = "$Env:Programfiles\National Instruments\G Web Development Software 2021\GWeb.exe"
+    $editor = "$Env:Programfiles\National Instruments\G Web Development Software\GWeb.exe"
     Assert-FileDoesNotExist($editor)
 
     Write-Host "Adding Editor feeds to NI Package Manager"
-    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development-software-21.0.0/21.0/released'
-    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development-software-21.0.0/21.0/released-critical'
+    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development/22.0/released'
+    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development/22.0/released-critical'
     Invoke-Run $nipm 'update'
 
     Write-Host "Installing NI Certificates..."
@@ -49,7 +49,7 @@ if ($install_editor)
 
     Write-Host "Installing Editor..."
     Invoke-PrintDiskspace
-    Invoke-Run $nipm 'install ni-g-web-development-21.0.0 --accept-eulas --assume-yes'
+    Invoke-Run $nipm 'install ni-g-web-development --accept-eulas --assume-yes'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Invoke-PrintDiskspace

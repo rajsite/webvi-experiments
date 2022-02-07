@@ -20,7 +20,7 @@ function Watch-TrialWindow
 function Invoke-BuildApplication {
     Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName, [switch]$usemonitor = $false)
     Write-Host "Checking if GWeb CLI is available"
-    $cli = "$Env:Programfiles\National Instruments\G Web Development Software 2021\gwebcli.exe"
+    $cli = "$Env:Programfiles\National Instruments\G Web Development Software\gwebcli.exe"
     Assert-FileExists($cli)
 
     $projectpath = Resolve-Path (Join-Path $ProjectDirectory $ProjectFileName)
