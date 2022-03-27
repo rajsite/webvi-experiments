@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="758FE8B17C9186EC860994E2CD6B04C9B09C3566E2479E3D52129B3855AAFB6F40E048E0B4406ACD583BCFDF24B5F13F81F0702C6020BBDB95CC88FDB2BE6060" Timestamp="1D8421BFAEB8876" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C2F72DD1D8CBBB21E4F04DDC55AD10BD14B7AB9BF4F8217701E15098DE45B90137198C4122925D72FA58732BD2CD631F5C03A0551EC6B493D49B940EE1B885B1" Timestamp="1D84234E8004D6F" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -18,7 +18,7 @@
 				<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Id="7a02bbc9743c447699d77562be1e390e" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Listbox" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]11" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
 					<FontSetting FontFamily="Segoe UI" FontSize="6" Id="904dca5d21a14302adc7b4ec1f14b7ff" />
 				</Text>
-				<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Id="76dab339987a441e85a771e9ea6345c5" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Item" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]19" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+				<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Id="76dab339987a441e85a771e9ea6345c5" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]All Items" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]19" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
 					<FontSetting FontFamily="Segoe UI" FontSize="6" Id="c3af07e37b544cfbaf4407c73ddce06d" />
 				</Text>
 				<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Id="b14eb093508b4ac2ab297fb279ad310a" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Tooltip" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]28" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
@@ -90,7 +90,7 @@
 			<NodeLabel AttachedTo="412e13fe47df43c8af279a60d13dadd2" Bounds="415 160 74 14" Id="a7e04826d860452f93dd1ab549aa4425" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>reference out</p.Text>
 			</NodeLabel>
-			<MethodCall Bounds="455 200 40 40" Id="869476ed4c5b4dd3bd1417589271ee1a" ResolveFailedHint="ListboxItemTooltip" Signature="@740e629b27e1450ea507864d109b8791" Target="ControlExtensions::Support::ControlExtensions.jsli::ListboxItemTooltip" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="455 200 40 40" Id="869476ed4c5b4dd3bd1417589271ee1a" ResolveFailedHint="ListboxItemsEnableTooltip" Signature="@ddce434e281443a2845854525b96e92f" Target="ControlExtensions::Support::ControlExtensions.jsli::ListboxItemsEnableTooltip" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="element" />
@@ -184,8 +184,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="740e629b27e1450ea507864d109b8791">
-			<Attributed AttributedType="@f910309d5ef345a88ee3a3dbead96773">
+		<p.TypeReference TypeId="ddce434e281443a2845854525b96e92f">
+			<Attributed AttributedType="@5add050d9747499492aae3fe379e9083">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -227,8 +227,8 @@
 		<p.TypeReference TypeId="c339db7905a5477693c8bd40744350ce">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="f910309d5ef345a88ee3a3dbead96773">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="ListboxItemTooltip" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="5add050d9747499492aae3fe379e9083">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="ListboxItemsEnableTooltip" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@2e7f2ce668174119a436b277a31c6274">
 						<AttributeValues>
@@ -300,7 +300,7 @@
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="ControlExtensions::Support::ControlExtensions.jsli::ListboxItemTooltip">
+		<p.IconModel Target="ControlExtensions::Support::ControlExtensions.jsli::ListboxItemsEnableTooltip">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -308,7 +308,7 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]ListboxItemTooltip" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]ListboxItemsEnableTooltip" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>

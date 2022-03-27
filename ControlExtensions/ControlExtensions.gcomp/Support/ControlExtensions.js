@@ -41,7 +41,7 @@
         }
     };
 
-    const dataGridColumnSorting = function (element, index, sort) {
+    const dataGridColumnByIndexSetSorting = function (element, index, sort) {
         validateControl(element, 'NI-DATA-GRID');
         dataGridValidateAllowsSorting(element);
         const indexString = String(index);
@@ -60,13 +60,13 @@
     };
 
     // Listbox
-    const listboxItemTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
-    const listboxItemTooltip = function (element) {
+    const listboxItemsEnableTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
+    const listboxItemsEnableTooltip = function (element) {
         validateControl(element, 'JQX-LIST-BOX');
-        if (element[listboxItemTooltipHandler]) {
+        if (element[listboxItemsEnableTooltipHandler]) {
             return;
         }
-        element[listboxItemTooltipHandler] = event => {
+        element[listboxItemsEnableTooltipHandler] = event => {
             const listItem = findAncestorByTagname(event.target, 'JQX-LIST-ITEM');
             if (listItem !== undefined) {
                 const labelElements = listItem.querySelectorAll('.jqx-content-label');
@@ -77,7 +77,7 @@
                 }
             }
         };
-        element.addEventListener('mouseover', element[listboxItemTooltipHandler]);
+        element.addEventListener('mouseover', element[listboxItemsEnableTooltipHandler]);
     };
 
     // Tab
@@ -94,13 +94,13 @@
         }
     };
 
-    const treeCellTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
-    const treeCellTooltip = function (element) {
+    const treeCellsEnableTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
+    const treeCellsEnableTooltip = function (element) {
         validateControl(element, 'NI-TREE-GRID');
-        if (element[treeCellTooltipHandler]) {
+        if (element[treeCellsEnableTooltipHandler]) {
             return;
         }
-        element[treeCellTooltipHandler] = event => {
+        element[treeCellsEnableTooltipHandler] = event => {
             const gridCell = findAncestorByTagname(event.target, 'JQX-GRID-CELL');
             if (gridCell !== undefined) {
                 const labelElements = gridCell.querySelectorAll('.jqx-label');
@@ -111,10 +111,10 @@
                 }
             }
         };
-        element.addEventListener('mouseover', element[treeCellTooltipHandler]);
+        element.addEventListener('mouseover', element[treeCellsEnableTooltipHandler]);
     };
 
-    const treeColumnWidth = function (element, index, width) {
+    const treeColumnSetWidth = function (element, index, width) {
         validateControl(element, 'NI-TREE-GRID');
         treeValidateColumnIndex(element, index);
         element.columns[index].width = width;
@@ -177,11 +177,11 @@
     };
 
     window.WebVIControlExtensions = {
-        dataGridColumnSorting,
-        listboxItemTooltip,
+        dataGridColumnByIndexSetSorting,
+        listboxItemsEnableTooltip,
         tabSelectorVisible,
-        treeCellTooltip,
-        treeColumnWidth,
+        treeCellsEnableTooltip,
+        treeColumnSetWidth,
         obtainJavaScriptReferenceGObject
     };
 }());
