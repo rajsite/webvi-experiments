@@ -2,6 +2,36 @@
     'use strict';
 
     // Shared
+    const styleCreate = function (selector, declarations) {
+        const properties = Object.entries(declarations)
+            .map(([property, value]) => `${property}: ${value};`)
+            .join('\n');
+        const rule = `${selector} {
+            ${properties}
+        }`;
+        const style = document.createElement('style');
+        document.head.insertAdjacentElement('beforeend', style);
+        style.sheet.insertRule(rule);
+        return style;
+    };
+
+    const styleRemove = function (style) {
+        style.parentNode.removeChild(style);
+    };
+
+    const uniqueSelectorSymbol = Symbol('Unique selector for element');
+    const uniqueSelector = function (element) {
+        if (element[uniqueSelectorSymbol]) {
+            return element[uniqueSelectorSymbol];
+        }
+        const value = `_${Math.random().toString(36).substr(2, 9)}`;
+        const name = 'webvi-control-extension';
+        element.setAttribute(name, value);
+        const selector = `[${name}="${value}"]`;
+        element[uniqueSelectorSymbol] = selector;
+        return selector;
+    };
+
     const findAncestorByTagname = function (element, tagName) {
         let selectedElement;
         for (let currentElement = element; currentElement !== null; currentElement = currentElement.parentElement) {
@@ -21,6 +51,17 @@
         if (element.tagName !== tagName) {
             throw new Error(`Expected reference to target a ${tagName} but instead found ${element.tagName}`);
         }
+    };
+
+    // Button
+    const buttonGlyphCreateImageURLStyle = function (element, url) {
+        validateControl(element, 'JQX-TOGGLE-BUTTON');
+        const resolvedUrlInstance = new URL(url, window.location.href);
+        const resolvedUrl = resolvedUrlInstance.href;
+        const style = styleCreate(`${uniqueSelector(element)} .ni-glyph::before`, {
+            content: `url("${CSS.escape(resolvedUrl)}")`
+        });
+        return style;
     };
 
     // Data Grid
@@ -177,8 +218,15 @@
     };
 
     window.WebVIControlExtensions = {
+        buttonGlyphCreateImageURLStyle,
         dataGridColumnByIndexSetSorting,
+        // dataGridStringColumnByIndexCreateBackgroundColorStyle,
+        // dataGridStringColumnByIndexCreateFontColorStyle,
+        // dataGridStringColumnByIndexCreateTextOverflowScrollbarStyle,
+        // dataGridStringColumnByTextMatchCreateBackgroundColorStyle,
+        // dataGridStringColumnByTextMatchCreateFontColorStyle,
         listboxItemsEnableTooltip,
+        styleRemove,
         tabSelectorVisible,
         treeCellsEnableTooltip,
         treeColumnSetWidth,

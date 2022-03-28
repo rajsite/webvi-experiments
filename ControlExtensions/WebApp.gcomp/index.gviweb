@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="8815D614B6340433F98421B6E4A22DB1B6526B0F6DD93F0037B50DC75C7B80513FB117134184FEBC5F20FFDEA7F2C45CD3DAF076D5F4D2F92028A9CCDF3D58E9" Timestamp="1D84234A7C92DB5" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="32859C44D2B16005C29C4F9A6DDAD61613F082EC595C9B1E6687D0EB4FE28DB985DFDD31A364F29211BB20BAA0FC7DA3318987B9A78E84676CC702BC02705E3D" Timestamp="1D8426ECB32075F" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -113,6 +113,12 @@
 			</DataAccessor>
 			<NodeLabel AttachedTo="eca51b4faa104f95affcb8cc153d2072" Bounds="39 17 110 14" Id="30d59177b03b4e28a9986b882439034c" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>tab selector visible?</p.Text>
+			</NodeLabel>
+			<DataAccessor Bounds="0 0 40 15" DataItem="bc3b0f36331e4c3bae8477c025e1649b" Id="1eac2020da62407fbfe93ea893ce5acc" Label="7106689ca2eb443e8daa507cda35fec9">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="1eac2020da62407fbfe93ea893ce5acc" Bounds="-35 0 30 15" Id="7106689ca2eb443e8daa507cda35fec9" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>button</p.Text>
 			</NodeLabel>
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
@@ -312,9 +318,67 @@
 				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 			<Wire Id="dae8b5ecdd2b4a84a56e9c9396cf2724" Joints="N(adbb06e2b04a40a2a26481257dbf457a:R3)|(360,315) N(5259854224724162907772f4914cc92b:L0)|(375,315)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ControlReference Bounds="225 140 70 20" Id="4374c3413319428f9cfa764914fc56e7" SourceControl="83836159c95b4c9699f505bdbd350d1c" />
+			<MethodCall Bounds="320 165 40 40" Id="80ad595321ab43e6aa4485286942e4a8" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\Button - Glyph - Create Image URL Style.gvi&quot;" Signature="@fe6cd3b360054e9f8783354f1ad2f3ea" Target="ControlExtensions::Button - Glyph - Create Image URL Style.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="url" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R1" Desc="style reference" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@7d427e74c89d4ac4b501bad2dd3d981c" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="5072e6b8a7814254a970c491de5d1026" Joints="N(4374c3413319428f9cfa764914fc56e7:control reference)|(295,145) h(5) v(25) N(80ad595321ab43e6aa4485286942e4a8:L0)|(320,170)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Literal Bounds="155 175 140 15" DataType="String" Id="ac01ffa256044daa95cc463629ff6187" Label="64e6a6a9457e4bf5847e98669eb36d05" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>Support/lightbulb.svg</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="ac01ffa256044daa95cc463629ff6187" Bounds="155 157 30 15" Id="64e6a6a9457e4bf5847e98669eb36d05" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>url</p.Text>
+			</NodeLabel>
+			<Wire Id="c734b70d0e443cf9459926bb64ea4b7" Joints="N(ac01ffa256044daa95cc463629ff6187:Out)|(295,180) N(80ad595321ab43e6aa4485286942e4a8:L1)|(320,180)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="375 195 20 20" Id="31c5563e077b4e898a214875fa5229e1" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="149595f0d47f4bd2afde0d6d82744b97" Joints="N(80ad595321ab43e6aa4485286942e4a8:R3)|(360,200) N(31c5563e077b4e898a214875fa5229e1:L0)|(375,200)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]900" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<FlexibleLayoutGroup Height="[float]44" Id="38b6ff13a3a24d2ba07226b315d6731c" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+		<HtmlFrontPanel Height="[float]1000" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<FlexibleLayoutGroup Height="[float]44" Id="ed3c9786952942569d4340670c61ffb2" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="3bc8a73306a14757985272b9ae884fcd" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]28" Id="924cfe3569324ffcb55f10a518f7d3ae" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]16" Id="24bbf256acf745e9bd36f88f07033488" Left="[float]14" Top="[float]6" Width="[float]110">
+							<Text BaseName="[string]Text" Height="[float]16" Id="22dbfa2d459c4bde8dbbd3421886905b" Left="[float]0" Text="[string]Button Extensions" TextWrapping="[TextWrapping]Wrap" Top="[float]0" Width="[float]110" xmlns="http://www.ni.com/PlatformFramework">
+								<FontSetting FontFamily="Segoe UI" FontSize="9" FontStyle="Bold" Id="bbaff04ca7b34168b41e5dede2b6d4fb" />
+							</Text>
+						</FlexibleLayoutComponent>
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
+			<FlexibleLayoutGroup Height="[float]56" Id="b87da8be1ec04c10a59659c659e5de44" Left="[float]30" Top="[float]74" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]56" Id="1922ca5ec2754019af2a6fa0bae251f4" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]40" Id="c3f82c5575ad4674a847d16ce2335f48" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]28" Id="738c0a1450394ceebd99eb33d5589356" Left="[float]14" Top="[float]6" Width="[float]152">
+							<Button BaseName="[string]Button" Content="[string]Custom Glyph" Height="[float]28" Id="83836159c95b4c9699f505bdbd350d1c" Label="[UIModel]dda2b0298def4c1285621c6aca731e7e" Left="[float]0" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=bc3b0f36331e4c3bae8477c025e1649b}" Width="[float]152" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<Label Height="[float]0" Id="dda2b0298def4c1285621c6aca731e7e" LabelOwner="[UIModel]83836159c95b4c9699f505bdbd350d1c" Left="[float]0" Text="[string]button" Top="[float]-20" Visible="[bool]False" Width="[float]0" />
+						</FlexibleLayoutComponent>
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
+			<FlexibleLayoutGroup Height="[float]44" Id="38b6ff13a3a24d2ba07226b315d6731c" Left="[float]30" Top="[float]130" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="a7f73a4b4e1c4300bfabb72cf6fb9b43" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="d8b95a25dfae4563afef777d45001a01" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="fd58dff9a2c140adb14140d1b824b3d4" Left="[float]14" Top="[float]6" Width="[float]125">
@@ -325,7 +389,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]148" Id="394b12ca64594bc5a1239ee2eae63c5c" Left="[float]30" Top="[float]74" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]148" Id="394b12ca64594bc5a1239ee2eae63c5c" Left="[float]30" Top="[float]174" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]148" Id="b1ecef640ee246f3b006a3d8f8caf7c0" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]132" Id="a81533265b54cab84b50bad833d8cc9" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]120" Id="df1af6378b164096948b6dffe8629a95" Left="[float]14" Top="[float]6" Width="[float]250">
@@ -347,7 +411,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]44" Id="dc6fc18602674ab3a7b0d6c71b87f032" Left="[float]30" Top="[float]222" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]44" Id="dc6fc18602674ab3a7b0d6c71b87f032" Left="[float]30" Top="[float]322" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="e2b338a6f8094770a62c73d8d400a085" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="3fb6afa6918a4fdc8ece5e461e194fd5" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="c6cabd803b5142f5bbf39b6a7203b983" Left="[float]14" Top="[float]6" Width="[float]111">
@@ -358,7 +422,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]44" Id="ca63f23673eb42e6b4aaa6927ae711fb" Left="[float]30" Top="[float]266" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]44" Id="ca63f23673eb42e6b4aaa6927ae711fb" Left="[float]30" Top="[float]366" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="de889f4345e24d6fbf78c58ff8f8a4a7" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="ac0dbf0a87954fe2bb65c08fa87ea190" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="4da31a6d42eb45efb4994d72b76c0f3f" Left="[float]14" Top="[float]6" Width="[float]415">
@@ -367,7 +431,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]84" Id="274f74de58334c80ae5235ae23a38d7e" Left="[float]30" Top="[float]310" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]84" Id="274f74de58334c80ae5235ae23a38d7e" Left="[float]30" Top="[float]410" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]84" Id="a14c3e30a6eb435bbccac47951658398" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]68" Id="60b6998fcc3d415293fd2ca186f92ae8" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]56" Id="1f39f9e19e324f99bc31f32d35900c04" Left="[float]14" Top="[float]6" Width="[float]120">
@@ -380,7 +444,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]44" Id="9cd9dbcd21a7458bb6de5a11115204f8" Left="[float]30" Top="[float]394" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]44" Id="9cd9dbcd21a7458bb6de5a11115204f8" Left="[float]30" Top="[float]494" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="a3c7c822d3ed4994b9a84e159066cbde" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="87424c1e3e8e4b2a9eeae9081992a115" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="60d0f7101e0c4549a95b60248a5ab262" Left="[float]14" Top="[float]6" Width="[float]101">
@@ -391,7 +455,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]84" Id="6d748046566a441694c02f0b13ddf727" Left="[float]30" Top="[float]438" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]84" Id="6d748046566a441694c02f0b13ddf727" Left="[float]30" Top="[float]538" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]0.96680945158004761" Height="[float]84" Id="fed2bddfacb346e597ec625307fa89c1" Left="[float]0" Top="[float]0" Width="[float]311">
 					<FlexibleLayoutContainer Direction="[FlexibleLayoutDirection]Column" Height="[float]68" HorizontalContentAlignment="[FlexibleLayoutHorizontalContentAlignment]Left" Id="ef7696c382794ecd933539140d05002c" Left="[float]8" Top="[float]8" VerticalContentAlignment="[FlexibleLayoutVerticalContentAlignment]Top" Width="[float]295">
 						<FlexibleLayoutComponent Height="[float]24" Id="eff5fe51e9f440068e0886769748e712" Left="[float]14" Top="[float]6" Width="[float]230">
@@ -429,7 +493,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]44" Id="8c232dcb4b0243d383d7fd568eb6c8a9" Left="[float]30" Top="[float]522" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]44" Id="8c232dcb4b0243d383d7fd568eb6c8a9" Left="[float]30" Top="[float]622" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="112f33a31f9744b88e16da437be9da54" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="8b8f0c343aeb43e392b57fa08780bb60" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="2e79e150b5eb4a9bb89598b982bfdce7" Left="[float]14" Top="[float]6" Width="[float]91">
@@ -440,7 +504,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]88" Id="9774031956e84b7985b4e4170810923d" Left="[float]30" Top="[float]566" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]88" Id="9774031956e84b7985b4e4170810923d" Left="[float]30" Top="[float]666" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]88" Id="e3f3914c6b1b492bb3c058be3b1df06f" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]72" Id="26f0704304ad46a6adb44ed85b41772a" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]55" Id="3baa047c5a2445c1af65b1aebb6238d1" Left="[float]14" Top="[float]6" Width="[float]200">
@@ -461,7 +525,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]44" Id="784bb8bc717e4589bffcaab1510f3893" Left="[float]30" Top="[float]654" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]44" Id="784bb8bc717e4589bffcaab1510f3893" Left="[float]30" Top="[float]754" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="41cb400c450045988e8cf4004a66bb19" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="54eff4ed36aa4103b6f919e21ef29f46" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="988f63a9fcf433d871c1b3a9f5e0da4" Left="[float]14" Top="[float]6" Width="[float]95">
@@ -472,7 +536,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]44" Id="c06f020bf6024d3fb16a3cb95d6e0060" Left="[float]30" Top="[float]698" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]44" Id="c06f020bf6024d3fb16a3cb95d6e0060" Left="[float]30" Top="[float]798" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]44" Id="23060b2c28b0450c81e3bcfbac2cb025" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]28" Id="ab6f8b0aaec44c0a14b3d4ddda0f5cb" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]16" Id="92ec833a0f31436eb570a7470abfdf9b" Left="[float]14" Top="[float]6" Width="[float]428">
@@ -481,7 +545,7 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
-			<FlexibleLayoutGroup Height="[float]128" Id="bbc076e304764b51beb37ea756b1cc1a" Left="[float]30" Top="[float]742" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+			<FlexibleLayoutGroup Height="[float]128" Id="bbc076e304764b51beb37ea756b1cc1a" Left="[float]30" Top="[float]842" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
 				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]128" Id="f2b1b6397db4448793a5935b16929a43" Left="[float]0" Top="[float]0" Width="[float]964">
 					<FlexibleLayoutContainer Height="[float]112" Id="3eca186cf1744df9ba680b0223128dfd" Left="[float]8" Top="[float]8" Width="[float]948">
 						<FlexibleLayoutComponent Height="[float]100" Id="634f787da02845dc92618348a8240b57" Left="[float]14" Top="[float]6" Width="[float]200">
@@ -548,6 +612,9 @@
 		</DataItem>
 		<DataItem AdaptToDiagramType="True" DataType="@12b3d1398eb34940b2670ea038364e4b" Id="e03c0d34f60b4631a49d75fa16a92246" Name="data grid column sorting" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="bc3b0f36331e4c3bae8477c025e1649b" IsLatched="True" Name="button" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
@@ -694,6 +761,22 @@
 					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="fe6cd3b360054e9f8783354f1ad2f3ea">
+			<Attributed AttributedType="@6ee2e2c3ba40495aa1224d1e518c82d9">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="7d427e74c89d4ac4b501bad2dd3d981c">
+			<Attributed AttributedType="@a5e29c06ff0240d4bf978874905833a8">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]ControlExtensions::Support" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
@@ -894,6 +977,45 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
+		<p.TypeReference TypeId="6ee2e2c3ba40495aa1224d1e518c82d9">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Button - Glyph - Create Image URL Style.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@28a66d11938348d1b09933040fc05de8">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@61509ba928574a64a4d5e8923a086430">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]url" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@dd1bd89719244ab598832de98edb4bc3">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a8e5c0be4f7a476c8411cc06438061d6">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]style reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="a5e29c06ff0240d4bf978874905833a8">
+			<Typedef TypedefName="style reference.gtype" UnderlyingType="@1d3dad5424334f73a28a304ccb234f5b" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="26a42124be854918ac8597e0a3d5997f">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
@@ -968,6 +1090,28 @@
 		</p.TypeReference>
 		<p.TypeReference TypeId="a3dd82b2199f45798cc88297cd37085c">
 			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxBaseProxy, NationalInstruments.Controls.Runtime" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="28a66d11938348d1b09933040fc05de8">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="61509ba928574a64a4d5e8923a086430">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="dd1bd89719244ab598832de98edb4bc3">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType=":DotNet:NationalInstruments.Controls.Runtime.BooleanControlBaseProxy, NationalInstruments.Controls.Runtime" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a8e5c0be4f7a476c8411cc06438061d6">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="@7d427e74c89d4ac4b501bad2dd3d981c" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="1d3dad5424334f73a28a304ccb234f5b">
+			<Attributed AttributedType="@c339db7905a5477693c8bd40744350ce">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c339db7905a5477693c8bd40744350ce">
+			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
@@ -1132,6 +1276,38 @@
 								<FontSetting FontFamily="Segoe UI" FontSize="6" />
 							</Text>
 							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Tooltip" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]27" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]ControlExtensions.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#fff8941c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#fff8941c" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#fff8941c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Foreground="[SMColor]#ffffffff" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]7" SizeMode="[TextModelSizeMode]Fixed" Text="[string]CTRL" TextAlignment="[TextAlignment]Left" TextWrapping="[TextWrapping]Wrap" Top="[float]2" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]30">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</Text>
+								<Image BaseName="[string]Image" Height="[float]22" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]21" Source="[EmbeddedDrawingImage]&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#xA;&lt;svg&#xA;   height=&quot;24px&quot;&#xA;   viewBox=&quot;0 0 24 24&quot;&#xA;   width=&quot;24px&quot;&#xA;   fill=&quot;#FFFFFF&quot;&#xA;   version=&quot;1.1&quot;&#xA;   id=&quot;svg6&quot;&#xA;   sodipodi:docname=&quot;extension_white_24dp.svg&quot;&#xA;   inkscape:version=&quot;1.1 (c68e22c387, 2021-05-23)&quot;&#xA;   xmlns:inkscape=&quot;http://www.inkscape.org/namespaces/inkscape&quot;&#xA;   xmlns:sodipodi=&quot;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&quot;&#xA;   xmlns=&quot;http://www.w3.org/2000/svg&quot;&#xA;   xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;&#xA;  &lt;defs&#xA;     id=&quot;defs10&quot; /&gt;&#xA;  &lt;sodipodi:namedview&#xA;     id=&quot;namedview8&quot;&#xA;     pagecolor=&quot;#ffffff&quot;&#xA;     bordercolor=&quot;#666666&quot;&#xA;     borderopacity=&quot;1.0&quot;&#xA;     inkscape:pageshadow=&quot;2&quot;&#xA;     inkscape:pageopacity=&quot;0.0&quot;&#xA;     inkscape:pagecheckerboard=&quot;true&quot;&#xA;     showgrid=&quot;false&quot;&#xA;     inkscape:zoom=&quot;33.791667&quot;&#xA;     inkscape:cx=&quot;8.567201&quot;&#xA;     inkscape:cy=&quot;11.156597&quot;&#xA;     inkscape:window-width=&quot;1920&quot;&#xA;     inkscape:window-height=&quot;996&quot;&#xA;     inkscape:window-x=&quot;-8&quot;&#xA;     inkscape:window-y=&quot;-8&quot;&#xA;     inkscape:window-maximized=&quot;1&quot;&#xA;     inkscape:current-layer=&quot;svg6&quot; /&gt;&#xA;  &lt;path&#xA;     d=&quot;M 0,0 H 30 V 30 H 0 Z&quot;&#xA;     fill=&quot;none&quot;&#xA;     id=&quot;path2&quot;&#xA;     style=&quot;stroke-width:1.25&quot; /&gt;&#xA;  &lt;path&#xA;     d=&quot;M 11.285714,8.857144 H 10.857143 V 7.714286 C 10.857143,7.399999 10.6,7.142857 10.285714,7.142857 H 9.142856 V 6.714286 C 9.142856,6.319999 8.822857,6 8.428571,6 8.034286,6 7.714286,6.319999 7.714286,6.714286 V 7.142857 H 6.571429 c -0.314287,0 -0.568573,0.257142 -0.568573,0.571429 V 8.8 H 6.42857 c 0.425716,0 0.771429,0.345715 0.771429,0.771429 0,0.425713 -0.345713,0.771429 -0.771429,0.771429 H 6 v 1.085713 C 6,11.742857 6.257142,12 6.571429,12 h 1.085713 v -0.428572 c 0,-0.425714 0.345716,-0.771429 0.771429,-0.771429 0.425714,0 0.771429,0.345715 0.771429,0.771429 V 12 h 1.085714 C 10.6,12 10.857143,11.742857 10.857143,11.428571 v -1.142857 h 0.428571 C 11.680001,10.285714 12,9.965714 12,9.571429 12,9.177143 11.680001,8.857144 11.285714,8.857144 Z&quot;&#xA;     id=&quot;path4&quot;&#xA;     style=&quot;stroke-width:0.285715&quot; /&gt;&#xA;  &lt;rect&#xA;     style=&quot;opacity:0;fill:#0000ff;fill-rule:evenodd;stroke-width:1.47807&quot;&#xA;     id=&quot;rect335&quot;&#xA;     width=&quot;18.75&quot;&#xA;     height=&quot;18.75&quot;&#xA;     x=&quot;0&quot;&#xA;     y=&quot;0&quot; /&gt;&#xA;&lt;/svg&gt;&#xA;" Stretch="[SMStretch]Uniform" Top="[float]-3" VerticalAlignment="[VerticalAlignment]Top" Width="[float]22" />
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="ControlExtensions::Button - Glyph - Create Image URL Style.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Button" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]11" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Glyph" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]19" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]URL" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]28" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
 								<FontSetting FontFamily="Segoe UI" FontSize="6" />
 							</Text>
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]ControlExtensions.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
