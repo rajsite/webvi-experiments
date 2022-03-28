@@ -2,16 +2,10 @@
     'use strict';
 
     // Shared
-    const styleCreate = function (selector, declarations) {
-        const properties = Object.entries(declarations)
-            .map(([property, value]) => `${property}: ${value};`)
-            .join('\n');
-        const rule = `${selector} {
-            ${properties}
-        }`;
+    const styleCreate = function (...rules) {
         const style = document.createElement('style');
         document.head.insertAdjacentElement('beforeend', style);
-        style.sheet.insertRule(rule);
+        rules.forEach(rule => style.sheet.insertRule(rule));
         return style;
     };
 
@@ -58,9 +52,11 @@
         validateControl(element, 'JQX-TOGGLE-BUTTON');
         const resolvedUrlInstance = new URL(url, window.location.href);
         const resolvedUrl = resolvedUrlInstance.href;
-        const style = styleCreate(`${uniqueSelector(element)} .ni-glyph::before`, {
-            content: `url("${CSS.escape(resolvedUrl)}")`
-        });
+        const elementSelector = uniqueSelector(element);
+        const urlEscaped = CSS.escape(resolvedUrl);
+        const style = styleCreate(`${elementSelector} .ni-glyph::before {
+            content: url("${urlEscaped}");
+        }`);
         return style;
     };
 
