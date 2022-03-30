@@ -26,6 +26,7 @@
 - [JSONParser](https://rajsite.github.io/webvi-experiments/JSONParser/)
 - [MachineLearning](https://rajsite.github.io/webvi-experiments/MachineLearning/)
 - [Map](https://rajsite.github.io/webvi-experiments/Leaflet/)
+- [Perspective](https://rajsite.github.io/webvi-experiments/Perspective/)
 - [Plotly](https://rajsite.github.io/webvi-experiments/Plotly/)
 - [PlotToolDemo](https://rajsite.github.io/webvi-experiments/PlotToolDemo/)
 - [RichText](https://rajsite.github.io/webvi-experiments/RichText/)

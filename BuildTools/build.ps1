@@ -84,6 +84,9 @@ Invoke-BuildApplication -ProjectDirectory ".\MachineLearning" -ProjectFileName "
 Write-Host "Build Map project"
 Invoke-BuildApplication -ProjectDirectory ".\Map" -ProjectFileName "Map.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
+Write-Host "Build Perspective project"
+Invoke-BuildApplication -ProjectDirectory ".\Perspective" -ProjectFileName "Perspective.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
+
 Write-Host "Build PlotToolDemo project"
 Invoke-BuildApplication -ProjectDirectory ".\PlotToolDemo" -ProjectFileName "PlotToolDemo.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -usemonitor:$usemonitor
 
