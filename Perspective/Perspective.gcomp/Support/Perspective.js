@@ -102,11 +102,59 @@ const viewerLoad = (viewer, table) => {
     viewer.load(table);
 };
 
+const uniqBy = (arr, predicate) => {
+    const cb = typeof predicate === 'function' ? predicate : o => o[predicate];
+
+    return [...arr.reduce((map, item) => {
+        const key = (item === null || item === undefined) ? item : cb(item);
+
+        if (map.has(key)) {
+            map.set(key, item);
+        }
+
+        return map;
+    }, new Map()).values()];
+};
+
+const filterViewer = async (viewer, filters, candidates) => {
+    const config = await viewer.save();
+    const table = await viewer.getTable();
+    const availableColumns = Object.keys(await table.schema());
+    const currentFilters = config.filter || [];
+    const columnAvailable = filter => filter[0] && availableColumns.includes(filter[0]);
+    const validFilters = filters.filter(columnAvailable);
+
+    validFilters.push(
+        ...currentFilters.filter(x => !candidates.has(x[0]))
+    );
+    const newFilters = uniqBy(validFilters, item => item[0]);
+    await viewer.restore({filter: newFilters});
+};
+
+// WIP
+const viewerLink = (viewer, parentViewer) => {
+    const handler = async event => {
+        const config = await event.target.save();
+        const candidates = new Set([
+            ...(config.group_by || []),
+            ...(config.split_by || []),
+            ...(config.filter || []).map(x => x[0]),
+        ]);
+        const filters = [...event.detail.config.filter];
+        if (viewer !== event.target) {
+            filterViewer(viewer, filters, candidates);
+        }
+    };
+    parentViewer.addEventListener('perspective-click', handler);
+    parentViewer.addEventListener('perspective-select', handler);
+};
+
 window.WebVIPerspective = {
     tableCreate,
     tableDestroy,
     tableUpdate,
     viewerCreate,
     viewerDestroy,
-    viewerLoad
+    viewerLoad,
+    viewerLink
 };
