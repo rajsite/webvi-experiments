@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="73D779AC25B0553543F20393A47811E57062737015C02A99446CF7AC95E9B9D53A6E5B2C9330FDA37BE7D3F756886118C58478A4112826D13DC38189FEFB66D1" Timestamp="1D8546A5E9A5F48" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="C88952D1AD62C8F3A5F1E4F01DDA8125CF5DDCA7D21FF733A5F61CBE26CA38AD2C07D2308B483989064C3197B0BA99CA1796B4600C65C48D597D1404AD667E6E" Timestamp="1D854C921BA2557" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -14,7 +14,7 @@
 				<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="613e354d0a2d4f4795668bed25d035f3" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 					<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="b67e3f0f2a2d4526b221fb1a3c5e3c08" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 					<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="9a36ac7458554a1faa3d17bd6f75bbde" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-					<FileNameText Attached="[bool]True" Id="7e3a9ff2592640ad9c404ff36afca3e6" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Create Viewer" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+					<FileNameText Attached="[bool]True" Id="7e3a9ff2592640ad9c404ff36afca3e6" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Viewer Create" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 						<FontSetting FontFamily="Segoe UI" FontSize="9" Id="5930a44075324178a1d1db697c2bcccf" />
 					</FileNameText>
 				</IconTemplate>
@@ -52,7 +52,7 @@
 				<p.Text>error in</p.Text>
 			</NodeLabel>
 			<Wire Id="2e79bad01324cda949343a1d2522373" Joints="N(6cfccf64c81d4d7a846e4cb267f5c3a0:Value)|(365,245) N(5cf0138cfedf45f1945cfd554216f79d:error in)|(385,245)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="485 210 40 40" Id="c535c4544cf749eba13fa4ebfb6eced4" ResolveFailedHint="CreateViewer" Signature="@94728e8a92a54e7b941db5423f347202" Target="Perspective::Support::Perspective.jsli::CreateViewer" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="485 210 40 40" Id="c535c4544cf749eba13fa4ebfb6eced4" ResolveFailedHint="ViewerCreate" Signature="@58f1dd8ae01e4f368332ac3995cc45f1" Target="Perspective::Support::Perspective.jsli::ViewerCreate" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L1" Desc="container" />
@@ -158,8 +158,8 @@
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="94728e8a92a54e7b941db5423f347202">
-			<Attributed AttributedType="@d5e4534409ef4d9e807ada6ad8a97c47">
+		<p.TypeReference TypeId="58f1dd8ae01e4f368332ac3995cc45f1">
+			<Attributed AttributedType="@a0047226acf541a997e31bdeb4a127f2">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -181,8 +181,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d5e4534409ef4d9e807ada6ad8a97c47">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="CreateViewer" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="a0047226acf541a997e31bdeb4a127f2">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="ViewerCreate" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@f5b393bfcaa7457f943319b1335db925">
 						<AttributeValues>
@@ -227,7 +227,7 @@
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.IconModel Target="Perspective::Support::Perspective.jsli::CreateViewer">
+		<p.IconModel Target="Perspective::Support::Perspective.jsli::ViewerCreate">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -235,7 +235,7 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CreateViewer" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]ViewerCreate" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" />
 								</FileNameText>
 							</IconTemplate>

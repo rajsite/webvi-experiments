@@ -59,7 +59,7 @@ class PerspectiveDataItem extends DataItem {
 
 const perspectiveDataItem = new PerspectiveDataItem('Perspective::Table::Table Update.gvi', 'dataItem_Dataprobe');
 
-const createTable = async schemaJSON => {
+const tableCreate = async schemaJSON => {
     const schemaColumns = JSON.parse(schemaJSON);
     if (schemaColumns.length <= 0) {
         throw new Error(`Expect at least one column in the table schema ${schemaColumns.length}`);
@@ -72,7 +72,7 @@ const createTable = async schemaJSON => {
     return table;
 };
 
-const destroyTable = table => {
+const tableDestroy = table => {
     table.delete();
 };
 
@@ -82,7 +82,7 @@ const tableUpdate = async table => {
     table.update(value);
 };
 
-const createViewer = container => {
+const viewerCreate = container => {
     const viewer = document.createElement('perspective-viewer');
     viewer.classList.add('webvi-perspective');
     container.innerHTML = '';
@@ -90,19 +90,19 @@ const createViewer = container => {
     return viewer;
 };
 
+const viewerDestroy = viewer => {
+    viewer.destroy();
+};
+
 const viewerLoad = (viewer, table) => {
     viewer.load(table);
 };
 
-const destroyViewer = viewer => {
-    viewer.destroy();
-};
-
 window.WebVIPerspective = {
-    createTable,
-    destroyTable,
+    tableCreate,
+    tableDestroy,
     tableUpdate,
-    createViewer,
-    destroyViewer,
+    viewerCreate,
+    viewerDestroy,
     viewerLoad
 };
