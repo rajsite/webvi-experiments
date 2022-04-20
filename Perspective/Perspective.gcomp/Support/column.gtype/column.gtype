@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="B2B84626148A78B606FE057D8852B9A805CE2DE395E0AA1EA051178A3A419E301BBBB4F1DFEEFE134913A4F8A0B1EF79CE13EB2F151805B86EDE4F75C4380F84" Timestamp="1D8546A954F8AD8" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.3.0.49613" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="9.3.0.49613" Name="G Web Development Software" Version="22.0.0" />
+	</SourceModelFeatureSet>
+	<TypeDefinition DataType="@e8517bd2e0fb4c5fb967d6ea7702a68e" Id="5f3fc8b5584e436bbd6d76af9bfb5590" xmlns="http://www.ni.com/MocCommon">
+		<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+			<TypeDefinitionTarget TargetName="Perspective::Support::column type.gtype" />
+		</p.TypeDefinitionTargets>
+		<Icon Id="ddfc7673fe5a4af59a03e5e12dc93c61" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="9f8261b9d7dd4e4abdd7fd5a119862cc" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="a1e3a0a4d1804b5a9bccb2ee10539134" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<DataItem DataType="@e8517bd2e0fb4c5fb967d6ea7702a68e" Id="c0825dc3bea4507839163b6d4e3d63d" Name="column">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>""</Field1>
+					<Field2>0</Field2>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="Perspective::Support::column type.gtype" />
+			</p.TypeDefinitionTargets>
+		</DataItem>
+	</TypeDefinition>
+	<EnvoyManagerFile Id="237e84460b0f4bc8b77e1d4f7ce9ffe3" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="31ef71b041dc4fb180757dbdfd2d511b" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="f43b26c654ce4db68277752269447f3a" Name="column.gtype" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Bindings="{http://www.ni.com/PlatformFramework}NeverLazy" Id="4dfb93bef0584f2f89509cc87564e361" ModelDefinitionType="{http://www.ni.com/MocCommon}ControlDefinition" Name="ControlDefinition">
+				<ControlDefinition DefaultDirection="Control" Id="e03e6f2fda6746579d917e6d8b5cdd00" xmlns="http://www.ni.com/MocCommon">
+					<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@e8517bd2e0fb4c5fb967d6ea7702a68e" Height="[float]110" Id="3920dd003afb44e49bb6866d6eacb1f8" Label="[UIModel]6f881072f7fb405cb95a6f4001ef40b8" Left="[float]283" TabIndex="[int]0" Top="[float]198" Value="{DataItemBinding Id=c0825dc3bea4507839163b6d4e3d63d}" Width="[float]186" xmlns="http://www.ni.com/PanelCommon">
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="dfaa4076b0874862af1510d580cf1e4f" Label="[UIModel]7ffc35e437ad4892ab1bed8b24faf164" Left="[float]7" TabIndex="[int]0" Text="{ClusterBinding FieldName=name}" Top="[float]23" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]167" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<Label Height="[float]16" Id="7ffc35e437ad4892ab1bed8b24faf164" LabelOwner="[UIModel]dfaa4076b0874862af1510d580cf1e4f" Left="[float]7" Text="[string]name" Top="[float]3" Width="[float]30" />
+						<EnumSelector AllowUndefinedValueEntry="[bool]False" BaseName="[string]column type" Height="[float]24" Id="cf7bb32b1ef3420a9572c0f0d51b7659" IsTabStop="[bool]True" IsTypeAheadEnabled="[bool]True" Label="[UIModel]1fb4a2e36a7643a692ec8491f5fb4017" LabelLinked="[bool]True" Left="[float]6" TabIndex="[int]1" Top="[float]70" Value="{ClusterBinding FieldName=column\ type}" ValueType="[Type]UInt16" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]172" p7:ControlDefinitionChecksum="bWdQiJX3ls5tbC2DSJQd7Rlkdf/C39B4+Rry5VpBtmM=_v1" xmlns:p7="http://www.ni.com/PanelCommon" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+							<p7:p.TypeDefinitionTargets>
+								<p7:TypeDefinitionTarget TargetName="Perspective::Support::column type.gtype::ControlDefinition" />
+							</p7:p.TypeDefinitionTargets>
+							<EnumSelectorInfo DisplayValue="[string]string" DisplayValueOverride="[string]" Id="26" IsEnabled="[bool]True" Value="[ushort]0" ValueType="[Type]UInt16" />
+							<EnumSelectorInfo DisplayValue="[string]float" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[ushort]1" ValueType="[Type]UInt16" />
+							<EnumSelectorInfo DisplayValue="[string]integer" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[ushort]2" ValueType="[Type]UInt16" />
+							<EnumSelectorInfo DisplayValue="[string]boolean" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[ushort]3" ValueType="[Type]UInt16" />
+							<EnumSelectorInfo DisplayValue="[string]date" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[ushort]4" ValueType="[Type]UInt16" />
+							<EnumSelectorInfo DisplayValue="[string]datetime" DisplayValueOverride="[string]" IsEnabled="[bool]True" Value="[ushort]5" ValueType="[Type]UInt16" />
+						</EnumSelector>
+						<Label Height="[float]16" Id="1fb4a2e36a7643a692ec8491f5fb4017" LabelOwner="[UIModel]cf7bb32b1ef3420a9572c0f0d51b7659" Left="[float]6" Text="[string]column type" Top="[float]50" Width="[float]66" />
+					</Cluster>
+					<Label Height="[float]16" Id="6f881072f7fb405cb95a6f4001ef40b8" LabelOwner="[UIModel]3920dd003afb44e49bb6866d6eacb1f8" Left="[float]283" Text="[string]column" Top="[float]178" Width="[float]40" xmlns="http://www.ni.com/PanelCommon" />
+				</ControlDefinition>
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="e8517bd2e0fb4c5fb967d6ea7702a68e">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="name" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="column type" DataType="@85ef75aa07b0438c81b12b10cabb9518" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="85ef75aa07b0438c81b12b10cabb9518">
+			<Attributed AttributedType="@bb02c788782b4b3886b564ab936e40af">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Perspective::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="bb02c788782b4b3886b564ab936e40af">
+			<Typedef TypedefName="column type.gtype" UnderlyingType="@a4ace06ac957491480ff7ca05e8abc11" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a4ace06ac957491480ff7ca05e8abc11">
+			<Enumeration>
+				<Members>
+					<EnumerationMember Value="0" Name="string" />
+					<EnumerationMember Value="1" Name="float" />
+					<EnumerationMember Value="2" Name="integer" />
+					<EnumerationMember Value="3" Name="boolean" />
+					<EnumerationMember Value="4" Name="date" />
+					<EnumerationMember Value="5" Name="datetime" />
+				</Members>
+				<DataType>UInt16</DataType>
+			</Enumeration>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+</SourceFile>
