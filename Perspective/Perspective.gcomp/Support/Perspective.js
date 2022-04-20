@@ -47,8 +47,8 @@ class DataItem {
     }
 }
 
-class PerspectiveDataItem extends DataItem {
-    getValue (_schema) {
+class VariantDataItem extends DataItem {
+    getValue () {
         const valueRef = this.getValueRef();
         const dataValueRef = this._vireo.eggShell.getVariantAttribute(valueRef, 'data');
         const valueJSON = this._vireo.eggShell.readJSON(dataValueRef);
@@ -57,17 +57,20 @@ class PerspectiveDataItem extends DataItem {
     }
 }
 
-const perspectiveDataItem = new PerspectiveDataItem('Perspective::Table::Table Update.gvi', 'dataItem_Dataprobe');
+const tableUpdateDataItem = new VariantDataItem('Perspective::Table::Table Update.gvi', 'dataItem_Dataprobe');
+const tableCreateDataItem = new VariantDataItem('Perspective::Table::Table Create.gvi', 'dataItem_Schemaprobe');
 
-const tableCreate = async schemaJSON => {
-    const schemaColumns = JSON.parse(schemaJSON);
-    if (schemaColumns.length <= 0) {
-        throw new Error(`Expect at least one column in the table schema ${schemaColumns.length}`);
-    }
+const tableCreate = async () => {
+    const schemaType = tableCreateDataItem.getValue();
     const schema = {};
-    schemaColumns.forEach(column => {
-        schema[column.name] = column.type;
-    });
+    // TODO validate schema
+    for (const [key, value] of Object.entries(schemaType)) {
+        if (typeof value === 'number') {
+            schema[key] = 'float';
+        } else {
+            throw new Error('Invalid schema format');
+        }
+    }
     const table = await worker.table(schema);
     return table;
 };
@@ -77,8 +80,9 @@ const tableDestroy = table => {
 };
 
 const tableUpdate = async table => {
-    const schema = await table.schema();
-    const value = perspectiveDataItem.getValue(schema);
+    // const schema = await table.schema();
+    const value = tableUpdateDataItem.getValue();
+    // TODO validate value conforms with schema
     table.update(value);
 };
 
