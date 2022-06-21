@@ -32,7 +32,8 @@ module.exports = {
         'prefer-const': 'off',
         'prefer-destructuring': 'off',
         'prefer-template': 'off',
-        'valid-typeof': 'off'
+        'valid-typeof': 'off',
+        'no-lonely-if': 'off'
     },
     overrides: [{
         files: ['.eslintrc.js'],
