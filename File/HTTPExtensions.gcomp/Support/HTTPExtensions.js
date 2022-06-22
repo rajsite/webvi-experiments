@@ -46,7 +46,7 @@
             method: 'POST',
             body: formData,
             mode: 'cors',
-            credentials: includeCredentials ? 'same-origin' : 'include',
+            credentials: includeCredentials ? 'include' : 'same-origin',
             redirect: 'follow',
             headers
         });
