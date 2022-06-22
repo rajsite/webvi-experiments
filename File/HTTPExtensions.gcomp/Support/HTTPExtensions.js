@@ -56,18 +56,21 @@
             .from(res.headers.entries())
             .map(([header, value]) => `${header.trim()}: ${value.trim()}`)
             .join('\r\n');
-        const responeBody = await res.text();
+        const responseBody = await res.text();
 
-        const response = {
-            status: responseStatus,
-            headers: responseHeaders,
-            body: responeBody
-        };
-        const responseJSON = JSON.stringify(response);
-        return responseJSON;
+        const response = [
+            responseStatus,
+            responseHeaders,
+            responseBody
+        ];
+
+        return response;
     };
 
+    const typeCastValue = value => value;
+
     window.WebVIHTTPExtensions = {
-        postMultipartExt
+        postMultipartExt,
+        typeCastValue
     };
 }());
