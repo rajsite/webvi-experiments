@@ -2,7 +2,6 @@
     'use strict';
 
     // TODO implement timeout
-    // TODO document different data configurations
     const postMultipartExt = async function (requestConfigurationJSON, url, _timeout, postDataJSON, postDataFiles) {
         const {includeCredentials, headersConfiguration} = JSON.parse(requestConfigurationJSON);
         const postData = JSON.parse(postDataJSON);
@@ -42,11 +41,13 @@
             }
         }
 
+        const credentials = includeCredentials ? 'include' : 'same-origin';
+
         const res = await fetch(url, {
             method: 'POST',
             body: formData,
             mode: 'cors',
-            credentials: includeCredentials ? 'include' : 'same-origin',
+            credentials,
             redirect: 'follow',
             headers
         });
