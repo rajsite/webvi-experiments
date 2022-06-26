@@ -1,6 +1,7 @@
 (function () {
     'use strict';
 
+    // TODO implement LabVIEW error codes
     // TODO implement timeout
     const postMultipartExt = async function (requestConfigurationJSON, url, _timeout, postDataJSON, postDataFiles) {
         const {includeCredentials, headersConfiguration} = JSON.parse(requestConfigurationJSON);
@@ -59,13 +60,13 @@
             .join('\r\n');
         const responseBody = await res.text();
 
-        const response = [
+        const result = [
             responseStatus,
             responseHeaders,
             responseBody
         ];
 
-        return response;
+        return result;
     };
 
     const typeCastValue = value => value;
