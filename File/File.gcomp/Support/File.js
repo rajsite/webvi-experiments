@@ -6,8 +6,7 @@
         if (isInBrowser === undefined) {
             const webAppElements = document.querySelectorAll('ni-web-application');
             if (webAppElements.length !== 1) {
-                console.log('Expected a single ni-web-application element in page for debugging.');
-                return;
+                throw new Error('Cannot download file, internal page issue: Expected a single ni-web-application element in page');
             }
             const [webAppElement] = webAppElements;
             isInBrowser = webAppElement.location === 'BROWSER';
@@ -18,7 +17,7 @@
             throw new Error('Downloading a file can only performed when using Run in Browser or in a deployed web application. A file download cannot be triggered when running in the editor.');
         }
         if ('download' in HTMLAnchorElement.prototype === false) {
-            throw new Error('Browser does not support anchor download attribute, unable to trigger download');
+            throw new Error('Browser does not support anchor download attribute, unable to start file download');
         }
     };
 
