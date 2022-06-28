@@ -15,24 +15,24 @@
 
     const fetchWithTimeout = async function (url, timeout, options) {
         let controller;
-        const opts = {...options};
+        const optionsCopy = {...options};
         // Editor does not support AbortController
         if (window.AbortController) {
             controller = new AbortController();
             timeoutAt(controller, timeout);
-            opts.signal = controller.signal;
+            optionsCopy.signal = controller.signal;
         }
         try {
-            return await fetch(url, opts);
+            return await fetch(url, optionsCopy);
         } catch (ex) {
-            if (controller && controller.signal.aborted) {
+            // Editor does not support AbortController
+            if (window.AbortController && controller.signal.aborted) {
                 throw controller.signal.reason;
             }
             throw ex;
         }
     };
 
-    // TODO implement LabVIEW error codes
     const postMultipartExt = async function (requestConfigurationJSON, url, timeout, postDataJSON, postDataFiles) {
         const {includeCredentials, headersConfiguration} = JSON.parse(requestConfigurationJSON);
         const postData = JSON.parse(postDataJSON);
