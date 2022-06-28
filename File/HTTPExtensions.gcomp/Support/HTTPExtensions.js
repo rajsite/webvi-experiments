@@ -1,9 +1,39 @@
 (function () {
     'use strict';
 
+    const timeoutAt = function (controller, timeout) {
+        if (timeout < 0) {
+            return;
+        }
+        const setTimeoutToken = setTimeout(function () {
+            controller.abort(new Error('Timeout'));
+        }, timeout);
+        controller.signal.addEventListener('abort', function () {
+            clearTimeout(setTimeoutToken);
+        });
+    };
+
+    const fetchWithTimeout = async function (url, timeout, options) {
+        let controller;
+        const opts = {...options};
+        // Editor does not support AbortController
+        if (window.AbortController) {
+            controller = new AbortController();
+            timeoutAt(controller, timeout);
+            opts.signal = controller.signal;
+        }
+        try {
+            return await fetch(url, opts);
+        } catch (ex) {
+            if (controller && controller.signal.aborted) {
+                throw controller.signal.reason;
+            }
+            throw ex;
+        }
+    };
+
     // TODO implement LabVIEW error codes
-    // TODO implement timeout
-    const postMultipartExt = async function (requestConfigurationJSON, url, _timeout, postDataJSON, postDataFiles) {
+    const postMultipartExt = async function (requestConfigurationJSON, url, timeout, postDataJSON, postDataFiles) {
         const {includeCredentials, headersConfiguration} = JSON.parse(requestConfigurationJSON);
         const postData = JSON.parse(postDataJSON);
 
@@ -44,21 +74,22 @@
 
         const credentials = includeCredentials ? 'include' : 'same-origin';
 
-        const res = await fetch(url, {
+        const options = {
             method: 'POST',
             body: formData,
             mode: 'cors',
             credentials,
             redirect: 'follow',
             headers
-        });
+        };
 
-        const responseStatus = res.status;
+        const response = await fetchWithTimeout(url, timeout, options);
+        const responseStatus = response.status;
         const responseHeaders = Array
-            .from(res.headers.entries())
+            .from(response.headers.entries())
             .map(([header, value]) => `${header.trim()}: ${value.trim()}`)
             .join('\r\n');
-        const responseBody = await res.text();
+        const responseBody = await response.text();
 
         const result = [
             responseStatus,
