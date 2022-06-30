@@ -1,6 +1,21 @@
 (function () {
     'use strict';
 
+    // HttpClientManager api https://github.com/ni/VireoSDK/blob/673eb0dea01418f6ca20e6a2a53528a941eef7ca/source/io/module_httpClient.js#L412
+    let httpClientManagerCached;
+    const getHttpClientManager = function () {
+        if (httpClientManagerCached === undefined) {
+            const webAppElements = document.querySelectorAll('ni-web-application');
+            if (webAppElements.length !== 1) {
+                throw new Error('Cannot run HTTPExtensions, internal page issue: Expected a single ni-web-application element in page');
+            }
+            const [webAppElement] = webAppElements;
+            const vireo = webAppElement.vireoInstance;
+            httpClientManagerCached = vireo.eggShell.internal_module_do_not_use_or_you_will_be_fired.httpClient.httpClientManager;
+        }
+        return httpClientManagerCached;
+    };
+
     const timeoutAt = function (controller, timeout) {
         if (timeout < 0) {
             return;
@@ -16,11 +31,13 @@
     const fetchWithTimeout = async function (url, timeout, options) {
         let controller;
         const optionsCopy = {...options};
+        const httpClientManager = getHttpClientManager();
         // Editor does not support AbortController
         if (window.AbortController) {
             controller = new AbortController();
             timeoutAt(controller, timeout);
             optionsCopy.signal = controller.signal;
+            httpClientManager._runningRequestsTracker.addRequest(controller);
         }
         try {
             return await fetch(url, optionsCopy);
@@ -30,11 +47,35 @@
                 throw controller.signal.reason;
             }
             throw ex;
+        } finally {
+            // Editor does not support AbortController
+            if (window.AbortController) {
+                httpClientManager._runningRequestsTracker.removeRequest(controller);
+            }
         }
     };
 
-    const postMultipartExt = async function (requestConfigurationJSON, url, timeout, postDataJSON, postDataFiles) {
-        const {includeCredentials, headersConfiguration} = JSON.parse(requestConfigurationJSON);
+    const queryHandle = function (handle) {
+        const httpClientManager = getHttpClientManager();
+        const httpClient = httpClientManager.get(handle);
+        if (httpClient === undefined) {
+            return {
+                includeCredentials: false,
+                headersConfiguration: []
+            };
+        }
+        const includeCredentials = httpClient._includeCredentialsDuringCORS;
+        const headersConfiguration = Array
+            .from(httpClient._headers.entries())
+            .map(([header, value]) => ({header, value}));
+        return {
+            includeCredentials,
+            headersConfiguration
+        };
+    };
+
+    const postMultipartExt = async function (handle, url, timeout, postDataJSON, postDataFiles) {
+        const {includeCredentials, headersConfiguration} = queryHandle(handle);
         const postData = JSON.parse(postDataJSON);
 
         const formData = new FormData();
