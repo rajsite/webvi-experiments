@@ -8,6 +8,7 @@ const vireoHelpers = {
             ...configOriginal,
             wasmUrl
         };
+        console.error('Using a patched version of Vireo. Make sure to remove calls to Apply Vireo Patch VI when publishing application.');
         return vireoHelpersOriginal.createInstance(config, ...args);
     }
 };
