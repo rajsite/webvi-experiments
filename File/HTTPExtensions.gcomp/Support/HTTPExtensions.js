@@ -77,7 +77,22 @@
         };
     };
 
-    const postMultipartExt = async function (handle, url, timeout, postDataJSON, postDataFiles) {
+    const getResult = function (response, responseBody) {
+        const responseStatus = response.status;
+        const responseHeaders = Array
+            .from(response.headers.entries())
+            .map(([header, value]) => `${header.trim()}: ${value.trim()}`)
+            .join('\r\n');
+
+        const result = [
+            responseStatus,
+            responseHeaders,
+            responseBody
+        ];
+        return result;
+    };
+
+    const postMultipartExtString = async function (handle, url, timeout, postDataJSON, postDataFiles) {
         const {includeCredentials, headersConfiguration} = queryHandle(handle);
         const postData = JSON.parse(postDataJSON);
 
@@ -128,26 +143,41 @@
         };
 
         const response = await fetchWithTimeout(url, timeout, options);
-        const responseStatus = response.status;
-        const responseHeaders = Array
-            .from(response.headers.entries())
-            .map(([header, value]) => `${header.trim()}: ${value.trim()}`)
-            .join('\r\n');
         const responseBody = await response.text();
+        const result = getResult(response, responseBody);
+        return result;
+    };
 
-        const result = [
-            responseStatus,
-            responseHeaders,
-            responseBody
-        ];
+    const getExtFile = async function (handle, url, timeout, name) {
+        const {includeCredentials, headersConfiguration} = queryHandle(handle);
 
+        const headers = new Headers();
+        for (const {header, value} of headersConfiguration) {
+            headers.append(header, value);
+        }
+
+        const credentials = includeCredentials ? 'include' : 'same-origin';
+
+        const options = {
+            method: 'GET',
+            mode: 'cors',
+            credentials,
+            redirect: 'follow',
+            headers
+        };
+
+        const response = await fetchWithTimeout(url, timeout, options);
+        const blob = await response.blob();
+        const responseBody = new File([blob], name);
+        const result = getResult(response, responseBody);
         return result;
     };
 
     const typeCastValue = value => value;
 
     window.WebVIHTTPExtensions = {
-        postMultipartExt,
+        postMultipartExtString,
+        getExtFile,
         typeCastValue
     };
 }());
