@@ -7,11 +7,14 @@
         if (httpClientManagerCached === undefined) {
             const webAppElements = document.querySelectorAll('ni-web-application');
             if (webAppElements.length !== 1) {
-                throw new Error('Cannot run HTTPExtensions, internal page issue: Expected a single ni-web-application element in page');
+                throw new Error('Cannot run HTTPExtensions, internal page issue: Expected a single ni-web-application element in page.');
             }
             const [webAppElement] = webAppElements;
             const vireo = webAppElement.vireoInstance;
             httpClientManagerCached = vireo.eggShell.internal_module_do_not_use_or_you_will_be_fired.httpClient.httpClientManager;
+            if (httpClientManagerCached === undefined) {
+                throw new Error('Cannot retrieve HTTPClientManager context. This function is only compatible with G Web Development Software 2022 Q3 or later.');
+            }
         }
         return httpClientManagerCached;
     };
