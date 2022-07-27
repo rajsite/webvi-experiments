@@ -58,26 +58,26 @@
         }
     };
 
-    const queryHandle = function (handle) {
+    const createFetchOptions = function (method, handle) {
         const httpClientManager = getHttpClientManager();
         const httpClient = httpClientManager.get(handle);
-        if (httpClient === undefined) {
-            return {
-                includeCredentials: false,
-                headersConfiguration: []
-            };
+        let headers = new Headers();
+        let credentials = 'same-origin';
+        if (httpClient !== undefined) {
+            headers = new Headers(httpClient._headers);
+            credentials = httpClient._includeCredentialsDuringCORS ? 'include' : 'same-origin';
         }
-        const includeCredentials = httpClient._includeCredentialsDuringCORS;
-        const headersConfiguration = Array
-            .from(httpClient._headers.entries())
-            .map(([header, value]) => ({header, value}));
-        return {
-            includeCredentials,
-            headersConfiguration
+        const options = {
+            method,
+            headers,
+            credentials,
+            mode: 'cors',
+            redirect: 'follow',
         };
+        return options;
     };
 
-    const getResult = function (response, responseBody) {
+    const createResult = function (response, responseBody) {
         const responseStatus = response.status;
         const responseHeaders = Array
             .from(response.headers.entries())
@@ -93,9 +93,12 @@
     };
 
     const postMultipartExtString = async function (handle, url, timeout, postDataJSON, postDataFiles) {
-        const {includeCredentials, headersConfiguration} = queryHandle(handle);
-        const postData = JSON.parse(postDataJSON);
+        const options = createFetchOptions('POST', handle);
+        // Ignore a user set content-type header when doing Post multipart
+        // so that the browser can configure the boundary parameter correctly
+        options.headers.delete('content-type');
 
+        const postData = JSON.parse(postDataJSON);
         const formData = new FormData();
         for (const {name, value, filename, mimeType, fileIndex} of postData) {
             if (name === '') {
@@ -121,55 +124,21 @@
                 }
             }
         }
-
-        const headers = new Headers();
-        for (const {header, value} of headersConfiguration) {
-            // Ignore a user set content-type header when doing Post multipart
-            // so that the browser can configure the boundary parameter correctly
-            if (header.trim().toLowerCase() !== 'content-type') {
-                headers.append(header, value);
-            }
-        }
-
-        const credentials = includeCredentials ? 'include' : 'same-origin';
-
-        const options = {
-            method: 'POST',
-            body: formData,
-            mode: 'cors',
-            credentials,
-            redirect: 'follow',
-            headers
-        };
+        options.body = formData;
 
         const response = await fetchWithTimeout(url, timeout, options);
         const responseBody = await response.text();
-        const result = getResult(response, responseBody);
+        const result = createResult(response, responseBody);
         return result;
     };
 
-    const getExtFile = async function (handle, url, timeout, name) {
-        const {includeCredentials, headersConfiguration} = queryHandle(handle);
-
-        const headers = new Headers();
-        for (const {header, value} of headersConfiguration) {
-            headers.append(header, value);
-        }
-
-        const credentials = includeCredentials ? 'include' : 'same-origin';
-
-        const options = {
-            method: 'GET',
-            mode: 'cors',
-            credentials,
-            redirect: 'follow',
-            headers
-        };
+    const getExtFile = async function (handle, url, timeout) {
+        const options = createFetchOptions('GET', handle);
 
         const response = await fetchWithTimeout(url, timeout, options);
         const blob = await response.blob();
-        const responseBody = new File([blob], name);
-        const result = getResult(response, responseBody);
+        const responseBody = new File([blob], 'body');
+        const result = createResult(response, responseBody);
         return result;
     };
 
