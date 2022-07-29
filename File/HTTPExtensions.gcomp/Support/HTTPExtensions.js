@@ -92,7 +92,7 @@
         return result;
     };
 
-    const postMultipartExtString = async function (handle, url, timeout, postDataJSON, postDataFiles) {
+    const postMultipartExt = async function (handle, url, timeout, postDataJSON, postDataFiles) {
         const options = createFetchOptions('POST', handle);
         // Ignore a user set content-type header when doing Post multipart
         // so that the browser can configure the boundary parameter correctly
@@ -127,15 +127,24 @@
         options.body = formData;
 
         const response = await fetchWithTimeout(url, timeout, options);
+        return response;
+    };
+
+    const postMultipartExtString = async function (...args) {
+        const response = await postMultipartExt(...args);
         const responseBody = await response.text();
         const result = createResult(response, responseBody);
         return result;
     };
 
-    const getExtFile = async function (handle, url, timeout) {
+    const getExt = async function (handle, url, timeout) {
         const options = createFetchOptions('GET', handle);
-
         const response = await fetchWithTimeout(url, timeout, options);
+        return response;
+    };
+
+    const getExtFile = async function (...args) {
+        const response = await getExt(...args);
         const blob = await response.blob();
         const responseBody = new File([blob], 'body');
         const result = createResult(response, responseBody);
