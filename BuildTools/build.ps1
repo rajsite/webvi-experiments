@@ -1,8 +1,4 @@
-Param ([switch]$usemonitor = $false)
-
 Import-Module -Name "$PSScriptRoot\EditorTools" -Verbose -Force
-
-Write-Host "Use cli monitor?: $usemonitor"
 
 Write-Host "Build Arcade projects: Avalanche"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\Avalanche" -ProjectFileName "Avalanche.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
