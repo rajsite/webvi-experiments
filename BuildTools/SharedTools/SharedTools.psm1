@@ -28,7 +28,7 @@ function Assert-FileDoesNotExist {
     {
         throw "Found unexpected file at $path."
     }
-    else 
+    else
     {
         Write-Host "$path not installed."
     }
@@ -36,7 +36,7 @@ function Assert-FileDoesNotExist {
 
 function Invoke-Run {
     Param ([string]$fileName, [string]$arguments, [string]$workingdirectory)
-    
+
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
     $pinfo.FileName = $fileName
     $pinfo.UseShellExecute = $false
@@ -54,9 +54,4 @@ function Invoke-PrintDiskspace {
     Get-WmiObject -Class Win32_logicaldisk
 }
 
-function Invoke-MinimizeWindows {
-    $shell = New-Object -ComObject "Shell.Application"
-    $shell.minimizeall()
-}
-
-Export-ModuleMember -Function Assert-FileExists, Assert-DirectoryExists, Assert-FileDoesNotExist, Invoke-Run, Invoke-PrintDiskspace, Invoke-MinimizeWindows
+Export-ModuleMember -Function Assert-FileExists, Assert-DirectoryExists, Assert-FileDoesNotExist, Invoke-Run, Invoke-PrintDiskspace

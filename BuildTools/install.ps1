@@ -7,7 +7,7 @@ $nipm = "$Env:Programfiles\National Instruments\NI Package Manager\nipkg.exe"
 $install_NIPM = $true
 if ($install_NIPM)
 {
-    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager21.3.0.exe'
+    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager22.5.0.exe'
     $nipmInstaller = Join-Path -Path $rootDirectory -ChildPath 'install-nipm.exe'
     Assert-FileDoesNotExist($nipm)
     $time = (Get-Date).ToUniversalTime()
@@ -36,8 +36,8 @@ if ($install_editor)
     Assert-FileDoesNotExist($editor)
 
     Write-Host "Adding Editor feeds to NI Package Manager"
-    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development/22.0/released'
-    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development/22.0/released-critical'
+    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development/22.3/released'
+    Invoke-Run $nipm 'feed-add https://download.ni.com/support/nipkg/products/ni-g/ni-g-web-development/22.3/released-critical'
     Invoke-Run $nipm 'update'
 
     Write-Host "Installing NI Certificates..."

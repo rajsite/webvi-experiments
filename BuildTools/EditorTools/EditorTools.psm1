@@ -1,24 +1,7 @@
 Import-Module -Name "$PSScriptRoot\..\SharedTools" -Verbose -Force
-function Watch-TrialWindow
-{
-    $autohotkey = "$Env:Programfiles\AutoHotkey\AutoHotkey.exe"
-    Write-Host "AutoHotKey installation check"
-    if ([System.IO.File]::Exists($autohotkey))
-    {
-        Write-Host "AutoHotKey already installed"
-    }
-    else
-    {
-        Write-Host "AutoHotKey installing"
-        choco install --no-progress -y autohotkey | Out-Host
-        Write-Host "AutoHotKey installed"
-    }
 
-    Write-Host "AutoHotKey starting"
-    return Start-Process -FilePath $autohotkey -Args "$PSScriptRoot\trial.ahk" -PassThru
-}
 function Invoke-BuildApplication {
-    Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName, [switch]$usemonitor = $false)
+    Param ([string]$ProjectDirectory, [string]$ProjectFileName, [string]$TargetName, [string]$ComponentFileName)
     Write-Host "Checking if GWeb CLI is available"
     $cli = "$Env:Programfiles\National Instruments\G Web Development Software\gwebcli.exe"
     Assert-FileExists($cli)
@@ -26,25 +9,8 @@ function Invoke-BuildApplication {
     $projectpath = Resolve-Path (Join-Path $ProjectDirectory $ProjectFileName)
     $buildapplicationcommand = 'build-application -n "{0}" -t "{1}" -p "{2}"' -f $ComponentFileName, $TargetName, $projectpath
 
-    Write-Host "Use cli monitor?: $usemonitor"
-    if ($usemonitor) {
-        $process = Watch-TrialWindow
-        Invoke-MinimizeWindows
-    }
-
     Write-Host "Running build command: $buildapplicationcommand"
     Invoke-Run $cli $buildapplicationcommand
-
-    if ($usemonitor) {
-        try {
-            Write-Host "AutoHotKey stopping"
-            Stop-Process -InputObject $process
-            Write-Host "AutoHotKey stopped"
-        }
-        catch {
-            Write-Host "AutoHotKey already stopped"
-        }
-    }
 }
 
 function Invoke-CopyBuildOutput {
