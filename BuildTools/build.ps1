@@ -48,6 +48,9 @@ Invoke-BuildApplication -ProjectDirectory ".\Exorbitant" -ProjectFileName "Exorb
 Write-Host "Build File project"
 Invoke-BuildApplication -ProjectDirectory ".\File" -ProjectFileName "File.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build File SystemLink project"
+Invoke-BuildApplication -ProjectDirectory ".\File" -ProjectFileName "File.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebAppSystemLink.gcomp"
+
 # TODO FileDropTarget
 
 Write-Host "Build GoogleCharts project"

@@ -49,7 +49,7 @@ if ($install_editor)
 
     Write-Host "Installing Editor..."
     Invoke-PrintDiskspace
-    Invoke-Run $nipm 'install ni-g-web-development --accept-eulas --assume-yes'
+    Invoke-Run $nipm 'install ni-g-web-development --accept-eulas --assume-yes --include-recommended'
     $time = (Get-Date).ToUniversalTime()
     Write-Host "...done at UTC $time"
     Invoke-PrintDiskspace

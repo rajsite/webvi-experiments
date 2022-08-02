@@ -79,6 +79,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Exorbitant" -TargetName "Default Web
 Write-Host "Copy File build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
 
+Write-Host "Copy File SystemLink build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebAppSystemLink.gcomp" -TargetDirectory "$ghpagesbuilddir\FileSystemLink"
+
 # TODO FileDropTarget
 
 Write-Host "Copy GoogleCharts build to ghpages output folder"
