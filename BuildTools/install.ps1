@@ -115,9 +115,9 @@ if ($install_editor)
         # "ni-skyline-tag-labview-2022-support",
         # "ni-skyline-tag-labview-2022-support-x86",
         # "ni-systemlink-cloud-connector-webui",
-        "ni-systemlink-message-g-web-development-support",
-        "ni-systemlink-tag-g-web-development-support",
-        "ni-systemlink-tdm-reader-g-web-development-support",
+        # "ni-systemlink-message-g-web-development-support",
+        # "ni-systemlink-tag-g-web-development-support",
+        # "ni-systemlink-tdm-reader-g-web-development-support",
         # "ni-systemlink-webvi-host-webui",
         ""
     )
