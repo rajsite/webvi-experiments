@@ -37,25 +37,25 @@ jobs:
       run: |
         npm ci
         npm test
-    # - name: Install Editor
-    #   run: powershell .\BuildTools\install.ps1
-    # - name: Start capturing screenshots
-    #   working-directory: ./BuildTools/periodic-screenshot
-    #   run: |
-    #     npm ci
-    #     npm run start
-    # - name: Build Projects
-    #   run: powershell .\BuildTools\build.ps1
-    #   timeout-minutes: 60
-    #   continue-on-error: true
-    # - name: Stop capturing screenshots
-    #   working-directory: ./BuildTools/periodic-screenshot
-    #   run: npm run stop
-    # - name: Upload screenshots
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: screenshots
-    #     path: ./BuildTools/periodic-screenshot/dist
+    - name: Install Editor
+      run: powershell .\BuildTools\install.ps1
+    - name: Start capturing screenshots
+      working-directory: ./BuildTools/periodic-screenshot
+      run: |
+        npm ci
+        npm run start
+    - name: Build Projects
+      run: powershell .\BuildTools\build.ps1
+      timeout-minutes: 60
+      continue-on-error: true
+    - name: Stop capturing screenshots
+      working-directory: ./BuildTools/periodic-screenshot
+      run: npm run stop
+    - name: Upload screenshots
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshots
+        path: ./BuildTools/periodic-screenshot/dist
     - name: Create GitHub Pages Output
       run: powershell .\BuildTools\ghpages.ps1
     - name: Upload artifact
