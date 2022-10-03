@@ -5,75 +5,64 @@ on:
     branches:
     - '*'
 
+# Using example https://github.com/actions/starter-workflows/blob/51e3d515e95876eed0c47cd971e48fcf16c6705a/pages/static.yml
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: windows-2019
     steps:
-    - name: Install npm 7
-      run: npm install --global npm@7
     - name: Checkout repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@v3
+    - name: Setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'npm'
     - name: Lint markdown
       run: |
         npm ci
         npm test
-    - name: Install Editor
-      run: powershell .\BuildTools\install.ps1
-    - name: Start capturing screenshots
-      working-directory: ./BuildTools/periodic-screenshot
-      run: |
-        npm ci
-        npm run start
-    - name: Build Projects
-      run: powershell .\BuildTools\build.ps1
-      timeout-minutes: 60
-      continue-on-error: true
-    - name: Stop capturing screenshots
-      working-directory: ./BuildTools/periodic-screenshot
-      run: npm run stop
-    - name: Upload screenshots
-      uses: actions/upload-artifact@v2
-      with:
-        name: screenshots
-        path: ./BuildTools/periodic-screenshot/dist
+    # - name: Install Editor
+    #   run: powershell .\BuildTools\install.ps1
+    # - name: Start capturing screenshots
+    #   working-directory: ./BuildTools/periodic-screenshot
+    #   run: |
+    #     npm ci
+    #     npm run start
+    # - name: Build Projects
+    #   run: powershell .\BuildTools\build.ps1
+    #   timeout-minutes: 60
+    #   continue-on-error: true
+    # - name: Stop capturing screenshots
+    #   working-directory: ./BuildTools/periodic-screenshot
+    #   run: npm run stop
+    # - name: Upload screenshots
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: screenshots
+    #     path: ./BuildTools/periodic-screenshot/dist
     - name: Create GitHub Pages Output
       run: powershell .\BuildTools\ghpages.ps1
-    - name: Upload GitHub Pages Output
-      uses: actions/upload-artifact@v2
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
       with:
-        name: ghpagesarchive
-        path: ./ghpagesarchive/ghpages.zip
-    - name: Create Heroku Dist Output
-      run: powershell .\BuildTools\herokudist.ps1
-    - name: Upload Heroku Dist Output
-      uses: actions/upload-artifact@v2
-      with:
-        name: herokudistarchive
-        path: ./herokudistarchive/herokudist.zip
-  deploy:
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-18.04
-    steps:
-    - name: Setup ruby
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: '2.6'
-    - name: Setup pages deploy
-      run: gem install dpl
-    - name: Download GitHub Pages Output
-      uses: actions/download-artifact@v2
-      with:
-        name: ghpagesarchive
-    - name: Extract GitHub Pages Output
-      run: unzip ./ghpages.zip -d ./ghpagesout
+        path: './ghpagesbuild'
+    - name: Setup Pages
+      uses: actions/configure-pages@v2
     - name: Deploy to GitHub Pages
-      run: dpl --verbose --provider=pages --repo=rajsite/webvi-experiments --local_dir=ghpagesout --skip_cleanup --name=rajsite --email=rajsite@users.noreply.github.com --github-token=${{ secrets.GHPAGES_TOKEN }}
-    - name: Download Heroku Dist Output
-      uses: actions/download-artifact@v2
-      with:
-        name: herokudistarchive
-    - name: Extract Heroku Dist Output
-      run: unzip ./herokudist.zip -d ./herokudistout
-    - name: Deploy to Heroku Dist
-      run: dpl --verbose --provider=pages --repo=rajsite/webvi-experiments --local_dir=herokudistout --target_branch=herokudist --skip_cleanup --name=rajsite --email=rajsite@users.noreply.github.com --github-token=${{ secrets.GHPAGES_TOKEN }}
+      id: deployment
+      uses: actions/deploy-pages@v1
