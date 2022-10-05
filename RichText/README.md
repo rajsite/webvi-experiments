@@ -16,7 +16,7 @@ I made up the following use cases to help me sort through the JS libraries avail
 
 1. **Comment editor**. Usually inline in a page with other content and not the primary content on a page. 
 
-   Limited / simple formatting options incuding text formatting and maybe other common content like images. Good for text layout in paragraphs but may not have other layout features like tables or lists. May not not be highly pluggable or configurable.
+   Limited / simple formatting options including text formatting and maybe other common content like images. Good for text layout in paragraphs but may not have other layout features like tables or lists. May not not be highly pluggable or configurable.
 
 2. **Blog editor**. Inline in a page and may fill a majority of the page view.
 
@@ -34,7 +34,7 @@ I made up the following use cases to help me sort through the JS libraries avail
 
 It seems like there are two major models for the edit time representation for rich text editors.
 
-1. An **operational transform / model** representation. This approach seperates the in memory representation of the rich text from what is presented in the HTML visuals of the page. A `contenteditable` field may be used to capture input and display output but the value is saved in JavaScript memory and is separate from the HTML visual in the page.
+1. An **operational transform / model** representation. This approach separates the in memory representation of the rich text from what is presented in the HTML visuals of the page. A `contenteditable` field may be used to capture input and display output but the value is saved in JavaScript memory and is separate from the HTML visual in the page.
 
    This approach is the most "modern" and enables sophisticated editing experiences and a high degree of control of the editor environment. It can also include advanced control of the undo / redo stack and control of how changes are made for real-time saving or multi-user collaborative editing experiences.
 
@@ -48,7 +48,7 @@ The save format for the output of the JavaScript library. The value that may be 
 
 1. **Standalone HTML**. The generated HTML can be used standalone or with a simple additional stylesheet that is maintainable without the full library.
 
-2. **Library-coupled HTML**. The generated HTML is very dependendent on the JS library and the library must be used to render correctly or the HTML is highly dependent on the library's associated CSS stylesheet to render correctly.
+2. **Library-coupled HTML**. The generated HTML is very dependent on the JS library and the library must be used to render correctly or the HTML is highly dependent on the library's associated CSS stylesheet to render correctly.
 
 3. **Abstract format**. The save format is not HTML and requires the library to visualize the rich text and / or needs a transformation from the abstract format to an HTML representation.
 
@@ -74,7 +74,7 @@ The rich text libraries I landed on and think are interesting enough to create e
 
 Additional notes (as of December 2019):
 
-- CKEditor 4 (started Mar 2011): CKEditor 4 has been superceeded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-). CKEditor 4 is pretty heavyweight so I decided not to mark it as a good comment editor. CKEditor 4 has a large footprint of about 3 MB build output and about 500 separate files. Had to ignore about 1000 localization files so that it can be included reliably in a Library Component without causing instability due to the number of files.
+- CKEditor 4 (started Mar 2011): CKEditor 4 has been superseded by CKEditor 5 but technically the company claims ["Long Term Support" until 2023](https://support.ckeditor.com/hc/en-us/articles/115005281629-How-long-will-CKEditor-4-be-supported-). CKEditor 4 is pretty heavyweight so I decided not to mark it as a good comment editor. CKEditor 4 has a large footprint of about 3 MB build output and about 500 separate files. Had to ignore about 1000 localization files so that it can be included reliably in a Library Component without causing instability due to the number of files.
 
 - Quill (started July 2012): Heavily used in open source projects and rich feature set. Also has an in progress major 2.0 refactor going on but progress seems to have slowed. Also responsiveness to issues in the current stable releases has slowed and [raised some concerns](https://github.com/quilljs/quill/issues/2619) about the liveness of the project.
 
