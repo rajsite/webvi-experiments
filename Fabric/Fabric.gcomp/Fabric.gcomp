@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="DB673F2565ED46FE0609174BD7F2FCAF3A62996BA8862DFB23A55B760579E4F8836628BCABE5D559CBBA84C6FE7E159F43D2C78C8E7D690CB9286EA54DAD8244" Timestamp="1D8DC6480B30EE4" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="9.0.0.0" Version="9.0.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="9.5.0.49854" Name="G Web Development Software" Version="22.3.0" />
+	</SourceModelFeatureSet>
+	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="50db581b290f436799133ce09f8b661f" RootNamespaceId="af2adfaf123f46f1bd4be3ae03d226d2" xmlns="http://www.ni.com/GComponent.xsd">
+		<Icon Id="b7794f017d834324b0ee1020de396419" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="7e783ad380784386abc07cc6ced78b7a" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="4392e0292c674ccc8e069cccc647ee4b" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<CompilerSymbolTable Id="c165b009469b4368ba4dce65dd926a56" xmlns="http://www.ni.com/PlatformFramework" />
+		<ComponentConfiguration ComponentSubtypeIdentifier="G Library" Id="286a39248b834442b0542edf8b37261e" Name="Configuration1">
+			<CompilerSymbolTable Id="bc77c2a436da47f08ca76816e84df6d2" xmlns="http://www.ni.com/PlatformFramework" />
+			<GLibraryProperties Id="4ce057118dce4ca1a5dec8f8705a69ee" />
+			<ComponentItemProperties AssociatedEnvoyId="7cb8d9e75e224e9db685b6b2ccd1cf1d" Exported="True" Id="880e0cb0f5d4f36bd61009fe45480a5" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="fb73b2eadc44459fbad08ceb902d38c1" Id="852652d0ed9243899de6d29802f22990" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="abf43e0a9e044b1180e943e4b1075956" Id="e6620412a01e4749bfbc6abd9768a3c5" />
+		</ComponentConfiguration>
+	</ComponentDefinition>
+	<EnvoyManagerFile Id="c5d5555e1aab44518713039c8f1b1bae" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="3afccd4c99f14844a7ee89c633c7e866" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<EmbeddedDefinitionReference Id="f4fd7256ec454bef8fe4a317ec682071" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
+			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
+			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="af2adfaf123f46f1bd4be3ae03d226d2" Name="Fabric">
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="f92d5c4e3013425d993bb836b55a1b1e" Name="Support">
+					<SourceFileReference Bindings="EnvoyManager" Id="7cb8d9e75e224e9db685b6b2ccd1cf1d" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="Fabric.jsli" StoragePath="Support\Fabric.jsli" />
+					<FileReference Bindings=".js" Id="fb73b2eadc44459fbad08ceb902d38c1" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="Fabric.js" StoragePath="Support\Fabric.js" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="10d73a20d2764f08a6a40fda98d8ae53" Name="node_modules">
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="eab35d2b09c84196bcea576f60513649" Name="fabric">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="ceb9b76645de4b5baebf5a8f19782e95" Name="dist">
+								<FileReference Bindings=".js" Id="abf43e0a9e044b1180e943e4b1075956" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="fabric.min.js" StoragePath="Support\node_modules\fabric\dist\fabric.min.js" />
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
+					</NameScopingEnvoy>
+				</NameScopingEnvoy>
+			</NameScopingEnvoy>
+		</EmbeddedDefinitionReference>
+		<NameScopingEnvoy Id="cf6b2b9e0681416cbd97e5ad136ddf48" Name="Fabric.gcomp" NameTracksFileName="True">
+			<ContentReference ContentIdentifier="286a39248b834442b0542edf8b37261e" Id="58f414d8f8a74b2cb419a27d52a23d6d" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+</SourceFile>
