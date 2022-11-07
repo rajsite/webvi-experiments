@@ -37,19 +37,19 @@
         return selectedElement;
     };
 
-    const validateControl = function (element, tagName) {
+    const validateControl = function (element, tagNames) {
         if (element instanceof HTMLElement === false) {
             throw new Error('Expected reference to be an HTML control');
         }
 
-        if (element.tagName !== tagName) {
-            throw new Error(`Expected reference to target a ${tagName} but instead found ${element.tagName}`);
+        if (!tagNames.includes(element.tagName)) {
+            throw new Error(`Expected reference to target one of (${tagNames.join(', ')}) but instead found ${element.tagName}`);
         }
     };
 
     // Button
     const buttonGlyphCreateImageURLStyle = function (element, url) {
-        validateControl(element, 'JQX-TOGGLE-BUTTON');
+        validateControl(element, ['JQX-TOGGLE-BUTTON']);
         const resolvedUrlInstance = new URL(url, window.location.href);
         const resolvedUrl = resolvedUrlInstance.href;
         const elementSelector = uniqueSelector(element);
@@ -79,7 +79,7 @@
     };
 
     const dataGridColumnByIndexSetSorting = function (element, index, sort) {
-        validateControl(element, 'NI-DATA-GRID');
+        validateControl(element, ['NI-DATA-GRID']);
         dataGridValidateAllowsSorting(element);
         const indexString = String(index);
         validateDataGridColumnIndex(element, indexString);
@@ -99,7 +99,7 @@
     // Listbox
     const listboxItemsEnableTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
     const listboxItemsEnableTooltip = function (element) {
-        validateControl(element, 'JQX-LIST-BOX');
+        validateControl(element, ['JQX-LIST-BOX']);
         if (element[listboxItemsEnableTooltipHandler]) {
             return;
         }
@@ -117,9 +117,28 @@
         element.addEventListener('mouseover', element[listboxItemsEnableTooltipHandler]);
     };
 
+    // Numeric
+    const validateNotNumericTextBox = function (element) {
+        if (element.tagName === 'JQX-NUMERIC-TEXT-BOX') {
+            throw new Error('Numeric Text controls must be manipulated by property nodes instead of by using Control Extensions');
+        }
+    };
+
+    const numericScaleMaximumSet = function (element, maximum) {
+        validateNotNumericTextBox(element);
+        validateControl(element, ['JQX-TANK', 'JQX-PROGRESS-BAR', 'JQX-CIRCULAR-PROGRESS-BAR', 'JQX-SLIDER', 'JQX-GAUGE']);
+        element.max = maximum;
+    };
+
+    const numericScaleMinimumSet = function (element, minimum) {
+        validateNotNumericTextBox(element);
+        validateControl(element, ['JQX-TANK', 'JQX-PROGRESS-BAR', 'JQX-CIRCULAR-PROGRESS-BAR', 'JQX-SLIDER', 'JQX-GAUGE']);
+        element.min = minimum;
+    };
+
     // Tab
     const tabSelectorVisible = function (element, visible) {
-        validateControl(element, 'NI-TAB-CONTROL');
+        validateControl(element, ['NI-TAB-CONTROL']);
         element.tabSelectorHidden = !visible;
     };
 
@@ -133,7 +152,7 @@
 
     const treeCellsEnableTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
     const treeCellsEnableTooltip = function (element) {
-        validateControl(element, 'NI-TREE-GRID');
+        validateControl(element, ['NI-TREE-GRID']);
         if (element[treeCellsEnableTooltipHandler]) {
             return;
         }
@@ -152,7 +171,7 @@
     };
 
     const treeColumnSetWidth = function (element, index, width) {
-        validateControl(element, 'NI-TREE-GRID');
+        validateControl(element, ['NI-TREE-GRID']);
         treeValidateColumnIndex(element, index);
         element.columns[index].width = width;
     };
@@ -216,11 +235,8 @@
     window.WebVIControlExtensions = {
         buttonGlyphCreateImageURLStyle,
         dataGridColumnByIndexSetSorting,
-        // dataGridStringColumnByIndexCreateBackgroundColorStyle,
-        // dataGridStringColumnByIndexCreateFontColorStyle,
-        // dataGridStringColumnByIndexCreateTextOverflowScrollbarStyle,
-        // dataGridStringColumnByTextMatchCreateBackgroundColorStyle,
-        // dataGridStringColumnByTextMatchCreateFontColorStyle,
+        numericScaleMaximumSet,
+        numericScaleMinimumSet,
         listboxItemsEnableTooltip,
         styleRemove,
         tabSelectorVisible,
