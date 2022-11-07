@@ -124,13 +124,13 @@
         }
     };
 
-    const numericScaleMaximumSet = function (element, maximum) {
+    const numericScaleSetMaximum = function (element, maximum) {
         validateNotNumericTextBox(element);
         validateControl(element, ['JQX-TANK', 'JQX-PROGRESS-BAR', 'JQX-CIRCULAR-PROGRESS-BAR', 'JQX-SLIDER', 'JQX-GAUGE']);
         element.max = maximum;
     };
 
-    const numericScaleMinimumSet = function (element, minimum) {
+    const numericScaleSetMinimum = function (element, minimum) {
         validateNotNumericTextBox(element);
         validateControl(element, ['JQX-TANK', 'JQX-PROGRESS-BAR', 'JQX-CIRCULAR-PROGRESS-BAR', 'JQX-SLIDER', 'JQX-GAUGE']);
         element.min = minimum;
@@ -235,8 +235,8 @@
     window.WebVIControlExtensions = {
         buttonGlyphCreateImageURLStyle,
         dataGridColumnByIndexSetSorting,
-        numericScaleMaximumSet,
-        numericScaleMinimumSet,
+        numericScaleSetMaximum,
+        numericScaleSetMinimum,
         listboxItemsEnableTooltip,
         styleRemove,
         tabSelectorVisible,
