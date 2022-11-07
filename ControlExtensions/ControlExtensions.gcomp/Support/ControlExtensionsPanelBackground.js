@@ -15,7 +15,7 @@
             return;
         }
         // When running in browser set a class on body to adjust styles
-        document.body.classList.add('webvi-control-tools-background');
+        document.body.classList.add('webvi-control-extensions-background');
         const frontPanels = document.querySelectorAll('ni-front-panel');
         if (frontPanels.length !== 1) {
             throw new Error(`Expected a single ni-front-panel to query background color, found: ${frontPanels.length}`);
@@ -25,7 +25,7 @@
         if (background === '') {
             throw new Error('The --ni-background css property is not defined for ni-front-panel');
         }
-        document.body.style.setProperty('--webvi-control-tools-background', background);
+        document.body.style.setProperty('--webvi-control-extensions-background', background);
     };
 
     const ready = function (callback) {
