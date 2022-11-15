@@ -1,25 +1,29 @@
+import vireoHelpers from '../Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
+import { ViaHelpers } from './via-helpers.ts';
+import "https://deno.land/x/xhr@0.1.0/mod.ts";
+import "../Support/node_modules/webvi-websockets/source/main.js";
 
-// const webviWebsockets = require('webvi-websockets');
-// const w3cwebsocket = require('websocket').w3cwebsocket;
-// const xhr2 = require('xhr2');
-const vireoHelpers = require('vireo');
-const ViaHelpers = require('./ViaHelpers.js');
+declare namespace globalThis {
+    let NationalInstrumentsWebSockets: any;
+}
 
-class VireoNode {
-    static async createInstance (customGlobal) {
-        const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(global) : Object.create(customGlobal);
-        // customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(w3cwebsocket);
+export class VireoDeno {
+    static async createInstance (customGlobal?: any) {
+        const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(globalThis) : Object.create(customGlobal);
+        customGlobalWithBuiltins.NationalInstrumentsWebSockets = globalThis.NationalInstrumentsWebSockets;
 
-        const vireo = await vireoHelpers.createInstance();
+        const url = new URL("../Support/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.core.wasm", import.meta.url);
+        const vireo = await vireoHelpers.createInstance({
+            wasmUrl: url.href
+        });
 
         vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
-        // vireo.httpClient.setXMLHttpRequestImplementation(xhr2);
 
         const notSupportedError = () => {
             throw new Error('Unsupported on this target');
         };
 
-        const logLabVIEWError = function (_ignoreReturnValueRef, _statusValueRef, codeValueRef, sourceValueRef) {
+        const logLabVIEWError = function (_ignoreReturnValueRef: any, _statusValueRef: any, codeValueRef: any, sourceValueRef: any) {
             const code = vireo.eggShell.readDouble(codeValueRef);
             const source = vireo.eggShell.readString(sourceValueRef);
             throw new Error(`LabVIEW error ${code} occured at ${source === '' ? 'unknown location' : source}`);
@@ -41,7 +45,7 @@ class VireoNode {
         return vireoHelpers;
     }
 
-    static createViaHelpers (viaWithEnqueue) {
+    static createViaHelpers (viaWithEnqueue: string) {
         return new ViaHelpers(viaWithEnqueue);
     }
 }
