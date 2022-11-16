@@ -1,6 +1,6 @@
 import vireoHelpers from '../Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
+import "https://deno.land/x/xhr@0.2.1/mod.ts";
 import "../Support/node_modules/webvi-websockets/source/main.js";
 
 declare namespace globalThis {
