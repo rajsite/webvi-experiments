@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="2740A015C7830471BBCA89C8939C41BCBF24776E9C48AD6F35D0B29D818658514371C54CC7615334C2A714A801E1A7EF3B6534F1E30C709B281C8C42936E6CD7" Timestamp="1D8D9F264B771C2" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="9EA9B93464AB66C614B92C03F9C81220BFBBB429DCE266ADF4722E30B80DA7C657FE4E595B27F2A1EF419EF1F05933B62ACA1C011E8DDA756B0E788D6A9C887E" Timestamp="1D9436EE5B52CDF" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Web Module: WebVI" Name="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ApplicationVersionInfo Build="9.5.0.49854" Name="G Web Development Software" Version="22.3.0" />
 	</SourceModelFeatureSet>
@@ -56,6 +58,13 @@
 					<p.Text>milliseconds to wait</p.Text>
 				</NodeLabel>
 				<Wire Id="26" Joints="N(24:Out)|(445,285) N(23:time to wait)|(455,285)" xmlns="http://www.ni.com/PlatformFramework" />
+				<DataAccessor Bounds="50 325 40 15" DataItem="33808e7913694d4f9a0e04610688aec0" Id="9099123d361843a5913a67ea5dfdd147" Label="1e300c55f40f459aa4b9d63f77bc887d" xmlns="http://www.ni.com/MocCommon">
+					<Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+				</DataAccessor>
+				<NodeLabel AttachedTo="9099123d361843a5913a67ea5dfdd147" Bounds="95 325 74 14" Id="1e300c55f40f459aa4b9d63f77bc887d" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>loop iteration</p.Text>
+				</NodeLabel>
+				<Wire Id="a0583f829dfa4364b865cf063c17a201" Joints="N(18:Output)|(20,330) N(9099123d361843a5913a67ea5dfdd147:Value)|(53,330)" xmlns="http://www.ni.com/PlatformFramework" />
 			</WhileLoop>
 			<Comment Bounds="295 480 520 42" Id="28" SizeToText="False" xmlns="http://www.ni.com/MocCommon">
 				<p.Text>Top-Level WebVIs usually contain a While Loop that never stops so that they can continue running as long as the web page is open in the user's web browser.</p.Text>
@@ -74,9 +83,21 @@
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
 		</BlockDiagram>
-		<HtmlFrontPanel Height="[float]768" Id="15" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
-			<Text BaseName="[string]Text" Height="[float]32" Id="36" Left="[float]180" MinHeight="[float]11" MinWidth="[float]11" Text="[string]On the WebVI Panel, place controls and indicators to respond to user input and display data.&#xD;&#xA;These controls will appear on the web page that is created when you build this Web Application." TextWrapping="[TextWrapping]Wrap" Top="[float]132" Width="[float]516" xmlns="http://www.ni.com/PlatformFramework" />
+		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
+			<FlexibleLayoutGroup Height="[float]72" Id="bdb5ee5344b147ee9c67de1320e07cf0" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]72" Id="53fb58bc293542a0b0642d8c64d0aef4" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]56" Id="1b64f628e7c54ce79470ba7b65ea7ff1" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]44" Id="c1183c82fb9847ca98f9adf5f644e644" Left="[float]14" Top="[float]6" Width="[float]72">
+							<NumericText BaseName="[string]Numeric" Height="[float]24" Id="86d03045116341a3b80bac6a87c1778c" Interval="[int]1" IsReadOnly="[bool]True" Label="[UIModel]5a4944f2392246cab38b6dd50362b43d" Left="[float]0" RadixBase="[RadixBase]Decimal" TabIndex="[int]0" Top="[float]20" Value="{DataItemBinding Id=33808e7913694d4f9a0e04610688aec0}" ValueFormatter="[string]DisplayFormat=Decimal:Digits=6:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" ValueType="[Type]Int32" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<Label Height="[float]16" Id="5a4944f2392246cab38b6dd50362b43d" LabelOwner="[UIModel]86d03045116341a3b80bac6a87c1778c" Left="[float]0" Text="[string]loop iteration" Top="[float]0" Width="[float]72" />
+						</FlexibleLayoutComponent>
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
 		</HtmlFrontPanel>
+		<DataItem AdaptToDiagramType="True" DataType="Int32" Id="33808e7913694d4f9a0e04610688aec0" Name="loop iteration" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>0</p.DefaultValue>
+		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
 		<p.TypeReference TypeId="35667e2463ae4ce7822a566ababaa6ef">
