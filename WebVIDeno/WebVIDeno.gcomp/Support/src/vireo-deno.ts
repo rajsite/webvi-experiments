@@ -1,6 +1,6 @@
-import "https://deno.land/x/xhr@0.2.1/mod.ts";
-import "https://unpkg.com/webvi-websockets@3.2.0/source/main.js";
-import vireoHelpers from 'https://unpkg.com/vireo@24.2.3/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
+import "xhr/mod.ts";
+import "webvi-websockets/source/main.js";
+import vireoHelpers from 'vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
 import {vireoDataUrl} from '../dist/vireoDataUrl.js';
 

@@ -1,5 +1,5 @@
-import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.177.0/http/file_server.ts";
+import { serve } from "std/http/server.ts";
+import { serveDir } from "std/http/file_server.ts";
 import { VireoDeno } from "./vireo-deno.ts";
 const vireo = await VireoDeno.createInstance();
 const viaCode = `start(VirtualInstrument<(clump(Println("Hello, sky. I can fly.")))>)`;
