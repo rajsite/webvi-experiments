@@ -1,7 +1,6 @@
-import { encode } from 'std/encoding/base64.ts';
-import webviDenoConf from '../WebVIDeno.gcomp/deno.json' assert { type: "json" };
+import { encode } from '../deps/std/encoding/base64.ts';
 
-const vireoBasePath = webviDenoConf.imports['vireo/'];
+const vireoBasePath = 'https://unpkg.com/vireo@24.2.3/';
 const path = new URL(`${vireoBasePath}dist/wasm32-unknown-emscripten/release/vireo.core.wasm`);
 const response = await fetch(path);
 const data = await response.arrayBuffer();

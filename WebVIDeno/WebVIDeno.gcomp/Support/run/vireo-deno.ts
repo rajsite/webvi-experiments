@@ -1,6 +1,6 @@
-import "xhr/mod.ts";
-import "webvi-websockets/source/main.js";
-import vireoHelpers from 'vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
+import "../deps/xhr/mod.ts";
+import "../deps/webvi-websockets/source/main.js";
+import vireoHelpers from '../deps/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
 import {vireoDataUrl} from '../dist/vireoDataUrl.js';
 

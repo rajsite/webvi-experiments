@@ -1,12 +1,7 @@
 {
     "tasks": {
-        "start": "cd .. && deno run --allow-all ./WebVIDeno/Support/src/main.ts",
-        "publish": "cd .. && deployctl deploy ./WebVIDeno/Support/src/main.ts --import-map=WebVIDeno/deno.json"
-    },
-    "imports": {
-        "std/": "https://deno.land/std@0.178.0/",
-        "xhr/": "https://deno.land/x/xhr@0.3.0/",
-        "webvi-websockets/": "https://unpkg.com/webvi-websockets@3.2.0/",
-        "vireo/": "https://unpkg.com/vireo@24.2.3/"
+        "start": "cd .. && deno run --allow-all ./WebVIDeno/Support/run/main.ts",
+        "publish": "cd .. && deployctl deploy ./WebVIDeno/Support/run/main.ts",
+        "stringify-vireo": "deno run --allow-all ./Support/build/stringify-vireo.ts"
     }
 }
