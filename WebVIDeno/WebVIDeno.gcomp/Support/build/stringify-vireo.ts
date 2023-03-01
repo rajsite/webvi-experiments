@@ -7,5 +7,5 @@ const data = await response.arrayBuffer();
 const base64 = encode(data);
 const dataUrl = `data:application/wasm;base64,${base64}`;
 const module = `export const vireoDataUrl=\`${dataUrl}\`;`;
-const pathOut = new URL('../WebVIDeno.gcomp/Support/dist/vireoDataUrl.js', import.meta.url);
+const pathOut = new URL('../dist/vireoDataUrl.js', import.meta.url);
 await Deno.writeTextFile(pathOut, module);
