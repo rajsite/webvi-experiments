@@ -1,5 +1,5 @@
 import "../deps/xhr/mod.ts";
-import "../deps/webvi-websockets/source/main.js";
+import webviWebsockets from "../deps/webvi-websockets/source/main.js";
 import vireoHelpers from '../deps/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
 import {vireoDataUrl} from '../dist/vireoDataUrl.js';
@@ -11,7 +11,7 @@ declare namespace globalThis {
 export class VireoDeno {
     static async createInstance (customGlobal?: unknown) {
         const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(globalThis) : Object.create(customGlobal);
-        customGlobalWithBuiltins.NationalInstrumentsWebSockets = globalThis.NationalInstrumentsWebSockets;
+        customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
 
         const vireo = await vireoHelpers.createInstance({
             wasmUrl: vireoDataUrl
