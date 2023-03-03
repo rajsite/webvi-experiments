@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="58F5F6C34AB9A0E677E67B45F1FC5F7783E4929634EE6B73E83C560ACC1F00E342EE4ABE45938E7C3C7C8A34E630E94DF3CBCC060EF88AA34C4575E97A0F4595" Timestamp="1D94D6A0BD36A59" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="GComponentFeatureSet" Name="http://www.ni.com/GComponent.xsd" OldestCompatibleVersion="9.0.0.0" Version="9.0.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="9.5.0.49854" Name="G Web Development Software" Version="22.3.0" />
+	</SourceModelFeatureSet>
+	<ComponentDefinition DefaultConfigurationName="Configuration1" Id="223aa0d3e4c54bfd8debf801fe03bcb4" RootNamespaceId="9d491523a1f444df94738ade498203a2" xmlns="http://www.ni.com/GComponent.xsd">
+		<Icon Id="4c20417787204b75b928be7d4d9109a6" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="44d74441c3b5465fb83500c2bd98aab5" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="4bed15ef190d4ce5ac05866815cfb8a3" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<CompilerSymbolTable Id="1286eb41fa748dc8aa2be9eaa65264d" xmlns="http://www.ni.com/PlatformFramework" />
+		<ComponentConfiguration ComponentSubtypeIdentifier="G Library" Id="163326372e704b78bf9de1655aa6350b" Name="Configuration1">
+			<CompilerSymbolTable Id="da4b6b93d134448986241c036ebc8cf6" xmlns="http://www.ni.com/PlatformFramework" />
+			<GLibraryProperties Id="a4ce35f35c94458dbe38fc88fface25a" />
+			<ComponentItemProperties AssociatedEnvoyId="b42f8df122534dcba5a854a9009d35e6" Exported="True" Id="3094e8a6c16446bdbf073c59c1d0447c" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="12810be6811a4a0e89b9f434a6f53d23" Id="552b3e7b347443dabee2cbf4e07532e0" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="fef1c9539c5c462b8763b55e5bf8124c" Id="a652b03303b24e1ca9c3c67e7534db61" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="63074ad535e7446eb75d6b688039b02d" Id="e3b7f5abeee24ce4848dac685ffe525b" />
+			<ComponentItemProperties AlwaysInclude="True" AssociatedEnvoyId="370577f6116b46e385552ea8e74f1c8d" Id="a865c5c976974fadb2407596430b88a6" />
+		</ComponentConfiguration>
+	</ComponentDefinition>
+	<EnvoyManagerFile Id="4fd54386cfc5468ab8aa0b863cb546e5" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="cbdc1849ad474e28b7f9c205954dfdb5" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<EmbeddedDefinitionReference Id="44eef618141d44ad84c50729e52cf7f3" ModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentDefinitionEnvoyHierarchyRoot" Name="Global namespace">
+			<ComponentDefinitionEnvoyHierarchyRoot xmlns="http://www.ni.com/GComponent.xsd" />
+			<NameScopingEnvoy AutomaticallyResolveUp="True" Id="9d491523a1f444df94738ade498203a2" Name="DenoHTTP">
+				<NameScopingEnvoy AutomaticallyResolveUp="True" Id="132d2831207042cca5e2947d71e4b210" Name="Support">
+					<SourceFileReference Bindings="EnvoyManager" Id="b42f8df122534dcba5a854a9009d35e6" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibrary" Name="DenoHTTP.jsli" StoragePath="Support\DenoHTTP.jsli" />
+					<FileReference Bindings=".js" Id="12810be6811a4a0e89b9f434a6f53d23" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="DenoHTTP.js" StoragePath="Support\DenoHTTP.js" />
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="90e0efaea0c9428abe752f288927e5d6" Name="deps">
+						<NameScopingEnvoy AutomaticallyResolveUp="True" Id="f60917b24c4f429b9f732c2e6aab99c0" Name="std">
+							<NameScopingEnvoy AutomaticallyResolveUp="True" Id="3a357216cc664c53bb0d888050cf0485" Name="http">
+								<FileReference Bindings=".ts" Id="63074ad535e7446eb75d6b688039b02d" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="file_server.ts" StoragePath="Support\deps\std\http\file_server.ts" />
+								<FileReference Bindings=".ts" Id="370577f6116b46e385552ea8e74f1c8d" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="server.ts" StoragePath="Support\deps\std\http\server.ts" />
+							</NameScopingEnvoy>
+						</NameScopingEnvoy>
+					</NameScopingEnvoy>
+					<NameScopingEnvoy AutomaticallyResolveUp="True" Id="ed442ec585574b58b11edbaa911f4c52" Name="src">
+						<FileReference Bindings=".ts" Id="fef1c9539c5c462b8763b55e5bf8124c" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="main.ts" StoragePath="Support\src\main.ts" />
+					</NameScopingEnvoy>
+				</NameScopingEnvoy>
+			</NameScopingEnvoy>
+		</EmbeddedDefinitionReference>
+		<NameScopingEnvoy Id="c0212b98c8674388a9ce20e95ce8f0b1" Name="DenoHTTP.gcomp" NameTracksFileName="True">
+			<ContentReference ContentIdentifier="163326372e704b78bf9de1655aa6350b" Id="b348f1009a5946cda4af59588f9035d7" Name="Configuration1" OverridingModelDefinitionType="{http://www.ni.com/GComponent.xsd}ComponentConfiguration" />
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+</SourceFile>

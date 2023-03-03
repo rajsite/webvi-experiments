@@ -1,5 +1,4 @@
 import { serve } from "../deps/std/http/server.ts";
-import { serveDir } from "../deps/std/http/file_server.ts";
 
 class WebVIRequest {
     public readonly responsePromise;
@@ -37,27 +36,36 @@ const startServer = function () {
     return requestStreamReader;
 };
 
-const listenForRequests = async function (requestStreamReader: ReadableStreamDefaultReader<WebVIRequest>) {
-    const {value, done} = await requestStreamReader.read();
-    const result = [value, done] as const;
-    return result;
+const listenForRequest = async function (requestStreamReader: ReadableStreamDefaultReader<WebVIRequest>) {
+    const streamResult = await requestStreamReader.read();
+    return streamResult;
 };
+
+const streamResultDone = function (streamResult: ReadableStreamDefaultReadResult<WebVIRequest>) {
+    return streamResult.done;
+}
+
+const streamResultWebVIRequest = function (streamResult: ReadableStreamDefaultReadResult<WebVIRequest>) {
+    return streamResult.value;
+}
 
 const stopServer = async function (requestStreamReader: ReadableStreamDefaultReader<WebVIRequest>) {
     await requestStreamReader.cancel();
 };
 
-const makeResponse = (req: WebVIRequest) => {
-    return () => {
-        req.resolve(new Response(`hello world ${new Date()}`));
-    }
-};
+const completeRequest = function (webviRequest: WebVIRequest, body: string) {
+    webviRequest.resolve(new Response(body));
+}
 
-let i=0;
-const requestStream = startServer();
-let req: readonly [WebVIRequest | undefined, boolean];
-do {
-    req = await listenForRequests(requestStream);
-    console.log(`hello world ${i++}`);
-    setTimeout(makeResponse(req[0]!), 2000);
-} while (!req[1]);
+declare namespace globalThis {
+    let WebVIDeno: unknown;
+}
+
+globalThis.WebVIDeno = {
+    startServer,
+    listenForRequest,
+    stopServer,
+    streamResultDone,
+    streamResultWebVIRequest,
+    completeRequest
+};
