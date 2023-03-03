@@ -1,7 +1,9 @@
 import { serve } from "../deps/std/http/server.ts";
 
+let totalInstanceCount = 0;
 class WebVIRequest {
     public readonly responsePromise;
+    public readonly instanceCount = totalInstanceCount++;
     private _resolve!: (response: Response) => void;
     constructor(
         public readonly request: Request,
@@ -22,6 +24,7 @@ const startServer = function () {
         start (controller) {
             serve(async (request: Request): Promise<Response> => {
                 const webviRequest = new WebVIRequest(request);
+                console.time(`request: ${webviRequest.instanceCount}`);
                 controller.enqueue(webviRequest);
                 return await webviRequest.responsePromise;
             }, {
@@ -54,6 +57,7 @@ const stopServer = async function (requestStreamReader: ReadableStreamDefaultRea
 };
 
 const completeRequest = function (webviRequest: WebVIRequest, body: string) {
+    console.timeEnd(`request: ${webviRequest.instanceCount}`);
     webviRequest.resolve(new Response(body));
 }
 
