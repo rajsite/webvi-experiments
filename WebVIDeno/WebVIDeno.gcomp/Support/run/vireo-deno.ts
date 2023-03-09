@@ -1,4 +1,4 @@
-import "../deps/xhr/mod.ts";
+import {XMLHttpRequest} from "../deps/xhr/mod.ts";
 import webviWebsockets from "../deps/webvi-websockets/source/main.js";
 import vireoHelpers from '../deps/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
@@ -18,6 +18,7 @@ export class VireoDeno {
         });
 
         vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
+        vireo.httpClient.setXMLHttpRequestImplementation(XMLHttpRequest);
 
         const notSupportedError = () => {
             throw new Error('Unsupported on this target');
