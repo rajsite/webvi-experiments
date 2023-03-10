@@ -1,0 +1,9 @@
+{
+    "tasks": {
+        "start": "deno task build:gweb && deno task build:run",
+        "publish": "deployctl deploy ./index.ts",
+        "stringify-vireo": "deno run --allow-all ./build/stringify-vireo.ts",
+        "build:run": "deno run -A ./index.ts",
+        "build:gweb": "\"c:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ../Deno.gwebproject -t \"Default Web Server\" -n WebApp.gcomp"
+    }
+}

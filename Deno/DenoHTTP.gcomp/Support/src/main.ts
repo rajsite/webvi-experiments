@@ -62,10 +62,10 @@ const completeRequest = function (webviRequest: WebVIRequest, body: string) {
 }
 
 declare namespace globalThis {
-    let WebVIDeno: unknown;
+    let WebVIDenoHTTP: unknown;
 }
 
-globalThis.WebVIDeno = {
+globalThis.WebVIDenoHTTP = {
     startServer,
     listenForRequest,
     stopServer,
