@@ -11,15 +11,14 @@ const vireoCode = await Deno.readTextFile(vireoCodeUrl);
 const formattedScriptSources = extractedUrls.scriptSources
     .map(url => `import '${url.startsWith('.') ? '' : './'}${url}';`)
     .join('\n');
-const formattedVireoCode = vireoCode.replaceAll('`', '\\`');
+const base64 = btoa(vireoCode);
 const staticFile = `
 ${formattedScriptSources}
-import {run} from 'https://raw.githubusercontent.com/rajsite/webvi-experiments/37991e5e43b3c140fe5387b1c8df73ca96c22e19/Deno/webvi-deno/run/runner.ts';
+import {run} from 'https://raw.githubusercontent.com/rajsite/webvi-experiments/ea259f96644f0285775642784206a4b38bbb170a/Deno/webvi-deno/run/runner.ts';
 
-const viaCode = \`
-${formattedVireoCode}
-\`;
-await run(viaCode);
+const vireoCode64 = '${base64}';
+const vireoCode = atob(vireoCode64);
+await run(vireoCode);
 `;
 
 await Deno.writeTextFile(staticRunnerUrl, staticFile);

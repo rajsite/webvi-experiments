@@ -1,10 +1,14 @@
 {
     "tasks": {
-        "start": "deno task build:gweb && deno task build:run",
-        "start-static": "deno task build:gweb && deno task build:run-static",
-        "stringify-vireo": "deno run --allow-all ./build/stringify-vireo.ts",
-        "build:run": "deno run -A ./index.ts",
-        "build:run-static": "deno run -A ./static.ts",
-        "build:gweb": "\"c:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ../Deno.gwebproject -t \"Default Web Server\" -n WebApp.gcomp"
+        "start": "deno task build-gweb && deno task run",
+        "start-static-dev": "deno task build-gweb && deno task run-static-dev",
+        "start-static": "deno task build-gweb && deno task build-static && deno task run-static",
+        "run": "deno run -A ./index.ts",
+        "run-static-dev": "deno run -A ./static-dev.ts",
+        "run-static": "cd \"../Builds/WebApp_Default Web Server/\" && deno run -A index.ts",
+        "build-vireo": "deno run -A ./build/stringify-vireo.ts",
+        "build-static":"deno run -A ./build/create-static-runner.ts",
+        "build-gweb": "\"c:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ../Deno.gwebproject -t \"Default Web Server\" -n WebApp.gcomp",
+        "publish": "deno task build-gweb && deno task build-static && cd \"../Builds/WebApp_Default Web Server/\" && deployctl deploy ./index.ts"
     }
 }
