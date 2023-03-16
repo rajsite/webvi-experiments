@@ -15,7 +15,7 @@ const formattedScriptSources = extractedUrls.scriptSources
 const base64 = btoa(vireoCode);
 const staticFile = `
 ${formattedScriptSources}
-import {run} from 'https://raw.githubusercontent.com/rajsite/webvi-experiments/ea259f96644f0285775642784206a4b38bbb170a/Deno/webvi-deno/run/runner.ts';
+import {run} from 'https://raw.githubusercontent.com/rajsite/webvi-experiments/d3445b39e7f6e798acf6d03f7de1bc1a5a5b937d/DenoRunner/run/runner.ts';
 const viaCode = getViaCode();
 await run(viaCode);
 
