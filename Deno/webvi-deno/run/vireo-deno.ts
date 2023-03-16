@@ -2,7 +2,7 @@ import {XMLHttpRequest} from "../deps/xhr/mod.ts";
 import webviWebsockets from "../deps/webvi-websockets/source/main.js";
 import vireoHelpers from '../deps/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
-import {vireoDataUrl} from '../dist/vireoDataUrl.js';
+import {vireoDataUrl} from '../generated/vireoDataUrl.js';
 
 export class VireoDeno {
     static async createInstance (customGlobal?: unknown) {
