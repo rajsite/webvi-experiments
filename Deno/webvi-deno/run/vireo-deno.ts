@@ -4,10 +4,6 @@ import vireoHelpers from '../deps/vireo/source/core/vireo.loader.wasm32-unknown-
 import { ViaHelpers } from './via-helpers.ts';
 import {vireoDataUrl} from '../dist/vireoDataUrl.js';
 
-declare namespace globalThis {
-    let NationalInstrumentsWebSockets: unknown;
-}
-
 export class VireoDeno {
     static async createInstance (customGlobal?: unknown) {
         const customGlobalWithBuiltins = customGlobal === undefined ? Object.create(globalThis) : Object.create(customGlobal);

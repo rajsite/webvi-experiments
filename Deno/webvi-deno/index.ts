@@ -8,7 +8,6 @@ const document = new DOMParser().parseFromString(html, 'text/html')!;
 const webApp = document.querySelector("ni-web-application")!;
 const vireoSource = webApp.getAttribute('vireo-source')!;
 const vireoSourceUrl = rebaseUrlFromWebAppRoot(htmlUrl, vireoSource);
-// const scripts = document.querySelectorAll('script[type="module"]:not([src*="ni-webvi-resource-v0"])')!;
 const scripts = document.querySelectorAll('script:not([src*="ni-webvi-resource-v0"])')!;
 
 for (const script of scripts) {
