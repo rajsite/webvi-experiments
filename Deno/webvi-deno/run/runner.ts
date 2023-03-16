@@ -3,14 +3,16 @@ import { VireoDeno } from "./vireo-deno.ts";
 
 export async function runHTML(htmlUrl: URL) {
     const extractedUrls = await extractUrls(htmlUrl);
-    for (const script of extractedUrls.scriptUrls) {
-        await import(script.href);
+    for (const scriptSource of extractedUrls.scriptSources) {
+        const scriptUrl = new URL(scriptSource, htmlUrl);
+        await import(scriptUrl.href);
     }
-    await run(extractedUrls.vireoSourceUrl);
+    const viaUrl = new URL(extractedUrls.vireoSource, htmlUrl);
+    const viaCode = await Deno.readTextFile(viaUrl);
+    await run(viaCode);
 }
 
-export async function run(viaUrl: URL) {
-    const viaCode = await Deno.readTextFile(viaUrl);
+export async function run(viaCode: string) {
     const vireo = await VireoDeno.createInstance();
     vireo.eggShell.loadVia(viaCode);
     await vireo.eggShell.executeSlicesUntilClumpsFinished();
