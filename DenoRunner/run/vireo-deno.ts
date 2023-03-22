@@ -2,7 +2,7 @@ import {XMLHttpRequest} from "../deps/xhr/mod.ts";
 import webviWebsockets from "../deps/webvi-websockets/source/main.js";
 import vireoHelpers from '../deps/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { ViaHelpers } from './via-helpers.ts';
-import {vireoDataUrl} from '../generated/vireoDataUrl.ts';
+import {wasm} from '../deps/vireo-core-wasm-esm/release/index.js';
 
 export class VireoDeno {
     static async createInstance (customGlobal?: unknown) {
@@ -10,7 +10,7 @@ export class VireoDeno {
         customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
 
         const vireo = await vireoHelpers.createInstance({
-            wasmUrl: vireoDataUrl
+            wasmUrl: (wasm as any).default
         });
 
         vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
