@@ -1,34 +1,35 @@
-import { serve } from "../deps/std/http/server.ts";
+import { ConnInfo, serve } from "../deps/std/http/server.ts";
 import { serveDir } from "../deps/std/http/file_server.ts";
 import { fromFileUrl } from "../deps/std/path/mod.ts";
 
-let totalInstanceCount = 0;
-class WebVIRequest {
-    public readonly responsePromise;
-    public readonly instanceCount = totalInstanceCount++;
+class RequestHandler {
+    private static totalInstanceCount = 0;
+    public readonly response;
+    private readonly instanceCount = RequestHandler.totalInstanceCount++;
     private _resolve!: (response: Response) => void;
     constructor(
         public readonly request: Request,
     ) {
-        this.responsePromise = new Promise<Response>(resolve => {
+        this.response = new Promise<Response>(resolve => {
             this._resolve = resolve;
-        })
+        });
+        console.time(`request: ${this.instanceCount}`);
     }
 
-    resolve (response: Response) {
+    complete (response: Response) {
         this._resolve(response);
+        console.timeEnd(`request: ${this.instanceCount}`);
     }
 }
 
-const startServer = function () {
+const startServer = function (): ReadableStreamDefaultReader<RequestHandler> {
     const abortController = new AbortController();
-    const requestStream = new ReadableStream<WebVIRequest>({
+    const requestStream = new ReadableStream<RequestHandler>({
         start (controller) {
-            serve(async (request: Request): Promise<Response> => {
-                const webviRequest = new WebVIRequest(request);
-                console.time(`request: ${webviRequest.instanceCount}`);
-                controller.enqueue(webviRequest);
-                return await webviRequest.responsePromise;
+            serve(async (request: Request, connInfo: ConnInfo): Promise<Response> => {
+                const requestHandler = new RequestHandler(request);
+                controller.enqueue(requestHandler);
+                return await requestHandler.response;
             }, {
                 signal: abortController.signal
             });
@@ -41,34 +42,28 @@ const startServer = function () {
     return requestStreamReader;
 };
 
-const listenForRequest = async function (requestStreamReader: ReadableStreamDefaultReader<WebVIRequest>) {
+const listenForRequest = async function (requestStreamReader: ReadableStreamDefaultReader<RequestHandler>): Promise<RequestHandler[]> {
     const streamResult = await requestStreamReader.read();
-    return streamResult;
+    if (streamResult.done) {
+        return [];
+    }
+    return [streamResult.value];
 };
 
-const streamResultDone = function (streamResult: ReadableStreamDefaultReadResult<WebVIRequest>) {
-    return streamResult.done;
-}
-
-const streamResultWebVIRequest = function (streamResult: ReadableStreamDefaultReadResult<WebVIRequest>) {
-    return streamResult.value;
-}
-
-const stopServer = async function (requestStreamReader: ReadableStreamDefaultReader<WebVIRequest>) {
+const stopServer = async function (requestStreamReader: ReadableStreamDefaultReader<RequestHandler>): Promise<void> {
     await requestStreamReader.cancel();
 };
 
-const completeRequest = function (webviRequest: WebVIRequest, body: string) {
-    webviRequest.resolve(new Response(body));
-    console.timeEnd(`request: ${webviRequest.instanceCount}`);
+const completeRequest = function (requestHandler: RequestHandler, body: string): void {
+    requestHandler.complete(new Response(body));
+    
 }
 
-const serveDirRequest = async function (webviRequest: WebVIRequest) {
-    const response = await serveDir(webviRequest.request, {
+const serveDirRequest = async function (requestHandler: RequestHandler): Promise<void> {
+    const response = await serveDir(requestHandler.request, {
         fsRoot: fromFileUrl(new URL('../../../', import.meta.url))
     });
-    webviRequest.resolve(response);
-    console.timeEnd(`request: ${webviRequest.instanceCount}`);
+    requestHandler.complete(response);
 }
 
 declare namespace globalThis {
@@ -79,8 +74,6 @@ globalThis.WebVIDenoHTTP = {
     startServer,
     listenForRequest,
     stopServer,
-    streamResultDone,
-    streamResultWebVIRequest,
     completeRequest,
     serveDirRequest
 };
