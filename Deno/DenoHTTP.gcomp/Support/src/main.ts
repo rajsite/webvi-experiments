@@ -1,4 +1,6 @@
 import { serve } from "../deps/std/http/server.ts";
+import { serveDir } from "../deps/std/http/file_server.ts";
+import { fromFileUrl } from "../deps/std/path/mod.ts";
 
 let totalInstanceCount = 0;
 class WebVIRequest {
@@ -57,8 +59,16 @@ const stopServer = async function (requestStreamReader: ReadableStreamDefaultRea
 };
 
 const completeRequest = function (webviRequest: WebVIRequest, body: string) {
-    console.timeEnd(`request: ${webviRequest.instanceCount}`);
     webviRequest.resolve(new Response(body));
+    console.timeEnd(`request: ${webviRequest.instanceCount}`);
+}
+
+const serveDirRequest = async function (webviRequest: WebVIRequest) {
+    const response = await serveDir(webviRequest.request, {
+        fsRoot: fromFileUrl(new URL('../../../', import.meta.url))
+    });
+    webviRequest.resolve(response);
+    console.timeEnd(`request: ${webviRequest.instanceCount}`);
 }
 
 declare namespace globalThis {
@@ -71,5 +81,6 @@ globalThis.WebVIDenoHTTP = {
     stopServer,
     streamResultDone,
     streamResultWebVIRequest,
-    completeRequest
+    completeRequest,
+    serveDirRequest
 };

@@ -3,9 +3,9 @@
 // generate new runner ts file
 import { extractUrls } from "../parse/webvi-html.ts";
 
-const htmlURL = new URL('../../Deno/Builds/WebApp_Default Web Server/index.html', import.meta.url);
+const htmlURL = new URL('../../Deno/Builds/WebApp_Default Web Server/main.html', import.meta.url);
 const extractedUrls = await extractUrls(htmlURL);
-const staticRunnerUrl = new URL('index.ts', htmlURL);
+const staticRunnerUrl = new URL('main.ts', htmlURL);
 const vireoCodeUrl = new URL(extractedUrls.vireoSource, htmlURL);
 const vireoCode = await Deno.readTextFile(vireoCodeUrl);
 const formattedScriptSources = extractedUrls.scriptSources
