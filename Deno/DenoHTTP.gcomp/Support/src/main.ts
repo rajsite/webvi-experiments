@@ -1,4 +1,4 @@
-import { ConnInfo, serve } from "../deps/std/http/server.ts";
+import { serve } from "../deps/std/http/server.ts";
 import { serveDir } from "../deps/std/http/file_server.ts";
 import { fromFileUrl } from "../deps/std/path/mod.ts";
 
@@ -22,49 +22,75 @@ class RequestHandler {
     }
 }
 
-const startServer = function (): ReadableStreamDefaultReader<RequestHandler> {
+class RequestListener {
+    public readonly controller: ReadableStreamDefaultController<RequestHandler>;
+    public readonly streamReader: ReadableStreamDefaultReader<RequestHandler>;
+    constructor(public readonly urlPattern: URLPattern, abortController: AbortController) {
+        let _controller: ReadableStreamDefaultController<RequestHandler>;
+        const readableStream = new ReadableStream<RequestHandler>({
+            start: (controller) => {
+                _controller = controller;
+            }
+        });
+        abortController.signal.addEventListener('abort', () => this.streamReader.cancel());
+        this.controller = _controller!;
+        this.streamReader = readableStream.getReader();
+    }
+}
+
+interface URLPatternConfig {
+    hash: string;
+    hostname: string;
+    password: string;
+    pathname: string;
+    port: string;
+    protocol: string;
+    search: string;
+    username: string;
+}
+
+const startServer = function (urlPatternConfigsJSON: string): RequestListener[] {
+    const urlPatternConfigs = JSON.parse(urlPatternConfigsJSON) as URLPatternConfig[];
+    const urlPatterns = urlPatternConfigs.map(urlPatternConfig => new URLPattern(urlPatternConfig));
     const abortController = new AbortController();
-    const requestStream = new ReadableStream<RequestHandler>({
-        start (controller) {
-            serve(async (request: Request, connInfo: ConnInfo): Promise<Response> => {
+    const requestListeners = urlPatterns.map(urlPattern => new RequestListener(urlPattern, abortController));
+    serve(async (request: Request): Promise<Response> => {
+        for (const requestListener of requestListeners) {
+            if (requestListener.urlPattern.test(request.url)) {
                 const requestHandler = new RequestHandler(request);
-                controller.enqueue(requestHandler);
+                requestListener.controller.enqueue(requestHandler);
                 return await requestHandler.response;
-            }, {
-                signal: abortController.signal
-            });
-        },
-        cancel () {
-            abortController.abort();
+            }
         }
+        throw new Error('unhandled');
+    }, {
+        signal: abortController.signal
     });
-    const requestStreamReader = requestStream.getReader();
-    return requestStreamReader;
+
+    // TODO figure out returning the abort controller
+    // Maybe closing any of the listeners kills the server?
+    return requestListeners;
 };
 
-const listenForRequest = async function (requestStreamReader: ReadableStreamDefaultReader<RequestHandler>): Promise<RequestHandler[]> {
-    const streamResult = await requestStreamReader.read();
+const listenForRequest = async function (requestListener: RequestListener): Promise<RequestHandler[]> {
+    const streamResult = await requestListener.streamReader.read();
     if (streamResult.done) {
         return [];
     }
     return [streamResult.value];
 };
 
-const stopServer = async function (requestStreamReader: ReadableStreamDefaultReader<RequestHandler>): Promise<void> {
-    await requestStreamReader.cancel();
-};
 
 const completeRequest = function (requestHandler: RequestHandler, body: string): void {
     requestHandler.complete(new Response(body));
-    
-}
+};
 
 const serveDirRequest = async function (requestHandler: RequestHandler): Promise<void> {
     const response = await serveDir(requestHandler.request, {
         fsRoot: fromFileUrl(new URL('../../../', import.meta.url))
     });
     requestHandler.complete(response);
-}
+};
 
 declare namespace globalThis {
     let WebVIDenoHTTP: unknown;
@@ -73,7 +99,6 @@ declare namespace globalThis {
 globalThis.WebVIDenoHTTP = {
     startServer,
     listenForRequest,
-    stopServer,
     completeRequest,
     serveDirRequest
 };

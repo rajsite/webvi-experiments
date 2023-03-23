@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="54EA91B243A5E1389C0690B1BA030BEDA473C0E50E002A93018FCA447AC465FF741BBA60EF4DBA68EC83FC08FB2B0615224D6F549C6365E9EDA9277059CCB7A6" Timestamp="1D95C7F67AE775E" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D738408D29D53CC44BF32722926B4F22F2B4B1DF1464ED69DD20DC36C2D375EED04127C4EEB5D12A4338185CF482A7F9EAF6B011AA4DD4FC0C6CAD84E2291FBD" Timestamp="1D95D40805DFDE1" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -35,7 +35,14 @@
 			<ConnectorPaneTerminal Hotspot="15 40" />
 			<ConnectorPaneTerminal Hotspot="25 40" />
 		</ConnectorPane>
-		<DiagramUnplacedItems Id="9d1c18036efa4f12bf135026739300ac" xmlns="http://www.ni.com/MocCommon" />
+		<DiagramUnplacedItems Id="9d1c18036efa4f12bf135026739300ac" xmlns="http://www.ni.com/MocCommon">
+			<DataAccessor Bounds="0 0 40 15" DataItem="645b00969448452d9c132db27dd5e8e1" Id="93fc699f8c2243fbadfd44af7b1268ef" Label="f90877b45d8543d1a94326f9957e9a0a">
+				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="93fc699f8c2243fbadfd44af7b1268ef" Bounds="-35 0 30 15" Id="f90877b45d8543d1a94326f9957e9a0a" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>trigger systemlink</p.Text>
+			</NodeLabel>
+		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="b152bc551cef43a7a686052182898e9d" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="b7e8d115854d43bbaedb730f4d8bd9b8">
 			<WhileLoop Bounds="205 285 475 255" DiagramId="2fe96f3543bc487b9f004d473199317b" Id="1ebbd1fb1b6a4d1c99dac4f4b956833c">
@@ -78,9 +85,22 @@
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
+			<FlexibleLayoutGroup Height="[float]52" Id="f120d848fd44be9aca6c8f3a4f3f082" Left="[float]30" Top="[float]102" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]52" Id="c01f51db911f45b4b0bc45bc7a9f22d0" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]36" Id="89e471842e0c4836b5ca2827859fd24d" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]24" Id="91ba15d1b2fa4cbda45501fdd715f9ef" Left="[float]14" Top="[float]6" Width="[float]152">
+							<LVHyperlinkControl BaseName="[string]Hyperlink Control" Content="[string]trigger systemlink" Foreground="[SMColor]#ff73a9d8" Height="[float]24" Id="b834e3c6f2a9459a8dde40f2c1df15aa" IsUrlSameAsContent="[bool]False" Label="[UIModel]a3470f0ea8b4ffeb9f12b2a2d44f8fb" Left="[float]0" TabIndex="[int]0" TargetUrl="{DataItemBinding Id=645b00969448452d9c132db27dd5e8e1}" Top="[float]0" Width="[float]152" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<Label Height="[float]0" Id="a3470f0ea8b4ffeb9f12b2a2d44f8fb" LabelOwner="[UIModel]b834e3c6f2a9459a8dde40f2c1df15aa" Left="[float]0" Text="[string]trigger systemlink" Top="[float]-20" Visible="[bool]False" Width="[float]0" />
+						</FlexibleLayoutComponent>
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
 		</HtmlFrontPanel>
 		<DataItem AdaptToDiagramType="True" DataType="Int32" Id="74cc5e36447a4f609f7dcd735a033dec" Name="loop iteration" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>0</p.DefaultValue>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" DataType="String" Id="645b00969448452d9c132db27dd5e8e1" Name="trigger systemlink" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>api/systemlink</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 </SourceFile>
