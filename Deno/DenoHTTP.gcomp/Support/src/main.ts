@@ -19,7 +19,7 @@ class RequestHandler {
         const total = end - this.start;
         const serverTimingValue = `webvi-time-to-response;dur=${total}`;
         response.headers.append('Server-Timing', serverTimingValue);
-        console.log(`[${this.request.method}] ${new URL(this.request.url).pathname} ${Math.round(total)}ms`);
+        console.log(`[${this.request.method}] ${new URL(this.request.url).pathname} ${response.status} ${Math.round(total)}ms`);
         this._resolve(response);
     }
 }
