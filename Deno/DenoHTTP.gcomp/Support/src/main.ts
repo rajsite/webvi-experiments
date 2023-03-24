@@ -19,6 +19,7 @@ class RequestHandler {
         const total = end - this.start;
         const serverTimingValue = `webvi-time-to-response;dur=${total}`;
         response.headers.append('Server-Timing', serverTimingValue);
+        console.log(`[${this.request.method}] ${new URL(this.request.url).pathname} ${Math.round(total)}ms`);
         this._resolve(response);
     }
 }
@@ -97,7 +98,8 @@ const serveFileRequests = async function (requestListener: RequestListener, rela
         }
         const requestHandler = streamResult.value;
         const response = await serveDir(requestHandler.request, {
-            fsRoot
+            fsRoot,
+            quiet: true
         });
         requestHandler.complete(response);
     }
