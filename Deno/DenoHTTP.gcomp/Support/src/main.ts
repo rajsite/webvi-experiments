@@ -3,9 +3,8 @@ import { serveDir } from "../deps/std/http/file_server.ts";
 import { fromFileUrl } from "../deps/std/path/mod.ts";
 
 class RequestHandler {
-    private static totalInstanceCount = 0;
     public readonly response;
-    private readonly instanceCount = RequestHandler.totalInstanceCount++;
+    private readonly start = performance.now();
     private _resolve!: (response: Response) => void;
     constructor(
         public readonly request: Request,
@@ -13,12 +12,14 @@ class RequestHandler {
         this.response = new Promise<Response>(resolve => {
             this._resolve = resolve;
         });
-        console.time(`request: ${this.instanceCount}`);
     }
 
     complete (response: Response) {
+        const end = performance.now();
+        const total = end - this.start;
+        const serverTimingValue = `webvi-time-to-response;dur=${total}`;
+        response.headers.append('Server-Timing', serverTimingValue);
         this._resolve(response);
-        console.timeEnd(`request: ${this.instanceCount}`);
     }
 }
 
@@ -85,7 +86,10 @@ const completeRequest = function (requestHandler: RequestHandler, body: string):
     requestHandler.complete(new Response(body));
 };
 
-const serveFileRequests = async function (requestListener: RequestListener): Promise<void> {
+const serveFileRequests = async function (requestListener: RequestListener, relativeUrlFromWebAppRoot: string): Promise<void> {
+    const webAppRootUrl = new URL('../../../', import.meta.url);
+    const absoluteUrlFromWebAppRoot = new URL(relativeUrlFromWebAppRoot, webAppRootUrl);
+    const fsRoot = fromFileUrl(absoluteUrlFromWebAppRoot);
     while(true) {
         const streamResult = await requestListener.streamReader.read();
         if (streamResult.done) {
@@ -93,7 +97,7 @@ const serveFileRequests = async function (requestListener: RequestListener): Pro
         }
         const requestHandler = streamResult.value;
         const response = await serveDir(requestHandler.request, {
-            fsRoot: fromFileUrl(new URL('../../../', import.meta.url))
+            fsRoot
         });
         requestHandler.complete(response);
     }

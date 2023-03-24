@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="C26CDC2C545BF59D3547C8A9CFBFFDFD4E09A507D375E057CE0E8B07A5E2C4CE61B3AF70188095A51629B84A22724D90AA647E0CB8551CA01A574FF79F663F8D" Timestamp="1D95E045AEDA05A" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="4545BF1AA93E87F296CB7F6779D304B57EA4EB66E247058A442515843A6194DDBCAAD67A98A48C1961967D8B28F2B52694179BDDBBD60E4BCB6D6E48E62F9F0A" Timestamp="1D95E07024FD536" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -555,18 +555,28 @@
 				<LoopTunnel Bounds="-4 260 13 10" Docking="Left" Id="21b0a32116094d52a50c7e995f9b3933" Terminals="o0=d72a2632d3704029a23efb2be811f374, i0=1641b8ee531d4d499d2b76b8bc5a2ce2" />
 			</WhileLoop>
 			<Wire Id="d72a2632d3704029a23efb2be811f374" Joints="N(d6e2baf50eb641c08f18f31fea707a57:c0out)|(335,700) h(65) v(-200) N(21b0a32116094d52a50c7e995f9b3933:o0)|(411,500)" xmlns="http://www.ni.com/PlatformFramework" />
-			<MethodCall Bounds="430 695 40 40" Id="66012cbedc2947a98efe2d3be8b5c9e6" ResolveFailedHint="ServeFileRequests" Signature="@7d59589f20974d57877231878d846ccd" Target="DenoHTTP::Support::DenoHTTP.jsli::ServeFileRequests" xmlns="http://www.ni.com/MocCommon">
+			<MethodCall Bounds="430 695 40 40" Id="66012cbedc2947a98efe2d3be8b5c9e6" ResolveFailedHint="ServeFileRequests" Signature="@dd4d1e80f1d04d13b009bfd1e43f12bf" Target="DenoHTTP::Support::DenoHTTP.jsli::ServeFileRequests" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="requestListener" />
+						<Parameter Id="L1" Desc="relativeUrlFromWebAppRoot" />
 						<Parameter Id="L3" Desc="error in" />
 						<Parameter Id="R3" Desc="error out" />
 					</MethodDeclaration>
 				</p.MethodDeclaration>
 				<Terminal DataType="@f0339782ce4245348acaaf0c922501e8" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
+			<Literal Bounds="380 745 40 15" DataType="String" Id="6ec435ddb0fb481f96f6e4205f6735d4" Label="70a6a42c891742bfb2cf00e0104faca0" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>.</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<NodeLabel AttachedTo="6ec435ddb0fb481f96f6e4205f6735d4" Bounds="380 727 30 15" Id="70a6a42c891742bfb2cf00e0104faca0" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>relativeUrlFromWebAppRoot</p.Text>
+			</NodeLabel>
+			<Wire Id="4512eb3adeac49509e9b32b16f29784a" Joints="N(6ec435ddb0fb481f96f6e4205f6735d4:Out)|(420,750) h(5) v(-40) N(66012cbedc2947a98efe2d3be8b5c9e6:L1)|(430,710)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" />
 	</VirtualInstrument>
@@ -740,10 +750,10 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="7d59589f20974d57877231878d846ccd">
-			<Attributed AttributedType="@30ff43650f064b72aa9801cd3cdc9bd2">
+		<p.TypeReference TypeId="dd4d1e80f1d04d13b009bfd1e43f12bf">
+			<Attributed AttributedType="@9844c995b4754a5e8946a20bda13d2d2">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0" />
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|0" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
@@ -1217,12 +1227,17 @@
 				</Parameters>
 			</Function>
 		</p.TypeReference>
-		<p.TypeReference TypeId="30ff43650f064b72aa9801cd3cdc9bd2">
+		<p.TypeReference TypeId="9844c995b4754a5e8946a20bda13d2d2">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="ServeFileRequests" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@ad895689e4e34439af7434b947dd50f0">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]requestListener" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@ea5d9770489d4b5da5519b9b3eac84a3">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]relativeUrlFromWebAppRoot" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c8673e7cf8e94cd2ae35a07aa3155074">
