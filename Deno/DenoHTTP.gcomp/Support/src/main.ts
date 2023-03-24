@@ -103,6 +103,10 @@ const serveFileRequests = async function (requestListener: RequestListener, rela
     }
 };
 
+const requestUrl = function (requestHandler: RequestHandler) {
+    return requestHandler.request.url;
+};
+
 declare namespace globalThis {
     let WebVIDenoHTTP: unknown;
 }
@@ -111,5 +115,6 @@ globalThis.WebVIDenoHTTP = {
     startServer,
     listenForRequest,
     completeRequest,
-    serveFileRequests
+    serveFileRequests,
+    requestUrl
 };
