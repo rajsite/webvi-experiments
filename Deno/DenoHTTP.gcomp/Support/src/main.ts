@@ -85,11 +85,18 @@ const completeRequest = function (requestHandler: RequestHandler, body: string):
     requestHandler.complete(new Response(body));
 };
 
-const serveDirRequest = async function (requestHandler: RequestHandler): Promise<void> {
-    const response = await serveDir(requestHandler.request, {
-        fsRoot: fromFileUrl(new URL('../../../', import.meta.url))
-    });
-    requestHandler.complete(response);
+const serveFileRequests = async function (requestListener: RequestListener): Promise<void> {
+    while(true) {
+        const streamResult = await requestListener.streamReader.read();
+        if (streamResult.done) {
+            break;
+        }
+        const requestHandler = streamResult.value;
+        const response = await serveDir(requestHandler.request, {
+            fsRoot: fromFileUrl(new URL('../../../', import.meta.url))
+        });
+        requestHandler.complete(response);
+    }
 };
 
 declare namespace globalThis {
@@ -100,5 +107,5 @@ globalThis.WebVIDenoHTTP = {
     startServer,
     listenForRequest,
     completeRequest,
-    serveDirRequest
+    serveFileRequests
 };
