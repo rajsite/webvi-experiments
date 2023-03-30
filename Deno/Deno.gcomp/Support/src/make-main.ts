@@ -1,13 +1,8 @@
-import { DOMParser, Element, Node } from "./deps/x/deno_dom/deno-dom-wasm.ts";
+import { DOMParser, Element, Node } from 'deno_dom/deno-dom-wasm.ts';
 
 // Assumes main.html is at the root of the WebApp build output
 const htmlUrl = new URL('../../../main.html', import.meta.url);
 await makeMain(htmlUrl);
-
-// Remove the webvi resources static files, not needed by the Deno main app
-// TODO enable after: https://github.com/denoland/deploy_feedback/issues/348
-// const webviResourcesUrl = new URL('./ni-webvi-resources-v0', htmlUrl);
-// await Deno.remove(webviResourcesUrl, { recursive: true });
 
 interface ExtractedUrls {
     vireoSource: string;

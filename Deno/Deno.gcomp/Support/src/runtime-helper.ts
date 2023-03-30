@@ -1,7 +1,7 @@
-import { XMLHttpRequest } from "./deps/xhr/mod.ts";
-import webviWebsockets from "./deps/webvi-websockets/source/main.js";
-import vireoHelpers from './deps/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
-import wasmUrl from './deps/vireo-core-wasm-esm/release/index.js';
+import { XMLHttpRequest } from 'xhr/mod.ts';
+import webviWebsockets from 'webvi-websockets/source/main.js';
+import vireoHelpers from 'vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
+import wasmUrl from 'vireo-core-wasm-esm/release/index.js?bundle';
 
 async function createInstance () {
     const customGlobalWithBuiltins = Object.create(globalThis);

@@ -1,9 +1,12 @@
 {
     "tasks": {
-        "start": "deno task build-gweb && deno task build-main && deno task run",
+        "start": "deno task build-gweb && deno task build-deno && deno task run-build",
         "build-gweb": "\"c:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ../Deno/Deno.gwebproject -t \"Default Web Server\" -n WebApp.gcomp",
-        "build-main":"deno run -A \"./Builds/WebApp_Default Web Server/Deno/Support/src/make-main.ts\"",
-        "run": "cd \"./Builds/WebApp_Default Web Server/\" && deno run -A ./main.ts",
-        "publish": "deno task build-gweb && deno task build-main && cd \"./Builds/WebApp_Default Web Server/\" && deployctl deploy ./main.ts"
-    }
+        "build-deno": "deno task build-main && deno task copy-import-map",
+        "build-main": "deno run -A \"./Builds/WebApp_Default Web Server/Deno/Support/src/make-main.ts\"",
+        "copy-import-map": "cp ./import_map.json \"./Builds/WebApp_Default Web Server/import_map.json\"",
+        "run-build": "cd \"./Builds/WebApp_Default Web Server/\" && deno run -A ./main.ts",
+        "publish": "deno task build-gweb && deno task build-deno && cd \"./Builds/WebApp_Default Web Server/\" && deployctl deploy --import-map=./import_map.json ./main.ts"
+    },
+    "importMap": "./import_map.json"
 }

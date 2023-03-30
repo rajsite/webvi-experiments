@@ -1,6 +1,6 @@
-import { serve } from "../deps/std/http/server.ts";
-import { serveDir } from "../deps/std/http/file_server.ts";
-import { fromFileUrl } from "../deps/std/path/mod.ts";
+import { serve } from 'std/http/server.ts';
+import { serveDir } from 'std/http/file_server.ts';
+import { fromFileUrl } from 'std/path/mod.ts';
 
 class RequestHandler {
     public readonly response;
