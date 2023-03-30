@@ -1,13 +1,9 @@
 {
     "tasks": {
-        "start": "deno task build-gweb && deno task run",
-        "start-static-dev": "deno task build-gweb && deno task run-static-dev",
-        "start-static": "deno task build-gweb && deno task build-static && deno task run-static",
-        "run": "deno run -A ./index.ts",
-        "run-static-dev": "deno run -A ./static-dev.ts",
-        "run-static": "cd \"../Deno/Builds/WebApp_Default Web Server/\" && deno run -A main.ts",
-        "build-static":"deno run -A ./build/create-static-runner.ts",
+        "start": "deno task build-gweb && deno task build-main && deno task run",
         "build-gweb": "\"c:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ../Deno/Deno.gwebproject -t \"Default Web Server\" -n WebApp.gcomp",
-        "publish": "deno task build-gweb && deno task build-static && cd \"../Deno/Builds/WebApp_Default Web Server/\" && deployctl deploy ./main.ts"
+        "build-main":"deno run -A \"./Builds/WebApp_Default Web Server/Deno/Support/src/make-main.ts\"",
+        "run": "cd \"./Builds/WebApp_Default Web Server/\" && deno run -A ./main.ts",
+        "publish": "deno task build-gweb && deno task build-main && cd \"./Builds/WebApp_Default Web Server/\" && deployctl deploy ./main.ts"
     }
 }

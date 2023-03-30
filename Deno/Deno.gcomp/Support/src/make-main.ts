@@ -19,30 +19,37 @@ async function makeMain (htmlUrl: URL) {
     const mainUrl = new URL('main.ts', htmlUrl);
     
     const extractedUrls = extractUrls(html);
-    const vireoCodeUrl = new URL(extractedUrls.vireoSource, htmlUrl);
-    const vireoCode = await Deno.readTextFile(vireoCodeUrl);
+    const viaCodeUrl = new URL(extractedUrls.vireoSource, htmlUrl);
+    const viaCode = await Deno.readTextFile(viaCodeUrl);
     
-    const main = createMainContent(extractedUrls, vireoCode);
+    const main = createMainContent(extractedUrls, viaCode);
     
     await Deno.writeTextFile(mainUrl, main);
 }
 
-function createMainContent (extractedUrls: ExtractedUrls, vireoCode: string) {
+function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
     const formattedScriptSources = extractedUrls.scriptSources
         .map(url => url.startsWith('.') ? url : `./${url}`)
         .map(url => `import '${url}';`)
         .join('\n');
-    const base64 = btoa(vireoCode);
-    const main = `
+    const viaCodeLines = viaCode
+        .split('\n')
+        // A JSON encoded string becomes a valid JavaScript string literal
+        // we insert that string literal directly in the generated JS
+        // and because it is a valid literal we don't JSON.parse it
+        .map(line => JSON.stringify(line));
+    const mainTemplate = `
         ${formattedScriptSources}
-        import {run} from './Deno/Support/src/run/runtime-helpers.ts';
-        const viaCode = getViaCode();
+        import {run} from './Deno/Support/src/runtime-helper.ts';
+        const viaCodeLines = [
+            ${viaCodeLines.join(',\n')}
+        ];
+        const viaCode = viaCodeLines.join('\\n');
         await run(viaCode);
-
-        function getViaCode() {
-            return atob('${base64}');
-        }
     `;
+    const main = mainTemplate.split('\n')
+        .map(line => line.trimStart())
+        .join('\n');
     return main;
 }
 
