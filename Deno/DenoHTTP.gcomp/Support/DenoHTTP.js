@@ -1,1 +1,1 @@
-import './src/main.ts';
+import './src/deno-http.ts';

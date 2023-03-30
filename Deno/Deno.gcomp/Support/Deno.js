@@ -1,1 +1,1 @@
-// TODO pause browser execution and show warning
+import './src/deno.ts';
