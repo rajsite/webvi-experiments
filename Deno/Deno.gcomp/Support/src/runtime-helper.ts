@@ -36,8 +36,20 @@ async function createInstance () {
     return vireo;
 }
 
+declare namespace globalThis {
+    let vireoInstance: unknown;
+    let vireoHelpers: unknown;
+}
+
 export async function run(viaCode: string) {
+    if (globalThis.vireoInstance || globalThis.vireoHelpers) {
+        throw new Error('Vireo already instantiated globally');
+    }
     const vireo = await createInstance();
     vireo.eggShell.loadVia(viaCode);
+
+    // Make vireo instance available to libraries
+    globalThis.vireoInstance = vireo;
+    globalThis.vireoHelpers = vireoHelpers;
     await vireo.eggShell.executeSlicesUntilClumpsFinished();
 }

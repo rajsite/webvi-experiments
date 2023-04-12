@@ -1,16 +1,45 @@
 (function () {
     'use strict';
 
+    class CurrentVireoInstance {
+        static get () {
+            if (!this.vireo) {
+                if (window.document) {
+                    // Find web application
+                    const webAppElements = document.querySelectorAll('ni-web-application');
+                    if (webAppElements.length !== 1) {
+                        console.log('Expected a single ni-web-application element in page for debugging.');
+                    }
+                    const [webAppElement] = webAppElements;
+
+                    const isSupported = webAppElement && webAppElement.vireoInstance && webAppElement.vireoHelpers;
+                    if (!isSupported) {
+                        console.log('WebVIDebugger not supported in this version of G Web Development Software.');
+                    }
+
+                    // Find vireo instance
+                    this.vireo = webAppElement.vireoInstance;
+                    this.vireoHelpers = webAppElement.vireoHelpers;
+                    this.isInBrowser = webAppElement.location === 'BROWSER';
+                } else if (window.vireoInstance) {
+                    this.vireo = window.vireoInstance;
+                    this.vireoHelpers = window.vireoHelpers;
+                    this.isInBrowser = false;
+                }
+            }
+            return {
+                vireo: this.vireo,
+                vireoHelpers: this.vireoHelpers,
+                isInBrowser: this.isInBrowser
+            };
+        }
+    }
+
     // HttpClientManager api https://github.com/ni/VireoSDK/blob/673eb0dea01418f6ca20e6a2a53528a941eef7ca/source/io/module_httpClient.js#L412
     let httpClientManagerCached;
     const getHttpClientManager = function () {
         if (httpClientManagerCached === undefined) {
-            const webAppElements = document.querySelectorAll('ni-web-application');
-            if (webAppElements.length !== 1) {
-                throw new Error('Cannot run HTTPExtensions, internal page issue: Expected a single ni-web-application element in page.');
-            }
-            const [webAppElement] = webAppElements;
-            const vireo = webAppElement.vireoInstance;
+            const {vireo} = CurrentVireoInstance.get();
             httpClientManagerCached = vireo.eggShell.internal_module_do_not_use_or_you_will_be_fired.httpClient.httpClientManager;
             if (httpClientManagerCached === undefined) {
                 throw new Error('Cannot retrieve HTTPClientManager context. This function is only compatible with G Web Development Software 2022 Q3 or later.');

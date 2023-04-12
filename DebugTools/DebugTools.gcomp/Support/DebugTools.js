@@ -1,24 +1,42 @@
 (function () {
     'use strict';
 
+    class CurrentVireoInstance {
+        static get () {
+            if (!this.vireo) {
+                if (window.document) {
+                    // Find web application
+                    const webAppElements = document.querySelectorAll('ni-web-application');
+                    if (webAppElements.length !== 1) {
+                        console.log('Expected a single ni-web-application element in page for debugging.');
+                    }
+                    const [webAppElement] = webAppElements;
+
+                    const isSupported = webAppElement && webAppElement.vireoInstance && webAppElement.vireoHelpers;
+                    if (!isSupported) {
+                        console.log('WebVIDebugger not supported in this version of G Web Development Software.');
+                    }
+
+                    // Find vireo instance
+                    this.vireo = webAppElement.vireoInstance;
+                    this.vireoHelpers = webAppElement.vireoHelpers;
+                    this.isInBrowser = webAppElement.location === 'BROWSER';
+                } else if (window.vireoInstance) {
+                    this.vireo = window.vireoInstance;
+                    this.vireoHelpers = window.vireoHelpers;
+                    this.isInBrowser = false;
+                }
+            }
+            return {
+                vireo: this.vireo,
+                vireoHelpers: this.vireoHelpers,
+                isInBrowser: this.isInBrowser
+            };
+        }
+    }
+
     const debugLog = function (prefix) {
-        // Find web application
-        const webAppElements = document.querySelectorAll('ni-web-application');
-        if (webAppElements.length !== 1) {
-            console.log('Expected a single ni-web-application element in page for debugging.');
-            return;
-        }
-        const [webAppElement] = webAppElements;
-
-        const isSupported = webAppElement && webAppElement.vireoInstance && webAppElement.vireoHelpers;
-        if (!isSupported) {
-            console.log('WebVIDebugger not supported in this version of G Web Development Software.');
-            return;
-        }
-
-        // Find vireo instance
-        const vireo = webAppElement.vireoInstance;
-        const vireoHelpers = webAppElement.vireoHelpers;
+        const {vireo, vireoHelpers, isInBrowser} = CurrentVireoInstance.get();
 
         // Read value from dataspace
         const viName = 'DebugTools::Debug Log.gvi';
@@ -30,7 +48,6 @@
         const value = variantValue[variantDataName];
 
         // log value
-        const isInBrowser = webAppElement.location === 'BROWSER';
         if (isInBrowser) {
             if (prefix === '') {
                 console.log(value);
