@@ -1,14 +1,21 @@
 import { XMLHttpRequest } from 'xhr/mod.ts';
-import webviWebsockets from 'webvi-websockets/source/main.js';
-import vireoHelpers from 'vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
-import wasmUrl from 'vireo-core-wasm-esm/release/index.js?bundle';
+import webviWebsockets from 'npm:webvi-websockets';
+import vireoHelpers from 'npm:vireo';
 
 async function createInstance () {
     const customGlobalWithBuiltins = Object.create(globalThis);
     customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
 
     const vireo = await vireoHelpers.createInstance({
-        wasmUrl
+        customModule: {
+            locateFile: function (path, prefix) {
+                return URL.createObjectURL(new Blob([
+                    Deno.readFileSync(prefix + path)
+                ], {
+                    type: 'application/wasm'
+                }));
+            }
+        }
     });
 
     vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
