@@ -8,8 +8,8 @@
     - [NICCC 📺](https://rajsite.github.io/webvi-experiments/NICCC/)
     - [Reflex 👉](https://rajsite.github.io/webvi-experiments/Reflex/)
     - [Snake 🐍](https://rajsite.github.io/webvi-experiments/Snake/)
-- Bootstrap
-    - [Absolute layout](https://rajsite.github.io/webvi-experiments/Bootstrap/)
+- [Bootstrap](https://rajsite.github.io/webvi-experiments/Bootstrap/)
+    - [Absolute layout](https://rajsite.github.io/webvi-experiments/Bootstrap/index.html)
     - [Flexible layout](https://rajsite.github.io/webvi-experiments/Bootstrap/devices/cpu.html)
 - [ControlExtensions](https://rajsite.github.io/webvi-experiments/ControlExtensions/)
   - Backgrounds
