@@ -61,9 +61,15 @@
     };
 
     // Data Grid
-    const dataGridValidateAllowsSorting = function (element) {
+    const validateDataGridAllowsSorting = function (element) {
         if (element.allowSorting === false) {
             throw new Error('DataGrid must be an indicator and the "Sorted view" option must be enabled in editor under Properties >> Behavior >> Sorted view to programmatically change the sort order.');
+        }
+    };
+
+    const validateDataGridAllowsGrouping = function (element) {
+        if (element.allowGrouping === false) {
+            throw new Error('DataGrid must have "Allow grouping" option enabled in editor under Properties >> Behavior >> Allow grouping to programmatically change the grouping configuration.');
         }
     };
 
@@ -80,7 +86,7 @@
 
     const dataGridColumnByIndexSetSorting = function (element, index, sort) {
         validateControl(element, ['NI-DATA-GRID']);
-        dataGridValidateAllowsSorting(element);
+        validateDataGridAllowsSorting(element);
         const indexString = String(index);
         validateDataGridColumnIndex(element, indexString);
 
@@ -94,6 +100,16 @@
         } else {
             throw new Error(`Unexpected Data Grid sort value ${sort}`);
         }
+    };
+
+    const dataGridColumnByIndexSetGrouping = function (element, indexesBuffer) {
+        validateControl(element, ['NI-DATA-GRID']);
+        validateDataGridAllowsGrouping(element);
+        const indexStrings = Array.from(indexesBuffer).map(index => String(index));
+        for (const indexString of indexStrings) {
+            validateDataGridColumnIndex(element, indexString);
+        }
+        element.jqref.jqxGrid('groups', indexStrings);
     };
 
     // Listbox
@@ -235,6 +251,7 @@
     window.WebVIControlExtensions = {
         buttonGlyphCreateImageURLStyle,
         dataGridColumnByIndexSetSorting,
+        dataGridColumnByIndexSetGrouping,
         numericScaleSetMaximum,
         numericScaleSetMinimum,
         listboxItemsEnableTooltip,
