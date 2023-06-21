@@ -47,7 +47,7 @@
         }
     };
 
-    // Button
+    // Button Style
     const buttonGlyphCreateImageURLStyle = function (element, url) {
         validateControl(element, ['JQX-TOGGLE-BUTTON']);
         const resolvedUrlInstance = new URL(url, window.location.href);
@@ -112,6 +112,58 @@
 
         // From: https://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxgrid/jquery-grid-grouping.htm
         element.jqref.jqxGrid('groups', indexStrings);
+    };
+
+    // Data Grid Style
+    const dataGridStringColumnMatchOperators = {
+        'exact match': '=',
+        'starts with': '^=',
+        'ends with': '$=',
+        'contains': '*='
+    };
+    const createDataGridStringColumnSelector = function (element, index, matchOperator = 'disabled', matchText = '') {
+        validateControl(element, ['NI-DATA-GRID']);
+        const niType = JSON.parse(element.niType);
+        const fieldLength = niType.subtype.fields.length;
+        if (index < 0 || index >= fieldLength) {
+            throw new Error(`Expected column index ${index} to be in range [0-${fieldLength - 1}] for data grid.`);
+        }
+        // Check against the template element in case there are no values at runtime
+        const column = element.querySelectorAll(`ni-data-grid-column[index="${index}"] > ni-string-control`);
+        if (column.length !== 1) {
+            throw new Error(`String column not found at column index ${index} for data grid.`);
+        }
+
+        // Count from end of gridcells because the datagrid inserts extra gridcells at the start for row headers and grouping
+        const elementSelector = uniqueSelector(element);
+        const colIndexFromEnd = fieldLength - index;
+        const columnSelector = `${elementSelector} div[role="row"] > div[role="gridcell"]:nth-last-child(${colIndexFromEnd}) ni-string-control`;
+
+        const resolvedMatchOperator = dataGridStringColumnMatchOperators[matchOperator];
+        const attributeSelector = resolvedMatchOperator ? `[text${resolvedMatchOperator}"${CSS.escape(matchText)}"]` : '';
+        const stringColumnSelector = `${columnSelector}${attributeSelector}`;
+        return stringColumnSelector;
+    };
+
+    const dataGridStringColumnCreateBackgroundColorStyle = function (element, index, matchOperator, matchText, color) {
+        const dataGridStringColumnSelector = createDataGridStringColumnSelector(element, index, matchOperator, matchText);
+        return styleCreate(`${dataGridStringColumnSelector} {
+            background: ${color};
+        }`);
+    };
+
+    const dataGridStringColumnCreateFontColorStyle = function (element, index, matchOperator, matchText, color) {
+        const dataGridStringColumnSelector = createDataGridStringColumnSelector(element, index, matchOperator, matchText);
+        return styleCreate(`${dataGridStringColumnSelector} {
+            color: ${color};
+        }`);
+    };
+
+    const dataGridStringColumnCreateTextOverflowScrollbarStyle = function (element, index) {
+        const dataGridStringColumnSelector = createDataGridStringColumnSelector(element, index);
+        return styleCreate(`${dataGridStringColumnSelector} {
+            --ni-overflow-x: auto;
+        }`);
     };
 
     // Gauge
@@ -315,6 +367,9 @@
         buttonGlyphCreateImageURLStyle,
         dataGridColumnByIndexSetSorting,
         dataGridColumnByIndexSetGrouping,
+        dataGridStringColumnCreateBackgroundColorStyle,
+        dataGridStringColumnCreateFontColorStyle,
+        dataGridStringColumnCreateTextOverflowScrollbarStyle,
         gaugeNeedleSetArrow,
         numericScaleSetMaximum,
         numericScaleSetMinimum,
