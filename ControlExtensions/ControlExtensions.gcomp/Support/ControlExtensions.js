@@ -5,7 +5,10 @@
     const styleCreate = function (...rules) {
         const style = document.createElement('style');
         document.head.insertAdjacentElement('beforeend', style);
+        // Use the JS api for the validation
         rules.forEach(rule => style.sheet.insertRule(rule));
+        const css = Array.from(style.sheet.cssRules).map(rule => rule.cssText).join('\n');
+        style.innerHTML = css;
         return style;
     };
 
