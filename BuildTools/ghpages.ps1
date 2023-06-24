@@ -74,8 +74,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Serve
 Write-Host "Copy File SystemLink build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebAppSystemLink.gcomp" -TargetDirectory "$ghpagesbuilddir\FileSystemLink"
 
-# TODO FileDropTarget
-
 Write-Host "Copy GoogleCharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\GoogleCharts" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\GoogleCharts"
 
@@ -97,9 +95,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\ImmersiveWeb" -TargetName "Default W
 # TODO InputElement
 # TODO IntegrationTest
 
-Write-Host "Copy JSONParser build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\JSONParser" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\JSONParser"
-
 Write-Host "Copy MachineLearning build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\MachineLearning" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\MachineLearning"
 
@@ -115,7 +110,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\PlotToolDemo" -TargetName "Default W
 Write-Host "Copy Plotly build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Plotly" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Plotly"
 
-# TODO PreloadImage
 # TODO Prerender
 # TODO ProgressiveWebApp
 # TODO RGraph

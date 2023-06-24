@@ -51,8 +51,6 @@ Invoke-BuildApplication -ProjectDirectory ".\File" -ProjectFileName "File.gwebpr
 Write-Host "Build File SystemLink project"
 Invoke-BuildApplication -ProjectDirectory ".\File" -ProjectFileName "File.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebAppSystemLink.gcomp"
 
-# TODO FileDropTarget
-
 Write-Host "Build GoogleCharts project"
 Invoke-BuildApplication -ProjectDirectory ".\GoogleCharts" -ProjectFileName "GoogleCharts.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
@@ -74,9 +72,6 @@ Invoke-BuildApplication -ProjectDirectory ".\ImmersiveWeb" -ProjectFileName "Imm
 # TODO InputElement
 # TODO IntegrationTest
 
-Write-Host "Build JSONParser project"
-Invoke-BuildApplication -ProjectDirectory ".\JSONParser" -ProjectFileName "JSONParser.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
-
 Write-Host "Build MachineLearning project"
 Invoke-BuildApplication -ProjectDirectory ".\MachineLearning" -ProjectFileName "MachineLearning.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
@@ -92,7 +87,6 @@ Invoke-BuildApplication -ProjectDirectory ".\PlotToolDemo" -ProjectFileName "Plo
 Write-Host "Build Plotly project"
 Invoke-BuildApplication -ProjectDirectory ".\Plotly" -ProjectFileName "Plotly.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
-# TODO PreloadImage
 # TODO Prerender
 # TODO ProgressiveWebApp
 # TODO RGraph
