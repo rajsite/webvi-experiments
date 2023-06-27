@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="0546DF966E03B639EF95EC2B3B35BDD2AF8DDE8523200D51F22DA24BE57E1EE6480672CAA93926F261C4E3B0AC66601D20219C7108C56D1C505F813E709FF469" Timestamp="1D9A88C4244FBD2" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="A4033D427E3BD0B9E46C7BC584FDD6B98D450121D64DFDAAAC5B27D07D6FCFA9F7BB3A428D3036A13393988E6DFF591F2E94116B2FD67069D546C99EA7B51E05" Timestamp="1D9A8A85C13CA9F" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -38,8 +38,77 @@
 		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
 		<FrontPanelUnplacedItems Id="11" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
 		<BlockDiagram Id="12">
-			<ControlReference Bounds="239.666656 105 65.3333359 20" Id="4dc954a02d084672b7eb9b8a947b5405" SourceControl="cc79600ee1cd471dad16e5652ef28f3f" />
-			<MethodCall Bounds="345 130 40 40" Id="36e813abaa1b48eeb234faf0f627d43c" ResolveFailedHint="&quot;C:\\Users\\Milan\\Documents\\GitHub\\webvi-experiments\\Plotly\\Plotly.gcomp\\Create Plotly.gvi&quot;" Signature="@3bd46ec361184c40b28cc690f1dc746b" Target="Plotly::Create Plotly.gvi" xmlns="http://www.ni.com/MocCommon">
+			<WhileLoop Bounds="645 15 680 295" DiagramId="646c0f62c5a4463596fd60b86f33de55" Id="77c4911f5bae4b6ead85c0c23dd0a2bc">
+				<LoopIteration Bounds="5 265 15 15" Id="d32f4f62fbdd49d6b6eeb8ab4926cd96" />
+				<LoopCondition Bounds="650 265 15 15" Id="81d6c4dd97b426e83b6f7a397e0468b" />
+				<EventStructure Bounds="20 10 630 245" Id="ef4d72f83c034d0a90d872bad471a8d8" Selected="a2b1e06971664b48a24eb263614a47ce" UserSelectorBounds="20 0 590 17.333334">
+					<EventStructure.EventCase Bounds="21 18 588 219" Id="a2b1e06971664b48a24eb263614a47ce">
+						<EventStructure.EventData Bounds="0 82 92 50" Id="a40e0904a76e49fb965c17bac65df32a" InstanceDataType="@535658826a59430b8cec77f2d104f01a" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
+							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
+							</p.TypeDefinitionTargets>
+							<EventPropertyItemTerminal DataType="Boolean" Hotspot="92 15" Id="c0t0v" Path="Old Value" PathElementMemberKinds="Field" Usage="Optional" />
+							<EventPropertyItemTerminal DataType="Boolean" Hotspot="92 30" Id="c1t0v" Path="New Value" PathElementMemberKinds="Field" Usage="Optional" />
+						</EventStructure.EventData>
+						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventSourceType="Content" EventType="@89879c0d428f4d05a73b4e7ffb9f84aa" SourceContent="f60fa4d213fc4bd79f077415ec70cc65" SourceName="update" />
+						<DataAccessor Bounds="54 187 40 15" DataItem="a40ad19fe8e44c9bba26371669260b02" Id="97f5abfae7cd436abcaaa246c05d718e" Label="7ad3f3d42b4c4db0a8011ca583519aec" xmlns="http://www.ni.com/MocCommon">
+							<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+						</DataAccessor>
+						<NodeLabel AttachedTo="97f5abfae7cd436abcaaa246c05d718e" Bounds="10 187 39 14" Id="7ad3f3d42b4c4db0a8011ca583519aec" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>update</p.Text>
+						</NodeLabel>
+						<MethodCall Bounds="309 52 40 40" Id="9419ebeb9fef4356b1a87dfd77d05694" ResolveFailedHint="MyPlot" Signature="@fc87e6af22384fb8a06feb82d49d8ec0" Target="WebApp::MyPlot.jsli::MyPlot" xmlns="http://www.ni.com/MocCommon">
+							<p.MethodDeclaration>
+								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+									<Parameter Id="L0" Desc="plotly div reference" />
+									<Parameter Id="L1" Desc="x" />
+									<Parameter Id="L2" Desc="y" />
+									<Parameter Id="L3" Desc="error in" />
+									<Parameter Id="R3" Desc="error out" />
+								</MethodDeclaration>
+							</p.MethodDeclaration>
+							<Terminal DataType="@653ef4077a33432286c9b18f23200e31" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Double[]" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Double[]" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+						</MethodCall>
+						<Wire Id="db73bd0e553b4282bd5d1f45a9da7fac" Joints="N(6690c738ba0e4043ababbd318a6eb5fa:a2b1e06971664b48a24eb263614a47ce)|(2,57) N(9419ebeb9fef4356b1a87dfd77d05694:L0)|(309,57)" xmlns="http://www.ni.com/PlatformFramework" />
+						<ForLoop Bounds="142 75 121 111" DiagramId="9d2556712c334bf19b7d82c01518549b" Id="a5f0bc321b9448cdaf06bb2f28dd9a20">
+							<LoopIteration Bounds="75 15 15 15" Id="56d0ed4305734d14ad7eb42c33bfa074" />
+							<Wire Id="24b3844e0ab0457d9274546a79339d41" Joints="N(56d0ed4305734d14ad7eb42c33bfa074:Output)|(90,20) N(7281b0aee8434b2a9d6ad679b36c3731:i0)|(109,20)" xmlns="http://www.ni.com/PlatformFramework" />
+							<RandomNumber Bounds="60 55 30 30" Id="42b9a4cbfb2d44208c86364e28333c81" />
+							<Wire Id="b6de0046ef6949cfb8c98dc2e01bd5d3" Joints="N(42b9a4cbfb2d44208c86364e28333c81:number (0 to 1\))|(90,70) N(1b098e06a81d4886bb60f508ec207289:i0)|(109,70)" xmlns="http://www.ni.com/PlatformFramework" />
+							<LoopCount Bounds="1 1 15 15" Docking="Left" Id="b3cfa65e6a4f450c9787943aaaf57e88" Terminals="a5f0bc321b9448cdaf06bb2f28dd9a20=89da28afca4d4d1188ed8efbbf78932a, 9d2556712c334bf19b7d82c01518549b" />
+							<LoopTunnel AutoIndex="True" Bounds="111 17 13 10" Docking="Right" Id="7281b0aee8434b2a9d6ad679b36c3731" Terminals="o0=3bb5494279474696b89e08f08a816150, i0=24b3844e0ab0457d9274546a79339d41" TunnelMode="0" />
+							<LoopTunnel AutoIndex="True" Bounds="111 67 13 10" Docking="Right" Id="1b098e06a81d4886bb60f508ec207289" Terminals="o0=b31ae9cafcd4bb4bcf9302527a26290, i0=b6de0046ef6949cfb8c98dc2e01bd5d3" TunnelMode="0" />
+						</ForLoop>
+						<Literal Bounds="74 62 45 15" DataType="Int32" Id="3eb03506c7da4f128643f955b94d82c2" Label="c93947014894fdfbb4d4322b1dd3dcf" xmlns="http://www.ni.com/MocCommon">
+							<p.Data>1000</p.Data>
+							<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=0:DigitDisplayType=DigitsOfPrecision:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+						</Literal>
+						<NodeLabel AttachedTo="3eb03506c7da4f128643f955b94d82c2" Bounds="74 44 30 15" Id="c93947014894fdfbb4d4322b1dd3dcf" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+							<p.Text>loop count</p.Text>
+						</NodeLabel>
+						<Wire Id="89da28afca4d4d1188ed8efbbf78932a" Joints="N(3eb03506c7da4f128643f955b94d82c2:Out)|(119,67) h(5) v(15) N(b3cfa65e6a4f450c9787943aaaf57e88:a5f0bc321b9448cdaf06bb2f28dd9a20)|(143,82)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="3bb5494279474696b89e08f08a816150" Joints="N(7281b0aee8434b2a9d6ad679b36c3731:o0)|(266,97) h(9) v(-30) N(9419ebeb9fef4356b1a87dfd77d05694:L1)|(309,67)" xmlns="http://www.ni.com/PlatformFramework" />
+						<Wire Id="b31ae9cafcd4bb4bcf9302527a26290" Joints="N(1b098e06a81d4886bb60f508ec207289:o0)|(266,147) h(24) v(-70) N(9419ebeb9fef4356b1a87dfd77d05694:L2)|(309,77)" xmlns="http://www.ni.com/PlatformFramework" />
+					</EventStructure.EventCase>
+					<EventStructure.Tunnel Bounds="-2 70 25 10" Docking="Left" Id="6690c738ba0e4043ababbd318a6eb5fa" Terminals="ef4d72f83c034d0a90d872bad471a8d8=f3de321a71034fa0b2e694345156439a, a2b1e06971664b48a24eb263614a47ce=db73bd0e553b4282bd5d1f45a9da7fac" />
+				</EventStructure>
+				<Literal Bounds="595 265 25 15" DataType="Boolean" Id="cccf45483af64b26a1acaa9b00e1e6e8" Label="a4e72725cc924505816f1c30ec56f563" xmlns="http://www.ni.com/MocCommon">
+					<p.Data>False</p.Data>
+					<BooleanBehavior />
+				</Literal>
+				<NodeLabel AttachedTo="cccf45483af64b26a1acaa9b00e1e6e8" Bounds="595 247 30 15" Id="a4e72725cc924505816f1c30ec56f563" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+					<p.Text>stop</p.Text>
+				</NodeLabel>
+				<Wire Id="2be76b0ebfcd4f91aa94c00ad2694472" Joints="N(cccf45483af64b26a1acaa9b00e1e6e8:Out)|(620,270) N(81d6c4dd97b426e83b6f7a397e0468b:Input)|(650,270)" xmlns="http://www.ni.com/PlatformFramework" />
+				<Wire Id="f3de321a71034fa0b2e694345156439a" Joints="N(8424230cc8874711a9ecd050f30d69ce:i0)|(4,85) N(6690c738ba0e4043ababbd318a6eb5fa:ef4d72f83c034d0a90d872bad471a8d8)|(18,85)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopTunnel Bounds="-4 85 13 10" Docking="Left" Id="8424230cc8874711a9ecd050f30d69ce" Terminals="o0=9b31b18ee67848608b586053908573eb, i0=f3de321a71034fa0b2e694345156439a" />
+			</WhileLoop>
+			<ControlReference Bounds="344.666626 75 65.3333359 20" Id="4dc954a02d084672b7eb9b8a947b5405" SourceControl="cc79600ee1cd471dad16e5652ef28f3f" />
+			<MethodCall Bounds="450 100 40 40" Id="36e813abaa1b48eeb234faf0f627d43c" ResolveFailedHint="&quot;C:\\Users\\Milan\\Documents\\GitHub\\webvi-experiments\\Plotly\\Plotly.gcomp\\Create Plotly.gvi&quot;" Signature="@3bd46ec361184c40b28cc690f1dc746b" Target="Plotly::Create Plotly.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
 						<Parameter Id="L0" Desc="container" />
@@ -53,94 +122,39 @@
 				<Terminal DataType="@47b90446acf34c1dab49af2fa2f01922" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="c90fd93ddf7f4687a99533efdba0ff44" Joints="N(4dc954a02d084672b7eb9b8a947b5405:control reference)|(305,110) h(20) B(1) N(a4a3c60a820d4babaa8fe41b25d93617:o0)|(411,110) B(1) v(25) N(36e813abaa1b48eeb234faf0f627d43c:L0)|(345,135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<WhileLoop Bounds="415 20 630 380" DiagramId="cae481d33cb2474cb737ce7a441314cb" Id="69d3d6b844f444ac9dd943bdf4bd26ba">
-				<LoopIteration Bounds="5 350 15 15" Id="fbcc1ef3d8546a1b8ce80240191874d" />
-				<LoopCondition Bounds="590 150 15 15" Id="1d42e36252946eab961b4fc74c7058f" />
-				<EventStructure Bounds="55 10 485 330" Id="376e598f420a495db029305a01c4e7a0" Selected="bd88c3ef50d94235918e227c4893ca6d" UserSelectorBounds="20 0 445.333344 17.333334">
-					<EventStructure.EventCase Bounds="21 18 443 304" Id="15069d0d0bcc4946a8e2ab05498cac3f">
-						<EventStructure.EventData Bounds="0 252 62 35" Id="7052e2009689495ba09ef1094be4bacb" PropertyPathsInSemanticOrder="Time,Index">
-							<EventPropertyItemTerminal DataType="UInt32" Hotspot="62 15" Id="c0t0v" Path="Time" PathElementMemberKinds="Field" Usage="Optional" />
-						</EventStructure.EventData>
-						<EventStructure.AttachedEvent EventId="{DF1EFEBC-BF4C-4B72-8E78-D711B1FAC11A}" EventIndex="1073741825" EventSourceType="Application" SourceContent="376e598f420a495db029305a01c4e7a0" SourceName="Timeout" />
-						<Wire Id="5b91ae5973394022b1132c1a9a11db1e" Joints="N(fc4f8b9fa56a404b8af372d54d6d1b8e:15069d0d0bcc4946a8e2ab05498cac3f)|(2,82) N(972cc8cbacd04e86b202ad3e1e5095ff:15069d0d0bcc4946a8e2ab05498cac3f)|(441,82)" xmlns="http://www.ni.com/PlatformFramework" />
-						<Wire Id="af530e6e43cb49058cfba846a43205b3" Joints="N(9a2c7e86d5564ac1a14dcf7ab4516180:15069d0d0bcc4946a8e2ab05498cac3f)|(2,112) N(825ef755db604ad0bd929dbd462e8d46:15069d0d0bcc4946a8e2ab05498cac3f)|(441,112)" xmlns="http://www.ni.com/PlatformFramework" />
-					</EventStructure.EventCase>
-					<EventStructure.EventCase Bounds="21 18 443 304" Id="bd88c3ef50d94235918e227c4893ca6d">
-						<EventStructure.EventData Bounds="0 252 86.6666641 35" Id="71056278e18e4c5e99b4a57d2d7cbbdf" InstanceDataType="@535658826a59430b8cec77f2d104f01a" PropertyPathsInSemanticOrder="Time,Index,Control Reference,Old Value,New Value">
-							<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
-								<TypeDefinitionTarget TargetName="NI::G Core::Color Picker::Color.gtype" />
-							</p.TypeDefinitionTargets>
-							<EventPropertyItemTerminal DataType="Boolean" Hotspot="86.6666641 15" Id="c0t0v" Path="Old Value" PathElementMemberKinds="Field" Usage="Optional" />
-						</EventStructure.EventData>
-						<EventStructure.AttachedEvent EventId="{F3226E31-E688-4C58-AE1E-7ED6718409A1}" EventIndex="2" EventSourceType="Content" EventType="@89879c0d428f4d05a73b4e7ffb9f84aa" SourceContent="ab7d92dcaca147918f24af92d5b3a557" SourceName="reset" />
-						<DataAccessor Bounds="54 222 40 15" DataItem="dc225c2e42204a9da758cf6b8bce5839" Id="52eb5e86bb1d4bd4b695697e4911e4ad" Label="ce652c6de156489492cced0acac9cc69" xmlns="http://www.ni.com/MocCommon">
-							<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-						</DataAccessor>
-						<NodeLabel AttachedTo="52eb5e86bb1d4bd4b695697e4911e4ad" Bounds="21 222 28 14" Id="ce652c6de156489492cced0acac9cc69" xmlns="http://www.ni.com/PlatformFramework">
-							<p.Text>reset</p.Text>
-						</NodeLabel>
-						<MethodCall Bounds="69 77 40 40" Id="3adb4195dd6d4d11b10aa487025e1598" ResolveFailedHint="&quot;C:\\Users\\Milan\\Documents\\GitHub\\webvi-experiments\\Plotly\\Plotly.gcomp\\Destroy Plotly.gvi&quot;" Signature="@47209601fee942379d6bb31bbfe2d240" Target="Plotly::Destroy Plotly.gvi" xmlns="http://www.ni.com/MocCommon">
-							<p.MethodDeclaration>
-								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-									<Parameter Id="L0" Desc="plotly div reference" />
-									<Parameter Id="L3" Desc="error in" />
-									<Parameter Id="R3" Desc="error out" />
-								</MethodDeclaration>
-							</p.MethodDeclaration>
-							<Terminal DataType="@47b90446acf34c1dab49af2fa2f01922" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-						</MethodCall>
-						<Wire Id="76801c6384694b8986ac7e88896baa3a" Joints="N(9a2c7e86d5564ac1a14dcf7ab4516180:bd88c3ef50d94235918e227c4893ca6d)|(2,112) N(3adb4195dd6d4d11b10aa487025e1598:L3)|(69,112)" xmlns="http://www.ni.com/PlatformFramework" />
-						<Wire Id="1a68378aca16430a84da91ba6a12d5f2" Joints="N(fc4f8b9fa56a404b8af372d54d6d1b8e:bd88c3ef50d94235918e227c4893ca6d)|(2,82) N(3adb4195dd6d4d11b10aa487025e1598:L0)|(69,82)" xmlns="http://www.ni.com/PlatformFramework" />
-						<MethodCall Bounds="169 77 40 40" Id="1ac75b1f017942359891069b10dc3edd" ResolveFailedHint="&quot;C:\\Users\\Milan\\Documents\\GitHub\\webvi-experiments\\Plotly\\Plotly.gcomp\\Create Plotly.gvi&quot;" Signature="@3bd46ec361184c40b28cc690f1dc746b" Target="Plotly::Create Plotly.gvi" xmlns="http://www.ni.com/MocCommon">
-							<p.MethodDeclaration>
-								<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-									<Parameter Id="L0" Desc="container" />
-									<Parameter Id="L3" Desc="error in" />
-									<Parameter Id="R0" Desc="plot div reference" />
-									<Parameter Id="R3" Desc="error out" />
-								</MethodDeclaration>
-							</p.MethodDeclaration>
-							<Terminal DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
-							<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-							<Terminal DataType="@47b90446acf34c1dab49af2fa2f01922" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-							<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-						</MethodCall>
-						<Wire Id="50ee372f1d1243ac918f2ba9e0c95ac9" Joints="N(3adb4195dd6d4d11b10aa487025e1598:R3)|(109,112) N(1ac75b1f017942359891069b10dc3edd:L3)|(169,112)" xmlns="http://www.ni.com/PlatformFramework" />
-						<Wire Id="7a83bbebdff84d30a8a0771c140bcc21" Joints="N(31ba7a1ae0614d329c74dc58aa09a70b:bd88c3ef50d94235918e227c4893ca6d)|(2,57) h(157) v(25) N(1ac75b1f017942359891069b10dc3edd:L0)|(169,82)" xmlns="http://www.ni.com/PlatformFramework" />
-						<Wire Id="658d8bf544994bb4a0b4ae43dfc3592c" Joints="N(1ac75b1f017942359891069b10dc3edd:R0)|(209,82) N(972cc8cbacd04e86b202ad3e1e5095ff:bd88c3ef50d94235918e227c4893ca6d)|(441,82)" xmlns="http://www.ni.com/PlatformFramework" />
-						<Wire Id="cc060921339d4ea79814811ed6884dca" Joints="N(1ac75b1f017942359891069b10dc3edd:R3)|(209,112) N(825ef755db604ad0bd929dbd462e8d46:bd88c3ef50d94235918e227c4893ca6d)|(441,112)" xmlns="http://www.ni.com/PlatformFramework" />
-					</EventStructure.EventCase>
-					<EventStructure.EventTimeout Bounds="-2 285 25 25" Docking="Left" Id="cb6765b5e40e4b2b9cd7e07ea347ac57" Terminals="376e598f420a495db029305a01c4e7a0=f2415735ed8b4799a40dc4edee9e811a, 15069d0d0bcc4946a8e2ab05498cac3f, bd88c3ef50d94235918e227c4893ca6d" />
-					<EventStructure.Tunnel Bounds="-2 95 25 10" Docking="Left" Id="fc4f8b9fa56a404b8af372d54d6d1b8e" Terminals="376e598f420a495db029305a01c4e7a0=439886b016ff4812bc586b1a4bc4b697, 15069d0d0bcc4946a8e2ab05498cac3f=5b91ae5973394022b1132c1a9a11db1e, bd88c3ef50d94235918e227c4893ca6d=1a68378aca16430a84da91ba6a12d5f2" />
-					<EventStructure.Tunnel Bounds="-2 125 25 10" Docking="Left" Id="9a2c7e86d5564ac1a14dcf7ab4516180" Terminals="376e598f420a495db029305a01c4e7a0=7654b77d1fca4e71b3c6f7ef9148c41a, 15069d0d0bcc4946a8e2ab05498cac3f=af530e6e43cb49058cfba846a43205b3, bd88c3ef50d94235918e227c4893ca6d=76801c6384694b8986ac7e88896baa3a" />
-					<EventStructure.Tunnel Bounds="-2 70 25 10" Docking="Left" Id="31ba7a1ae0614d329c74dc58aa09a70b" Terminals="376e598f420a495db029305a01c4e7a0=fa3237448eee4cafa79c03ac4386c1ae, 15069d0d0bcc4946a8e2ab05498cac3f, bd88c3ef50d94235918e227c4893ca6d=7a83bbebdff84d30a8a0771c140bcc21" />
-					<EventStructure.Tunnel Bounds="462 95 25 10" DefaultIfUnwired="False" Docking="Right" Id="972cc8cbacd04e86b202ad3e1e5095ff" Terminals="376e598f420a495db029305a01c4e7a0=86113d0a152d42d89d2b3011a818d584, 15069d0d0bcc4946a8e2ab05498cac3f=5b91ae5973394022b1132c1a9a11db1e, bd88c3ef50d94235918e227c4893ca6d=658d8bf544994bb4a0b4ae43dfc3592c" />
-					<EventStructure.Tunnel Bounds="462 125 25 10" DefaultIfUnwired="False" Docking="Right" Id="825ef755db604ad0bd929dbd462e8d46" Terminals="376e598f420a495db029305a01c4e7a0=db828671e41140c282af592a3bfa573b, 15069d0d0bcc4946a8e2ab05498cac3f=af530e6e43cb49058cfba846a43205b3, bd88c3ef50d94235918e227c4893ca6d=cc060921339d4ea79814811ed6884dca" />
-				</EventStructure>
-				<Literal Bounds="5 295 40 15" DataType="Int32" Id="113c8cb7686145ab9fc0047d88aed35b" Label="5fd7ee4b0e1f46e4ad69a7190112021c" xmlns="http://www.ni.com/MocCommon">
-					<p.Data>10</p.Data>
-					<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=0:DigitDisplayType=DigitsOfPrecision:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
-				</Literal>
-				<NodeLabel AttachedTo="113c8cb7686145ab9fc0047d88aed35b" Bounds="5 277 30 15" Id="5fd7ee4b0e1f46e4ad69a7190112021c" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
-					<p.Text>timeout</p.Text>
-				</NodeLabel>
-				<Wire Id="f2415735ed8b4799a40dc4edee9e811a" Joints="N(113c8cb7686145ab9fc0047d88aed35b:Out)|(45,300) N(cb6765b5e40e4b2b9cd7e07ea347ac57:376e598f420a495db029305a01c4e7a0)|(53,300)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="439886b016ff4812bc586b1a4bc4b697" Joints="N(3c3d58dcd8f04a86b910a60a339008a3:i0)|(4,110) N(fc4f8b9fa56a404b8af372d54d6d1b8e:376e598f420a495db029305a01c4e7a0)|(53,110)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="7654b77d1fca4e71b3c6f7ef9148c41a" Joints="N(94f09139286c48fcb8266effd5836bc9:i0)|(4,140) N(9a2c7e86d5564ac1a14dcf7ab4516180:376e598f420a495db029305a01c4e7a0)|(53,140)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="fa3237448eee4cafa79c03ac4386c1ae" Joints="N(a4a3c60a820d4babaa8fe41b25d93617:i0)|(4,85) N(31ba7a1ae0614d329c74dc58aa09a70b:376e598f420a495db029305a01c4e7a0)|(53,85)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="86113d0a152d42d89d2b3011a818d584" Joints="N(972cc8cbacd04e86b202ad3e1e5095ff:376e598f420a495db029305a01c4e7a0)|(542,110) N(11b50d9696874dceb70167be3ef9a9fb:cae481d33cb2474cb737ce7a441314cb)|(616,110)" xmlns="http://www.ni.com/PlatformFramework" />
-				<Wire Id="db828671e41140c282af592a3bfa573b" Joints="N(825ef755db604ad0bd929dbd462e8d46:376e598f420a495db029305a01c4e7a0)|(542,140) h(33) B(1) N(7918b9e36c224bd2964c81b872de6c28:cae481d33cb2474cb737ce7a441314cb)|(616,140) B(1) v(15) N(1d42e36252946eab961b4fc74c7058f:Input)|(590,155)" xmlns="http://www.ni.com/PlatformFramework" />
-				<LeftShiftRegister Bounds="-4 110 13 10" Docking="Left" Id="3c3d58dcd8f04a86b910a60a339008a3" RightRegister="11b50d9696874dceb70167be3ef9a9fb" Terminals="o0=3d4c668b1c244f18b1b190e1ee401ba9, i0=439886b016ff4812bc586b1a4bc4b697" />
-				<RightShiftRegister Bounds="621 140 13 10" Docking="Right" Id="7918b9e36c224bd2964c81b872de6c28" Terminals="69d3d6b844f444ac9dd943bdf4bd26ba, cae481d33cb2474cb737ce7a441314cb=db828671e41140c282af592a3bfa573b" />
-				<LeftShiftRegister Bounds="-4 140 13 10" Docking="Left" Id="94f09139286c48fcb8266effd5836bc9" RightRegister="7918b9e36c224bd2964c81b872de6c28" Terminals="o0=2965eaedf8414a95814eb5268e0fa2a4, i0=7654b77d1fca4e71b3c6f7ef9148c41a" />
-				<LoopTunnel Bounds="-4 85 13 10" Docking="Left" Id="a4a3c60a820d4babaa8fe41b25d93617" Terminals="o0=c90fd93ddf7f4687a99533efdba0ff44, i0=fa3237448eee4cafa79c03ac4386c1ae" />
-				<RightShiftRegister Bounds="621 110 13 10" Docking="Right" Id="11b50d9696874dceb70167be3ef9a9fb" Terminals="69d3d6b844f444ac9dd943bdf4bd26ba, cae481d33cb2474cb737ce7a441314cb=86113d0a152d42d89d2b3011a818d584" />
-			</WhileLoop>
-			<Wire Id="3d4c668b1c244f18b1b190e1ee401ba9" Joints="N(36e813abaa1b48eeb234faf0f627d43c:R0)|(385,135) N(3c3d58dcd8f04a86b910a60a339008a3:o0)|(411,135)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="2965eaedf8414a95814eb5268e0fa2a4" Joints="N(36e813abaa1b48eeb234faf0f627d43c:R3)|(385,165) N(94f09139286c48fcb8266effd5836bc9:o0)|(411,165)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="c90fd93ddf7f4687a99533efdba0ff44" Joints="N(4dc954a02d084672b7eb9b8a947b5405:control reference)|(409.999969,80) h(20) v(25) N(36e813abaa1b48eeb234faf0f627d43c:L0)|(450,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="9b31b18ee67848608b586053908573eb" Joints="N(36e813abaa1b48eeb234faf0f627d43c:R0)|(490,105) h(70) B(1) N(8424230cc8874711a9ecd050f30d69ce:o0)|(641,105) B(1) v(25) N(9ffd2f5b33bc49c3b211857f324e115e:L0)|(580,130)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="580 125 40 40" Id="9ffd2f5b33bc49c3b211857f324e115e" ResolveFailedHint="MyPlot" Signature="@fc87e6af22384fb8a06feb82d49d8ec0" Target="WebApp::MyPlot.jsli::MyPlot" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="plotly div reference" />
+						<Parameter Id="L1" Desc="x" />
+						<Parameter Id="L2" Desc="y" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@653ef4077a33432286c9b18f23200e31" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Double[]" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Double[]" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<ForLoop Bounds="468 173 70 70" DiagramId="e7f745e81ffb4250bf004c3e6eb6a385" Id="2f667841b68448a599af0e8bc9d86298">
+				<LoopIteration Bounds="30 15 15 15" Id="22dd94af8f244e0f89091f7833564a7a" />
+				<Wire Id="94e3a1adabb84f4ebfb2c91066d91ca7" Joints="N(22dd94af8f244e0f89091f7833564a7a:Output)|(45,20) N(d1ea120393b54300bd78280862b8b10d:i0)|(58,20)" xmlns="http://www.ni.com/PlatformFramework" />
+				<LoopCount Bounds="1 1 15 15" Docking="Left" Id="70d26c5d65bf4a8886bc24c240892f39" Terminals="2f667841b68448a599af0e8bc9d86298=4d6706cd8847479cb8685cbfb78b73f8, e7f745e81ffb4250bf004c3e6eb6a385" />
+				<LoopTunnel AutoIndex="True" Bounds="60 17 13 10" Docking="Right" Id="d1ea120393b54300bd78280862b8b10d" Terminals="o0=cce0bb20e8e644ffb2f03ba5230b898d, i0=94e3a1adabb84f4ebfb2c91066d91ca7" TunnelMode="0" />
+			</ForLoop>
+			<Literal Bounds="399 175 40 15" DataType="Int32" Id="1617a9aaac1d4881852fa8e7b21cb477" Label="7a19bcc75bf84c5da73bdef376c24a37" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>10</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="DisplayFormat=Automatic:Digits=0:DigitDisplayType=DigitsOfPrecision:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" />
+			</Literal>
+			<NodeLabel AttachedTo="1617a9aaac1d4881852fa8e7b21cb477" Bounds="399 157 30 15" Id="7a19bcc75bf84c5da73bdef376c24a37" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>loop count</p.Text>
+			</NodeLabel>
+			<Wire Id="4d6706cd8847479cb8685cbfb78b73f8" Joints="N(1617a9aaac1d4881852fa8e7b21cb477:Out)|(439,180) N(70d26c5d65bf4a8886bc24c240892f39:2f667841b68448a599af0e8bc9d86298)|(469,180)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="cce0bb20e8e644ffb2f03ba5230b898d" Joints="N(d1ea120393b54300bd78280862b8b10d:o0)|(541,195) h(5) v(-45) B(2) N(9ffd2f5b33bc49c3b211857f324e115e:L2)|(580,150) B(2) v(-10) N(9ffd2f5b33bc49c3b211857f324e115e:L1)|(580,140)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<FlexibleLayoutGroup Height="[float]60" Id="b3e14419817c4531833fb5a5a4da0af1" Left="[float]30" Top="[float]30" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
@@ -161,34 +175,25 @@
 							<HtmlContainer BaseName="[string]HTML Container" ControlResizeMode="[ControlResizeMode]Horizontally" Height="[float]312" Id="cc79600ee1cd471dad16e5652ef28f3f" Label="[UIModel]ce0ea051be294358ae13ab160895205c" Left="[float]0" Top="[float]0" Width="[float]664" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
 							<Label Height="[float]16" Id="ce0ea051be294358ae13ab160895205c" LabelOwner="[UIModel]cc79600ee1cd471dad16e5652ef28f3f" Left="[float]0" Text="[string]plotly" Top="[float]-20" Visible="[bool]False" Width="[float]30" />
 						</FlexibleLayoutComponent>
-						<FlexibleLayoutComponent Height="[float]28" Id="7c7986aa8d9e48b08a890c2c5c76a806" Left="[float]686" Top="[float]6" Width="[float]72">
-							<Button BaseName="[string]Button" Content="[string]Reset" Height="[float]28" Id="ab7d92dcaca147918f24af92d5b3a557" Label="[UIModel]cf9d7d21d0fb405c96f8e58429fbe934" Left="[float]0" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=dc225c2e42204a9da758cf6b8bce5839}" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-							<Label Height="[float]16" Id="cf9d7d21d0fb405c96f8e58429fbe934" LabelOwner="[UIModel]ab7d92dcaca147918f24af92d5b3a557" Left="[float]0" Text="[string]reset" Top="[float]-20" Visible="[bool]False" Width="[float]26" />
+					</FlexibleLayoutContainer>
+				</FlexibleLayoutWrapper>
+			</FlexibleLayoutGroup>
+			<FlexibleLayoutGroup Height="[float]56" Id="1cf0162e2d0542dfa7dc05a1a8099654" Left="[float]30" Top="[float]430" Width="[float]964" xmlns="http://www.ni.com/PanelCommon">
+				<FlexibleLayoutWrapper FlexGrow="[double]1" Height="[float]56" Id="c73d372816c49ada85ad89c894e967d" Left="[float]0" Top="[float]0" Width="[float]964">
+					<FlexibleLayoutContainer Height="[float]40" Id="2822c60cff834aeb9fa9e9ffe671ab80" Left="[float]8" Top="[float]8" Width="[float]948">
+						<FlexibleLayoutComponent Height="[float]28" Id="b67648155da4643ae4c18d2617bcffd" Left="[float]14" Top="[float]6" Width="[float]72">
+							<Button BaseName="[string]Button" Content="[string]Update" Height="[float]28" Id="f60fa4d213fc4bd79f077415ec70cc65" Label="[UIModel]ff1f09e4a26b4b8782ee658c5901886b" Left="[float]0" TabIndex="[int]0" Top="[float]0" Value="{DataItemBinding Id=a40ad19fe8e44c9bba26371669260b02}" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+							<Label Height="[float]16" Id="ff1f09e4a26b4b8782ee658c5901886b" LabelOwner="[UIModel]f60fa4d213fc4bd79f077415ec70cc65" Left="[float]0" Text="[string]update" Top="[float]-20" Visible="[bool]False" Width="[float]38" />
 						</FlexibleLayoutComponent>
 					</FlexibleLayoutContainer>
 				</FlexibleLayoutWrapper>
 			</FlexibleLayoutGroup>
 		</HtmlFrontPanel>
-		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="dc225c2e42204a9da758cf6b8bce5839" IsLatched="True" Name="reset" xmlns="http://www.ni.com/MocCommon">
+		<DataItem AdaptToDiagramType="True" DataType="Boolean" Id="a40ad19fe8e44c9bba26371669260b02" IsLatched="True" Name="update" xmlns="http://www.ni.com/MocCommon">
 			<p.DefaultValue>False</p.DefaultValue>
 		</DataItem>
 	</VirtualInstrument>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
-		<p.TypeReference TypeId="3bd46ec361184c40b28cc690f1dc746b">
-			<Attributed AttributedType="@ca28ef3ebb4e436d871f08e4c362039b">
-				<AttributeValues>
-					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
-					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
-		<p.TypeReference TypeId="47b90446acf34c1dab49af2fa2f01922">
-			<Attributed AttributedType="@9f32489828a24ab4a09d8ab6a44b5453">
-				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Plotly" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
 		<p.TypeReference TypeId="535658826a59430b8cec77f2d104f01a">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
@@ -210,13 +215,77 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="47209601fee942379d6bb31bbfe2d240">
-			<Attributed AttributedType="@ee8cb12554164d499427ccb2d1de1ca8">
+		<p.TypeReference TypeId="fc87e6af22384fb8a06feb82d49d8ec0">
+			<Attributed AttributedType="@74aa786d23874ca88471a08a47296391">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|2|3|0" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="653ef4077a33432286c9b18f23200e31">
+			<Attributed AttributedType="@d5cc76c39163420cb65dd0e1a0e0eb64">
+				<AttributeValues>
+					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="3bd46ec361184c40b28cc690f1dc746b">
+			<Attributed AttributedType="@ca28ef3ebb4e436d871f08e4c362039b">
 				<AttributeValues>
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="47b90446acf34c1dab49af2fa2f01922">
+			<Attributed AttributedType="@9f32489828a24ab4a09d8ab6a44b5453">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]Plotly" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="5f0f0cd37c7b454497aaf104703ab45a">
+			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
+				<Parameters>
+					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@b603060962e1489a8d8c10bdd808bfb7" />
+				</Parameters>
+			</Event>
+		</p.TypeReference>
+		<p.TypeReference TypeId="74aa786d23874ca88471a08a47296391">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="MyPlot" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@d8e17ad3cf3842ebbc20941dff1fea8b">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]plotly div reference" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c99ce4b2078a4274b53b52dbb30c9b4e">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]x" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@14c1e8bc206e4d6689717e506a7502b1">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]y" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="d5cc76c39163420cb65dd0e1a0e0eb64">
+			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="ca28ef3ebb4e436d871f08e4c362039b">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Create Plotly.gvi" ReturnType="Void" GenericTypeDefinition="Void">
@@ -247,53 +316,6 @@
 		<p.TypeReference TypeId="9f32489828a24ab4a09d8ab6a44b5453">
 			<Typedef TypedefName="plotly div reference.gtype" UnderlyingType="@653ef4077a33432286c9b18f23200e31" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="5f0f0cd37c7b454497aaf104703ab45a">
-			<Event Id="1" Name="Value changed" GenericTypeDefinition="Void">
-				<Parameters>
-					<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="Optional" Name="event data" DataType="@b603060962e1489a8d8c10bdd808bfb7" />
-				</Parameters>
-			</Event>
-		</p.TypeReference>
-		<p.TypeReference TypeId="ee8cb12554164d499427ccb2d1de1ca8">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Destroy Plotly.gvi" ReturnType="Void" GenericTypeDefinition="Void">
-				<Parameters>
-					<Attributed AttributedType="@c5f8db6ffb63450e9c9d0e579264e2dc">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]plotly div reference" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
-						</AttributeValues>
-					</Attributed>
-				</Parameters>
-			</Function>
-		</p.TypeReference>
-		<p.TypeReference TypeId="0472339c75a9488fb570a80953283db6">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
-			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="87707c0e66934d509d23f01a1834820f">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@47b90446acf34c1dab49af2fa2f01922" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
-			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
-		</p.TypeReference>
-		<p.TypeReference TypeId="653ef4077a33432286c9b18f23200e31">
-			<Attributed AttributedType="@d5cc76c39163420cb65dd0e1a0e0eb64">
-				<AttributeValues>
-					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
-				</AttributeValues>
-			</Attributed>
-		</p.TypeReference>
 		<p.TypeReference TypeId="b603060962e1489a8d8c10bdd808bfb7">
 			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
 				<Members>
@@ -304,14 +326,48 @@
 				</Members>
 			</Composite>
 		</p.TypeReference>
-		<p.TypeReference TypeId="c5f8db6ffb63450e9c9d0e579264e2dc">
-			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@47b90446acf34c1dab49af2fa2f01922" />
+		<p.TypeReference TypeId="d8e17ad3cf3842ebbc20941dff1fea8b">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@653ef4077a33432286c9b18f23200e31" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="d5cc76c39163420cb65dd0e1a0e0eb64">
-			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
+		<p.TypeReference TypeId="c99ce4b2078a4274b53b52dbb30c9b4e">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="Double[]" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="14c1e8bc206e4d6689717e506a7502b1">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="Double[]" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="0472339c75a9488fb570a80953283db6">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType=":DotNet:NationalInstruments.PanelRuntime.HtmlContainerProxy, NationalInstruments.Controls.Runtime" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="87707c0e66934d509d23f01a1834820f">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@47b90446acf34c1dab49af2fa2f01922" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
 	<IconTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.IconModel Target="WebApp::MyPlot.jsli::MyPlot">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]MyPlot" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="8.25" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;MyPlot.jsli&gt;" Top="[float]0" Width="[float]40" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
 		<p.IconModel Target="Plotly::Create Plotly.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
@@ -322,29 +378,6 @@
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
 							</IconTemplate>
 							<Path Data="[PathGeometry]M 10.4969997,5.45499992 L 14.75,3.24300003 L 12.5319996,7.48999977 L 17.9839993,8.93299961 L 12.5299997,10.3699999 L 14.7419996,14.6239996 L 10.4919996,12.4060001 L 9.05099964,17.8579998 L 7.61399984,12.4029999 L 3.3599999,14.6190004 L 5.57800007,10.368 L 0,8.92500019 L 5.57800007,7.48799992 L 3.36599994,3.2349999 L 7.61600018,5.45300007 L 9.06000042,0 L 10.4969997,5.45499992 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]17.858" Left="[float]11" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]16" Width="[float]17.984" />
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Plotly.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff49587c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Rectangle Fill="[SMSolidColorBrush]#ff49587c" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
-								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#ff49587c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
-								<Text Foreground="[SMColor]#ffffffff" Height="[float]16" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]5" SizeMode="[TextModelSizeMode]Fixed" Text="[string]plotly" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]30">
-									<FontSetting FontFamily="Segoe UI" FontSize="7" />
-								</Text>
-							</IconTemplate>
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
-		<p.IconModel Target="Plotly::Destroy Plotly.gvi">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-							</IconTemplate>
-							<Path Data="[PathGeometry]M 11.3140001,2 L 7.65799999,5.65600014 L 11.3140001,9 L 9.19299984,11 L 5.65799999,7.77799988 L 2.12299991,11 L 0,9 L 3.65700006,5.65600014 L 0,2 L 2.12299991,0 L 5.65799999,3.53500009 L 9.19299984,0 L 11.3140001,2 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]11" Left="[float]14" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]19" Width="[float]11.314" />
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Plotly.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
 								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#ff49587c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
 								<Rectangle Fill="[SMSolidColorBrush]#ff49587c" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
