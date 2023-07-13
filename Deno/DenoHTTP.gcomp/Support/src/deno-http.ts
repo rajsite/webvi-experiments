@@ -1,4 +1,3 @@
-import { serve } from 'std/http/server.ts';
 import { serveDir } from 'std/http/file_server.ts';
 import { fromFileUrl } from 'std/path/mod.ts';
 
@@ -56,7 +55,9 @@ const startServer = function (urlPatternConfigsJSON: string): RequestListener[] 
     const urlPatterns = urlPatternConfigs.map(urlPatternConfig => new URLPattern(urlPatternConfig));
     const abortController = new AbortController();
     const requestListeners = urlPatterns.map(urlPattern => new RequestListener(urlPattern, abortController));
-    serve(async (request: Request): Promise<Response> => {
+    Deno.serve({
+        signal: abortController.signal
+    }, async (request: Request): Promise<Response> => {
         for (const requestListener of requestListeners) {
             if (requestListener.urlPattern.test(request.url)) {
                 const requestHandler = new RequestHandler(request);
@@ -65,8 +66,6 @@ const startServer = function (urlPatternConfigsJSON: string): RequestListener[] 
             }
         }
         throw new Error('unhandled');
-    }, {
-        signal: abortController.signal
     });
 
     // TODO figure out returning the abort controller
