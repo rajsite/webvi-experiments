@@ -4,7 +4,7 @@
     const path = require('path');
     const fs = require('fs').promises;
     const screenshotDesktop = require('screenshot-desktop');
-    const mkdirp = require('mkdirp');
+    const {mkdirp} = require('mkdirp');
 
     const intervalMs = 10000;
     const targetDir = path.join(process.cwd(), 'dist');
