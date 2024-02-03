@@ -63,6 +63,12 @@
         return style;
     };
 
+    // Chart
+    const chartHistoryClear = function (element) {
+        validateControl(element, ['NI-CHART']);
+        element.historyBuffer.clear();
+    };
+
     // Data Grid
     const validateDataGridAllowsSorting = function (element) {
         if (element.allowSorting === false) {
@@ -368,6 +374,7 @@
 
     window.WebVIControlExtensions = {
         buttonGlyphCreateImageURLStyle,
+        chartHistoryClear,
         dataGridColumnByIndexSetSorting,
         dataGridColumnByIndexSetGrouping,
         dataGridStringColumnCreateBackgroundColorStyle,
