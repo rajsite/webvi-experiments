@@ -62,12 +62,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web 
 Write-Host "Copy ControlExtensions build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ControlExtensions" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlExtensions"
 
-Write-Host "Copy ControlTools build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\ControlTools" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlTools"
-
-Write-Host "Copy DeclarativeStyle build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\DeclarativeStyle" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\DeclarativeStyle"
-
 Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
 
@@ -112,7 +106,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Plotly" -TargetName "Default Web Ser
 
 # TODO Prerender
 # TODO ProgressiveWebApp
-# TODO RGraph
 
 Write-Host "Copy RichText build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\RichText" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\RichText"

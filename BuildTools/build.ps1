@@ -31,12 +31,6 @@ Invoke-BuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootst
 Write-Host "Build ControlExtensions project"
 Invoke-BuildApplication -ProjectDirectory ".\ControlExtensions" -ProjectFileName "ControlExtensions.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
-Write-Host "Build ControlTools project"
-Invoke-BuildApplication -ProjectDirectory ".\ControlTools" -ProjectFileName "ControlTools.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
-
-Write-Host "Build DeclarativeStyle project"
-Invoke-BuildApplication -ProjectDirectory ".\DeclarativeStyle" -ProjectFileName "DeclarativeStyle.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
-
 Write-Host "Build ECharts project"
 Invoke-BuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
@@ -89,7 +83,6 @@ Invoke-BuildApplication -ProjectDirectory ".\Plotly" -ProjectFileName "Plotly.gw
 
 # TODO Prerender
 # TODO ProgressiveWebApp
-# TODO RGraph
 
 Write-Host "Build RichText project"
 Invoke-BuildApplication -ProjectDirectory ".\RichText" -ProjectFileName "RichText.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
