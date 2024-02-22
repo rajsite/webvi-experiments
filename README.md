@@ -19,8 +19,6 @@
     - [Gradient - Flexible](https://rajsite.github.io/webvi-experiments/ControlExtensions/backgrounds/gradient-flexible.html)
     - [Plain - Absolute](https://rajsite.github.io/webvi-experiments/ControlExtensions/backgrounds/plain-absolute.html)
     - [Plain - Flexible](https://rajsite.github.io/webvi-experiments/ControlExtensions/backgrounds/plain-flexible.html)
-- [ControlTools](https://rajsite.github.io/webvi-experiments/ControlTools/)
-- [DeclarativeStyle](https://rajsite.github.io/webvi-experiments/DeclarativeStyle/)
 - [ECharts](https://rajsite.github.io/webvi-experiments/ECharts/)
 - [Exorbitant](https://rajsite.github.io/webvi-experiments/Exorbitant/)
 - [File](https://rajsite.github.io/webvi-experiments/File/)
