@@ -3,6 +3,9 @@ Import-Module -Name "$PSScriptRoot\EditorTools" -Verbose -Force
 Write-Host "Build Arcade projects: Avalanche"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\Avalanche" -ProjectFileName "Avalanche.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build Arcade projects: CityInBottle"
+Invoke-BuildApplication -ProjectDirectory ".\Arcade\CityInBottle" -ProjectFileName "CityInBottle.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build Arcade projects: DigitalClock"
 Invoke-BuildApplication -ProjectDirectory ".\Arcade\DigitalClock" -ProjectFileName "DigitalClock.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
