@@ -20,19 +20,28 @@ async function createInstance () {
         throw new Error('Unsupported on this target');
     };
 
-    const logLabVIEWError = function (_ignoreReturnValueRef: unknown, _statusValueRef: unknown, codeValueRef: unknown, sourceValueRef: unknown) {
+    const LogLabVIEWError = function (_ignoreReturnValueRef: unknown, _statusValueRef: unknown, codeValueRef: unknown, sourceValueRef: unknown) {
         const code = vireo.eggShell.readDouble(codeValueRef);
         const source = vireo.eggShell.readString(sourceValueRef);
         throw new Error(`LabVIEW error ${code} occured at ${source === '' ? 'unknown location' : source}`);
+    };
+
+    const OneButtonDialog = function (returnValueRef: unknown, messageTextValueRef: unknown, textOneValueRef: unknown) {
+        const messageText = vireo.eggShell.readString(messageTextValueRef);
+        const textOne = vireo.eggShell.readString(textOneValueRef);
+        alert(messageText + (textOne !== '' ? ` (${textOne})` : ''));
+
+        // Ignores the return value of the dialog, LabVIEW always returns true despite what was returned.
+        vireo.eggShell.writeDouble(returnValueRef, 1);
     };
 
     vireo.javaScriptInvoke.registerInternalFunctions({
         ControlReference_GetControlObject: notSupportedError,
         PropertyNode_PropertyRead: notSupportedError,
         PropertyNode_PropertyWrite: notSupportedError,
-        OneButtonDialog: notSupportedError,
+        OneButtonDialog,
         TwoButtonDialog: notSupportedError,
-        LogLabVIEWError: logLabVIEWError,
+        LogLabVIEWError,
         InvokeControlFunction: notSupportedError
     });
     return vireo;
