@@ -9,7 +9,6 @@ async function createInstance (mainUrl: string) {
     const webAppRoot = new URL('./', mainUrl).href;
     customGlobalWithBuiltins.WebVIDenoMeta = {
         getWebAppRoot: () => {
-            debugger;
             return webAppRoot;
         }
     }
