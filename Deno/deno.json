@@ -13,7 +13,8 @@
     "env": "export DENO_TLS_CA_STORE=mozilla,system",
     "tool:rebuild-vireo-data-url": "deno run -A ./Packages/BuildTools/make-vireo-dataurl.ts",
     "tool:deno-test": "deno test -A",
-    "tool:deno-compile": "deno task env && deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\""
+    "tool:deno-compile": "deno task env && deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
+    "tool:deno-cache": "deno cache ./Packages/BuildTools/all-typescript-packages.ts"
   },
   "imports": {
     "std/": "https://deno.land/std@0.194.0/",

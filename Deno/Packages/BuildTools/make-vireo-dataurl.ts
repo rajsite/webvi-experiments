@@ -5,8 +5,6 @@ const encodedData = encode(data);
 const vireoDataUrlContents = `export const vireoDataUrl = 'data:application/wasm;base64,${encodedData}';`;
 const vireoDataUrlContentsPath = new URL('../TypeScript/Runtime/Support/vireo-data-url.js', import.meta.url);
 
-await Deno.writeTextFile(vireoDataUrlContentsPath, vireoDataUrlContents);
-
 function encode (data: Uint8Array) {
     let binaryString = '';
     for (let i = 0; i < data.length; i++) {
@@ -15,3 +13,7 @@ function encode (data: Uint8Array) {
     const encodedData = btoa(binaryString);
     return encodedData;
 };
+
+if (import.meta.main) {
+    await Deno.writeTextFile(vireoDataUrlContentsPath, vireoDataUrlContents);
+}
