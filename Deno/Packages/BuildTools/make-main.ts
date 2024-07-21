@@ -1,4 +1,4 @@
-import { DOMParser, Element, Node } from 'deno_dom/deno-dom-wasm.ts';
+import { DOMParser, Element, Node } from '@b-fuze/deno-dom/wasm';
 
 // Assumes main.html is at the root of the WebApp build output
 const htmlUrl = new URL('../../Builds/Server_Default Web Server/main.html', import.meta.url);

@@ -1,4 +1,4 @@
-import { XMLHttpRequest } from 'xhr/mod.ts';
+import { XMLHttpRequest } from '@kitsonk/xhr';
 import './Support/node_modules/webvi-websockets/source/main.js';
 import vireoHelpers from './Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { vireoDataUrl } from "./Support/vireo-data-url.js";

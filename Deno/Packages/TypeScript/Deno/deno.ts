@@ -1,4 +1,4 @@
-import { toFileUrl } from 'std/path/mod.ts';
+import { toFileUrl } from '@std/path';
 
 const envGet = (name: string) => {
     return Deno.env.get(name);
