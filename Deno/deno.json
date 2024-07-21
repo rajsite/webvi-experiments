@@ -1,25 +1,36 @@
 {
-    "tasks": {
-        "start": "deno task env && deno task build && deno task start:typescript",
-        "start:typescript": "deno run -A \"./Builds/Server_Default Web Server/main.ts\"",
-        "build": "deno task env && deno task build:client && deno task build:server",
-        "build:client": "deno task build:client:gweb",
-        "build:client:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\" -n Client.gcomp",
-        "build:server": "deno task build:server:gweb && deno task build:server:typescript",
-        "build:server:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\" -n Server.gcomp",
-        "build:server:typescript": "deno run -A ./Packages/BuildTools/make-main.ts",
-        "publish": "deno task env && deno task build && deno task publish:deployctl",
-        "publish:deployctl": "cd ./Builds/ && deployctl deploy --import-map=\"./Server_Default Web Server/Deno/Support/import_map.json\" \"./Server_Default Web Server/main.ts\"",
-        "env": "export DENO_TLS_CA_STORE=mozilla,system"
-    },
-    "imports": {
-        "std/": "https://deno.land/std@0.194.0/",
-        "xhr/": "https://deno.land/x/xhr@0.3.0/",
-        "deno_dom/": "https://deno.land/x/deno_dom@v0.1.38/"
-      },
-      "scopes": {
-        "https://deno.land/x/xhr@0.3.0/": {
-          "https://deno.land/std@0.150.0/": "https://deno.land/std@0.194.0/"
-        }
+  "tasks": {
+    "start": "deno task env && deno task build && deno task start:typescript",
+    "start:typescript": "deno run -A \"./Builds/Server_Default Web Server/main.ts\"",
+    "build": "deno task env && deno task build:client && deno task build:server",
+    "build:client": "deno task build:client:gweb",
+    "build:client:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\" -n Client.gcomp",
+    "build:server": "deno task build:server:gweb && deno task build:server:typescript",
+    "build:server:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\" -n Server.gcomp",
+    "build:server:typescript": "deno run -A ./Packages/BuildTools/make-main.ts",
+    "publish": "deno task env && deno task build && deno task publish:deployctl",
+    "publish:deployctl": "deployctl deploy --import-map=./deno.json",
+    "env": "export DENO_TLS_CA_STORE=mozilla,system"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.194.0/",
+    "xhr/": "https://deno.land/x/xhr@0.3.0/",
+    "deno_dom/": "https://deno.land/x/deno_dom@v0.1.38/"
+  },
+  "scopes": {
+    "https://deno.land/x/xhr@0.3.0/": {
+      "https://deno.land/std@0.150.0/": "https://deno.land/std@0.194.0/"
     }
+  },
+  "deploy": {
+    "exclude": [],
+    "include": [
+      "deno.json",
+      "./Builds/**/*",
+      "./Packages/TypeScript/**/*",
+      "./Builds/**/node_modules/*",
+      "./Packages/TypeScript/**/node_modules/*"
+    ],
+    "entrypoint": "Builds\\Server_Default Web Server\\main.ts"
+  }
 }
