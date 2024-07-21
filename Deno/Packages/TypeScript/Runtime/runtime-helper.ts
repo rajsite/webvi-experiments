@@ -3,16 +3,10 @@ import './Support/node_modules/webvi-websockets/source/main.js';
 import vireoHelpers from './Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { vireoDataUrl } from "./Support/vireo-data-url.js";
 
-async function createInstance (mainUrl: string) {
+async function createInstance () {
     const customGlobalWithBuiltins = Object.create(globalThis);
     // TODO Currently the global is mutated to include NationalInstrumentsWebSockets based on the webvi-websockets import style
     // customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
-    const webAppRoot = new URL('./', mainUrl).href;
-    customGlobalWithBuiltins.WebVIDenoMeta = {
-        getWebAppRoot: () => {
-            return webAppRoot;
-        }
-    }
 
     // @ts-ignore TODO deno doesn't understand default exports?
     const vireo = await vireoHelpers.createInstance({
@@ -49,11 +43,11 @@ declare namespace globalThis {
     let vireoHelpers: unknown;
 }
 
-export async function run(mainUrl: string, viaCode: string) {
+export async function run(viaCode: string) {
     if (globalThis.vireoInstance || globalThis.vireoHelpers) {
         throw new Error('Vireo already instantiated globally');
     }
-    const vireo = await createInstance(mainUrl);
+    const vireo = await createInstance();
     vireo.eggShell.loadVia(viaCode);
 
     // Make vireo instance available to libraries

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="A240855711D3DB635243470C854A2D36834C1568B74E1FB09449C52D240B70899298B316922DB9BA722B34A4B8B94E2DC485E92EABF7C9BFAADD56C280584FCB" Timestamp="1DADB1B026B7688" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="DC63462FD6D9690362C37E1AB0426BBA5669813797292D2D903C5266D6EE2D0F3A0370A055B6A41C7EC660AAF5AC85B401FBD1B01A5126198B472D3D4CCEE81F" Timestamp="1DADB31428E6C92" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -116,12 +116,12 @@
 			<WhileLoop Bounds="395 410 670 225" DiagramId="1bf76e64c497404f8603bc02937f791e" Id="d94985622fa4a5f9f49c15be01c24ca">
 				<LoopIteration Bounds="5 195 15 15" Id="eb1c56c496bd45d4a6251f4ce74e2b36" />
 				<LoopCondition Bounds="585 185 15 15" Id="c6893d075f4c4c4b9d725cf271d85840" />
-				<MethodCall Bounds="205 40 40 40" Id="56398f1e009343bcab859dccd385a44d" ResolveFailedHint="Deno env get" Signature="@22518e63a8ac4e73b940e072c075bdab" Target="Deno::Support::Deno.jsli::Deno env get" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="205 40 40 40" Id="56398f1e009343bcab859dccd385a44d" ResolveFailedHint="EnvGet" Signature="@6b19425e8f2c497a9f02c7e0a3c79d64" Target="Deno::Support::Deno.jsli::EnvGet" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-							<Parameter Id="L1" Desc="arg" />
+							<Parameter Id="L1" Desc="name" />
 							<Parameter Id="L3" Desc="error in" />
-							<Parameter Id="R0" Desc="return" />
+							<Parameter Id="R0" Desc="value" />
 							<Parameter Id="R3" Desc="error out" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
@@ -468,12 +468,12 @@
 			<WhileLoop Bounds="395 -35 670 225" DiagramId="b6a40b308d3442b7b76f7d7b5fad576c" Id="d26318b4cea84413a7f5d276443186d1">
 				<LoopIteration Bounds="5 195 15 15" Id="28094896e9cf4e83abbac6041dff7ff6" />
 				<LoopCondition Bounds="605 185 15 15" Id="e88cedf87ff48ac8bfbb06ca3e4d2d7" />
-				<MethodCall Bounds="205 40 40 40" Id="99389f08dbc94c569e6d9b87ec2bbe89" ResolveFailedHint="Deno env get" Signature="@22518e63a8ac4e73b940e072c075bdab" Target="Deno::Support::Deno.jsli::Deno env get" xmlns="http://www.ni.com/MocCommon">
+				<MethodCall Bounds="205 40 40 40" Id="99389f08dbc94c569e6d9b87ec2bbe89" ResolveFailedHint="EnvGet" Signature="@6b19425e8f2c497a9f02c7e0a3c79d64" Target="Deno::Support::Deno.jsli::EnvGet" xmlns="http://www.ni.com/MocCommon">
 					<p.MethodDeclaration>
 						<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-							<Parameter Id="L1" Desc="arg" />
+							<Parameter Id="L1" Desc="name" />
 							<Parameter Id="L3" Desc="error in" />
-							<Parameter Id="R0" Desc="return" />
+							<Parameter Id="R0" Desc="value" />
 							<Parameter Id="R3" Desc="error out" />
 						</MethodDeclaration>
 					</p.MethodDeclaration>
@@ -641,18 +641,6 @@
 				<LoopTunnel Bounds="-4 115 13 10" Docking="Left" Id="a136050fb50e4889a244d27a49e9bebd" Terminals="o0=a41c460435b2414e968d4d4d79e764bb, i0=2012ce2ab0084f80908337fc3e4d8ddb" />
 				<LoopTunnel Bounds="-4 145 13 10" Docking="Left" Id="c52f633c214e49fc87ae6efeb9d5fb47" Terminals="o0=34ae738532a24e8bb4d4541e26e055d7, i0=2a963045f6cb4d0d9beb8a4798eb671f" />
 			</WhileLoop>
-			<MethodCall Bounds="185 810 40 40" Id="7d571dd263884cfab228d35ec479dfdc" ResolveFailedHint="GetWebAppRoot" Signature="@bb9a79b9e53d418caa2e8c709eb3561e" Target="Deno::Support::Deno.jsli::GetWebAppRoot" xmlns="http://www.ni.com/MocCommon">
-				<p.MethodDeclaration>
-					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
-						<Parameter Id="L3" Desc="error in" />
-						<Parameter Id="R0" Desc="return" />
-						<Parameter Id="R3" Desc="error out" />
-					</MethodDeclaration>
-				</p.MethodDeclaration>
-				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
-				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
-			</MethodCall>
 			<MethodCall Bounds="315 825 40 40" Id="be1122ac62734b8ea9052f2ea5e24cdb" ResolveFailedHint="&quot;C:\\Users\\Milan\\Documents\\GitHub\\webvi-experiments\\URL\\URL.gcomp\\URL\\URL Build Relative Path.gvi&quot;" Signature="@9d87da2c91cb4faaa45105ba50cb3ca9" Target="URL::URL::URL Build Relative Path.gvi" xmlns="http://www.ni.com/MocCommon">
 				<p.MethodDeclaration>
 					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
@@ -669,16 +657,28 @@
 				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
 				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
 			</MethodCall>
-			<Wire Id="421591d5774d4998ad5b3c4a2c61e272" Joints="N(7d571dd263884cfab228d35ec479dfdc:R0)|(225,815) h(11) v(15) N(be1122ac62734b8ea9052f2ea5e24cdb:L0)|(315,830)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Literal Bounds="105 865 185 15" DataType="String" Id="1ba70c56d6d04476874d623c54ea9e91" Label="7fce1fc453ee4b6e95924b59a4dcb8f0" xmlns="http://www.ni.com/MocCommon">
-				<p.Data>../Client_Default Web Server/</p.Data>
+			<Literal Bounds="75 865 215 15" DataType="String" Id="1ba70c56d6d04476874d623c54ea9e91" Label="7fce1fc453ee4b6e95924b59a4dcb8f0" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>./Builds/Client_Default Web Server/</p.Data>
 				<StringBehavior TextDisplayMode="Default" />
 			</Literal>
-			<NodeLabel AttachedTo="1ba70c56d6d04476874d623c54ea9e91" Bounds="105 847 30 15" Id="7fce1fc453ee4b6e95924b59a4dcb8f0" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+			<NodeLabel AttachedTo="1ba70c56d6d04476874d623c54ea9e91" Bounds="75 847 30 15" Id="7fce1fc453ee4b6e95924b59a4dcb8f0" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
 				<p.Text>relative url</p.Text>
 			</NodeLabel>
 			<Wire Id="95392782cc4a40b2a4d951224a983fa9" Joints="N(1ba70c56d6d04476874d623c54ea9e91:Out)|(290,870) h(5) v(-30) N(be1122ac62734b8ea9052f2ea5e24cdb:L1)|(315,840)" xmlns="http://www.ni.com/PlatformFramework" />
-			<Wire Id="7ef25288461e478abe7f0ab1e6de13d9" Joints="N(be1122ac62734b8ea9052f2ea5e24cdb:R0)|(355,830) h(59) v(-120) N(66012cbedc2947a98efe2d3be8b5c9e6:L1)|(420,710)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="160 800 40 40" Id="f8827ed17b0c4a34a82fc6a49dbaac2e" ResolveFailedHint="CwdGet" Signature="@210df70663774ddda0382efd5aee0c3e" Target="Deno::Support::Deno.jsli::CwdGet" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="return" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="c5aebd72ca714682b5a0248f7c7a9f1f" Joints="N(f8827ed17b0c4a34a82fc6a49dbaac2e:R0)|(200,805) h(36) v(25) N(be1122ac62734b8ea9052f2ea5e24cdb:L0)|(315,830)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="37adf5d0de76466bab4c8ddfa14d8a49" Joints="N(be1122ac62734b8ea9052f2ea5e24cdb:R0)|(355,830) h(59) v(-120) N(66012cbedc2947a98efe2d3be8b5c9e6:L1)|(420,710)" xmlns="http://www.ni.com/PlatformFramework" />
 		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" Id="15" LayoutSystem="[LayoutSystem]Flexible" Left="[float]0" MinHeight="[float]0" MinWidth="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI" />
 	</VirtualInstrument>
@@ -710,8 +710,8 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="22518e63a8ac4e73b940e072c075bdab">
-			<Attributed AttributedType="@cf7e26813cdc4131acd1384807f2ee51">
+		<p.TypeReference TypeId="6b19425e8f2c497a9f02c7e0a3c79d64">
+			<Attributed AttributedType="@7d19b724c7a3479e971042c2738c7f55">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|1|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
@@ -800,18 +800,18 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="bb9a79b9e53d418caa2e8c709eb3561e">
-			<Attributed AttributedType="@3cb10b3a63b1444badd52c622a1d33c4">
+		<p.TypeReference TypeId="9d87da2c91cb4faaa45105ba50cb3ca9">
+			<Attributed AttributedType="@6eb607bd014b4ae69d2199ba9f2142b6">
 				<AttributeValues>
-					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="9d87da2c91cb4faaa45105ba50cb3ca9">
-			<Attributed AttributedType="@6eb607bd014b4ae69d2199ba9f2142b6">
+		<p.TypeReference TypeId="210df70663774ddda0382efd5aee0c3e">
+			<Attributed AttributedType="@212572ae2e174493932ff7e03dd486a6">
 				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ParameterCallIndex" Value="[ParameterCallIndexFields]0|0|1" />
 					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
 					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
 				</AttributeValues>
@@ -892,12 +892,12 @@
 		<p.TypeReference TypeId="a19470cbdc7d4590a859642babef1f2c">
 			<Typedef TypedefName="url pattern.gtype" UnderlyingType="@f0258ddd0965496dabae0a033194ac7b" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="cf7e26813cdc4131acd1384807f2ee51">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Deno env get" ReturnType="Void" GenericTypeDefinition="Void">
+		<p.TypeReference TypeId="7d19b724c7a3479e971042c2738c7f55">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="EnvGet" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
 					<Attributed AttributedType="@069cf77559a645a087566635e390a7da">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]arg" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]name" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c8673e7cf8e94cd2ae35a07aa3155074">
@@ -907,7 +907,7 @@
 					</Attributed>
 					<Attributed AttributedType="@22c942a2e195482b817b34228f0d6652">
 						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]return" />
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]value" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c27a50a076a8430d805ee0d675e7a358">
@@ -1007,7 +1007,7 @@
 		<p.TypeReference TypeId="be6355ca39084a67a85b775974fe3c93">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="URL Get Search Parameter.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@f6353861de3f4f0fa49ef5397179a04b">
+					<Attributed AttributedType="@8e9fd4e289ce4c30b7d1d23ffcb8f608">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]url" />
 						</AttributeValues>
@@ -1043,7 +1043,7 @@
 		<p.TypeReference TypeId="d3734629c24047d3836307d1c78f3204">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Update Tag.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@f6353861de3f4f0fa49ef5397179a04b">
+					<Attributed AttributedType="@8e9fd4e289ce4c30b7d1d23ffcb8f608">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]api key" />
 						</AttributeValues>
@@ -1122,7 +1122,7 @@
 		<p.TypeReference TypeId="0b8915dc69dc4a809bafa38df5a27184">
 			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Upload File.gvi" ReturnType="Void" GenericTypeDefinition="Void">
 				<Parameters>
-					<Attributed AttributedType="@f6353861de3f4f0fa49ef5397179a04b">
+					<Attributed AttributedType="@8e9fd4e289ce4c30b7d1d23ffcb8f608">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]api key" />
 						</AttributeValues>
@@ -1135,27 +1135,6 @@
 					<Attributed AttributedType="@c8673e7cf8e94cd2ae35a07aa3155074">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@c27a50a076a8430d805ee0d675e7a358">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
-						</AttributeValues>
-					</Attributed>
-				</Parameters>
-			</Function>
-		</p.TypeReference>
-		<p.TypeReference TypeId="3cb10b3a63b1444badd52c622a1d33c4">
-			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GetWebAppRoot" ReturnType="Void" GenericTypeDefinition="Void">
-				<Parameters>
-					<Attributed AttributedType="@c8673e7cf8e94cd2ae35a07aa3155074">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
-						</AttributeValues>
-					</Attributed>
-					<Attributed AttributedType="@22c942a2e195482b817b34228f0d6652">
-						<AttributeValues>
-							<AttributeValue Name="NI.UserDefinedName" Value="[string]return" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c27a50a076a8430d805ee0d675e7a358">
@@ -1187,6 +1166,27 @@
 					<Attributed AttributedType="@22c942a2e195482b817b34228f0d6652">
 						<AttributeValues>
 							<AttributeValue Name="NI.UserDefinedName" Value="[string]url" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c27a50a076a8430d805ee0d675e7a358">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="212572ae2e174493932ff7e03dd486a6">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="CwdGet" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@c8673e7cf8e94cd2ae35a07aa3155074">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@22c942a2e195482b817b34228f0d6652">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]return" />
 						</AttributeValues>
 					</Attributed>
 					<Attributed AttributedType="@c27a50a076a8430d805ee0d675e7a358">
@@ -1262,7 +1262,7 @@
 		<p.TypeReference TypeId="82c2a4e9c4f24c9bb3aa0c03e92fff31">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="@f0339782ce4245348acaaf0c922501e8" />
 		</p.TypeReference>
-		<p.TypeReference TypeId="f6353861de3f4f0fa49ef5397179a04b">
+		<p.TypeReference TypeId="8e9fd4e289ce4c30b7d1d23ffcb8f608">
 			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="String" />
 		</p.TypeReference>
 		<p.TypeReference TypeId="e6d044f992fc4bbb90cf36afa5b9f6c3">
@@ -1307,7 +1307,7 @@
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="Deno::Support::Deno.jsli::Deno env get">
+		<p.IconModel Target="Deno::Support::Deno.jsli::EnvGet">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
 					<Icon ListViewIconCrop="0 0 40 40">
@@ -1315,8 +1315,8 @@
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Deno env get" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="7.5" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]EnvGet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="8.25" />
 								</FileNameText>
 							</IconTemplate>
 							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Deno.gcomp" Top="[float]0" Width="[float]40" />
@@ -1501,25 +1501,6 @@
 				</MergeItem>
 			</MergeScript>
 		</p.IconModel>
-		<p.IconModel Target="Deno::Support::Deno.jsli::GetWebAppRoot">
-			<MergeScript>
-				<MergeItem Path="." IsPrimary="True">
-					<Icon ListViewIconCrop="0 0 40 40">
-						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
-							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
-								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
-								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]GetWebAppRoot" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
-									<FontSetting FontFamily="Segoe UI" FontSize="6" />
-								</FileNameText>
-							</IconTemplate>
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Deno.gcomp" Top="[float]0" Width="[float]40" />
-							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;Deno.jsli&gt;" Top="[float]0" Width="[float]40" />
-						</IconPanel>
-					</Icon>
-				</MergeItem>
-			</MergeScript>
-		</p.IconModel>
 		<p.IconModel Target="URL::URL::URL Build Relative Path.gvi">
 			<MergeScript>
 				<MergeItem Path="." IsPrimary="True">
@@ -1540,6 +1521,25 @@
 									<FontSetting FontFamily="Arial" FontSize="6" FontStyle="Bold" />
 								</Text>
 							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="Deno::Support::Deno.jsli::CwdGet">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CwdGet" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="7.5" />
+								</FileNameText>
+							</IconTemplate>
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]Deno.gcomp" Top="[float]0" Width="[float]40" />
+							<IconTemplate Height="[float]40" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][JSLI]&lt;Deno.jsli&gt;" Top="[float]0" Width="[float]40" />
 						</IconPanel>
 					</Icon>
 				</MergeItem>

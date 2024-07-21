@@ -106,14 +106,16 @@ const requestUrl = function (requestHandler: RequestHandler) {
     return requestHandler.request.url;
 };
 
-declare namespace globalThis {
-    let WebVIDenoHTTP: unknown;
-}
-
-globalThis.WebVIDenoHTTP = {
+const api = {
     startServer,
     listenForRequest,
     completeRequest,
     serveFileRequests,
     requestUrl
-};
+} as const;
+
+declare namespace globalThis {
+    let WebVIDenoHTTP: typeof api;
+}
+
+globalThis.WebVIDenoHTTP = api;

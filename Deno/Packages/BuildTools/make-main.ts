@@ -40,7 +40,7 @@ function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
             ${viaCodeLines.join(',\n')}
         ];
         const viaCode = viaCodeLines.join('\\n');
-        await run(import.meta.url, viaCode);
+        await run(viaCode);
     `;
     const main = mainTemplate.split('\n')
         .map(line => line.trimStart())

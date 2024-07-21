@@ -1,11 +1,21 @@
-function enableDeno () {
-    // no-op, node used to include assets
+import { toFileUrl } from 'std/path/mod.ts';
+
+const envGet = (name: string) => {
+    return Deno.env.get(name);
 }
+const cwdGet = () => {
+    const cwd = Deno.cwd();
+    const cwdUrl = `${toFileUrl(cwd).href}/`;
+    return cwdUrl;
+}
+
+const api = {
+    envGet,
+    cwdGet
+} as const;
 
 declare namespace globalThis {
-    let WebVIDeno: unknown;
+    let WebVIDeno: typeof api;
 }
 
-globalThis.WebVIDeno = {
-    enableDeno
-};
+globalThis.WebVIDeno = api;
