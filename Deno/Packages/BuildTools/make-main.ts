@@ -1,7 +1,7 @@
 import { DOMParser, Element, Node } from 'deno_dom/deno-dom-wasm.ts';
 
 // Assumes main.html is at the root of the WebApp build output
-const htmlUrl = new URL('../../../main.html', import.meta.url);
+const htmlUrl = new URL('../../Builds/Server_Default Web Server/main.html', import.meta.url);
 await makeMain(htmlUrl);
 
 interface ExtractedUrls {
@@ -35,12 +35,12 @@ function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
         .map(line => JSON.stringify(line));
     const mainTemplate = `
         ${formattedScriptSources}
-        import {run} from './Deno/Support/src/runtime-helper.ts';
+        import {run} from '../../Packages/TypeScript/Runtime/runtime-helper.ts';
         const viaCodeLines = [
             ${viaCodeLines.join(',\n')}
         ];
         const viaCode = viaCodeLines.join('\\n');
-        await run(viaCode);
+        await run(import.meta.url, viaCode);
     `;
     const main = mainTemplate.split('\n')
         .map(line => line.trimStart())

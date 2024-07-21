@@ -86,10 +86,8 @@ const completeRequest = function (requestHandler: RequestHandler, body: string):
     requestHandler.complete(new Response(body));
 };
 
-const serveFileRequests = async function (requestListener: RequestListener, relativeUrlFromWebAppRoot: string): Promise<void> {
-    const webAppRootUrl = new URL('../../../', import.meta.url);
-    const absoluteUrlFromWebAppRoot = new URL(relativeUrlFromWebAppRoot, webAppRootUrl);
-    const fsRoot = fromFileUrl(absoluteUrlFromWebAppRoot);
+const serveFileRequests = async function (requestListener: RequestListener, serveRootUrl: string): Promise<void> {
+    const fsRoot = fromFileUrl(serveRootUrl);
     while(true) {
         const streamResult = await requestListener.streamReader.read();
         if (streamResult.done) {

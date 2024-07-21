@@ -1,13 +1,22 @@
 import { XMLHttpRequest } from 'xhr/mod.ts';
-import webviWebsockets from 'webvi-websockets/source/main.js';
-import vireoHelpers from 'vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
+import './Support/node_modules/webvi-websockets/source/main.js';
+import vireoHelpers from './Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 
-async function createInstance () {
+async function createInstance (mainUrl: string) {
     const customGlobalWithBuiltins = Object.create(globalThis);
-    customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
+    // TODO Currently the global is mutated to include NationalInstrumentsWebSockets based on the webvi-websockets import style
+    // customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
+    const webAppRoot = new URL('./', mainUrl).href;
+    customGlobalWithBuiltins.WebVIDenoMeta = {
+        getWebAppRoot: () => {
+            debugger;
+            return webAppRoot;
+        }
+    }
 
+    // @ts-ignore TODO deno doesn't understand default exports?
     const vireo = await vireoHelpers.createInstance({
-        wasmUrl: (new URL('../../../ni-webvi-resource-v0/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.core.wasm', import.meta.url)).href
+        wasmUrl: (new URL('./Support/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.core.wasm', import.meta.url)).href
     });
 
     vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
@@ -40,11 +49,11 @@ declare namespace globalThis {
     let vireoHelpers: unknown;
 }
 
-export async function run(viaCode: string) {
+export async function run(mainUrl: string, viaCode: string) {
     if (globalThis.vireoInstance || globalThis.vireoHelpers) {
         throw new Error('Vireo already instantiated globally');
     }
-    const vireo = await createInstance();
+    const vireo = await createInstance(mainUrl);
     vireo.eggShell.loadVia(viaCode);
 
     // Make vireo instance available to libraries
