@@ -35,11 +35,13 @@ function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
     const mainTemplate = `
         ${formattedScriptSources}
         import {run} from '../../Packages/TypeScript/Runtime/runtime-helper.ts';
-        const viaCodeLines = [
-            ${viaCodeLines.join(',\n')}
-        ];
-        const viaCode = viaCodeLines.join('\\n');
+        const viaCode = viaCodeLines().join('\\n');
         await run(viaCode);
+        function viaCodeLines () {
+        return [
+        ${viaCodeLines.join(',\n')}
+        ];
+        }
     `;
     const main = mainTemplate.split('\n')
         .map(line => line.trimStart())
