@@ -10,7 +10,9 @@
     "build:server:typescript": "deno run -A ./Packages/BuildTools/make-main.ts",
     "publish": "deno task env && deno task build && deno task publish:deployctl",
     "publish:deployctl": "deployctl deploy --import-map=./deno.json",
-    "env": "export DENO_TLS_CA_STORE=mozilla,system"
+    "env": "export DENO_TLS_CA_STORE=mozilla,system",
+    "tool:rebuild-vireo-data-url": "deno run -A ./Packages/BuildTools/make-vireo-dataurl.ts",
+    "tool:deno-test": "deno test -A"
   },
   "imports": {
     "std/": "https://deno.land/std@0.194.0/",

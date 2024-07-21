@@ -1,6 +1,7 @@
 import { XMLHttpRequest } from 'xhr/mod.ts';
 import './Support/node_modules/webvi-websockets/source/main.js';
 import vireoHelpers from './Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
+import { vireoDataUrl } from "./Support/vireo-data-url.js";
 
 async function createInstance (mainUrl: string) {
     const customGlobalWithBuiltins = Object.create(globalThis);
@@ -15,7 +16,7 @@ async function createInstance (mainUrl: string) {
 
     // @ts-ignore TODO deno doesn't understand default exports?
     const vireo = await vireoHelpers.createInstance({
-        wasmUrl: (new URL('./Support/node_modules/vireo/dist/wasm32-unknown-emscripten/release/vireo.core.wasm', import.meta.url)).href
+        wasmUrl: vireoDataUrl
     });
 
     vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
