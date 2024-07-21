@@ -1,20 +1,18 @@
 {
   "tasks": {
-    "start": "deno task env && deno task build && deno task start:typescript",
-    "start:typescript": "deno run -A \"./Builds/Server_Default Web Server/main.ts\"",
+    "start": "deno task env && deno task build && deno task start:run",
+    "start:run": "deno run -A \"./Builds/Server_Default Web Server/main.ts\"",
     "build": "deno task env && deno task build:client && deno task build:server",
-    "build:client": "deno task build:client:gweb",
-    "build:client:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\" -n Client.gcomp",
-    "build:server": "deno task build:server:gweb && deno task build:server:typescript",
-    "build:server:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\" -n Server.gcomp",
-    "build:server:typescript": "deno run -A ./Packages/BuildTools/make-main.ts",
+    "build:client": "deno task gweb:build -n Client.gcomp",
+    "build:server": "deno task gweb:build -n Server.gcomp && deno run -A ./Support/make-main.ts",
     "publish": "deno task env && deno task build && deno task publish:deployctl",
     "publish:deployctl": "deployctl deploy --import-map=./deno.json",
     "env": "export DENO_TLS_CA_STORE=mozilla,system",
-    "tool:rebuild-vireo-data-url": "deno run -A ./Packages/BuildTools/make-vireo-dataurl.ts",
+    "gweb:build": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./Deno.gwebproject -t \"Default Web Server\"",
+    "tool:rebuild-vireo-data-url": "deno run -A ./Support/make-vireo-dataurl.ts",
     "tool:deno-test": "deno test -A",
     "tool:deno-compile": "deno task env && deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
-    "tool:deno-cache": "deno cache ./Packages/BuildTools/all-typescript-packages.ts"
+    "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts"
   },
   "imports": {
     "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.47",
@@ -27,9 +25,9 @@
     "include": [
       "deno.json",
       "./Builds/**/*",
-      "./Packages/TypeScript/**/*",
+      "./Library/Support/**/*",
       "./Builds/**/node_modules/*",
-      "./Packages/TypeScript/**/node_modules/*"
+      "./Library/Support/**/node_modules/*"
     ],
     "entrypoint": "Builds\\Server_Default Web Server\\main.ts"
   }

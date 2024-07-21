@@ -1,7 +1,7 @@
 import { DOMParser, Element, Node } from '@b-fuze/deno-dom/wasm';
 
 // Assumes main.html is at the root of the WebApp build output
-const htmlUrl = new URL('../../Builds/Server_Default Web Server/main.html', import.meta.url);
+const htmlUrl = new URL('../Builds/Server_Default Web Server/main.html', import.meta.url);
 
 interface ExtractedUrls {
     vireoSource: string;
@@ -26,21 +26,13 @@ function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
         .map(url => url.startsWith('.') ? url : `./${url}`)
         .map(url => `import '${url}';`)
         .join('\n');
-    const viaCodeLines = viaCode
-        .split('\n')
-        // A JSON encoded string becomes a valid JavaScript string literal
-        // we insert that string literal directly in the generated JS
-        // and because it is a valid literal we don't JSON.parse it
-        .map(line => JSON.stringify(line));
+    const viaCodeLines = JSON.stringify(viaCode.split('\n'), undefined, 4);
     const mainTemplate = `
         ${formattedScriptSources}
-        import {run} from '../../Packages/TypeScript/Runtime/runtime-helper.ts';
-        const viaCode = viaCodeLines().join('\\n');
-        await run(viaCode);
+        import { runViaCodeLines } from '../../Library/Support/Runtime/runtime-helper.ts';
+        await runViaCodeLines(viaCodeLines());
         function viaCodeLines () {
-        return [
-        ${viaCodeLines.join(',\n')}
-        ];
+            return ${viaCodeLines};
         }
     `;
     const main = mainTemplate.split('\n')

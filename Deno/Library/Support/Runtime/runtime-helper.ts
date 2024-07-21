@@ -1,20 +1,13 @@
-import { XMLHttpRequest } from '@kitsonk/xhr';
+import '@kitsonk/xhr';
 import './Support/node_modules/webvi-websockets/source/main.js';
 import vireoHelpers from './Support/node_modules/vireo/source/core/vireo.loader.wasm32-unknown-emscripten.release.js';
 import { vireoDataUrl } from "./Support/vireo-data-url.js";
 
 async function createInstance () {
-    const customGlobalWithBuiltins = Object.create(globalThis);
-    // TODO Currently the global is mutated to include NationalInstrumentsWebSockets based on the webvi-websockets import style
-    // customGlobalWithBuiltins.NationalInstrumentsWebSockets = webviWebsockets(WebSocket);
-
     // @ts-ignore TODO deno doesn't understand default exports?
     const vireo = await vireoHelpers.createInstance({
         wasmUrl: vireoDataUrl
     });
-
-    vireo.javaScriptInvoke.registerCustomGlobal(customGlobalWithBuiltins);
-    vireo.httpClient.setXMLHttpRequestImplementation(XMLHttpRequest);
 
     const notSupportedError = () => {
         throw new Error('Unsupported on this target');
@@ -52,7 +45,7 @@ declare namespace globalThis {
     let vireoHelpers: unknown;
 }
 
-export async function run(viaCode: string) {
+async function run(viaCode: string) {
     if (globalThis.vireoInstance || globalThis.vireoHelpers) {
         throw new Error('Vireo already instantiated globally');
     }
@@ -63,4 +56,9 @@ export async function run(viaCode: string) {
     globalThis.vireoInstance = vireo;
     globalThis.vireoHelpers = vireoHelpers;
     await vireo.eggShell.executeSlicesUntilClumpsFinished();
+}
+
+export async function runViaCodeLines(viaCodeLines: string[]) {
+    const viaCode = viaCodeLines.join('\n');
+    await run(viaCode);
 }
