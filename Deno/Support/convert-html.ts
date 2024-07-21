@@ -1,27 +1,28 @@
 import { DOMParser, Element, Node } from '@b-fuze/deno-dom/wasm';
-
-// Assumes main.html is at the root of the WebApp build output
-const htmlUrl = new URL('../Builds/Server_Default Web Server/main.html', import.meta.url);
+import { toFileUrl, resolve } from '@std/path';
 
 interface ExtractedUrls {
     vireoSource: string;
     scriptSources: string[];
+    relativePathToRoot: string;
 }
 
-async function makeMain (htmlUrl: URL) {
+async function convert (htmlUrl: URL) {
     const html = await Deno.readTextFile(htmlUrl);
-    const mainUrl = new URL('main.ts', htmlUrl);
+
+    const name = new URL(htmlUrl).pathname.split('/').pop()!.split('.html').shift();
+    const outUrl = new URL(`./${name}.ts`, htmlUrl);
     
     const extractedUrls = extractUrls(html);
     const viaCodeUrl = new URL(extractedUrls.vireoSource, htmlUrl);
     const viaCode = await Deno.readTextFile(viaCodeUrl);
     
-    const main = createMainContent(extractedUrls, viaCode);
+    const content = createContent(extractedUrls, viaCode);
     
-    await Deno.writeTextFile(mainUrl, main);
+    await Deno.writeTextFile(outUrl, content);
 }
 
-function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
+function createContent (extractedUrls: ExtractedUrls, viaCode: string) {
     const formattedScriptSources = extractedUrls.scriptSources
         .map(url => url.startsWith('.') ? url : `./${url}`)
         .map(url => `import '${url}';`)
@@ -29,7 +30,7 @@ function createMainContent (extractedUrls: ExtractedUrls, viaCode: string) {
     const viaCodeLines = JSON.stringify(viaCode.split('\n'), undefined, 4);
     const mainTemplate = `
         ${formattedScriptSources}
-        import { runViaCodeLines } from '../../Library/Support/Runtime/runtime-helper.ts';
+        import { runViaCodeLines } from '${extractedUrls.relativePathToRoot}../../Library/Support/Runtime/runtime-helper.ts';
         await runViaCodeLines(viaCodeLines());
         function viaCodeLines () {
             return ${viaCodeLines};
@@ -48,13 +49,22 @@ function extractUrls (html: string): ExtractedUrls {
     const scripts = document.querySelectorAll('script:not([src*="ni-webvi-resource-v0"])')!;
     const scriptSources = Array.from(scripts)
         .map((script: Node) => (script as Element).getAttribute('src')!);
+    const resourceScript = document.querySelector('script[src*="ni-webvi-resource-v0"]')!;
+    const relativePathToRoot = resourceScript.getAttribute('src')!.split('ni-webvi-resource-v0').shift()!;
     const extractedUrls = {
         vireoSource,
-        scriptSources
+        scriptSources,
+        relativePathToRoot
     };
     return extractedUrls;
 }
 
+function getHtmlUrls (): URL[] {
+    return Deno.args.map(htmlPath => toFileUrl(resolve(Deno.cwd(), htmlPath)));
+}
+
 if (import.meta.main) {
-    await makeMain(htmlUrl);
+    for (const htmlUrl of getHtmlUrls()) {
+        await convert(htmlUrl);
+    }
 }
