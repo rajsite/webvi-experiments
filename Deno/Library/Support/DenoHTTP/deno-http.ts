@@ -1,19 +1,19 @@
 import { serveDir } from '@std/http';
 import { fromFileUrl } from '@std/path';
 
-class RequestHandler {
-    public readonly response;
+class HTTPConnection {
+    private readonly response: Promise<Response>;
     private readonly start = performance.now();
     private _resolve!: (response: Response) => void;
     constructor(
         public readonly request: Request,
     ) {
-        this.response = new Promise<Response>(resolve => {
+        this.response = new Promise(resolve => {
             this._resolve = resolve;
         });
     }
 
-    complete (response: Response) {
+    public setResponse (response: Response): void {
         const end = performance.now();
         const total = end - this.start;
         const serverTimingValue = `webvi-time-to-response;dur=${total}`;
@@ -21,21 +21,37 @@ class RequestHandler {
         console.log(`[${this.request.method}] ${new URL(this.request.url).pathname} ${response.status} ${Math.round(total)}ms`);
         this._resolve(response);
     }
+
+    public async waitForResponse (): Promise<Response> {
+        return await this.response;
+    }
+
 }
 
-class RequestListener {
-    public readonly controller: ReadableStreamDefaultController<RequestHandler>;
-    public readonly streamReader: ReadableStreamDefaultReader<RequestHandler>;
+class HTTPListener {
+    private readonly streamController: ReadableStreamDefaultController<HTTPConnection>;
+    private readonly streamReader: ReadableStreamDefaultReader<HTTPConnection>;
     constructor(public readonly urlPattern: URLPattern, abortController: AbortController) {
-        let _controller: ReadableStreamDefaultController<RequestHandler>;
-        const readableStream = new ReadableStream<RequestHandler>({
+        let steamController: ReadableStreamDefaultController<HTTPConnection>;
+        const readableStream = new ReadableStream<HTTPConnection>({
             start: (controller) => {
-                _controller = controller;
+                steamController = controller;
             }
         });
+        // Server already cancelled so cancel reader instead of controller
+        // to ignore pending invalid HTTPConnections
         abortController.signal.addEventListener('abort', () => this.streamReader.cancel());
-        this.controller = _controller!;
+        this.streamController = steamController!;
         this.streamReader = readableStream.getReader();
+    }
+
+    public async waitForConnection (): Promise<HTTPConnection | undefined> {
+        const result = await this.streamReader.read();
+        return result.done ? undefined : result.value;
+    }
+
+    public enqueueConnection (httpConnection: HTTPConnection): void {
+        this.streamController.enqueue(httpConnection);
     }
 }
 
@@ -50,19 +66,19 @@ interface URLPatternConfig {
     username: string;
 }
 
-const startServer = function (urlPatternConfigsJSON: string): RequestListener[] {
+const httpCreateListeners = function (urlPatternConfigsJSON: string): HTTPListener[] {
     const urlPatternConfigs = JSON.parse(urlPatternConfigsJSON) as URLPatternConfig[];
     const urlPatterns = urlPatternConfigs.map(urlPatternConfig => new URLPattern(urlPatternConfig));
     const abortController = new AbortController();
-    const requestListeners = urlPatterns.map(urlPattern => new RequestListener(urlPattern, abortController));
+    const httpListeners = urlPatterns.map(urlPattern => new HTTPListener(urlPattern, abortController));
     Deno.serve({
         signal: abortController.signal
     }, async (request: Request): Promise<Response> => {
-        for (const requestListener of requestListeners) {
-            if (requestListener.urlPattern.test(request.url)) {
-                const requestHandler = new RequestHandler(request);
-                requestListener.controller.enqueue(requestHandler);
-                return await requestHandler.response;
+        for (const httpListener of httpListeners) {
+            if (httpListener.urlPattern.test(request.url)) {
+                const httpConnection = new HTTPConnection(request);
+                httpListener.enqueueConnection(httpConnection);
+                return await httpConnection.waitForResponse();
             }
         }
         throw new Error('unhandled');
@@ -70,46 +86,46 @@ const startServer = function (urlPatternConfigsJSON: string): RequestListener[] 
 
     // TODO figure out returning the abort controller
     // Maybe closing any of the listeners kills the server?
-    return requestListeners;
+    return httpListeners;
 };
 
-const listenForRequest = async function (requestListener: RequestListener): Promise<RequestHandler[]> {
-    const streamResult = await requestListener.streamReader.read();
-    if (streamResult.done) {
+const httpWaitOnListener = async function (httpListener: HTTPListener): Promise<HTTPConnection[]> {
+    const httpConnection = await httpListener.waitForConnection();
+    if (!httpConnection) {
         return [];
     }
-    return [streamResult.value];
+
+    return [httpConnection];
 };
 
 
-const completeRequest = function (requestHandler: RequestHandler, body: string): void {
-    requestHandler.complete(new Response(body));
+const httpWriteResponse = function (httpConnection: HTTPConnection, body: string): void {
+    httpConnection.setResponse(new Response(body));
 };
 
-const serveFileRequests = async function (requestListener: RequestListener, serveRootUrl: string): Promise<void> {
+const serveFileRequests = async function (httpListener: HTTPListener, serveRootUrl: string): Promise<void> {
     const fsRoot = fromFileUrl(serveRootUrl);
     while(true) {
-        const streamResult = await requestListener.streamReader.read();
-        if (streamResult.done) {
+        const httpConnection = await httpListener.waitForConnection();
+        if (!httpConnection) {
             break;
         }
-        const requestHandler = streamResult.value;
-        const response = await serveDir(requestHandler.request, {
+        const response = await serveDir(httpConnection.request, {
             fsRoot,
             quiet: true
         });
-        requestHandler.complete(response);
+        httpConnection.setResponse(response);
     }
 };
 
-const requestUrl = function (requestHandler: RequestHandler) {
-    return requestHandler.request.url;
+const requestUrl = function (httpConnection: HTTPConnection) {
+    return httpConnection.request.url;
 };
 
 const api = {
-    startServer,
-    listenForRequest,
-    completeRequest,
+    httpCreateListeners,
+    httpWaitOnListener,
+    httpWriteResponse,
     serveFileRequests,
     requestUrl
 } as const;

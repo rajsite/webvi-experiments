@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="4567EA8DDD1E3CF6B6C0C7A644442519CB23A05E96371DC6B2BD7D259AB721594FFCB162D98D80A6B9F187D89EE2D27BAFBAFD92D684D0D9104343AFF290371B" Timestamp="1DADB19A42677F9" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="7A537EB6294AF784327096DA957B8E6DCE8CEB9856E68A5090F31219A672A895AD3B9B3B943C6BBA6CE7324065AB7065D53216B112F771C1D3A5CABFC816DCDC" Timestamp="1DADD8B7E69B7AE" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -16,14 +16,14 @@
 	<EnvoyManagerFile Id="68761b0810904c16b67c282a7229bdbb" xmlns="http://www.ni.com/PlatformFramework">
 		<EnvoyManagerRootEnvoy Id="52a9f978db564c3b972ef6ae13cb4a13" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
 		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="4ae06b075371469686948834a5e4f01f" Name="DenoHTTP.jsli" NameTracksFileName="True">
-			<EmbeddedDefinitionReference Id="e432d428ef214f0381f31cc48ec1ccd8" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="StartServer">
-				<JavaScriptLibraryEntryPoint Id="7c7ccd80297d45e6a5989154eb21c2f3" Symbol="WebVIDenoHTTP.startServer" xmlns="http://www.ni.com/JavaScriptLibrary">
+			<EmbeddedDefinitionReference Id="e432d428ef214f0381f31cc48ec1ccd8" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="HTTPCreateListeners">
+				<JavaScriptLibraryEntryPoint Id="7c7ccd80297d45e6a5989154eb21c2f3" Symbol="WebVIDenoHTTP.httpCreateListeners" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="a653ec396ca4458a975a8a486415928c" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="9820d36f4111483793977e7bc8fccc15" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="1287db814d6c4bf3aec2970606c8e145" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="9cb27371b1ce40f4837d1513f19e3b3c" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="bb675ebf6933445fa5d42bc578a7929a" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Id="cde5fa93bed6414ea395dfcec74686ea" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]StartServer" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Id="cde5fa93bed6414ea395dfcec74686ea" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]HTTPCreateListeners" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="9eee3537e33f45e384edfddacd46b6c7" />
 								</FileNameText>
 							</IconTemplate>
@@ -45,9 +45,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f1fc97edf80b47ba8ca337cd7217b06a" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="3f1a98dd0c5b46e58c82dff3aebe066f" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="31d96edf090c4e439bf7e799881a14c4" IsReturnParameter="True" Name="requestListeners">
+					<JavaScriptLibraryParameter Id="31d96edf090c4e439bf7e799881a14c4" IsReturnParameter="True" Name="httpListeners">
 						<JavaScriptType ActualDataType="@ab05f47d5b2c451e83b4b0ae7d949b0b" Id="31908ecf0ac64a1a9644c8379fab9cb0" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="bf9e459519644fe7852dee36e60628e4" Name="requestListeners" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="bf9e459519644fe7852dee36e60628e4" Name="httpListeners" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="d6edff8fdb4b4422813960a5bbe332fa" Name="urlPatternConfigsJSON">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="cca21c2fe8b447079a032a10c7345cad" />
@@ -55,14 +55,14 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="8fafceefb1a74e04b916d2641d55105c" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="ListenForRequest">
-				<JavaScriptLibraryEntryPoint Id="7f496c8d334743e2bd945208e8adad37" Symbol="WebVIDenoHTTP.listenForRequest" xmlns="http://www.ni.com/JavaScriptLibrary">
+			<EmbeddedDefinitionReference Id="8fafceefb1a74e04b916d2641d55105c" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="HTTPWaitOnListener">
+				<JavaScriptLibraryEntryPoint Id="7f496c8d334743e2bd945208e8adad37" Symbol="WebVIDenoHTTP.httpWaitOnListener" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="78e21bec97ae413eb71fec510f48aa52" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="4bff11945de44ea5be36c3baa415cb0e" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="247118f9a8e546f9a5131584fb6fa3fa" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="e45fb8c0f99344b386db3eb35b1d2177" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="b805b82f26544fc2a68fe78e29ecc9e6" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Id="52b7e54fbbc840649b9707756a6f7bae" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]ListenForRequest" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Id="52b7e54fbbc840649b9707756a6f7bae" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]HTTPWaitOnListener" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="21046a8bd05b46d482a830aec451066a" />
 								</FileNameText>
 							</IconTemplate>
@@ -84,24 +84,24 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="f82f8488b4d14fafb4e536285de010b1" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="921a19f673544541a7fca8e9df83d90b" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="6b17fcf15bd34519bccb0407b8de2ce3" IsReturnParameter="True" Name="requestHandler">
+					<JavaScriptLibraryParameter Id="6b17fcf15bd34519bccb0407b8de2ce3" IsReturnParameter="True" Name="httpConnection">
 						<JavaScriptType ActualDataType="@ab05f47d5b2c451e83b4b0ae7d949b0b" Id="1e8d216ce04c4bdd8ea4475e4b57df1d" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2deea8918d5244149a19c6b5a1efce79" Name="requestHandler" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2deea8918d5244149a19c6b5a1efce79" Name="httpConnection" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="bf424e3c7eaf4ac48029d46ffe815e42" Name="requestListener">
+					<JavaScriptLibraryParameter Id="bf424e3c7eaf4ac48029d46ffe815e42" Name="httpListener">
 						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="55dd591b8512451da59c2ae28c251582" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="fc31706115fc4d25a6260f517648b419" Name="requestListener" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="fc31706115fc4d25a6260f517648b419" Name="httpListener" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
-			<EmbeddedDefinitionReference Id="93f240d3b26445d68884b6d89d2fec0a" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="CompleteRequest">
-				<JavaScriptLibraryEntryPoint Id="6443cdae55614cf0b0f5f24d32187637" Symbol="WebVIDenoHTTP.completeRequest" xmlns="http://www.ni.com/JavaScriptLibrary">
+			<EmbeddedDefinitionReference Id="93f240d3b26445d68884b6d89d2fec0a" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="HTTPWriteResponse">
+				<JavaScriptLibraryEntryPoint Id="6443cdae55614cf0b0f5f24d32187637" Symbol="WebVIDenoHTTP.httpWriteResponse" xmlns="http://www.ni.com/JavaScriptLibrary">
 					<Icon Id="12269501060646fe867f3587d9342b9b" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
 						<IconPanel Height="[float]40" Id="7f4891dac9fc4f8e8975e1329f9a3030" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
 							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="4f78a1cbe6b94efdb2133a821666931d" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
 								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="b3b6665e5ba14b629fe2a4a659f58ae3" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
 								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="d2ae7afa751c47809699e93e9d499d65" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
-								<FileNameText Attached="[bool]True" Id="428cda6d088a43d0895271c9e600dc96" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]CompleteRequest" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+								<FileNameText Attached="[bool]True" Id="428cda6d088a43d0895271c9e600dc96" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]HTTPWriteResponse" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
 									<FontSetting FontFamily="Segoe UI" FontSize="6" Id="88d2e8b39ec448b2b560af8f88707398" />
 								</FileNameText>
 							</IconTemplate>
@@ -127,9 +127,9 @@
 						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="16e5d83ed8a649d693877ea592e87ff2" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="6e2f069fd5024afb863eb581b6787132" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="7a4de7beb18e4bf9be3d77a968894827" Name="requestHandler">
+					<JavaScriptLibraryParameter Id="7a4de7beb18e4bf9be3d77a968894827" Name="httpConnection">
 						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="11d52b207c184063a14b4f137e1db9d0" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="b8cb11c2513e4fc381e8350e1a772da5" Name="requestHandler" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="b8cb11c2513e4fc381e8350e1a772da5" Name="httpConnection" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="94ba8b6c58334cfcb80297e340d78200" Name="body">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="2fc436c643ff42c0b1f3dbb37a22dd62" />
@@ -170,9 +170,9 @@
 						<JavaScriptType ActualDataType="@761c1e6d42c140fea62c015adb1483c9" Id="aea26b37ab5947d981e374ae0ba8a79a" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="5e18fdd28dd340099c53302a1a2aa201" Name="return out" Visible="False" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="40ac8c219df5417987d80c308832dbc6" Name="requestListener">
+					<JavaScriptLibraryParameter Id="40ac8c219df5417987d80c308832dbc6" Name="httpListener">
 						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="487419f9d56a41e082267780103ef1c5" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="dc7942629028464fbb339b4be9c364e7" Name="requestListener" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="dc7942629028464fbb339b4be9c364e7" Name="httpListener" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="b3a2f4bb45954c9d9a956537ddf5d8d3" Name="serveRootUrl">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="e4261f74cc6043dfbf7835a1e102ed02" />
@@ -213,9 +213,9 @@
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="9c22114592b04c93b471c16a260f2570" />
 						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="a5556138f2a2415aba226854972fbd30" Name="url" />
 					</JavaScriptLibraryParameter>
-					<JavaScriptLibraryParameter Id="b1ca14132b91489ab44f31090a4709f4" Name="requestHandler">
+					<JavaScriptLibraryParameter Id="b1ca14132b91489ab44f31090a4709f4" Name="httpConnection">
 						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="e81fa92252674b4c8e4f2b712262336e" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="36f94df846b14acda91d1c6e105afc1c" Name="requestHandler" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="36f94df846b14acda91d1c6e105afc1c" Name="httpConnection" />
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
