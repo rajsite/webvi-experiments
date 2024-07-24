@@ -1,18 +1,17 @@
 {
   "tasks": {
-    "start": "deno task build && deno task start:run",
-    "start:run": "deno run -A \"./Builds/Server_Default Web Server/main.ts\"",
-    "build": "deno task build:client && deno task build:server",
+    "start": "deno task build && export COMPONENT=Server && deno task tool:start:main",
+    "test": "deno task build && deno test -A",
+    "publish": "deno task build && export COMPONENT=Server && deno task tool:publish:main",
+    "compile": "deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
+    "build": "deno task build:client & deno task build:server",
     "build:client": "export COMPONENT=Client && deno task tool:build:gweb",
-    "build:server": "export COMPONENT=Server && deno task tool:build",
-    "publish": "deno task build && deno task publish:deployctl",
-    "publish:deployctl": "deployctl deploy --import-map=./deno.json",
-    "tool:build": "deno task tool:build:gweb && deno task tool:build:convert",
+    "build:server": "export COMPONENT=Server && deno task tool:build:gweb && deno task tool:build:deno",
+    "tool:start:main": "deno run -A \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
     "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./*.gwebproject -t \"Default Web Server\" -n $(echo $COMPONENT).gcomp",
-    "tool:build:convert": "deno run -A ./Support/convert-html.ts ./Builds/$(echo $COMPONENT)_Default\\ Web\\ Server/**/*.html",
+    "tool:build:deno": "deno run -A ./Support/convert-html.ts ./Builds/$(echo $COMPONENT)_Default\\ Web\\ Server/**/*.html",
+    "tool:publish:main": "deployctl deploy --entrypoint=\"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\" --import-map=./deno.json",
     "tool:rebuild-vireo-data-url": "deno run -A ./Support/make-vireo-dataurl.ts",
-    "tool:deno-test": "deno test -A",
-    "tool:deno-compile": "deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
     "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts"
   },
   "imports": {
@@ -29,7 +28,6 @@
       "./Library/Support/**/*",
       "./Builds/**/node_modules/*",
       "./Library/Support/**/node_modules/*"
-    ],
-    "entrypoint": "Builds\\Server_Default Web Server\\main.ts"
+    ]
   }
 }
