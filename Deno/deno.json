@@ -1,19 +1,18 @@
 {
   "tasks": {
-    "start": "deno task env && deno task build && deno task start:run",
+    "start": "deno task build && deno task start:run",
     "start:run": "deno run -A \"./Builds/Server_Default Web Server/main.ts\"",
-    "build": "deno task env && deno task build:client && deno task build:server",
+    "build": "deno task build:client && deno task build:server",
     "build:client": "export COMPONENT=Client && deno task tool:build:gweb",
     "build:server": "export COMPONENT=Server && deno task tool:build",
-    "publish": "deno task env && deno task build && deno task publish:deployctl",
+    "publish": "deno task build && deno task publish:deployctl",
     "publish:deployctl": "deployctl deploy --import-map=./deno.json",
-    "env": "export DENO_TLS_CA_STORE=mozilla,system",
     "tool:build": "deno task tool:build:gweb && deno task tool:build:convert",
     "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./*.gwebproject -t \"Default Web Server\" -n $(echo $COMPONENT).gcomp",
     "tool:build:convert": "deno run -A ./Support/convert-html.ts ./Builds/$(echo $COMPONENT)_Default\\ Web\\ Server/**/*.html",
     "tool:rebuild-vireo-data-url": "deno run -A ./Support/make-vireo-dataurl.ts",
     "tool:deno-test": "deno test -A",
-    "tool:deno-compile": "deno task env && deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
+    "tool:deno-compile": "deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
     "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts"
   },
   "imports": {
