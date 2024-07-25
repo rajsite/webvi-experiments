@@ -31,7 +31,7 @@ class HTTPConnection {
 class HTTPListener {
     private readonly streamController: ReadableStreamDefaultController<HTTPConnection>;
     private readonly streamReader: ReadableStreamDefaultReader<HTTPConnection>;
-    constructor(public readonly urlPattern: URLPattern, abortController: AbortController) {
+    constructor(private readonly urlPattern: URLPattern, abortController: AbortController) {
         let steamController: ReadableStreamDefaultController<HTTPConnection>;
         const readableStream = new ReadableStream<HTTPConnection>({
             start: (controller) => {
@@ -45,9 +45,16 @@ class HTTPListener {
         this.streamReader = readableStream.getReader();
     }
 
-    public async waitForConnection (): Promise<HTTPConnection | undefined> {
+    public shouldConnect (request: Request): boolean {
+        return this.urlPattern.test(request.url);
+    }
+
+    public async waitForConnection (): Promise<HTTPConnection> {
         const result = await this.streamReader.read();
-        return result.done ? undefined : result.value;
+        if (result.done) {
+            throw new Error('Connection closed');
+        }
+        return result.value;
     }
 
     public enqueueConnection (httpConnection: HTTPConnection): void {
@@ -66,22 +73,30 @@ interface URLPatternConfig {
     username: string;
 }
 
-const httpCreateListeners = function (urlPatternConfigsJSON: string): HTTPListener[] {
-    const urlPatternConfigs = JSON.parse(urlPatternConfigsJSON) as URLPatternConfig[];
+interface HTTPCreateListenersConfig {
+    urlPatternConfigs: URLPatternConfig[];
+    port: number;
+    hostname: string;
+}
+
+const httpCreateListeners = function (configJSON: string): HTTPListener[] {
+    const {urlPatternConfigs, port, hostname} = JSON.parse(configJSON) as HTTPCreateListenersConfig;
     const urlPatterns = urlPatternConfigs.map(urlPatternConfig => new URLPattern(urlPatternConfig));
     const abortController = new AbortController();
     const httpListeners = urlPatterns.map(urlPattern => new HTTPListener(urlPattern, abortController));
     Deno.serve({
-        signal: abortController.signal
+        signal: abortController.signal,
+        port,
+        hostname
     }, async (request: Request): Promise<Response> => {
         for (const httpListener of httpListeners) {
-            if (httpListener.urlPattern.test(request.url)) {
+            if (httpListener.shouldConnect(request)) {
                 const httpConnection = new HTTPConnection(request);
                 httpListener.enqueueConnection(httpConnection);
                 return await httpConnection.waitForResponse();
             }
         }
-        throw new Error('unhandled');
+        throw new Error(`Unhandled request ${request.url}`);
     });
 
     // TODO figure out returning the abort controller
@@ -89,13 +104,9 @@ const httpCreateListeners = function (urlPatternConfigsJSON: string): HTTPListen
     return httpListeners;
 };
 
-const httpWaitOnListener = async function (httpListener: HTTPListener): Promise<HTTPConnection[]> {
+const httpWaitOnListener = async function (httpListener: HTTPListener): Promise<HTTPConnection> {
     const httpConnection = await httpListener.waitForConnection();
-    if (!httpConnection) {
-        return [];
-    }
-
-    return [httpConnection];
+    return httpConnection;
 };
 
 
@@ -103,8 +114,8 @@ const httpWriteResponse = function (httpConnection: HTTPConnection, body: string
     httpConnection.setResponse(new Response(body));
 };
 
-const serveFileRequests = async function (httpListener: HTTPListener, serveRootUrl: string): Promise<void> {
-    const fsRoot = fromFileUrl(serveRootUrl);
+const httpServeFiles = async function (httpListener: HTTPListener, rootPathUrl: string): Promise<void> {
+    const fsRoot = fromFileUrl(rootPathUrl);
     while(true) {
         const httpConnection = await httpListener.waitForConnection();
         if (!httpConnection) {
@@ -118,16 +129,22 @@ const serveFileRequests = async function (httpListener: HTTPListener, serveRootU
     }
 };
 
-const requestUrl = function (httpConnection: HTTPConnection) {
-    return httpConnection.request.url;
+const httpConnectionGetRequest = function (httpConnection: HTTPConnection) {
+    const request = {
+        method: httpConnection.request.method,
+        url: httpConnection.request.url,
+        headers: [...httpConnection.request.headers.entries()].map(([name, value]) => ({name, value})),
+    };
+    const requestJSON = JSON.stringify(request);
+    return requestJSON;
 };
 
 const api = {
     httpCreateListeners,
     httpWaitOnListener,
     httpWriteResponse,
-    serveFileRequests,
-    requestUrl
+    httpServeFiles,
+    httpConnectionGetRequest
 } as const;
 
 declare namespace globalThis {

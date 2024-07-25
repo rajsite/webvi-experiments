@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="C965E6D3D7621FDEBF9B36285381B90A358E67331C86FE942B349AF4429784CBFFFA4EC9B976BCD117FED7295CE3E68B7E722779F9B82927E4DA37DFFA13B9C9" Timestamp="1DADE0F4D7B5FD5" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="9.5.0.49854" Name="G Web Development Software" Version="22.3.0" />
+	</SourceModelFeatureSet>
+	<TypeDefinition DataType="@9bd441be492640998e86e11c51320111" Id="3119f39582194971b8b7fdbb0c410086" xmlns="http://www.ni.com/MocCommon">
+		<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+			<TypeDefinitionTarget TargetName="DenoHTTP::Support::header.gtype" />
+		</p.TypeDefinitionTargets>
+		<Icon Id="fbd5ba9fc2af406888fd8d1bf477b6f7" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="a6da805ec3874aa5994a1c3851a3cf88" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<IconTemplate Height="[float]40" Id="978ca9bb4f4b4789aa741e81be591190" Left="[float]0" TemplateName="[string]Blank" Top="[float]0" Width="[float]40" />
+			</IconPanel>
+		</Icon>
+		<DataItem DataType="@9bd441be492640998e86e11c51320111" Id="5e0ae92e908b41caa4c10df61d8c8e98" Name="http request">
+			<p.DefaultValue>
+				<Cluster>
+					<Field1>null</Field1>
+					<Field2>""</Field2>
+					<Field3>""</Field3>
+				</Cluster>
+			</p.DefaultValue>
+			<p.TypeDefinitionTargets xmlns="http://www.ni.com/PanelCommon">
+				<TypeDefinitionTarget TargetName="DenoHTTP::Support::header.gtype" />
+			</p.TypeDefinitionTargets>
+		</DataItem>
+	</TypeDefinition>
+	<EnvoyManagerFile Id="bed2eb59a14b44f6ad08435ae254e20d" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="ef01211137e343e282b8d93ecda2b53b" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<NameScopingEnvoy AutomaticallyResolveUp="True" Id="1a162c1ae8e34e599635dd7f6e87b7d8" Name="http request.gtype" NameTracksFileName="True">
+			<EmbeddedDefinitionReference Bindings="{http://www.ni.com/PlatformFramework}NeverLazy" Id="b33caf535da14c628040bf4c25b7074a" ModelDefinitionType="{http://www.ni.com/MocCommon}ControlDefinition" Name="ControlDefinition">
+				<ControlDefinition DefaultDirection="Control" Id="55bf3a3b107a4250941706dc98d802bd" xmlns="http://www.ni.com/MocCommon">
+					<Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@9bd441be492640998e86e11c51320111" Height="[float]258" Id="88c887acf528473bb907a13fcdc1b776" Label="[UIModel]11396c93c30f4a1d88dd183ba49fd24d" Left="[float]241" TabIndex="[int]0" Top="[float]201" Value="{DataItemBinding Id=5e0ae92e908b41caa4c10df61d8c8e98}" Width="[float]252" xmlns="http://www.ni.com/PanelCommon">
+						<ArrayViewer ArrayElement="[UIModel]5e7e4f6a1c18430480ec1ae3bb04d8dd" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]116" Id="9ccc1091049749cca7040e39c6ebc08a" IndexVisibility="[Visibility]Visible" IsFixedSize="[bool]False" Label="[UIModel]bcc4af88e5ca4282a248313314732416" Left="[float]8" Orientation="[SMOrientation]Horizontal" Rows="[int]1" TabIndex="[int]0" Top="[float]126" Value="{ClusterBinding FieldName=headers}" Width="[float]232">
+							<p.DefaultElementValue>
+								<Cluster>
+									<Field1>""</Field1>
+									<Field2>""</Field2>
+								</Cluster>
+							</p.DefaultElementValue>
+							<Cluster BaseName="[string]header" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@2b86be8b7c344fedbdfb8aeb3f88493e" Height="[float]104" Id="5e7e4f6a1c18430480ec1ae3bb04d8dd" Label="[UIModel]f3eb20e547a24d999ab68d1cbf8355b1" TabIndex="[int]0" Width="[float]165" p8:ControlDefinitionChecksum="FKxMNkjEIk5EJWicZb4R8Q/ntpvQpV7r1KhaRkR6oms=_v1" xmlns:p8="http://www.ni.com/PanelCommon">
+								<p8:p.TypeDefinitionTargets>
+									<p8:TypeDefinitionTarget TargetName="DenoHTTP::Support::header.gtype::ControlDefinition" />
+								</p8:p.TypeDefinitionTargets>
+								<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e08233304e644f648a37eaeab6619da6" Label="[UIModel]f20dd71293594bc19efb9d9909df4b12" Left="[float]7" TabIndex="[int]0" Text="{ClusterBinding FieldName=name}" Top="[float]20" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]144" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+								<p8:Label Height="[float]16" Id="f20dd71293594bc19efb9d9909df4b12" LabelOwner="[UIModel]e08233304e644f648a37eaeab6619da6" Left="[float]7" Text="[string]name" Top="[float]0" Width="[float]30" />
+								<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="e75c04d2e7e14da2953b0c563f99282d" Label="[UIModel]74ebfd12f20d43558435bb3ab13fb365" Left="[float]7" TabIndex="[int]1" Text="{ClusterBinding FieldName=value}" Top="[float]65" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]145" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+								<p8:Label Height="[float]16" Id="74ebfd12f20d43558435bb3ab13fb365" LabelOwner="[UIModel]e75c04d2e7e14da2953b0c563f99282d" Left="[float]7" Text="[string]value" Top="[float]45" Width="[float]28" />
+								<p8:Label Height="[float]16" Id="f3eb20e547a24d999ab68d1cbf8355b1" IsVisualChild="[bool]False" LabelOwner="[UIModel]5e7e4f6a1c18430480ec1ae3bb04d8dd" Left="[float]61" Text="[string]header" Top="[float]-14" Width="[float]37" />
+							</Cluster>
+						</ArrayViewer>
+						<Label Height="[float]16" Id="bcc4af88e5ca4282a248313314732416" LabelOwner="[UIModel]9ccc1091049749cca7040e39c6ebc08a" Left="[float]8" Text="[string]headers" Top="[float]106" Width="[float]42" />
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="efa3e09095024bf1b365a3566f143cc9" Label="[UIModel]9a14272de6914fbc8b5800edd94c0dcd" Left="[float]8" TabIndex="[int]1" Text="{ClusterBinding FieldName=method}" Top="[float]22" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<Label Height="[float]16" Id="9a14272de6914fbc8b5800edd94c0dcd" LabelOwner="[UIModel]efa3e09095024bf1b365a3566f143cc9" Left="[float]8" Text="[string]method" Top="[float]2" Width="[float]42" />
+						<StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]24" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="8b98324dfff42fd9190299f9f48663d" Label="[UIModel]28a048523194031be565f1844f16933" Left="[float]8" TabIndex="[int]2" Text="{ClusterBinding FieldName=url}" Top="[float]72" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]231" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+						<Label Height="[float]16" Id="28a048523194031be565f1844f16933" LabelOwner="[UIModel]8b98324dfff42fd9190299f9f48663d" Left="[float]8" Text="[string]url" Top="[float]52" Width="[float]14" />
+					</Cluster>
+					<Label Height="[float]16" Id="11396c93c30f4a1d88dd183ba49fd24d" LabelOwner="[UIModel]88c887acf528473bb907a13fcdc1b776" Left="[float]241" Text="[string]http request" Top="[float]181" Width="[float]66" xmlns="http://www.ni.com/PanelCommon" />
+				</ControlDefinition>
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
+	</EnvoyManagerFile>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="9bd441be492640998e86e11c51320111">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="headers" DataType="@8efd1d4cfd3e42ee8b785db824e31545" />
+					<Field FieldAccessPolicy="ReadWrite" Name="method" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="url" DataType="String" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2b86be8b7c344fedbdfb8aeb3f88493e">
+			<Attributed AttributedType="@c35686528fc54144851c83cc15b79b50">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.NamespaceName" Value="[QualifiedName]DenoHTTP::Support" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="8efd1d4cfd3e42ee8b785db824e31545">
+			<VariableArray DereferenceType="@2b86be8b7c344fedbdfb8aeb3f88493e" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c35686528fc54144851c83cc15b79b50">
+			<Typedef TypedefName="header.gtype" UnderlyingType="@053685a4a70548319b1af2be8b5932ee" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="053685a4a70548319b1af2be8b5932ee">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="name" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="value" DataType="String" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+</SourceFile>
