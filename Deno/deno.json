@@ -8,7 +8,7 @@
     "tool:start:main": "deno task build && deno run -A \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
     "tool:publish:main": "deno task build && deployctl deploy --entrypoint=\"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\" --import-map=./deno.json",
     "tool:compile:main": "deno task build && deno compile -A -o \"./$(echo $COMPONENT).exe\" \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
-    "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" distribution -p Deno.gwebproject --dn \"All Packages.lvdist\"",
+    "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" distribution -p Deno.gwebproject --dn Deno.lvdist",
     "tool:build:deno": "deno run -A ./Support/convert-html.ts ./Builds/**/*.via.txt",
     "tool:rebuild-vireo-data-url": "deno run -A ./Support/make-vireo-dataurl.ts",
     "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts",
