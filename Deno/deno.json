@@ -1,17 +1,18 @@
 {
   "tasks": {
-    "start": "deno task build && export COMPONENT=Server && deno task tool:start:main",
+    "simple:start": "deno task build && export COMPONENT=SimpleServer && deno task tool:start:main",
+    "simple:publish": "deno task build && export COMPONENT=SimpleServer && deno task tool:publish:main",
+    "simple:compile": "deno task build && export COMPONENT=SimpleServer && deno task tool:compile:main",
     "test": "deno task build && deno test -A",
-    "publish": "deno task build && export COMPONENT=Server && deno task tool:publish:main",
-    "compile": "deno task build && export COMPONENT=Server && deno task tool:compile:main",
     "build": "deno task tool:build:gweb && deno task tool:build:deno",
     "tool:start:main": "deno run -A \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
-    "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" distribution -p Deno.gwebproject --dn \"All Packages.lvdist\"",
-    "tool:build:deno": "deno run -A ./Support/convert-html.ts ./Builds/**/*.via.txt",
     "tool:publish:main": "deployctl deploy --entrypoint=\"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\" --import-map=./deno.json",
     "tool:compile:main": "deno compile -A -o \"./$(echo $COMPONENT).exe\" \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
+    "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" distribution -p Deno.gwebproject --dn \"All Packages.lvdist\"",
+    "tool:build:deno": "deno run -A ./Support/convert-html.ts ./Builds/**/*.via.txt",
     "tool:rebuild-vireo-data-url": "deno run -A ./Support/make-vireo-dataurl.ts",
-    "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts"
+    "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts",
+    "tool:publish:install-deployctl": "deno install -Arf jsr:@deno/deployctl"
   },
   "imports": {
     "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.47",
