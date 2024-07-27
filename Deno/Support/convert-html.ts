@@ -60,7 +60,10 @@ function extractUrls (html: string): ExtractedUrls {
 }
 
 function getHtmlUrls (): URL[] {
-    return Deno.args.map(htmlPath => toFileUrl(resolve(Deno.cwd(), htmlPath)));
+    return Deno
+        .args // Assumes args are relative paths to .via.txt files
+        .map(htmlPath => toFileUrl(resolve(Deno.cwd(), htmlPath)))
+        .map(viaUrl => new URL(viaUrl.href.split('.via.txt').shift()!.concat('.html')));
 }
 
 if (import.meta.main) {

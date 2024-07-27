@@ -3,14 +3,13 @@
     "start": "deno task build && export COMPONENT=Server && deno task tool:start:main",
     "test": "deno task build && deno test -A",
     "publish": "deno task build && export COMPONENT=Server && deno task tool:publish:main",
-    "compile": "deno task build && deno compile -A \"./Builds/Server_Default Web Server/main.ts\"",
-    "build": "deno task build:client & deno task build:server",
-    "build:client": "export COMPONENT=Client && deno task tool:build:gweb",
-    "build:server": "export COMPONENT=Server && deno task tool:build:gweb && deno task tool:build:deno",
+    "compile": "deno task build && export COMPONENT=Server && deno task tool:compile:main",
+    "build": "deno task tool:build:gweb && deno task tool:build:deno",
     "tool:start:main": "deno run -A \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
-    "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" build-application -p ./*.gwebproject -t \"Default Web Server\" -n $(echo $COMPONENT).gcomp",
-    "tool:build:deno": "deno run -A ./Support/convert-html.ts ./Builds/$(echo $COMPONENT)_Default\\ Web\\ Server/**/*.html",
+    "tool:build:gweb": "\"C:/Program Files/National Instruments/G Web Development Software/gwebcli.exe\" distribution -p Deno.gwebproject --dn \"All Packages.lvdist\"",
+    "tool:build:deno": "deno run -A ./Support/convert-html.ts ./Builds/**/*.via.txt",
     "tool:publish:main": "deployctl deploy --entrypoint=\"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\" --import-map=./deno.json",
+    "tool:compile:main": "deno compile -A -o \"./$(echo $COMPONENT).exe\" \"./Builds/$(echo $COMPONENT)_Default Web Server/main.ts\"",
     "tool:rebuild-vireo-data-url": "deno run -A ./Support/make-vireo-dataurl.ts",
     "tool:deno-cache": "deno cache ./Support/all-typescript-packages.ts"
   },
@@ -21,7 +20,9 @@
     "@std/path": "jsr:@std/path@^1.0.1"
   },
   "deploy": {
-    "exclude": [],
+    "exclude": [
+      "*.nipkg"
+    ],
     "include": [
       "deno.json",
       "./Builds/**/*",
