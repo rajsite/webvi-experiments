@@ -1,7 +1,11 @@
 import { toFileUrl } from '@std/path';
 
 const envGet = (name: string) => {
-    return Deno.env.get(name);
+    const value = Deno.env.get(name);
+    if (value === undefined) {
+        throw new Error(`Environment variable not defined: ${name}`)
+    }
+    return value;
 }
 const cwdGet = () => {
     const cwd = Deno.cwd();
