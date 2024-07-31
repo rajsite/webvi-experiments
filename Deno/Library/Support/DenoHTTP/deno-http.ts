@@ -139,12 +139,18 @@ const httpConnectionGetRequest = function (httpConnection: HTTPConnection) {
     return requestJSON;
 };
 
+const httpConnectionGetBodyString = async function (httpConnection: HTTPConnection) {
+    const body = await httpConnection.request.text();
+    return body;
+}
+
 const api = {
     httpCreateListeners,
     httpWaitOnListener,
     httpWriteResponse,
     httpServeFiles,
-    httpConnectionGetRequest
+    httpConnectionGetRequest,
+    httpConnectionGetBodyString
 } as const;
 
 declare namespace globalThis {

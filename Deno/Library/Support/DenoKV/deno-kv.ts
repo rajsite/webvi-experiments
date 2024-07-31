@@ -1,4 +1,5 @@
 import { fromFileUrl } from '@std/path';
+import { monotonicUlid } from "@std/ulid";
 
 const kvOpen = async (pathURL: string) => {
     let path;
@@ -24,6 +25,25 @@ const kvGetString = async (kvReference: Deno.Kv, keyJSON: string) => {
     return result.value;
 };
 
+const kvListString = async (kvReference: Deno.Kv, keyPrefixJSON: string, limit: number) => {
+    const keyPrefix = JSON.parse(keyPrefixJSON) as string[];
+    const entries = await kvReference.list({
+        prefix: keyPrefix
+    }, {
+        limit: limit === 0 ? undefined : limit
+    });
+    const values = [];
+    for await (const entry of entries) {
+        values.push(entry.value);
+    }
+    const valuesJSON = JSON.stringify(values);
+    return valuesJSON;
+};
+
+const kvMonotonicULID = () => {
+    return monotonicUlid();
+};
+
 const kvClose = (kvReference: Deno.Kv) => {
     kvReference.close();
 };
@@ -32,7 +52,9 @@ const api = {
     kvOpen,
     kvClose,
     kvSetString,
-    kvGetString
+    kvGetString,
+    kvListString,
+    kvMonotonicULID
 } as const;
 
 declare namespace globalThis {
