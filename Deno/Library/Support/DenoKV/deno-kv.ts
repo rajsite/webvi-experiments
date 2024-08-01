@@ -25,17 +25,19 @@ const kvGetString = async (kvReference: Deno.Kv, keyJSON: string) => {
     return result.value;
 };
 
-const kvListString = async (kvReference: Deno.Kv, keyPrefixJSON: string, limit: number) => {
+const kvListString = async (kvReference: Deno.Kv,
+    keyPrefixJSON: string,
+    limit: number,
+    reverse: boolean
+) => {
     const keyPrefix = JSON.parse(keyPrefixJSON) as string[];
     const entries = await kvReference.list({
         prefix: keyPrefix
     }, {
-        limit: limit === 0 ? undefined : limit
+        limit: limit === 0 ? undefined : limit,
+        reverse
     });
-    const values = [];
-    for await (const entry of entries) {
-        values.push(entry.value);
-    }
+    const values = await Array.fromAsync(entries, entry => entry.value);
     const valuesJSON = JSON.stringify(values);
     return valuesJSON;
 };
