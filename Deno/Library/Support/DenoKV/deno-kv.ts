@@ -31,15 +31,26 @@ const kvListString = async (kvReference: Deno.Kv,
     reverse: boolean
 ) => {
     const keyPrefix = JSON.parse(keyPrefixJSON) as string[];
-    const entries = await kvReference.list({
+    const results = await kvReference.list<string>({
         prefix: keyPrefix
     }, {
         limit: limit === 0 ? undefined : limit,
         reverse
     });
-    const values = await Array.fromAsync(entries, entry => entry.value);
-    const valuesJSON = JSON.stringify(values);
-    return valuesJSON;
+    const kvEntries = await Array.fromAsync(results, ({
+        key,
+        value
+    }) => ({
+        key,
+        value
+    }));
+    const kvEntriesJSON = JSON.stringify(kvEntries);
+    return kvEntriesJSON;
+};
+
+const kvDelete = async (kvReference: Deno.Kv, keyJSON: string) => {
+    const key = JSON.parse(keyJSON) as string[];
+    await kvReference.delete(key);
 };
 
 const kvMonotonicULID = () => {
@@ -56,6 +67,7 @@ const api = {
     kvSetString,
     kvGetString,
     kvListString,
+    kvDelete,
     kvMonotonicULID
 } as const;
 

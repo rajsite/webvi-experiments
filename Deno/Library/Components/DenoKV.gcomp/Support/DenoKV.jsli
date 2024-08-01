@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="DD2911B3F225EB8E30392AB1B40BE65BF4EB58E72926B33D1B07AE0339C7E74FAAB3BBE72FBA873465D801D9E2CA48BEE96ECE29159F9EAF91DFEED9D0229AAF" Timestamp="1DAE3B4BCE3F866" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="8BD79FD58A3B48612F7E4C96EBBE8BF770D4ED483573EAB74EBD07221B89D4C5F9FFAEE671AACB9469926FA9EB4601206CF3798674269679EADC14B7539255B1" Timestamp="1DAE3C4B85FFDBD" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="JavaScript Library" Name="http://www.ni.com/JavaScriptLibrary" OldestCompatibleVersion="6.4.0.49152" Version="6.4.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -252,9 +252,9 @@
 					</ConnectorPane>
 					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="33a7e8a4408e49ef86f531d2876b3c6e" IsError="True" Name="error in" />
 					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="a1d58f5a0505461db2cda3c23eae986a" IsError="True" Name="error out" />
-					<JavaScriptLibraryParameter Id="3a2b5f25e3064a96b2f2b02803e6c40e" IsReturnParameter="True" Name="valueJSON">
+					<JavaScriptLibraryParameter Id="3a2b5f25e3064a96b2f2b02803e6c40e" IsReturnParameter="True" Name="kvEntriesJSON">
 						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="fa7f2b15d24f440a97ef8ac3740c58db" />
-						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="6b7bca3bd12a48b4a9ea2c3120f0baee" Name="valueJSON" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="6b7bca3bd12a48b4a9ea2c3120f0baee" Name="kvEntriesJSON" />
 					</JavaScriptLibraryParameter>
 					<JavaScriptLibraryParameter Id="b372688417544c0bac9aa33c22a6aebb" Name="kvReference">
 						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="2d8cc27c39784947aaa3bce6b5fdebe3" />
@@ -274,11 +274,54 @@
 					</JavaScriptLibraryParameter>
 				</JavaScriptLibraryEntryPoint>
 			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="53025e8d2b5242a683257ce78f070b44" ModelDefinitionType="{http://www.ni.com/JavaScriptLibrary}JavaScriptLibraryEntryPoint" Name="KvDelete">
+				<JavaScriptLibraryEntryPoint Id="95b9549ed194f2fb6485e7939f6424f" Symbol="WebVIDenoKV.kvDelete" xmlns="http://www.ni.com/JavaScriptLibrary">
+					<Icon Id="11a9d0091d0942fea119fbde4f01a4bc" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+						<IconPanel Height="[float]40" Id="ab5e404bd1f64923ad04c48ab88ffa4e" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Id="f73d23205def48b89a0f133293bc8559" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="c5385b6f675480198e4d6c0ade5b76a" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="9ed7c32c4b3a4c119ae7ebd129a26c6b" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+								<FileNameText Attached="[bool]True" Id="3dd2d28c52e14c29a1a66db412769365" Left="[float]0" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]KvDelete" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]0" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden">
+									<FontSetting FontFamily="Segoe UI" FontSize="6.75" Id="b3c78b22f2264479b2c25fff5895cefb" />
+								</FileNameText>
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+					<ConnectorPane Height="40" Id="7f35ae2419704149b31a99f32c8f2531" ListViewHeight="100" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+						<ConnectorPaneTerminal ListViewHotspot="0 35" Parameter="6043332164994798ac8d0f3d97dd59b2" />
+						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 80" Parameter="ca452389fcda422a9c210c477b99c87a" />
+						<ConnectorPaneTerminal Hotspot="0 25" />
+						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 50" Parameter="ea7f3f614835457d864e3a6cd54ebba0" />
+						<ConnectorPaneTerminal Hotspot="15 0" />
+						<ConnectorPaneTerminal Hotspot="25 0" />
+						<ConnectorPaneTerminal Hotspot="40 5" />
+						<ConnectorPaneTerminal Hotspot="40 15" />
+						<ConnectorPaneTerminal Hotspot="40 25" />
+						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 65" Parameter="2886d8beef874c7f99ac775969386a32" />
+						<ConnectorPaneTerminal Hotspot="15 40" />
+						<ConnectorPaneTerminal Hotspot="25 40" />
+					</ConnectorPane>
+					<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="ea7f3f614835457d864e3a6cd54ebba0" IsError="True" Name="error in" />
+					<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="2886d8beef874c7f99ac775969386a32" IsError="True" Name="error out" />
+					<JavaScriptLibraryParameter Id="1afae1ed8f134f319ce1dc0f4c01afcf" IsReturnParameter="True" Name="return">
+						<JavaScriptType ActualDataType="@775fbcf4e2f24cb0a30937e46772c9e8" Id="4e4ca1574ea84008af39b3a9041fd668" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Output" Id="f78c8768a3644fbc869456ae2912ef80" Name="return out" Visible="False" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="46eaaebe4b994be49f01f81348fa7ab2" Name="kvReference">
+						<JavaScriptType ActualDataType="@8e39b3e51f424325880b3db570786c0a" Id="a176e0a428ef48ebafa15117d436ddc3" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" CallUsage="Required" Id="6043332164994798ac8d0f3d97dd59b2" Name="kvReference" />
+					</JavaScriptLibraryParameter>
+					<JavaScriptLibraryParameter Id="3a7d20da663a44ef9e68c700a7282a79" Name="keyJSON">
+						<JavaScriptType ActualDataType="@7a0d745212ea43e8a195a3e0a8f4fb9a" Id="9c464f54e9d4375aa97117a3ed0d3fd" />
+						<JavaScriptLibraryDiagramParameter CallDirection="Input" Id="ca452389fcda422a9c210c477b99c87a" Name="keyJSON" />
+					</JavaScriptLibraryParameter>
+				</JavaScriptLibraryEntryPoint>
+			</EmbeddedDefinitionReference>
 		</NameScopingEnvoy>
 	</EnvoyManagerFile>
 	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
 		<p.TypeReference TypeId="8e39b3e51f424325880b3db570786c0a">
-			<Attributed AttributedType="@d5cc76c39163420cb65dd0e1a0e0eb64">
+			<Attributed AttributedType="@e954979a712f445f984cd718323f5e1e">
 				<AttributeValues>
 					<AttributeValue Name="NationalInstruments.JavaScriptType" Value="[string]" />
 					<AttributeValue Name="NI_PlatformFramework_RefnumAttributes" Value="[NI_PlatformFramework_RefnumAttributes]Refnum" />
@@ -313,7 +356,7 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
-		<p.TypeReference TypeId="d5cc76c39163420cb65dd0e1a0e0eb64">
+		<p.TypeReference TypeId="e954979a712f445f984cd718323f5e1e">
 			<Composite Id="1" Name="NI.JavaScriptReference" ReferenceClass="" GenericTypeDefinition="Void" BaseType="Void" />
 		</p.TypeReference>
 	</DataTypeReferenceTable>
