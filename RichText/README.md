@@ -42,7 +42,7 @@ It seems like there are two major models for the edit time representation for ri
 
    Unfortunately, the `contenteditable` feature does not make it easy to plugin a sophisticated editing experience and has been plagued with cross-browser consistency issues. Modern rich text editors generally avoid using the `contenteditable` feature directly to represent the value of the rich text content and instead keep a separate representation of the value in JavaScript memory.
 
-### Persistance representation
+### Persistence representation
 
 The save format for the output of the JavaScript library. The value that may be sent to a server, etc.
 

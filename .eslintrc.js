@@ -33,7 +33,8 @@ module.exports = {
         'prefer-destructuring': 'off',
         'prefer-template': 'off',
         'valid-typeof': 'off',
-        'no-lonely-if': 'off'
+        'no-lonely-if': 'off',
+        'require-await': 'off'
     },
     overrides: [{
         files: ['.eslintrc.js'],

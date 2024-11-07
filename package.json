@@ -4,12 +4,13 @@
   "private": true,
   "description": "A collection of experiments for WebVIs 🧪.",
   "scripts": {
-    "link": "glob-exec --foreach \"{./*.md,./.github/*.md,./.github/**/*.md}\" -- \"npm run markdown-link-check -- -c .linkcheck.json {{file}}\"",
-    "markdown-link-check": "markdown-link-check",
+    "link": "glob-exec --foreach \"{./*.md,./.github/*.md,./.github/**/*.md}\" -- \"npm run markdown-link-check -- --verbose -c .linkcheck.json {{file}}\"",
+    "lint": "npm run lint:markdown && npm run lint:js && npm run lint:spelling",
     "lint:markdown": "markdownlint {./*.md,./.github/*.md,./.github/**/*.md}",
-    "lint": "eslint .",
-    "spelling": "cspell \"./*.md\" \"./.github/**/*.md\" \"./*/*.md\"",
-    "test": "npm run lint && npm run lint:markdown && npm run spelling && npm run link"
+    "lint:js": "eslint .",
+    "lint:spelling": "cspell --verbose --exclude \"**/node_modules/**\" \"**/*.md\"",
+    "test": "npm run lint && npm run link",
+    "markdown-link-check": "markdown-link-check"
   },
   "repository": {
     "type": "git",
@@ -22,10 +23,10 @@
   },
   "homepage": "https://github.com/rajsite/webvi-experiments#readme",
   "dependencies": {
-    "@ni/eslint-config-javascript": "^4.2.1",
-    "cspell": "^8.3.2",
+    "@ni/eslint-config-javascript": "^4.3.0",
+    "cspell": "^8.15.2",
     "glob-exec": "^0.1.1",
-    "markdown-link-check": "^3.11.2",
-    "markdownlint-cli": "^0.39.0"
+    "markdown-link-check": "3.12.2",
+    "markdownlint-cli": "^0.42.0"
   }
 }
