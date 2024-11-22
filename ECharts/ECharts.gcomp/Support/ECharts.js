@@ -39,13 +39,7 @@
             return typeof obj === 'object' && obj !== null;
         };
         const result = pathSegments.reduce(function (obj, pathSegment) {
-            if (Array.isArray(obj)) {
-                if (pathSegment === ':end') {
-                    return obj[obj.length - 1];
-                }
-                return obj[pathSegment];
-            }
-            if (isObject(obj)) {
+            if (Array.isArray(obj) || isObject(obj)) {
                 return obj[pathSegment];
             }
             throw new Error(`Cannot find value at path: ${pathSegments.join('.')}`);
