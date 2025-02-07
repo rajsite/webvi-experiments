@@ -29,6 +29,7 @@ function createContent (extractedUrls: ExtractedUrls, viaCode: string) {
         .join('\n');
     const viaCodeLines = JSON.stringify(viaCode.split('\n'), undefined, 4);
     const mainTemplate = `
+        import '${extractedUrls.relativePathToRoot}../../Library/Support/Runtime/restore-globals.ts';
         ${formattedScriptSources}
         import { runViaCodeLines } from '${extractedUrls.relativePathToRoot}../../Library/Support/Runtime/runtime-helper.ts';
         await runViaCodeLines(viaCodeLines());
