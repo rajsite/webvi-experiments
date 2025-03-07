@@ -7,7 +7,7 @@ $nipm = "$Env:Programfiles\National Instruments\NI Package Manager\nipkg.exe"
 $install_NIPM = $true
 if ($install_NIPM)
 {
-    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager24.0.0.exe'
+    $nipmDownloadPath = 'https://download.ni.com/support/nipkg/products/ni-package-manager/installers/NIPackageManager25.0.0.exe'
     $nipmInstaller = Join-Path -Path $rootDirectory -ChildPath 'install-nipm.exe'
     Assert-FileDoesNotExist($nipm)
     $time = (Get-Date).ToUniversalTime()
