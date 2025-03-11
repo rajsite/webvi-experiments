@@ -50,6 +50,7 @@
   - [Multipage Application](https://rajsite.github.io/webvi-experiments/URL/multipage/index.html)
     - [Data from URL Hash](https://rajsite.github.io/webvi-experiments/URL/multipage/hash.html#data=Nigel+%F0%9F%A6%85)
     - [Data from URL Search](https://rajsite.github.io/webvi-experiments/URL/multipage/search.html?data=Nigel+%F0%9F%A6%85)
+- [VideoElement](https://rajsite.github.io/webvi-experiments/VideoElement/)
 - [VideoJS](https://rajsite.github.io/webvi-experiments/VideoJS/)
 - [WebAudio](https://rajsite.github.io/webvi-experiments/WebAudio/)
 - WebBluetooth
