@@ -40,7 +40,7 @@
         let changeHandler;
         const eventStream = new ReadableStream({
             start (controller) {
-                changeHandler = (e) => {
+                changeHandler = e => {
                     const value = e.target.currentTime;
                     controller.enqueue(value);
                 };
