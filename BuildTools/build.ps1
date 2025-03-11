@@ -105,6 +105,9 @@ Invoke-BuildApplication -ProjectDirectory ".\SynchronousImage" -ProjectFileName 
 Write-Host "Build URL project"
 Invoke-BuildApplication -ProjectDirectory ".\URL" -ProjectFileName "URL.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build VideoElement project"
+Invoke-BuildApplication -ProjectDirectory ".\VideoElement" -ProjectFileName "VideoElement.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
+
 Write-Host "Build VideoJS project"
 Invoke-BuildApplication -ProjectDirectory ".\VideoJS" -ProjectFileName "VideoJS.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 

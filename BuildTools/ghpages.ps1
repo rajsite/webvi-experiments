@@ -128,6 +128,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\SynchronousImage" -TargetName "Defau
 Write-Host "Copy URL build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\URL" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\URL"
 
+Write-Host "Copy VideoElement build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\VideoElement" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\VideoElement"
+
 Write-Host "Copy VideoJS build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\VideoJS" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\VideoJS"
 
