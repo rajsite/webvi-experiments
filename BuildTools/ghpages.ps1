@@ -65,6 +65,9 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Bootstrap" -TargetName "Default Web 
 Write-Host "Copy ControlExtensions build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\ControlExtensions" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\ControlExtensions"
 
+Write-Host "Copy Demo projects: PlotTool build to ghpages output folder"
+Invoke-CopyBuildOutput -ProjectDirectory ".\Demos\PlotTool" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\PlotToolDemo"
+
 Write-Host "Copy ECharts build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\File" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\File"
 
@@ -100,9 +103,6 @@ Invoke-CopyBuildOutput -ProjectDirectory ".\Map" -TargetName "Default Web Server
 
 Write-Host "Copy Perspective build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Perspective" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Perspective"
-
-Write-Host "Copy PlotToolDemo build to ghpages output folder"
-Invoke-CopyBuildOutput -ProjectDirectory ".\PlotToolDemo" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\PlotToolDemo"
 
 Write-Host "Copy Plotly build to ghpages output folder"
 Invoke-CopyBuildOutput -ProjectDirectory ".\Plotly" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp" -TargetDirectory "$ghpagesbuilddir\Plotly"

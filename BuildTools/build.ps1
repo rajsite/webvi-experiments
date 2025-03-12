@@ -34,6 +34,10 @@ Invoke-BuildApplication -ProjectDirectory ".\Bootstrap" -ProjectFileName "Bootst
 Write-Host "Build ControlExtensions project"
 Invoke-BuildApplication -ProjectDirectory ".\ControlExtensions" -ProjectFileName "ControlExtensions.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
+Write-Host "Build Demo project: PlotTool"
+Invoke-BuildApplication -ProjectDirectory ".\Demos\PlotTool" -ProjectFileName "PlotTool.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
+
+
 Write-Host "Build ECharts project"
 Invoke-BuildApplication -ProjectDirectory ".\ECharts" -ProjectFileName "ECharts.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
@@ -77,9 +81,6 @@ Invoke-BuildApplication -ProjectDirectory ".\Map" -ProjectFileName "Map.gwebproj
 
 Write-Host "Build Perspective project"
 Invoke-BuildApplication -ProjectDirectory ".\Perspective" -ProjectFileName "Perspective.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
-
-Write-Host "Build PlotToolDemo project"
-Invoke-BuildApplication -ProjectDirectory ".\PlotToolDemo" -ProjectFileName "PlotToolDemo.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
 
 Write-Host "Build Plotly project"
 Invoke-BuildApplication -ProjectDirectory ".\Plotly" -ProjectFileName "Plotly.gwebproject" -TargetName "Default Web Server" -ComponentFileName "WebApp.gcomp"
