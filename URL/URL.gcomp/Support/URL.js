@@ -1,6 +1,18 @@
 (function () {
     'use strict';
 
+    const getWindowTarget = function (topLevel) {
+        if (topLevel) {
+            let windowTarget = window;
+            while (windowTarget !== windowTarget.parent) {
+                windowTarget = windowTarget.parent;
+            }
+            return windowTarget;
+        } else {
+            return window;
+        }
+    };
+
     const validateEventStreamReader = function (eventStreamReader) {
         // NXG 5 does not include the ReadableStreamDefaultReader in the global scope so skip validation
         if (window.ReadableStreamDefaultReader === undefined) {
@@ -15,8 +27,9 @@
         return typeof val === 'string' ? val : '';
     };
 
-    const urlBuildRelativePath = function (baseURL, relativeURL) {
-        const urlInstance = baseURL === '' ? new URL(relativeURL, window.location.href) : new URL(relativeURL, baseURL);
+    const urlBuildRelativePath = function (baseURL, relativeURL, topLevel) {
+        const windowTarget = getWindowTarget(topLevel);
+        const urlInstance = baseURL === '' ? new URL(relativeURL, windowTarget.location.href) : new URL(relativeURL, baseURL);
         return urlInstance.href;
     };
 
@@ -123,34 +136,37 @@
         return result;
     };
 
-    const windowLocationGet = function () {
-        const url = window.location.href;
+    const windowLocationGet = function (topLevel) {
+        const windowTarget = getWindowTarget(topLevel);
+        const url = windowTarget.location.href;
         return url;
     };
 
-    const windowLocationSet = function (action, url) {
+    const windowLocationSet = function (action, url, topLevel) {
+        const windowTarget = getWindowTarget(topLevel);
         if (action === 'set') {
             // Pushes a new history item onto the history stack and updates url bar.
             // Causes the browser to navigate to the new URL.
             // Triggers a popstate event
-            window.location.href = url;
+            windowTarget.location.href = url;
         } else if (action === 'push') {
             // Pushes a new history item into the history stack and updates url bar.
             // Does not cause the browser to navigate / load a new URL.
             // Does not trigger a popstate event
-            window.history.pushState({}, '', url);
+            windowTarget.history.pushState({}, '', url);
         } else if (action === 'replace') {
             // Replaces the current history item on the history stack and updates the url bar.
             // Does not cause the browser to navigate / load to a new URL.
             // Does not trigger a popstate event
-            window.history.replaceState({}, '', url);
+            windowTarget.history.replaceState({}, '', url);
         } else {
             throw new Error(`Unexpected set window location action: ${action}`);
         }
     };
 
-    const windowLocationReload = function () {
-        window.location.reload();
+    const windowLocationReload = function (topLevel) {
+        const windowTarget = getWindowTarget(topLevel);
+        windowTarget.location.reload();
     };
 
     const windowLocationAddEventListener = function () {
