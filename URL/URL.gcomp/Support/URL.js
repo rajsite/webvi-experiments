@@ -8,9 +8,8 @@
                 windowTarget = windowTarget.parent;
             }
             return windowTarget;
-        } else {
-            return window;
         }
+        return window;
     };
 
     const validateEventStreamReader = function (eventStreamReader) {
