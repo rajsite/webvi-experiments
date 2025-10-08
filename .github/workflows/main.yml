@@ -26,9 +26,9 @@ jobs:
     runs-on: windows-2022
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: '22'
         registry-url: 'https://registry.npmjs.org'
@@ -59,11 +59,11 @@ jobs:
     - name: Create GitHub Pages Output
       run: powershell .\BuildTools\ghpages.ps1
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v4
       with:
         path: './ghpagesbuild'
     - name: Setup Pages
-      uses: actions/configure-pages@v4
+      uses: actions/configure-pages@v5
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4

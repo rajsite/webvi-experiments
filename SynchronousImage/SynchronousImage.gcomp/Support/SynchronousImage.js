@@ -3,16 +3,16 @@
 
     const getObjectfit = function (stretch) {
         switch (stretch) {
-        case 'No image scaling':
-            return 'none';
-        case 'Fit image in space':
-            return 'contain';
-        case 'Fill but maintain aspect ratio':
-            return 'cover';
-        case 'Stretch to fill space':
-            return 'fill';
-        default:
-            throw new Error(`Invalid stretch mode: ${stretch}`);
+            case 'No image scaling':
+                return 'none';
+            case 'Fit image in space':
+                return 'contain';
+            case 'Fill but maintain aspect ratio':
+                return 'cover';
+            case 'Stretch to fill space':
+                return 'fill';
+            default:
+                throw new Error(`Invalid stretch mode: ${stretch}`);
         }
     };
 

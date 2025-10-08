@@ -34,7 +34,7 @@
                 callback({
                     path: calcpath
                 });
-            } catch (ex) {
+            } catch (_ex) {
                 // Net error codes: https://cs.chromium.org/chromium/src/net/base/net_error_list.h
                 const failed = -2;
                 callback(failed);

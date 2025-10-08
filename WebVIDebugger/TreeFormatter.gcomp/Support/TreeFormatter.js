@@ -46,7 +46,7 @@
     const parseJSON = function (json) {
         try {
             return JSON.parse(json);
-        } catch (ex) {
+        } catch (_ex) {
             return undefined;
         }
     };

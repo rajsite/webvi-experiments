@@ -2,7 +2,6 @@
     'use strict';
 
     // Restore any previously imported jquery versions
-    // eslint-disable-next-line id-length
     const $ = window.$.noConflict(true);
 
     // Currently the idea is have a single global navbar
