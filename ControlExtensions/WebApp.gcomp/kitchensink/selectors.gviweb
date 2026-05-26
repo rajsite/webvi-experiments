@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="EBF9586029D0310A89A9B887F6933D1C534287806BBA857EA0A428230B6D544035E9F6E259E1E29B7C53DBC8A05DBB64F1C983348BF64E515BCE8A12AC96DE67" Timestamp="1DCECB04E8756D6" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="D1F3D2EA7CFD561036564292AC6BB29233725C66F7A828E1B27BA425DA2E160726381FE9253ACA0A130ED863207C7FC9DBAA1381FF7B75E340C281931AF48C07" Timestamp="1DCED274E9F23F1" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="9.5.3.55052" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
 		<ParsableNamespace AssemblyFileVersion="9.5.3.55052" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
@@ -74,7 +74,218 @@
 			</NodeLabel>
 		</DiagramUnplacedItems>
 		<FrontPanelUnplacedItems Id="b9bcc3cc5ba5485dbd41da774ff0ad29" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
-		<BlockDiagram Id="d1d1ffbdad9f48e7b0c450b5fce5aead" />
+		<BlockDiagram Id="d1d1ffbdad9f48e7b0c450b5fce5aead">
+			<MethodCall Bounds="205 105 40 40" Id="e2918cf8773446dfae86568053b6b28c" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\GObject - Tooltip - Set.gvi&quot;" Signature="@c33f9c46f64f450f92b2502bf7af9095" Target="ControlExtensions::GObject - Tooltip - Set.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="tooltip" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.ColorBoxProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.ColorBoxProxy, NationalInstruments.Controls.Runtime" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="120 130 65 15" DataType="String" Id="2e2d1cf62ba45fab43b644b1c2aca92" Label="2623c0c1140a457cae7f3d2f6c8229cb" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>My Color</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="6567fba2dabc49ca86246f52e57e044f" Joints="N(2e2d1cf62ba45fab43b644b1c2aca92:Out)|(185,135) h(5) v(-15) N(e2918cf8773446dfae86568053b6b28c:L1)|(205,120)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="265 135 20 20" Id="766cd60dda7f49f4855f8c4740e77525" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="234506c6e3804963b8da81e34c03b23c" Joints="N(e2918cf8773446dfae86568053b6b28c:R3)|(245,140) N(766cd60dda7f49f4855f8c4740e77525:L0)|(265,140)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="2e2d1cf62ba45fab43b644b1c2aca92" Bounds="120 112 30 15" Id="2623c0c1140a457cae7f3d2f6c8229cb" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>tooltip</p.Text>
+			</NodeLabel>
+			<ControlReference Bounds="120 95 60 20" Id="1e53164e41024626b5aa62205332c2e4" SourceControl="c11dc71d4d0444bd978aef8e86596475" />
+			<ControlReference Bounds="85 165 95 20" Id="acb93092c67c491f9a88adcae859d319" SourceControl="da543dbbc4804f04890d5104fd96bda3" />
+			<ControlReference Bounds="120 235 65 20" Id="47f08a5ac7d14c2ea095be846ed54770" SourceControl="1d4f77aa5b7e47cf865c04d65351d862" />
+			<ControlReference Bounds="110 300 70 20" Id="dce9cdbd7c4b4da6989f06adcf7170da" SourceControl="9eaac04be31d4a5f851d6adccbc9af98" />
+			<ControlReference Bounds="45 375 140 20" Id="3ad4b5468d6c42098bd191b314ab4317" SourceControl="202e53ff1fd6417aaccec164f5d4ce51" />
+			<ControlReference Bounds="95 445 85 20" Id="ef92c95048e54b8eba1284180544fc15" SourceControl="8ea5d2c9577f412488c1d86cf0c608cb" />
+			<MethodCall Bounds="205 175 40 40" Id="cd1124010cc74085aa4266effcd00822" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\GObject - Tooltip - Set.gvi&quot;" Signature="@c33f9c46f64f450f92b2502bf7af9095" Target="ControlExtensions::GObject - Tooltip - Set.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="tooltip" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.ComboBoxSelectorProxy, NationalInstruments.Controls.Runtime" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.ComboBoxSelectorProxy, NationalInstruments.Controls.Runtime" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="85 200 100 15" DataType="String" Id="7128f65ae89c418da3e2994595a48824" Label="4b5f81f9ec03423bb1c5511ecb97d708" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>My Combo Box</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="36c0420af645464889b4e2e51eebbf57" Joints="N(7128f65ae89c418da3e2994595a48824:Out)|(185,205) h(5) v(-15) N(cd1124010cc74085aa4266effcd00822:L1)|(205,190)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="265 205 20 20" Id="882624b45a6a4eefad8b3e2ab8cb6d4f" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="691dea5ea6a64d13bd0eabb1ca0e0f2f" Joints="N(cd1124010cc74085aa4266effcd00822:R3)|(245,210) N(882624b45a6a4eefad8b3e2ab8cb6d4f:L0)|(265,210)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="7128f65ae89c418da3e2994595a48824" Bounds="85 182 30 15" Id="4b5f81f9ec03423bb1c5511ecb97d708" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>tooltip</p.Text>
+			</NodeLabel>
+			<MethodCall Bounds="205 240 40 40" Id="cd0be70fb8844006b215e537ecf6c83d" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\GObject - Tooltip - Set.gvi&quot;" Signature="@c33f9c46f64f450f92b2502bf7af9095" Target="ControlExtensions::GObject - Tooltip - Set.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="tooltip" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.EnumSelectorProxy, NationalInstruments.Controls.Runtime`@d04ed051e2f643f9a0bba04ea397f67d`@d04ed051e2f643f9a0bba04ea397f67d" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.EnumSelectorProxy, NationalInstruments.Controls.Runtime`@d04ed051e2f643f9a0bba04ea397f67d`@d04ed051e2f643f9a0bba04ea397f67d" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="115 265 70 15" DataType="String" Id="e6d0461ebddc421a99aeb950761201a4" Label="d2ce8ce0ebe647dab05a8f9df05e12d1" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>My Enum</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="b629641a11504a8cb4df4ca7a199c511" Joints="N(e6d0461ebddc421a99aeb950761201a4:Out)|(185,270) h(5) v(-15) N(cd0be70fb8844006b215e537ecf6c83d:L1)|(205,255)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="265 270 20 20" Id="dde3072df1b743f78ddac68cc57671df" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="17a1fe0c1567490f83032f0019270b90" Joints="N(cd0be70fb8844006b215e537ecf6c83d:R3)|(245,275) N(dde3072df1b743f78ddac68cc57671df:L0)|(265,275)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="e6d0461ebddc421a99aeb950761201a4" Bounds="115 247 30 15" Id="d2ce8ce0ebe647dab05a8f9df05e12d1" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>tooltip</p.Text>
+			</NodeLabel>
+			<MethodCall Bounds="205 305 40 40" Id="30f852699be540989b12fd99fa731fee" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\GObject - Tooltip - Set.gvi&quot;" Signature="@c33f9c46f64f450f92b2502bf7af9095" Target="ControlExtensions::GObject - Tooltip - Set.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="tooltip" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.ListboxProxy, NationalInstruments.Controls.Runtime`Int32`Int32" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="110 330 75 15" DataType="String" Id="9dd86862d54f44909257126288eab8e5" Label="ed2c8fc09c1e460c97989c43bd061406" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>My Listbox</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="2c0147a1b8240b3a8e813472516fe4f" Joints="N(9dd86862d54f44909257126288eab8e5:Out)|(185,335) h(5) v(-15) N(30f852699be540989b12fd99fa731fee:L1)|(205,320)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="265 335 20 20" Id="7feec448dc434dc9bae58494f1d24578" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="83e44ff9c60c42f59817280355a780db" Joints="N(30f852699be540989b12fd99fa731fee:R3)|(245,340) N(7feec448dc434dc9bae58494f1d24578:L0)|(265,340)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="9dd86862d54f44909257126288eab8e5" Bounds="110 312 30 15" Id="ed2c8fc09c1e460c97989c43bd061406" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>tooltip</p.Text>
+			</NodeLabel>
+			<MethodCall Bounds="205 380 40 40" Id="bc143de257b744b6b72a67db4424a399" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\GObject - Tooltip - Set.gvi&quot;" Signature="@c33f9c46f64f450f92b2502bf7af9095" Target="ControlExtensions::GObject - Tooltip - Set.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="tooltip" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.RadioButtonGroupProxy, NationalInstruments.Controls.Runtime`@6367673f4777480fbe9d2f07a387327e`@6367673f4777480fbe9d2f07a387327e" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.RadioButtonGroupProxy, NationalInstruments.Controls.Runtime`@6367673f4777480fbe9d2f07a387327e`@6367673f4777480fbe9d2f07a387327e" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="40 405 145 15" DataType="String" Id="1ab05fbf70b641028f68011b817e1553" Label="4924e36c84dc45b482010fbfb829635d" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>My Radio Button Group</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="bc2acce2ef2f465e862b5dc76f20c34a" Joints="N(1ab05fbf70b641028f68011b817e1553:Out)|(185,410) h(5) v(-15) N(bc143de257b744b6b72a67db4424a399:L1)|(205,395)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="265 410 20 20" Id="ccb801555d55456db7103e95a9e333f1" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="ddaffa8bbe64603a2457b46d8ba011a" Joints="N(bc143de257b744b6b72a67db4424a399:R3)|(245,415) N(ccb801555d55456db7103e95a9e333f1:L0)|(265,415)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="1ab05fbf70b641028f68011b817e1553" Bounds="40 387 30 15" Id="4924e36c84dc45b482010fbfb829635d" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>tooltip</p.Text>
+			</NodeLabel>
+			<MethodCall Bounds="205 455 40 40" Id="d70343a2b6ee435cb9f719ea31b7982a" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\ControlExtensions.gcomp\\GObject - Tooltip - Set.gvi&quot;" Signature="@c33f9c46f64f450f92b2502bf7af9095" Target="ControlExtensions::GObject - Tooltip - Set.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="reference in" />
+						<Parameter Id="L1" Desc="tooltip" />
+						<Parameter Id="L3" Desc="error in" />
+						<Parameter Id="R0" Desc="reference out" />
+						<Parameter Id="R3" Desc="error out" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.RingSelectorInt32Proxy, NationalInstruments.Controls.Runtime`@affbc4de42554dd095403e5385ef25ce" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="String" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType=":DotNet:NationalInstruments.Controls.Runtime.RingSelectorInt32Proxy, NationalInstruments.Controls.Runtime`@affbc4de42554dd095403e5385ef25ce" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Literal Bounds="95 480 90 15" DataType="String" Id="c4f60b9de8604c75be2a3107e277f34a" Label="f3f6879db06a44a1966a8ed3bc307baf" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>My Text Ring</p.Data>
+				<StringBehavior TextDisplayMode="Default" />
+			</Literal>
+			<Wire Id="cd5e2bd4a73b4314b2a9ce173ebcd924" Joints="N(c4f60b9de8604c75be2a3107e277f34a:Out)|(185,485) h(5) v(-15) N(d70343a2b6ee435cb9f719ea31b7982a:L1)|(205,470)" xmlns="http://www.ni.com/PlatformFramework" />
+			<MethodCall Bounds="265 485 20 20" Id="eb14cebdc16840ac8342dc572d3092e1" ResolveFailedHint="&quot;C:\\dev\\github\\webvi-experiments\\ControlExtensions\\WebApp.gcomp\\Support\\Show Error Dialog.gvi&quot;" Signature="@5a12219607cc485fbb5171656e4fb6d1" Target="WebApp::Support::Show Error Dialog.gvi" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="error in" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="Error" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="9ec11c3d52cf457fb9c5c049f0c8aa6c" Joints="N(d70343a2b6ee435cb9f719ea31b7982a:R3)|(245,490) N(eb14cebdc16840ac8342dc572d3092e1:L0)|(265,490)" xmlns="http://www.ni.com/PlatformFramework" />
+			<NodeLabel AttachedTo="c4f60b9de8604c75be2a3107e277f34a" Bounds="95 462 30 15" Id="f3f6879db06a44a1966a8ed3bc307baf" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>tooltip</p.Text>
+			</NodeLabel>
+			<Wire Id="fc34be9aa40c4455a277ea317df2abbc" Joints="N(1e53164e41024626b5aa62205332c2e4:control reference)|(180,100) h(14) v(10) N(e2918cf8773446dfae86568053b6b28c:L0)|(205,110)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="5a323989edfd4d438a2effe8a457e578" Joints="N(acb93092c67c491f9a88adcae859d319:control reference)|(180,170) h(14) v(10) N(cd1124010cc74085aa4266effcd00822:L0)|(205,180)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="10298da76a3f4cd58965d28e1df0b899" Joints="N(47f08a5ac7d14c2ea095be846ed54770:control reference)|(185,240) h(9) v(5) N(cd0be70fb8844006b215e537ecf6c83d:L0)|(205,245)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="37db0e4e3400466d9608b2421f815a3c" Joints="N(dce9cdbd7c4b4da6989f06adcf7170da:control reference)|(180,305) h(14) v(5) N(30f852699be540989b12fd99fa731fee:L0)|(205,310)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="d9a4523cb8ec43f38174392a937fb091" Joints="N(3ad4b5468d6c42098bd191b314ab4317:control reference)|(185,380) h(9) v(5) N(bc143de257b744b6b72a67db4424a399:L0)|(205,385)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="785afb84196a4a4ebcd95c724ac99bba" Joints="N(ef92c95048e54b8eba1284180544fc15:control reference)|(180,450) h(14) v(10) N(d70343a2b6ee435cb9f719ea31b7982a:L0)|(205,460)" xmlns="http://www.ni.com/PlatformFramework" />
+		</BlockDiagram>
 		<HtmlFrontPanel Height="[float]768" HtmlPanel="[bool]False" Id="7694a3f89fce4398a5a0583034cd3898" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]1024" xmlns="http://www.ni.com/NationalInstruments.LabVIEW.HtmlVI">
 			<EnumSelector AllowUndefinedValueEntry="[bool]False" BaseName="[string]Enum" Height="[float]24" Id="1d4f77aa5b7e47cf865c04d65351d862" IsTypeAheadEnabled="[bool]True" Label="[UIModel]f1589cfc84b74d7fbd51832582409c18" Left="[float]36" TabIndex="[int]0" Top="[float]52" Value="{DataItemBinding Id=6e9ce42bd5e942bd96eea00086c5d68f}" ValueType="[Type]UInt16" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]72" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
 				<EnumSelectorInfo DisplayValue="[string]a" DisplayValueOverride="[string]" Id="26" IsEnabled="[bool]True" Value="[ushort]0" ValueType="[Type]UInt16" />
@@ -147,8 +358,147 @@
 				</AttributeValues>
 			</Attributed>
 		</p.TypeReference>
+		<p.TypeReference TypeId="c33f9c46f64f450f92b2502bf7af9095">
+			<Attributed AttributedType="@055a64997af947d7b0c6dc392a0a3d52">
+				<AttributeValues>
+					<AttributeValue Name="NationalInstruments.Compiler.ThrallMap" Value="[ThrallMapAttributeValue]R0:[L0]" />
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="5a12219607cc485fbb5171656e4fb6d1">
+			<Attributed AttributedType="@13693607e5b24e608c4aa6d1ddbfe5f1">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]20" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]20" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="affbc4de42554dd095403e5385ef25ce">
+			<VariableArray DereferenceType="@2ca0d5cd81954ad1b4251710c3223a15" />
+		</p.TypeReference>
 		<p.TypeReference TypeId="ba4d963eaf104b288620145bcdd4e1ca">
 			<Typedef TypedefName="Color.gtype" Encapsulated="" UnderlyingType="UInt32" />
 		</p.TypeReference>
+		<p.TypeReference TypeId="055a64997af947d7b0c6dc392a0a3d52">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="GObject - Tooltip - Set.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@75736505979f400e9d1a457f131204ae">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]reference in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@61509ba928574a64a4d5e8923a086430">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]tooltip" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@c9d9e4dab77e47f58c733cc1b24a4831">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@0e518438ad544882aa0152ea1936e0b9">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]reference out" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@6daf20b6ab874d938a177bcdc44f6d9c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error out" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="13693607e5b24e608c4aa6d1ddbfe5f1">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Show Error Dialog.gvi" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@e6d044f992fc4bbb90cf36afa5b9f6c3">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]error in" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="2ca0d5cd81954ad1b4251710c3223a15">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="String" DataType="String" />
+					<Field FieldAccessPolicy="ReadWrite" Name="Value" DataType="Int32" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="75736505979f400e9d1a457f131204ae">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType=":DotNet:NationalInstruments.PanelRuntime.GObjectProxy, NationalInstruments.PanelRuntime" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="61509ba928574a64a4d5e8923a086430">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="String" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="c9d9e4dab77e47f58c733cc1b24a4831">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="0e518438ad544882aa0152ea1936e0b9">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType=":DotNet:NationalInstruments.PanelRuntime.GObjectProxy, NationalInstruments.PanelRuntime" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="6daf20b6ab874d938a177bcdc44f6d9c">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R3" DataType="Error" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="e6d044f992fc4bbb90cf36afa5b9f6c3">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="Error" />
+		</p.TypeReference>
 	</DataTypeReferenceTable>
+	<IconTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.IconModel Target="ControlExtensions::GObject - Tooltip - Set.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" Left="[float]0" TemplateName="[string]Gray" Top="[float]0" Width="[float]40">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]GObject" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]11" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Tooltip" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]19" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<Text Foreground="[SMColor]#ffa35a13" Height="[float]11" Left="[float]3" SizeMode="[TextModelSizeMode]Fixed" Text="[string]Set" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]28" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]34">
+								<FontSetting FontFamily="Segoe UI" FontSize="6" />
+							</Text>
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]40" HorizontalAlignment="[HorizontalAlignment]Stretch" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]ControlExtensions.gcomp" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]40">
+								<Path Data="[PathGeometry]M 0,11 L 0,2 C 0,0.899999976 0.899999976,0 2,0 L 2,11 L 0,11 Z" Fill="[SMSolidColorBrush]#fff8941c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Rectangle Fill="[SMSolidColorBrush]#fff8941c" Height="[float]11" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]4,2,4,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]NaN" />
+								<Path Data="[PathGeometry]M 2,11 L 2,2 C 2,0.899999976 1.10000002,0 0,0 L 0,11 L 2,11 Z" Fill="[SMSolidColorBrush]#fff8941c" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Right" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]2,2,2,2" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" VerticalAlignment="[VerticalAlignment]Top" Width="[float]2" />
+								<Text Foreground="[SMColor]#ffffffff" Height="[float]11" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]7" SizeMode="[TextModelSizeMode]Fixed" Text="[string]CTRL" TextAlignment="[TextAlignment]Left" TextWrapping="[TextWrapping]Wrap" Top="[float]2" VerticalAlignment="[VerticalAlignment]Top" VerticalScrollBarVisibility="[ScrollBarVisibility]Hidden" Width="[float]30">
+									<FontSetting FontFamily="Segoe UI" FontSize="6" />
+								</Text>
+								<Image BaseName="[string]Image" Height="[float]22" HorizontalAlignment="[HorizontalAlignment]Left" IsHitTestVisible="[bool]False" Left="[float]21" Source="[EmbeddedDrawingImage]&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#xA;&lt;svg&#xA;   height=&quot;24px&quot;&#xA;   viewBox=&quot;0 0 24 24&quot;&#xA;   width=&quot;24px&quot;&#xA;   fill=&quot;#FFFFFF&quot;&#xA;   version=&quot;1.1&quot;&#xA;   id=&quot;svg6&quot;&#xA;   sodipodi:docname=&quot;extension_white_24dp.svg&quot;&#xA;   inkscape:version=&quot;1.1 (c68e22c387, 2021-05-23)&quot;&#xA;   xmlns:inkscape=&quot;http://www.inkscape.org/namespaces/inkscape&quot;&#xA;   xmlns:sodipodi=&quot;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&quot;&#xA;   xmlns=&quot;http://www.w3.org/2000/svg&quot;&#xA;   xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;&#xA;  &lt;defs&#xA;     id=&quot;defs10&quot; /&gt;&#xA;  &lt;sodipodi:namedview&#xA;     id=&quot;namedview8&quot;&#xA;     pagecolor=&quot;#ffffff&quot;&#xA;     bordercolor=&quot;#666666&quot;&#xA;     borderopacity=&quot;1.0&quot;&#xA;     inkscape:pageshadow=&quot;2&quot;&#xA;     inkscape:pageopacity=&quot;0.0&quot;&#xA;     inkscape:pagecheckerboard=&quot;true&quot;&#xA;     showgrid=&quot;false&quot;&#xA;     inkscape:zoom=&quot;33.791667&quot;&#xA;     inkscape:cx=&quot;8.567201&quot;&#xA;     inkscape:cy=&quot;11.156597&quot;&#xA;     inkscape:window-width=&quot;1920&quot;&#xA;     inkscape:window-height=&quot;996&quot;&#xA;     inkscape:window-x=&quot;-8&quot;&#xA;     inkscape:window-y=&quot;-8&quot;&#xA;     inkscape:window-maximized=&quot;1&quot;&#xA;     inkscape:current-layer=&quot;svg6&quot; /&gt;&#xA;  &lt;path&#xA;     d=&quot;M 0,0 H 30 V 30 H 0 Z&quot;&#xA;     fill=&quot;none&quot;&#xA;     id=&quot;path2&quot;&#xA;     style=&quot;stroke-width:1.25&quot; /&gt;&#xA;  &lt;path&#xA;     d=&quot;M 11.285714,8.857144 H 10.857143 V 7.714286 C 10.857143,7.399999 10.6,7.142857 10.285714,7.142857 H 9.142856 V 6.714286 C 9.142856,6.319999 8.822857,6 8.428571,6 8.034286,6 7.714286,6.319999 7.714286,6.714286 V 7.142857 H 6.571429 c -0.314287,0 -0.568573,0.257142 -0.568573,0.571429 V 8.8 H 6.42857 c 0.425716,0 0.771429,0.345715 0.771429,0.771429 0,0.425713 -0.345713,0.771429 -0.771429,0.771429 H 6 v 1.085713 C 6,11.742857 6.257142,12 6.571429,12 h 1.085713 v -0.428572 c 0,-0.425714 0.345716,-0.771429 0.771429,-0.771429 0.425714,0 0.771429,0.345715 0.771429,0.771429 V 12 h 1.085714 C 10.6,12 10.857143,11.742857 10.857143,11.428571 v -1.142857 h 0.428571 C 11.680001,10.285714 12,9.965714 12,9.571429 12,9.177143 11.680001,8.857144 11.285714,8.857144 Z&quot;&#xA;     id=&quot;path4&quot;&#xA;     style=&quot;stroke-width:0.285715&quot; /&gt;&#xA;  &lt;rect&#xA;     style=&quot;opacity:0;fill:#0000ff;fill-rule:evenodd;stroke-width:1.47807&quot;&#xA;     id=&quot;rect335&quot;&#xA;     width=&quot;18.75&quot;&#xA;     height=&quot;18.75&quot;&#xA;     x=&quot;0&quot;&#xA;     y=&quot;0&quot; /&gt;&#xA;&lt;/svg&gt;&#xA;" Stretch="[SMStretch]Uniform" Top="[float]-3" VerticalAlignment="[VerticalAlignment]Top" Width="[float]22" />
+							</IconTemplate>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="WebApp::Support::Show Error Dialog.gvi">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 20 20">
+						<IconPanel Height="[float]20" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]20">
+							<IconTemplate ClipMargin="[SMThickness]3,3,3,3" Height="[float]20" HorizontalAlignment="[HorizontalAlignment]Stretch" Left="[float]0" TemplateName="[string]GrayNoText" Top="[float]0" VerticalAlignment="[VerticalAlignment]Stretch" Width="[float]20">
+								<Rectangle Fill="[SMSolidColorBrush]#ff727272" IsHitTestVisible="[bool]False" Left="[float]0" RadiusX="[float]4" RadiusY="[float]4" Top="[float]0" />
+								<Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" IsHitTestVisible="[bool]False" Left="[float]0" Margin="[SMThickness]1,1,1,1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" Top="[float]0" />
+							</IconTemplate>
+							<Path Data="[PathGeometry]M 6.50837803,0.0650907904 C 9.56482887,0.0650907904 12.0425701,2.33817697 12.0425701,5.14217043 C 12.0425701,7.94616127 9.56482887,10.2192516 6.50837803,10.2192516 C 5.36221218,10.2192516 4.29742384,9.89959717 3.41416121,9.35216331 L 3.36900949,9.323452 L 3.36879086,9.32832146 C 3.36879086,9.32832146 3.46451807,9.43815327 0.0589180775,12.0583982 C -0.0194383673,12.1186886 0.153003126,11.8775396 1.2598151,6.79117966 L 1.26353645,6.78469372 L 1.26496565,6.77053404 C 1.07641912,6.25938845 0.97418797,5.71173191 0.97418797,5.14217043 C 0.97418797,2.33817697 3.45193076,0.0650907904 6.50837803,0.0650907904 L 6.50837803,0.0650907904 Z" EditMode="[ShapeEditMode]EditablePath" Fill="[SMSolidColorBrush]#00ffffff" Height="[float]12" Left="[float]4" Stroke="[SMSolidColorBrush]#ff000000" StrokeThickness="[float]1" Top="[float]4" Width="[float]12" />
+							<Path Data="[PathGeometry]M 2.73099732,2.52352643 L 0.390142441,3.45220399 L 0.390142441,2.52352643 L 2.73099732,2.52352643 Z M 0,0.995851815 L 3.42076874,1.96012855 L 1.03543818,0.0325037129 L 0,0.995851815 Z M 4.25996494,5 L 5.96956921,5 L 5.96956921,4.11373186 L 4.25996494,4.11373186 L 4.25996494,5 Z M 4.23070526,0 L 4.42538643,3.55931163 L 5.80531979,3.55931163 L 6,0 L 4.23070526,0 Z" EditMode="[ShapeEditMode]FixedPath" Fill="[SMSolidColorBrush]#b2000000" Height="[float]5" Left="[float]7" Stroke="[SMSolidColorBrush]#00ffffff" Top="[float]7" Width="[float]6" />
+							<IconTemplate Height="[float]20" IsHitTestVisible="[bool]False" Left="[float]0" TemplateName="[string][Comp]WebApp.gcomp" Top="[float]0" Width="[float]20" />
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+	</IconTable>
 </SourceFile>

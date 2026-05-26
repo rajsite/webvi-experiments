@@ -236,6 +236,18 @@
         }
     };
 
+    // GObject
+    const validateNotUrlImage = function (element) {
+        if (element.tagName === 'NI-URL-IMAGE') {
+            throw new Error('URL Image controls must configure the "Alternate text" property instead of using Control Extensions');
+        }
+    };
+
+    const gobjectTooltipSet = function (element, tooltip) {
+        validateNotUrlImage(element);
+        element.title = tooltip;
+    };
+
     // Listbox
     const listboxItemsEnableTooltipHandler = Symbol('Mouse handler for tooltips if enabled');
     const listboxItemsEnableTooltip = function (element) {
@@ -381,6 +393,7 @@
         dataGridStringColumnCreateFontColorStyle,
         dataGridStringColumnCreateTextOverflowScrollbarStyle,
         gaugeNeedleSetArrow,
+        gobjectTooltipSet,
         numericScaleSetMaximum,
         numericScaleSetMinimum,
         listboxItemsEnableTooltip,
