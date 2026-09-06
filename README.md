@@ -1,5 +1,8 @@
 # webvi-experiments
 
+> [!NOTE]
+> Beginning December 1, 2027, G Web Development Software will enter the Limited Support lifecycle phase. [See the forums for more information](https://forums.ni.com/t5/G-Web-Development-Software/G-Web-Development-Software-Compliance-Driven-Lifecycle-Update/td-p/4483530).
+
 - Arcade 🕹️
     - [Avalanche 🌠](https://rajsite.github.io/webvi-experiments/Avalanche/)
     - [CityInBottle 🌆](https://rajsite.github.io/webvi-experiments/CityInBottle/)
