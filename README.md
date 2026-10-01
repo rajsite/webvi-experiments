@@ -9,9 +9,9 @@ A collection of experiments for WebVIs 🧪.
 
 The following projects have been shared on the LabVIEW Community 🥰:
 
-- [Control Extensions for WebVI 👕](https://bit.ly/webvi-control-extensions) - APIs to modify the behavior and style of built-in WebVI controls.
+- [Control Extensions for WebVI 👕](https://forums.ni.com/t5/Example-Code/Control-Extensions-for-WebVI/ta-p/4265300) - APIs to modify the behavior and style of built-in WebVI controls.
 - [Custom Popup Dialogs for WebVI 🍩](https://forums.ni.com/t5/Example-Code/Custom-Popup-Dialogs-for-WebVI-SweetAlert/ta-p/4011222) - Highly configurable popups for WebVIs.
-- [Debug Tools for WebVI 🐛](https://bit.ly/debugtools) - Advanced debugging tools for WebVIs.
+- [Debug Tools for WebVI 🐛](https://forums.ni.com/t5/Example-Code/Debug-Tools-for-WebVI/ta-p/4061212) - Advanced debugging tools for WebVIs.
 - [File for WebVI 💼](https://forums.ni.com/t5/Example-Code/File-for-WebVI/ta-p/4129229) - Comprehensive File API to select a file for upload, download a file, and communicate with File based HTTP services.
 - [IFrame for WebVI 🍱](https://forums.ni.com/t5/Example-Code/IFrame-for-WebVI/ta-p/4110725) - Embed pages in a WebVI inside an IFrame.
 - [Maps for WebVI 🗺](https://forums.ni.com/t5/Example-Code/Maps-for-WebVI-Google-Maps-and-Open-Street-Maps/ta-p/4106124) - APIs for using Google Maps and OpenStreetMap.
