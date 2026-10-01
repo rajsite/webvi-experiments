@@ -288,6 +288,20 @@
         element.min = minimum;
     };
 
+    const gaugeFillStyleSymbol = Symbol('Gauge fill style symbol');
+    const numericFillSet = function (element, color) {
+        validateNotNumericTextBox(element);
+        validateControl(element, ['JQX-TANK', 'JQX-PROGRESS-BAR', 'JQX-CIRCULAR-PROGRESS-BAR', 'JQX-SLIDER', 'JQX-GAUGE']);
+        if (element.tagName === 'JQX-GAUGE' && !element[gaugeFillStyleSymbol]) {
+            const elementSelector = uniqueSelector(element);
+            const style = styleCreate(`${elementSelector} .jqx-value {
+                fill: var(--ni-fill-background);
+            }`);
+            element[gaugeFillStyleSymbol] = style;
+        }
+        element.style.setProperty('--ni-fill-background', color);
+    };
+
     // Tab
     const tabSelectorVisible = function (element, visible) {
         validateControl(element, ['NI-TAB-CONTROL']);
@@ -396,6 +410,7 @@
         gobjectTooltipSet,
         numericScaleSetMaximum,
         numericScaleSetMinimum,
+        numericFillSet,
         listboxItemsEnableTooltip,
         styleRemove,
         tabSelectorVisible,
